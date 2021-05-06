@@ -1,0 +1,114 @@
+name: ReleaseBranch
+
+env:
+  Solution: source/${{ github.event.repository.name }}.sln
+  Configuration: Release
+  DOTNET_NOLOGO: 1
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+on:
+  push:
+    branches: 'master'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.408
+
+    - name: Set Version
+      id: SetVersion
+      run: |
+        $VersionNumber = Get-Content "version.txt"
+        $PackageVersion = $VersionNumber
+        $FileVersion = "$($VersionNumber).${{ github.run_number }}"
+        $AssemblyVersion = "$($VersionNumber).0"
+        $InformationalVersion = "$($FileVersion) ${{ github.sha }}"
+
+        Write-Output "::set-output name=VERSION::$PackageVersion"
+
+        [xml]$Props = Get-Content "Directory.Build.props"
+        $Props.Project.PropertyGroup.PackageVersion = $PackageVersion
+        $Props.Project.PropertyGroup.FileVersion = $FileVersion
+        $Props.Project.PropertyGroup.AssemblyVersion = $AssemblyVersion
+        $Props.Project.PropertyGroup.InformationalVersion = $InformationalVersion
+
+        $Props.Save("Directory.Build.props")
+
+    - name: Compile
+      run: dotnet build "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo
+
+    - name: Test
+      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
+
+    - name: Sign
+      env:
+        DirectoryId: ${{ secrets.DIRECTORYID }}
+        ClientId: ${{ secrets.CLIENTID }}
+        ClientSecret: ${{ secrets.CLIENTSECRET }}
+      run: |
+        $Body = @{
+          grant_type = "client_credentials"
+          client_id = "${{ env.ClientId }}"
+          client_secret = "${{ env.CLIENTSECRET }}"
+          scope = "https://vault.azure.net/.default"
+        }
+
+        $AccessToken = (Invoke-RestMethod -Method POST `
+          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
+          -Body $Body).access_token
+
+        $CodeSigningCertificatePassword = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/CodeSigningCertificatePassword?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+
+        $CodeSigningCertificateBase64String = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/CodeSigningCertificate?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+        $CodeSigningCertificate = [System.Convert]::FromBase64String($CodeSigningCertificateBase64String)
+
+        $Certificate = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CodeSigningCertificate, $CodeSigningCertificatePassword, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::EphemeralKeySet)
+        
+        $Signature = Get-ChildItem .\source\Relativity.Testing.Framework\bin\ -recurse -Include Relativity.Testing.Framework.dll | `
+          Set-AuthenticodeSignature -Certificate $Certificate -TimestampServer "http://timestamp.digicert.com"
+
+        if (!($Signature.Status -eq "Valid") -and ($null -ne $Signature.TimeStamperCertificate))
+        {
+          $Signature | Format-List *
+          Throw "Failed to sign, please see above for more details."
+        }
+
+    - name: Package
+      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: Logs
+        path: Artifacts/Logs/
+
+    - name: Upload NuGet Packages
+      uses: actions/upload-artifact@v2
+      with:
+        name: NuGetPackages
+        path: Artifacts/NuGet/
+
+    - name: Create tag
+      uses: actions/github-script@v4
+      with:
+        github-token: ${{ github.token }}
+        script: |
+          github.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            ref: "refs/tags/${{ steps.SetVersion.outputs.VERSION }}",
+            sha: context.sha
+          })

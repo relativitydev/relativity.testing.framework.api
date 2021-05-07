@@ -24,7 +24,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Polly" Version="5.7.0" />
     <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.10.10" />
-    <PackageReference Include="Relativity.Testing.Framework" Version="2.0.1" />
+    <PackageReference Include="Relativity.Testing.Framework" Version="2.0.2" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.0.0.9566">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

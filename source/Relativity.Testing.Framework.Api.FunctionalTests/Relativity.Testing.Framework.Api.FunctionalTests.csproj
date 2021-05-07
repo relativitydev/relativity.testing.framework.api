@@ -23,7 +23,6 @@
     <PackageReference Include="NUnit" Version="3.10.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.41" />
-    <PackageReference Include="Relativity.Chromium.Portable" Version="81.0.4044.138" GeneratePathProperty="true" />
     <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.10.10" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.0.0.9566">
       <PrivateAssets>all</PrivateAssets>
@@ -66,9 +65,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <Target Name="CopyChomiumBinariesAfterBuildBecauseThePortablePackageIsntConfiguredToWorkCorrectlyAsProjectReference" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy $(PkgRelativity_Chromium_Portable)\tools\*.* $(TargetDir) /Y /C /E /Q" />
-  </Target>
 
 </Project>

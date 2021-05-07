@@ -86,7 +86,7 @@ jobs:
         }
 
     - name: Package
-      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
+      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2
@@ -100,6 +100,30 @@ jobs:
       with:
         name: NuGetPackages
         path: Artifacts/NuGet/
+
+    - name: Publish
+      env:
+        DirectoryId: ${{ secrets.DIRECTORYID }}
+        ClientId: ${{ secrets.CLIENTID }}
+        ClientSecret: ${{ secrets.CLIENTSECRET }}
+      run: |
+        $Body = @{
+          grant_type = "client_credentials"
+          client_id = "${{ env.ClientId }}"
+          client_secret = "${{ env.CLIENTSECRET }}"
+          scope = "https://vault.azure.net/.default"
+        }
+
+        $AccessToken = (Invoke-RestMethod -Method POST `
+          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
+          -Body $Body).access_token
+
+        $NuGetApiKey = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/RtfNugetApiKey?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+
+        $Package = (get-childitem ./Artifacts/NuGet).FullName
+        dotnet nuget push $Package -s "https://api.nuget.org/v3/index.json" -k $NuGetApiKey -n true
 
     - name: Create tag
       uses: actions/github-script@v4

@@ -1,0 +1,10 @@
+<Project>
+    <PropertyGroup>
+        <!-- Build standards -->
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningLevel>4</WarningLevel>
+        <WarningsAsErrors />
+        <WarningsNotAsErrors />
+        <NoWarn />
+  </PropertyGroup>
+</Project>

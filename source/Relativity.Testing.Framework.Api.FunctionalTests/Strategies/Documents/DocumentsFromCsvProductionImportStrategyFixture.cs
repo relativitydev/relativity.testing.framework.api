@@ -7,6 +7,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
+	[Ignore("Needs access to known static folder for import - https://jira.kcura.com/browse/RTF-1210")]
 	[TestOf(typeof(IDocumentsFromCsvProductionImportStrategy))]
 	internal class DocumentsFromCsvProductionImportStrategyFixture : ApiServiceTestFixture<IDocumentsFromCsvProductionImportStrategy>
 	{

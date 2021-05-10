@@ -27,15 +27,12 @@ jobs:
         dotnet-version: 3.1.408
 
     - name: Set Version
-      id: SetVersion
       run: |
         $VersionNumber = Get-Content "version.txt"
         $PackageVersion = "$($VersionNumber)-pre.${{ github.run_number }}"
         $FileVersion = "$($VersionNumber).${{ github.run_number }}"
         $AssemblyVersion = "$($VersionNumber).0"
         $InformationalVersion = "$($FileVersion) ${{ github.sha }}"
-
-        Write-Output "::set-output name=VERSION::$PackageVersion"
 
         [xml]$Props = Get-Content "Directory.Build.props"
         $Props.Project.PropertyGroup.PackageVersion = $PackageVersion
@@ -50,6 +47,51 @@ jobs:
 
     - name: Test
       run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
+
+    - name: Package
+      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
+
+    - name: Upload NuGet Packages
+      uses: actions/upload-artifact@v2
+      with:
+        name: NuGetPackages
+        path: Artifacts/NuGet/
+
+    - name: Upload Tests
+      uses: actions/upload-artifact@v2
+      with:
+        name: Tests
+        path: source/Relativity.Testing.Framework.Api.FunctionalTests/bin/Debug/net462
+        retention-days: 1
+
+    - name: Upload DevelopmentScripts
+      uses: actions/upload-artifact@v2
+      with:
+        name: DevelopmentScripts
+        path: DevelopmentScripts
+        retention-days: 1
+
+  FunctionalTestOsier:
+    runs-on: windows-latest
+    needs: build
+
+    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.408
+
+    - name: Download DevelopmentScripts
+      uses: actions/download-artifact@v2
+      with:
+        name: DevelopmentScripts
+        path: DevelopmentScripts
+
+    - name: Download Tests
+      uses: actions/download-artifact@v2
+      with:
+        name: Tests
+        path: Tests
 
     - name: Functional Test Osier
       env:
@@ -85,19 +127,21 @@ jobs:
           -Description "$VMName" `
           -Tags @{"Build Owner" = "${{ github.actor }}"; "Product Name" = "${{ github.event.repository.name }}"} `
           -TargetRegion 3 `
+          -Referrer "https://testengineering.relativity.com/" `
           -Verbose `
-          #- PassThru `
-        #| ConvertTo-Json -Compress -Depth 10 `
-        #| Out-File ${vmInfoFile} -Encoding ASCII
+          -PassThru
 
-        if(!$?) {throw "An error ocurred while creating the instance in Hopper. Please check the logs."
+        if(!$?) {throw "An error ocurred while creating the instance in Hopper. Please check the logs."}
 
         Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
 
+        $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
+        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+
         ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
           -RelativityHostAddress $Instance.RelativityHost `
-          -AdminUsername "$Instance.Relativity.Username" `
-          -AdminPassword "$Instance.Relativity.Password"
+          -AdminUsername "$Credentials.Username" `
+          -AdminPassword "$Credentials.Password"
           -RunSettingsPrefix $Version
 
         $TestSettings = "$($Version)FunctionalTest.runsettings"
@@ -107,7 +151,7 @@ jobs:
         # This sets the location for the trace logs for the tests.
         $Env:ResultsLocation = $ResultsPath
 
-        dotnet test .\Source\Relativity.Testing.Framework.Api.sln `
+        dotnet test .\Tests\Relativity.Testing.Framework.Api.dll `
           --no-build `
           --nologo `
           -r $ResultsPath `
@@ -129,26 +173,6 @@ jobs:
       uses: actions/upload-artifact@v2
       if: failure()
       with:
-        name: Logs
+        name: OsierLogs
         path: Artifacts/Logs/
 
-    - name: Package
-      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
-
-    - name: Upload NuGet Packages
-      uses: actions/upload-artifact@v2
-      with:
-        name: NuGetPackages
-        path: Artifacts/NuGet/
-
-    - name: Create tag
-      uses: actions/github-script@v4
-      with:
-        github-token: ${{ github.token }}
-        script: |
-          github.git.createRef({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            ref: "refs/tags/${{ steps.SetVersion.outputs.VERSION }}",
-            sha: context.sha
-          })

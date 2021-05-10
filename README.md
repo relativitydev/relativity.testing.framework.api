@@ -20,7 +20,7 @@ Run through the standard compile and (unit) test tasks. These can be done withou
 
 ### Functional Testing
 
-To do the rest of the testing, we need to provide an instead of Relativity to test against.
+To do the rest of the testing, we need to provide an instance of Relativity to test against.
 This should ideally be an ephemeral one that we can throw away afterwards.
 
 #### Creating Runsettings
@@ -29,7 +29,8 @@ Before we can run the tests, we'll need to provide a runsettings file that point
 
 ```PowerShell
 cd ../Relativity.Testing.Framework
-./DevelopmentScripts/New-LocalTestSettings.ps1 -TestVMName <NameGoesHere>
+./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "TheOneSut" -AdminUsername "TheOneAdmin@kcura.com" -AdminPassword "TheOnePassword1!"
+
 ```
 
 #### Running Functional Tests

@@ -5,6 +5,8 @@ env:
   Configuration: Release
   DOTNET_NOLOGO: 1
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  HOPPER_API_URL: "https://api.hopper.relativity.com/"
+  HOPPER_USER: "testengineering@relativity.com"
 
 on:
   pull_request:
@@ -49,8 +51,79 @@ jobs:
     - name: Test
       run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
 
-    - name: Package
-      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
+    - name: Functional Test Osier
+      env:
+        DirectoryId: ${{ secrets.DIRECTORYID }}
+        ClientId: ${{ secrets.CLIENTID }}
+        ClientSecret: ${{ secrets.CLIENTSECRET }}
+      run: |
+        $Body = @{
+          grant_type = "client_credentials"
+          client_id = "${{ env.ClientId }}"
+          client_secret = "${{ env.CLIENTSECRET }}"
+          scope = "https://vault.azure.net/.default"
+        }
+
+        $AccessToken = (Invoke-RestMethod -Method POST `
+          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
+          -Body $Body).access_token
+
+        $HopperApiKey = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/HopperApiKey?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+
+        $Version = "aio-osier-eau"
+        $VMName = "${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }}.$Version"
+
+        Import-Module ./DevelopmentScripts/HopperPowerShellClient/*/HopperPowerShellClient.psm1
+
+        $Instance = New-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -TemplateName $Version `
+          -VmName "$VMName" `
+          -Description "$VMName" `
+          -Tags @{"Build Owner" = "${{ github.actor }}"; "Product Name" = "${{ github.event.repository.name }}"} `
+          -TargetRegion 3 `
+          -Verbose `
+          #- PassThru `
+        #| ConvertTo-Json -Compress -Depth 10 `
+        #| Out-File ${vmInfoFile} -Encoding ASCII
+
+        if(!$?) {throw "An error ocurred while creating the instance in Hopper. Please check the logs."
+
+        Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
+
+        ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
+          -RelativityHostAddress $Instance.RelativityHost `
+          -AdminUsername "$Instance.Relativity.Username" `
+          -AdminPassword "$Instance.Relativity.Password"
+          -RunSettingsPrefix $Version
+
+        $TestSettings = "$($Version)FunctionalTest.runsettings"
+        $LogFilePath = "./Artifacts/Logs/{assembly}.{framework}.$($Version)TestResults.xml"
+        $ResultsPath = "./Artifacts/Logs/$Version"
+
+        # This sets the location for the trace logs for the tests.
+        $Env:ResultsLocation = $ResultsPath
+
+        dotnet test .\Source\Relativity.Testing.Framework.Api.sln `
+          --no-build `
+          --nologo `
+          -r $ResultsPath `
+          --filter "TestCategory=FunctionalTests" `
+          "--logger:nunit;LogFilePath=$LogFilePath" `
+          -s $testSettings
+
+        Compress-Archive -Path $ResultsPath -DestinationPath "$($ResultsPath).zip" -Force
+
+        Remove-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -Id $Instance.Id `
+          -Verbose
+
+        if(!$?) {throw "An error ocurred while deleting the Hopper instance. Please check the logs."}
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2
@@ -58,6 +131,9 @@ jobs:
       with:
         name: Logs
         path: Artifacts/Logs/
+
+    - name: Package
+      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
 
     - name: Upload NuGet Packages
       uses: actions/upload-artifact@v2

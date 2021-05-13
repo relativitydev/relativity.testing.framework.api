@@ -15,6 +15,8 @@ on:
 jobs:
   Build:
     runs-on: windows-latest
+    outputs:
+      Version: ${{ steps.SetVersion.outputs.Version }}
 
     steps:
     - name: Checkout
@@ -431,7 +433,7 @@ jobs:
 
   Publish:
     runs-on: windows-latest
-    needs: [FunctionalTestOsier, FunctionalTestNinebark, FunctionalTestMayapple]
+    needs: [Build, FunctionalTestOsier, FunctionalTestNinebark, FunctionalTestMayapple]
 
     steps:
     - name: Setup .NET Core
@@ -477,6 +479,6 @@ jobs:
           github.git.createRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            ref: "refs/tags/${{ steps.SetVersion.outputs.VERSION }}",
+            ref: "refs/tags/${{ needs.Build.outputs.Version }}",
             sha: context.sha
           })

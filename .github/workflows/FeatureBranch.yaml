@@ -1,0 +1,391 @@
+name: FeatureBranch
+
+env:
+  Solution: source/${{ github.event.repository.name }}.sln
+  Configuration: Release
+  DOTNET_NOLOGO: 1
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  HOPPER_API_URL: "https://api.hopper.relativity.com/"
+  HOPPER_USER: "testengineering@relativity.com"
+
+on:
+  pull_request:
+    branches:
+      - '*'
+    
+jobs:
+  Build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.408
+
+    - name: Set Version
+      run: |
+        $VersionNumber = Get-Content "version.txt"
+        $PackageVersion = "$($VersionNumber)-pre.${{ github.run_number }}"
+        $FileVersion = "$($VersionNumber).${{ github.run_number }}"
+        $AssemblyVersion = "$($VersionNumber).0"
+        $InformationalVersion = "$($FileVersion) ${{ github.sha }}"
+
+        [xml]$Props = Get-Content "Directory.Build.props"
+        $Props.Project.PropertyGroup.PackageVersion = $PackageVersion
+        $Props.Project.PropertyGroup.FileVersion = $FileVersion
+        $Props.Project.PropertyGroup.AssemblyVersion = $AssemblyVersion
+        $Props.Project.PropertyGroup.InformationalVersion = $InformationalVersion
+
+        $Props.Save("Directory.Build.props")
+
+    - name: Compile
+      run: dotnet build "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo
+
+    - name: Test
+      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
+
+    - name: Upload UnitTest Logs
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: Logs
+        path: Artifacts/Logs/
+
+    - name: Package
+      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
+
+    - name: Upload NuGet Packages
+      uses: actions/upload-artifact@v2
+      with:
+        name: NuGetPackages
+        path: Artifacts/NuGet/
+
+    - name: Upload Tests
+      uses: actions/upload-artifact@v2
+      with:
+        name: Tests
+        path: source/Relativity.Testing.Framework.Api.FunctionalTests/bin/Debug/net462
+        retention-days: 1
+
+    - name: Upload DevelopmentScripts
+      uses: actions/upload-artifact@v2
+      with:
+        name: DevelopmentScripts
+        path: DevelopmentScripts
+        retention-days: 1
+
+  FunctionalTestOsier:
+    runs-on: windows-latest
+    needs: Build
+
+    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.408
+
+    - name: Download DevelopmentScripts
+      uses: actions/download-artifact@v2
+      with:
+        name: DevelopmentScripts
+        path: DevelopmentScripts
+
+    - name: Download Tests
+      uses: actions/download-artifact@v2
+      with:
+        name: Tests
+        path: Tests
+
+    - name: Functional Test Osier
+      env:
+        DirectoryId: ${{ secrets.DIRECTORYID }}
+        ClientId: ${{ secrets.CLIENTID }}
+        ClientSecret: ${{ secrets.CLIENTSECRET }}
+      run: |
+        $Body = @{
+          grant_type = "client_credentials"
+          client_id = "${{ env.ClientId }}"
+          client_secret = "${{ env.CLIENTSECRET }}"
+          scope = "https://vault.azure.net/.default"
+        }
+
+        $AccessToken = (Invoke-RestMethod -Method POST `
+          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
+          -Body $Body).access_token
+
+        $HopperApiKey = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/HopperApiKey?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+
+        $Version = "aio-osier-eau"
+        $VMName = "${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }}.$Version"
+
+        Import-Module ./DevelopmentScripts/HopperPowerShellClient/*/HopperPowerShellClient.psm1
+
+        $Instance = New-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -TemplateName $Version `
+          -VmName "$VMName" `
+          -Description "$VMName" `
+          -Tags @{"Build Owner" = "${{ github.actor }}"; "Product Name" = "${{ github.event.repository.name }}"} `
+          -TargetRegion 3 `
+          -Referrer "https://testengineering.relativity.com/" `
+          -Verbose `
+          -PassThru
+
+        if(!$?) {throw "An error ocurred while creating the instance in Hopper. Please check the logs."}
+
+        Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
+
+        $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
+        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+
+        ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
+          -RelativityHostAddress $RelativityHostAddress `
+          -AdminUsername $Credentials.Username `
+          -AdminPassword $Credentials.Password `
+          -RunSettingsPrefix $Version
+
+        $TestSettings = "$($Version)FunctionalTest.runsettings"
+        $LogFilePath = Join-Path (Get-Location) "Artifacts/Logs/{assembly}.{framework}.$($Version)TestResults.xml"
+        $ResultsPath = Join-Path (Get-Location) "Artifacts/Logs/$Version"
+
+        # This sets the location for the trace logs for the tests.
+        $Env:ResultsLocation = $ResultsPath
+
+        dotnet test Tests\Relativity.Testing.Framework.Api.FunctionalTests.dll `
+          --nologo `
+          --ResultsDirectory $ResultsPath `
+          "--logger:nunit;LogFilePath=$LogFilePath" `
+          -s $TestSettings
+
+        Compress-Archive -Path $ResultsPath -DestinationPath "$($ResultsPath).zip" -Force
+
+        Remove-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -Id $Instance.Id `
+          -Referrer "https://testengineering.relativity.com/" `
+          -Verbose
+
+        if(!$?) {throw "An error ocurred while deleting the Hopper instance. Please check the logs."}
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: OsierLogs
+        path: Artifacts/Logs/
+
+  FunctionalTestNinebark:
+    runs-on: windows-latest
+    needs: Build
+
+    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.408
+
+    - name: Download DevelopmentScripts
+      uses: actions/download-artifact@v2
+      with:
+        name: DevelopmentScripts
+        path: DevelopmentScripts
+
+    - name: Download Tests
+      uses: actions/download-artifact@v2
+      with:
+        name: Tests
+        path: Tests
+
+    - name: Functional Test Ninebark
+      env:
+        DirectoryId: ${{ secrets.DIRECTORYID }}
+        ClientId: ${{ secrets.CLIENTID }}
+        ClientSecret: ${{ secrets.CLIENTSECRET }}
+      run: |
+        $Body = @{
+          grant_type = "client_credentials"
+          client_id = "${{ env.ClientId }}"
+          client_secret = "${{ env.CLIENTSECRET }}"
+          scope = "https://vault.azure.net/.default"
+        }
+
+        $AccessToken = (Invoke-RestMethod -Method POST `
+          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
+          -Body $Body).access_token
+
+        $HopperApiKey = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/HopperApiKey?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+
+        $Version = "aio-ninebark-ea"
+        $VMName = "${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }}.$Version"
+
+        Import-Module ./DevelopmentScripts/HopperPowerShellClient/*/HopperPowerShellClient.psm1
+
+        $Instance = New-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -TemplateName $Version `
+          -VmName "$VMName" `
+          -Description "$VMName" `
+          -Tags @{"Build Owner" = "${{ github.actor }}"; "Product Name" = "${{ github.event.repository.name }}"} `
+          -TargetRegion 3 `
+          -Referrer "https://testengineering.relativity.com/" `
+          -Verbose `
+          -PassThru
+
+        if(!$?) {throw "An error ocurred while creating the instance in Hopper. Please check the logs."}
+
+        Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
+
+        $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
+        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+
+        ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
+          -RelativityHostAddress $RelativityHostAddress `
+          -AdminUsername $Credentials.Username `
+          -AdminPassword $Credentials.Password `
+          -RunSettingsPrefix $Version
+
+        $TestSettings = "$($Version)FunctionalTest.runsettings"
+        $LogFilePath = Join-Path (Get-Location) "Artifacts/Logs/{assembly}.{framework}.$($Version)TestResults.xml"
+        $ResultsPath = Join-Path (Get-Location) "Artifacts/Logs/$Version"
+
+        # This sets the location for the trace logs for the tests.
+        $Env:ResultsLocation = $ResultsPath
+
+        dotnet test Tests\Relativity.Testing.Framework.Api.FunctionalTests.dll `
+          --nologo `
+          --ResultsDirectory $ResultsPath `
+          "--logger:nunit;LogFilePath=$LogFilePath" `
+          -s $TestSettings
+
+        Compress-Archive -Path $ResultsPath -DestinationPath "$($ResultsPath).zip" -Force
+
+        Remove-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -Id $Instance.Id `
+          -Referrer "https://testengineering.relativity.com/" `
+          -Verbose
+
+        if(!$?) {throw "An error ocurred while deleting the Hopper instance. Please check the logs."}
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: NinebarkLogs
+        path: Artifacts/Logs/
+
+  FunctionalTestMayapple:
+    runs-on: windows-latest
+    needs: Build
+
+    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.408
+
+    - name: Download DevelopmentScripts
+      uses: actions/download-artifact@v2
+      with:
+        name: DevelopmentScripts
+        path: DevelopmentScripts
+
+    - name: Download Tests
+      uses: actions/download-artifact@v2
+      with:
+        name: Tests
+        path: Tests
+
+    - name: Functional Test Mayapple
+      env:
+        DirectoryId: ${{ secrets.DIRECTORYID }}
+        ClientId: ${{ secrets.CLIENTID }}
+        ClientSecret: ${{ secrets.CLIENTSECRET }}
+      run: |
+        $Body = @{
+          grant_type = "client_credentials"
+          client_id = "${{ env.ClientId }}"
+          client_secret = "${{ env.CLIENTSECRET }}"
+          scope = "https://vault.azure.net/.default"
+        }
+
+        $AccessToken = (Invoke-RestMethod -Method POST `
+          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
+          -Body $Body).access_token
+
+        $HopperApiKey = (Invoke-RestMethod -Method GET `
+          -Uri "https://testengineering-github.vault.azure.net/secrets/HopperApiKey?api-version=7.1" `
+          -Headers @{ Authorization="Bearer $AccessToken" }).value
+
+        $Version = "aio-mayapple-1"
+        $VMName = "${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }}.$Version"
+
+        Import-Module ./DevelopmentScripts/HopperPowerShellClient/*/HopperPowerShellClient.psm1
+
+        $Instance = New-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -TemplateName $Version `
+          -VmName "$VMName" `
+          -Description "$VMName" `
+          -Tags @{"Build Owner" = "${{ github.actor }}"; "Product Name" = "${{ github.event.repository.name }}"} `
+          -TargetRegion 3 `
+          -Referrer "https://testengineering.relativity.com/" `
+          -Verbose `
+          -PassThru
+
+        if(!$?) {throw "An error ocurred while creating the instance in Hopper. Please check the logs."}
+
+        Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
+
+        $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
+        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+
+        ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
+          -RelativityHostAddress $RelativityHostAddress `
+          -AdminUsername $Credentials.Username `
+          -AdminPassword $Credentials.Password `
+          -RunSettingsPrefix $Version
+
+        $TestSettings = "$($Version)FunctionalTest.runsettings"
+        $LogFilePath = Join-Path (Get-Location) "Artifacts/Logs/{assembly}.{framework}.$($Version)TestResults.xml"
+        $ResultsPath = Join-Path (Get-Location) "Artifacts/Logs/$Version"
+
+        # This sets the location for the trace logs for the tests.
+        $Env:ResultsLocation = $ResultsPath
+
+        dotnet test Tests\Relativity.Testing.Framework.Api.FunctionalTests.dll `
+          --nologo `
+          --ResultsDirectory $ResultsPath `
+          "--logger:nunit;LogFilePath=$LogFilePath" `
+          -s $TestSettings
+
+        Compress-Archive -Path $ResultsPath -DestinationPath "$($ResultsPath).zip" -Force
+
+        Remove-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
+          -ApiKey $HopperApiKey `
+          -ApiUsername "${{ env.HOPPER_USER }}" `
+          -Id $Instance.Id `
+          -Referrer "https://testengineering.relativity.com/" `
+          -Verbose
+
+        if(!$?) {throw "An error ocurred while deleting the Hopper instance. Please check the logs."}
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: MayappleLogs
+        path: Artifacts/Logs/

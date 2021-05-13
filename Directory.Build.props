@@ -1,0 +1,23 @@
+<!-- This file will be overwritten on the CI server -->
+<!-- Local customization of build version numbers happens here -->
+<Project>
+    <PropertyGroup>
+        <Authors>Relativity ODA LLC</Authors>
+        <PackageVersion>1.0.0-local</PackageVersion>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <NuspecProperties>version=$(PackageVersion);licensePath=$(MSBuildThisFileDirectory)LICENSE.txt</NuspecProperties>
+        <PackageOutputPath>$(MSBuildThisFileDirectory)Artifacts\NuGet\</PackageOutputPath>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageIcon>relativity-nuget-logo.png</PackageIcon>
+        <PackageIconUrl>https://www.relativity.com/images/relativity-nuget-logo.png</PackageIconUrl>
+        <FileVersion>1.0.0.0</FileVersion>
+        <InformationalVersion>local build</InformationalVersion>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <Copyright>© Relativity</Copyright>
+        <Company>Relativity ODA LLC</Company>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+        <None Include="$(MSBuildThisFileDirectory)relativity-nuget-logo.png" Pack="true" PackagePath="$(PackageIcon)"/>
+    </ItemGroup>
+</Project>

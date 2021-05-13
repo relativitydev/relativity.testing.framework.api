@@ -1,0 +1,11 @@
+buildtools/*
+!buildtools/BuildHelpers.psm1
+bin/
+obj/
+packages/
+logs/
+artifacts/
+*.user
+.vs/
+coverage.cobertura.xml
+!vendor/*

@@ -6,18 +6,6 @@ param (
 
     [Parameter()]
     [String]
-    $SqlServer,
-
-    [Parameter()]
-    [String]
-    $SqlUsername,
-
-    [Parameter()]
-    [String]
-    $SqlPassword,
-
-    [Parameter()]
-    [String]
     $RelativityHostAddress,
 
     [Parameter()]
@@ -26,7 +14,7 @@ param (
 
     [Parameter()]
     [String]
-    $RsapiServicesHostAddress,
+    $WebApiHostAddress,
 
     [Parameter()]
     [String]
@@ -38,7 +26,11 @@ param (
 
     [Parameter()]
     [String]
-    $RAPDirectory
+    $RAPDirectory,
+
+    [Parameter()]
+    [String]
+    $RunSettingsPrefix
 )
 
 if(-not $ServerBindingType)
@@ -51,11 +43,6 @@ if(-not $RestServicesHostAddress)
     $PSBoundParameters['RestServicesHostAddress'] = "$($PSBoundParameters['RelativityHostAddress'])"
 }
 
-if(-not $RsapiServicesHostAddress)
-{
-    $PSBoundParameters['RsapiServicesHostAddress'] = "$($PSBoundParameters['RelativityHostAddress'])"
-}
-
 if (-not $WebApiHostAddress)
 {
     $PSBoundParameters['WebApiHostAddress'] = "$($PSBoundParameters['RelativityHostAddress'])"
@@ -66,8 +53,8 @@ if(-not $RAPDirectory)
     $PSBoundParameters['RAPDirectory'] = Join-Path $PSScriptRoot ..\Artifacts
 }
 
-Remove-Item (Join-Path $PSScriptRoot ..\FunctionalTestSettings) -Force -ErrorAction SilentlyContinue
-Remove-Item (Join-Path $PSScriptRoot ..\FunctionalTest.runsettings) -Force -ErrorAction SilentlyContinue
+Remove-Item (Join-Path $PSScriptRoot "..\$($RunSettingsPrefix)FunctionalTestSettings") -Force -ErrorAction SilentlyContinue
+Remove-Item (Join-Path $PSScriptRoot "..\$($RunSettingsPrefix)FunctionalTest.runsettings") -Force -ErrorAction SilentlyContinue
 
 [xml]$runSettingsDocument = New-Object System.Xml.XmlDocument
 $runSettings = $runSettingsDocument.AppendChild($runSettingsDocument.CreateNode("element", "RunSettings", $null))
@@ -82,7 +69,7 @@ foreach($parameterKey in $PSBoundParameters.Keys)
 
 foreach($parameter in $testRunParameters.ChildNodes)
 {
-    Add-Content (Join-Path $PSScriptRoot ..\FunctionalTestSettings) "--params $($parameter.Name)=$($parameter.Value)"
+    Add-Content (Join-Path $PSScriptRoot "..\$($RunSettingsPrefix)FunctionalTestSettings") "--params $($parameter.Name)=$($parameter.Value)"
 }
 
-$runSettingsDocument.Save((Join-Path $PSScriptRoot ..\FunctionalTest.runsettings))
+$runSettingsDocument.Save((Join-Path $PSScriptRoot "..\$($RunSettingsPrefix)FunctionalTest.runsettings"))

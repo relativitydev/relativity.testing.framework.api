@@ -5,6 +5,8 @@ env:
   Configuration: Release
   DOTNET_NOLOGO: 1
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  HOPPER_API_URL: "https://api.hopper.relativity.com/"
+  HOPPER_USER: "testengineering@relativity.com"
 
 on:
   push:
@@ -76,7 +78,7 @@ jobs:
 
         $Certificate = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CodeSigningCertificate, $CodeSigningCertificatePassword, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::EphemeralKeySet)
         
-        $Signature = Get-ChildItem .\source\Relativity.Testing.Framework\bin\ -recurse -Include Relativity.Testing.Framework.dll | `
+        $Signature = Get-ChildItem .\source\Relativity.Testing.Framework.Api\bin\ -recurse -Include Relativity.Testing.Framework.Api.dll | `
           Set-AuthenticodeSignature -Certificate $Certificate -TimestampServer "http://timestamp.digicert.com"
 
         if (!($Signature.Status -eq "Valid") -and ($null -ne $Signature.TimeStamperCertificate))

@@ -200,6 +200,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		}
 
 		[Test]
+		[VersionRange(">=12.1")]
 		[TestOf(typeof(IScriptService))]
 		public void Resolve_IScriptService()
 		{

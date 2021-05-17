@@ -98,5 +98,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="actionQueryRequest">The query to execute. By default takes all fields without condition.</param>
 		/// <returns>The table of results.</returns>
 		DataTable RunTableAction(int workspaceId, int scriptId, List<ScriptInput> inputs = null, ActionQueryRequest actionQueryRequest = null);
+
+		/// <summary>
+		/// Creates and/or enables a ScriptRunManager Agent to make sure that the environment can run scripts.
+		/// </summary>
+		void EnsureEnvironmentCanRunScripts();
 	}
 }

@@ -20,6 +20,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IScriptQueryActionJobResultsStrategy _scriptQueryActionJobResultsStrategy;
 		private readonly IScriptRunStatusJobStrategy _scriptRunStatusJobStrategy;
 		private readonly IScriptRunTableJobStrategy _scriptRunTableJobStrategy;
+		private readonly IEnsureEnvironmentCanRunScriptsStrategy _ensureEnvironmentCanRunScriptsStrategy;
 
 		public ScriptService(
 			ICreateWorkspaceEntityStrategy<Script> createWorkspaceEntityStrategy,
@@ -31,7 +32,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			IScriptReadRunJobStrategy scriptReadRunJobStrategy,
 			IScriptQueryActionJobResultsStrategy scriptQueryActionJobResultsStrategy,
 			IScriptRunStatusJobStrategy scriptRunStatusJobStrategy,
-			IScriptRunTableJobStrategy scriptRunTableJobStrategy)
+			IScriptRunTableJobStrategy scriptRunTableJobStrategy,
+			IEnsureEnvironmentCanRunScriptsStrategy ensureEnvironmentCanRunScriptsStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_deleteWorkspaceEntityByIdStrategy = deleteWorkspaceEntityByIdStrategy;
@@ -43,6 +45,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_scriptQueryActionJobResultsStrategy = scriptQueryActionJobResultsStrategy;
 			_scriptRunStatusJobStrategy = scriptRunStatusJobStrategy;
 			_scriptRunTableJobStrategy = scriptRunTableJobStrategy;
+			_ensureEnvironmentCanRunScriptsStrategy = ensureEnvironmentCanRunScriptsStrategy;
 		}
 
 		public Script Create(int workspaceId, Script entity)
@@ -74,5 +77,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public DataTable RunTableAction(int workspaceId, int scriptId, List<ScriptInput> inputs = null, ActionQueryRequest actionQueryRequest = null)
 			=> _scriptRunTableJobStrategy.Run(workspaceId, scriptId, inputs, actionQueryRequest);
+
+		public void EnsureEnvironmentCanRunScripts()
+			=> _ensureEnvironmentCanRunScriptsStrategy.EnsureEnvironmentCanRunScripts();
 	}
 }

@@ -162,7 +162,7 @@ jobs:
           -Uri "https://testengineering-github.vault.azure.net/secrets/HopperApiKey?api-version=7.1" `
           -Headers @{ Authorization="Bearer $AccessToken" }).value
 
-        $Version = "aio-osier-eau"
+        $Version = "aio-osier-0"
         $VMName = "${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }}.$Version"
 
         Import-Module ./DevelopmentScripts/HopperPowerShellClient/*/HopperPowerShellClient.psm1

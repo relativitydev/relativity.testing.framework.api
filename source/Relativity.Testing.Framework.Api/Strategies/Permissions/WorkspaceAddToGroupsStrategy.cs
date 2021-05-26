@@ -58,7 +58,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			{
 				if (!groupSelector.EnabledGroups.Any(x => x.ArtifactID == groupId))
 				{
-					throw new InvalidOperationException($"Failed to find a group with Artifact ID={groupId} for workspace.");
+					throw new InvalidOperationException($"Failed to find a group with Artifact ID={groupId} for workspace. " +
+						$"This might be connected with mapping problem of ArtifactIds for groups in EnabledGroups of group selector for the workspace. " +
+						$"Please try to use method that is using group Names instead of Ids to avoid this issue.");
 				}
 			}
 			else

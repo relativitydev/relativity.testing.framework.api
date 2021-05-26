@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Logging;
@@ -20,6 +23,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IObjectService _objectService;
 		private static readonly List<AccountEntry> _standardAccountEntries = new List<AccountEntry>();
 		private static readonly object _acquireLock = new object();
+		private readonly TimeSpan _deletionTimeout = TimeSpan.FromSeconds(30);
 
 		public AccountPoolService(
 			ILogService logService,
@@ -70,7 +74,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			{
 				AccountBaseInfo accountInfo = GetNewStandardAccountInfo();
 				DeleteStandardAccount(accountInfo.Email);
-
+				WaitUntilDeleted(accountInfo.Email);
 				CreateNewUser(accountInfo);
 
 				AccountEntry accountEntry = new AccountEntry(accountInfo) { IsAcquired = true };
@@ -92,6 +96,30 @@ namespace Relativity.Testing.Framework.Api.Services
 				_userDeleteByIdStrategy.Delete(existingUser.ArtifactID);
 				_logService.Trace($"Removed {email} standard account");
 			}
+		}
+
+		private void WaitUntilDeleted(string email)
+		{
+			var watch = Stopwatch.StartNew();
+			bool keepPolling;
+
+			do
+			{
+				keepPolling = _userGetByEmailStrategy.Get(email) != null;
+
+				if (keepPolling)
+				{
+					if (watch.Elapsed > _deletionTimeout)
+					{
+						throw new InvalidOperationException($"Failed to delete an user with email={email}.");
+					}
+					else
+					{
+						Thread.Sleep(1000);
+					}
+				}
+			}
+			while (keepPolling);
 		}
 
 		public AccountBaseInfo AcquireStandardAccount()

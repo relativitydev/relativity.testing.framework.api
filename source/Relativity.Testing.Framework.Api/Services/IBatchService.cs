@@ -22,6 +22,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get all batches.</param>
 		/// <returns>The collection of <see cref="Batch"/> entities.</returns>
+		/// <example>
+		/// <code>
+		/// RelativityFacade.Instance.RelyOn&lt;CoreComponent&gt;();
+		/// RelativityFacade.Instance.RelyOn&lt;ApiComponent&gt;();
+		/// IBatchService _batchService = RelativityFacade.Instance.Resolve&lt;IBatchService&gt;();
+		/// List&lt;Batch&gt; batches = _batchService.GetAll(1015427);
+		/// </code>
+		/// </example>
 		Batch[] GetAll(int workspaceId);
 
 		/// <summary>

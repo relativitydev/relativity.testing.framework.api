@@ -1,24 +1,20 @@
-﻿using System.Linq;
-using Relativity.Testing.Framework.Api.ObjectManagement;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal class ObjectTypeGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<ObjectType>
 	{
-		private readonly IObjectService _objectService;
+		private readonly IRestService _restService;
 
-		public ObjectTypeGetByIdStrategy(IObjectService objectService)
+		public ObjectTypeGetByIdStrategy(IRestService restService)
 		{
-			_objectService = objectService;
+			_restService = restService;
 		}
 
 		public ObjectType Get(int workspaceId, int entityId)
 		{
-			return _objectService.Query<ObjectType>().
-				For(workspaceId).
-				Where(x => x.ArtifactID, entityId).
-				FirstOrDefault();
+			return _restService.Get<ObjectType>($"relativity.objectTypes/workspace/{workspaceId}/objectTypes/{entityId}");
 		}
 	}
 }

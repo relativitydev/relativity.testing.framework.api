@@ -47,9 +47,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingObjectType.Copy();
 			toUpdate.Name = Randomizer.GetString();
 			toUpdate.EnableSnapshotAuditingOnDelete = true;
-			toUpdate.Pivot = true;
-			toUpdate.Sampling = true;
-			toUpdate.UseRelativityForms = true;
+			toUpdate.PivotEnabled = true;
+			toUpdate.SamplingEnabled = true;
 
 			var result = Sut.Require(-1, toUpdate);
 
@@ -63,17 +62,21 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			{
 				Name = Randomizer.GetString("AT_Name_"),
 				EnableSnapshotAuditingOnDelete = true,
-				Pivot = true,
-				Sampling = true,
-				UseRelativityForms = true
+				PivotEnabled = true,
+				SamplingEnabled = true,
 			};
 
 			var result = Sut.Require(-1, objectType);
 
 			result.ArtifactID.Should().BePositive();
 			result.Should().BeEquivalentTo(objectType, o => o.Excluding(x => x.ArtifactID)
-				.Excluding(x => x.ParentArtifactTypeID)
-				.Excluding(x => x.ArtifactTypeID));
+				.Excluding(x => x.ArtifactTypeID)
+				.Excluding(x => x.IsDynamic)
+				.Excluding(x => x.IsSystem)
+				.Excluding(x => x.Guids)
+				.Excluding(x => x.RelativityApplications)
+				.Excluding(x => x.IsViewEnabled)
+				.Excluding(x => x.ParentObjectType));
 		}
 	}
 }

@@ -41,7 +41,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			result.ArtifactID.Should().BePositive();
 			result.Name.Should().NotBeNullOrEmpty();
-			result.ParentArtifactTypeID.Should().Be(10);
 		}
 
 		[Test]
@@ -56,28 +55,27 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var entity = new ObjectType
 			{
-				ParentObjectType = template,
+				ParentObjectType = new ObjectType.WrappedObjectType { Value = template },
 				Name = Randomizer.GetString(),
-				CopyInstanceOnParentCopy = true,
-				CopyInstanceOnWorkspaceCreation = true,
+				CopyInstancesOnParentCopy = true,
+				CopyInstancesOnCaseCreation = true,
 				EnableSnapshotAuditingOnDelete = true,
-				PersistentLists = true,
-				Pivot = true,
-				Sampling = true
+				PersistentListsEnabled = true,
+				PivotEnabled = true,
+				SamplingEnabled = true
 			};
 
 			var result = Sut.Create(DefaultWorkspace.ArtifactID, entity);
 
 			result.Name.Should().BeEquivalentTo(entity.Name);
-			result.CopyInstanceOnParentCopy.Should().Be(entity.CopyInstanceOnParentCopy);
-			result.CopyInstanceOnWorkspaceCreation.Should().Be(entity.CopyInstanceOnWorkspaceCreation);
+			result.CopyInstancesOnParentCopy.Should().Be(entity.CopyInstancesOnParentCopy);
+			result.CopyInstancesOnCaseCreation.Should().Be(entity.CopyInstancesOnCaseCreation);
 			result.EnableSnapshotAuditingOnDelete.Should().Be(entity.EnableSnapshotAuditingOnDelete);
-			result.PersistentLists.Should().Be(entity.PersistentLists);
-			result.Pivot.Should().Be(entity.Pivot);
-			result.Sampling.Should().Be(entity.Sampling);
+			result.PersistentListsEnabled.Should().Be(entity.PersistentListsEnabled);
+			result.PivotEnabled.Should().Be(entity.PivotEnabled);
+			result.SamplingEnabled.Should().Be(entity.SamplingEnabled);
 			result.ArtifactID.Should().BePositive();
 			result.ArtifactTypeID.Should().BePositive();
-			result.ParentArtifactTypeID.Should().Be(template.ArtifactTypeID);
 		}
 
 		[Test]
@@ -87,7 +85,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			result.ArtifactID.Should().BePositive();
 			result.Name.Should().NotBeNullOrEmpty();
-			result.ParentArtifactTypeID.Should().Be(1);
 		}
 
 		[Test]
@@ -102,28 +99,27 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var entity = new ObjectType
 			{
-				ParentObjectType = template,
+				ParentObjectType = new ObjectType.WrappedObjectType { Value = template },
 				Name = Randomizer.GetString(),
-				CopyInstanceOnParentCopy = false,
-				CopyInstanceOnWorkspaceCreation = false,
+				CopyInstancesOnParentCopy = false,
+				CopyInstancesOnCaseCreation = false,
 				EnableSnapshotAuditingOnDelete = true,
-				PersistentLists = false,
-				Pivot = true,
-				Sampling = true
+				PersistentListsEnabled = false,
+				PivotEnabled = true,
+				SamplingEnabled = true
 			};
 
 			var result = Sut.Create(-1, entity);
 
 			result.Name.Should().BeEquivalentTo(entity.Name);
-			result.CopyInstanceOnParentCopy.Should().Be(entity.CopyInstanceOnParentCopy);
-			result.CopyInstanceOnWorkspaceCreation.Should().Be(entity.CopyInstanceOnWorkspaceCreation);
+			result.CopyInstancesOnParentCopy.Should().Be(entity.CopyInstancesOnParentCopy);
+			result.CopyInstancesOnCaseCreation.Should().Be(entity.CopyInstancesOnCaseCreation);
 			result.EnableSnapshotAuditingOnDelete.Should().Be(entity.EnableSnapshotAuditingOnDelete);
-			result.PersistentLists.Should().Be(entity.PersistentLists);
-			result.Pivot.Should().Be(entity.Pivot);
-			result.Sampling.Should().Be(entity.Sampling);
+			result.PersistentListsEnabled.Should().Be(entity.PersistentListsEnabled);
+			result.PivotEnabled.Should().Be(entity.PivotEnabled);
+			result.SamplingEnabled.Should().Be(entity.SamplingEnabled);
 			result.ArtifactID.Should().BePositive();
 			result.ArtifactTypeID.Should().BePositive();
-			result.ParentArtifactTypeID.Should().Be(template.ArtifactTypeID);
 		}
 	}
 }

@@ -1,7 +1,9 @@
 ﻿using System.Linq;
+using System.Net.Http;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
+using Relativity.Services.Exceptions;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Session;
@@ -72,8 +74,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 
 			TestSession.Current.Dispose();
 
-			Facade.Resolve<IGetByIdStrategy<Workspace>>().Get(workspace.ArtifactID).
-				Should().BeNull();
+			Facade.Resolve<IGetByIdStrategy<Workspace>>().Get(workspace.ArtifactID).Should().BeNull();
 		}
 
 		[Test]
@@ -91,11 +92,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 
 			using (new AssertionScope())
 			{
-				Facade.Resolve<IGetByIdStrategy<Workspace>>().Get(workspace.ArtifactID).
-					Should().NotBeNull();
+				Facade.Resolve<IGetByIdStrategy<Workspace>>().Get(workspace.ArtifactID).Should().NotBeNull();
 
-				Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>().Get(workspace.ArtifactID, objectType.ArtifactID).
-					Should().BeNull();
+				var exception = Assert.Throws<HttpRequestException>(() => Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>()
+															.Get(workspace.ArtifactID, objectType.ArtifactID));
+
+				Assert.IsTrue(exception.Message.StartsWith("StatusCode: 404, ReasonPhrase: 'Not Found'"));
 			}
 		}
 
@@ -113,11 +115,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 
 			using (new AssertionScope())
 			{
-				Facade.Resolve<IGetByIdStrategy<Workspace>>().Get(workspace.ArtifactID).
-					Should().NotBeNull();
+				Facade.Resolve<IGetByIdStrategy<Workspace>>().Get(workspace.ArtifactID).Should().NotBeNull();
 
-				Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>().Get(workspace.ArtifactID, objectType.ArtifactID).
-					Should().BeNull();
+				var exception = Assert.Throws<HttpRequestException>(() => Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>()
+																.Get(workspace.ArtifactID, objectType.ArtifactID));
+				Assert.IsTrue(exception.Message.StartsWith("StatusCode: 404, ReasonPhrase: 'Not Found'"));
 			}
 		}
 

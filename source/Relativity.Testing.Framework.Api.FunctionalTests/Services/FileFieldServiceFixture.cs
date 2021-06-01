@@ -23,7 +23,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 		private ObjectType _objectType = new ObjectType
 		{
 			Name = "Test Object",
-			ParentArtifactTypeID = 8,
 		};
 
 		private FileField _fileField = new FileField

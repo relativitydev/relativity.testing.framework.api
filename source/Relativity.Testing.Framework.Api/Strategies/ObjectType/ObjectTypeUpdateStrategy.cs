@@ -7,17 +7,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ObjectTypeUpdateStrategy : IUpdateWorkspaceEntityStrategy<ObjectType>
 	{
 		private readonly IRestService _restService;
-		private readonly IGetWorkspaceEntityByIdStrategy<ObjectType> _getWorkspaceEntityByIdStrategy;
-		private readonly IGetWorkspaceEntityByNameStrategy<ObjectType> _getWorkspaceEntityByNameStrategy;
 
 		public ObjectTypeUpdateStrategy(
-			IRestService restService,
-			IGetWorkspaceEntityByIdStrategy<ObjectType> getWorkspaceEntityByIdStrategy,
-			IGetWorkspaceEntityByNameStrategy<ObjectType> getWorkspaceEntityByNameStrategy)
+			IRestService restService)
 		{
 			_restService = restService;
-			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
-			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByNameStrategy;
 		}
 
 		public void Update(int workspaceId, ObjectType entity)
@@ -31,15 +25,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			{
 				ObjectTypeRequest = new
 				{
+					entity.ParentObjectType,
+					RelativityApplications = entity.RelativityApplications.ViewableItems,
 					entity.Name,
-					CopyInstancesOnParentCopy = entity.CopyInstanceOnParentCopy,
-					CopyInstancesOnCaseCreation = entity.CopyInstanceOnWorkspaceCreation,
+					entity.CopyInstancesOnParentCopy,
+					entity.CopyInstancesOnCaseCreation,
 					entity.EnableSnapshotAuditingOnDelete,
-					PersistentListsEnabled = entity.PersistentLists,
-					PivotEnabled = entity.Pivot,
-					SamplingEnabled = entity.Sampling,
-					entity.UseRelativityForms,
-					entity.RelativityApplications
+					entity.PersistentListsEnabled,
+					entity.PivotEnabled,
+					entity.SamplingEnabled
 				}
 			};
 

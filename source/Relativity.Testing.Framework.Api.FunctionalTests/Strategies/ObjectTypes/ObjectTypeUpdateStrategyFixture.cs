@@ -49,9 +49,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingObjectType.Copy();
 			toUpdate.Name = Randomizer.GetString();
 			toUpdate.EnableSnapshotAuditingOnDelete = true;
-			toUpdate.Pivot = true;
-			toUpdate.Sampling = true;
-			toUpdate.UseRelativityForms = true;
+			toUpdate.PivotEnabled = true;
+			toUpdate.SamplingEnabled = true;
 
 			Sut.Update(-1, toUpdate);
 

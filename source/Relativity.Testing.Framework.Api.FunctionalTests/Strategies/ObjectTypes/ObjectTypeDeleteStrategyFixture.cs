@@ -40,8 +40,10 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			Sut.Delete(-1, toDelete.ArtifactID);
 
-			Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>().Get(-1, toDelete.ArtifactID).
-				Should().BeNull();
+			var exception = Assert.Throws<HttpRequestException>(() => Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>()
+																			.Get(-1, toDelete.ArtifactID));
+
+			Assert.IsTrue(exception.Message.StartsWith("StatusCode: 404, ReasonPhrase: 'Not Found'"));
 		}
 	}
 }

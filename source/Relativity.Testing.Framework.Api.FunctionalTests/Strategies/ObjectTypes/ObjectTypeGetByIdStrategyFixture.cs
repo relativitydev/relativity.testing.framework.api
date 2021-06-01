@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Net.Http;
+using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -20,9 +21,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Get_Missing()
 		{
-			var result = Sut.Get(-1, int.MaxValue);
+			var exception = Assert.Throws<HttpRequestException>(() => Sut.Get(-1, int.MaxValue));
 
-			result.Should().BeNull();
+			Assert.IsTrue(exception.Message.StartsWith("StatusCode: 404, ReasonPhrase: 'Not Found'"));
 		}
 
 		[Test]

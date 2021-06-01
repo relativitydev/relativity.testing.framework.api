@@ -35,18 +35,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 						Secured = false,
 						Value = new
 						{
-							entityToCreate.ParentObjectType.ArtifactID,
-							entityToCreate.ParentObjectType.ArtifactTypeID
+							entityToCreate.ParentObjectType.Value.ArtifactID,
+							entityToCreate.ParentObjectType.Value.ArtifactTypeID
 						}
 					},
 					entityToCreate.Name,
-					CopyInstancesOnParentCopy = entityToCreate.CopyInstanceOnParentCopy,
-					CopyInstancesOnCaseCreation = entityToCreate.CopyInstanceOnWorkspaceCreation,
+					entityToCreate.CopyInstancesOnParentCopy,
+					entityToCreate.CopyInstancesOnCaseCreation,
 					entityToCreate.EnableSnapshotAuditingOnDelete,
-					PersistentListsEnabled = entityToCreate.PersistentLists,
-					PivotEnabled = entityToCreate.Pivot,
-					SamplingEnabled = entityToCreate.Sampling,
-					entityToCreate.UseRelativityForms,
+					entityToCreate.PersistentListsEnabled,
+					entityToCreate.PivotEnabled,
+					entityToCreate.SamplingEnabled,
 					entityToCreate.RelativityApplications
 				}
 			};
@@ -62,13 +61,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entityToCreate.ParentObjectType == null)
 			{
-				entityToCreate.ParentObjectType = _getWorkspaceEntityByNameStrategy.Get(workspaceId, workspaceId == -1 ? "System" : "Document");
+				entityToCreate.ParentObjectType = new ObjectType.WrappedObjectType { Value = _getWorkspaceEntityByNameStrategy.Get(workspaceId, workspaceId == -1 ? "System" : "Document") };
 			}
-			else if (entityToCreate.ParentObjectType.ArtifactID == 0 && entityToCreate.ParentObjectType.Name != null)
+			else if (entityToCreate.ParentObjectType.Value == null)
 			{
-				entityToCreate.ParentObjectType = _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityToCreate.ParentObjectType.Name);
+				entityToCreate.ParentObjectType.Value = _getWorkspaceEntityByNameStrategy.Get(workspaceId, workspaceId == -1 ? "System" : "Document");
 			}
-			else if (entityToCreate.ParentObjectType.ArtifactID == 0)
+			else if (entityToCreate.ParentObjectType.Value.ArtifactID == 0 && entityToCreate.ParentObjectType.Value.Name != null)
+			{
+				entityToCreate.ParentObjectType = new ObjectType.WrappedObjectType { Value = _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityToCreate.ParentObjectType.Value.Name) };
+			}
+			else if (entityToCreate.ParentObjectType.Value.ArtifactID == 0)
 			{
 				throw new ArgumentException("Entity should have indentifier ParentObjectType.", nameof(entity));
 			}
@@ -78,11 +81,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				entityToCreate.Name = Randomizer.GetString("RTF ");
 			}
 
-			if (entityToCreate.RelativityApplications != null && entityToCreate.RelativityApplications.Any())
+			if (entityToCreate.RelativityApplications != null && entityToCreate.RelativityApplications.ViewableItems.Any())
 			{
-				entityToCreate.RelativityApplications = entityToCreate.RelativityApplications
+				entityToCreate.RelativityApplications.ViewableItems = entityToCreate.RelativityApplications.ViewableItems
 					.Select(x => new NamedArtifact { ArtifactID = x.ArtifactID })
-					.ToArray();
+					.ToList();
 			}
 
 			return entityToCreate;

@@ -1,5 +1,4 @@
 ﻿using System.Net.Http;
-using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -8,7 +7,6 @@ using Relativity.Testing.Framework.Strategies;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ObjectTypeDeleteByIdStrategy))]
-	[NonParallelizable]
 	internal class ObjectTypeDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<ObjectType>>
 	{
 		public ObjectTypeDeleteStrategyFixture()

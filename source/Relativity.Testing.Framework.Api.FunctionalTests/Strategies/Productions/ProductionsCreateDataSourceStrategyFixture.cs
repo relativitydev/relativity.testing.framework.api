@@ -56,7 +56,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.ArtifactID.Should().BePositive();
 			result.Should().BeEquivalentTo(entity, o => o.
 				Excluding(x => x.ArtifactID).
-				Excluding(x => x.ArtifactTypeId).
+				Excluding(x => x.ArtifactTypeID).
 				Excluding(x => x.SavedSearch.Name).
 				Excluding(x => x.Placeholder).
 				Excluding(x => x.MarkupSet));

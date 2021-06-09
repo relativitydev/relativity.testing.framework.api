@@ -1,12 +1,13 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Strategies.BatchSets;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IGetWorkspaceEntityByIdStrategy<BatchSet>))]
-	internal class BatchSetGetByIdStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<BatchSet>>
+	[TestOf(typeof(IGetBatchSetByIdStrategy))]
+	internal class BatchSetGetByIdStrategyFixture : ApiServiceTestFixture<IGetBatchSetByIdStrategy>
 	{
 		public BatchSetGetByIdStrategyFixture()
 		{
@@ -42,7 +43,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID }
 				};
 
-				batchSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<BatchSet>>().Create(DefaultWorkspace.ArtifactID, batchModel);
+				batchSet = Facade.Resolve<ICreateBatchSetStrategy>().Create(DefaultWorkspace.ArtifactID, batchModel);
 			});
 
 			var result = Sut.Get(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);

@@ -4,17 +4,17 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	/// <summary>
-	/// Represents the strategy of creating batches.
+	/// Represents the strategy of creating BatchSet.
 	/// </summary>
-	internal interface ICreateBatchesStrategy
+	internal interface ICreateBatchSetStrategy
 	{
 		/// <summary>
-		/// Runs create batches operation for a specific batch set.
+		/// Creates batch set.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>
-		/// <param name="entityId">The Artifact ID of a batch set.</param>
+		/// <param name="entity">The BatchSet to create.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
-		BatchProcessResult CreateBatches(int workspaceId, int entityId, UserCredentials userCredentials = null);
+		/// <returns>>The <see cref="BatchSet"/> BatchSet.</returns>
+		BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials = null);
 	}
 }

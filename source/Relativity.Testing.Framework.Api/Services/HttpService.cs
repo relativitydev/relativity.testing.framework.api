@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading;
 using Newtonsoft.Json;
 using Relativity.Testing.Framework.Api.Attributes;
+using Relativity.Testing.Framework.Api.Extensions;
+using Relativity.Testing.Framework.Api.Helpers;
+using Relativity.Testing.Framework.Api.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -28,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			BaseUrl = baseUrlAddress;
 			Username = username;
 
-			_basicAuthorizationParameter = GenerateBasicAuthorizationParameter(username, password);
+			_basicAuthorizationParameter = BasicAuthorizationHelper.GenerateBasicAuthorizationParameter(username, password);
 			_client = CreateHttpClient();
 		}
 
@@ -36,52 +39,42 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public string Username { get; }
 
-		private static string GenerateBasicAuthorizationParameter(string username, string password)
+		public TResult Get<TResult>(string relativeUri, UserCredentials userCredentials = null)
 		{
-			string unencodedUsernameAndPassword = $"{username}:{password}";
-
-			byte[] unencodedBytes = Encoding.ASCII.GetBytes(unencodedUsernameAndPassword);
-			string base64UsernameAndPassword = Convert.ToBase64String(unencodedBytes);
-
-			return $"Basic {base64UsernameAndPassword}";
+			return Send<TResult>(HttpMethod.Get, relativeUri, userCredentials: userCredentials);
 		}
 
-		public TResult Get<TResult>(string relativeUri)
+		public TResult Post<TResult>(string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null)
 		{
-			return Send<TResult>(HttpMethod.Get, relativeUri);
+			return Send<TResult>(HttpMethod.Post, relativeUri, content, timeout, userCredentials: userCredentials);
 		}
 
-		public TResult Post<TResult>(string relativeUri, object content = null, double timeout = 2)
+		public void Post(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
-			return Send<TResult>(HttpMethod.Post, relativeUri, content, timeout);
+			Post<string>(relativeUri, content, userCredentials: userCredentials);
 		}
 
-		public void Post(string relativeUri, object content = null)
+		public TResult Put<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
-			Post<string>(relativeUri, content);
+			return Send<TResult>(HttpMethod.Put, relativeUri, content, userCredentials: userCredentials);
 		}
 
-		public TResult Put<TResult>(string relativeUri, object content = null)
+		public void Put(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
-			return Send<TResult>(HttpMethod.Put, relativeUri, content);
+			Put<string>(relativeUri, content, userCredentials: userCredentials);
 		}
 
-		public void Put(string relativeUri, object content = null)
+		public TResult Delete<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
-			Put<string>(relativeUri, content);
+			return Send<TResult>(HttpMethod.Delete, relativeUri, content, userCredentials: userCredentials);
 		}
 
-		public TResult Delete<TResult>(string relativeUri, object content = null)
+		public void Delete(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
-			return Send<TResult>(HttpMethod.Delete, relativeUri, content);
+			Delete<string>(relativeUri, content, userCredentials: userCredentials);
 		}
 
-		public void Delete(string relativeUri, object content = null)
-		{
-			Delete<string>(relativeUri, content);
-		}
-
-		private TResult Send<TResult>(HttpMethod method, string relativeUri, object content = null, double timeout = 2)
+		private TResult Send<TResult>(HttpMethod method, string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null)
 		{
 			ValidateArguments(method, relativeUri);
 			HttpContent httpContent = GetHttpContent(content);
@@ -89,6 +82,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			using (HttpRequestMessage request = new HttpRequestMessage(method, relativeUri) { Content = httpContent })
 			using (CancellationTokenSource cancellationToken = new CancellationTokenSource(TimeSpan.FromMinutes(timeout)))
 			{
+				request.OverrideUserCredentialsIfNeeded(userCredentials);
+
 				HttpResponseMessage response = _client.SendAsync(request, cancellationToken.Token).Result;
 
 				if (typeof(TResult) == typeof(HttpResponseMessage))

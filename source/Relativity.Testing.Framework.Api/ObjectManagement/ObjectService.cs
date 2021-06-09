@@ -232,7 +232,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 				Length = request.Length
 			};
 
-			return _restService.Post<QuerySlimResult>($"Relativity.Objects/workspace/{request.WorkspaceId}/object/queryslim", wrapper);
+			return _restService.Post<QuerySlimResult>($"Relativity.Objects/workspace/{request.WorkspaceId}/object/queryslim", wrapper, userCredentials: request.UserCredentials);
 		}
 
 		private T MapObject<T>(QuerySlimObject queryObject, IEnumerable<QueryResultField> fields)

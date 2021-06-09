@@ -1,9 +1,11 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System;
+using Relativity.Testing.Framework.Api.Models;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class BatchSetCreateStrategy : CreateWorkspaceEntityStrategy<BatchSet>
+	internal class BatchSetCreateStrategy : ICreateBatchSetStrategy
 	{
 		private readonly IRestService _restService;
 
@@ -12,8 +14,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
-		protected override BatchSet DoCreate(int workspaceId, BatchSet entity)
+		public BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials = null)
 		{
+			if (entity is null)
+			{
+				throw new ArgumentNullException(nameof(entity));
+			}
+
 			var dto = new
 			{
 				batchSet = new
@@ -29,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				}
 			};
 
-			return _restService.Post<BatchSet>($"Relativity.Services.Review.Batching.IBatchingModule/workspaces/{workspaceId}/batching/CreateBatchSet", dto);
+			return _restService.Post<BatchSet>($"Relativity.Services.Review.Batching.IBatchingModule/workspaces/{workspaceId}/batching/CreateBatchSet", dto, userCredentials: userCredentials);
 		}
 	}
 }

@@ -1,29 +1,31 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Models;
+using Relativity.Testing.Framework.Api.Services;
+using Relativity.Testing.Framework.Api.Strategies.BatchSets;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class BatchSetGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<BatchSet>
+	internal class BatchSetGetByIdStrategy : IGetBatchSetByIdStrategy
 	{
 		private readonly IRestService _restService;
-		private readonly IExistsWorkspaceEntityByIdStrategy<BatchSet> _existsWorkspaceEntityByIdStrategy;
+		private readonly IExistsBatchSetByIdStrategy _existsBatchSetByIdStrategy;
 
 		public BatchSetGetByIdStrategy(
 			IRestService restService,
-			IExistsWorkspaceEntityByIdStrategy<BatchSet> existsWorkspaceEntityByIdStrategy)
+			IExistsBatchSetByIdStrategy existsBatchSetByIdStrategy)
 		{
 			_restService = restService;
-			_existsWorkspaceEntityByIdStrategy = existsWorkspaceEntityByIdStrategy;
+			_existsBatchSetByIdStrategy = existsBatchSetByIdStrategy;
 		}
 
-		public BatchSet Get(int workspaceId, int entityId)
+		public BatchSet Get(int workspaceId, int batchSetId, UserCredentials userCredentials = null)
 		{
-			if (!_existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId))
+			if (!_existsBatchSetByIdStrategy.Exists(workspaceId, batchSetId, userCredentials: userCredentials))
 			{
 				return null;
 			}
 
-			return _restService.Get<BatchSet>($"Relativity.Services.Review.Batching.IBatchingModule/workspaces/{workspaceId}/batching/ReadFull/{entityId}");
+			return _restService.Get<BatchSet>($"Relativity.Services.Review.Batching.IBatchingModule/workspaces/{workspaceId}/batching/ReadFull/{batchSetId}", userCredentials: userCredentials);
 		}
 	}
 }

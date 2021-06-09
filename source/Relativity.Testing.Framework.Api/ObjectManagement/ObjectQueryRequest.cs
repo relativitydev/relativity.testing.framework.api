@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Querying;
 using Relativity.Testing.Framework.Models;
 
@@ -25,6 +26,9 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 
 		[JsonIgnore]
 		public int WorkspaceId { get; set; } = -1;
+
+		[JsonIgnore]
+		public UserCredentials UserCredentials { get; set; }
 
 		[JsonProperty]
 		public QueryObjectType ObjectType { get; set; }

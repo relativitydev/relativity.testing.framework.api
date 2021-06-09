@@ -485,7 +485,7 @@ jobs:
           -Headers @{ Authorization="Bearer $AccessToken" }).value
 
         $Package = (get-childitem ./Packages).FullName
-        dotnet nuget push $Package -s "https://api.nuget.org/v3/index.json" -k $NuGetApiKey -n true
+        dotnet nuget push $Package -s "https://api.nuget.org/v3/index.json" -k $NuGetApiKey -n true --skip-duplicate
 
     - name: Create tag
       uses: actions/github-script@v4

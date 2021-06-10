@@ -68,6 +68,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					if (existedEntity != null)
 					{
 						_deleteByIdStrategy.Delete(existedEntity.ArtifactID);
+						_waitUserDeletedStrategy.Wait(entity.ArtifactID);
 					}
 				}
 			}

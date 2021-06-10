@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1] - 2021-06-11
+
+### Fixed
+
+- User.Require() with ensureNew=true will now also poll for deletion before attempting to recreate the user if the user was specifyed by email, instead of by ArtifactID. - [TESTENG-1128](https://jira.kcura.com/browse/TESTENG-1128)
+
 ## [2.2.0] - 2021-06-10
 
 ### Changed

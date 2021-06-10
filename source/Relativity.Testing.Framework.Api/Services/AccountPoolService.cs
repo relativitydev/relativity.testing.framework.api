@@ -18,18 +18,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly ICreateStrategy<User> _userCreateStrategy;
 		private readonly IUserExistsByEmailStrategy _userExistsByEmailStrategy;
 		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
+		private readonly IWaitUserDeletedStrategy _waitUserDeletedStrategy;
 		private readonly IDeleteByIdStrategy<User> _userDeleteByIdStrategy;
 		private readonly IGetAllByNamesStrategy<Group> _groupGetAllByNamesStrategy;
 		private readonly IObjectService _objectService;
 		private static readonly List<AccountEntry> _standardAccountEntries = new List<AccountEntry>();
 		private static readonly object _acquireLock = new object();
-		private readonly TimeSpan _deletionTimeout = TimeSpan.FromSeconds(30);
 
 		public AccountPoolService(
 			ILogService logService,
 			ICreateStrategy<User> userCreateStrategy,
 			IUserExistsByEmailStrategy userExistsByEmailStrategy,
 			IUserGetByEmailStrategy userGetByEmailStrategy,
+			IWaitUserDeletedStrategy waitUserDeletedStrategy,
 			IDeleteByIdStrategy<User> userDeleteByIdStrategy,
 			IGetAllByNamesStrategy<Group> groupGetAllByNamesStrategy,
 			IObjectService objectService)
@@ -37,6 +38,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_logService = logService;
 			_userCreateStrategy = userCreateStrategy;
 			_userExistsByEmailStrategy = userExistsByEmailStrategy;
+			_waitUserDeletedStrategy = waitUserDeletedStrategy;
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_userDeleteByIdStrategy = userDeleteByIdStrategy;
 			_groupGetAllByNamesStrategy = groupGetAllByNamesStrategy;
@@ -74,7 +76,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			{
 				AccountBaseInfo accountInfo = GetNewStandardAccountInfo();
 				DeleteStandardAccount(accountInfo.Email);
-				WaitUntilDeleted(accountInfo.Email);
+				_waitUserDeletedStrategy.Wait(accountInfo.Email);
 				CreateNewUser(accountInfo);
 
 				AccountEntry accountEntry = new AccountEntry(accountInfo) { IsAcquired = true };
@@ -96,30 +98,6 @@ namespace Relativity.Testing.Framework.Api.Services
 				_userDeleteByIdStrategy.Delete(existingUser.ArtifactID);
 				_logService.Trace($"Removed {email} standard account");
 			}
-		}
-
-		private void WaitUntilDeleted(string email)
-		{
-			var watch = Stopwatch.StartNew();
-			bool keepPolling;
-
-			do
-			{
-				keepPolling = _userGetByEmailStrategy.Get(email) != null;
-
-				if (keepPolling)
-				{
-					if (watch.Elapsed > _deletionTimeout)
-					{
-						throw new InvalidOperationException($"Failed to delete an user with email={email}.");
-					}
-					else
-					{
-						Thread.Sleep(1000);
-					}
-				}
-			}
-			while (keepPolling);
 		}
 
 		public AccountBaseInfo AcquireStandardAccount()

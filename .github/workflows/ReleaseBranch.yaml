@@ -205,8 +205,6 @@ jobs:
           "--logger:nunit;LogFilePath=$LogFilePath" `
           -s $TestSettings
 
-        Compress-Archive -Path $ResultsPath -DestinationPath "$($ResultsPath).zip" -Force
-
         Remove-Instance -ApiUrl "${{ env.HOPPER_API_URL }}" `
           -ApiKey $HopperApiKey `
           -ApiUsername "${{ env.HOPPER_USER }}" `

@@ -1,6 +1,6 @@
-﻿Before you can use the ApiComponent, remember to configure and rely on ApiComponent.
+﻿Before you can use the [ApiComponent](/api/Relativity.Testing.Framework.Api.ApiComponent.html), remember to configure and rely on [CoreComponent](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.CoreComponent.html).
 
-After that, we can resolve field service:
+After that, we can resolve [field service](/api/Relativity.Testing.Framework.Api.Services.IFieldService.html):
 
 ```
 [Test]
@@ -14,7 +14,7 @@ For a list of available actions, please check out the interface found [here](htt
 
 # Create a field
 
-In Relativity, we have a lot of different field types and each of them has its own list of required properties, this is mean that we can't use the base field model for the creation of that. That's why you need to use a specific field model for a specific type. The list of available fields represents bellow:
+In Relativity, we have a lot of different [field types](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.FieldType.html) and each of them has its own list of required properties, this is mean that we can't use the base field model for the creation of that. That's why you need to use a specific field model for a specific type. The list of available fields represents bellow:
 
 * CurrencyField
 * DateField
@@ -32,7 +32,7 @@ In Relativity, we have a lot of different field types and each of them has its o
 ---
 **NOTE**
 
-Do not use the base Field model for creation. It doesn't contain the required properties for the specific field type and creation will fail.
+Do not use the base [Field](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.Field.html) model for creation. It doesn't contain the required properties for the specific field type and creation will fail.
 
 ---
 

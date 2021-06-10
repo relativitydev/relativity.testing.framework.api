@@ -1,6 +1,6 @@
 ﻿# Create a custom strategy
 
-All strategies should be based on some interface, most common actions already have interfaces so you should do not duplicate them. For a list of available interfaces, please check out the folder found [here](https://github.com/relativitydev/relativity.testing.framework/tree/master/source/Relativity.Testing.Framework/Strategies). Then after you implement the needed interface you should register your strategy, in RTF we use the Castle Windsor package for it. For example, you want to implement a new get strategy for keyword search wich use a new model with less count of properties, lets named I like NewKeywordSearch. For example, it can look like:
+All strategies should be based on some interface, most common actions already have interfaces so you should do not duplicate them. For a list of available interfaces, please check out the folder found [here](https://github.com/relativitydev/relativity.testing.framework/tree/master/source/Relativity.Testing.Framework/Strategies) or the documentation [here](/api/Relativity.Testing.Framework.Api.Strategies.html). Then after you implement the needed interface you should register your strategy, in RTF we use the Castle Windsor package for it. For example, you want to implement a new get strategy for keyword search wich use a new model with less count of properties, lets named I like NewKeywordSearch. For example, it can look like:
 
 ```
 [ObjectTypeName("KeywordSearch")]
@@ -20,7 +20,7 @@ public class NewGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<NewKeywordSear
 }
 ```
 
-Now you have a new strategy but RTF doesn't know how to resolve it. To fix that problem you need to register this strategy. For that, you need to implement a new class that will implement two interfaces: IRelativityComponent and IWindsorInstaller. In that class you can write some logic to register your strategies, lets named it like TestComponent. We going to use Castle Windsor, so if you don't familiar with it please read this [documentation](https://github.com/castleproject/Windsor/blob/master/docs/README.md).
+Now you have a new strategy but RTF doesn't know how to resolve it. To fix that problem you need to register this strategy. For that, you need to implement a new class that will implement two interfaces: [IRelativityComponent](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.IRelativityComponent.html) and [IWindsorInstaller](https://github.com/castleproject/Windsor/blob/master/docs/installers.md). In that class you can write some logic to register your strategies, lets named it like TestComponent. We going to use Castle Windsor, so if you don't familiar with it please read this [documentation](https://github.com/castleproject/Windsor/blob/master/docs/README.md).
 
 ```
 public class TestComponent : IRelativityComponent, IWindsorInstaller
@@ -59,7 +59,7 @@ public void ResolveNewStrategy()
 
 # Create a custom strategy with auto clean up
 
-If you want to implement create a strategy with auto clean up then you should implement tho strategies: create and delete. Create, it is a strategy that should be based on CreateWorkspaceEntityStrategy for workspace artifacts or CreateStrategy for admin artifacts. Delete strategy should be based on DeleteByIdStrategy for admin artifacts or DeleteWorkspaceEntityByIdStrategy for workspace artifacts.
+If you want to implement create a strategy with auto clean up then you should implement tho strategies: create and delete. Create, it is a strategy that should be based on [CreateWorkspaceEntityStrategy](/api/Relativity.Testing.Framework.Api.Strategies.CreateWorkspaceEntityStrategy-1.html) for workspace artifacts or [CreateStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.CreateStrategy-1.html) for admin artifacts. Delete strategy should be based on [DeleteByIdStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.DeleteByIdStrategy-1.html) for admin artifacts or [DeleteWorkspaceEntityByIdStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.DeleteWorkspaceEntityByIdStrategy-1.html) for workspace artifacts.
 
 ```
 public class CustomDeleteStrategy : DeleteWorkspaceEntityByIdStrategy<CustomModel>
@@ -86,14 +86,14 @@ If you implement this to strategies then this artifact will be removed in OneTim
 ---
 **NOTE**
 
-Don't forget to register new strategies, and don't use for it abstract classes, better to use interfaces in witch we based. ICreateWorkspaceEntityStrategy for
-CreateWorkspaceEntityStrategy etc.
+Don't forget to register new strategies, and don't use for it abstract classes, better to use interfaces in with we based. [ICreateWorkspaceEntityStrategy]((/api/Relativity.Testing.Framework.Api.Strategies.ICreateWorkspaceEntityStrategy-1.html) for
+[CreateWorkspaceEntityStrategy](/api/Relativity.Testing.Framework.Api.Strategies.CreateWorkspaceEntityStrategy-1.html) etc.
 
 ---
 
-# Using REST, RSAPI or other core strategies inside of the custom strategy
+# Using REST or other core strategies inside of the custom strategy
 
-Some times we need to use some rest or rsapi call inside of strategy, this is mean that we need to use some strategy inside of strategy. All that you need to do it is to create a new constructor that will initialize the needed strategy.
+Some times we need to use some rest call inside of strategy, this is mean that we need to use some strategy inside of strategy. All that you need to do it is to create a new constructor that will initialize the needed strategy.
 
 ```
 public class CustomCreateStrategy : CreateWorkspaceEntityStrategy<CustomModel>
@@ -114,7 +114,7 @@ public class CustomCreateStrategy : CreateWorkspaceEntityStrategy<CustomModel>
 
 # Using login and application insights interceptors
 
-In the RTF login system and application, insights metrics represent like interceptors. For using them you should register them with a service which needs this interceptor. 
+In the RTF login system and application, insights metrics represent like interceptors. For using them you should register them with a service which needs this [interceptor](/api/Relativity.Testing.Framework.Api.Interceptors.html). 
 
 ```
 public class TestComponent : IRelativityComponent, IWindsorInstaller

@@ -1,6 +1,6 @@
 # Metrics
-Relativity Testing Framework API collects metrics using ApplicationInsights to provide more context around usage and debugging.
-In addition to the [default information](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor) collected from ApplicationInsights, we also collect information about the parameters that are sent with the API request.
+Relativity Testing Framework API collects metrics using [ApplicationInsights](https://docs.microsoft.com/pl-pl/azure/azure-monitor/app/app-insights-overview) to provide more context around usage and debugging.
+In addition to the [default information](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#what-does-application-insights-monitor) collected from [ApplicationInsights](https://docs.microsoft.com/pl-pl/azure/azure-monitor/app/app-insights-overview), we also collect information about the parameters that are sent with the API request.
 
 ## What is collected
 

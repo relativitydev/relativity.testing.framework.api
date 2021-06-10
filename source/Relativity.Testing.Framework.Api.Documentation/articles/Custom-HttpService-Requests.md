@@ -1,19 +1,19 @@
-﻿Http service represents a set of methods to communicate with Relativity REST API.
+﻿[Http service](/api/Relativity.Testing.Framework.Api.Services.HttpService.html) represents a set of methods to communicate with Relativity REST API.
 
 Inside this service we use a HttpClient and set all required for Relativity fields, this service also provides deserialization functionality by using Newtonsoft.Json.
 
-See the documentation for more information about the HTTPSerice.
+See the documentation for more information about the HttpService.
 
-Under normal circumstances, you will not need to use the HTTPService.
-RTF.API has a wrapper RESTService that consumes this, and is used by all services and strategies.
+Under normal circumstances, you will not need to use the [HTTPService](/api/Relativity.Testing.Framework.Api.Services.HttpService.html).
+RTF.API has a wrapper [RESTService](/api/Relativity.Testing.Framework.Api.Services.IRestService.html) that consumes this, and is used by all services and strategies.
 
-The most obvious use case for standalone use of the HttpService is to explicitly specific the parameters passed in for requests
+The most obvious use case for standalone use of the [HttpService](/api/Relativity.Testing.Framework.Api.Services.HttpService.html) is to explicitly specific the parameters passed in for requests
 Here is an example that you can find [here](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.FunctionalTests/HttpServiceFixture.cs).
 
 # Using relativity REST in RTF
 
-For using services which have base URL like ServerBindingType://HostAddress/relativity.rest/ RTF represents the service: IRestService.
-So if you need to send some custom rest request all that you need to do it is to resolve IRestService and use it, but remember to configure and rely on [ApiComponent](Getting-Started.html).
+For using services which have base URL like ServerBindingType://HostAddress/relativity.rest/ RTF represents the service: [IRestService](/api/Relativity.Testing.Framework.Api.Services.IRestService.html).
+So if you need to send some custom rest request all that you need to do it is to resolve [IRestService](/api/Relativity.Testing.Framework.Api.Services.IRestService.html) and use it, but remember to configure and rely on [ApiComponent](Getting-Started.md).
 
 ```
 public class Tests
@@ -40,7 +40,7 @@ public class Tests
 
 # Deserialize response of services based on HttpService.
 
-All methods in HttpService have a generic parameter, this parameter specified the type of response which we waiting for. For example, if we waiting for some integer as a response then we should specify it like below:
+All methods in [HttpService](/api/Relativity.Testing.Framework.Api.Services.HttpService.html) have a generic parameter, this parameter specified the type of response which we waiting for. For example, if we waiting for some integer as a response then we should specify it like below:
 
 ```
 [Test]
@@ -64,7 +64,7 @@ public void Post()
 }
 ```
 
-Also, you can use any model and if all names will mapping correct then all methods will work fine. For example, you can have a model like this and use client Get call, all will work correct:
+Also, you can use any model and if all names will map correct then all methods will work fine. For example, you can have a model like this and use client [Get call](/api/Relativity.Testing.Framework.Api.Services.HttpService.html#Relativity_Testing_Framework_Api_Services_HttpService_Get__1_System_String_), all will work correct:
 
 ```
 public class Client : Artifact

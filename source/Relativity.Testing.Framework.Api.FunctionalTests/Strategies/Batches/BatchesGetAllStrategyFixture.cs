@@ -33,7 +33,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID }
 				};
 
-				var batchSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<BatchSet>>()
+				var batchSet = Facade.Resolve<ICreateBatchSetStrategy>()
 					.Create(DefaultWorkspace.ArtifactID, batchModel);
 
 				Facade.Resolve<ICreateBatchesStrategy>().CreateBatches(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);

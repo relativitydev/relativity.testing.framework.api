@@ -1,8 +1,8 @@
 ﻿# Create Object Manager Service
 
-Before you can use the ApiComponent, remember to [configure and rely on ApiComponent](Getting-Started.html).
+Before you can use the [ApiComponent](/api/Relativity.Testing.Framework.Api.ApiComponent.html), remember to [configure and rely on ApiComponent](Getting-Started.md).
 
-After that, we can resolve object manager service:
+After that, we can resolve [object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html):
 
 ```
 [Test]
@@ -14,7 +14,7 @@ public void ObjectManager_Resolve()
 
 # Create your own model
 
-Object manager service can receive any model, and if all names will mapping correct then all methods will work fine. For example you can have model like this and all will work correct:
+[Object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html) can receive any model, and if all names will mapping correct then all methods will work fine. For example you can have model like this and all will work correct:
 
 ```
 
@@ -44,7 +44,7 @@ Note the space! By convention, the framework assumes a class "NamedLikeThis" ref
 
 If this does not work for you there are two options:
 
-1. Using our attributes, 'ObjectTypeName' for the class name and 'FieldName' for the property name.
+1. Using our [attributes](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.html), ['ObjectTypeName'](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.ObjectTypeNameAttribute.html) for the class name and ['FieldName'](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.FieldNameAttribute.html) for the property name.
 2. Renaming class and properties. This way will work fine but not always it is possible.
 
 An example of overriding the conventional approach using attributes:
@@ -58,7 +58,7 @@ public class ShortClient : Artifact
 }
 ```
 
-But if don't need to parse some property then you can mark it like NonField and we will not deserialize that property.
+But if don't need to parse some property then you can mark it like [NonField](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.NonFieldAttribute.html) and we will not deserialize that property.
 
 ```
 [ObjectTypeName("Client")]
@@ -69,7 +69,7 @@ public class ShortClient : Artifact
 }
 ```
 
-As of version 0.27.0, you can also specify object type and fields by Guids.
+As of version 0.27.0, you can also specify [object type](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.ObjectTypeGuidAttribute.html) and [fields](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.FieldGuidAttribute.html) by Guids.
 
 ```
 [ObjectTypeGuid(TheGuidForClient)]
@@ -82,7 +82,7 @@ public class AClientButWithADifferentNameForSomeReason : Artifact
 
 # Delete entity 
 
-RTF object manager service supports the deletion of an entity by using its artifact ID. Mainly object manager deletion the same as in all other services.
+RTF [object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html) supports the deletion of an entity by using its artifact ID. Mainly object manager deletion the same as in all other services.
 
 ```
 [Test]
@@ -102,7 +102,7 @@ public void ObjectService_Delete()
 
 # Create entity 
 
-RTF object manager service supports the creation of an entity through the model. All that you need to do it is create a correctly model. Mainly object manager creation the same as in all other services.
+RTF [object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html) supports the creation of an entity through the model. All that you need to do it is create a correctly model. Mainly object manager creation the same as in all other services.
 
 ```
 [Test]
@@ -126,7 +126,7 @@ That's all. But you should be sure that all the properties mapping correct, if y
 
 ## Get all artifacts using object manager
 
-For getting all elements using object manager all you need to specify is the model of artifact. The example represents bellow: 
+For getting all elements using [object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html) all you need to specify is the model of artifact. The example represents bellow: 
 
 ```
 [Test]
@@ -140,12 +140,12 @@ public void Client_GetAll()
 }
 ```
 
-For now, method GetAll does not support workspace level search, so if you need to do it please use the Query method.
+For now, method [GetAll](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html#Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1) does not support workspace level search, so if you need to do it please use the [Query](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html#Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Query__1) method.
 
 --- 
 **NOTE**
 
-You should understand that object manager do not support all of the Relativity artifacts, please check the list of supported artifacts [here](https://platform.relativity.com/RelativityOne/Content/RSAPI/Searching_Relativity/Searching_Relativity.htm#SystemTypes).
+You should understand that [object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html) does not support all of the Relativity artifacts, please check the list of supported artifacts [here](https://platform.relativity.com/RelativityOne/Content/RSAPI/Searching_Relativity/Searching_Relativity.htm#SystemTypes).
 
 
 ---
@@ -168,7 +168,7 @@ public void Client_Query()
 
 ### How to use fields to return specific artifacts
 
-This example returns the same result us method GetAll. But very often we need to specify some field and you can do it with method where. 
+This example returns the same result us method [GetAll](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html#Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1). But very often we need to specify some field and you can do it with method where. 
 Method 'where' use predicate, so you can write any boolean operation for getting artifacts.
 
 ```
@@ -183,7 +183,7 @@ public void Client_QueryUsingModelProperty()
 
 ### How to fetch specific fields
 
-Some times we need only some specific fields. And method 'Fetch' can help you with it:
+Some times we need only some specific fields. And method ['Fetch'](/api/Relativity.Testing.Framework.Api.Querying.Query-2.html#Relativity_Testing_Framework_Api_Querying_Query_2_Fetch_System_String___) can help you with it:
 
 ```
 
@@ -199,7 +199,7 @@ public void Client_Query()
 
 ### How to query workspace artifacts
 
-For querying workspace artifacts you need to specify workspace id. You should use method 'for' for it:
+For querying workspace artifacts you need to specify workspace id. You should use method ['For'](/api/Relativity.Testing.Framework.Api.ObjectManagement.ObjectQuery-1.html#Relativity_Testing_Framework_Api_ObjectManagement_ObjectQuery_1_For_System_Int32_) for it:
 
 ```
 [Test]
@@ -214,7 +214,7 @@ public void Client_Query()
 
 # Update entity 
 
-RTF object manager service supports the update of an entity through the model. All that you need to do it is create a correct model. Mainly object manager creation the same as in all other services.
+RTF [object manager service](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html) supports the update of an entity through the model. All that you need to do it is create a correct model. Mainly object manager creation the same as in all other services.
 
 ```
 [Test]

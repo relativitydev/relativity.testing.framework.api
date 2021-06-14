@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the base class for strategy that gets choice ID by choice name.
 	/// </summary>
-	public abstract class CachedGetChoiceIdByNameStrategyBase
+	internal abstract class CachedGetChoiceIdByNameStrategyBase
 	{
 		private readonly Lazy<ArtifactIdNamePair[]> _lazyAllChoices;
 

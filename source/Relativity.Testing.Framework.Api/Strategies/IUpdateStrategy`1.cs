@@ -4,7 +4,7 @@
 	/// Represents the strategy of entity update.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IUpdateStrategy<T>
+	internal interface IUpdateStrategy<T>
 	{
 		/// <summary>
 		/// Updates the specified entity.

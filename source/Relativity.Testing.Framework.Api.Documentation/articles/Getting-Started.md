@@ -31,7 +31,7 @@ _workspaceService = RelativityFacade.Instance.Resolve<IWorkspaceService>();
 
 ## Calling Strategies
 
-All public [strategies](/api/Relativity.Testing.Framework.Api.Strategies.html) will be attached to the [services](/api/Relativity.Testing.Framework.Api.Services.html) mentioned above.
+All RTF strategies will be attached to the [services](/api/Relativity.Testing.Framework.Api.Services.html) mentioned above.
 To make a request to Relativity, just call the desired method on the [service](/api/Relativity.Testing.Framework.Api.Services.html).
 
 ```
@@ -40,7 +40,7 @@ Workspace result = _workspaceService.Create(new Workspace());
 
 ### Making Requests
 
-Most [strategies](/api/Relativity.Testing.Framework.Api.Strategies.html) use DTOs defined in the [Relativity.Testing.Framework repository](https://github.com/relativitydev/relativity.testing.framework) to make the request, and to store information back to the object.
+Most RTF strategies use DTOs defined in the [Relativity.Testing.Framework repository](https://github.com/relativitydev/relativity.testing.framework) to make the request, and to store information back to the object.
 In the example above, we didn't provide any values to the DTO, so defaults will be generated or found in the environment.
 
 We can also provide values to the DTO, and they will be used in the request.

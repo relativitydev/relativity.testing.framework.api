@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class ScriptDeleteStrategy : DeleteWorkspaceEntityByIdStrategy<Script>
+	internal class ScriptDeleteStrategy : DeleteWorkspaceEntityByIdStrategy<Script>
 	{
 		private readonly IRestService _restService;
 

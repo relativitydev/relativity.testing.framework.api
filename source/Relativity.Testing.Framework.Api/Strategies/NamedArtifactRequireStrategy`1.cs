@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// Represents the base strategy class of entity requirement for entities inherited from <see cref="NamedArtifact"/>.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public abstract class NamedArtifactRequireStrategy<T> : IRequireStrategy<T>
+	internal abstract class NamedArtifactRequireStrategy<T> : IRequireStrategy<T>
 		where T : NamedArtifact, new()
 	{
 		private readonly ICreateStrategy<T> _createStrategy;

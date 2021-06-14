@@ -2,7 +2,7 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public interface IQueryEligibleToAddResourcesStrategy
+	internal interface IQueryEligibleToAddResourcesStrategy
 	{
 		/// <summary>
 		/// Gets a query to enumerate resources.

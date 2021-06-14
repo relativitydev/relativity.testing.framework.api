@@ -4,7 +4,7 @@
 	/// Represents the strategy of getting all entities of particular type.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetAllStrategy<T>
+	internal interface IGetAllStrategy<T>
 	{
 		/// <summary>
 		/// Gets all entities.

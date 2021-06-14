@@ -3,7 +3,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	public class ResourceServerService : IResourceServerService
+	internal class ResourceServerService : IResourceServerService
 	{
 		private readonly IGetAllStrategy<ResourceServer> _getAllStrategy;
 

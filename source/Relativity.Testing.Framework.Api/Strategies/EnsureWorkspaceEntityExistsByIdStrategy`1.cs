@@ -5,7 +5,7 @@
 	/// Uses <see cref="IExistsByIdStrategy{T}"/> strategy for checking the entity.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public class EnsureWorkspaceEntityExistsByIdStrategy<T> : IEnsureWorkspaceEntityExistsByIdStrategy<T>
+	internal class EnsureWorkspaceEntityExistsByIdStrategy<T> : IEnsureWorkspaceEntityExistsByIdStrategy<T>
 	{
 		private readonly IExistsWorkspaceEntityByIdStrategy<T> _existsByIdStrategy;
 

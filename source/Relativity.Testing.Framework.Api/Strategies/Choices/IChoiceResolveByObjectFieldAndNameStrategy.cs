@@ -5,7 +5,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the strategy of resolving/getting the choice artifact reference for particular object field by choice name.
 	/// </summary>
-	public interface IChoiceResolveByObjectFieldAndNameStrategy
+	internal interface IChoiceResolveByObjectFieldAndNameStrategy
 	{
 		/// <summary>
 		/// Gets the choice artifact reference for particular object field within workspace by choice name.

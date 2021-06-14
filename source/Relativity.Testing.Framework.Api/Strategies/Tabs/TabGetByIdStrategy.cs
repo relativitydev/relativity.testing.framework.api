@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class TabGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<Tab>
+	internal class TabGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 		private readonly IObjectService _objectService;

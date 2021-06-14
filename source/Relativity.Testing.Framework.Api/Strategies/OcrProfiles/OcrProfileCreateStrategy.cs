@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class OcrProfileCreateStrategy : CreateWorkspaceEntityStrategy<OcrProfile>
+	internal class OcrProfileCreateStrategy : CreateWorkspaceEntityStrategy<OcrProfile>
 	{
 		private readonly IObjectService _objectService;
 		private readonly IChoiceService _choiceService;

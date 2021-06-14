@@ -1,6 +1,6 @@
 ﻿# Create a custom strategy
 
-All strategies should be based on some interface, most common actions already have interfaces so you should do not duplicate them. For a list of available interfaces, please check out the folder found [here](https://github.com/relativitydev/relativity.testing.framework/tree/master/source/Relativity.Testing.Framework/Strategies) or the documentation [here](/api/Relativity.Testing.Framework.Api.Strategies.html). Then after you implement the needed interface you should register your strategy, in RTF we use the Castle Windsor package for it. For example, you want to implement a new get strategy for keyword search wich use a new model with less count of properties, lets named I like NewKeywordSearch. For example, it can look like:
+All strategies should be based on some interface, most common actions already have interfaces so you should do not duplicate them. For a list of available interfaces, please check out the folder found [here](https://github.com/relativitydev/relativity.testing.framework/tree/master/source/Relativity.Testing.Framework/Strategies). Then after you implement the needed interface you should register your strategy, in RTF we use the Castle Windsor package for it. For example, you want to implement a new get strategy for keyword search wich use a new model with less count of properties, lets named I like NewKeywordSearch. For example, it can look like:
 
 ```
 [ObjectTypeName("KeywordSearch")]
@@ -59,7 +59,7 @@ public void ResolveNewStrategy()
 
 # Create a custom strategy with auto clean up
 
-If you want to implement create a strategy with auto clean up then you should implement tho strategies: create and delete. Create, it is a strategy that should be based on [CreateWorkspaceEntityStrategy](/api/Relativity.Testing.Framework.Api.Strategies.CreateWorkspaceEntityStrategy-1.html) for workspace artifacts or [CreateStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.CreateStrategy-1.html) for admin artifacts. Delete strategy should be based on [DeleteByIdStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.DeleteByIdStrategy-1.html) for admin artifacts or [DeleteWorkspaceEntityByIdStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.DeleteWorkspaceEntityByIdStrategy-1.html) for workspace artifacts.
+If you want to implement create a strategy with auto clean up then you should implement tho strategies: create and delete. Create, it is a strategy that should be based on [CreateWorkspaceEntityStrategy](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Strategies/CreateWorkspaceEntityStrategy%601.cs) for workspace artifacts or [CreateStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.CreateStrategy-1.html) for admin artifacts. Delete strategy should be based on [DeleteByIdStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.DeleteByIdStrategy-1.html) for admin artifacts or [DeleteWorkspaceEntityByIdStrategy](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Strategies.DeleteWorkspaceEntityByIdStrategy-1.html) for workspace artifacts.
 
 ```
 public class CustomDeleteStrategy : DeleteWorkspaceEntityByIdStrategy<CustomModel>
@@ -86,8 +86,8 @@ If you implement this to strategies then this artifact will be removed in OneTim
 ---
 **NOTE**
 
-Don't forget to register new strategies, and don't use for it abstract classes, better to use interfaces in with we based. [ICreateWorkspaceEntityStrategy]((/api/Relativity.Testing.Framework.Api.Strategies.ICreateWorkspaceEntityStrategy-1.html) for
-[CreateWorkspaceEntityStrategy](/api/Relativity.Testing.Framework.Api.Strategies.CreateWorkspaceEntityStrategy-1.html) etc.
+Don't forget to register new strategies, and don't use for it abstract classes, better to use interfaces in with we based. [ICreateWorkspaceEntityStrategy](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Strategies/ICreateWorkspaceEntityStrategy%601.cs) for
+[CreateWorkspaceEntityStrategy](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Strategies/CreateWorkspaceEntityStrategy%601.cs) etc.
 
 ---
 

@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	public class ObjectTypeService : IObjectTypeService
+	internal class ObjectTypeService : IObjectTypeService
 	{
 		private readonly ICreateWorkspaceEntityStrategy<ObjectType> _createStrategy;
 		private readonly IRequireWorkspaceEntityStrategy<ObjectType> _requireWorkspaceEntityStrategy;

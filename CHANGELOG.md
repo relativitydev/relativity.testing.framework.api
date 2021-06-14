@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Strategies and services implementations made internal - [RTF-1229](https://jira.kcura.com/browse/RTF-1229)
 
+### Added
+
+- Get by ID for IUserService. - [RTF-1229](https://jira.kcura.com/browse/RTF-1229)
+
 ## [2.3.0] - 2021-06-11
 
 ### Added

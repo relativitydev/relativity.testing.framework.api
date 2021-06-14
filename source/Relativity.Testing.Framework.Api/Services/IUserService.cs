@@ -31,6 +31,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int id);
 
 		/// <summary>
+		/// Gets the user by ID.
+		/// </summary>
+		/// <param name="id">The artifact ID of the user.</param>
+		/// <returns>The <see cref="User"/> entity or <see langword="null"/>.</returns>
+		User Get(int id);
+
+		/// <summary>
 		/// Gets the user by the specified email address.
 		/// </summary>
 		/// <param name="email">The email address.</param>

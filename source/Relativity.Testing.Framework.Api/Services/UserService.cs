@@ -12,6 +12,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IDeleteByIdStrategy<User> _deleteByIdStrategy;
 
+		private readonly IGetByIdStrategy<User> _getByIdStrategy;
+
 		private readonly IUserGetByEmailStrategy _getByEmailStrategy;
 
 		private readonly IUserExistsByEmailStrategy _existsByEmailStrategy;
@@ -26,6 +28,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			ICreateStrategy<User> createStrategy,
 			IRequireWithEnsureNewStrategy<User> requireWithEnsureNewStrategy,
 			IDeleteByIdStrategy<User> deleteByIdStrategy,
+			IGetByIdStrategy<User> getByIdStrategy,
 			IUserGetByEmailStrategy getByEmailStrategy,
 			IUserExistsByEmailStrategy existsByEmailStrategy,
 			IUserAddToGroupStrategy addToGroupStrategy,
@@ -35,6 +38,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_createStrategy = createStrategy;
 			_requireWithEnsureNewStrategy = requireWithEnsureNewStrategy;
 			_deleteByIdStrategy = deleteByIdStrategy;
+			_getByIdStrategy = getByIdStrategy;
 			_getByEmailStrategy = getByEmailStrategy;
 			_existsByEmailStrategy = existsByEmailStrategy;
 			_addToGroupStrategy = addToGroupStrategy;
@@ -50,6 +54,9 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Delete(int id)
 			=> _deleteByIdStrategy.Delete(id);
+
+		public User Get(int id)
+			=> _getByIdStrategy.Get(id);
 
 		public User GetByEmail(string email)
 			=> _getByEmailStrategy.Get(email);

@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	public class TabService : ITabService
+	internal class TabService : ITabService
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Tab> _createWorkspaceEntityStrategy;
 		private readonly IRequireWorkspaceEntityStrategy<Tab> _requireWorkspaceEntityStrategy;

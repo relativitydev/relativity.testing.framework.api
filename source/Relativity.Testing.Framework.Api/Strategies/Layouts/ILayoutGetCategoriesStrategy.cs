@@ -6,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the strategy of getting categories for building a layout.
 	/// </summary>
-	public interface ILayoutGetCategoriesStrategy
+	internal interface ILayoutGetCategoriesStrategy
 	{
 		/// <summary>
 		/// Gets the categories in a layout.

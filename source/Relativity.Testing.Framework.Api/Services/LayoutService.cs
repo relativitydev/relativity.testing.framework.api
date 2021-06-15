@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	public class LayoutService : ILayoutService
+	internal class LayoutService : ILayoutService
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Layout> _createWorkspaceEntityStrategy;
 		private readonly IRequireWorkspaceEntityStrategy<Layout> _requireWorkspaceEntityStrategy;

@@ -12,7 +12,7 @@ using Relativity.Testing.Framework.Api.Models;
 namespace Relativity.Testing.Framework.Api.Services
 {
 	[DoNotRetry]
-	public class HttpService : IHttpService
+	internal class HttpService : IHttpService
 	{
 		private readonly string _basicAuthorizationParameter;
 		private readonly HttpClient _client;

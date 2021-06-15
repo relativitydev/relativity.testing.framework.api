@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class ProductionsDataSourceUpdateStrategy : IUpdateProductionsDataSourceStrategy
+	internal class ProductionsDataSourceUpdateStrategy : IUpdateProductionsDataSourceStrategy
 	{
 		private readonly IRestService _restService;
 

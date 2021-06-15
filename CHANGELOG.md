@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2021-06-14
+
+### Removed
+
+- Strategies and services implementations made internal - [RTF-1229](https://jira.kcura.com/browse/RTF-1229)
+
+### Added
+
+- Get by ID for IUserService. - [RTF-1229](https://jira.kcura.com/browse/RTF-1229)
+
 ## [2.3.0] - 2021-06-11
 
 ### Added

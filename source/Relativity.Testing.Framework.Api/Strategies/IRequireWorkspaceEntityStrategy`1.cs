@@ -4,7 +4,7 @@
 	/// Represents the strategy of workspace entity requirement.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IRequireWorkspaceEntityStrategy<T>
+	internal interface IRequireWorkspaceEntityStrategy<T>
 	{
 		/// <summary>
 		/// Requires the specified workspace entity.

@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class EntityCreateStrategy : CreateWorkspaceEntityStrategy<Entity>
+	internal class EntityCreateStrategy : CreateWorkspaceEntityStrategy<Entity>
 	{
 		private readonly IObjectService _objectService;
 		private readonly IChoiceResolveByObjectFieldAndNameStrategy _choiceResolveByObjectFieldAndNameStrategy;

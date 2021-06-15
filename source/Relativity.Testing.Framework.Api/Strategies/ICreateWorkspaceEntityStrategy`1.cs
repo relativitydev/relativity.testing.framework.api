@@ -4,7 +4,7 @@
 	/// Represents the strategy of entity creation of workspace level.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface ICreateWorkspaceEntityStrategy<T>
+	internal interface ICreateWorkspaceEntityStrategy<T>
 	{
 		/// <summary>
 		/// Creates the specified entity.

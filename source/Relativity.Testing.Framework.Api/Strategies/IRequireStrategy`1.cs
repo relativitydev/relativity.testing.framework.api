@@ -4,7 +4,7 @@
 	/// Represents the strategy of entity requirement.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IRequireStrategy<T>
+	internal interface IRequireStrategy<T>
 	{
 		/// <summary>
 		/// Requires the specified entity.

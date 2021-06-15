@@ -3,7 +3,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies.BatchSets
 {
-	public interface IGetBatchSetByIdStrategy
+	internal interface IGetBatchSetByIdStrategy
 	{
 		/// <summary>
 		/// Gets the entity by the specified workspace ID.

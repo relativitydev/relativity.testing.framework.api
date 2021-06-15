@@ -5,7 +5,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the strategy of getting BatchSet by ID.
 	/// </summary>
-	public interface IExistsBatchSetByIdStrategy
+	internal interface IExistsBatchSetByIdStrategy
 	{
 		/// <summary>
 		/// Determines whether the entity with the specified ID exists.

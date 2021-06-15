@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class SearchProviderGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<SearchProvider>
+	internal class SearchProviderGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<SearchProvider>
 	{
 		private readonly IRestService _restService;
 		private readonly IObjectService _objectService;

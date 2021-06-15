@@ -8,7 +8,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// Represents base strategy of entity creation of workspace level.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public abstract class CreateWorkspaceEntityStrategy<T> : ICreateWorkspaceEntityStrategy<T>
+	internal abstract class CreateWorkspaceEntityStrategy<T> : ICreateWorkspaceEntityStrategy<T>
 		where T : Artifact
 	{
 		/// <summary>

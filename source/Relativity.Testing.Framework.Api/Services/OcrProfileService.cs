@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	public class OcrProfileService : IOcrProfileService
+	internal class OcrProfileService : IOcrProfileService
 	{
 		private readonly ICreateWorkspaceEntityStrategy<OcrProfile> _createWorkspaceEntityStrategy;
 		private readonly IDeleteWorkspaceEntityByIdStrategy<OcrProfile> _deleteWorkspaceEntityByIdStrategy;

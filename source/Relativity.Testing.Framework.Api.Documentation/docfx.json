@@ -23,25 +23,8 @@
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
-          "*.md"
-        ]
-      },
-    ],
-    "resource": [
-      {
-        "files": [
-          "images/**"
-        ]
-      }
-    ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
+          "*.md",
+          "fusion/**"
         ]
       }
     ],

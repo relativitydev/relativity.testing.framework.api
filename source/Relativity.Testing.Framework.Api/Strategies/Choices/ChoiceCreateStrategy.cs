@@ -1,5 +1,6 @@
 ﻿using System;
 using Relativity.Testing.Framework.Api.Services;
+using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -25,18 +26,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			Validate(workspaceId, entity);
 			entity.FillRequiredProperties();
 
+			ChoiceRequest choiceRequest = ChoiceExtensions.ToChoiceRequest(entity);
+
 			var dto = new
 			{
-				choiceRequest = new
-				{
-					Field = new Artifact { ArtifactID = entity.Field.ArtifactID },
-					entity.Name,
-					Color = (int)entity.Color,
-					entity.Order
-				}
+				choiceRequest = choiceRequest
 			};
 
-			var artifactId = _restService.Post<int>($"Relativity.Choices/workspace/{workspaceId}/choice", dto);
+			int artifactId = _restService.Post<int>($"Relativity.Choices/workspace/{workspaceId}/choice", dto);
 
 			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, artifactId);
 		}

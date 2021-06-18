@@ -75,7 +75,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEquivalentTo(missingChoice, o => o.Excluding(x => x.ArtifactID).
 				Excluding(x => x.Color).
 				Excluding(x => x.ObjectType).
-				Excluding(x => x.Field));
+				Excluding(x => x.Field).
+				Excluding(x => x.Parent));
 		}
 	}
 }

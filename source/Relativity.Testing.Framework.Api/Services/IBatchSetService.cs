@@ -95,7 +95,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="Production"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
-		/// BatchSet batchSet = _batchSetService.Get(1015427, batchSetArtifactId);
+		/// var workspaceId = 1015427;
+		/// BatchSet batchSet = _batchSetService.Get(workspaceId, batchSetArtifactId);
 		/// </code>
 		/// </example>
 		BatchSet Get(int workspaceId, int entityId);
@@ -109,12 +110,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="Production"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
+		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
 		/// 	Username = "SomeUsername",
 		/// 	Password = "SomePassword"
 		/// };
-		/// BatchSet batchSet = _batchSetService.Get(1015427, batchSetArtifactId, userCredentials);
+		/// BatchSet batchSet = _batchSetService.Get(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
 		/// </example>
 		BatchSet Get(int workspaceId, int entityId, UserCredentials userCredentials);
@@ -127,7 +129,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns><see langword="true"/> if a batch set exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
-		/// var batchSetExists = _batchSetService.Exists(1015427, batchSetArtifactId);
+		/// var workspaceId = 1015427;
+		/// var batchSetExists = _batchSetService.Exists(workspaceId, batchSetArtifactId);
 		/// </code>
 		/// </example>
 		bool Exists(int workspaceId, int entityId);
@@ -141,12 +144,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns><see langword="true"/> if a batch set exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
+		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
 		/// 	Username = "SomeUsername",
 		/// 	Password = "SomePassword"
 		/// };
-		/// BatchSet batchSet = _batchSetService.Exists(1015427, batchSetArtifactId, userCredentials);
+		/// BatchSet batchSet = _batchSetService.Exists(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
 		/// </example>
 		bool Exists(int workspaceId, int entityId, UserCredentials userCredentials);
@@ -159,7 +163,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
 		/// <example>
 		/// <code>
-		/// BatchProcessResult result = _batchSetService.CreateBatches(1015427, batchSetArtifactId);
+		/// var workspaceId = 1015427;
+		/// BatchProcessResult result = _batchSetService.CreateBatches(workspaceId, batchSetArtifactId);
 		/// </code>
 		/// </example>
 		BatchProcessResult CreateBatches(int workspaceId, int entityId);
@@ -173,12 +178,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
 		/// <example>
 		/// <code>
+		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
 		/// 	Username = "SomeUsername",
 		/// 	Password = "SomePassword"
 		/// };
-		/// BatchProcessResult result = _batchSetService.CreateBatches(1015427, batchSetArtifactId, userCredentials);
+		/// BatchProcessResult result = _batchSetService.CreateBatches(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
 		/// </example>
 		BatchProcessResult CreateBatches(int workspaceId, int entityId, UserCredentials userCredentials);
@@ -191,7 +197,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
 		/// <example>
 		/// <code>
-		/// BatchProcessResult result = _batchSetService.PurgeBatches(1015427, batchSetArtifactId);
+		/// var workspaceId = 1015427;
+		/// BatchProcessResult result = _batchSetService.PurgeBatches(workspaceId, batchSetArtifactId);
 		/// </code>
 		/// </example>
 		BatchProcessResult PurgeBatches(int workspaceId, int entityId);
@@ -205,12 +212,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
 		/// <example>
 		/// <code>
+		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
 		/// 	Username = "SomeUsername",
 		/// 	Password = "SomePassword"
 		/// };
-		/// BatchProcessResult result = _batchSetService.PurgeBatches(1015427, batchSetArtifactId, userCredentials);
+		/// BatchProcessResult result = _batchSetService.PurgeBatches(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
 		/// </example>
 		BatchProcessResult PurgeBatches(int workspaceId, int entityId, UserCredentials userCredentials);

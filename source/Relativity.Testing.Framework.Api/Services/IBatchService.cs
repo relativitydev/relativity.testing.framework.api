@@ -7,6 +7,11 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// <summary>
 	/// Represents the batch API service.
 	/// </summary>
+	/// <example>
+	/// <code>
+	/// _batchService = relativityFacade.Resolve&lt;IBatchService&gt;();
+	/// </code>
+	/// </example>
 	public interface IBatchService
 	{
 		/// <summary>
@@ -14,7 +19,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the batch.</param>
 		/// <param name="entityId">The Artifact ID of the batch.</param>
-		/// <returns>>The <see cref="Batch"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The <see cref="Batch"/> entity or <see langword="null"/>.</returns>
+		/// <example>
+		/// <code>
+		/// Batch batch = _batchService.Get(1015427, batchArtifactId);
+		/// </code>
+		/// </example>
 		Batch Get(int workspaceId, int entityId);
 
 		/// <summary>
@@ -24,29 +34,38 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>The collection of <see cref="Batch"/> entities.</returns>
 		/// <example>
 		/// <code>
-		/// RelativityFacade.Instance.RelyOn&lt;CoreComponent&gt;();
-		/// RelativityFacade.Instance.RelyOn&lt;ApiComponent&gt;();
-		/// IBatchService _batchService = RelativityFacade.Instance.Resolve&lt;IBatchService&gt;();
 		/// List&lt;Batch&gt; batches = _batchService.GetAll(1015427);
 		/// </code>
 		/// </example>
 		Batch[] GetAll(int workspaceId);
 
 		/// <summary>
-		/// Query the batches by specified condition.
+		/// Query the <see cref="Batch">batches</see> by specified condition.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="wherePropertySelector">The filter property selector.</param>
 		/// <param name="whereValue">The filter property value.</param>
-		/// <returns>The array of batches.</returns>
+		/// <returns>The array of <see cref="Batch">batches</see>.</returns>
+		/// <example>
+		/// <code>
+		/// var matchingBatches = _batchService.Query(1015427, x => x.BatchSet, "Batch Set Name"); /// Finding batches from workspace with ID 1015427 that have BatchSet "Batch Set Name"
+		/// </code>
+		/// </example>
 		Batch[] Query(int workspaceId, Expression<Func<Batch, object>> wherePropertySelector, object whereValue);
 
 		/// <summary>
-		/// Assign a batch to a user.
+		/// Assign a <see cref="Batch"/> to a user.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="batchId">The batch ID.</param>
 		/// <param name="userId">The user ID.</param>
+		/// <example>
+		/// <code>
+		/// var batch = _batchService.Get(1015427, batchArtifactId);
+		/// user = Facade.Resolve&lt;IUserService&gt;().Get(someUserId);
+		/// _batchService.AssignToUser(1015427, batch.ArtifactID, user.ArtifactID);
+		/// </code>
+		/// </example>
 		void AssignToUser(int workspaceId, int batchId, int userId);
 	}
 }

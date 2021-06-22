@@ -9,7 +9,6 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// </summary>
 	/// <example>
 	/// <code>
-	/// ...
 	/// _agentService = relativityFacade.Resolve&#60;IAgentService&#62;();
 	/// </code>
 	/// </example>
@@ -18,14 +17,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Creates the specified agent.
 		/// </summary>
-		/// <param name="entity">The entity to create.</param>
-		/// <returns>The created entity.</returns>
+		/// <param name="entity">The <see href="https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity to create.</param>
+		/// <returns>The created <see href="https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity.</returns>
 		/// <example>
 		/// <code>
+		/// var agentType =  relativityFacade.Resolve&#60;IGetByNameStrategy&#60;AgentType&#62;&#62;()
+		/// 		.Get("Some Agent Type");
+		/// var agentServer = relativityFacade.Resolve&#60;IAgentServerGetAvailableStrategy&#62;().GetAvailable(_agentType.Name)[0];
 		/// var entity = new Agent
 		/// {
-		/// 	AgentType = someAgentType,
-		/// 	AgentServer = someAgentServer,
+		/// 	AgentType = agentType,
+		/// 	AgentServer = agentServer,
 		/// 	RunInterval = 25
 		/// }
 		/// var createdAgent = _agentService.Create(entity);
@@ -34,22 +36,36 @@ namespace Relativity.Testing.Framework.Api.Services
 		Agent Create(Agent entity);
 
 		/// <summary>
-		/// Requires the specified Agent.
+		/// Requires the specified Agent(s).
 		/// <list type="number">
 		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by id and updates it.</description></item>
 		/// <item><description>If <see cref="Agent.AgentType"/> property of <paramref name="entity"/> exists, gets entity by type and updates it.</description></item>
 		/// <item><description>Otherwise creates a new entity using <see cref="ICreateStrategy{T}"/>.</description></item>
 		/// </list>
 		/// </summary>
-		/// <param name="entity">The entity to require.</param>
+		/// <param name="entity">The <see href="https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity to require.</param>
 		/// <returns>The required entity .</returns>
 		/// <example>
 		/// <code>
-		/// ...
 		/// var agentToUpdate = _agentService.Get(agentArtifactId);
 		/// agentToUpdate.LoggingLevel = AgentLoggingLevelType.Critical;
 		///
 		/// var updatedAgent = _agentService.Require(agentToUpdate); // Finds agent by id, updates LoggingLevel property and returns it
+		/// </code>
+		/// </example>
+		/// <example>
+		/// <code>
+		/// var agentType =  relativityFacade.Resolve&#60;IGetByNameStrategy&#60;AgentType&#62;&#62;()
+		/// 		.Get("Some Agent Type");
+		/// var agentServer = relativityFacade.Resolve&#60;IAgentServerGetAvailableStrategy&#62;().GetAvailable(_agentType.Name)[0];
+		/// var agentToCreate = new Agent
+		/// {
+		/// 	AgentType = agentType,
+		/// 	AgentServer = agentServer,
+		/// 	RunInterval = 25
+		/// }
+		///
+		/// var createdAgent = _agentService.Require(agentToCreate); // Creates new agent and returns it
 		/// </code>
 		/// </example>
 		Agent Require(Agent entity);

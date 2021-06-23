@@ -1,13 +1,15 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ClientStatusGetChoiceIdByNameStrategy : CachedGetChoiceIdByNameStrategyBase, IClientStatusGetChoiceIdByNameStrategy
+	[VersionRange("<12.1")]
+	internal class ClientStatusGetChoiceIdByNameStrategyV1PrePrairieSmoke : CachedGetChoiceIdByNameStrategyBase, IClientStatusGetChoiceIdByNameStrategy
 	{
 		private readonly IRestService _restService;
 
-		public ClientStatusGetChoiceIdByNameStrategy(IRestService restService)
+		public ClientStatusGetChoiceIdByNameStrategyV1PrePrairieSmoke(IRestService restService)
 		{
 			_restService = restService;
 		}

@@ -8,7 +8,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientCreateStrategy))]
+	[TestOf(typeof(ClientCreateStrategyPrePrairieSmoke))]
 	public class ClientCreateStrategyFixture : ApiTestFixture
 	{
 		private ICreateStrategy<Client> _sut;

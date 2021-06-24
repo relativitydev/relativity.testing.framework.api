@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added NUnit to the dependencies for the project/package. - [TESTENG-477](https://jira.kcura.com/browse/TESTENG-477)
 
+## [3.2.0] - 2021-06-24
+
+### Changed
+
+- Client requests will now use the V1 versioned API for 12.1 and higher. - [RTF-1247](https://jira.kcura.com/browse/RTF-1247)
+
+## [3.1.0] - 2021-06-23
+
+### Added
+
+- Batch Checkout and Batch Checkin method in BatchService - [RTF-1246](https://jira.kcura.com/browse/RTF-1246)
+
 ## [3.0.1] - 2021-06-18
 
 ### Fixed

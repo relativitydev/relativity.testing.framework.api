@@ -4,10 +4,11 @@ using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientDeleteByIdStrategy))]
+	[TestOf(typeof(ClientDeleteByIdStrategyPrePrairieSmoke))]
 	public class ClientDeleteByIdStrategyFixture : ApiTestFixture
 	{
 		private IDeleteByIdStrategy<Client> _sut;
@@ -26,11 +27,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var exception = Assert.Throws<HttpRequestException>(() =>
 				_sut.Delete(id));
 
-			exception.Message.Should().StartWith($"Client ArtifactID {id} is invalid.");
+			exception.Message.Should().NotBeNullOrWhiteSpace();
 		}
 
 		[Test]
-		public void Delete_Existing()
+		[VersionRange("<12.1")]
+		public void Delete_Existing_PrePrairieSmoke()
 		{
 			Client toDelete = null;
 
@@ -40,6 +42,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			Facade.Resolve<IGetByIdStrategy<Client>>().Get(toDelete.ArtifactID).
 				Should().BeNull();
+		}
+
+		[Test]
+		[VersionRange(">=12.1")]
+		public void Delete_Existing()
+		{
+			Client toDelete = null;
+
+			Arrange(x => x.Create(out toDelete));
+
+			_sut.Delete(toDelete.ArtifactID);
+
+			Assert.Throws<HttpRequestException>(() =>
+				Facade.Resolve<IGetByIdStrategy<Client>>().Get(toDelete.ArtifactID));
 		}
 	}
 }

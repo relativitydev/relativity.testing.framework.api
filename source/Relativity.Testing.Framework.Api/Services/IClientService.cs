@@ -16,6 +16,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		Client Create(Client entity);
 
 		/// <summary>
+		/// Updates the specified <see cref="Client"/>.
+		/// </summary>
+		/// <param name="entity">Updated <see cref="Client"/> entity.</param>
+		/// <example>
+		/// <code>
+		/// var client = _clientService.Get("Some Client Name");
+		/// client.Keywords = "SampleKeywords";
+		/// _clientService.Update(client);
+		/// </code>
+		/// </example>
+		void Update(Client entity);
+
+		/// <summary>
 		/// Requires the specified client.
 		/// <list type="number">
 		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and returns it.</item>

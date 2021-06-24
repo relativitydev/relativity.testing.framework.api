@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IBatchCheckoutStrategy))]
 	internal class BatchCheckoutStrategyFixture : ApiServiceTestFixture<IBatchCheckoutStrategy>
 	{
-		public BatchCheckoutStrategyFixture()
-		{
-		}
-
-		public BatchCheckoutStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Checkout_BatchStatusShouldBeInProgress()
 		{

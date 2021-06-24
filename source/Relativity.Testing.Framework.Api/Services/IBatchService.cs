@@ -67,5 +67,34 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void AssignToUser(int workspaceId, int batchId, int userId);
+
+		/// <summary>
+		/// Checks in the batch.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <param name="batchId">The Artifact ID of the batch.</param>
+		/// <param name="isCompleted">Indicator if Batch is completed or not.
+		/// <para>When set to true - updates the batch status to Completed. The batch remains assigned to the current user.</para>
+		/// <para>When set to false - updates the batch status to None and removes the user assignment. </para>
+		/// </param>
+		/// <example>
+		/// <code>
+		/// Facade.Resolve&lt;IBatchService&gt;().Checkin(workspaceArtifactId, batchArtifactID, true);
+		/// </code>
+		/// </example>
+		void Checkin(int workspaceId, int batchId, bool isCompleted);
+
+		/// <summary>
+		/// Checks out the batch.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <param name="batchId">The Artifact ID of the batch.</param>
+		/// <param name="userId">The Artifact ID for the user who should be assigned to the batch.</param>
+		/// <example>
+		/// <code>
+		/// Facade.Resolve&lt;IBatchService&gt;().Checkout(workspaceArtifactId, batchArtifactID, userArtifactId);
+		/// </code>
+		/// </example>
+		void Checkout(int workspaceId, int batchId, int userId);
 	}
 }

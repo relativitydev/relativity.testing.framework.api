@@ -5,11 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2021-06-24
+
+### Changed
+
+- Client requests will now use the V1 versioned API for 12.1 and higher. - [RTF-1247](https://jira.kcura.com/browse/RTF-1247)
+
 ## [3.1.0] - 2021-06-23
 
 ### Added
 
-- New version of the client versioned api. - [RTF-1247](https://jira.kcura.com/browse/RTF-1247)
+- Batch Checkout and Batch Checkin method in BatchService - [RTF-1246](https://jira.kcura.com/browse/RTF-1246)
 
 ## [3.0.1] - 2021-06-18
 

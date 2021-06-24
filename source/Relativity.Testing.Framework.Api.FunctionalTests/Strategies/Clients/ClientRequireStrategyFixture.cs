@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IRequireStrategy<Client> _sut;
 
-		public ClientRequireStrategyFixture()
-		{
-		}
-
-		public ClientRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

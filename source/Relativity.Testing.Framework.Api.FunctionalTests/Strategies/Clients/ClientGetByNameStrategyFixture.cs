@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetByNameStrategy<Client> _sut;
 
-		public ClientGetByNameStrategyFixture()
-		{
-		}
-
-		public ClientGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

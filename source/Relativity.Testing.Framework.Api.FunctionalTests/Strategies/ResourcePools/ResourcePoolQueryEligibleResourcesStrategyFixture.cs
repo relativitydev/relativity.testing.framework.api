@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetAllStrategy<ResourcePool> _getAllStrategy;
 
-		public ResourcePoolQueryEligibleResourcesStrategyFixture()
-		{
-		}
-
-		public ResourcePoolQueryEligibleResourcesStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

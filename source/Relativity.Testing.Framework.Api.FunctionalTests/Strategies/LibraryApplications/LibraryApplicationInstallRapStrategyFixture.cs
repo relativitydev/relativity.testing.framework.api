@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetByIdStrategy<LibraryApplication> _getByIdStrategy;
 
-		public LibraryApplicationInstallRapStrategyFixture()
-		{
-		}
-
-		public LibraryApplicationInstallRapStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

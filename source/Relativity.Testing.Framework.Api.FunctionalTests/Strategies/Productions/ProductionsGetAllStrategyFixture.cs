@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllWorkspaceEntitiesStrategy<Production>))]
 	internal class ProductionsGetAllStrategyFixture : ApiServiceTestFixture<IGetAllWorkspaceEntitiesStrategy<Production>>
 	{
-		public ProductionsGetAllStrategyFixture()
-		{
-		}
-
-		public ProductionsGetAllStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAll_Missing()
 		{

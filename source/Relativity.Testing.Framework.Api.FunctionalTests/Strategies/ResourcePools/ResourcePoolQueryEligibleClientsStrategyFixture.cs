@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IQueryEligibleToAddClientsStrategy))]
 	internal class ResourcePoolQueryEligibleClientsStrategyFixture : ApiServiceTestFixture<IQueryEligibleToAddClientsStrategy>
 	{
-		public ResourcePoolQueryEligibleClientsStrategyFixture()
-		{
-		}
-
-		public ResourcePoolQueryEligibleClientsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Query()
 		{

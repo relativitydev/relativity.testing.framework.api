@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IDeleteByIdStrategy<User> _sut;
 
-		public UserDeleteByIdStrategyFixture()
-		{
-		}
-
-		public UserDeleteByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

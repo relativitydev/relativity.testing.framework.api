@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IChoiceResolveByObjectFieldAndNameStrategy _sut;
 
-		public ChoiceResolveByObjectFieldAndNameStrategyFixture()
-		{
-		}
-
-		public ChoiceResolveByObjectFieldAndNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

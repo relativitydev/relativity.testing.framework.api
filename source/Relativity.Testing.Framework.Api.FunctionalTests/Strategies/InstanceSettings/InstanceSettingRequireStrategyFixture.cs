@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetByIdStrategy<InstanceSetting> _getByIdStrategy;
 
-		public InstanceSettingRequireStrategyFixture()
-		{
-		}
-
-		public InstanceSettingRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

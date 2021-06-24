@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private ObjectType _associativeObjectType;
 
-		public FieldGetByIdStrategyFixture()
-		{
-		}
-
-		public FieldGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

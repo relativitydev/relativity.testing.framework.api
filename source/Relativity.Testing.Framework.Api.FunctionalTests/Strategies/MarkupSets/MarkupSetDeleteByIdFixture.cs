@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(DeleteWorkspaceEntityByIdStrategy<MarkupSet>))]
 	internal class MarkupSetDeleteByIdFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<MarkupSet>>
 	{
-		public MarkupSetDeleteByIdFixture()
-		{
-		}
-
-		public MarkupSetDeleteByIdFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{

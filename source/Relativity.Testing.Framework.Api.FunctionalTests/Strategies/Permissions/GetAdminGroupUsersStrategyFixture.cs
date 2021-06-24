@@ -17,15 +17,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Group _groupWithUser;
 		private User _user;
 
-		public GetAdminGroupUsersStrategyFixture()
-		{
-		}
-
-		public GetAdminGroupUsersStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

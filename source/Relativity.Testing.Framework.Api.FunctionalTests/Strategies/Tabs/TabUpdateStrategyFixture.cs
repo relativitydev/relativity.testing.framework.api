@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[NonParallelizable] // We're seeing a lot of tab tests fail, so I'm hoping this will help alleviate it. https://jira.kcura.com/browse/RTF-854
 	internal class TabUpdateStrategyFixture : ApiServiceTestFixture<IUpdateWorkspaceEntityStrategy<Tab>>
 	{
-		public TabUpdateStrategyFixture()
-		{
-		}
-
-		public TabUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Update_WithNull()
 		{

@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetProductionStatusStrategy))]
 	internal class ProductionsGetStatusStrategyFixture : ApiServiceTestFixture<IGetProductionStatusStrategy>
 	{
-		public ProductionsGetStatusStrategyFixture()
-		{
-		}
-
-		public ProductionsGetStatusStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetStatus_New()
 		{

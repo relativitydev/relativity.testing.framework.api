@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetWorkspaceEntityByIdStrategy<ViewAccessStatus>))]
 	internal class ViewGetAccessStatusStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<ViewAccessStatus>>
 	{
-		public ViewGetAccessStatusStrategyFixture()
-		{
-		}
-
-		public ViewGetAccessStatusStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

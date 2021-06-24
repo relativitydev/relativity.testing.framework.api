@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Production _production;
 		private KeywordSearch _keywordSearch;
 
-		public ProductionsDeleteDataSourceStrategyFixture()
-		{
-		}
-
-		public ProductionsDeleteDataSourceStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

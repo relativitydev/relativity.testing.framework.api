@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(WorkspaceGroupSelectorGetByWorkspaceIdStrategy))]
 	internal class WorkspaceGroupSelectorGetByWorkspaceIdStrategyFixture : ApiServiceTestFixture<IGetByWorkspaceIdStrategy<GroupSelector>>
 	{
-		public WorkspaceGroupSelectorGetByWorkspaceIdStrategyFixture()
-		{
-		}
-
-		public WorkspaceGroupSelectorGetByWorkspaceIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

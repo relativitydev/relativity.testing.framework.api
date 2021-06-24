@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ICreateWorkspaceEntityStrategy<MultipleChoiceField> _createFieldStrategy;
 		private ICreateWorkspaceEntityStrategy<Choice> _createChoiceStrategy;
 
-		public ChoiceRequireStrategyFixture()
-		{
-		}
-
-		public ChoiceRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

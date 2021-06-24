@@ -13,17 +13,10 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 	/// </summary>
 	public class RelativityFacadeHost
 	{
-		public RelativityFacadeHost(string relativityInstanceAlias)
+		public RelativityFacadeHost()
 		{
-			RelativityInstanceAlias = relativityInstanceAlias;
-
-			RelativityInstanceConfiguration = Config.GetRelativityInstanceConfiguration(relativityInstanceAlias);
+			RelativityInstanceConfiguration = ApiTestFixture.Service.RelativityInstance;
 		}
-
-		/// <summary>
-		/// Gets current Relativity instance alias (version).
-		/// </summary>
-		public string RelativityInstanceAlias { get; }
 
 		/// <summary>
 		/// Gets current Relativity instance configuration.

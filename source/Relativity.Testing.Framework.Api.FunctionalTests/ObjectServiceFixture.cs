@@ -20,15 +20,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		private IDocumentService _documentService;
 		private IObjectService _objectService;
 
-		public ObjectServiceFixture()
-		{
-		}
-
-		public ObjectServiceFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

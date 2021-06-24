@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private const int MissingId = 999_999_999;
 
-		public UserRemoveFromGroupStrategyFixture()
-		{
-		}
-
-		public UserRemoveFromGroupStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void RemoveFromGroup_MissingUser()
 		{

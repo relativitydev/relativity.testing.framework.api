@@ -15,15 +15,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ObjectType _objectType;
 		private IItemGetGroupPermissionsStrategy _itemGetGroupPermissionsStrategy;
 
-		public ItemChangeGroupPermissionsStrategyFixture()
-		{
-		}
-
-		public ItemChangeGroupPermissionsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 		private IGetWorkspaceEntityByNameStrategy<FixedLengthTextField> _getWorkspaceEntityByNameStrategy;
 
-		public ViewUpdateStrategyFixture()
-		{
-		}
-
-		public ViewUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

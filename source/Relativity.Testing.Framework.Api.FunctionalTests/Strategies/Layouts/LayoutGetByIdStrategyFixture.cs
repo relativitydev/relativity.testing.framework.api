@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[VersionRange(">=12.0")]
 	internal class LayoutGetByIdStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<Layout>>
 	{
-		public LayoutGetByIdStrategyFixture()
-		{
-		}
-
-		public LayoutGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

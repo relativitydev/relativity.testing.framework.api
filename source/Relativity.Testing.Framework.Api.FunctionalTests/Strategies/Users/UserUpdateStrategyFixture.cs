@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUpdateStrategy<User>))]
 	internal class UserUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<User>>
 	{
-		public UserUpdateStrategyFixture()
-		{
-		}
-
-		public UserUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Update_WithNull()
 		{

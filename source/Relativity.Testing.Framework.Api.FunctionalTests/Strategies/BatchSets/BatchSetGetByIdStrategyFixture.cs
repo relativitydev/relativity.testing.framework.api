@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetBatchSetByIdStrategy))]
 	internal class BatchSetGetByIdStrategyFixture : ApiServiceTestFixture<IGetBatchSetByIdStrategy>
 	{
-		public BatchSetGetByIdStrategyFixture()
-		{
-		}
-
-		public BatchSetGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

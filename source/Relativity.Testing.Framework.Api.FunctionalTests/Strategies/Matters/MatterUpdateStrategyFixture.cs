@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private IGetByIdStrategy<Matter> _getByIdStrategy;
 		private ICreateStrategy<Matter> _createStrategy;
 
-		public MatterUpdateStrategyFixture()
-		{
-		}
-
-		public MatterUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

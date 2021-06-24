@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllWorkspaceEntitiesStrategy<Document>))]
 	internal class DocumentGetAllStrategyFixture : ApiServiceTestFixture<IGetAllWorkspaceEntitiesStrategy<Document>>
 	{
-		public DocumentGetAllStrategyFixture()
-		{
-		}
-
-		public DocumentGetAllStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAll()
 		{

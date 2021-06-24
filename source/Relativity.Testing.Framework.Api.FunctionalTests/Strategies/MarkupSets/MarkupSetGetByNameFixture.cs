@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetWorkspaceEntityByNameStrategy<MarkupSet>))]
 	internal class MarkupSetGetByNameFixture : ApiServiceTestFixture<IGetWorkspaceEntityByNameStrategy<MarkupSet>>
 	{
-		public MarkupSetGetByNameFixture()
-		{
-		}
-
-		public MarkupSetGetByNameFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

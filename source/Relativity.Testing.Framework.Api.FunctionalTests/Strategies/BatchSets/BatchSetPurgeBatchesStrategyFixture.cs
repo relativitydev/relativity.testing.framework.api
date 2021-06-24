@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IPurgeBatchesStrategy))]
 	internal class BatchSetPurgeBatchesStrategyFixture : ApiServiceTestFixture<IPurgeBatchesStrategy>
 	{
-		public BatchSetPurgeBatchesStrategyFixture()
-		{
-		}
-
-		public BatchSetPurgeBatchesStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void PurgeBatches()
 		{

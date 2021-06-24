@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IBatchQueryStrategy))]
 	internal class BatchesQueryStrategyFixture : ApiServiceTestFixture<IBatchQueryStrategy>
 	{
-		public BatchesQueryStrategyFixture()
-		{
-		}
-
-		public BatchesQueryStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Query_Missing()
 		{

@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private ICreateStrategy<Group> _sut;
 
-		public GroupCreateStrategyFixture()
-		{
-		}
-
-		public GroupCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

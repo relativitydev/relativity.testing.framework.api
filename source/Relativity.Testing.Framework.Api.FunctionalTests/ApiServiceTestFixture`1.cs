@@ -22,15 +22,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ApiServiceTestFixture{TService}"/> class using the Relativity instance configuration by <paramref name="relativityInstanceAlias"/>.
-		/// </summary>
-		/// <param name="relativityInstanceAlias">The Relativity instance alias.</param>
-		protected ApiServiceTestFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
-		/// <summary>
 		/// Gets SUT object.
 		/// </summary>
 		protected TService Sut { get; private set; }

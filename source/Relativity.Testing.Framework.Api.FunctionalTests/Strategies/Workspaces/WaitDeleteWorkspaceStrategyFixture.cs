@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetByIdStrategy<Workspace> _getById;
 
-		public WaitDeleteWorkspaceStrategy()
-		{
-		}
-
-		public WaitDeleteWorkspaceStrategy(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

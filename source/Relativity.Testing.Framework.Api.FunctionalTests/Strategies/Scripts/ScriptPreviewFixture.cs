@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IScriptPreviewStrategy))]
 	internal class ScriptPreviewFixture : ApiServiceTestFixture<IScriptPreviewStrategy>
 	{
-		public ScriptPreviewFixture()
-		{
-		}
-
-		public ScriptPreviewFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Script_Preview()
 		{

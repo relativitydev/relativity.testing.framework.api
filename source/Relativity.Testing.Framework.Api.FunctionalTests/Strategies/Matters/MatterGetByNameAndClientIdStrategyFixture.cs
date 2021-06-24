@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IMatterGetByNameAndClientIdStrategy))]
 	internal class MatterGetByNameAndClientIdStrategyFixture : ApiServiceTestFixture<IMatterGetByNameAndClientIdStrategy>
 	{
-		public MatterGetByNameAndClientIdStrategyFixture()
-		{
-		}
-
-		public MatterGetByNameAndClientIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_WithNullName()
 		{

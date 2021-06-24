@@ -32,15 +32,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 
 		private TestObject _testRDO = new TestObject();
 
-		public FileFieldServiceFixture()
-		{
-		}
-
-		public FileFieldServiceFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

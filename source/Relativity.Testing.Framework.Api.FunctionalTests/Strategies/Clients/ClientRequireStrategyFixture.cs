@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Net.Http;
+using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
@@ -47,7 +48,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Require_WithArtifactIdThatMissing()
 		{
-			Assert.Throws<ObjectNotFoundException>(() =>
+			Assert.Throws<HttpRequestException>(() =>
 				_sut.Require(new Client { ArtifactID = int.MaxValue }));
 		}
 

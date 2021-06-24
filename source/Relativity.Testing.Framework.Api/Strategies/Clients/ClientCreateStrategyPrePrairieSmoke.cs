@@ -23,7 +23,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected override Client DoCreate(Client entity)
 		{
 			_clientStatusEnsureArtifactIdIsFilledStrategy.Ensure(entity);
-			var dto = new ClientDTOV1(entity);
+			var dto = new ClientDTOPrePrairieSmoke(entity);
 
 			entity.ArtifactID = _restService.Post<int>(
 				"Relativity.Services.Client.IClientModule/Client%20Manager/CreateSingleAsync",

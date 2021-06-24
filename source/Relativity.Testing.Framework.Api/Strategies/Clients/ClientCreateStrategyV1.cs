@@ -21,7 +21,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected override Client DoCreate(Client entity)
 		{
 			_clientStatusEnsureArtifactIdIsFilledStrategy.Ensure(entity);
-			var dto = new ClientDTOV2(entity);
+			var dto = new ClientDTOV1(entity);
 
 			var createdClient = _restService.Post<Client>(
 				"/Relativity.rest/api/relativity-identity/v1/workspaces/-1/clients/",

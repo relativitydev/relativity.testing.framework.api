@@ -22,7 +22,7 @@ namespace Relativity.Testing.Framework.Api.Strategies.Clients
 		public void Update(Client entity)
 		{
 			_clientStatusEnsureArtifactIdIsFilledStrategy.Ensure(entity);
-			var dto = new ClientDTOV1(entity);
+			var dto = new ClientDTOPrePrairieSmoke(entity);
 
 			_restService.Put<Client>(
 				"/Relativity.REST/api/Relativity.Services.Client.IClientModule/Client%20Manager/UpdateSingleAsync",

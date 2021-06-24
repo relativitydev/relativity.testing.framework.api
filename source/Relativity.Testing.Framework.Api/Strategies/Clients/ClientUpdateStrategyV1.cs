@@ -22,7 +22,7 @@ namespace Relativity.Testing.Framework.Api.Strategies.Clients
 		public void Update(Client entity)
 		{
 			_clientStatusEnsureArtifactIdIsFilledStrategy.Ensure(entity);
-			var dto = new ClientDTOV2(entity);
+			var dto = new ClientDTOV1(entity);
 
 			_restService.Put<Client>(
 				$"Relativity.rest/api/relativity-identity/v1/workspaces/-1/clients/{entity.ArtifactID}",

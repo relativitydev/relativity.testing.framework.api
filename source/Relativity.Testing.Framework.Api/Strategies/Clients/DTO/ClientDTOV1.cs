@@ -6,9 +6,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		public ClientDTOV1(Client client)
 		{
-			ClientDTO = new ClientRequest(client);
+			ClientRequest = new ClientRequest(client);
 		}
 
-		public ClientRequest ClientDTO { get; set; }
+		public ClientRequest ClientRequest { get; set; }
 	}
 }

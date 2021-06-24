@@ -42,10 +42,17 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _requireStrategy.Require(entity);
 
 		public void Delete(int id)
-			=> _deleteByIdStrategy.Delete(id);
+		{
+			ValidateClientId(id);
+			_deleteByIdStrategy.Delete(id);
+		}
 
 		public Client Get(int id)
-			=> _getByIdStrategy.Get(id);
+		{
+			ValidateClientId(id);
+			var result = _getByIdStrategy.Get(id);
+			return result;
+		}
 
 		public Client Get(string name)
 		{

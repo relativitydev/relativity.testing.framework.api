@@ -25,7 +25,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public void Checkout_BatchStatusShouldBeInProgress()
 		{
 			Batch batch = null;
-
 			User user = null;
 
 			Arrange(() =>

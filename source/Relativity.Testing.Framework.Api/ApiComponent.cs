@@ -60,8 +60,7 @@ namespace Relativity.Testing.Framework.Api
 		void IWindsorInstaller.Install(IWindsorContainer container, IConfigurationStore store)
 		{
 			container.Register(
-				Component.For<IApplicationInsightsInterceptor>().
-				ImplementedBy<ApplicationInsightsEventInterceptor>().
+				Component.For<ApplicationInsightsEventInterceptor>().
 				LifestyleSingleton());
 
 			container.Register(

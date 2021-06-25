@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<ProductionPlaceholder>))]
 	internal class ProductionPlaceholderCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<ProductionPlaceholder>>
 	{
-		public ProductionPlaceholderCreateStrategyFixture()
-		{
-		}
-
-		public ProductionPlaceholderCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private MessageOfTheDay _currentMotd;
 		private IMotdGetStrategy _motdGetStrategy;
 
-		public MotdUpdateStrategyFixture()
-		{
-		}
-
-		public MotdUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

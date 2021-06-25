@@ -15,15 +15,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private ILayoutGetCategoriesStrategy _layoutGetCategoriesStrategy;
 
-		public LayoutAddFieldsStrategy()
-		{
-		}
-
-		public LayoutAddFieldsStrategy(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[OneTimeSetUp]
 		public void OneTimeSetUp()
 		{

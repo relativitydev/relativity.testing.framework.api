@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IWorkspaceAddToGroupsStrategy))]
 	internal class WorkspaceAddToGroupsStrategyFixture : ApiServiceTestFixture<IWorkspaceAddToGroupsStrategy>
 	{
-		public WorkspaceAddToGroupsStrategyFixture()
-		{
-		}
-
-		public WorkspaceAddToGroupsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void AddWorkspaceToGroups_ById()
 		{

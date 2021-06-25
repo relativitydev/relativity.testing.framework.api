@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[VersionRange(">=12.0")]
 	internal class LayoutRequireStrategyFixture : ApiServiceTestFixture<IRequireWorkspaceEntityStrategy<Layout>>
 	{
-		public LayoutRequireStrategyFixture()
-		{
-		}
-
-		public LayoutRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Require_WithNull()
 		{

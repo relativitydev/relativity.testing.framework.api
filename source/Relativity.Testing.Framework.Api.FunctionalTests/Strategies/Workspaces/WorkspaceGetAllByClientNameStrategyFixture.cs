@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllByClientNameStrategy<Workspace>))]
 	internal class WorkspaceGetAllByClientNameStrategyFixture : ApiServiceTestFixture<IGetAllByClientNameStrategy<Workspace>>
 	{
-		public WorkspaceGetAllByClientNameStrategyFixture()
-		{
-		}
-
-		public WorkspaceGetAllByClientNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAllByClientName_WithNull()
 		{

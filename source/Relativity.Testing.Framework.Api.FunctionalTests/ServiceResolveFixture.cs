@@ -7,15 +7,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 {
 	public class ServiceResolveFixture : ApiTestFixture
 	{
-		public ServiceResolveFixture()
-		{
-		}
-
-		public ServiceResolveFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		[TestOf(typeof(IMatterService))]
 		public void Resolve_IMatterService()

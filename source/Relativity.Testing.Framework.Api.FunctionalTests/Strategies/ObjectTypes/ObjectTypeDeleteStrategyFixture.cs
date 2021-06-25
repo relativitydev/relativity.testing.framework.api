@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ObjectTypeDeleteByIdStrategy))]
 	internal class ObjectTypeDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<ObjectType>>
 	{
-		public ObjectTypeDeleteStrategyFixture()
-		{
-		}
-
-		public ObjectTypeDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{

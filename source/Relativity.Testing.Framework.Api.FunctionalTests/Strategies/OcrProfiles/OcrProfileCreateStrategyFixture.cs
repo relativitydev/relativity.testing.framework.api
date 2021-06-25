@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<OcrProfile>))]
 	internal class OcrProfileCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<OcrProfile>>
 	{
-		public OcrProfileCreateStrategyFixture()
-		{
-		}
-
-		public OcrProfileCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

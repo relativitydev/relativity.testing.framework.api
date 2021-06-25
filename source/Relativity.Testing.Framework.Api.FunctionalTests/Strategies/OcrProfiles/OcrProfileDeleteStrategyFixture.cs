@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IDeleteWorkspaceEntityByIdStrategy<OcrProfile>))]
 	internal class OcrProfileDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<OcrProfile>>
 	{
-		public OcrProfileDeleteStrategyFixture()
-		{
-		}
-
-		public OcrProfileDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{

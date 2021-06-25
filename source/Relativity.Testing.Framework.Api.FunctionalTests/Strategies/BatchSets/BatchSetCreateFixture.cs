@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateBatchSetStrategy))]
 	internal class BatchSetCreateFixture : ApiServiceTestFixture<ICreateBatchSetStrategy>
 	{
-		public BatchSetCreateFixture()
-		{
-		}
-
-		public BatchSetCreateFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

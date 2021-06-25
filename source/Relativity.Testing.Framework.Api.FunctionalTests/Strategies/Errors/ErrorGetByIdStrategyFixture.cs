@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetByIdStrategy<Entity>))]
 	internal class ErrorGetByIdStrategyFixture : ApiServiceTestFixture<IGetByIdStrategy<Error>>
 	{
-		public ErrorGetByIdStrategyFixture()
-		{
-		}
-
-		public ErrorGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

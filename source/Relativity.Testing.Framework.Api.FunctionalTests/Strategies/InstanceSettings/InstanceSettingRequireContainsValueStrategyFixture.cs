@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IInstanceSettingGetByNameAndSectionStrategy _getByNameAndSectionStrategy;
 
-		public InstanceSettingRequireContainsValueStrategyFixture()
-		{
-		}
-
-		public InstanceSettingRequireContainsValueStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

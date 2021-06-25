@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllWorkspaceEntitiesStrategy<Batch>))]
 	internal class BatchesGetAllStrategyFixture : ApiServiceTestFixture<IGetAllWorkspaceEntitiesStrategy<Batch>>
 	{
-		public BatchesGetAllStrategyFixture()
-		{
-		}
-
-		public BatchesGetAllStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAll_Existing()
 		{

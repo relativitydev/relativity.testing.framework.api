@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ItemGroupSelectorGetStrategy))]
 	internal class ItemGroupSelectorGetStrategyFixture : ApiServiceTestFixture<IItemGroupSelectorGetStrategy>
 	{
-		public ItemGroupSelectorGetStrategyFixture()
-		{
-		}
-
-		public ItemGroupSelectorGetStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_MissingWorkspace()
 		{

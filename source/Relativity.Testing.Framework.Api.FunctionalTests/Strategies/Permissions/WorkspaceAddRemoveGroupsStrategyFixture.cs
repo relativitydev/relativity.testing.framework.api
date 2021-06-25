@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		private Workspace _workspace;
 
-		public WorkspaceAddRemoveGroupsStrategyFixture()
-		{
-		}
-
-		public WorkspaceAddRemoveGroupsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ICreateWorkspaceEntityStrategy<Choice> _createChoiceStrategy;
 		private IGetWorkspaceEntityByIdStrategy<Choice> _getWorkspaceEntityById;
 
-		public ChoiceDeleteStrategyFixture()
-		{
-		}
-
-		public ChoiceDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

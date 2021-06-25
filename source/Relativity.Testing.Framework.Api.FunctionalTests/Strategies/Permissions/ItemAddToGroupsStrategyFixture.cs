@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IWorkspaceAddToGroupsStrategy _workspaceAddToGroupsStrategy;
 
-		public ItemAddToGroupsStrategyFixture()
-		{
-		}
-
-		public ItemAddToGroupsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

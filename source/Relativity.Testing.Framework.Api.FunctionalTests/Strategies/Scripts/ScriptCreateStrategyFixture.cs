@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<Script>))]
 	internal class ScriptCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<Script>>
 	{
-		public ScriptCreateStrategyFixture()
-		{
-		}
-
-		public ScriptCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

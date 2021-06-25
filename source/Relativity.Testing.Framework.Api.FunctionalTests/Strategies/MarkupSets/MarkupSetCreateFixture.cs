@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<MarkupSet>))]
 	internal class MarkupSetCreateFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<MarkupSet>>
 	{
-		public MarkupSetCreateFixture()
-		{
-		}
-
-		public MarkupSetCreateFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

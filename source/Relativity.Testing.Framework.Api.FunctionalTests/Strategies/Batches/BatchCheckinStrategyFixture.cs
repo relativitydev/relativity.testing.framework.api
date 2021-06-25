@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IBatchCheckinStrategy))]
 	internal class BatchCheckinStrategyFixture : ApiServiceTestFixture<IBatchCheckinStrategy>
 	{
-		public BatchCheckinStrategyFixture()
-		{
-		}
-
-		public BatchCheckinStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Checkin_WithIsCompletedAsTrue_BatchStatusShouldBeCompletedAndUserAssignmentShouldNotChange()
 		{

@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateStrategy<Matter>))]
 	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<Matter>>
 	{
-		public MatterCreateStrategyFixture()
-		{
-		}
-
-		public MatterCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

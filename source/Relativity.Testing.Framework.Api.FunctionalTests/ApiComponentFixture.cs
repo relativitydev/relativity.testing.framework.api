@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 	[TestOf(typeof(ApiComponent))]
 	public class ApiComponentFixture : ApiTestFixture
 	{
-		public ApiComponentFixture()
-		{
-		}
-
-		public ApiComponentFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

@@ -15,15 +15,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 		private IAccountPoolService _accountPoolService;
 		private IUserService _userService;
 
-		public AccountPoolFixture()
-		{
-		}
-
-		public AccountPoolFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

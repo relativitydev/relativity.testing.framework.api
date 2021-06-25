@@ -7,15 +7,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 	[TestOf(typeof(RestService))]
 	internal class RestServiceFixture : ApiServiceTestFixture<IRestService>
 	{
-		public RestServiceFixture()
-		{
-		}
-
-		public RestServiceFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Post()
 		{

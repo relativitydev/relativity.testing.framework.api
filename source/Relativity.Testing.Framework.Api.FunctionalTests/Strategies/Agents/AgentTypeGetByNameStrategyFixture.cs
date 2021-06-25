@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(AgentTypeGetByNameStrategy))]
 	internal class AgentTypeGetByNameStrategyFixture : ApiServiceTestFixture<IGetByNameStrategy<AgentType>>
 	{
-		public AgentTypeGetByNameStrategyFixture()
-		{
-		}
-
-		public AgentTypeGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_WithNull()
 		{

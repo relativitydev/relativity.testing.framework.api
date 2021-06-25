@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IKeywordSearchQueryStrategy))]
 	internal class KeywordSearchQueryStrategyFixture : ApiServiceTestFixture<IKeywordSearchQueryStrategy>
 	{
-		public KeywordSearchQueryStrategyFixture()
-		{
-		}
-
-		public KeywordSearchQueryStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Query_Missing()
 		{

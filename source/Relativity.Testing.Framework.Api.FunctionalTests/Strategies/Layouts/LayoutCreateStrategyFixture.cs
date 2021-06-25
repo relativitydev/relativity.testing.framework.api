@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[Ignore("SUTs frequently give 500 errors while running this test. https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<Layout>>
 	{
-		public LayoutCreateStrategyFixture()
-		{
-		}
-
-		public LayoutCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithFilledEntity()
 		{

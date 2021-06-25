@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[NonParallelizable] // We're seeing a lot of tab tests fail, so I'm hoping this will help alleviate it. https://jira.kcura.com/browse/RTF-854
 	internal class TabDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<Tab>>
 	{
-		public TabDeleteStrategyFixture()
-		{
-		}
-
-		public TabDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{

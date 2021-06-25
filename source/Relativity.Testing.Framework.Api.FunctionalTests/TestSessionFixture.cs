@@ -15,15 +15,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 	[Explicit]
 	public class TestSessionFixture : ApiTestFixture
 	{
-		public TestSessionFixture()
-		{
-		}
-
-		public TestSessionFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void EntityIsAddedToSessionWhenCreated()
 		{

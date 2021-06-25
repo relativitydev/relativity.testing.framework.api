@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private InstanceSetting _existingEntity;
 
-		public InstanceSettingGetByNameAndSectionStrategyFixture()
-		{
-		}
-
-		public InstanceSettingGetByNameAndSectionStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

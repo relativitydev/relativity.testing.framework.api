@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IBatchAssignToUserStrategy))]
 	internal class BatchAssignToUserStrategyFixture : ApiServiceTestFixture<IBatchAssignToUserStrategy>
 	{
-		public BatchAssignToUserStrategyFixture()
-		{
-		}
-
-		public BatchAssignToUserStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void AssignToUser()
 		{

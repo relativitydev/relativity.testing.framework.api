@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IEnsureEnvironmentCanRunScriptsStrategy))]
 	internal class EnsureEnvironmentCanRunScriptsStrategyFixture : ApiServiceTestFixture<IEnsureEnvironmentCanRunScriptsStrategy>
 	{
-		public EnsureEnvironmentCanRunScriptsStrategyFixture()
-		{
-		}
-
-		public EnsureEnvironmentCanRunScriptsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

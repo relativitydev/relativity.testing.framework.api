@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(WorkspaceGetByNameStrategy))]
 	internal class WorkspaceGetByNameStrategyFixture : ApiServiceTestFixture<IGetByNameStrategy<Workspace>>
 	{
-		public WorkspaceGetByNameStrategyFixture()
-		{
-		}
-
-		public WorkspaceGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_WithNull()
 		{

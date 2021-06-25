@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ChoiceGetByIdStrategy))]
 	internal class ChoiceGetByIdFixture : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<Choice>>
 	{
-		public ChoiceGetByIdFixture()
-		{
-		}
-
-		public ChoiceGetByIdFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

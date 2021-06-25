@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private AgentType _agentType;
 		private AgentServer _agentServer;
 
-		public AgentCreateStrategyFixture()
-		{
-		}
-
-		public AgentCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

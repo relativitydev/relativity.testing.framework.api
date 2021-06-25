@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IScriptRunTableJobStrategy))]
 	internal class ScriptRunTableJobFixture : ApiServiceTestFixture<IScriptRunTableJobStrategy>
 	{
-		public ScriptRunTableJobFixture()
-		{
-		}
-
-		public ScriptRunTableJobFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Script_RunTableJob()
 		{

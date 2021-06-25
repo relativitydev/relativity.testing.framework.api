@@ -75,7 +75,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="batchId">The Artifact ID of the batch.</param>
 		/// <param name="isCompleted">Indicator if Batch is completed or not.
 		/// <para>When set to true - updates the batch status to Completed. The batch remains assigned to the current user.</para>
-		/// <para>When set to false - updates the batch status to None and removes the user assignment. </para>
+		/// <para>When set to false - updates the batch status to empty string and removes the user assignment. </para>
 		/// </param>
 		/// <example>
 		/// <code>

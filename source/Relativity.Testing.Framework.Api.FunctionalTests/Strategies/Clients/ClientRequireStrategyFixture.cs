@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -37,6 +38,15 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		[VersionRange("<12.1")]
+		public void Require_WithArtifactIdThatMissing_PrePrairieSmoke()
+		{
+			Assert.Throws<ObjectNotFoundException>(() =>
+				_sut.Require(new Client { ArtifactID = int.MaxValue }));
+		}
+
+		[Test]
+		[VersionRange(">=12.1")]
 		public void Require_WithArtifactIdThatMissing()
 		{
 			Assert.Throws<HttpRequestException>(() =>

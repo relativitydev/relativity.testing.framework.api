@@ -8,7 +8,7 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientRequireStrategy))]
+	[TestOf(typeof(IRequireStrategy<Client>))]
 	public class ClientRequireStrategyFixture : ApiTestFixture
 	{
 		private IRequireStrategy<Client> _sut;

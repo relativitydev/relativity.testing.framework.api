@@ -8,7 +8,7 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientDeleteByIdStrategyPrePrairieSmoke))]
+	[TestOf(typeof(IDeleteByIdStrategy<Client>))]
 	public class ClientDeleteByIdStrategyFixture : ApiTestFixture
 	{
 		private IDeleteByIdStrategy<Client> _sut;

@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class BatchSetCreateBatchesStrategy : ICreateBatchesStrategy
+	[VersionRange("<12.1")]
+	internal class BatchSetCreateBatchesStrategyPrePrairieSmoke : ICreateBatchesStrategy
 	{
 		private readonly IRestService _restService;
 
-		public BatchSetCreateBatchesStrategy(
+		public BatchSetCreateBatchesStrategyPrePrairieSmoke(
 			IRestService restService)
 		{
 			_restService = restService;

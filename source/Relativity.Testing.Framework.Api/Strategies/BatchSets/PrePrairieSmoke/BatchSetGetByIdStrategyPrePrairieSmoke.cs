@@ -1,16 +1,17 @@
 ﻿using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Services;
-using Relativity.Testing.Framework.Api.Strategies.BatchSets;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class BatchSetGetByIdStrategy : IGetBatchSetByIdStrategy
+	[VersionRange("<12.1")]
+	internal class BatchSetGetByIdStrategyPrePrairieSmoke : IGetBatchSetByIdStrategy
 	{
 		private readonly IRestService _restService;
 		private readonly IExistsBatchSetByIdStrategy _existsBatchSetByIdStrategy;
 
-		public BatchSetGetByIdStrategy(
+		public BatchSetGetByIdStrategyPrePrairieSmoke(
 			IRestService restService,
 			IExistsBatchSetByIdStrategy existsBatchSetByIdStrategy)
 		{

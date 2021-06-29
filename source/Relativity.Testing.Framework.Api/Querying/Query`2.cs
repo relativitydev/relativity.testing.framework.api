@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Mapping;
 
 namespace Relativity.Testing.Framework.Api.Querying

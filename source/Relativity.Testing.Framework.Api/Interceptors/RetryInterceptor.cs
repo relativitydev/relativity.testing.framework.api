@@ -65,10 +65,10 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			properties.Add("Class", invocation.TargetType.Name);
 			properties.Add("Method", invocation.Method.Name);
 			properties.Add("Parameters", string.Join(" && ", invocation.Arguments.Where(x => x != null)));
-			properties.Add("RelativityTestingFrameworkVersion", Assembly.GetAssembly(typeof(ApplicationInsightsTelemetryClient)).GetName().Version.ToString());
+			properties.Add("RelativityTestingFrameworkVersion", Assembly.GetAssembly(typeof(IApplicationInsightsTelemetryClient)).GetName().Version.ToString());
 			properties.Add("RetrySucceeded", "true");
 
-			_relativityFacade.Resolve<ApplicationInsightsTelemetryClient>().Instance
+			_relativityFacade.Resolve<IApplicationInsightsTelemetryClient>().Instance
 				.TrackEvent($"{invocation.TargetType.Name}.{invocation.Method.Name}", properties);
 		}
 	}

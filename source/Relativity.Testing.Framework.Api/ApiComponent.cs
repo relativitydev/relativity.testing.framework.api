@@ -10,6 +10,7 @@ using Relativity.Testing.Framework.Api.Interceptors;
 using Relativity.Testing.Framework.Api.Kepler;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Versioning;
 using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Logging;
 using Relativity.Testing.Framework.Models;
@@ -94,7 +95,7 @@ namespace Relativity.Testing.Framework.Api
 
 		private void RegisterServicesAndNonGenericStrategies(IWindsorContainer container)
 		{
-			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService), typeof(LoggingInterceptor));
+			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService) || type.Name == nameof(ApiRelativityInstanceVersionResolveService), typeof(LoggingInterceptor));
 
 			var commonInterceptorsWithoutRetry = _commonInterceptors.Where(interceptor => interceptor != typeof(RetryInterceptor)).ToArray();
 

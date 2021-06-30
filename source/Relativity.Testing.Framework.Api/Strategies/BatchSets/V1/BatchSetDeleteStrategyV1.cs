@@ -19,9 +19,19 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public void Delete(int workspaceId, int entityId, UserCredentials userCredentials = null)
 		{
+			if (workspaceId < -1 || workspaceId == 0)
+			{
+				throw new ArgumentException("Workspace ID should be greater than zero or equal to -1 for admin context.");
+			}
+
+			if (entityId < 1)
+			{
+				throw new ArgumentException("Batch Set ID should be greater than zero.");
+			}
+
 			if (!_existsBatchSetByIdStrategy.Exists(workspaceId, entityId, userCredentials: userCredentials))
 			{
-				throw new ArgumentException($"The batch set with {entityId} does not exists.");
+				throw new ArgumentException($"The batch set with ID: {entityId} does not exists.");
 			}
 
 			_restService.Delete(

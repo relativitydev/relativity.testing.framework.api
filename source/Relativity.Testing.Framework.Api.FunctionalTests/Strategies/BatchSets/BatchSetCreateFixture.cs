@@ -33,7 +33,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[VersionRange(">=12.1")]
 		public void Create_WithFilledEntity()
 		{
-			var batchSet = ArrangeBatchSet();
+			BatchSet batchSet = PrepareBatchSet();
 
 			var result = Sut.Create(DefaultWorkspace.ArtifactID, batchSet);
 
@@ -57,11 +57,27 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[VersionRange(">=12.1")]
 		public void Create_FilledEntityAndWithNullAsUserCredentialsOverride()
 		{
-			var batchSet = ArrangeBatchSet();
+			BatchSet batchSet = PrepareBatchSet();
 
 			var result = Sut.Create(DefaultWorkspace.ArtifactID, batchSet, userCredentials: null);
 
 			CheckIfCreatedEntityIsEquivalentToExpectedV1(batchSet, result);
+		}
+
+		private BatchSet PrepareBatchSet()
+		{
+			var keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>().Create(DefaultWorkspace.ArtifactID, new KeywordSearch());
+
+			var batchSet = new BatchSet
+			{
+				Name = Randomizer.GetString(),
+				DataSource = new NamedArtifact
+				{
+					ArtifactID = keywordSearch.ArtifactID,
+					Name = keywordSearch.Name
+				}
+			};
+			return batchSet;
 		}
 
 		private static void TestIfCreatedEntityIsEquivalentToExpectedPrePrairieSmoke(BatchSet batchSet, BatchSet result)

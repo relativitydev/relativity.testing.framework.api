@@ -1,44 +1,17 @@
-﻿using System;
-using System.Net.Http;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
-namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies.BatchSets
+namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IUpdateBatchSetStrategy))]
 	internal class BatchSetUpdateFixture : ApiServiceTestFixture<IUpdateBatchSetStrategy>
 	{
 		[Test]
 		[VersionRange(">=12.1")]
-		public void Update_WithNullEntity_ThrowsException()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				Sut.Update(DefaultWorkspace.ArtifactID, null));
-		}
-
-		[Test]
-		[VersionRange(">=12.1")]
-		public void Update_WithNegativeBatchSetId_ThrowsException()
-		{
-			var batchSet = new BatchSet
-			{
-				ArtifactID = int.MinValue,
-				Name = Randomizer.GetString(),
-				BatchSize = 1500,
-				BatchPrefix = Randomizer.GetString("BS", 3),
-				DataSource = new NamedArtifact()
-			};
-
-			Assert.Throws<HttpRequestException>(() =>
-				Sut.Update(DefaultWorkspace.ArtifactID, batchSet));
-		}
-
-		[Test]
-		[VersionRange(">=12.1")]
-		public void Update_WithFilledExistingEntity_ReturnsUpdatesEntity()
+		public void Update_WithFilledExistingEntity_ReturnsUpdatedEntity()
 		{
 			BatchSet batchSetToUpdate = null;
 			Arrange(() =>
@@ -56,7 +29,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies.BatchSets
 				batchSetToUpdate = Facade.Resolve<ICreateBatchSetStrategy>().Create(DefaultWorkspace.ArtifactID, batchModel);
 			});
 
-			batchSetToUpdate = Facade.Resolve<IGetBatchSetByIdStrategy>().Get(DefaultWorkspace.ArtifactID, batchSetToUpdate.ArtifactID);
 			batchSetToUpdate.BatchSize = 300;
 			batchSetToUpdate.Notes = "Test Note";
 			batchSetToUpdate.Keywords = "Test Keywords";

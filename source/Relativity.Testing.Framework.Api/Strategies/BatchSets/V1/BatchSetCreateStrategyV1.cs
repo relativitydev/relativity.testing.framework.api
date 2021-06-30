@@ -10,26 +10,24 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class BatchSetCreateStrategyV1 : ICreateBatchSetStrategy
 	{
 		private readonly IRestService _restService;
-		private readonly IBatchSetDTOMapStrategyV1 _batchSetDTOMapper;
 
-		public BatchSetCreateStrategyV1(IRestService restService, IBatchSetDTOMapStrategyV1 batchSetDTOMapper)
+		public BatchSetCreateStrategyV1(IRestService restService)
 		{
 			_restService = restService;
-			_batchSetDTOMapper = batchSetDTOMapper;
 		}
 
 		public BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials = null)
 		{
-			if (entity is null)
+			if (workspaceId < -1 || workspaceId == 0)
 			{
-				throw new ArgumentNullException(nameof(entity));
+				throw new ArgumentException("Workspace ID should be greater than zero or equal to -1 for admin context.");
 			}
 
 			var dto = new BatchSetDTOV1(entity);
 			var request = new BatchSetRequestV1(dto);
 
 			var createdBatchSet = _restService.Post<BatchSetDetailedDTOV1>($"/Relativity.REST/api/relativity-review/v1/workspaces/{workspaceId}/batch-sets", request, userCredentials: userCredentials);
-			var result = _batchSetDTOMapper.Map(createdBatchSet);
+			var result = createdBatchSet.Map();
 			return result;
 		}
 	}

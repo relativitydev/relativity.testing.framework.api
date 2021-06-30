@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.3] - 2021-06-29
+
+### Fixed
+
+- Sending of metrics to ApplicationInsights. - https://github.com/relativitydev/relativity.testing.framework.api/issues/46
+
+## [3.2.2] - 2021-06-29
+
+### Removed
+
+- Duplicated ExpressionExtensions class. - [TESTENG-1273](https://jira.kcura.com/browse/TESTENG-1273)
+
 ## [3.2.1] - 2021-06-25
 
 ### Fixed

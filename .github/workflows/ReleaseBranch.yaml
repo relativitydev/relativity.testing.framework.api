@@ -184,7 +184,7 @@ jobs:
         Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
 
         $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
-        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+        $RelativityHostAddress = "$($instance.ServiceName).relativityhopper.com"
 
         ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
           -RelativityHostAddress $RelativityHostAddress `
@@ -286,7 +286,7 @@ jobs:
         Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
 
         $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
-        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+        $RelativityHostAddress = "$($instance.ServiceName).relativityhopper.com"
 
         ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
           -RelativityHostAddress $RelativityHostAddress `
@@ -390,7 +390,7 @@ jobs:
         Start-Sleep 180 # Environments are less likely to throw 500s if they are up for a bit before running tests.
 
         $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
-        $RelativityHostAddress = "$($instance.ServiceName).hopper.relativity.com"
+        $RelativityHostAddress = "$($instance.ServiceName).relativityhopper.com"
 
         ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
           -RelativityHostAddress $RelativityHostAddress `

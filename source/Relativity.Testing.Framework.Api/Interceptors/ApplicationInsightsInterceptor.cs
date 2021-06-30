@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		{
 			_relativityFacade = relativityFacade;
 
-			TelemetryClient = _relativityFacade.Resolve<ApplicationInsightsTelemetryClient>().Instance;
+			TelemetryClient = _relativityFacade.Resolve<IApplicationInsightsTelemetryClient>().Instance;
 
 			_rtfVersion = Assembly.GetAssembly(typeof(ApplicationInsightsInterceptor)).GetName().Version.ToString();
 

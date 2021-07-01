@@ -81,9 +81,7 @@ namespace Relativity.Testing.Framework.Api
 				Component.For<RetryInterceptor>().
 				LifestyleSingleton());
 
-			container.Register(
-				Component.For<BatchSetValidatorV1>().
-				LifestyleSingleton());
+			RegisterValidators(container);
 
 			container.Register(
 				Component.For<IKeplerServiceFactory>().
@@ -95,6 +93,11 @@ namespace Relativity.Testing.Framework.Api
 			RegisterAllFieldStrategies(container);
 
 			InstallGenericStrategies(container);
+		}
+
+		private void RegisterValidators(IWindsorContainer container)
+		{
+			RegisterClassesByPredicate(container, type => type.Name.Contains("Validator"), typeof(LoggingInterceptor));
 		}
 
 		private void RegisterServicesAndNonGenericStrategies(IWindsorContainer container)

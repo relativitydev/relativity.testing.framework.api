@@ -7,7 +7,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(InstanceSettingDeleteByIdStrategy))]
+	[TestOf(typeof(IDeleteByIdStrategy<InstanceSetting>))]
 	internal class InstanceSettingDeleteStrategyFixture : ApiServiceTestFixture<IDeleteByIdStrategy<InstanceSetting>>
 	{
 		[Test]

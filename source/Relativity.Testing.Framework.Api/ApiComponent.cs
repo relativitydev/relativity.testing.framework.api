@@ -82,6 +82,10 @@ namespace Relativity.Testing.Framework.Api
 				LifestyleSingleton());
 
 			container.Register(
+				Component.For<BatchSetValidatorV1>().
+				LifestyleSingleton());
+
+			container.Register(
 				Component.For<IKeplerServiceFactory>().
 				ImplementedBy<KeplerServiceFactory>().
 				LifestyleSingleton());

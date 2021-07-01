@@ -14,62 +14,15 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	{
 		private const string _INVALID_DATA_SOURCE_EXCEPTION_MESSAGE = "Data Source must not be null and have Artifact ID greater than zero";
 		private const string _INVALID_BATCH_SET_NAME_EXCEPTION_MESSAGE = "Batch Set Name cannot be null, empty nor whitespace.";
-		private const string _INVALID_BATCH_SET_ID_EXCEPTION_MESSAGE = "Batch Set ID should be greater than zero.";
-		private const string _INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE = "Workspace ID should be greater than zero or equal to -1 for admin context.";
 
 		private BatchSetUpdateStrategyV1 _sut;
-		private Mock<IRestService> _mockRestService;
 
 		[OneTimeSetUp]
 		public void SetUp()
 		{
-			_mockRestService = new Mock<IRestService>();
-			_sut = new BatchSetUpdateStrategyV1(_mockRestService.Object);
-		}
-
-		[Test]
-		public void Update_WithNullEntity_ThrowsException()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				_sut.Update(1, null));
-		}
-
-		[Test]
-		public void Update_WithInvalidWorkspaceId_ThrowsException()
-		{
-			var batchSet = new BatchSet
-			{
-				ArtifactID = -1,
-				Name = Randomizer.GetString(),
-				BatchSize = 1500,
-				BatchPrefix = Randomizer.GetString("BS", 3),
-				DataSource = new NamedArtifact
-				{
-					ArtifactID = 1
-				}
-			};
-
-			var result = Assert.Throws<ArgumentException>(() =>
-							_sut.Update(-2, batchSet));
-
-			result.Message.Should().Contain(_INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE);
-		}
-
-		[Test]
-		public void Update_WithInvalidBatchSetId_ThrowsException()
-		{
-			var batchSet = new BatchSet
-			{
-				ArtifactID = -1,
-				Name = Randomizer.GetString(),
-				BatchSize = 1500,
-				BatchPrefix = Randomizer.GetString("BS", 3),
-				DataSource = new NamedArtifact
-				{
-					ArtifactID = 1
-				}
-			};
-			TestIfUpdateThrowsExpectedException(batchSet, _INVALID_BATCH_SET_ID_EXCEPTION_MESSAGE);
+			var mockRestService = new Mock<IRestService>();
+			var mockBatchSetValidator = new Mock<IBatchSetValidatorV1>();
+			_sut = new BatchSetUpdateStrategyV1(mockRestService.Object, mockBatchSetValidator.Object);
 		}
 
 		[Test]

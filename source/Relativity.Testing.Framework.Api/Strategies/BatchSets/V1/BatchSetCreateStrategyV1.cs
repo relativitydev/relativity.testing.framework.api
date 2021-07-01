@@ -1,5 +1,4 @@
-﻿using System;
-using Relativity.Testing.Framework.Api.Models;
+﻿using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
@@ -10,18 +9,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class BatchSetCreateStrategyV1 : ICreateBatchSetStrategy
 	{
 		private readonly IRestService _restService;
+		private readonly IBatchSetValidatorV1 _validator;
 
-		public BatchSetCreateStrategyV1(IRestService restService)
+		public BatchSetCreateStrategyV1(IRestService restService, IBatchSetValidatorV1 validator)
 		{
 			_restService = restService;
+			_validator = validator;
 		}
 
 		public BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials = null)
 		{
-			if (workspaceId < -1 || workspaceId == 0)
-			{
-				throw new ArgumentException("Workspace ID should be greater than zero or equal to -1 for admin context.");
-			}
+			_validator.ValidateWorkspaceId(workspaceId);
 
 			var dto = new BatchSetDTOV1(entity);
 			var request = new BatchSetRequestV1(dto);

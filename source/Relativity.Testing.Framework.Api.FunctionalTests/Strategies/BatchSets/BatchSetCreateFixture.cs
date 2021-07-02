@@ -4,6 +4,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -18,19 +19,30 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Create_WithFilledEntity()
+		[VersionRange("<12.1")]
+		public void Create_WithFilledEntity_PrePrairieSmoke()
 		{
 			var batchSet = ArrangeBatchSet();
 
 			var result = Sut.Create(DefaultWorkspace.ArtifactID, batchSet);
 
-			result.Should().BeEquivalentTo(batchSet, x => x.Excluding(y => y.ArtifactID)
-				.Excluding(y => y.DataSource.Name).Excluding(y => y.BatchUnitField.Name)
-				.Excluding(y => y.FamilyField.Name).Excluding(y => y.ReviewedField.Name));
+			TestIfCreatedEntityIsEquivalentToExpectedPrePrairieSmoke(batchSet, result);
 		}
 
 		[Test]
-		public void Create_FilledEntityAndWithNullAsUserCredentialsOverride()
+		[VersionRange(">=12.1")]
+		public void Create_WithFilledEntity()
+		{
+			BatchSet batchSet = PrepareBatchSet();
+
+			var result = Sut.Create(DefaultWorkspace.ArtifactID, batchSet);
+
+			CheckIfCreatedEntityIsEquivalentToExpectedV1(batchSet, result);
+		}
+
+		[Test]
+		[VersionRange("<12.1")]
+		public void Create_FilledEntityAndWithNullAsUserCredentialsOverride_PrePrairieSmoke()
 		{
 			var batchSet = ArrangeBatchSet();
 
@@ -39,6 +51,57 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEquivalentTo(batchSet, x => x.Excluding(y => y.ArtifactID)
 				.Excluding(y => y.DataSource.Name).Excluding(y => y.BatchUnitField.Name)
 				.Excluding(y => y.FamilyField.Name).Excluding(y => y.ReviewedField.Name));
+		}
+
+		[Test]
+		[VersionRange(">=12.1")]
+		public void Create_FilledEntityAndWithNullAsUserCredentialsOverride()
+		{
+			BatchSet batchSet = PrepareBatchSet();
+
+			var result = Sut.Create(DefaultWorkspace.ArtifactID, batchSet, userCredentials: null);
+
+			CheckIfCreatedEntityIsEquivalentToExpectedV1(batchSet, result);
+		}
+
+		private BatchSet PrepareBatchSet()
+		{
+			var keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>().Create(DefaultWorkspace.ArtifactID, new KeywordSearch());
+
+			var batchSet = new BatchSet
+			{
+				Name = Randomizer.GetString(),
+				DataSource = new NamedArtifact
+				{
+					ArtifactID = keywordSearch.ArtifactID,
+					Name = keywordSearch.Name
+				}
+			};
+			return batchSet;
+		}
+
+		private static void TestIfCreatedEntityIsEquivalentToExpectedPrePrairieSmoke(BatchSet batchSet, BatchSet result)
+		{
+			result.Should().BeEquivalentTo(
+				batchSet,
+				x => x.Excluding(y => y.ArtifactID)
+					.Excluding(y => y.DataSource.Name)
+					.Excluding(y => y.BatchUnitField.Name)
+					.Excluding(y => y.FamilyField.Name)
+					.Excluding(y => y.ReviewedField.Name));
+		}
+
+		private static void CheckIfCreatedEntityIsEquivalentToExpectedV1(BatchSet batchSet, BatchSet result)
+		{
+			result.Should().BeEquivalentTo(
+				batchSet,
+				x => x.Excluding(y => y.ArtifactID)
+					.Excluding(y => y.DataSource.Name)
+					.Excluding(y => y.BatchUnitField)
+					.Excluding(y => y.FamilyField)
+					.Excluding(y => y.ReviewedField)
+					.Excluding(y => y.AutoBatchSettings)
+					.Excluding(y => y.BatchProcessResult));
 		}
 
 		[Test]

@@ -1,4 +1,4 @@
-﻿using System.Net.Http;
+﻿using System;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -7,11 +7,12 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ICreateBatchesStrategy))]
-	internal class BatchSetCreateBatchesFixture : ApiServiceTestFixture<ICreateBatchesStrategy>
+	[TestOf(typeof(IDeleteBatchSetStrategy))]
+	internal class BatchSetDeleteStrategyFixture : ApiServiceTestFixture<IDeleteBatchSetStrategy>
 	{
 		[Test]
-		public void CreateBatches()
+		[VersionRange(">=12.1")]
+		public void Delete_WithValidWorkspaceIdAndBatchSetId_DeletesBatchSet()
 		{
 			BatchSet batchSet = null;
 
@@ -30,18 +31,22 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				batchSet = Facade.Resolve<ICreateBatchSetStrategy>().Create(DefaultWorkspace.ArtifactID, batchModel);
 			});
 
-			var result = Sut.CreateBatches(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);
+			Sut.Delete(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);
 
-			result.Count.Should().BeGreaterThan(0);
-			result.Action.Should().Be(BatchProcessAction.Create.ToString());
+			var result = Assert.Throws<ArgumentException>(() =>
+				Facade.Resolve<IGetBatchSetByIdStrategy>().Get(DefaultWorkspace.ArtifactID, batchSet.ArtifactID));
+
+			result.Message.Should().Contain($"The batch set with ID: {batchSet.ArtifactID} does not exists.");
 		}
 
 		[Test]
 		[VersionRange("<12.1")]
-		public void CreateBatches_Missing()
+		public void Delete_ForUnsupportedVersions_ThrowsArgumentException()
 		{
-			Assert.Throws<HttpRequestException>(() =>
-				Sut.CreateBatches(DefaultWorkspace.ArtifactID, int.MaxValue));
+			var result = Assert.Throws<ArgumentException>(() =>
+				Sut.Delete(DefaultWorkspace.ArtifactID, 1));
+
+			result.Message.Should().Contain("The method Delete does not support version of Relativity lower than 12.1.");
 		}
 	}
 }

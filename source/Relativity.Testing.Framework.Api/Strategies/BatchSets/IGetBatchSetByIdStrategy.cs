@@ -1,7 +1,7 @@
 ﻿using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Models;
 
-namespace Relativity.Testing.Framework.Api.Strategies.BatchSets
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IGetBatchSetByIdStrategy
 	{

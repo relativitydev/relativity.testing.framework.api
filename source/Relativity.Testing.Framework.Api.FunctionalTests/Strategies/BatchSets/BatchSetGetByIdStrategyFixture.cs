@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Api.Strategies.BatchSets;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -10,6 +10,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class BatchSetGetByIdStrategyFixture : ApiServiceTestFixture<IGetBatchSetByIdStrategy>
 	{
 		[Test]
+		[VersionRange("<12.1")]
 		public void Get_Missing()
 		{
 			var result = Sut.Get(DefaultWorkspace.ArtifactID, int.MaxValue);

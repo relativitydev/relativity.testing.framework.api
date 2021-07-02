@@ -1,6 +1,5 @@
 ﻿using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Api.Strategies.BatchSets;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -12,19 +11,25 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IExistsBatchSetByIdStrategy _existsBatchSetByIdStrategy;
 		private readonly ICreateBatchesStrategy _createBatchesStrategy;
 		private readonly IPurgeBatchesStrategy _purgeBatchesStrategy;
+		private readonly IUpdateBatchSetStrategy _updateBatchSetStrategy;
+		private readonly IDeleteBatchSetStrategy _deleteBatchSetStrategy;
 
 		public BatchSetService(
 			ICreateBatchSetStrategy createBatchSetStrategy,
 			IGetBatchSetByIdStrategy getBatchSetByIdStrategy,
 			IExistsBatchSetByIdStrategy existsBatchSetByIdStrategy,
 			ICreateBatchesStrategy createBatchesStrategy,
-			IPurgeBatchesStrategy purgeBatchesStrategy)
+			IPurgeBatchesStrategy purgeBatchesStrategy,
+			IUpdateBatchSetStrategy updateBatchSetStrategy,
+			IDeleteBatchSetStrategy deleteBatchSetStrategy)
 		{
 			_createBatchSetStrategy = createBatchSetStrategy;
 			_getBatchSetByIdStrategy = getBatchSetByIdStrategy;
 			_existsBatchSetByIdStrategy = existsBatchSetByIdStrategy;
 			_createBatchesStrategy = createBatchesStrategy;
 			_purgeBatchesStrategy = purgeBatchesStrategy;
+			_updateBatchSetStrategy = updateBatchSetStrategy;
+			_deleteBatchSetStrategy = deleteBatchSetStrategy;
 		}
 
 		public BatchSet Create(int workspaceId, BatchSet entity)
@@ -32,6 +37,18 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials)
 			=> _createBatchSetStrategy.Create(workspaceId, entity, userCredentials);
+
+		public BatchSet Update(int workspaceId, BatchSet entity)
+			=> _updateBatchSetStrategy.Update(workspaceId, entity);
+
+		public BatchSet Update(int workspaceId, BatchSet entity, UserCredentials userCredentials)
+			=> _updateBatchSetStrategy.Update(workspaceId, entity, userCredentials);
+
+		public void Delete(int workspaceId, int entityId, UserCredentials userCredentials)
+			=> _deleteBatchSetStrategy.Delete(workspaceId, entityId, userCredentials);
+
+		public void Delete(int workspaceId, int entityId)
+			=> _deleteBatchSetStrategy.Delete(workspaceId, entityId);
 
 		public BatchSet Get(int workspaceId, int entityId)
 			=> Get(workspaceId, entityId, null);

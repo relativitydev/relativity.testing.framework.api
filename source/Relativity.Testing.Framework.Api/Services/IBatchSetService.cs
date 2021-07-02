@@ -156,6 +156,76 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool Exists(int workspaceId, int entityId, UserCredentials userCredentials);
 
 		/// <summary>
+		/// Updates the specified  <see cref="BatchSet"/>.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
+		/// <param name="entity">The <see cref="BatchSet"/> entity to update.</param>
+		/// <returns>Updated <see cref="BatchSet"/> entity.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// BatchSet batchSetToUpdate = _batchSetService.Get(workspaceId, batchSetArtifactId);
+		/// batchSetToUpdate.BatchSize = 30;
+		/// BatchSet updatedBatchSet = _batchSetService.Update(workspaceId, batchSetToUpdate);
+		/// </code>
+		/// </example>
+		BatchSet Update(int workspaceId, BatchSet entity);
+
+		/// <summary>
+		/// Updates the specified <see cref="BatchSet"/>.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
+		/// <param name="entity">The <see cref="BatchSet"/> entity to update.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <returns>Updated <see cref="BatchSet"/> entity.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// BatchSet batchSetToUpdate = _batchSetService.Get(workspaceId, batchSetArtifactId);
+		/// batchSetToUpdate.BatchSize = 30;
+		/// var userCredentials = new UserCredentials
+		/// {
+		/// 	Username = "SomeUsername",
+		/// 	Password = "SomePassword"
+		/// };
+		/// BatchSet updatedBatchSet = _batchSetService.Update(workspaceId, batchSetToUpdate, userCredentials);
+		/// </code>
+		/// </example>
+		BatchSet Update(int workspaceId, BatchSet entity, UserCredentials userCredentials);
+
+		/// <summary>
+		/// Deletes the <see cref="BatchSet"/> with the specified ID.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
+		/// <param name="entityId">The Artifact ID of the batch set.</param>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// BatchSet updatedBatchSet = _batchSetService.Delete(workspaceId, batchSetId);
+		/// </code>
+		/// </example>
+		void Delete(int workspaceId, int entityId);
+
+		/// <summary>
+		/// Deletes the <see cref="BatchSet"/> with the specified ID.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
+		/// <param name="entityId">The Artifact ID of the batch set.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var userCredentials = new UserCredentials
+		/// {
+		/// 	Username = "SomeUsername",
+		/// 	Password = "SomePassword"
+		/// };
+		/// BatchSet updatedBatchSet = _batchSetService.Delete(workspaceId, batchSetId, userCredentials);
+		/// </code>
+		/// </example>
+		void Delete(int workspaceId, int entityId, UserCredentials userCredentials);
+
+		/// <summary>
 		/// Runs create batches operation for a specific <see cref="BatchSet"/>.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>

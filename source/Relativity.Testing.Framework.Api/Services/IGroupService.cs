@@ -127,8 +127,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var groupId = 1;
-		/// var entity = _groupService.Get(groupId);
-		/// entity.Keywords = "Test";
+		/// var entity = new Group
+		/// {
+		/// 	Name = "Some Existing Group Name",
+		/// 	Keywords = "Test Edited Keywords"
+		/// }
 		///  _groupService.Update(entity);
 		/// </code>
 		/// </example>

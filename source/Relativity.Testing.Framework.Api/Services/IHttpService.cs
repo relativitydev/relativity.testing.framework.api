@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -32,6 +33,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		TResult Get<TResult>(string relativeUri, UserCredentials userCredentials = null);
 
 		/// <summary>
+		/// Executes a async GET HTTP request to the specified <paramref name="relativeUri"/>,
+		/// then deserializes the response content to <typeparamref name="TResult"/> and returns it.
+		/// </summary>
+		/// <typeparam name="TResult">The type of the result to deserialize response content to.</typeparam>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <returns>The task with response content deserialized to <typeparamref name="TResult"/>.</returns>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		Task<TResult> GetAsync<TResult>(string relativeUri, UserCredentials userCredentials = null);
+
+		/// <summary>
 		/// Executes a POST HTTP request to the specified <paramref name="relativeUri"/>
 		/// with optionally <paramref name="content"/> serialized to JSON,
 		/// then deserializes the response content to <typeparamref name="TResult"/> and returns it.
@@ -58,6 +72,35 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
 		/// </exception>
 		void Post(string relativeUri, object content = null, UserCredentials userCredentials = null);
+
+		/// <summary>
+		/// Executes a async POST HTTP request to the specified <paramref name="relativeUri"/>
+		/// with optionally <paramref name="content"/> serialized to JSON,
+		/// then deserializes the response content to <typeparamref name="TResult"/> and returns it.
+		/// </summary>
+		/// <typeparam name="TResult">The type of the result to deserialize response content to.</typeparam>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="content">The content object.</param>
+		/// <param name="timeout">Number of minutes to wait before timeing out. Default is 2.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <returns>The task with response content deserialized to <typeparamref name="TResult"/>.</returns>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		Task<TResult> PostAsync<TResult>(string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null);
+
+		/// <summary>
+		/// Executes a async POST HTTP request without response to the specified <paramref name="relativeUri"/>
+		/// with optionally <paramref name="content"/> serialized to JSON.
+		/// </summary>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="content">The content object.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		/// <returns>>A <see cref="Task"/> representing the asynchronous operation.</returns>
+		Task PostAsync(string relativeUri, object content = null, UserCredentials userCredentials = null);
 
 		/// <summary>
 		/// Executes a PUT HTTP request to the specified <paramref name="relativeUri"/>
@@ -87,6 +130,34 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Put(string relativeUri, object content = null, UserCredentials userCredentials = null);
 
 		/// <summary>
+		/// Executes a async PUT HTTP request to the specified <paramref name="relativeUri"/>
+		/// with optionally <paramref name="content"/> serialized to JSON,
+		/// then deserializes the response content to <typeparamref name="TResult"/> and returns it.
+		/// </summary>
+		/// <typeparam name="TResult">The type of the result to deserialize response content to.</typeparam>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="content">The content object.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <returns>The task with response content deserialized to <typeparamref name="TResult"/>.</returns>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		Task<TResult> PutAsync<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null);
+
+		/// <summary>
+		/// Executes a async PUT HTTP request without response to the specified <paramref name="relativeUri"/>
+		/// with optionally <paramref name="content"/> serialized to JSON.
+		/// </summary>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="content">The content object.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+		Task PutAsync(string relativeUri, object content = null, UserCredentials userCredentials = null);
+
+		/// <summary>
 		/// Executes a DELETE HTTP request to the specified <paramref name="relativeUri"/>
 		/// with optionally <paramref name="content"/> serialized to JSON,
 		/// then deserializes the response content to <typeparamref name="TResult"/> and returns it.
@@ -112,5 +183,33 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
 		/// </exception>
 		void Delete(string relativeUri, object content = null, UserCredentials userCredentials = null);
+
+		/// <summary>
+		/// Executes a ascyn DELETE HTTP request to the specified <paramref name="relativeUri"/>
+		/// with optionally <paramref name="content"/> serialized to JSON,
+		/// then deserializes the response content to <typeparamref name="TResult"/> and returns it.
+		/// </summary>
+		/// <typeparam name="TResult">The type of the result to deserialize response content to.</typeparam>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="content">The content object.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <returns>The task with response content deserialized to <typeparamref name="TResult"/>.</returns>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		Task<TResult> DeleteAsync<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null);
+
+		/// <summary>
+		/// Executes a async DELETE HTTP request without response to the specified <paramref name="relativeUri"/>
+		/// with optionally <paramref name="content"/> serialized to JSON.
+		/// </summary>
+		/// <param name="relativeUri">The endpoint relative URI.</param>
+		/// <param name="content">The content object.</param>
+		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
+		/// <exception cref="HttpRequestException">
+		/// The response has <see cref="HttpResponseMessage.IsSuccessStatusCode"/> equal to <see langword="false"/>.
+		/// </exception>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+		Task DeleteAsync(string relativeUri, object content = null, UserCredentials userCredentials = null);
 	}
 }

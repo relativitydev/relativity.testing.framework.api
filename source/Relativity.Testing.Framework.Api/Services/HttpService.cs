@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Relativity.Testing.Framework.Api.Attributes;
 using Relativity.Testing.Framework.Api.Extensions;
@@ -44,6 +45,11 @@ namespace Relativity.Testing.Framework.Api.Services
 			return Send<TResult>(HttpMethod.Get, relativeUri, userCredentials: userCredentials);
 		}
 
+		public async Task<TResult> GetAsync<TResult>(string relativeUri, UserCredentials userCredentials = null)
+		{
+			return await SendAsync<TResult>(HttpMethod.Get, relativeUri, userCredentials: userCredentials).ConfigureAwait(false);
+		}
+
 		public TResult Post<TResult>(string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null)
 		{
 			return Send<TResult>(HttpMethod.Post, relativeUri, content, timeout, userCredentials: userCredentials);
@@ -52,6 +58,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void Post(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
 			Post<string>(relativeUri, content, userCredentials: userCredentials);
+		}
+
+		public async Task<TResult> PostAsync<TResult>(string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null)
+		{
+			return await SendAsync<TResult>(HttpMethod.Post, relativeUri, content, timeout, userCredentials: userCredentials).ConfigureAwait(false);
+		}
+
+		public async Task PostAsync(string relativeUri, object content = null, UserCredentials userCredentials = null)
+		{
+			await PostAsync<string>(relativeUri, content, userCredentials: userCredentials).ConfigureAwait(false);
 		}
 
 		public TResult Put<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null)
@@ -64,6 +80,16 @@ namespace Relativity.Testing.Framework.Api.Services
 			Put<string>(relativeUri, content, userCredentials: userCredentials);
 		}
 
+		public async Task<TResult> PutAsync<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null)
+		{
+			return await SendAsync<TResult>(HttpMethod.Put, relativeUri, content, userCredentials: userCredentials).ConfigureAwait(false);
+		}
+
+		public async Task PutAsync(string relativeUri, object content = null, UserCredentials userCredentials = null)
+		{
+			await PutAsync<string>(relativeUri, content, userCredentials: userCredentials).ConfigureAwait(false);
+		}
+
 		public TResult Delete<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null)
 		{
 			return Send<TResult>(HttpMethod.Delete, relativeUri, content, userCredentials: userCredentials);
@@ -74,7 +100,22 @@ namespace Relativity.Testing.Framework.Api.Services
 			Delete<string>(relativeUri, content, userCredentials: userCredentials);
 		}
 
-		private TResult Send<TResult>(HttpMethod method, string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null)
+		public async Task<TResult> DeleteAsync<TResult>(string relativeUri, object content = null, UserCredentials userCredentials = null)
+		{
+			return await SendAsync<TResult>(HttpMethod.Delete, relativeUri, content, userCredentials: userCredentials).ConfigureAwait(false);
+		}
+
+		public async Task DeleteAsync(string relativeUri, object content = null, UserCredentials userCredentials = null)
+		{
+			await DeleteAsync<string>(relativeUri, content, userCredentials: userCredentials).ConfigureAwait(false);
+		}
+
+		private TResult Send<TResult>(
+			HttpMethod method,
+			string relativeUri,
+			object content = null,
+			double timeout = 2,
+			UserCredentials userCredentials = null)
 		{
 			ValidateArguments(method, relativeUri);
 			HttpContent httpContent = GetHttpContent(content);
@@ -85,17 +126,42 @@ namespace Relativity.Testing.Framework.Api.Services
 				request.OverrideUserCredentialsIfNeeded(userCredentials);
 
 				HttpResponseMessage response = _client.SendAsync(request, cancellationToken.Token).Result;
+				return HandleHttpResponseMessage<TResult>(response);
+			}
+		}
 
-				if (typeof(TResult) == typeof(HttpResponseMessage))
-				{
-					return (TResult)(object)response;
-				}
+		private async Task<TResult> SendAsync<TResult>(
+			HttpMethod method,
+			string relativeUri,
+			object content = null,
+			double timeout = 2,
+			UserCredentials userCredentials = null)
+		{
+			ValidateArguments(method, relativeUri);
+			HttpContent httpContent = GetHttpContent(content);
 
-				using (response)
-				{
-					CheckResponseStatus(response);
-					return DeserializeContent<TResult>(response);
-				}
+			using (HttpRequestMessage request = new HttpRequestMessage(method, relativeUri) { Content = httpContent })
+			using (CancellationTokenSource cancellationToken = new CancellationTokenSource(TimeSpan.FromMinutes(timeout)))
+			{
+				request.OverrideUserCredentialsIfNeeded(userCredentials);
+
+				var response = await _client.SendAsync(request, cancellationToken.Token).ConfigureAwait(false);
+
+				return HandleHttpResponseMessage<TResult>(response);
+			}
+		}
+
+		private TResult HandleHttpResponseMessage<TResult>(HttpResponseMessage response)
+		{
+			if (typeof(TResult) == typeof(HttpResponseMessage))
+			{
+				return (TResult)(object)response;
+			}
+
+			using (response)
+			{
+				CheckResponseStatus(response);
+				return DeserializeContent<TResult>(response);
 			}
 		}
 

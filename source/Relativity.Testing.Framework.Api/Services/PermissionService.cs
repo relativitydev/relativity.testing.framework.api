@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
@@ -36,10 +37,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		public List<NamedArtifact> GetWorkspaceGroupUsers(int workspaceId, string groupName)
 			=> _getWorkspaceGroupUsers.Get(workspaceId, groupName);
 
+		public async Task<List<NamedArtifact>> GetWorkspaceGroupUsersAsync(int workspaceId, int groupId)
+			=> await _getWorkspaceGroupUsers.GetAsync(workspaceId, groupId).ConfigureAwait(false);
+
 		public List<NamedArtifact> GetAdminGroupUsers(int groupId)
 			=> _getAdminGroupUsers.Get(groupId);
 
 		public List<NamedArtifact> GetAdminGroupUsers(string groupName)
 			=> _getAdminGroupUsers.Get(groupName);
+
+		public async Task<List<NamedArtifact>> GetAdminGroupUsersAsync(int groupId)
+			=> await _getAdminGroupUsers.GetAsync(groupId).ConfigureAwait(false);
 	}
 }

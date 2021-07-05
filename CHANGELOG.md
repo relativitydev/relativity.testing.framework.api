@@ -9,13 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Async method for IPermissionService methods using IDs. - [RTF-1276](https://jira.kcura.com/browse/RTF-1276)
+- Async method for IPermissionService methods using IDs. - [TESTENG-1276](https://jira.kcura.com/browse/TESTENG-1276)
 
 ## [3.4.0] - 2021-07-05
 
 ### Added
 
-- Async method for IHttpService. - [RTF-1275](https://jira.kcura.com/browse/RTF-1275)
+- Async method for IHttpService. - [TESTENG-1275](https://jira.kcura.com/browse/TESTENG-1275)
 
 ## [3.3.0] - 2021-07-02
 

@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Arrangement;
@@ -40,6 +42,15 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		public void GetAsync_WithMissingWorkspace()
+		{
+			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
+				await Sut.GetAsync(MissingId, _groupWithUser.ArtifactID).ConfigureAwait(false));
+
+			exception.Message.Should().StartWith($"Workspace {MissingId} is invalid.");
+		}
+
+		[Test]
 		public void Get_WithMissingGroup()
 		{
 			var exception = Assert.Throws<HttpRequestException>(() =>
@@ -49,9 +60,26 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		public void GetAsync_WithMissingGroup()
+		{
+			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
+				await Sut.GetAsync(_workspace.ArtifactID, MissingId).ConfigureAwait(false));
+
+			exception.Message.Should().StartWith($"GroupID {MissingId} is invalid.");
+		}
+
+		[Test]
 		public void Get_WithNoUsers_ById()
 		{
 			var result = Sut.Get(_workspace.ArtifactID, _groupWithNoUsers.ArtifactID);
+
+			result.Should().BeEmpty();
+		}
+
+		[Test]
+		public async Task GetAsync_WithNoUsers_ById()
+		{
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupWithNoUsers.ArtifactID).ConfigureAwait(false);
 
 			result.Should().BeEmpty();
 		}
@@ -68,10 +96,15 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public void Get_WithSingleUser_ById()
 		{
 			var result = Sut.Get(_workspace.ArtifactID, _groupWithUser.ArtifactID);
+			CheckIfUsersListIsAsExpected(result);
+		}
 
-			result.Count.Should().Be(1);
-			result[0].ArtifactID.Should().Be(_user.ArtifactID);
-			result[0].Name.Should().Be($"{_user.LastName}, {_user.FirstName}");
+		[Test]
+		public async Task GetAsync_WithSingleUser_ById()
+		{
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupWithUser.ArtifactID).ConfigureAwait(false);
+
+			CheckIfUsersListIsAsExpected(result);
 		}
 
 		[Test]
@@ -79,6 +112,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			var result = Sut.Get(_workspace.ArtifactID, _groupWithUser.Name);
 
+			CheckIfUsersListIsAsExpected(result);
+		}
+
+		private void CheckIfUsersListIsAsExpected(List<NamedArtifact> result)
+		{
 			result.Count.Should().Be(1);
 			result[0].ArtifactID.Should().Be(_user.ArtifactID);
 			result[0].Name.Should().Be($"{_user.LastName}, {_user.FirstName}");

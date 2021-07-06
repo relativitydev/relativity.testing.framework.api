@@ -21,7 +21,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			try
 			{
 				var instanceSettingDTO = _restService.Get<InstanceSettingDTO>($"/Relativity.REST/api/relativity-environment/v1/workspaces/-1/instance-settings/{id}");
-				return InstanceSettingDTOMapper.DoMapping(instanceSettingDTO);
+				return InstanceSettingDTOMapper.DoMappingFromDTO(instanceSettingDTO);
 			}
 			catch (HttpRequestException ex) when (ex.Message.Contains("Relativity.Services.Exceptions.NotFoundException"))
 			{

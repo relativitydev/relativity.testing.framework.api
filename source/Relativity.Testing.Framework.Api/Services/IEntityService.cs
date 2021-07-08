@@ -43,6 +43,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var someEntityId = 1;
 		/// var entity = _entityService.Get(workspaceId, someEntityId);
 		/// </code>
 		/// </example>
@@ -70,6 +71,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var someEntityId = 1;
 		/// var entityExists = _entityService.Exists(workspaceId, someEntityId);
 		/// </code>
 		/// </example>
@@ -83,6 +85,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var someExistingEntityArtifactId = 1;
+		/// var someExistingTypeArtifactId = 2;
 		/// var entityToUpdate = new Entity
 		/// {
 		/// 	ArtifactId = someExistingEntityArtifactId,
@@ -110,6 +114,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var someEntityId = 1;
 		/// var entityToUpdate = _entityService.Get(workspaceId, someEntityId);
 		/// entityToUpdate.FirstName = "Some Updated Name";
 		/// entityToUpdate.DocumentNumberingPrefix = Randomizer.GetString();
@@ -151,6 +156,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var someEntityId = 1;
 		/// _entityService.Delete(workspaceId, someEntityId);
 		/// </code>
 		/// </example>

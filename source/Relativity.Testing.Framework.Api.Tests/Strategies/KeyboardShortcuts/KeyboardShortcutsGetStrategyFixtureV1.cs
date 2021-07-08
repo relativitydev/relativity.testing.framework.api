@@ -32,44 +32,44 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void GetKeyboardShortcutsAsync_WithAdminContextWorkspaceId_ThrowsException()
+		public void GetAsync_WithAdminContextWorkspaceId_ThrowsException()
 		{
-			TestIfGetKeyboardShortcutsAsyncThrowsInvalidWorkspaceIdException(-1);
+			TestIfGetAsyncThrowsInvalidWorkspaceIdException(-1);
 		}
 
 		[Test]
-		public void GetKeyboardShortcutsAsync_WithZeroWorkspaceId_ThrowsException()
+		public void GetAsync_WithZeroWorkspaceId_ThrowsException()
 		{
-			TestIfGetKeyboardShortcutsAsyncThrowsInvalidWorkspaceIdException(0);
+			TestIfGetAsyncThrowsInvalidWorkspaceIdException(0);
 		}
 
 		[Test]
-		public void GetKeyboardShortcutsAsync_WithValidWorkspaceId_DoesNotThrowException()
+		public void GetAsync_WithValidWorkspaceId_DoesNotThrowException()
 		{
-			Assert.DoesNotThrowAsync(async () => await _sut.GetKeyboardShortcutsAsync(1, null).ConfigureAwait(false));
+			Assert.DoesNotThrowAsync(async () => await _sut.GetAsync(1, null).ConfigureAwait(false));
 		}
 
-		private void TestIfGetKeyboardShortcutsAsyncThrowsInvalidWorkspaceIdException(int workspaceId)
+		private void TestIfGetAsyncThrowsInvalidWorkspaceIdException(int workspaceId)
 		{
 			var result = Assert.ThrowsAsync<ArgumentException>(async () =>
-				await _sut.GetKeyboardShortcutsAsync(workspaceId, null).ConfigureAwait(false));
+				await _sut.GetAsync(workspaceId, null).ConfigureAwait(false));
 
 			result.Message.Should().Contain(_INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE);
 		}
 
 		[Test]
-		public async Task GetKeyboardShortcutsAsync_WithNullIncludeOptions_CallsApiWithoutQueryParameters()
+		public async Task GetAsync_WithNullIncludeOptions_CallsApiWithoutQueryParameters()
 		{
 			var workspaceId = 1;
-			await _sut.GetKeyboardShortcutsAsync(workspaceId, null).ConfigureAwait(false);
+			await _sut.GetAsync(workspaceId, null).ConfigureAwait(false);
 
 			_mockRestService.Verify(
-				restService => restService.GetAsync<IEnumerable<KeyboardShortcut>>($"/Relativity.Rest/API/relativity-review/v1/workspaces/{workspaceId}/keyboard-shortcuts", null),
+				restService => restService.GetAsync<IEnumerable<KeyboardShortcut>>($"relativity-review/v1/workspaces/{workspaceId}/keyboard-shortcuts", null),
 				Times.Once);
 		}
 
 		[Test]
-		public async Task GetKeyboardShortcutsAsync_WithFilledIncludeOptions_CallsApiWithQueryParameters()
+		public async Task GetAsync_WithFilledIncludeOptions_CallsApiWithQueryParameters()
 		{
 			var workspaceId = 1;
 			var includeOptions = new KeyboardShortcutsIncludeOptions
@@ -77,12 +77,72 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				IncludeSystemShortcuts = false,
 				IncludeFieldShortcuts = false
 			};
-			var expectedApiUrl = $"/Relativity.Rest/API/relativity-review/v1/workspaces/{workspaceId}/keyboard-shortcuts?includeSystemShortcuts={includeOptions.IncludeSystemShortcuts}&includeChoiceShortcuts={includeOptions.IncludeChoiceShortcuts}&includeFieldShortcuts={includeOptions.IncludeFieldShortcuts}";
+			string expectedApiUrl = GetExpectedApiUrlWithQueryParameters(workspaceId, includeOptions);
 
-			await _sut.GetKeyboardShortcutsAsync(workspaceId, includeOptions).ConfigureAwait(false);
+			await _sut.GetAsync(workspaceId, includeOptions).ConfigureAwait(false);
 
 			_mockRestService.Verify(
 				restService => restService.GetAsync<IEnumerable<KeyboardShortcut>>(expectedApiUrl, null), Times.Once);
+		}
+
+		[Test]
+		public void Get_WithAdminContextWorkspaceId_ThrowsException()
+		{
+			TestIfGetThrowsInvalidWorkspaceIdException(-1);
+		}
+
+		[Test]
+		public void Get_WithZeroWorkspaceId_ThrowsException()
+		{
+			TestIfGetThrowsInvalidWorkspaceIdException(0);
+		}
+
+		[Test]
+		public void Get_WithValidWorkspaceId_DoesNotThrowException()
+		{
+			Assert.DoesNotThrow(() => _sut.Get(1, null));
+		}
+
+		private void TestIfGetThrowsInvalidWorkspaceIdException(int workspaceId)
+		{
+			var result = Assert.Throws<ArgumentException>(() => _sut.Get(workspaceId, null));
+
+			result.Message.Should().Contain(_INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE);
+		}
+
+		[Test]
+		public void Get_WithNullIncludeOptions_CallsApiWithoutQueryParameters()
+		{
+			var workspaceId = 1;
+
+			_sut.Get(workspaceId, null);
+
+			_mockRestService.Verify(
+				restService => restService.Get<IEnumerable<KeyboardShortcut>>($"relativity-review/v1/workspaces/{workspaceId}/keyboard-shortcuts", null),
+				Times.Once);
+		}
+
+		[Test]
+		public void Get_WithFilledIncludeOptions_CallsApiWithQueryParameters()
+		{
+			var workspaceId = 1;
+			var includeOptions = new KeyboardShortcutsIncludeOptions
+			{
+				IncludeSystemShortcuts = false,
+				IncludeFieldShortcuts = true,
+				IncludeChoiceShortcuts = false
+			};
+			string expectedApiUrl = GetExpectedApiUrlWithQueryParameters(workspaceId, includeOptions);
+
+			_sut.Get(workspaceId, includeOptions);
+
+			_mockRestService.Verify(
+				restService => restService.Get<IEnumerable<KeyboardShortcut>>(expectedApiUrl, null), Times.Once);
+		}
+
+		private static string GetExpectedApiUrlWithQueryParameters(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions)
+		{
+			return $"relativity-review/v1/workspaces/{workspaceId}/keyboard-shortcuts?includeSystemShortcuts={includeOptions.IncludeSystemShortcuts}&includeChoiceShortcuts={includeOptions.IncludeChoiceShortcuts}&includeFieldShortcuts={includeOptions.IncludeFieldShortcuts}";
 		}
 	}
 }

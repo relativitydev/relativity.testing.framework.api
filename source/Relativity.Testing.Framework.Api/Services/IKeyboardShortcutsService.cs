@@ -28,9 +28,28 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	IncludeSystemShortcuts = false,
 		/// 	IncludeFieldShortcuts = false
 		/// };
-		/// var keyboardShortcuts = await _keyboardShortcutsService.GetKeyboardShortcutsAsync(workspaceId, includeOptions).ConfigureAwait(false);
+		/// var keyboardShortcuts = await _keyboardShortcutsService.GetAsync(workspaceId, includeOptions).ConfigureAwait(false);
 		/// </code>
 		/// </example>
-		Task<IEnumerable<KeyboardShortcut>> GetKeyboardShortcutsAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null);
+		Task<IEnumerable<KeyboardShortcut>> GetAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null);
+
+		/// <summary>
+		/// Gets the list of <see cref="KeyboardShortcut"/> for the workspace.
+		/// </summary>
+		/// <param name="workspaceId">The workspace Artifact ID. Don't use admin level context specified by -1.</param>
+		/// <param name="includeOptions">Optional parameters indicating wheter to include specified types of shortcuts.</param>
+		/// <returns>The collection of <see cref="KeyboardShortcut"/> entities.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var includeOptions = new KeyboardShortcutsIncludeOptions
+		/// {
+		/// 	IncludeSystemShortcuts = false,
+		/// 	IncludeFieldShortcuts = false
+		/// };
+		/// var keyboardShortcuts = _keyboardShortcutsService.Get(workspaceId, includeOptions);
+		/// </code>
+		/// </example>
+		IEnumerable<KeyboardShortcut> Get(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null);
 	}
 }

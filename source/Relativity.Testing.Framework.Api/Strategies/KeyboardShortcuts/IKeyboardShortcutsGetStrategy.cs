@@ -6,6 +6,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IKeyboardShortcutsGetStrategy
 	{
-		Task<IEnumerable<KeyboardShortcut>> GetKeyboardShortcutsAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null);
+		IEnumerable<KeyboardShortcut> Get(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null);
+
+		Task<IEnumerable<KeyboardShortcut>> GetAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null);
 	}
 }

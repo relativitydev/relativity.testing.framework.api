@@ -7,14 +7,17 @@ namespace Relativity.Testing.Framework.Api.Services
 {
 	internal class KeyboardShortcutsService : IKeyboardShortcutsService
 	{
-		private readonly IKeyboardShortcutsGetStrategy _getStrategy;
+		private readonly IKeyboardShortcutsGetStrategy _keyboardShortcutsGetStrategy;
 
 		public KeyboardShortcutsService(IKeyboardShortcutsGetStrategy getStrategy)
 		{
-			_getStrategy = getStrategy;
+			_keyboardShortcutsGetStrategy = getStrategy;
 		}
 
-		public async Task<IEnumerable<KeyboardShortcut>> GetKeyboardShortcutsAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
-			=> await _getStrategy.GetKeyboardShortcutsAsync(workspaceId, includeOptions).ConfigureAwait(false);
+		public IEnumerable<KeyboardShortcut> Get(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
+			=> _keyboardShortcutsGetStrategy.Get(workspaceId, includeOptions);
+
+		public async Task<IEnumerable<KeyboardShortcut>> GetAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
+			=> await _keyboardShortcutsGetStrategy.GetAsync(workspaceId, includeOptions).ConfigureAwait(false);
 	}
 }

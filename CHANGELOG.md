@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- IKeyboardShortcutsService - [RTF-1257](https://jira.kcura.com/browse/RTF-1257)
+- IKeyboardShortcutsService with method for retrieving Keyboard Shortucts for workspace. - [RTF-1257](https://jira.kcura.com/browse/RTF-1257)
 
 ### Changed
 

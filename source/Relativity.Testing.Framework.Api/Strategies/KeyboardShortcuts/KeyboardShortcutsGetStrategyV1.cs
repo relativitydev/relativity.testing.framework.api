@@ -10,7 +10,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	[VersionRange(">=12.1")]
 	internal class KeyboardShortcutsGetStrategyV1 : IKeyboardShortcutsGetStrategy
 	{
-		private const string _BASE_GET_URL = "/Relativity.Rest/API/relativity-review/v1/workspaces/";
+		private const string _BASE_GET_URL = "relativity-review/v1/workspaces/";
 		private readonly IRestService _restService;
 		private readonly IArtifactIdValidator _artifactIdValidator;
 
@@ -20,17 +20,33 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_artifactIdValidator = artifactIdValidator;
 		}
 
-		public async Task<IEnumerable<KeyboardShortcut>> GetKeyboardShortcutsAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
+		public IEnumerable<KeyboardShortcut> Get(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
 		{
 			_artifactIdValidator.Validate(workspaceId, "Workspace");
 
-			var url = includeOptions == null
-				? $"{_BASE_GET_URL}{workspaceId}/keyboard-shortcuts"
-				: $"{_BASE_GET_URL}{workspaceId}/keyboard-shortcuts?includeSystemShortcuts={includeOptions.IncludeSystemShortcuts}&includeChoiceShortcuts={includeOptions.IncludeChoiceShortcuts}&includeFieldShortcuts={includeOptions.IncludeFieldShortcuts}";
+			var url = BuildUrlWithIncludeOptionsAsQueryParamaters(workspaceId, includeOptions);
+
+			var result = _restService.Get<IEnumerable<KeyboardShortcut>>(url);
+
+			return result;
+		}
+
+		public async Task<IEnumerable<KeyboardShortcut>> GetAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
+		{
+			_artifactIdValidator.Validate(workspaceId, "Workspace");
+
+			var url = BuildUrlWithIncludeOptionsAsQueryParamaters(workspaceId, includeOptions);
 
 			var result = await _restService.GetAsync<IEnumerable<KeyboardShortcut>>(url).ConfigureAwait(false);
 
 			return result;
+		}
+
+		private static string BuildUrlWithIncludeOptionsAsQueryParamaters(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions)
+		{
+			return includeOptions == null
+				? $"{_BASE_GET_URL}{workspaceId}/keyboard-shortcuts"
+				: $"{_BASE_GET_URL}{workspaceId}/keyboard-shortcuts?includeSystemShortcuts={includeOptions.IncludeSystemShortcuts}&includeChoiceShortcuts={includeOptions.IncludeChoiceShortcuts}&includeFieldShortcuts={includeOptions.IncludeFieldShortcuts}";
 		}
 	}
 }

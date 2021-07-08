@@ -12,21 +12,40 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		[Test]
 		[VersionRange(">=12.1")]
-		public async Task GetKeyboardShortcuts_ValidWorkspaceId_ReturnsNotNull()
+		public async Task GetAsync_ValidWorkspaceId_ReturnsNotNull()
 		{
-			var result = await Sut.GetKeyboardShortcutsAsync(DefaultWorkspace.ArtifactID, null).ConfigureAwait(false);
+			var result = await Sut.GetAsync(DefaultWorkspace.ArtifactID, null).ConfigureAwait(false);
+
+			result.Should().NotBeNull();
+		}
+
+		[Test]
+		[VersionRange(">=12.1")]
+		public void Get_ValidWorkspaceId_ReturnsNotNull()
+		{
+			var result = Sut.Get(DefaultWorkspace.ArtifactID, null);
 
 			result.Should().NotBeNull();
 		}
 
 		[Test]
 		[VersionRange("<12.1")]
-		public void GetKeyboardShortcuts_PrePrairieSmoke_ThrowsNotSupportedException()
+		public void Get_PrePrairieSmoke_ThrowsNotSupportedException()
+		{
+			var result = Assert.Throws<ArgumentException>(() =>
+				Sut.GetAsync(DefaultWorkspace.ArtifactID, null));
+
+			result.Message.Should().Contain("The method GetAsync fro KeyboardShortcuts does not support version of Relativity lower than 12.1.");
+		}
+
+		[Test]
+		[VersionRange("<12.1")]
+		public void GetAsync_PrePrairieSmoke_ThrowsNotSupportedException()
 		{
 			var result = Assert.ThrowsAsync<ArgumentException>(async () =>
-				await Sut.GetKeyboardShortcutsAsync(DefaultWorkspace.ArtifactID, null).ConfigureAwait(false));
+				await Sut.GetAsync(DefaultWorkspace.ArtifactID, null).ConfigureAwait(false));
 
-			result.Message.Should().Contain("The method GetKeyboardShortcuts does not support version of Relativity lower than 12.1.");
+			result.Message.Should().Contain("The method GetAsync fro KeyboardShortcuts does not support version of Relativity lower than 12.1.");
 		}
 	}
 }

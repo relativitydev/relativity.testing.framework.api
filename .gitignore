@@ -9,3 +9,4 @@ artifacts/
 .vs/
 coverage.cobertura.xml
 !vendor/*
+log.txt

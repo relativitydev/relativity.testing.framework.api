@@ -96,14 +96,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	},
 		/// 	NativeOptions = new NativeImagingEngineOptions
 		/// 	{
-		/// 		DitheringAlgorithm = NativeImagingDitheringAlgorithm.Threshold,
-		/// 		DitheringThreshold = 128,
-		/// 		ImageOutputDpi = 300,
-		/// 		MaxPagesPerDoc = null,
 		/// 		NativeImageFormat = ImageFormatType.Tiff,
-		/// 		RenderColorPagesToJpeg = false,
-		/// 		TimeZoneFieldOnDocument = null,
-		/// 		LastModifiedDateOnDocument = null
 		/// 	},
 		/// 	HtmlOptions = new ImagingHtmlOptions
 		/// 	{
@@ -116,42 +109,20 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	},
 		/// 	SpreadsheetOptions = new ImagingSpreadsheetOptions
 		/// 	{
-		/// 		FitToPagesTall = null,
-		/// 		FitToPagesWide = null,
-		/// 		Formatting = new HashSet&lt;ImagingSpreadsheetFormatting&gt;
-		/// 		{
-		/// 			ImagingSpreadsheetFormatting.AutoFitColumns,
-		/// 			ImagingSpreadsheetFormatting.AutoFitRows,
-		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyColumns,
-		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyRows
-		/// 		},
 		/// 		HideAndPageBreakAfterConsecutiveBlankRowCol = 10,
 		/// 		IncludeBorders = true,
 		/// 		IncludeComments = true,
 		/// 		IncludeGridlines = ImagingIncludeElement.OriginalSetting,
 		/// 		IncludeHeadersAndFooters = ImagingIncludeElement.OriginalSetting,
 		/// 		IncludeRowAndColumnHeadings = ImagingIncludeElement.OriginalSetting,
-		/// 		LimitToPages = null,
 		/// 		PageOrder = ImagingSpreadsheetPageOrder.OriginalSetting,
 		/// 		PaperSizeOrientation = ImagingSpreadsheetPaperSizeOrientation.OriginalSetting,
 		/// 		PrintArea = ImagingSpreadsheetPrintArea.OriginalSetting,
 		/// 		ShowTrackChanges = true,
-		/// 		TextVisibility = new HashSet&lt;ImagingSpreadsheetTextVisibility&gt;
-		/// 		{
-		/// 			ImagingSpreadsheetTextVisibility.RemoveBackgroundFillColors,
-		/// 			ImagingSpreadsheetTextVisibility.SetTextColorToBlack
-		/// 		},
-		/// 		UnhideHiddenWorksheets = true,
-		/// 		ZoomLevelPercentage = null,
+		/// 		UnhideHiddenWorksheets = true
 		/// 	},
 		/// 	WordProcessingOptions = new ImagingWordOptions
 		/// 	{
-		/// 		Include = new HashSet&lt;ImagingWordInclude&gt;
-		/// 		{
-		/// 			ImagingWordInclude.Comments,
-		/// 			ImagingWordInclude.FieldCodes,
-		/// 			ImagingWordInclude.HiddenText
-		/// 		},
 		/// 		PageOrientation = ImagingElementOrientation.OriginalSetting,
 		/// 		ShowTrackChanges = true
 		/// 	},
@@ -197,14 +168,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	},
 		/// 	NativeOptions = new NativeImagingEngineOptions
 		/// 	{
-		/// 		DitheringAlgorithm = NativeImagingDitheringAlgorithm.Threshold,
-		/// 		DitheringThreshold = 128,
-		/// 		ImageOutputDpi = 300,
-		/// 		MaxPagesPerDoc = null,
 		/// 		NativeImageFormat = ImageFormatType.Tiff,
-		/// 		RenderColorPagesToJpeg = false,
-		/// 		TimeZoneFieldOnDocument = null,
-		/// 		LastModifiedDateOnDocument = null
 		/// 	},
 		/// 	HtmlOptions = new ImagingHtmlOptions
 		/// 	{
@@ -217,42 +181,20 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	},
 		/// 	SpreadsheetOptions = new ImagingSpreadsheetOptions
 		/// 	{
-		/// 		FitToPagesTall = null,
-		/// 		FitToPagesWide = null,
-		/// 		Formatting = new HashSet&lt;ImagingSpreadsheetFormatting&gt;
-		/// 		{
-		/// 			ImagingSpreadsheetFormatting.AutoFitColumns,
-		/// 			ImagingSpreadsheetFormatting.AutoFitRows,
-		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyColumns,
-		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyRows
-		/// 		},
 		/// 		HideAndPageBreakAfterConsecutiveBlankRowCol = 10,
 		/// 		IncludeBorders = true,
 		/// 		IncludeComments = true,
 		/// 		IncludeGridlines = ImagingIncludeElement.OriginalSetting,
 		/// 		IncludeHeadersAndFooters = ImagingIncludeElement.OriginalSetting,
 		/// 		IncludeRowAndColumnHeadings = ImagingIncludeElement.OriginalSetting,
-		/// 		LimitToPages = null,
 		/// 		PageOrder = ImagingSpreadsheetPageOrder.OriginalSetting,
 		/// 		PaperSizeOrientation = ImagingSpreadsheetPaperSizeOrientation.OriginalSetting,
 		/// 		PrintArea = ImagingSpreadsheetPrintArea.OriginalSetting,
 		/// 		ShowTrackChanges = true,
-		/// 		TextVisibility = new HashSet&lt;ImagingSpreadsheetTextVisibility&gt;
-		/// 		{
-		/// 			ImagingSpreadsheetTextVisibility.RemoveBackgroundFillColors,
-		/// 			ImagingSpreadsheetTextVisibility.SetTextColorToBlack
-		/// 		},
-		/// 		UnhideHiddenWorksheets = true,
-		/// 		ZoomLevelPercentage = null,
+		/// 		UnhideHiddenWorksheets = true
 		/// 	},
 		/// 	WordProcessingOptions = new ImagingWordOptions
 		/// 	{
-		/// 		Include = new HashSet&lt;ImagingWordInclude&gt;
-		/// 		{
-		/// 			ImagingWordInclude.Comments,
-		/// 			ImagingWordInclude.FieldCodes,
-		/// 			ImagingWordInclude.HiddenText
-		/// 		},
 		/// 		PageOrientation = ImagingElementOrientation.OriginalSetting,
 		/// 		ShowTrackChanges = true
 		/// 	},

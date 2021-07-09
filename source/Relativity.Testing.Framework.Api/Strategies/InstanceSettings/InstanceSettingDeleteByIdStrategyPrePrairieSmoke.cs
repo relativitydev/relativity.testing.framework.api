@@ -6,11 +6,11 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class InstanceSettingDeleteByIdStrategyPrePraireSmoke : DeleteByIdStrategy<InstanceSetting>
+	internal class InstanceSettingDeleteByIdStrategyPrePrairieSmoke : DeleteByIdStrategy<InstanceSetting>
 	{
 		private readonly IRestService _restService;
 
-		public InstanceSettingDeleteByIdStrategyPrePraireSmoke(IRestService restService)
+		public InstanceSettingDeleteByIdStrategyPrePrairieSmoke(IRestService restService)
 		{
 			_restService = restService;
 		}

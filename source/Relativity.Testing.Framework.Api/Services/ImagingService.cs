@@ -6,18 +6,18 @@ namespace Relativity.Testing.Framework.Api.Services
 {
 	internal class ImagingService : IImagingService
 	{
-		private readonly IBasicImagingProfileCreateStrategy _basicImagingProfileCreateStrategy;
-		private readonly INativeImagingProfileCreateStrategy _nativeImagingProfileCreateStrategy;
+		private readonly IImagingProfileCreateBasicStrategy _basicImagingProfileCreateStrategy;
+		private readonly IImagingProfileCreateNativeStrategy _nativeImagingProfileCreateStrategy;
 		private readonly IImagingProfileUpdateStrategy _imagingProfileUpdateStrategy;
 		private readonly IImagingProfileGetStrategy _imagingProfileGetStrategy;
 		private readonly IImagingProfileDeleteStrategy _imagingProfileDeleteStrategy;
 
 		public ImagingService(
-						IBasicImagingProfileCreateStrategy basicImagingProfileCreateStrategy,
-						INativeImagingProfileCreateStrategy nativeImagingProfileCreateStrategy,
-						IImagingProfileUpdateStrategy imagingProfileUpdateStrategy,
-						IImagingProfileGetStrategy imagingProfileGetStrategy,
-						IImagingProfileDeleteStrategy imagingProfileDeleteStrategy)
+			IImagingProfileCreateBasicStrategy basicImagingProfileCreateStrategy,
+			IImagingProfileCreateNativeStrategy nativeImagingProfileCreateStrategy,
+			IImagingProfileUpdateStrategy imagingProfileUpdateStrategy,
+			IImagingProfileGetStrategy imagingProfileGetStrategy,
+			IImagingProfileDeleteStrategy imagingProfileDeleteStrategy)
 		{
 			_basicImagingProfileCreateStrategy = basicImagingProfileCreateStrategy;
 			_nativeImagingProfileCreateStrategy = nativeImagingProfileCreateStrategy;

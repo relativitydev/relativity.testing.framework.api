@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class NativeImagingProfileCreateStrategyNotSupported : INativeImagingProfileCreateStrategy
+	internal class ImagingProfileCreateNativeStrategyNotSupported : IImagingProfileCreateNativeStrategy
 	{
 		public ImagingProfile Create(int workspaceId, CreateNativeImagingProfileDTO dto)
 		{

@@ -21,6 +21,26 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="dto">A <see cref="CreateBasicImagingProfileDTO"/> object corresponding to the desired Imaging Profile object.</param>
 		/// <returns>Returns an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var dto = new CreateBasicImagingProfileDTO
+		/// {
+		/// 	Name = Randomizer.GetString(),
+		/// 	Notes = string.Empty,
+		/// 	Keywords = string.Empty,
+		/// 	BasicOptions = new BasicImagingEngineOptions
+		/// 	{
+		/// 		ImageOutputDpi = 300,
+		/// 		BasicImageFormat = ImageFormatType.Jpeg,
+		/// 		ImageSize = ImageSizeType.Custom,
+		/// 		MaximumImageHeight = 6.0m,
+		/// 		MaximumImageWidth = 6.0m
+		/// 	}
+		/// };
+		/// var imagingProfile = _imagingService.CreateBasic(workspaceId, dto);
+		/// </code>
+		/// </example>
 		ImagingProfile CreateBasic(int workspaceId, CreateBasicImagingProfileDTO dto);
 
 		/// <summary>
@@ -30,6 +50,26 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="dto">A <see cref="CreateBasicImagingProfileDTO"/> object corresponding to the desired Imaging Profile object.</param>
 		/// <returns>A <see cref="Task"/> with an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var dto = new CreateBasicImagingProfileDTO
+		/// {
+		/// 	Name = Randomizer.GetString(),
+		/// 	Notes = string.Empty,
+		/// 	Keywords = string.Empty,
+		/// 	BasicOptions = new BasicImagingEngineOptions
+		/// 	{
+		/// 		ImageOutputDpi = 300,
+		/// 		BasicImageFormat = ImageFormatType.Jpeg,
+		/// 		ImageSize = ImageSizeType.Custom,
+		/// 		MaximumImageHeight = 6.0m,
+		/// 		MaximumImageWidth = 6.0m
+		/// 	}
+		/// };
+		/// var imagingProfile = await _imagingService.CreateBasicAsync(workspaceId, dto).ConfigureAwait(false);
+		/// </code>
+		/// </example>
 		Task<ImagingProfile> CreateBasicAsync(int workspaceId, CreateBasicImagingProfileDTO dto);
 
 		/// <summary>
@@ -38,6 +78,99 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="dto">A <see cref="CreateNativeImagingProfileDTO"/> object corresponding to the desired Imaging Profile object.</param>
 		/// <returns>Returns an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var dto = new CreateNativeImagingProfileDTO
+		/// {
+		/// 	Name = Randomizer.GetString(),
+		/// 	Notes = string.Empty,
+		/// 	Keywords = string.Empty,
+		/// 	BasicOptions = new BasicImagingEngineOptions
+		/// 	{
+		/// 		ImageOutputDpi = 300,
+		/// 		BasicImageFormat = ImageFormatType.Jpeg,
+		/// 		ImageSize = ImageSizeType.Custom,
+		/// 		MaximumImageHeight = 6.0m,
+		/// 		MaximumImageWidth = 6.0m
+		/// 	},
+		/// 	NativeOptions = new NativeImagingEngineOptions
+		/// 	{
+		/// 		DitheringAlgorithm = NativeImagingDitheringAlgorithm.Threshold,
+		/// 		DitheringThreshold = 128,
+		/// 		ImageOutputDpi = 300,
+		/// 		MaxPagesPerDoc = null,
+		/// 		NativeImageFormat = ImageFormatType.Tiff,
+		/// 		RenderColorPagesToJpeg = false,
+		/// 		TimeZoneFieldOnDocument = null,
+		/// 		LastModifiedDateOnDocument = null
+		/// 	},
+		/// 	HtmlOptions = new ImagingHtmlOptions
+		/// 	{
+		/// 		RemoveNonBreakingSpaceCodes = true
+		/// 	},
+		/// 	PresentationOptions = new ImagingPresentationOptions
+		/// 	{
+		/// 		ShowSpeakerNotes = true,
+		/// 		SlideOrientation = ImagingElementOrientation.OriginalSetting
+		/// 	},
+		/// 	SpreadsheetOptions = new ImagingSpreadsheetOptions
+		/// 	{
+		/// 		FitToPagesTall = null,
+		/// 		FitToPagesWide = null,
+		/// 		Formatting = new HashSet&lt;ImagingSpreadsheetFormatting&gt;
+		/// 		{
+		/// 			ImagingSpreadsheetFormatting.AutoFitColumns,
+		/// 			ImagingSpreadsheetFormatting.AutoFitRows,
+		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyColumns,
+		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyRows
+		/// 		},
+		/// 		HideAndPageBreakAfterConsecutiveBlankRowCol = 10,
+		/// 		IncludeBorders = true,
+		/// 		IncludeComments = true,
+		/// 		IncludeGridlines = ImagingIncludeElement.OriginalSetting,
+		/// 		IncludeHeadersAndFooters = ImagingIncludeElement.OriginalSetting,
+		/// 		IncludeRowAndColumnHeadings = ImagingIncludeElement.OriginalSetting,
+		/// 		LimitToPages = null,
+		/// 		PageOrder = ImagingSpreadsheetPageOrder.OriginalSetting,
+		/// 		PaperSizeOrientation = ImagingSpreadsheetPaperSizeOrientation.OriginalSetting,
+		/// 		PrintArea = ImagingSpreadsheetPrintArea.OriginalSetting,
+		/// 		ShowTrackChanges = true,
+		/// 		TextVisibility = new HashSet&lt;ImagingSpreadsheetTextVisibility&gt;
+		/// 		{
+		/// 			ImagingSpreadsheetTextVisibility.RemoveBackgroundFillColors,
+		/// 			ImagingSpreadsheetTextVisibility.SetTextColorToBlack
+		/// 		},
+		/// 		UnhideHiddenWorksheets = true,
+		/// 		ZoomLevelPercentage = null,
+		/// 	},
+		/// 	WordProcessingOptions = new ImagingWordOptions
+		/// 	{
+		/// 		Include = new HashSet&lt;ImagingWordInclude&gt;
+		/// 		{
+		/// 			ImagingWordInclude.Comments,
+		/// 			ImagingWordInclude.FieldCodes,
+		/// 			ImagingWordInclude.HiddenText
+		/// 		},
+		/// 		PageOrientation = ImagingElementOrientation.OriginalSetting,
+		/// 		ShowTrackChanges = true
+		/// 	},
+		/// 	EmailOptions = new ImagingEmailOptions
+		/// 	{
+		/// 		ClearIndentations = true,
+		/// 		DetectCharacterEncoding = true,
+		/// 		DisplaySmtpAddresses = true,
+		/// 		DownloadImagesFromInternet = true,
+		/// 		Orientation = ImagingEmailOrientation.Landscape,
+		/// 		ResizeImagesToFitPage = true,
+		/// 		ResizeTablesToFitPage = true,
+		/// 		ShowMessageTypeInHeader = true,
+		/// 		SplitTablesToFitPageWidth = true
+		/// 	}
+		/// };
+		/// var imagingProfile = _imagingService.CreateNative(workspaceId, dto);
+		/// </code>
+		/// </example>
 		ImagingProfile CreateNative(int workspaceId, CreateNativeImagingProfileDTO dto);
 
 		/// <summary>
@@ -46,6 +179,99 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="dto">A <see cref="CreateNativeImagingProfileDTO"/> object corresponding to the desired Imaging Profile object.</param>
 		/// <returns>A <see cref="Task"/> with an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var dto = new CreateNativeImagingProfileDTO
+		/// {
+		/// 	Name = Randomizer.GetString(),
+		/// 	Notes = string.Empty,
+		/// 	Keywords = string.Empty,
+		/// 	BasicOptions = new BasicImagingEngineOptions
+		/// 	{
+		/// 		ImageOutputDpi = 300,
+		/// 		BasicImageFormat = ImageFormatType.Jpeg,
+		/// 		ImageSize = ImageSizeType.Custom,
+		/// 		MaximumImageHeight = 6.0m,
+		/// 		MaximumImageWidth = 6.0m
+		/// 	},
+		/// 	NativeOptions = new NativeImagingEngineOptions
+		/// 	{
+		/// 		DitheringAlgorithm = NativeImagingDitheringAlgorithm.Threshold,
+		/// 		DitheringThreshold = 128,
+		/// 		ImageOutputDpi = 300,
+		/// 		MaxPagesPerDoc = null,
+		/// 		NativeImageFormat = ImageFormatType.Tiff,
+		/// 		RenderColorPagesToJpeg = false,
+		/// 		TimeZoneFieldOnDocument = null,
+		/// 		LastModifiedDateOnDocument = null
+		/// 	},
+		/// 	HtmlOptions = new ImagingHtmlOptions
+		/// 	{
+		/// 		RemoveNonBreakingSpaceCodes = true
+		/// 	},
+		/// 	PresentationOptions = new ImagingPresentationOptions
+		/// 	{
+		/// 		ShowSpeakerNotes = true,
+		/// 		SlideOrientation = ImagingElementOrientation.OriginalSetting
+		/// 	},
+		/// 	SpreadsheetOptions = new ImagingSpreadsheetOptions
+		/// 	{
+		/// 		FitToPagesTall = null,
+		/// 		FitToPagesWide = null,
+		/// 		Formatting = new HashSet&lt;ImagingSpreadsheetFormatting&gt;
+		/// 		{
+		/// 			ImagingSpreadsheetFormatting.AutoFitColumns,
+		/// 			ImagingSpreadsheetFormatting.AutoFitRows,
+		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyColumns,
+		/// 			ImagingSpreadsheetFormatting.ClearFormattingInEmptyRows
+		/// 		},
+		/// 		HideAndPageBreakAfterConsecutiveBlankRowCol = 10,
+		/// 		IncludeBorders = true,
+		/// 		IncludeComments = true,
+		/// 		IncludeGridlines = ImagingIncludeElement.OriginalSetting,
+		/// 		IncludeHeadersAndFooters = ImagingIncludeElement.OriginalSetting,
+		/// 		IncludeRowAndColumnHeadings = ImagingIncludeElement.OriginalSetting,
+		/// 		LimitToPages = null,
+		/// 		PageOrder = ImagingSpreadsheetPageOrder.OriginalSetting,
+		/// 		PaperSizeOrientation = ImagingSpreadsheetPaperSizeOrientation.OriginalSetting,
+		/// 		PrintArea = ImagingSpreadsheetPrintArea.OriginalSetting,
+		/// 		ShowTrackChanges = true,
+		/// 		TextVisibility = new HashSet&lt;ImagingSpreadsheetTextVisibility&gt;
+		/// 		{
+		/// 			ImagingSpreadsheetTextVisibility.RemoveBackgroundFillColors,
+		/// 			ImagingSpreadsheetTextVisibility.SetTextColorToBlack
+		/// 		},
+		/// 		UnhideHiddenWorksheets = true,
+		/// 		ZoomLevelPercentage = null,
+		/// 	},
+		/// 	WordProcessingOptions = new ImagingWordOptions
+		/// 	{
+		/// 		Include = new HashSet&lt;ImagingWordInclude&gt;
+		/// 		{
+		/// 			ImagingWordInclude.Comments,
+		/// 			ImagingWordInclude.FieldCodes,
+		/// 			ImagingWordInclude.HiddenText
+		/// 		},
+		/// 		PageOrientation = ImagingElementOrientation.OriginalSetting,
+		/// 		ShowTrackChanges = true
+		/// 	},
+		/// 	EmailOptions = new ImagingEmailOptions
+		/// 	{
+		/// 		ClearIndentations = true,
+		/// 		DetectCharacterEncoding = true,
+		/// 		DisplaySmtpAddresses = true,
+		/// 		DownloadImagesFromInternet = true,
+		/// 		Orientation = ImagingEmailOrientation.Landscape,
+		/// 		ResizeImagesToFitPage = true,
+		/// 		ResizeTablesToFitPage = true,
+		/// 		ShowMessageTypeInHeader = true,
+		/// 		SplitTablesToFitPageWidth = true
+		/// 	}
+		/// };
+		/// var imagingProfile = await _imagingService.CreateNativeAsync(workspaceId, dto).ConfigureAwait(false);
+		/// </code>
+		/// </example>
 		Task<ImagingProfile> CreateNativeAsync(int workspaceId, CreateNativeImagingProfileDTO dto);
 
 		/// <summary>
@@ -53,6 +279,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfile">An <see cref="ImagingProfile"/> object with updated fields, reflecting the desired final state of the Imaging Profile.</param>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// someImagingProfile.Name = Randomizer.GetString();
+		/// var updatedImagingProfile = _imagingService.Update(workspaceId, someImagingProfile);
+		/// </code>
+		/// </example>
 		void Update(int workspaceId, ImagingProfile imagingProfile);
 
 		/// <summary>
@@ -61,6 +294,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfile">An <see cref="ImagingProfile"/> object with updated fields, reflecting the desired final state of the Imaging Profile.</param>
 		/// <returns>A <see cref="Task"/> with an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// someImagingProfile.Name = Randomizer.GetString();
+		/// var updatedImagingProfile = await _imagingService.UpdateAsync(workspaceId, someImagingProfile).ConfigureAwait(false);
+		/// </code>
+		/// </example>
 		Task UpdateAsync(int workspaceId, ImagingProfile imagingProfile);
 
 		/// <summary>
@@ -69,6 +309,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfileId">The Artifact ID of the <see cref="ImagingProfile"/> instance to read.</param>
 		/// <returns>Returns an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingProfileId = 1018877;
+		/// var imagingProfile = _imagingService.Get(workspaceId, imagingProfileId);
+		/// </code>
+		/// </example>
 		ImagingProfile Get(int workspaceId, int imagingProfileId);
 
 		/// <summary>
@@ -77,6 +324,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfileId">The Artifact ID of the <see cref="ImagingProfile"/> instance to read.</param>
 		/// <returns>A <see cref="Task"/> with an <see cref="ImagingProfile"/> instance.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingProfileId = 1018877;
+		/// var imagingProfile = await _imagingService.GetAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
+		/// </code>
+		/// </example>
 		Task<ImagingProfile> GetAsync(int workspaceId, int imagingProfileId);
 
 		/// <summary>
@@ -84,6 +338,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfileId">The Artifact ID of the <see cref="ImagingProfile"/> instance to delete.</param>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingProfileId = 1018877;
+		/// _imagingService.Delete(workspaceId, imagingProfileId);
+		/// </code>
+		/// </example>
 		void Delete(int workspaceId, int imagingProfileId);
 
 		/// <summary>
@@ -92,6 +353,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfileId">The Artifact ID of the <see cref="ImagingProfile"/> instance to delete.</param>
 		/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingProfileId = 1018877;
+		/// await _imagingService.DeleteAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
+		/// </code>
+		/// </example>
 		Task DeleteAsync(int workspaceId, int imagingProfileId);
 	}
 }

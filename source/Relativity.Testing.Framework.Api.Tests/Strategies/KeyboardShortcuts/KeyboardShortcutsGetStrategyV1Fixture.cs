@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 {
 	[TestFixture]
 	[TestOf(typeof(KeyboardShortcutsGetStrategyV1))]
-	public class KeyboardShortcutsGetStrategyFixtureV1
+	public class KeyboardShortcutsGetStrategyV1Fixture
 	{
 		private const string _INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE = "Workspace ID should be greater than zero.";
 

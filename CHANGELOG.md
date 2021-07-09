@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.8.0] - 2021-07-08
+
+### Changed
+
+- InstanceSetting Update and Create operations will now use v1 API for Relativity version 12.1 and higher. - [RTF-1256](https://jira.kcura.com/browse/RTF-1256)
+
 ## [3.7.0] - 2021-07-08
 
 ### Added

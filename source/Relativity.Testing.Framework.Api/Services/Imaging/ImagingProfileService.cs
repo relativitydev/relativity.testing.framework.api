@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	internal class ImagingService : IImagingService
+	internal class ImagingProfileService : IImagingProfileService
 	{
 		private readonly IImagingProfileCreateBasicStrategy _basicImagingProfileCreateStrategy;
 		private readonly IImagingProfileCreateNativeStrategy _nativeImagingProfileCreateStrategy;
@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IImagingProfileGetStrategy _imagingProfileGetStrategy;
 		private readonly IImagingProfileDeleteStrategy _imagingProfileDeleteStrategy;
 
-		public ImagingService(
+		public ImagingProfileService(
 			IImagingProfileCreateBasicStrategy basicImagingProfileCreateStrategy,
 			IImagingProfileCreateNativeStrategy nativeImagingProfileCreateStrategy,
 			IImagingProfileUpdateStrategy imagingProfileUpdateStrategy,

@@ -5,14 +5,14 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Services
 {
 	/// <summary>
-	/// Represents the Imaging API service.
+	/// Represents the ImagingProfile API service.
 	/// </summary>
 	/// <example>
 	/// <code>
-	/// _imagingService = relativityFacade.Resolve&lt;IImagingService&gt;();
+	/// _imagingProfileService = relativityFacade.Resolve&lt;IImagingProfileService&gt;();
 	/// </code>
 	/// </example>
-	public interface IImagingService
+	public interface IImagingProfileService
 	{
 		/// <summary>
 		/// Creates a new Imaging Profile instance, specifying only Basic Profile options. Native Profile options will be set to
@@ -67,7 +67,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 		MaximumImageWidth = 6.0m
 		/// 	}
 		/// };
-		/// var imagingProfile = await _imagingService.CreateBasicAsync(workspaceId, dto).ConfigureAwait(false);
+		/// var imagingProfile = await _imagingProfileService.CreateBasicAsync(workspaceId, dto).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<ImagingProfile> CreateBasicAsync(int workspaceId, CreateBasicImagingProfileDTO dto);
@@ -139,7 +139,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 		SplitTablesToFitPageWidth = true
 		/// 	}
 		/// };
-		/// var imagingProfile = _imagingService.CreateNative(workspaceId, dto);
+		/// var imagingProfile = _imagingProfileService.CreateNative(workspaceId, dto);
 		/// </code>
 		/// </example>
 		ImagingProfile CreateNative(int workspaceId, CreateNativeImagingProfileDTO dto);
@@ -211,7 +211,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 		SplitTablesToFitPageWidth = true
 		/// 	}
 		/// };
-		/// var imagingProfile = await _imagingService.CreateNativeAsync(workspaceId, dto).ConfigureAwait(false);
+		/// var imagingProfile = await _imagingProfileService.CreateNativeAsync(workspaceId, dto).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<ImagingProfile> CreateNativeAsync(int workspaceId, CreateNativeImagingProfileDTO dto);
@@ -225,7 +225,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// someImagingProfile.Name = Randomizer.GetString();
-		/// var updatedImagingProfile = _imagingService.Update(workspaceId, someImagingProfile);
+		/// var updatedImagingProfile = _imagingProfileService.Update(workspaceId, someImagingProfile);
 		/// </code>
 		/// </example>
 		void Update(int workspaceId, ImagingProfile imagingProfile);
@@ -240,7 +240,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// someImagingProfile.Name = Randomizer.GetString();
-		/// var updatedImagingProfile = await _imagingService.UpdateAsync(workspaceId, someImagingProfile).ConfigureAwait(false);
+		/// var updatedImagingProfile = await _imagingProfileService.UpdateAsync(workspaceId, someImagingProfile).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task UpdateAsync(int workspaceId, ImagingProfile imagingProfile);
@@ -255,7 +255,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingProfileId = 1018877;
-		/// var imagingProfile = _imagingService.Get(workspaceId, imagingProfileId);
+		/// var imagingProfile = _imagingProfileService.Get(workspaceId, imagingProfileId);
 		/// </code>
 		/// </example>
 		ImagingProfile Get(int workspaceId, int imagingProfileId);
@@ -270,7 +270,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingProfileId = 1018877;
-		/// var imagingProfile = await _imagingService.GetAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
+		/// var imagingProfile = await _imagingProfileService.GetAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<ImagingProfile> GetAsync(int workspaceId, int imagingProfileId);
@@ -284,7 +284,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingProfileId = 1018877;
-		/// _imagingService.Delete(workspaceId, imagingProfileId);
+		/// _imagingProfileService.Delete(workspaceId, imagingProfileId);
 		/// </code>
 		/// </example>
 		void Delete(int workspaceId, int imagingProfileId);
@@ -299,7 +299,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingProfileId = 1018877;
-		/// await _imagingService.DeleteAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
+		/// await _imagingProfileService.DeleteAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task DeleteAsync(int workspaceId, int imagingProfileId);

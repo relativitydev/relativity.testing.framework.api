@@ -8,16 +8,13 @@ namespace Relativity.Testing.Framework.Api.Services
 	{
 		private readonly IImagingSetCreateStrategy _imagingSetCreateStrategy;
 		private readonly IImagingSetGetStrategy _imagingSetGetStrategy;
-		private readonly IImagingSetStatusGetStrategy _imagingSetStatusGetStrategy;
 
 		public ImagingSetService(
 			IImagingSetCreateStrategy imagingSetCreateStrategy,
-			IImagingSetGetStrategy imagingSetGetStrategy,
-			IImagingSetStatusGetStrategy imagingSetStatusGetStrategy)
+			IImagingSetGetStrategy imagingSetGetStrategy)
 		{
 			_imagingSetCreateStrategy = imagingSetCreateStrategy;
 			_imagingSetGetStrategy = imagingSetGetStrategy;
-			_imagingSetStatusGetStrategy = imagingSetStatusGetStrategy;
 		}
 
 		public ImagingSet Create(int workspaceId, ImagingSetRequest imagingSetRequest)

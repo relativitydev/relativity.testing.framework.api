@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Tests.Strategies
 {
@@ -46,14 +47,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Get_ShouldCallIRestService()
 		{
 			_sut.Get(_WORKSPACE_ID, _IMAGING_SET_ID);
-			_mockRestService.Verify(restService => restService.Post<int>(_getUrl, It.IsAny<ImagingSetRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Get<ImagingSet>(_getUrl, null), Times.Once);
 		}
 
 		[Test]
 		public async Task GetAsync_ShouldCallIRestService()
 		{
 			await _sut.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync<int>(_getUrl, It.IsAny<ImagingSetRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.GetAsync<ImagingSet>(_getUrl, null), Times.Once);
 		}
 	}
 }

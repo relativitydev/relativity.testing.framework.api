@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
-namespace Relativity.Testing.Framework.Api.Strategies.Imaging.Set.NotSupported
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
 	internal class ImagingSetCreateStrategyNotSupported : IImagingSetCreateStrategy

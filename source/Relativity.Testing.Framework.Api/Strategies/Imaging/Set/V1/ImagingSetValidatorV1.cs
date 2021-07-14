@@ -15,10 +15,20 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_artifactIdValidator = artifactIdValidator;
 		}
 
-		public void ValidateImagingRequest(int workspaceId, ImagingSetRequest imagingRequesst)
+		public void ValidateImagingSetCreateRequest(int workspaceId, ImagingSetRequest imagingRequesst)
 		{
 			_workspaceIdValidator.Validate(workspaceId);
+			ValidateImagingSetRequest(imagingRequesst);
+		}
 
+		public void ValidateImagingSetUpdateRequest(int workspaceId, int imagingSetId, ImagingSetRequest imagingRequesst)
+		{
+			ValidateIds(workspaceId, imagingSetId);
+			ValidateImagingSetRequest(imagingRequesst);
+		}
+
+		private void ValidateImagingSetRequest(ImagingSetRequest imagingRequesst)
+		{
 			if (imagingRequesst is null)
 			{
 				throw new ArgumentNullException(nameof(imagingRequesst));

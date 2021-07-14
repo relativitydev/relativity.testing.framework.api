@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update and UpdateAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
 
+## [3.12.1] - 2021-07-14
+
+### Fixed
+
+- InvalidOperationException when calling RelyOn<ApiComponent> on RelativityFacade with EnableApplicationInsights setting set to false. - [RTF-1361](https://jira.kcura.com/browse/RTF-1361)
+
 ## [3.12.0] - 2021-07-14
 
 ### Added

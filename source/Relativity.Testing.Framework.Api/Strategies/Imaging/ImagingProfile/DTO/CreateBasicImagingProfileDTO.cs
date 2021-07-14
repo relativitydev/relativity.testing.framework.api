@@ -5,5 +5,5 @@
 	/// </summary>
 	public class CreateBasicImagingProfileDTO : CreateImagingProfileDTO
 	{
-    }
+	}
 }

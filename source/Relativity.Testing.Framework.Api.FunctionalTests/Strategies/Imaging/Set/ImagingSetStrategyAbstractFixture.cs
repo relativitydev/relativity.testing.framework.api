@@ -18,6 +18,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			};
 		}
 
+		public static ImagingSetRequest CreateImagingSetRequestFromImagingSet(ImagingSet imagingSet)
+		{
+			return new ImagingSetRequest
+			{
+				DataSourceID = imagingSet.DataSourceId,
+				ImagingProfileID = imagingSet.ImagingProfile.ArtifactID,
+				Name = imagingSet.Name
+			};
+		}
+
 		public ImagingSetRequest ArrangeImagingSetRequest()
 		{
 			var keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>()

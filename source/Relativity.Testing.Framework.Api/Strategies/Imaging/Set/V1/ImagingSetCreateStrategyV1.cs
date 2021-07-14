@@ -8,7 +8,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	[VersionRange(">=12.1")]
 	internal class ImagingSetCreateStrategyV1 : IImagingSetCreateStrategy
 	{
-		private const string _BASE_GET_URL_FORMAT = "relativity-imaging/v1/workspaces/{0}/imaging-sets";
+		private const string _BASE_CREATE_URL_FORMAT = "relativity-imaging/v1/workspaces/{0}/imaging-sets";
 		private readonly IRestService _restService;
 		private readonly IImagingSetValidatorV1 _imagingSetValidator;
 		private readonly IImagingSetGetStrategy _imagingSetGetStrategy;
@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public ImagingSet Create(int workspaceId, ImagingSetRequest imagingSetRequest)
 		{
-			_imagingSetValidator.ValidateImagingRequest(workspaceId, imagingSetRequest);
+			_imagingSetValidator.ValidateImagingSetCreateRequest(workspaceId, imagingSetRequest);
 
 			string url = GetUrlWithParameters(workspaceId);
 			var dto = new ImagingSetRequestDTOV1(imagingSetRequest);
@@ -37,7 +37,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public async Task<ImagingSet> CreateAsync(int workspaceId, ImagingSetRequest imagingSetRequest)
 		{
-			_imagingSetValidator.ValidateImagingRequest(workspaceId, imagingSetRequest);
+			_imagingSetValidator.ValidateImagingSetCreateRequest(workspaceId, imagingSetRequest);
 
 			string url = GetUrlWithParameters(workspaceId);
 			var dto = new ImagingSetRequestDTOV1(imagingSetRequest);
@@ -49,7 +49,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private static string GetUrlWithParameters(int workspaceId)
 		{
-			return string.Format(_BASE_GET_URL_FORMAT, workspaceId);
+			return string.Format(_BASE_CREATE_URL_FORMAT, workspaceId);
 		}
 	}
 }

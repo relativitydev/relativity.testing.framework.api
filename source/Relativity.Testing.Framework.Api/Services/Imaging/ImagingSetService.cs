@@ -8,13 +8,16 @@ namespace Relativity.Testing.Framework.Api.Services
 	{
 		private readonly IImagingSetCreateStrategy _imagingSetCreateStrategy;
 		private readonly IImagingSetGetStrategy _imagingSetGetStrategy;
+		private readonly IImagingSetStatusGetStrategy _imagingSetStatusGetStrategy;
 
 		public ImagingSetService(
 			IImagingSetCreateStrategy imagingSetCreateStrategy,
-			IImagingSetGetStrategy imagingSetGetStrategy)
+			IImagingSetGetStrategy imagingSetGetStrategy,
+			IImagingSetStatusGetStrategy imagingSetStatusGetStrategy)
 		{
 			_imagingSetCreateStrategy = imagingSetCreateStrategy;
 			_imagingSetGetStrategy = imagingSetGetStrategy;
+			_imagingSetStatusGetStrategy = imagingSetStatusGetStrategy;
 		}
 
 		public ImagingSet Create(int workspaceId, ImagingSetRequest imagingSetRequest)
@@ -28,5 +31,11 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public async Task<ImagingSet> GetAsync(int workspaceId, int imagingSetId)
 			=> await _imagingSetGetStrategy.GetAsync(workspaceId, imagingSetId).ConfigureAwait(false);
+
+		public ImagingSetDetailedStatus GetStatus(int workspaceId, int imagingSetId)
+			=> _imagingSetStatusGetStrategy.Get(workspaceId, imagingSetId);
+
+		public async Task<ImagingSetDetailedStatus> GetStatusAsync(int workspaceId, int imagingSetId)
+			=> await _imagingSetStatusGetStrategy.GetAsync(workspaceId, imagingSetId).ConfigureAwait(false);
 	}
 }

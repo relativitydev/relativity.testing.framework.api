@@ -120,5 +120,35 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Task<ImagingSet> GetAsync(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Gets the status of an imaging set.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging profile.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <returns>The <see cref="ImagingSetDetailedStatus"/> repesenting the status of imaging set.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingSetId = 2;
+		/// var imagingSetStatus = _imagingSetService.GetStatus(1015427, imagingSetId);
+		/// </code>
+		/// </example>
+		ImagingSetDetailedStatus GetStatus(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Gets the status of an imaging set.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging profile.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation with <see cref="ImagingSetDetailedStatus"/>.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingSetId = 2;
+		/// var imagingSetStatus = await _imagingSetService.GetStatusAsync(1015427, imagingSetId).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<ImagingSetDetailedStatus> GetStatusAsync(int workspaceId, int imagingSetId);
 	}
 }

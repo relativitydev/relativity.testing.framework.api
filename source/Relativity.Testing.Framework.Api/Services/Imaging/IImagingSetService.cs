@@ -150,5 +150,34 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Task<ImagingSetDetailedStatus> GetStatusAsync(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Deletes Imaging Set.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingSetId = 2;
+		/// var imagingSetStatus = _imagingSetService.Delete(1015427, imagingSetId);
+		/// </code>
+		/// </example>
+		void Delete(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Deletes Imaging Set.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <returns>>A <see cref="Task"/> representing the asynchronous delete operation.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingSetId = 2;
+		/// var imagingSetStatus = await _imagingSetService.DeleteAsync(1015427, imagingSetId).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task DeleteAsync(int workspaceId, int imagingSetId);
 	}
 }

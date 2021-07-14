@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Api.Strategies;
 namespace Relativity.Testing.Framework.Api.Tests.Strategies
 {
 	[TestFixture]
-	[TestOf(typeof(ImagingSetCreateStrategyNotSupported))]
+	[TestOf(typeof(ImagingSetGetStrategyNotSupported))]
 	public class ImagingSetGetStrategyNotSupportedFixture
 	{
 		private const string _NOT_SUPPORTED_EXCEPTION_MESSAGE = "The method Get Imaging Set does not support version of Relativity lower than 12.1.";

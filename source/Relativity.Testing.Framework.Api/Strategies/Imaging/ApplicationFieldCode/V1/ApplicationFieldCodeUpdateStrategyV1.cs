@@ -14,7 +14,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IApplicationFieldCodeGetStrategy _applicationFieldCodeGetStrategy;
 		private readonly IWorkspaceIdValidator _workspaceIdValidator;
 
-		public ApplicationFieldCodeUpdateStrategyV1(IRestService restService, IApplicationFieldCodeGetStrategy applicationFieldCodeGetStrategy, IWorkspaceIdValidator workspaceIdValidator)
+		public ApplicationFieldCodeUpdateStrategyV1(
+			IRestService restService,
+			IApplicationFieldCodeGetStrategy applicationFieldCodeGetStrategy,
+			IWorkspaceIdValidator workspaceIdValidator)
 		{
 			_restService = restService;
 			_applicationFieldCodeGetStrategy = applicationFieldCodeGetStrategy;

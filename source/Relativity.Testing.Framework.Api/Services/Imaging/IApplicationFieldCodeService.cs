@@ -62,6 +62,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var applicationFieldCodeId = 1018877;
+		/// var applicationFieldCode = _applicationFieldCodeService.Get(workspaceId, applicationFieldCodeId);
 		/// applicationFieldCode.Option = ApplicationFieldCodeOption.DocumentDefault;
 		/// var updatedApplicationFieldCode = _applicationFieldCodeService.Update(workspaceId, applicationFieldCode);
 		/// </code>
@@ -77,6 +79,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
+		/// var applicationFieldCodeId = 1018877;
+		/// var applicationFieldCode = await _applicationFieldCodeService.GetAsync(workspaceId, applicationFieldCodeId).ConfigureAwait(false);
 		/// applicationFieldCode.Option = ApplicationFieldCodeOption.DocumentDefault;
 		/// var updatedApplicationFieldCode = await _applicationFieldCodeService.UpdateAsync(workspaceId, applicationFieldCode).ConfigureAwait(false);
 		/// </code>

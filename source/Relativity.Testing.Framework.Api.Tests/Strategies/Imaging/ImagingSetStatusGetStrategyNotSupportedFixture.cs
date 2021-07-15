@@ -3,7 +3,7 @@ using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 
-namespace Relativity.Testing.Framework.Api.Tests.Strategies.Imaging
+namespace Relativity.Testing.Framework.Api.Tests.Strategies
 {
 	[TestFixture]
 	[TestOf(typeof(ImagingSetStatusGetStrategyNotSupported))]

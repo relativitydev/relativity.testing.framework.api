@@ -101,7 +101,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingSetId = 2;
-		/// var imagingSet = _imagingSetService.Get(1015427, imagingSetId);
+		/// var imagingSet = _imagingSetService.Get(workspaceId, imagingSetId);
 		/// </code>
 		/// </example>
 		ImagingSet Get(int workspaceId, int imagingSetId);
@@ -116,7 +116,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingSetId = 2;
-		/// var imagingSet = await _imagingSetService.GetAsync(1015427, imagingSetId).ConfigureAwait(false);
+		/// var imagingSet = await _imagingSetService.GetAsync(workspaceId, imagingSetId).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<ImagingSet> GetAsync(int workspaceId, int imagingSetId);
@@ -148,7 +148,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var existingImagingSetId = 1213;
-		/// var existingImagingSet = _imagingSetService.Get(1015427, existingImagingSetId);
+		/// var existingImagingSet = _imagingSetService.Get(workspaceId, existingImagingSetId);
 		/// var imagingSetUpdateRequest = new ImagingSetRequest
 		/// {
 		/// 	DataSourceID = existingImagingSet.DataSourceId,
@@ -209,7 +209,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingSetId = 2;
-		/// var imagingSetStatus = _imagingSetService.GetStatus(1015427, imagingSetId);
+		/// var imagingSetStatus = _imagingSetService.GetStatus(workspaceId, imagingSetId);
 		/// </code>
 		/// </example>
 		ImagingSetDetailedStatus GetStatus(int workspaceId, int imagingSetId);
@@ -224,9 +224,38 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var imagingSetId = 2;
-		/// var imagingSetStatus = await _imagingSetService.GetStatusAsync(1015427, imagingSetId).ConfigureAwait(false);
+		/// var imagingSetStatus = await _imagingSetService.GetStatusAsync(workspaceId, imagingSetId).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<ImagingSetDetailedStatus> GetStatusAsync(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Deletes Imaging Set.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingSetId = 2;
+		/// var imagingSetStatus = _imagingSetService.Delete(workspaceId, imagingSetId);
+		/// </code>
+		/// </example>
+		void Delete(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Deletes Imaging Set.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <returns>>A <see cref="Task"/> representing the asynchronous delete operation.</returns>
+		/// <example>
+		/// <code>
+		/// var workspaceId = 1015427;
+		/// var imagingSetId = 2;
+		/// var imagingSetStatus = await _imagingSetService.DeleteAsync(workspaceId, imagingSetId).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task DeleteAsync(int workspaceId, int imagingSetId);
 	}
 }

@@ -23,7 +23,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		[Test]
 		[VersionRange(">=12.1")]
-		public void Get_ValidIds__ReturnsExpectedImagingSet()
+		public void Get_ValidIds_ReturnsExpectedImagingSet()
 		{
 			var expectedImagingSet = CreateImagingSet();
 

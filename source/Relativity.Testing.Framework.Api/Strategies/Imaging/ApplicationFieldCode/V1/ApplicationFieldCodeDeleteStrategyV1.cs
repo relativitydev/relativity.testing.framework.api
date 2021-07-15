@@ -12,7 +12,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IWorkspaceIdValidator _workspaceIdValidator;
 		private readonly IArtifactIdValidator _artifactIdValidator;
 
-		public ApplicationFieldCodeDeleteStrategyV1(IRestService restService, IWorkspaceIdValidator workspaceIdValidator, IArtifactIdValidator artifactIdValidator)
+		public ApplicationFieldCodeDeleteStrategyV1(
+			IRestService restService,
+			IWorkspaceIdValidator workspaceIdValidator,
+			IArtifactIdValidator artifactIdValidator)
 		{
 			_restService = restService;
 			_workspaceIdValidator = workspaceIdValidator;

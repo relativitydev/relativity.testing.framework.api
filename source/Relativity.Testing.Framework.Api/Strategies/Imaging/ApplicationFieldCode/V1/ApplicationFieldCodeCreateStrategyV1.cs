@@ -14,7 +14,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IApplicationFieldCodeGetStrategy _applicationFieldCodeGetStrategy;
 		private readonly IWorkspaceIdValidator _workspaceIdValidator;
 
-		public ApplicationFieldCodeCreateStrategyV1(IRestService restService, IApplicationFieldCodeGetStrategy applicationFieldCodeGetStrategy, IWorkspaceIdValidator workspaceIdValidator)
+		public ApplicationFieldCodeCreateStrategyV1(
+			IRestService restService,
+			IApplicationFieldCodeGetStrategy applicationFieldCodeGetStrategy,
+			IWorkspaceIdValidator workspaceIdValidator)
 		{
 			_restService = restService;
 			_applicationFieldCodeGetStrategy = applicationFieldCodeGetStrategy;
@@ -27,17 +30,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var url = BuildUrl(workspaceId);
 
-			var dto = new
-			{
-				applicationFieldCode = new
-				{
-					applicationFieldCode.FieldCode,
-					applicationFieldCode.Application,
-					applicationFieldCode.Option,
-					applicationFieldCode.RelativityField,
-					applicationFieldCode.ImagingProfiles
-				}
-			};
+			var dto = BuildRequest(applicationFieldCode);
 
 			var applicationFieldCodeId = _restService.Post<int>(url, dto);
 
@@ -50,17 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var url = BuildUrl(workspaceId);
 
-			var dto = new
-			{
-				applicationFieldCode = new
-				{
-					applicationFieldCode.FieldCode,
-					applicationFieldCode.Application,
-					applicationFieldCode.Option,
-					applicationFieldCode.RelativityField,
-					applicationFieldCode.ImagingProfiles
-				}
-			};
+			var dto = BuildRequest(applicationFieldCode);
 
 			var applicationFieldCodeId = await _restService.PostAsync<int>(url, dto).ConfigureAwait(false);
 
@@ -80,6 +63,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private string BuildUrl(int workspaceId)
 		{
 			return $"relativity-imaging/v1/workspaces/{workspaceId}/application-field-codes";
+		}
+
+		private object BuildRequest(ApplicationFieldCode applicationFieldCode)
+		{
+			return new
+			{
+				applicationFieldCode = applicationFieldCode.MapToCreateRequest()
+			};
 		}
 	}
 }

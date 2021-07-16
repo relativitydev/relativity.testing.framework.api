@@ -11,8 +11,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	[TestOf(typeof(ApplicationFieldCodeGetStrategyV1))]
 	public class ApplicationFieldCodeGetStrategyV1Fixture
 	{
-		private const int WorkspaceId = 100000;
-		private const int ApplicationFieldCodeId = 100000;
+		private const int _WORKSPACE_ID = 100000;
+		private const int _APPLICATION_FIELD_CODE_ID = 100001;
 
 		private ApplicationFieldCodeGetStrategyV1 _sut;
 		private Mock<IRestService> _mockRestService;
@@ -32,17 +32,17 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void Get_WithAnyInput_ShouldCallValidator()
 		{
-			_sut.Get(WorkspaceId, ApplicationFieldCodeId);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "ApplicationFieldCode"), Times.Once);
+			_sut.Get(_WORKSPACE_ID, _APPLICATION_FIELD_CODE_ID);
+			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
+			_artifactIdValidator.Verify(x => x.Validate(_APPLICATION_FIELD_CODE_ID, "ApplicationFieldCode"), Times.Once);
 		}
 
 		[Test]
 		public async Task GetAsync_WithAnyInput_ShouldCallValidator()
 		{
-			await _sut.GetAsync(WorkspaceId, ApplicationFieldCodeId).ConfigureAwait(false);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "ApplicationFieldCode"), Times.Once);
+			await _sut.GetAsync(_WORKSPACE_ID, _APPLICATION_FIELD_CODE_ID).ConfigureAwait(false);
+			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
+			_artifactIdValidator.Verify(x => x.Validate(_APPLICATION_FIELD_CODE_ID, "ApplicationFieldCode"), Times.Once);
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	[TestOf(typeof(ApplicationFieldCodeUpdateStrategyV1))]
 	public class ApplicationFieldCodeUpdateStrategyV1Fixture
 	{
-		private const int WorkspaceId = 100000;
+		private const int _WORKSPACE_ID = 100000;
 
 		private ApplicationFieldCodeUpdateStrategyV1 _sut;
 		private Mock<IRestService> _mockRestService;
@@ -33,27 +33,27 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void Update_WithNull_ShouldThrowArgumentNullException()
 		{
-			Assert.Throws<ArgumentNullException>(() => _sut.Update(WorkspaceId, null));
+			Assert.Throws<ArgumentNullException>(() => _sut.Update(_WORKSPACE_ID, null));
 		}
 
 		[Test]
 		public void Update_WithAnyWorkspaceId_ShouldCallValidator()
 		{
-			_sut.Update(WorkspaceId, new ApplicationFieldCode());
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
+			_sut.Update(_WORKSPACE_ID, new ApplicationFieldCode());
+			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
 		}
 
 		[Test]
 		public void UpdateAsync_WithNull_ShouldThrowArgumentNullException()
 		{
-			Assert.ThrowsAsync<ArgumentNullException>(() => _sut.UpdateAsync(WorkspaceId, null));
+			Assert.ThrowsAsync<ArgumentNullException>(() => _sut.UpdateAsync(_WORKSPACE_ID, null));
 		}
 
 		[Test]
 		public async Task UpdateAsync_WithAnyWorkspaceId_ShouldCallValidator()
 		{
-			await _sut.UpdateAsync(WorkspaceId, new ApplicationFieldCode()).ConfigureAwait(false);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
+			await _sut.UpdateAsync(_WORKSPACE_ID, new ApplicationFieldCode()).ConfigureAwait(false);
+			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
 		}
 	}
 }

@@ -34,9 +34,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Update_ExistingApplicationFieldCode_ShouldBeSuccessful()
 		{
-			var dto = PrepareTestData();
+			var applicationFieldCode = PrepareTestData();
 
-			var applicationFieldCode = _applicationFieldCodeCreateStrategy.Create(DefaultWorkspace.ArtifactID, dto);
+			applicationFieldCode = _applicationFieldCodeCreateStrategy.Create(DefaultWorkspace.ArtifactID, applicationFieldCode);
 			applicationFieldCode.Option = ApplicationFieldCodeOption.DocumentDefault;
 
 			_applicationFieldCodeArtifactId = applicationFieldCode.ArtifactID;
@@ -49,9 +49,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public async Task UpdateAsync_ExistingApplicationFieldCode_ShouldBeSuccessful()
 		{
-			var dto = PrepareTestData();
+			var applicationFieldCode = PrepareTestData();
 
-			var applicationFieldCode = await _applicationFieldCodeCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, dto).ConfigureAwait(false);
+			applicationFieldCode = await _applicationFieldCodeCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, applicationFieldCode).ConfigureAwait(false);
 			applicationFieldCode.Option = ApplicationFieldCodeOption.DocumentDefault;
 
 			_applicationFieldCodeArtifactId = applicationFieldCode.ArtifactID;

@@ -11,8 +11,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	[TestOf(typeof(ApplicationFieldCodeDeleteStrategyV1))]
 	public class ApplicationFieldCodeDeleteStrategyV1Fixture
 	{
-		private const int WorkspaceId = 100000;
-		private const int ApplicationFieldCodeId = 100000;
+		private const int _WORKSPACE_ID = 100000;
+		private const int _APPLICATION_FIELD_CODE_ID = 100001;
 
 		private ApplicationFieldCodeDeleteStrategyV1 _sut;
 		private Mock<IRestService> _mockRestService;
@@ -32,17 +32,17 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void Delete_WithAnyInput_ShouldCallValidator()
 		{
-			_sut.Delete(WorkspaceId, ApplicationFieldCodeId);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "ApplicationFieldCode"), Times.Once);
+			_sut.Delete(_WORKSPACE_ID, _APPLICATION_FIELD_CODE_ID);
+			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
+			_artifactIdValidator.Verify(x => x.Validate(_APPLICATION_FIELD_CODE_ID, "ApplicationFieldCode"), Times.Once);
 		}
 
 		[Test]
 		public async Task DeleteAsync_WithAnyInput_ShouldCallValidator()
 		{
-			await _sut.DeleteAsync(WorkspaceId, ApplicationFieldCodeId).ConfigureAwait(false);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "ApplicationFieldCode"), Times.Once);
+			await _sut.DeleteAsync(_WORKSPACE_ID, _APPLICATION_FIELD_CODE_ID).ConfigureAwait(false);
+			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
+			_artifactIdValidator.Verify(x => x.Validate(_APPLICATION_FIELD_CODE_ID, "ApplicationFieldCode"), Times.Once);
 		}
 	}
 }

@@ -40,9 +40,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Delete_ExistingApplicationFieldCode_ShouldBeSuccessful()
 		{
-			var dto = PrepareTestData();
-
-			var applicationFieldCode = _applicationFieldCodeCreateStrategy.Create(DefaultWorkspace.ArtifactID, dto);
+			var applicationFieldCode = PrepareTestData();
+			applicationFieldCode = _applicationFieldCodeCreateStrategy.Create(DefaultWorkspace.ArtifactID, applicationFieldCode);
 
 			Assert.DoesNotThrow(() => Sut.Delete(DefaultWorkspace.ArtifactID, applicationFieldCode.ArtifactID));
 		}
@@ -50,9 +49,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public async Task DeleteAsync_ExistingApplicationFieldCode_ShouldBeSuccessful()
 		{
-			var dto = PrepareTestData();
-
-			var applicationFieldCode = await _applicationFieldCodeCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, dto).ConfigureAwait(false);
+			var applicationFieldCode = PrepareTestData();
+			applicationFieldCode = await _applicationFieldCodeCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, applicationFieldCode).ConfigureAwait(false);
 
 			Assert.DoesNotThrowAsync(() => Sut.DeleteAsync(DefaultWorkspace.ArtifactID, applicationFieldCode.ArtifactID));
 		}

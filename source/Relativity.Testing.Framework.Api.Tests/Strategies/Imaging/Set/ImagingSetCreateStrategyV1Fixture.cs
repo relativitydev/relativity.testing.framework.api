@@ -54,14 +54,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Create_ShouldCallIRestService()
 		{
 			_sut.Create(_WORKSPACE_ID, _validImagingSetRequest);
-			_mockRestService.Verify(restService => restService.Post<int>(_createUrl, It.IsAny<ImagingSetRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<int>(_createUrl, It.IsAny<ImagingSetRequestDtoV1>(), 2, null), Times.Once);
 		}
 
 		[Test]
 		public async Task CreateAsync_ShouldCallIRestService()
 		{
 			await _sut.CreateAsync(_WORKSPACE_ID, _validImagingSetRequest).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync<int>(_createUrl, It.IsAny<ImagingSetRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.PostAsync<int>(_createUrl, It.IsAny<ImagingSetRequestDtoV1>(), 2, null), Times.Once);
 		}
 	}
 }

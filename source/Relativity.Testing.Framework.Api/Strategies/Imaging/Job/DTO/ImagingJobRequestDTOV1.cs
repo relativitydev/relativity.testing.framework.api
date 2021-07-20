@@ -2,9 +2,9 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ImagingJobRequestDTOV1
+	internal class ImagingJobRequestDtoV1
 	{
-		public ImagingJobRequestDTOV1(ImagingSetJobRequest imagingSetJobRequest)
+		public ImagingJobRequestDtoV1(ImagingSetJobRequest imagingSetJobRequest)
 		{
 			ImagingSetRequest = imagingSetJobRequest ?? new ImagingSetJobRequest();
 		}

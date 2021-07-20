@@ -24,11 +24,11 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_mockRestService = new Mock<IRestService>();
 			_mockRestService
-				.Setup(restService => restService.PostAsync<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null))
-				.Returns(Task.FromResult(new ImagingJobIdResponseDTOV1()));
+				.Setup(restService => restService.PostAsync<ImagingJobIdResponseDtoV1>(_runUrl, It.IsAny<ImagingJobRequestDtoV1>(), 2, null))
+				.Returns(Task.FromResult(new ImagingJobIdResponseDtoV1()));
 			_mockRestService
-				.Setup(restService => restService.Post<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null))
-				.Returns(new ImagingJobIdResponseDTOV1());
+				.Setup(restService => restService.Post<ImagingJobIdResponseDtoV1>(_runUrl, It.IsAny<ImagingJobRequestDtoV1>(), 2, null))
+				.Returns(new ImagingJobIdResponseDtoV1());
 			_mockImagingSetValidator = new Mock<IImagingSetValidatorV1>();
 
 			_sut = new ImagingJobRunStrategyV1(_mockRestService.Object, _mockImagingSetValidator.Object);
@@ -52,14 +52,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Run_ShouldCallIRestService()
 		{
 			_sut.Run(_WORKSPACE_ID, _IMAGING_SET_ID);
-			_mockRestService.Verify(restService => restService.Post<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<ImagingJobIdResponseDtoV1>(_runUrl, It.IsAny<ImagingJobRequestDtoV1>(), 2, null), Times.Once);
 		}
 
 		[Test]
 		public async Task RunAsync_ShouldCallIRestService()
 		{
 			await _sut.RunAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.PostAsync<ImagingJobIdResponseDtoV1>(_runUrl, It.IsAny<ImagingJobRequestDtoV1>(), 2, null), Times.Once);
 		}
 	}
 }

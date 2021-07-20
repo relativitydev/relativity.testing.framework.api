@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_imagingSetValidator.ValidateImagingSetUpdateRequest(workspaceId, imagingSetId, imagingSetRequest);
 
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);
-			var dto = new ImagingSetRequestDTOV1(imagingSetRequest);
+			var dto = new ImagingSetRequestDtoV1(imagingSetRequest);
 
 			var updatedImagingSetId = _restService.Post<int>(url, dto);
 
@@ -37,7 +37,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_imagingSetValidator.ValidateImagingSetUpdateRequest(workspaceId, imagingSetId, imagingSetRequest);
 
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);
-			var dto = new ImagingSetRequestDTOV1(imagingSetRequest);
+			var dto = new ImagingSetRequestDtoV1(imagingSetRequest);
 
 			var updatedImagingSetId = await _restService.PostAsync<int>(url, dto).ConfigureAwait(false);
 

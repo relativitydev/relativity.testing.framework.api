@@ -24,9 +24,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);
-			var imagingSetRequest = new ImagingJobRequestDTOV1(imagingSetJobRequest);
+			var imagingSetRequest = new ImagingJobRequestDtoV1(imagingSetJobRequest);
 
-			ImagingJobIdResponseDTOV1 result = _restService.Post<ImagingJobIdResponseDTOV1>(url, imagingSetRequest);
+			ImagingJobIdResponseDtoV1 result = _restService.Post<ImagingJobIdResponseDtoV1>(url, imagingSetRequest);
 
 			return result.ImagingJobID;
 		}
@@ -35,9 +35,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);
-			ImagingJobRequestDTOV1 imagingSetRequest = new ImagingJobRequestDTOV1(imagingSetJobRequest);
+			ImagingJobRequestDtoV1 imagingSetRequest = new ImagingJobRequestDtoV1(imagingSetJobRequest);
 
-			ImagingJobIdResponseDTOV1 result = await _restService.PostAsync<ImagingJobIdResponseDTOV1>(url, imagingSetRequest)
+			ImagingJobIdResponseDtoV1 result = await _restService.PostAsync<ImagingJobIdResponseDtoV1>(url, imagingSetRequest)
 				.ConfigureAwait(false);
 
 			return result.ImagingJobID;

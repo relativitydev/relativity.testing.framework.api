@@ -1,6 +1,6 @@
 ﻿namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ImagingJobIdResponseDTOV1
+	internal class ImagingJobIdResponseDtoV1
 	{
 		public int ImagingJobID { get; set; }
 	}

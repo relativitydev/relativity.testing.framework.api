@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	public class ImagingSetUpdateStrategyV1Fixture
 	{
 		private const int _WORKSPACE_ID = 100000;
-		private const int _IMAGING_SET_ID = 100000;
+		private const int _IMAGING_SET_ID = 100001;
 		private readonly ImagingSetRequest _validImagingSetRequest = new ImagingSetRequest
 		{
 			DataSourceID = 1,
@@ -53,14 +53,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Create_ShouldCallIRestService()
 		{
 			_sut.Update(_WORKSPACE_ID, _IMAGING_SET_ID, _validImagingSetRequest);
-			_mockRestService.Verify(restService => restService.Post<int>(_updateUrl, It.IsAny<ImagingSetRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<int>(_updateUrl, It.IsAny<ImagingSetRequestDtoV1>(), 2, null), Times.Once);
 		}
 
 		[Test]
 		public async Task CreateAsync_ShouldCallIRestService()
 		{
 			await _sut.UpdateAsync(_WORKSPACE_ID, _IMAGING_SET_ID, _validImagingSetRequest).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync<int>(_updateUrl, It.IsAny<ImagingSetRequestDTOV1>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.PostAsync<int>(_updateUrl, It.IsAny<ImagingSetRequestDtoV1>(), 2, null), Times.Once);
 		}
 	}
 }

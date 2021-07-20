@@ -3,7 +3,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	internal abstract class ImagingSetStrategyAbstractFixture<TStrategy> : ApiServiceTestFixture<TStrategy>
+	internal abstract class ImagingStrategyAbstractFixture<TStrategy> : ApiServiceTestFixture<TStrategy>
 	{
 		public static ImagingSet GetExpectedImageSetFromImagingSetRequest(ImagingSetRequest imagingSetCreateRequest)
 		{
@@ -30,9 +30,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		public ImagingSetRequest ArrangeImagingSetRequest()
 		{
-			var keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>()
+			KeywordSearch keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>()
 							.Create(DefaultWorkspace.ArtifactID, new KeywordSearch());
-			var imagingProfile = ArrangeImagingProfile();
+			ImagingProfile imagingProfile = ArrangeImagingProfile();
 
 			var imagingSetCreateRequest = new ImagingSetRequest
 			{
@@ -59,16 +59,18 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					MaximumImageWidth = 6.0m
 				}
 			};
-			var imagingProfile = Facade.Resolve<IImagingProfileCreateBasicStrategy>()
+			ImagingProfile imagingProfile = Facade.Resolve<IImagingProfileCreateBasicStrategy>()
 				.Create(DefaultWorkspace.ArtifactID, imagingProfileDto);
 			return imagingProfile;
 		}
 
 		public ImagingSet CreateImagingSet()
 		{
-			var imagingSetCreateRequest = ArrangeImagingSetRequest();
+			ImagingSetRequest imagingSetCreateRequest = ArrangeImagingSetRequest();
 
-			return Facade.Resolve<IImagingSetCreateStrategy>().Create(DefaultWorkspace.ArtifactID, imagingSetCreateRequest);
+			ImagingSet imagingSet = Facade.Resolve<IImagingSetCreateStrategy>()
+				.Create(DefaultWorkspace.ArtifactID, imagingSetCreateRequest);
+			return imagingSet;
 		}
 	}
 }

@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	public class ImagingSetGetStrategyV1Fixture
 	{
 		private const int _WORKSPACE_ID = 100000;
-		private const int _IMAGING_SET_ID = 100000;
+		private const int _IMAGING_SET_ID = 100001;
 
 		private readonly string _getUrl = $"relativity-imaging/v1/workspaces/{_WORKSPACE_ID}/imaging-sets/{_IMAGING_SET_ID}";
 

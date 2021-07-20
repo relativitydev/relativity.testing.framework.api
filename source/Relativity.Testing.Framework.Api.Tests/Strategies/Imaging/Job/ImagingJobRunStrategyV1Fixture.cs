@@ -17,49 +17,49 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 		private ImagingJobRunStrategyV1 _sut;
 		private Mock<IRestService> _mockRestService;
-		private Mock<IImagingSetValidatorV1> _imagingSetValidator;
+		private Mock<IImagingSetValidatorV1> _mockImagingSetValidator;
 
 		[SetUp]
 		public void SetUp()
 		{
 			_mockRestService = new Mock<IRestService>();
 			_mockRestService
-				.Setup(restService => restService.PostAsync<ImagingJobIdResponseDTO>(_runUrl, It.IsAny<ImagingJobRequest>(), 2, null))
-				.Returns(Task.FromResult(new ImagingJobIdResponseDTO()));
+				.Setup(restService => restService.PostAsync<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null))
+				.Returns(Task.FromResult(new ImagingJobIdResponseDTOV1()));
 			_mockRestService
-				.Setup(restService => restService.Post<ImagingJobIdResponseDTO>(_runUrl, It.IsAny<ImagingJobRequest>(), 2, null))
-				.Returns(new ImagingJobIdResponseDTO());
-			_imagingSetValidator = new Mock<IImagingSetValidatorV1>();
+				.Setup(restService => restService.Post<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null))
+				.Returns(new ImagingJobIdResponseDTOV1());
+			_mockImagingSetValidator = new Mock<IImagingSetValidatorV1>();
 
-			_sut = new ImagingJobRunStrategyV1(_mockRestService.Object, _imagingSetValidator.Object);
+			_sut = new ImagingJobRunStrategyV1(_mockRestService.Object, _mockImagingSetValidator.Object);
 		}
 
 		[Test]
 		public void Run_WithAnyParameters_ShouldCallImagingSetValidator()
 		{
 			_sut.Run(_WORKSPACE_ID, _IMAGING_SET_ID);
-			_imagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
+			_mockImagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
 		}
 
 		[Test]
 		public async Task RunAsync_WithAnyParameters_ShouldCallImagingSetValidator()
 		{
 			await _sut.RunAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_imagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
+			_mockImagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
 		}
 
 		[Test]
 		public void Run_ShouldCallIRestService()
 		{
 			_sut.Run(_WORKSPACE_ID, _IMAGING_SET_ID);
-			_mockRestService.Verify(restService => restService.Post<ImagingJobIdResponseDTO>(_runUrl, It.IsAny<ImagingJobRequest>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null), Times.Once);
 		}
 
 		[Test]
 		public async Task RunAsync_ShouldCallIRestService()
 		{
 			await _sut.RunAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync<ImagingJobIdResponseDTO>(_runUrl, It.IsAny<ImagingJobRequest>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.PostAsync<ImagingJobIdResponseDTOV1>(_runUrl, It.IsAny<ImagingJobRequestDTOV1>(), 2, null), Times.Once);
 		}
 	}
 }

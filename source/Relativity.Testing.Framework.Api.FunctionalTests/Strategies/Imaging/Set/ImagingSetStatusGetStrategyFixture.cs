@@ -8,7 +8,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IImagingSetStatusGetStrategy))]
-	internal class ImagingSetStatusGetStrategyFixture : ImagingSetStrategyAbstractFixture<IImagingSetStatusGetStrategy>
+	internal class ImagingSetStatusGetStrategyFixture : ImagingStrategyAbstractFixture<IImagingSetStatusGetStrategy>
 	{
 		[Test]
 		[VersionRange(">=12.1")]

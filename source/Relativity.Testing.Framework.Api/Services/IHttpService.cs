@@ -98,7 +98,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	batchSet = new
 		/// 	{
 		/// 		Name = "Test Batch Set",
-		/// 		BatchPrefix = "TEST",
+		/// 		BatchPrefix = "TEST1",
 		/// 		BatchSize = 10,
 		/// 	}
 		/// };

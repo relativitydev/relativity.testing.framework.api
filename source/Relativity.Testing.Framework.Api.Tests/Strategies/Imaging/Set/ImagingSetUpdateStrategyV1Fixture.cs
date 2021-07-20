@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	public class ImagingSetUpdateStrategyV1Fixture
 	{
 		private const int _WORKSPACE_ID = 100000;
-		private const int _IMAGING_SET_ID = 100000;
+		private const int _IMAGING_SET_ID = 100001;
 		private readonly ImagingSetRequest _validImagingSetRequest = new ImagingSetRequest
 		{
 			DataSourceID = 1,

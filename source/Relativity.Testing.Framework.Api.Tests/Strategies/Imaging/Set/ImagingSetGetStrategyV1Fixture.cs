@@ -8,14 +8,15 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Tests.Strategies
 {
 	[TestFixture]
-	[TestOf(typeof(ImagingSetStatusGetStrategyV1))]
-	public class ImagingSetStatusGetStrategyV1Fixture
+	[TestOf(typeof(ImagingSetGetStrategyV1))]
+	public class ImagingSetGetStrategyV1Fixture
 	{
 		private const int _WORKSPACE_ID = 100000;
-		private const int _IMAGING_SET_ID = 100000;
+		private const int _IMAGING_SET_ID = 100001;
 
-		private readonly string _getUrl = $"relativity-imaging/v1/workspaces/{_WORKSPACE_ID}/imaging-sets/{_IMAGING_SET_ID}/status";
-		private ImagingSetStatusGetStrategyV1 _sut;
+		private readonly string _getUrl = $"relativity-imaging/v1/workspaces/{_WORKSPACE_ID}/imaging-sets/{_IMAGING_SET_ID}";
+
+		private ImagingSetGetStrategyV1 _sut;
 		private Mock<IRestService> _mockRestService;
 		private Mock<IImagingSetValidatorV1> _imagingSetValidator;
 
@@ -25,7 +26,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			_mockRestService = new Mock<IRestService>();
 			_imagingSetValidator = new Mock<IImagingSetValidatorV1>();
 
-			_sut = new ImagingSetStatusGetStrategyV1(_mockRestService.Object, _imagingSetValidator.Object);
+			_sut = new ImagingSetGetStrategyV1(_mockRestService.Object, _imagingSetValidator.Object);
 		}
 
 		[Test]
@@ -46,14 +47,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Get_ShouldCallIRestService()
 		{
 			_sut.Get(_WORKSPACE_ID, _IMAGING_SET_ID);
-			_mockRestService.Verify(restService => restService.Get<ImagingSetDetailedStatus>(_getUrl, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Get<ImagingSet>(_getUrl, null), Times.Once);
 		}
 
 		[Test]
 		public async Task GetAsync_ShouldCallIRestService()
 		{
 			await _sut.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.GetAsync<ImagingSetDetailedStatus>(_getUrl, null), Times.Once);
+			_mockRestService.Verify(restService => restService.GetAsync<ImagingSet>(_getUrl, null), Times.Once);
 		}
 	}
 }

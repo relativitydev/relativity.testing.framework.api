@@ -1,15 +1,19 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Configuration;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class MotdHasDismissedStrategy : IMotdHasDismissedStrategy
+	[VersionRange("<12.1")]
+	internal class MotdHasDismissedStrategyPreOsier : IMotdHasDismissedStrategy
 	{
+		private const string _POST_URL = "Relativity.Services.Notifications.INotificationsModule/Notifications/HasDismissedMOTDAsync";
 		private readonly IConfigurationService _configurationService;
 		private readonly IRestService _restService;
 		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
 
-		public MotdHasDismissedStrategy(
+		public MotdHasDismissedStrategyPreOsier(
 			IConfigurationService configurationService,
 			IRestService restService,
 			IUserGetByEmailStrategy userGetByEmailStrategy)
@@ -21,17 +25,29 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public bool HasDismissed(int? userId = null)
 		{
+			var dto = BuildDto(userId);
+
+			return _restService.Post<bool>(_POST_URL, dto);
+		}
+
+		public async Task<bool> HasDismissedAsync(int? userId = null)
+		{
+			var dto = BuildDto(userId);
+
+			return await _restService.PostAsync<bool>(_POST_URL, dto).ConfigureAwait(false);
+		}
+
+		private object BuildDto(int? userId = null)
+		{
 			if (userId == null)
 			{
 				userId = _userGetByEmailStrategy.Get(_configurationService.RelativityInstance.AdminUsername).ArtifactID;
 			}
 
-			var dto = new
+			return new
 			{
 				userId
 			};
-
-			return _restService.Post<bool>("Relativity.Services.Notifications.INotificationsModule/Notifications/HasDismissedMOTDAsync", dto);
 		}
 	}
 }

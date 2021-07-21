@@ -5,8 +5,8 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IUpdateStrategy<MessageOfTheDay>))]
-	internal class MotdUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<MessageOfTheDay>>
+	[TestOf(typeof(IMotdUpdateStrategy))]
+	internal class MotdUpdateStrategyFixture : ApiServiceTestFixture<IMotdUpdateStrategy>
 	{
 		private MessageOfTheDay _currentMotd;
 		private IMotdGetStrategy _motdGetStrategy;
@@ -34,9 +34,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				AllowDismiss = !_currentMotd.AllowDismiss
 			};
 
-			Sut.Update(toUpdate);
-
-			var result = _motdGetStrategy.Get();
+			var result = Sut.Update(toUpdate);
 
 			result.Should().BeEquivalentTo(toUpdate);
 		}

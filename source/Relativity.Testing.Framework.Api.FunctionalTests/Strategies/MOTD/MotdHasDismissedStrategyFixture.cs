@@ -11,13 +11,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class MotdHasDismissedStrategyFixture : ApiServiceTestFixture<IMotdHasDismissedStrategy>
 	{
 		private MessageOfTheDay _currentMotd;
-		private IUpdateStrategy<MessageOfTheDay> _updateStrategy;
+		private IMotdUpdateStrategy _updateStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
 			var tempMotd = Facade.Resolve<IMotdGetStrategy>().Get();
-			_updateStrategy = Facade.Resolve<IUpdateStrategy<MessageOfTheDay>>();
+			_updateStrategy = Facade.Resolve<IMotdUpdateStrategy>();
 
 			if (!tempMotd.Enabled)
 			{

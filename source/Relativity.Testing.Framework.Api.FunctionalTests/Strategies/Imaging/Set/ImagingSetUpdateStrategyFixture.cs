@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		private async Task<int> UpdateImagingSetAsync(ImagingSet imagingSetToUpdate)
 		{
-			var imagingSetUpdateRequest = CreateImagingSetRequestFromImagingSet(imagingSetToUpdate);
+			var imagingSetUpdateRequest = PrepareImagingSetRequestFromImagingSet(imagingSetToUpdate);
 
 			var updatedImagingSetId = await Sut.UpdateAsync(
 				DefaultWorkspace.ArtifactID, imagingSetToUpdate.ArtifactID, imagingSetUpdateRequest)
@@ -68,7 +68,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		private int UpdateImagingSet(ImagingSet imagingSetToUpdate)
 		{
-			var imagingSetUpdateRequest = CreateImagingSetRequestFromImagingSet(imagingSetToUpdate);
+			var imagingSetUpdateRequest = PrepareImagingSetRequestFromImagingSet(imagingSetToUpdate);
 
 			var updatedImagingSetId = Sut.Update(DefaultWorkspace.ArtifactID, imagingSetToUpdate.ArtifactID, imagingSetUpdateRequest);
 			return updatedImagingSetId;

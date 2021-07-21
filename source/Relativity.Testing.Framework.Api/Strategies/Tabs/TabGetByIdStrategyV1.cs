@@ -3,15 +3,17 @@ using Newtonsoft.Json.Linq;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class TabGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<Tab>
+	[VersionRange(">=12.1")]
+	internal class TabGetByIdStrategyV1 : IGetWorkspaceEntityByIdStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 		private readonly IObjectService _objectService;
 
-		public TabGetByIdStrategy(IRestService restService, IObjectService objectService)
+		public TabGetByIdStrategyV1(IRestService restService, IObjectService objectService)
 		{
 			_restService = restService;
 			_objectService = objectService;
@@ -30,12 +32,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				return null;
 			}
 
-			var result = _restService.Get<JObject>($"Relativity.Rest/API/Relativity.Tabs/workspace/{workspaceId}/tabs/{entityId}");
+			TabResponseV1 result = _restService.Get<TabResponseV1>($"/Relativity.Rest/API/relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{entityId}");
 
-			result["RelativityApplications"] = result["RelativityApplications"]["ViewableItems"];
-			result["Parent"] = result["Parent"]["Value"];
+			Tab tab = result.ToTab();
 
-			return result.ToObject<Tab>();
+			return tab;
 		}
 	}
 }

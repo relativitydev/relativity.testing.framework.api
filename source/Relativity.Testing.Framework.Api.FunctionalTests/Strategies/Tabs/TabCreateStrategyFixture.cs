@@ -18,8 +18,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var entity = new Tab
 			{
+				IsShownInSidebar = true,
+				IconIdentifier = TabIconIdentifier.Access,
+				Order = 123,
+				LinkType = TabLinkType.Parent,
 				Name = Randomizer.GetString("AT_"),
-				ObjectType = objectType
 			};
 
 			var result = Sut.Create(DefaultWorkspace.ArtifactID, entity);

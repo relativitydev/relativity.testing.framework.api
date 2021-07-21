@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class TabDeleteByIdStrategy : DeleteWorkspaceEntityByIdStrategy<Tab>
+	[VersionRange("<12.1")]
+	internal class TabDeleteByIdStrategyPrePrairieSmoke : DeleteWorkspaceEntityByIdStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 
-		public TabDeleteByIdStrategy(IRestService restService)
+		public TabDeleteByIdStrategyPrePrairieSmoke(IRestService restService)
 		{
 			_restService = restService;
 		}

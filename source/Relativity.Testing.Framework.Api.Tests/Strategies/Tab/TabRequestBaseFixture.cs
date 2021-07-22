@@ -12,23 +12,23 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private const int _WORKSPACE_ID = 12345;
 
 		[Test]
-		public void SetParent_SetsParentTo62IfNullAndWorkspaceIsAdminCase()
+		public void SetParent_SetsParentToAdminWorkspaceBaseParentTabArtifactIdIfNullAndWorkspaceIsAdminCase()
 		{
 			Tab tab = new Tab();
 
 			Tab result = TabRequestBase.SetParent(-1, tab);
 
-			result.Parent.ArtifactID.Should().Be(62);
+			result.Parent.ArtifactID.Should().Be(TabRequestBase._ADMIN_WORKSPACE_BASE_PARENT_TAB_ARTIFACT_ID);
 		}
 
 		[Test]
-		public void SetParent_SetsParentTo1003663IfNullAndWorkspaceIsAWorkspace()
+		public void SetParent_SetsParentToWorkspaceBaseParentTabArtifactIdIfNullAndWorkspaceIsAWorkspace()
 		{
 			Tab tab = new Tab();
 
 			Tab result = TabRequestBase.SetParent(_WORKSPACE_ID, tab);
 
-			result.Parent.ArtifactID.Should().Be(1003663);
+			result.Parent.ArtifactID.Should().Be(TabRequestBase._ALL_OTHER_WORKSPACES_BASE_PARENT_TAB_ARTIFACT_ID);
 		}
 
 		[Test]

@@ -5,6 +5,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal class TabRequestBase
 	{
+		internal const int _ADMIN_WORKSPACE_BASE_PARENT_TAB_ARTIFACT_ID = 62;
+		internal const int _ALL_OTHER_WORKSPACES_BASE_PARENT_TAB_ARTIFACT_ID = 1003663;
+
 		public int ArtifactID { get; set; }
 
 		public string IconIdentifier { get; set; }
@@ -32,8 +35,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			if (entity.Parent == null)
 			{
 				entity.Parent = workspaceId == -1
-					? new Artifact { ArtifactID = 62 }
-					: new Artifact { ArtifactID = 1003663 };
+					? new Artifact { ArtifactID = _ADMIN_WORKSPACE_BASE_PARENT_TAB_ARTIFACT_ID }
+					: new Artifact { ArtifactID = _ALL_OTHER_WORKSPACES_BASE_PARENT_TAB_ARTIFACT_ID };
 			}
 
 			return entity;

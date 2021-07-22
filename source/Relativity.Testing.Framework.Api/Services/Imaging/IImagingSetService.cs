@@ -24,7 +24,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceId = 1015427;
 		/// KeywordSearch keywordSearch = Facade.Resolve&lt;ICreateWorkspaceEntityStrategy&lt;KeywordSearch&gt;&gt;()
 		/// 	.Create(workspaceId, new KeywordSearch());
-		/// var imagingProfile = var imagingProfileDto = new CreateBasicImagingProfileDTO
+		/// var imagingProfileDto = new CreateBasicImagingProfileDTO
 		/// {
 		/// 	Name = Randomizer.GetString(),
 		/// 	Notes = string.Empty,
@@ -194,7 +194,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	ImagingProfileID = existingImagingSet.ImagingProfile.ArtifactID,
 		/// 	Name = "Updated Name"
 		/// };
-		/// int updatedImagingSetId = await _imagingSetService.Update(workspaceId, existingImagingSetId, imagingSetUpdateRequest).ConfigureAwait(false);
+		/// int updatedImagingSetId = await _imagingSetService.Update(workspaceId, existingImagingSetId, imagingSetUpdateRequest)
+		/// 	.ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<int> UpdateAsync(int workspaceId, int imagingSetId, ImagingSetRequest imagingSetRequest);
@@ -222,9 +223,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>A <see cref="Task"/> representing the asynchronous operation with <see cref="ImagingSetDetailedStatus"/>.</returns>
 		/// <example>
 		/// <code>
-		/// var workspaceId = 1015427;
-		/// var imagingSetId = 2;
-		/// ImagingSetDetailedStatus imagingSetStatus = await _imagingSetService.GetStatusAsync(workspaceId, imagingSetId).ConfigureAwait(false);
+		/// int workspaceId = 1015427;
+		/// int imagingSetId = 2;
+		/// ImagingSetDetailedStatus imagingSetStatus = await _imagingSetService.GetStatusAsync(workspaceId, imagingSetId)
+		/// 	.ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<ImagingSetDetailedStatus> GetStatusAsync(int workspaceId, int imagingSetId);
@@ -288,5 +290,36 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Task HideAsync(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Releases hidden images.
+		/// Used to make images available to reviewers after a quality control review has been completed on hidden images.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int imagingSetId = 2; // Imaging Set which images were previously hidden.
+		/// _imagingSetService.Release(workspaceId, imagingSetId);
+		/// </code>
+		/// </example>
+		void Release(int workspaceId, int imagingSetId);
+
+		/// <summary>
+		/// Releases hidden images.
+		/// Used to make images available to reviewers after a quality control review has been completed on hidden images.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int imagingSetId = 2; // Imaging Set which images were previously hidden.
+		/// await _imagingSetService.ReleaseAsync(workspaceId, imagingSetId).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		/// <returns>>A <see cref="Task"/> representing the asynchronous release operation.</returns>
+		Task ReleaseAsync(int workspaceId, int imagingSetId);
 	}
 }

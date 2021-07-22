@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
@@ -9,26 +6,15 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	internal abstract class ImagingStrategyAbstractFixture<TStrategy> : ApiServiceTestFixture<TStrategy>
 	{
-		private readonly TimeSpan _changeStatusTimeout = TimeSpan.FromMinutes(2);
-
 		public void WaitUntilImagingSetStatusIsCompleted(int imagingSetId)
 		{
-			bool completed = false;
-			var watch = Stopwatch.StartNew();
+			Facade.Resolve<IWaitForImagingJobToCompleteStrategy>().Wait(DefaultWorkspace.ArtifactID, imagingSetId);
+		}
 
-			while (!completed)
-			{
-				if (watch.Elapsed > _changeStatusTimeout)
-				{
-					throw new InvalidOperationException(
-						$"Imaging Job for Imaging Set with id={imagingSetId} was not completed within the 2 minutes time limit." +
-						"Please check the error log in Relativity, or confirm that the job took longer than expected.");
-				}
-
-				string status = Facade.Resolve<IImagingSetStatusGetStrategy>().Get(DefaultWorkspace.ArtifactID, imagingSetId).Status;
-				completed = status.Equals("Completed") || status.Equals("Completed with Errors");
-				Thread.Sleep(1000);
-			}
+		public async Task WaitUntilImagingSetStatusIsCompletedAsync(int imagingSetId)
+		{
+			await Facade.Resolve<IWaitForImagingJobToCompleteStrategy>()
+				.WaitAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false);
 		}
 
 		public static ImagingSet GetExpectedImageSetFromImagingSetRequest(ImagingSetRequest imagingSetCreateRequest)

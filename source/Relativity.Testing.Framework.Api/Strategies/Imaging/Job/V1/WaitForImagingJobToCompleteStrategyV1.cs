@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			ValidateTimeoutValue(timeout);
 			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
 
-			var changeStatusTimeout = TimeSpan.FromMinutes(1);
+			var changeStatusTimeout = TimeSpan.FromMinutes(timeout);
 			bool completed = false;
 			var watch = Stopwatch.StartNew();
 
@@ -44,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			ValidateTimeoutValue(timeout);
 			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
 
-			var changeStatusTimeout = TimeSpan.FromMinutes(1);
+			var changeStatusTimeout = TimeSpan.FromMinutes(timeout);
 			bool completed = false;
 			var watch = Stopwatch.StartNew();
 
@@ -54,7 +54,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 				string status = (await _imagingSetStatusGetStrategy.GetAsync(workspaceId, imagingSetId).ConfigureAwait(false)).Status;
 				completed = CheckIfJobIsCompleted(status);
-				NewMethod(completed);
+				SleepIfNotCompleted(completed);
 			}
 		}
 
@@ -81,7 +81,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			return status.Equals("Completed") || status.Equals("Completed with Errors");
 		}
 
-		private static void NewMethod(bool completed)
+		private static void SleepIfNotCompleted(bool completed)
 		{
 			if (!completed)
 			{

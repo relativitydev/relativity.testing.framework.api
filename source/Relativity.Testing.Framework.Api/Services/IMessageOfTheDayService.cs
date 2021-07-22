@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -75,7 +76,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		/// <summary>
 		/// Dismiss message of the day for specified user
-		/// by default dissmissing MotD for admin user.
+		/// by default dismissing MotD for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
 		/// <example>
@@ -88,7 +89,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		/// <summary>
 		/// Dismiss message of the day for specified user
-		/// by default dissmissing MotD for admin user.
+		/// by default dismissing MotD for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
 		/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
@@ -101,7 +102,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		Task DismissAsync(int? userId = null);
 
 		/// <summary>
-		/// Determines whether user dismissed MotD.
+		/// Determines whether speficic user dismissed MotD.
+		/// by default determining MotD dissmision for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
 		/// <returns><see langword="true"/> if an user dismissed MotD; otherwise, <see langword="false"/>.</returns>
@@ -115,6 +117,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		/// <summary>
 		/// Determines whether user dismissed MotD.
+		/// by default determining MotD dissmision for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
 		/// <returns><see langword="true"/> if an user dismissed MotD; otherwise, <see langword="false"/>.</returns>

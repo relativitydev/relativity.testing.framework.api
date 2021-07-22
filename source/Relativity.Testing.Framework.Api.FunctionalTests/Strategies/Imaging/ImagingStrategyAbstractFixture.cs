@@ -109,7 +109,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public async Task<ImagingSetRequest> ArrangeImagingSetRequestWithImagingProfileAsync()
 		{
 			KeywordSearch keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>()
-				.Create(DefaultWorkspace.ArtifactID, new KeywordSearch { Name = "Keyword Search" });
+				.Create(DefaultWorkspace.ArtifactID, new KeywordSearch());
 			ImagingProfile imagingProfile = await ArrangeImagingProfileAsync().ConfigureAwait(false);
 
 			ImagingSetRequest imagingSetCreateRequest = PrepareImagingSetRequest(keywordSearch, imagingProfile);

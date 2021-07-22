@@ -1,0 +1,11 @@
+﻿using System.Threading.Tasks;
+
+namespace Relativity.Testing.Framework.Api.Strategies
+{
+	internal interface IImagingSetReleaseStrategy
+	{
+		void Release(int workspaceId, int imagingSetId);
+
+		Task ReleaseAsync(int workspaceId, int imagingSetId);
+	}
+}

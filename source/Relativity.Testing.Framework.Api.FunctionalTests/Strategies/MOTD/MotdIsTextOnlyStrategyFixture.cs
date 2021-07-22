@@ -12,5 +12,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			Assert.DoesNotThrow(() => Sut.IsTextOnly());
 		}
+
+		[Test]
+		public void IsTextOnlyAsync_NotThrowException()
+		{
+			Assert.DoesNotThrowAsync(async () => await Sut.IsTextOnlyAsync().ConfigureAwait(false));
+		}
 	}
 }

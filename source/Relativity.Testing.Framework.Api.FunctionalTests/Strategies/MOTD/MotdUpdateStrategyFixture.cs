@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Threading.Tasks;
+using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -35,6 +36,21 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			};
 
 			var result = Sut.Update(toUpdate);
+
+			result.Should().BeEquivalentTo(toUpdate);
+		}
+
+		[Test]
+		public async Task UpdateAsync()
+		{
+			var toUpdate = new MessageOfTheDay
+			{
+				Enabled = !_currentMotd.Enabled,
+				Message = Randomizer.GetString(),
+				AllowDismiss = !_currentMotd.AllowDismiss
+			};
+
+			var result = await Sut.UpdateAsync(toUpdate).ConfigureAwait(false);
 
 			result.Should().BeEquivalentTo(toUpdate);
 		}

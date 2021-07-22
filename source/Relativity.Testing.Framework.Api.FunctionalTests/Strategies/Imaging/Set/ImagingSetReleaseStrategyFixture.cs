@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public async Task ReleaseAsync_ValidIdsRunJob_DoesNotThrowException()
 		{
 			int imagingSetId = await CreateImagingSetAndRunJobAsync().ConfigureAwait(false);
-			WaitUntilImagingSetStatusIsCompleted(imagingSetId);
+			await WaitUntilImagingSetStatusIsCompletedAsync(imagingSetId).ConfigureAwait(false);
 
 			Assert.DoesNotThrowAsync(() => Sut.ReleaseAsync(DefaultWorkspace.ArtifactID, imagingSetId));
 		}

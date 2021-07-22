@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net.Http;
-using System.Threading;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
@@ -20,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public async Task HideAsync_ValidIdsAndCompletedJob_DoesNotThrowException()
 		{
 			int imagingSetId = await CreateImagingSetAndRunJobAsync().ConfigureAwait(false);
-			WaitUntilImagingSetStatusIsCompleted(imagingSetId);
+			await WaitUntilImagingSetStatusIsCompletedAsync(imagingSetId).ConfigureAwait(false);
 			Assert.DoesNotThrowAsync(async () => await Sut.HideAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false));
 		}
 

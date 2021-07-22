@@ -10,6 +10,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IRequireWorkspaceEntityStrategy<Tab> _requireWorkspaceEntityStrategy;
 		private readonly IDeleteWorkspaceEntityByIdStrategy<Tab> _deleteWorkspaceEntityByIdStrategy;
 		private readonly IGetWorkspaceEntityByIdStrategy<Tab> _getWorkspaceEntityByIdStrategy;
+		private readonly IGetWorkspaceEntityByNameStrategy<Tab> _getWorkspaceEntityByNameStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<Tab> _updateWorkspaceEntityStrategy;
 
 		public TabService(
@@ -17,12 +18,14 @@ namespace Relativity.Testing.Framework.Api.Services
 			IRequireWorkspaceEntityStrategy<Tab> requireWorkspaceEntityStrategy,
 			IDeleteWorkspaceEntityByIdStrategy<Tab> deleteWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByIdStrategy<Tab> getWorkspaceEntityByIdStrategy,
+			IGetWorkspaceEntityByNameStrategy<Tab> getWorkspaceEntityByName,
 			IUpdateWorkspaceEntityStrategy<Tab> updateWorkspaceEntityStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_requireWorkspaceEntityStrategy = requireWorkspaceEntityStrategy;
 			_deleteWorkspaceEntityByIdStrategy = deleteWorkspaceEntityByIdStrategy;
 			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
+			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByName;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 		}
 
@@ -37,6 +40,9 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public Tab Get(int workspaceId, int entityId)
 			=> _getWorkspaceEntityByIdStrategy.Get(workspaceId, entityId);
+
+		public Tab Get(int workspaceId, string entityName)
+			=> _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityName);
 
 		public void Update(int workspaceId, Tab entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);

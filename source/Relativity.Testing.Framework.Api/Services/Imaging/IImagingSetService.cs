@@ -300,7 +300,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
-		/// int imagingSetId = 2; // Imaging Set which images were previously hidden.
+		/// int hiddenImagingSetId = 2;
 		/// _imagingSetService.Release(workspaceId, imagingSetId);
 		/// </code>
 		/// </example>
@@ -315,7 +315,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
-		/// int imagingSetId = 2; // Imaging Set which images were previously hidden.
+		/// int hiddenImagingSetId = 2;
 		/// await _imagingSetService.ReleaseAsync(workspaceId, imagingSetId).ConfigureAwait(false);
 		/// </code>
 		/// </example>

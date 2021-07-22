@@ -7,13 +7,13 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
+	[VersionRange(">=12.1")]
 	[TestOf(typeof(IImagingSetReleaseStrategy))]
 	internal class ImagingSetReleaseStrategyFixture : ImagingStrategyAbstractFixture<IImagingSetReleaseStrategy>
 	{
 		private const string _RELEASE_ON_NOT_RUN_JOB_EXCEPTION = "Unable to update QC status, the imaging set must be Completed or Completed With Errors";
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public async Task ReleaseAsync_ValidIdsRunJob_DoesNotThrowException()
 		{
 			int imagingSetId = await CreateImagingSetAndRunJobAsync().ConfigureAwait(false);
@@ -23,7 +23,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public void Release_ValidIdsRunJob_DoesNotThrowException()
 		{
 			int imagingSetId = CreateImagingSetAndRunJob();
@@ -33,7 +32,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public async Task ReleaseAsync_ValidIdsNotRunJob_ThrowsException()
 		{
 			int imagingSetId = (await CreateImagingSetAsync().ConfigureAwait(false)).ArtifactID;
@@ -44,7 +42,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public void Release_ValidIdsNotRunJob_ThrowsException()
 		{
 			int imagingSetId = CreateImagingSet().ArtifactID;

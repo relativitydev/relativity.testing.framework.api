@@ -67,7 +67,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
 
-			_mockImagingSetStatusGetStrategy.Verify(validator => validator.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
+			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
 		}
 
 		[Test]
@@ -77,7 +77,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID);
 
-			_mockImagingSetStatusGetStrategy.Verify(validator => validator.Get(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
+			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
 		}
 
 		[Test]
@@ -100,7 +100,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
 
-			_mockImagingSetStatusGetStrategy.Verify(validator => validator.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
+			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
 		}
 
 		[Test]
@@ -113,17 +113,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Wait_WaitsUntilStatusIsCompletedWithErrors()
 		{
 			TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCall("Completed with Errors");
-		}
-
-		private void TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCall(string secondCallStatusValue)
-		{
-			_mockImagingSetStatusGetStrategy.SetupSequence(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID))
-				.Returns(new ImagingSetDetailedStatus { Status = "Staging" })
-				.Returns(new ImagingSetDetailedStatus { Status = secondCallStatusValue });
-
-			_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID);
-
-			_mockImagingSetStatusGetStrategy.Verify(validator => validator.Get(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
 		}
 
 		[Test]
@@ -146,6 +135,17 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				_sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID, _exceptionTimeout));
 
 			exception.Message.Should().Contain(_timeoutException);
+		}
+
+		private void TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCall(string secondCallStatusValue)
+		{
+			_mockImagingSetStatusGetStrategy.SetupSequence(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID))
+				.Returns(new ImagingSetDetailedStatus { Status = "Staging" })
+				.Returns(new ImagingSetDetailedStatus { Status = secondCallStatusValue });
+
+			_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID);
+
+			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
 		}
 	}
 }

@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				TabRequest = TabRequestV1.FromTab(workspaceId, entity)
 			};
 
-			TabResponseV1 tabResponse = _restService.Post<TabResponseV1>($"/Relativity.Rest/API/relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/", tabDto);
+			TabResponseV1 tabResponse = _restService.Post<TabResponseV1>($"relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/", tabDto);
 
 			entity = tabResponse.ToTab();
 

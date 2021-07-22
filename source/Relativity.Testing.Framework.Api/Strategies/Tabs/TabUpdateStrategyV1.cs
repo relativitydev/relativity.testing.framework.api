@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				TabRequest = TabRequestV1.FromTab(workspaceId, entity)
 			};
 
-			_restService.Put($"/Relativity.Rest/API/relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{tabDto.TabRequest.ArtifactID}", tabDto);
+			_restService.Put($"relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{tabDto.TabRequest.ArtifactID}", tabDto);
 		}
 	}
 }

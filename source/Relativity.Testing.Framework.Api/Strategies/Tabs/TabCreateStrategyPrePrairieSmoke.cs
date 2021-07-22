@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Tab = TabRequestPrePrairieSmoke.FromTab(workspaceId, entity)
 			};
 
-			int artifactId = _restService.Post<int>($"Relativity.Rest/API/Relativity.Tabs/workspace/{workspaceId}/tabs", tabDto);
+			int artifactId = _restService.Post<int>($"Relativity.Tabs/workspace/{workspaceId}/tabs", tabDto);
 			entity.ArtifactID = artifactId;
 
 			return entity;

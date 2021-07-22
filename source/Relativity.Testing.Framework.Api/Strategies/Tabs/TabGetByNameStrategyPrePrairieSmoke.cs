@@ -31,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				return null;
 			}
 
-			TabResponsePrePrairieSmoke result = _restService.Get<TabResponsePrePrairieSmoke>($"Relativity.Rest/API/Relativity.Tabs/workspace/{workspaceId}/tabs/{tab.ArtifactID}");
+			TabResponsePrePrairieSmoke result = _restService.Get<TabResponsePrePrairieSmoke>($"Relativity.Tabs/workspace/{workspaceId}/tabs/{tab.ArtifactID}");
 
 			tab = result.ToTab();
 

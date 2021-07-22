@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected override void DoDelete(int workspaceId, int entityId)
 		{
-			_restService.Delete($"/Relativity.Rest/API/relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{entityId}");
+			_restService.Delete($"relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{entityId}");
 		}
 	}
 }

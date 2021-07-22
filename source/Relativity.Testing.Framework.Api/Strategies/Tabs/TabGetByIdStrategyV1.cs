@@ -32,7 +32,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				return null;
 			}
 
-			TabResponseV1 result = _restService.Get<TabResponseV1>($"/Relativity.Rest/API/relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{entityId}");
+			TabResponseV1 result = _restService.Get<TabResponseV1>($"relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{entityId}");
 
 			Tab tab = result.ToTab();
 

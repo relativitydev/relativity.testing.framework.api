@@ -11,6 +11,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		private readonly IImagingSetStatusGetStrategy _imagingSetStatusGetStrategy;
 		private readonly IImagingSetValidatorV1 _imagingSetValidator;
+		private readonly int _waitTime = 1000;
 
 		public WaitForImagingJobToCompleteStrategyV1(
 			IImagingSetStatusGetStrategy imagingSetStatusGetStrategy,
@@ -35,7 +36,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 				string status = _imagingSetStatusGetStrategy.Get(workspaceId, imagingSetId).Status;
 				completed = CheckIfJobIsCompleted(status);
-				SleepIfNotCompleted(completed);
+				if (!completed)
+				{
+					Thread.Sleep(_waitTime);
+				}
 			}
 		}
 
@@ -54,7 +58,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 				string status = (await _imagingSetStatusGetStrategy.GetAsync(workspaceId, imagingSetId).ConfigureAwait(false)).Status;
 				completed = CheckIfJobIsCompleted(status);
-				SleepIfNotCompleted(completed);
+				if (!completed)
+				{
+					await Task.Delay(_waitTime).ConfigureAwait(false);
+				}
 			}
 		}
 
@@ -79,14 +86,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private static bool CheckIfJobIsCompleted(string status)
 		{
 			return status.Equals("Completed") || status.Equals("Completed with Errors");
-		}
-
-		private static void SleepIfNotCompleted(bool completed)
-		{
-			if (!completed)
-			{
-				Thread.Sleep(1000);
-			}
 		}
 	}
 }

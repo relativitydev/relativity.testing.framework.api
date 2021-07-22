@@ -92,17 +92,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			await TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCallAsync("Completed with Errors").ConfigureAwait(false);
 		}
 
-		private async Task TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCallAsync(string secondCallStatusValue)
-		{
-			_mockImagingSetStatusGetStrategy.SetupSequence(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID))
-				.Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Staging" }))
-				.Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = secondCallStatusValue }));
-
-			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-
-			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
-		}
-
 		[Test]
 		public void Wait_WaitsUntilStatusIsCompleted()
 		{
@@ -135,6 +124,17 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				_sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID, _exceptionTimeout));
 
 			exception.Message.Should().Contain(_timeoutException);
+		}
+
+		private async Task TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCallAsync(string secondCallStatusValue)
+		{
+			_mockImagingSetStatusGetStrategy.SetupSequence(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID))
+				.Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Staging" }))
+				.Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = secondCallStatusValue }));
+
+			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
+
+			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
 		}
 
 		private void TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCall(string secondCallStatusValue)

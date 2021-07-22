@@ -4,7 +4,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IImagingSetValidatorV1
 	{
-		void ValidateImagingRequest(int workspaceId, ImagingSetRequest imagingRequesst);
+		void ValidateImagingSetCreateRequest(int workspaceId, ImagingSetRequest imagingRequesst);
+
+		void ValidateImagingSetUpdateRequest(int workspaceId, int imagingSetId, ImagingSetRequest imagingRequesst);
 
 		void ValidateIds(int workspaceId, int imagingSetId);
 	}

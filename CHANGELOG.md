@@ -5,6 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.17.0] - 2021-07-21
+
+### Added
+
+- Hide methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+
+## [3.16.0] - 2021-07-20
+
+### Added
+
+- IImagingJobService with Run methods. - [RTF-1364](https://jira.kcura.com/browse/RTF-1364)
+
+## [3.15.0] - 2021-07-15
+
+### Added
+
+- IApplicationFieldCodeService with CRUD methods for ApplicationFieldCode. - [RTF-1252](https://jira.kcura.com/browse/RTF-1252)
+
+## [3.14.0] - 2021-07-15
+
+### Added
+
+- Delete and DeleteAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+
+## [3.13.0] - 2021-07-14
+
+### Added
+
+- Update and UpdateAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+
+## [3.12.1] - 2021-07-14
+
+### Fixed
+
+- InvalidOperationException when calling RelyOn<ApiComponent> on RelativityFacade with EnableApplicationInsights setting set to false. - [RTF-1361](https://jira.kcura.com/browse/RTF-1361)
+
+## [3.12.0] - 2021-07-14
+
+### Added
+
+- GetStatus and GetStatusAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+
 ## [3.11.0] - 2021-07-13
 
 ### Added

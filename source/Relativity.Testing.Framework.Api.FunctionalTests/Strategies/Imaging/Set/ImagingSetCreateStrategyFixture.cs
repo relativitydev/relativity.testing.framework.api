@@ -9,13 +9,13 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IImagingSetCreateStrategy))]
-	internal class ImagingSetCreateStrategyFixture : ImagingSetStrategyAbstractFixture<IImagingSetCreateStrategy>
+	internal class ImagingSetCreateStrategyFixture : ImagingStrategyAbstractFixture<IImagingSetCreateStrategy>
 	{
 		[Test]
 		[VersionRange(">=12.1")]
 		public async Task CreateAsync_ValidParameters_ReturnsExpectedImagingSet()
 		{
-			var imagingSetCreateRequest = ArrangeImagingSetRequest();
+			var imagingSetCreateRequest = ArrangeImagingSetRequestWithImagingProfile();
 			var expectedImagingSet = GetExpectedImageSetFromImagingSetRequest(imagingSetCreateRequest);
 
 			var createdImagingSet = await Sut.CreateAsync(DefaultWorkspace.ArtifactID, imagingSetCreateRequest).ConfigureAwait(false);
@@ -24,9 +24,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		[Test]
 		[VersionRange(">=12.1")]
-		public void Create_ValidParameters__ReturnsExpectedImagingSet()
+		public void Create_ValidParameters_ReturnsExpectedImagingSet()
 		{
-			var imagingSetCreateRequest = ArrangeImagingSetRequest();
+			var imagingSetCreateRequest = ArrangeImagingSetRequestWithImagingProfile();
 			var expectedImagingSet = GetExpectedImageSetFromImagingSetRequest(imagingSetCreateRequest);
 
 			var createdImagingSet = Sut.Create(DefaultWorkspace.ArtifactID, imagingSetCreateRequest);

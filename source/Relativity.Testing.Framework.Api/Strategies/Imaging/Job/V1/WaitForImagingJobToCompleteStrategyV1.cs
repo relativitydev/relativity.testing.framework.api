@@ -71,7 +71,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			if (watch.Elapsed > changeStatusTimeout)
 			{
 				throw new InvalidOperationException(
-					$"Imaging Job for Imaging Set with id={imagingSetId} was not completed within the {timeout.ToString()} minutes time limit." +
+					$"Imaging Job for Imaging Set with id={imagingSetId} was not completed within the {timeout} minutes time limit." +
 					"Please check the error log in Relativity, or confirm that the job took longer than expected.");
 			}
 		}

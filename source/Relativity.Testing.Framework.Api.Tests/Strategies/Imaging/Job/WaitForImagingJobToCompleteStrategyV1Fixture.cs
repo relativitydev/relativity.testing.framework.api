@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private const string _INVALID_TIMEOUT_EXCEPTION_MESSAGE = "Timeout must be greater than 0.";
 		private const double _exceptionTimeout = 0.2;
 
-		private readonly string _timeoutException = $"Imaging Job for Imaging Set with id={_IMAGING_SET_ID} was not completed within the {_exceptionTimeout.ToString()} minutes time limit." +
+		private readonly string _timeoutException = $"Imaging Job for Imaging Set with id={_IMAGING_SET_ID} was not completed within the {_exceptionTimeout} minutes time limit." +
 			"Please check the error log in Relativity, or confirm that the job took longer than expected.";
 
 		private WaitForImagingJobToCompleteStrategyV1 _sut;
@@ -140,7 +140,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void WaitAsync_WhenStatusNotCompleted_ShouldThrowExceptionOnTimeout()
 		{
-			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(new ImagingSetDetailedStatus { Status = "Staging" });
+			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Staging" }));
 
 			InvalidOperationException exception = Assert.ThrowsAsync<InvalidOperationException>(() =>
 				_sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID, _exceptionTimeout));

@@ -15,6 +15,10 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private const int _WORKSPACE_ID = 100000;
 		private const int _IMAGING_SET_ID = 100001;
 		private const string _INVALID_TIMEOUT_EXCEPTION_MESSAGE = "Timeout must be greater than 0.";
+		private const double _exceptionTimeout = 0.2;
+
+		private readonly string _timeoutException = $"Imaging Job for Imaging Set with id={_IMAGING_SET_ID} was not completed within the {_exceptionTimeout.ToString()} minutes time limit." +
+			"Please check the error log in Relativity, or confirm that the job took longer than expected.";
 
 		private WaitForImagingJobToCompleteStrategyV1 _sut;
 		private Mock<IImagingSetStatusGetStrategy> _mockImagingSetStatusGetStrategy;
@@ -127,9 +131,21 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(new ImagingSetDetailedStatus { Status = "Staging" });
 
-			_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID, 0.2);
+			InvalidOperationException exception = Assert.Throws<InvalidOperationException>(() =>
+				_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID, _exceptionTimeout));
 
-			_mockImagingSetStatusGetStrategy.Verify(validator => validator.Get(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
+			exception.Message.Should().Contain(_timeoutException);
+		}
+
+		[Test]
+		public void WaitAsync_WhenStatusNotCompleted_ShouldThrowExceptionOnTimeout()
+		{
+			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(new ImagingSetDetailedStatus { Status = "Staging" });
+
+			InvalidOperationException exception = Assert.ThrowsAsync<InvalidOperationException>(() =>
+				_sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID, _exceptionTimeout));
+
+			exception.Message.Should().Contain(_timeoutException);
 		}
 	}
 }

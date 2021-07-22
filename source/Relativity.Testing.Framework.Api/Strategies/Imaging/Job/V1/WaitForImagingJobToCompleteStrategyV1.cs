@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 				string status = _imagingSetStatusGetStrategy.Get(workspaceId, imagingSetId).Status;
 				completed = CheckIfJobIsCompleted(status);
-				Thread.Sleep(1000);
+				SleepIfNotCompleted(completed);
 			}
 		}
 

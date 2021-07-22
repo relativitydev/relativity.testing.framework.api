@@ -53,5 +53,37 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Task<int> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null);
+
+		/// <summary>
+		/// Waits for the job to be in 'Completed' or 'Completed with Erorrs' status.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set connected with imaging job.</param>
+		/// <param name="timeout">The maximum time in minutes to wait, default is 2.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int imagingSetWithRunJobId = 2;
+		/// _imagingJobService.WaitForTheJobToComplete(workspaceId, imagingSetWithRunJobId, 3);
+		/// </code>
+		/// </example>
+		void WaitForTheJobToComplete(int workspaceId, int imagingSetId, double timeout = 2.0);
+
+		/// <summary>
+		/// Waits for the job to be in 'Completed' or 'Completed with Erorrs' status.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set connected with imaging job.</param>
+		/// <param name="timeout">The maximum time in minutes to wait, default is 2.</param>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation of waiting for the job to complete.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int imagingSetWithRunJobId = 2;
+		/// await _imagingJobService.WaitForTheJobToCompleteAsync(workspaceId, imagingSetWithRunJobId)
+		/// 	.ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task WaitForTheJobToCompleteAsync(int workspaceId, int imagingSetId, double timeout = 2.0);
 	}
 }

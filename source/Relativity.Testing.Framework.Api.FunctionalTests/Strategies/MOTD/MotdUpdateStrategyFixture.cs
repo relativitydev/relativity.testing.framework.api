@@ -1,12 +1,13 @@
-﻿using FluentAssertions;
+﻿using System.Threading.Tasks;
+using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IUpdateStrategy<MessageOfTheDay>))]
-	internal class MotdUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<MessageOfTheDay>>
+	[TestOf(typeof(IMotdUpdateStrategy))]
+	internal class MotdUpdateStrategyFixture : ApiServiceTestFixture<IMotdUpdateStrategy>
 	{
 		private MessageOfTheDay _currentMotd;
 		private IMotdGetStrategy _motdGetStrategy;
@@ -34,9 +35,22 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				AllowDismiss = !_currentMotd.AllowDismiss
 			};
 
-			Sut.Update(toUpdate);
+			var result = Sut.Update(toUpdate);
 
-			var result = _motdGetStrategy.Get();
+			result.Should().BeEquivalentTo(toUpdate);
+		}
+
+		[Test]
+		public async Task UpdateAsync()
+		{
+			var toUpdate = new MessageOfTheDay
+			{
+				Enabled = !_currentMotd.Enabled,
+				Message = Randomizer.GetString(),
+				AllowDismiss = !_currentMotd.AllowDismiss
+			};
+
+			var result = await Sut.UpdateAsync(toUpdate).ConfigureAwait(false);
 
 			result.Should().BeEquivalentTo(toUpdate);
 		}

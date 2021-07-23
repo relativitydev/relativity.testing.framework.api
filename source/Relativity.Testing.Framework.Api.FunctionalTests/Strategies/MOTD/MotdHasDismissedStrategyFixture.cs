@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Threading.Tasks;
+using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
@@ -11,13 +12,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class MotdHasDismissedStrategyFixture : ApiServiceTestFixture<IMotdHasDismissedStrategy>
 	{
 		private MessageOfTheDay _currentMotd;
-		private IUpdateStrategy<MessageOfTheDay> _updateStrategy;
+		private IMotdUpdateStrategy _updateStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
 			var tempMotd = Facade.Resolve<IMotdGetStrategy>().Get();
-			_updateStrategy = Facade.Resolve<IUpdateStrategy<MessageOfTheDay>>();
+			_updateStrategy = Facade.Resolve<IMotdUpdateStrategy>();
 
 			if (!tempMotd.Enabled)
 			{
@@ -40,7 +41,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void HasDismiss_False()
+		public void HasDismissed_False()
 		{
 			User testUser = null;
 			Arrange(x => x.Create(out testUser));
@@ -49,7 +50,18 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void HasDismiss_True()
+		public async Task HasDismissedAsync_False()
+		{
+			User testUser = null;
+			Arrange(x => x.Create(out testUser));
+
+			var hasDismissedResult = await Sut.HasDismissedAsync(testUser.ArtifactID).ConfigureAwait(false);
+
+			hasDismissedResult.Should().BeFalse();
+		}
+
+		[Test]
+		public void HasDismissed_True()
 		{
 			User testUser = null;
 			Arrange(x =>
@@ -59,6 +71,21 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			});
 
 			Sut.HasDismissed(testUser.ArtifactID).Should().BeTrue();
+		}
+
+		[Test]
+		public async Task HasDismissedAsync_True()
+		{
+			User testUser = null;
+			Arrange(x =>
+			{
+				x.Create(out testUser);
+				Facade.Resolve<IMotdDismissStrategy>().Dismiss(testUser.ArtifactID);
+			});
+
+			var hasDismissedResult = await Sut.HasDismissedAsync(testUser.ArtifactID).ConfigureAwait(false);
+
+			hasDismissedResult.Should().BeTrue();
 		}
 	}
 }

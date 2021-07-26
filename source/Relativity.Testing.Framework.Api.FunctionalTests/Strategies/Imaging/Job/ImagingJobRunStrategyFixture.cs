@@ -6,11 +6,11 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
+	[VersionRange(">=12.1")]
 	[TestOf(typeof(IImagingJobRunStrategy))]
 	internal class ImagingJobRunStrategyFixture : ImagingStrategyAbstractFixture<IImagingJobRunStrategy>
 	{
 		[Test]
-		[VersionRange(">=12.1")]
 		public async Task RunAsync_ValidIds_ReturnsImagingJobId()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
@@ -22,7 +22,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public void Run_ValidIds_ReturnsImagingJobId()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
@@ -33,7 +32,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public async Task RunAsync_ValidIds_ChangesImagingSetStatus()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
@@ -47,7 +45,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public void Run_ValidIds_ChangesImagingSetStatus()
 		{
 			ImagingSet imagingSet = CreateImagingSet();

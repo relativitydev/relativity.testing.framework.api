@@ -7,14 +7,17 @@ namespace Relativity.Testing.Framework.Api.Services
 	internal class ImagingJobService : IImagingJobService
 	{
 		private readonly IImagingJobRunStrategy _imagingJobRunStrategy;
+		private readonly IImagingJobSubmitSingleDocumentStrategy _imagingJobSubmitSingleDocumentStrategy;
 		private readonly IWaitForImagingJobToCompleteStrategy _waitForImagingJobToCompleteStrategy;
 
 		public ImagingJobService(
 			IImagingJobRunStrategy imagingJobRunStrategy,
-			IWaitForImagingJobToCompleteStrategy waitForImagingJobToCompleteStrategy)
+			IWaitForImagingJobToCompleteStrategy waitForImagingJobToCompleteStrategy,
+			IImagingJobSubmitSingleDocumentStrategy imagingJobSubmitSingleDocumentStrategy)
 		{
 			_imagingJobRunStrategy = imagingJobRunStrategy;
 			_waitForImagingJobToCompleteStrategy = waitForImagingJobToCompleteStrategy;
+			_imagingJobSubmitSingleDocumentStrategy = imagingJobSubmitSingleDocumentStrategy;
 		}
 
 		public int Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
@@ -22,6 +25,12 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public async Task<int> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
 			=> await _imagingJobRunStrategy.RunAsync(workspaceId, imagingSetId, imagingSetJobRequest).ConfigureAwait(false);
+
+		public long SubmitSingleDocument(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest)
+			=> _imagingJobSubmitSingleDocumentStrategy.SubmitSingleDocument(workspaceId, documentArtifactId, singleDocumentImagingJobRequest);
+
+		public async Task<long> SubmitSingleDocumentAsync(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest)
+			=> await _imagingJobSubmitSingleDocumentStrategy.SubmitSingleDocumentAsync(workspaceId, documentArtifactId, singleDocumentImagingJobRequest).ConfigureAwait(false);
 
 		public void WaitForTheJobToComplete(int workspaceId, int imagingSetId, double timeout = 2.0)
 			=> _waitForImagingJobToCompleteStrategy.Wait(workspaceId, imagingSetId, timeout);

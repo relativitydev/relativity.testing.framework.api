@@ -55,6 +55,52 @@ namespace Relativity.Testing.Framework.Api.Services
 		Task<int> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null);
 
 		/// <summary>
+		/// Submit a job to image an individual document.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="documentArtifactId">The Artifact ID of the document that will be imaged.</param>
+		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> indicating which documents to image.</param>
+		/// <returns>The Artifact ID for the job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int documentArtifactId = 2;
+		/// var singleDocumentImagingJobRequest = new SingleDocumentImagingJobRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid(),
+		/// 	ProfileID = imagingProfile.ArtifactID,
+		/// 	AlternateNativeLocation = null,
+		/// 	RemoveAlternateNativeAfterImaging = false
+		/// }
+		/// long imagingJobId = _imagingJobService.SubmitSingleDocument(workspaceId, documentArtifactId, singleDocumentImagingJobRequest);
+		/// </code>
+		/// </example>
+		long SubmitSingleDocument(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest);
+
+		/// <summary>
+		/// Submit a job to image an individual document.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="documentArtifactId">The Artifact ID of the document that will be imaged.</param>
+		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> indicating which documents to image.</param>
+		/// <returns>The Task with Artifact ID for the job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int documentArtifactId = 2;
+		/// var singleDocumentImagingJobRequest = new SingleDocumentImagingJobRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid(),
+		/// 	ProfileID = imagingProfile.ArtifactID,
+		/// 	AlternateNativeLocation = null,
+		/// 	RemoveAlternateNativeAfterImaging = false
+		/// }
+		/// long imagingJobId = await _imagingJobService.SubmitSingleDocumentAsync(workspaceId, documentArtifactId, singleDocumentImagingJobRequest).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<long> SubmitSingleDocumentAsync(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest);
+
+		/// <summary>
 		/// Waits for the job to be in 'Completed' or 'Completed with Erorrs' status.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>

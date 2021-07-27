@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var result = Sut.Get(DefaultWorkspace.ArtifactID, existingTab.ArtifactID);
 
-			result.Should().BeEquivalentTo(existingTab);
+			result.Should().BeEquivalentTo(existingTab, o => o.Excluding(x => x.Owner));
 		}
 	}
 }

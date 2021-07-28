@@ -7,9 +7,11 @@ using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
+	[VersionRange(">=12.1")]
 	[TestOf(typeof(IImagingJobSubmitMassDocumentStrategy))]
 	internal class ImagingJobSubmitMassDocumentStrategyFixture : ApiServiceTestFixture<IImagingJobSubmitMassDocumentStrategy>
 	{

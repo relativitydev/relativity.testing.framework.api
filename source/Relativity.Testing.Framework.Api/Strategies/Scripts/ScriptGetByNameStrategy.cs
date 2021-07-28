@@ -28,14 +28,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				.Where(x => x.Name, entityName)
 				.FirstOrDefault();
 
-			if (script != null)
+			if (script == null)
 			{
 				return null;
 			}
 
 			var result = _restService.Get<JObject>($"Relativity.Scripts/workspace/{workspaceId}/Scripts/{script.ArtifactID}");
 
-			result["RelativityApplications"] = result["RelativityApplications"]["ViewableItems"];
+			////result["RelativityApplications"] = result["RelativityApplications"]["ViewableItems"];
 
 			return result.ToObject<Script>();
 		}

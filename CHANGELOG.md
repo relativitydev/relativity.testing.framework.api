@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [3.23.0] - 2021-07-27
+
+### Added
+
+- Strategies for Create and Read Layouts that use API V1 - [RTF-1258](https://jira.kcura.com/browse/RTF-1258)
+
+
 ## [3.22.0] - 2021-07-26
 
 ### Added

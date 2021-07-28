@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Relativity.Testing.Framework.Api.Querying;
 using Relativity.Testing.Framework.Api.Services;
@@ -51,6 +52,35 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 			_restService.Post<string>($"Relativity.Objects/workspace/{workspaceId}/object/delete", dto);
 		}
 
+		public async Task DeleteAsync(int workspaceId, int entityId)
+		{
+			var dto = new
+			{
+				Request = new
+				{
+					Object = new
+					{
+						ArtifactID = entityId
+					}
+				}
+			};
+
+			await _restService.PostAsync<string>($"Relativity.Objects/workspace/{workspaceId}/object/delete", dto).ConfigureAwait(false);
+		}
+
+		public async Task DeleteAsync(int workspaceId, IEnumerable<int> entityIds)
+		{
+			var dto = new
+			{
+				massRequestByObjectIdentifiers = new
+				{
+					Objects = entityIds.Select(x => new Artifact { ArtifactID = x })
+				}
+			};
+
+			await _restService.PostAsync<string>($"Relativity.Objects/workspace/{workspaceId}/object/delete", dto).ConfigureAwait(false);
+		}
+
 		public TObject[] GetAll<TObject>()
 		{
 			return Query<TObject>().ToArray();
@@ -59,6 +89,16 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		public TObject[] GetAll<TObject>(Expression<Func<TObject, object>> wherePropertySelector, object whereValue)
 		{
 			return Query<TObject>().Where(wherePropertySelector, whereValue).ToArray();
+		}
+
+		public async Task<TObject[]> GetAllAsync<TObject>()
+		{
+			return await AsyncQuery<TObject>().ToArrayAsync().ConfigureAwait(false);
+		}
+
+		public async Task<TObject[]> GetAllAsync<TObject>(Expression<Func<TObject, object>> wherePropertySelector, object whereValue)
+		{
+			return await AsyncQuery<TObject>().Where(wherePropertySelector, whereValue).ToArrayAsync().ConfigureAwait(false);
 		}
 
 		public ObjectQuery<TObject> Query<TObject>()
@@ -80,6 +120,27 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 			executor = new QueryExecutor<TObject, ObjectQueryRequest>(QuerySlimAndMap<TObject>);
 
 			return new ObjectQuery<TObject>(request, executor);
+		}
+
+		public ObjectQueryAsync<TObject> AsyncQuery<TObject>()
+		{
+			ObjectQueryRequest request = null;
+			IQueryExecutorAsync<TObject> executor = null;
+
+			Guid guid = ObjectTypeGuidResolver.Resolve<TObject>();
+			if (guid != Guid.Empty)
+			{
+				request = ObjectQueryRequest.Of(guid);
+			}
+			else
+			{
+				string objectTypeName = ObjectTypeNameResolver.Resolve<TObject>();
+				request = ObjectQueryRequest.Of(objectTypeName);
+			}
+
+			executor = new QueryExecutorAsync<TObject, ObjectQueryRequest>(QuerySlimAndMapAsync<TObject>);
+
+			return new ObjectQueryAsync<TObject>(request, executor);
 		}
 
 		public TObject Create<TObject>(int workspaceId, TObject entity)
@@ -169,6 +230,94 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 			return artifactIds;
 		}
 
+		public async Task<TObject> CreateAsync<TObject>(int workspaceId, TObject entity)
+			where TObject : Artifact
+		{
+			string objectTypeName = ObjectTypeNameResolver.Resolve<TObject>();
+
+			var properties = ObjectFieldMapping.GetPropertyNames(typeof(TObject), new ObjectFieldMappingOptions { OnlyReadableSkip = true, UseCapitalized = true });
+
+			var fieldValues = properties.
+				Where(x => x != nameof(Artifact.ArtifactID) && x != "ParentObject").
+				Select(x => new
+				{
+					Field = new
+					{
+						Name = ObjectFieldMapping.GetFieldName<TObject>(x)
+					},
+					Value = typeof(TObject).GetProperty(x).GetValue(entity)
+				}).
+				Where(x => x.Value != null).
+				ToList();
+
+			var dto = new
+			{
+				request = new
+				{
+					ObjectType = new
+					{
+						Name = objectTypeName
+					},
+					ParentObject = JObject.FromObject(entity)["ParentObject"],
+					FieldValues = fieldValues
+				}
+			};
+
+			var result = await _restService.PostAsync<JObject>($"Relativity.Objects/workspace/{workspaceId}/object/create", dto).ConfigureAwait(false);
+			var artifactId = (int)result["Object"]["ArtifactID"];
+
+			return await AsyncQuery<TObject>().
+				For(workspaceId).
+				Where(x => x.ArtifactID, artifactId).
+				FirstOrDefaultAsync().ConfigureAwait(false);
+		}
+
+		public async Task<List<int>> CreateAsync<TObject>(int workspaceId, IEnumerable<TObject> entities)
+				where TObject : Artifact
+		{
+			string objectTypeName = ObjectTypeNameResolver.Resolve<TObject>();
+
+			var properties = ObjectFieldMapping.GetPropertyNames(typeof(TObject), new ObjectFieldMappingOptions { OnlyReadableSkip = true, UseCapitalized = true });
+
+			var fields = properties.
+				Where(x => x != nameof(Artifact.ArtifactID) && x != "ParentObject").
+				Select(x => new
+				{
+					Name = ObjectFieldMapping.GetFieldName<TObject>(x)
+				}).
+				ToList();
+
+			var values = new List<List<object>>();
+
+			foreach (var entity in entities)
+			{
+				var value = properties.
+				Where(x => x != nameof(Artifact.ArtifactID) && x != "ParentObject").
+				Select(x => typeof(TObject).GetProperty(x).GetValue(entity)).
+				ToList();
+
+				values.Add(value);
+			}
+
+			var dto = new
+			{
+				massRequest = new
+				{
+					ObjectType = new
+					{
+						Name = objectTypeName
+					},
+					ParentObject = JObject.FromObject(entities.First())["ParentObject"],
+					Fields = fields,
+					ValueLists = values
+				}
+			};
+
+			var result = await _restService.PostAsync<JObject>($"Relativity.Objects/workspace/{workspaceId}/object/create", dto).ConfigureAwait(false);
+			var artifactIds = result["Objects"].Select(x => x.ToObject<Artifact>().ArtifactID).ToList();
+			return artifactIds;
+		}
+
 		public void Update<TObject>(int workspaceId, TObject entity)
 			where TObject : Artifact
 		{
@@ -211,9 +360,58 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 			_restService.Post<string>($"Relativity.Objects/workspace/{workspaceId}/object/update", dto);
 		}
 
+		public async Task UpdateAsync<TObject>(int workspaceId, TObject entity)
+			where TObject : Artifact
+		{
+			var properties = ObjectFieldMapping.GetPropertyNames(typeof(TObject), new ObjectFieldMappingOptions { OnlyReadableSkip = true, UseCapitalized = true });
+
+			var fieldValues = properties.
+				Where(x => x != nameof(Artifact.ArtifactID) && x != "ParentObject").
+				Select(x => new
+				{
+					Field = new
+					{
+						Name = ObjectFieldMapping.GetFieldName<TObject>(x)
+					},
+					Value = typeof(TObject).GetProperty(x).GetValue(entity)
+				}).
+				ToList();
+
+			var dto = new
+			{
+				request = new
+				{
+					Object = new
+					{
+						artifactId = entity.ArtifactID
+					},
+					FieldValues = fieldValues
+				}
+			};
+
+			await _restService.PostAsync<string>($"Relativity.Objects/workspace/{workspaceId}/object/update", dto).ConfigureAwait(false);
+		}
+
+		public async Task UpdateAsync(int workspaceId, MassUpdateByObjectIdentifiersRequest massRequestByObjectIdentifiers)
+		{
+			var dto = new
+			{
+				massRequestByObjectIdentifiers
+			};
+
+			await _restService.PostAsync<string>($"Relativity.Objects/workspace/{workspaceId}/object/update", dto).ConfigureAwait(false);
+		}
+
 		private IEnumerable<TObject> QuerySlimAndMap<TObject>(ObjectQueryRequest request)
 		{
 			QuerySlimResult result = QuerySlim(request);
+
+			return result.Objects.Select(x => MapObject<TObject>(x, result.Fields));
+		}
+
+		private async Task<IEnumerable<TObject>> QuerySlimAndMapAsync<TObject>(ObjectQueryRequest request)
+		{
+			QuerySlimResult result = await QuerySlimAsync(request).ConfigureAwait(false);
 
 			return result.Objects.Select(x => MapObject<TObject>(x, result.Fields));
 		}
@@ -233,6 +431,28 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 			};
 
 			return _restService.Post<QuerySlimResult>($"Relativity.Objects/workspace/{request.WorkspaceId}/object/queryslim", wrapper, userCredentials: request.UserCredentials);
+		}
+
+		private async Task<QuerySlimResult> QuerySlimAsync(ObjectQueryRequest request)
+		{
+			ValidateAsyncRequest(request);
+
+			ObjectQueryRequestWrapper wrapper = new ObjectQueryRequestWrapper
+			{
+				Request = request,
+				Start = request.Start,
+				Length = request.Length
+			};
+
+			return await _restService.PostAsync<QuerySlimResult>($"Relativity.Objects/workspace/{request.WorkspaceId}/object/queryslim", wrapper, userCredentials: request.UserCredentials).ConfigureAwait(false);
+		}
+
+		private static void ValidateAsyncRequest(ObjectQueryRequest request)
+		{
+			if (request == null)
+			{
+				throw new ArgumentNullException(nameof(request));
+			}
 		}
 
 		private T MapObject<T>(QuerySlimObject queryObject, IEnumerable<QueryResultField> fields)

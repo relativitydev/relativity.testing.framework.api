@@ -59,7 +59,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="documentArtifactId">The Artifact ID of the document that will be imaged.</param>
-		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> indicating which documents to image.</param>
+		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> which specifies imaging settings.</param>
 		/// <returns>The Artifact ID for the job.</returns>
 		/// <example>
 		/// <code>
@@ -71,7 +71,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	ProfileID = imagingProfile.ArtifactID,
 		/// 	AlternateNativeLocation = null,
 		/// 	RemoveAlternateNativeAfterImaging = false
-		/// }
+		/// };
 		/// long imagingJobId = _imagingJobService.SubmitSingleDocument(workspaceId, documentArtifactId, singleDocumentImagingJobRequest);
 		/// </code>
 		/// </example>
@@ -82,7 +82,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="documentArtifactId">The Artifact ID of the document that will be imaged.</param>
-		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> indicating which documents to image.</param>
+		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> which specifies imaging settings.</param>
 		/// <returns>The Task with Artifact ID for the job.</returns>
 		/// <example>
 		/// <code>
@@ -94,14 +94,96 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	ProfileID = imagingProfile.ArtifactID,
 		/// 	AlternateNativeLocation = null,
 		/// 	RemoveAlternateNativeAfterImaging = false
-		/// }
+		/// };
 		/// long imagingJobId = await _imagingJobService.SubmitSingleDocumentAsync(workspaceId, documentArtifactId, singleDocumentImagingJobRequest).ConfigureAwait(false);
 		/// </code>
 		/// </example>
 		Task<long> SubmitSingleDocumentAsync(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest);
 
 		/// <summary>
-		/// Waits for the job to be in 'Completed' or 'Completed with Erorrs' status.
+		/// Submit a mass image job.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingMassJobRequest">The <see cref="ImagingMassJobRequest"/> which specifies imaging settings and indirectly (via <see cref="ImagingMassJobRequest.MassProcessID"/>) indicating which documents to image.</param>
+		/// <returns>The Artifact ID for the job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int documentArtifactTypeId = 10;
+		/// List&lt;Document&gt; documents = Facade.Resolve&lt;IGetAllWorkspaceEntitiesStrategy&lt;Document&gt;&gt;().GetAll(workspaceId);
+		///
+		/// var joinedArtifactIds = string.Join(",", documents.Select(x => x.ArtifactID));
+		/// var createMassProcessTablesRequest = new
+		/// {
+		/// 	request = new
+		/// 	{
+		/// 		artifactTypeId = documentArtifactTypeId,
+		/// 		databaseTokenRequired = true,
+		/// 		query = new
+		/// 		{
+		/// 			condition = $"(('Artifact ID' IN [{joinedArtifactIds}]))"
+		/// 		}
+		/// 	}
+		/// };
+		///
+		/// var createMassProcessTablesResult = Facade.Resolve&lt;IRestService&gt;()
+		/// 											.Post&lt;JObject&gt;($"MassOperation/v1/MassOperationManager/workspace/{workspaceId}/CreateMassProcessTables", createMassProcessTablesRequest);
+		/// var massProcessId =  (int)createMassProcessTablesResult["ProcessID"];
+		///
+		/// var imagingMassJobRequest = new ImagingMassJobRequest
+		/// {
+		/// 	ProfileID = imagingProfile.ArtifactID,
+		/// 	MassProcessID = massProcessId.ToString(),
+		/// 	SourceType = ImagingSourceType.Native
+		/// };
+		/// long imagingJobId = _imagingJobService.SubmitMassDocument(workspaceId, imagingMassJobRequest);
+		/// </code>
+		/// </example>
+		long SubmitMassDocument(int workspaceId, ImagingMassJobRequest imagingMassJobRequest);
+
+		/// <summary>
+		/// Submit a mass image job.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingMassJobRequest">The <see cref="ImagingMassJobRequest"/> which specifies imaging settings and indirectly (via <see cref="ImagingMassJobRequest.MassProcessID"/>) indicating which documents to image.</param>
+		/// <returns>The Task with Artifact ID for the job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int documentArtifactTypeId = 10;
+		/// List&lt;Document&gt; documents = Facade.Resolve&lt;IGetAllWorkspaceEntitiesStrategy&lt;Document&gt;&gt;().GetAll(workspaceId);
+		///
+		/// var joinedArtifactIds = string.Join(",", documents.Select(x => x.ArtifactID));
+		/// var createMassProcessTablesRequest = new
+		/// {
+		/// 	request = new
+		/// 	{
+		/// 		artifactTypeId = documentArtifactTypeId,
+		/// 		databaseTokenRequired = true,
+		/// 		query = new
+		/// 		{
+		/// 			condition = $"(('Artifact ID' IN [{joinedArtifactIds}]))"
+		/// 		}
+		/// 	}
+		/// };
+		///
+		/// var createMassProcessTablesResult = Facade.Resolve&lt;IRestService&gt;()
+		/// 											.Post&lt;JObject&gt;($"MassOperation/v1/MassOperationManager/workspace/{workspaceId}/CreateMassProcessTables", createMassProcessTablesRequest);
+		/// var massProcessId =  (int)createMassProcessTablesResult["ProcessID"];
+		///
+		/// var imagingMassJobRequest = new ImagingMassJobRequest
+		/// {
+		/// 	ProfileID = imagingProfile.ArtifactID,
+		/// 	MassProcessID = massProcessId.ToString(),
+		/// 	SourceType = ImagingSourceType.Native
+		/// };
+		/// long imagingJobId = await _imagingJobService.SubmitMassDocumentAsync(workspaceId, imagingMassJobRequest).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<long> SubmitMassDocumentAsync(int workspaceId, ImagingMassJobRequest imagingMassJobRequest);
+
+		/// <summary>
+		/// Waits for the job to be in 'Completed' or 'Completed with Errors' status.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="imagingSetId">The Artifact ID of a imaging set connected with imaging job.</param>
@@ -116,7 +198,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void WaitForTheJobToComplete(int workspaceId, int imagingSetId, double timeout = 2.0);
 
 		/// <summary>
-		/// Waits for the job to be in 'Completed' or 'Completed with Erorrs' status.
+		/// Waits for the job to be in 'Completed' or 'Completed with Errors' status.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="imagingSetId">The Artifact ID of a imaging set connected with imaging job.</param>

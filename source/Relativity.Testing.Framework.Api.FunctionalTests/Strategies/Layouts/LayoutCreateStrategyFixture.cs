@@ -7,8 +7,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<Layout>))]
-	[VersionRange(">=12.0")]
-	[Ignore("SUTs frequently give 500 errors while running this test. https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
+	[VersionRange(">=12.1")]
 	internal class LayoutCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<Layout>>
 	{
 		[Test]
@@ -24,11 +23,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				ObjectType = objectType
 			};
 
-			var result = Sut.Create(DefaultWorkspace.ArtifactID, entity);
+			Layout result = Sut.Create(DefaultWorkspace.ArtifactID, entity);
 
 			result.ArtifactID.Should().BePositive();
 			result.Should().BeEquivalentTo(entity, o => o.
-				Excluding(x => x.ArtifactID));
+				Excluding(x => x.ArtifactID).
+				Excluding(x => x.Owner));
 		}
 	}
 }

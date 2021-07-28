@@ -51,7 +51,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = Sut.Require(DefaultWorkspace.ArtifactID, layout);
 
 			result.ArtifactID.Should().BePositive();
-			result.Should().BeEquivalentTo(layout, o => o.Excluding(x => x.ArtifactID));
+			result.Should().BeEquivalentTo(layout, o => o.
+			Excluding(x => x.ArtifactID).
+			Excluding(x => x.Owner));
 		}
 	}
 }

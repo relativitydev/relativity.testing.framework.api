@@ -11,19 +11,25 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IWaitForImagingJobToCompleteStrategy _waitForImagingJobToCompleteStrategy;
 		private readonly IImagingJobSubmitMassDocumentStrategy _imagingJobSubmitMassDocumentStrategy;
 		private readonly ICancelImagingJobStrategy _cancelImagingJobStrategy;
+		private readonly IImagingJobRetryErrorsStrategy _imagingJobRetryErrorsStrategy;
+		private readonly IImagingJobUpdatePriorityStrategy _imagingJobUpdatePriorityStrategy;
 
 		public ImagingJobService(
 			IImagingJobRunStrategy imagingJobRunStrategy,
 			IWaitForImagingJobToCompleteStrategy waitForImagingJobToCompleteStrategy,
 			IImagingJobSubmitSingleDocumentStrategy imagingJobSubmitSingleDocumentStrategy,
 			IImagingJobSubmitMassDocumentStrategy imagingJobSubmitMassDocumentStrategy,
-			ICancelImagingJobStrategy cancelImagingJobStrategy)
+			ICancelImagingJobStrategy cancelImagingJobStrategy,
+			IImagingJobRetryErrorsStrategy imagingJobRetryErrorsStrategy,
+			IImagingJobUpdatePriorityStrategy imagingJobUpdatePriorityStrategy)
 		{
 			_imagingJobRunStrategy = imagingJobRunStrategy;
 			_waitForImagingJobToCompleteStrategy = waitForImagingJobToCompleteStrategy;
 			_imagingJobSubmitSingleDocumentStrategy = imagingJobSubmitSingleDocumentStrategy;
 			_imagingJobSubmitMassDocumentStrategy = imagingJobSubmitMassDocumentStrategy;
 			_cancelImagingJobStrategy = cancelImagingJobStrategy;
+			_imagingJobRetryErrorsStrategy = imagingJobRetryErrorsStrategy;
+			_imagingJobUpdatePriorityStrategy = imagingJobUpdatePriorityStrategy;
 		}
 
 		public int Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
@@ -49,6 +55,18 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public async Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null)
 			=> await _cancelImagingJobStrategy.CancelAsync(workspaceId, imagingJobId, cancelImagingJobRequest).ConfigureAwait(false);
+
+		public long RetryErrors(int workspaceId, int imagingSetId, ImagingSetJobRequest retryErrorsRequest = null)
+			=> _imagingJobRetryErrorsStrategy.RetryErrors(workspaceId, imagingSetId, retryErrorsRequest);
+
+		public async Task<long> RetryErrorsAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest retryErrorsRequest = null)
+			=> await _imagingJobRetryErrorsStrategy.RetryErrorsAsync(workspaceId, imagingSetId, retryErrorsRequest).ConfigureAwait(false);
+
+		public ImagingJobActionResponse UpdatePriority(int workspaceId, long imagingJobId, ImagingJobPriorityRequest updateJobPriorityRequest)
+			=> _imagingJobUpdatePriorityStrategy.UpdatePriority(workspaceId, imagingJobId, updateJobPriorityRequest);
+
+		public async Task<ImagingJobActionResponse> UpdatePriorityAsync(int workspaceId, long imagingJobId, ImagingJobPriorityRequest updateJobPriorityRequest)
+			=> await _imagingJobUpdatePriorityStrategy.UpdatePriorityAsync(workspaceId, imagingJobId, updateJobPriorityRequest).ConfigureAwait(false);
 
 		public void WaitForTheJobToComplete(int workspaceId, int imagingSetId, double timeout = 2.0)
 			=> _waitForImagingJobToCompleteStrategy.Wait(workspaceId, imagingSetId, timeout);

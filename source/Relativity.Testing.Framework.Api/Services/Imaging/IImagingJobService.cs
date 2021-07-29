@@ -223,6 +223,90 @@ namespace Relativity.Testing.Framework.Api.Services
 		Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null);
 
 		/// <summary>
+		/// Retry imaging set errors.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <param name="retryErrorsRequest">The optional <see cref="ImagingSetJobRequest"/> which specifies parameters for retry errors operation.</param>
+		/// <returns>The Artifact ID for the job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int imagingSetId = 1000;
+		/// var retryErrorsRequest = new ImagingSetJobRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid(),
+		/// 	QcEnabled = false
+		/// };
+		/// long imagingJobId = _imagingJobService.RetryErrors(workspaceId, imagingSetId, retryErrorsRequest);
+		/// </code>
+		/// </example>
+		long RetryErrors(int workspaceId, int imagingSetId, ImagingSetJobRequest retryErrorsRequest = null);
+
+		/// <summary>
+		/// Retry imaging set errors.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
+		/// <param name="retryErrorsRequest">The optional <see cref="ImagingSetJobRequest"/> which specifies parameters for retry errors operation.</param>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation containing the Artifact ID for the job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// int imagingSetId = 1000;
+		/// var retryErrorsRequest = new ImagingSetJobRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid(),
+		/// 	QcEnabled = false
+		/// };
+		/// long imagingJobId = await _imagingJobService.RetryErrorsAsync(workspaceId, imagingSetId, retryErrorsRequest).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<long> RetryErrorsAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest retryErrorsRequest = null);
+
+		/// <summary>
+		/// Update the priority of an imaging job.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingJobId">The Imaging Job ID.</param>
+		/// <param name="updateJobPriorityRequest">The <see cref="ImagingJobPriorityRequest"/> which mainly specifies new Priority.</param>
+		/// <returns>A <see cref="ImagingJobActionResponse"/> containing the information about attempt to update priority of imaging job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// long imagingJobId = 1000;
+		/// var updatePriorityRequest = new ImagingJobPriorityRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid(),
+		/// 	Priority = 99
+		/// };
+		/// ImagingJobActionResponse updatePriorityResult = _imagingJobService.UpdatePriority(workspaceId, imagingJobId, updatePriorityRequest);
+		/// </code>
+		/// </example>
+		ImagingJobActionResponse UpdatePriority(int workspaceId, long imagingJobId, ImagingJobPriorityRequest updateJobPriorityRequest);
+
+		/// <summary>
+		/// Update the priority of an imaging job.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingJobId">The Imaging Job ID.</param>
+		/// <param name="updateJobPriorityRequest">The <see cref="ImagingJobPriorityRequest"/> which mainly specifies new Priority.</param>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation containing a <see cref="ImagingJobActionResponse"/> with the information about attempt to update priority of imaging job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// long imagingJobId = 1000;
+		/// var updatePriorityRequest = new ImagingJobPriorityRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid(),
+		/// 	Priority = 99
+		/// };
+		/// ImagingJobActionResponse updatePriorityResult = await _imagingJobService.UpdatePriorityAsync(workspaceId, imagingJobId, updatePriorityRequest).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<ImagingJobActionResponse> UpdatePriorityAsync(int workspaceId, long imagingJobId, ImagingJobPriorityRequest updateJobPriorityRequest);
+
+		/// <summary>
 		/// Waits for the job to be in 'Completed' or 'Completed with Errors' status.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>

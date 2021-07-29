@@ -44,10 +44,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		public async Task<long> SubmitMassDocumentAsync(int workspaceId, ImagingMassJobRequest imagingMassJobRequest)
 			=> await _imagingJobSubmitMassDocumentStrategy.SubmitMassDocumentAsync(workspaceId, imagingMassJobRequest).ConfigureAwait(false);
 
-		public ImagingJobActionResponse Cancel(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest)
+		public ImagingJobActionResponse Cancel(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null)
 			=> _cancelImagingJobStrategy.Cancel(workspaceId, imagingJobId, cancelImagingJobRequest);
 
-		public async Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest)
+		public async Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null)
 			=> await _cancelImagingJobStrategy.CancelAsync(workspaceId, imagingJobId, cancelImagingJobRequest).ConfigureAwait(false);
 
 		public void WaitForTheJobToComplete(int workspaceId, int imagingSetId, double timeout = 2.0)

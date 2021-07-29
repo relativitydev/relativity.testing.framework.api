@@ -18,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_workspaceIdValidator = workspaceIdValidator;
 		}
 
-		public ImagingJobActionResponse Cancel(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest)
+		public ImagingJobActionResponse Cancel(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null)
 		{
 			_workspaceIdValidator.Validate(workspaceId);
 
@@ -28,7 +28,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			return _restService.Post<ImagingJobActionResponse>(url, dto);
 		}
 
-		public async Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest)
+		public async Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null)
 		{
 			_workspaceIdValidator.Validate(workspaceId);
 
@@ -42,7 +42,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			return new
 			{
-				StopImagingJobRequest = cancellImagingJobRequest
+				StopImagingJobRequest = cancellImagingJobRequest ?? new ImagingJobRequest()
 			};
 		}
 

@@ -183,6 +183,46 @@ namespace Relativity.Testing.Framework.Api.Services
 		Task<long> SubmitMassDocumentAsync(int workspaceId, ImagingMassJobRequest imagingMassJobRequest);
 
 		/// <summary>
+		/// Attempt to cancel imaging job.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingJobId">The Imaging Job ID.</param>
+		/// <param name="cancelImagingJobRequest">The optional <see cref="ImagingJobRequest"/> which specifies parameters for cancellation.</param>
+		/// <returns>A <see cref="ImagingJobActionResponse"/> containing the information about attempt to cancel imaging job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// long imagingJobId = 10;
+		/// var cancellationRequest = new ImagingJobRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid()
+		/// };
+		/// ImagingJobActionResponse cancellationResult = _imagingJobService.Cancel(workspaceId, imagingJobId, cancellationRequest);
+		/// </code>
+		/// </example>
+		ImagingJobActionResponse Cancel(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null);
+
+		/// <summary>
+		/// Attempt to cancel imaging job.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
+		/// <param name="imagingJobId">The Imaging Job ID.</param>
+		/// <param name="cancelImagingJobRequest">The optional <see cref="ImagingJobRequest"/> which specifies parameters for cancellation.</param>
+		/// <returns>A <see cref="Task"/> representing the asynchronous operation containing a <see cref="ImagingJobActionResponse"/> with the information about attempt to cancel imaging job.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1015427;
+		/// long imagingJobId = 10;
+		/// var cancellationRequest = new ImagingJobRequest
+		/// {
+		/// 	OriginationID = Guid.NewGuid()
+		/// };
+		/// ImagingJobActionResponse cancellationResult = await _imagingJobService.CancelAsync(workspaceId, imagingJobId, cancellationRequest).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<ImagingJobActionResponse> CancelAsync(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null);
+
+		/// <summary>
 		/// Waits for the job to be in 'Completed' or 'Completed with Errors' status.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>

@@ -22,7 +22,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Request for imaging job on imaging set can set QcEnabled property and OriginationID.
 		/// Can be skipped to use default false value for QcEnabled and null for OriginationID.
 		/// </param>
-		/// <returns>The Artifact ID for the job.</returns>
+		/// <returns>The Imaging Job Id.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
@@ -32,7 +32,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int imagingJobId = _imagingJobService.Run(workspaceId, imagingSetId, imagingSetJobRequest);
 		/// </code>
 		/// </example>
-		int Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null);
+		long Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null);
 
 		/// <summary>
 		/// Schedules an imaging job.
@@ -43,7 +43,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Request for imaging job on imaging set can set QcEnabled property and OriginationID.
 		/// Can be skipped to use default false value for QcEnabled and null for OriginationID.
 		/// </param>
-		/// <returns>The Task with Artifact ID for the job.</returns>
+		/// <returns>The Task with Imaging Job Id.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
@@ -52,7 +52,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	.ConfigureAwait(false);
 		/// </code>
 		/// </example>
-		Task<int> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null);
+		Task<long> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null);
 
 		/// <summary>
 		/// Submit a job to image an individual document.

@@ -15,7 +15,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			ImagingSet imagingSet = CreateImagingSet();
 
-			int imagingJobId = await Sut.RunAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID)
+			long imagingJobId = await Sut.RunAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID)
 				.ConfigureAwait(false);
 
 			Assert.That(imagingJobId > 0);
@@ -26,7 +26,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			ImagingSet imagingSet = CreateImagingSet();
 
-			int imagingJobId = Sut.Run(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID);
+			long imagingJobId = Sut.Run(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID);
 
 			Assert.That(imagingJobId > 0);
 		}

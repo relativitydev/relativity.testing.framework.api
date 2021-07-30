@@ -32,10 +32,10 @@ namespace Relativity.Testing.Framework.Api.Services
 			_imagingJobUpdatePriorityStrategy = imagingJobUpdatePriorityStrategy;
 		}
 
-		public int Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
+		public long Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
 			=> _imagingJobRunStrategy.Run(workspaceId, imagingSetId, imagingSetJobRequest);
 
-		public async Task<int> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
+		public async Task<long> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
 			=> await _imagingJobRunStrategy.RunAsync(workspaceId, imagingSetId, imagingSetJobRequest).ConfigureAwait(false);
 
 		public long SubmitSingleDocument(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest)

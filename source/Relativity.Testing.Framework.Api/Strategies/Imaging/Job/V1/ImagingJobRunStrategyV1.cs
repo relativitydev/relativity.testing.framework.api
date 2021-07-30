@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_imagingSetValidator = imagingSetValidator;
 		}
 
-		public int Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
+		public long Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
 		{
 			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);
@@ -31,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			return result.ImagingJobID;
 		}
 
-		public async Task<int> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
+		public async Task<long> RunAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)
 		{
 			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);

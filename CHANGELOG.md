@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.28.0] - 2021-07-30
+
+### Added
+
+- Remove inactive imaging jobs method in IImagingEnvironmentService. - [RTF-11255](https://jira.kcura.com/browse/RTF-1255)
+- Retrieve the size of a mass imaging job method in IImagingEnvironmentService. - [RTF-1255](https://jira.kcura.com/browse/RTF-1255)
+
 ## [3.27.0] - 2021-07-30
 
 ### Added

@@ -2,6 +2,6 @@
 {
 	internal class ImagingJobIdResponseDtoV1
 	{
-		public int ImagingJobID { get; set; }
+		public long ImagingJobID { get; set; }
 	}
 }

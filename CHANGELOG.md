@@ -9,6 +9,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adding async methods for object manager/query code - [TESTENG-1281](https://jira.kcura.com/browse/TESTENG-1281)
 
+## [4.0.0] - 2021-07-30
+
+### Changed
+
+- Return type, from int to long, of Run and RunAsync methods of IImagingJobService. - [RTF-1378](https://jira.kcura.com/browse/RTF-1378)
+
+## [3.28.0] - 2021-07-30
+
+### Added
+
+- Remove inactive imaging jobs method in IImagingEnvironmentService. - [RTF-11255](https://jira.kcura.com/browse/RTF-1255)
+- Retrieve the size of a mass imaging job method in IImagingEnvironmentService. - [RTF-1255](https://jira.kcura.com/browse/RTF-1255)
+
+## [3.27.0] - 2021-07-30
+
+### Added
+
+- Get Imaging Document Status methods for IImagingDocumentService. - [RTF-1254](https://jira.kcura.com/browse/RTF-1254)
+
+## [3.26.0] - 2021-07-29
+
+### Added
+
+- Retry Imaging Set Errors methods for IImagingJobService. - [RTF-1368](https://jira.kcura.com/browse/RTF-1368)
+- Update Imaging Job Priority methods for IImagingJobService. - [RTF-1369](https://jira.kcura.com/browse/RTF-1369)
+
+## [3.25.0] - 2021-07-29
+
+### Added
+
+- Cancel Imaging Job methods for IImagingJobService. - [RTF-1367](https://jira.kcura.com/browse/RTF-1367)
+
+## [3.24.0] - 2021-07-28
+
+### Added
+
+- SubmitMassImagingJob methods for IImagingJobService. - [RTF-1366](https://jira.kcura.com/browse/RTF-1366)
+
+## [3.23.0] - 2021-07-27
+
+### Added
+
+- Strategies for Create and Read Layouts that use API V1 - [RTF-1258](https://jira.kcura.com/browse/RTF-1258)
+
+
+## [3.22.0] - 2021-07-26
+
+### Added
+
+- SubmitSingleImage methods for IImagingJobService. - [RTF-1365](https://jira.kcura.com/browse/RTF-1365)
+
 ## [3.21.0] - 2021-07-23
 
 ### Added
@@ -32,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- WaitForTheJobToComplete methods for IImagingJobService. - [RTF-1253](https://jira.kcura.com/browse/RTF-1253)
+- WaitForTheJobToComplete methods for IImagingJobService. - [RTF-1376](https://jira.kcura.com/browse/RTF-1376)
 
 ## [3.18.0] - 2021-07-22
 

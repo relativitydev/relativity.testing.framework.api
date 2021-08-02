@@ -6,34 +6,32 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
+	[VersionRange(">=12.1")]
 	[TestOf(typeof(IImagingJobRunStrategy))]
 	internal class ImagingJobRunStrategyFixture : ImagingStrategyAbstractFixture<IImagingJobRunStrategy>
 	{
 		[Test]
-		[VersionRange(">=12.1")]
 		public async Task RunAsync_ValidIds_ReturnsImagingJobId()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
 
-			int imagingJobId = await Sut.RunAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID)
+			long imagingJobId = await Sut.RunAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID)
 				.ConfigureAwait(false);
 
 			Assert.That(imagingJobId > 0);
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public void Run_ValidIds_ReturnsImagingJobId()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
 
-			int imagingJobId = Sut.Run(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID);
+			long imagingJobId = Sut.Run(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID);
 
 			Assert.That(imagingJobId > 0);
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public async Task RunAsync_ValidIds_ChangesImagingSetStatus()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
@@ -47,7 +45,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange(">=12.1")]
 		public void Run_ValidIds_ChangesImagingSetStatus()
 		{
 			ImagingSet imagingSet = CreateImagingSet();

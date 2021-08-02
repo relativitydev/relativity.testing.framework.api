@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void AddFields(int workspaceId, Layout entity, List<CategoryField> categoryFields)
 			=> _layoutAddFieldsStrategy.AddFields(workspaceId, entity, categoryFields);
 
-		public void GetCategories(int workspaceId, Layout entity)
+		public List<Category> GetCategories(int workspaceId, Layout entity)
 			=> _layoutGetCategoriesStrategy.GetCategories(workspaceId, entity);
 	}
 }

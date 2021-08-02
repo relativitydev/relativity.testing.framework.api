@@ -47,7 +47,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// <typeparam name="TObject">The type of the entity.</typeparam>
 		/// <param name="workspaceId">The ArtifactID of the workspace.</param>
 		/// <param name="entities">The array of entities to create.</param>
-		/// <returns>Returns the task to create the <typeparamref name="TObject"/> objects.</returns>
+		/// <returns>Returns the task to create the <typeparamref name="TObject"/> entities.</returns>
 		Task<List<int>> CreateAsync<TObject>(int workspaceId, IEnumerable<TObject> entities)
 			where TObject : Artifact;
 

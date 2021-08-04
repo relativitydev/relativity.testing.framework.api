@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -12,18 +13,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
-		public void AddRemoveGroups(GroupSelector selector)
+		public async Task AddRemoveGroupsAsync(GroupSelector selector)
 		{
 			var dto = new
 			{
 				groupSelector = selector
 			};
 
-			lock (GroupSelectorLocker.Locker)
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
 			{
-				_restService.Post(
-					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/AddRemoveAdminGroupsAsync",
-					dto);
+				await _restService.PostAsync("Relativity.Services.Permission.IPermissionModule/Permission%20Manager/AddRemoveAdminGroupsAsync", dto)
+					.ConfigureAwait(false);
 			}
 		}
 	}

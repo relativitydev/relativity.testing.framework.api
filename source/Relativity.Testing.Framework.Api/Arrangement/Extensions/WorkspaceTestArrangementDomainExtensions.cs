@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Arrangement;
 using Relativity.Testing.Framework.Models;
@@ -17,11 +18,11 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		/// <param name="domain">The domain.</param>
 		/// <param name="groups">The groups.</param>
 		/// <returns>The same domain.</returns>
-		public static TestArrangementDomain<Workspace> Add(this TestArrangementDomain<Workspace> domain, params Group[] groups)
+		public static async Task<TestArrangementDomain<Workspace>> AddAsync(this TestArrangementDomain<Workspace> domain, params Group[] groups)
 		{
 			var strategy = domain.Context.Facade.Resolve<IWorkspaceAddToGroupsStrategy>();
 
-			strategy.AddWorkspaceToGroups(domain.Entity.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+			await strategy.AddWorkspaceToGroupsAsync(domain.Entity.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
 			return domain;
 		}
@@ -33,10 +34,10 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		/// <param name="group">The group.</param>
 		/// <param name="changeset">The permissions changeset.</param>
 		/// <returns>The same domain.</returns>
-		public static TestArrangementDomain<Workspace> SetGroupPermissions(this TestArrangementDomain<Workspace> domain, Group group, GroupPermissionsChangeset changeset)
+		public static async Task<TestArrangementDomain<Workspace>> SetGroupPermissionsAsync(this TestArrangementDomain<Workspace> domain, Group group, GroupPermissionsChangeset changeset)
 		{
 			var strategy = domain.Context.Facade.Resolve<IWorkspaceChangeGroupPermissionsStrategy>();
-			strategy.Set(domain.Entity.ArtifactID, group.ArtifactID, changeset);
+			await strategy.SetAsync(domain.Entity.ArtifactID, group.ArtifactID, changeset).ConfigureAwait(false);
 
 			return domain;
 		}

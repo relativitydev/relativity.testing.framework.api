@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -18,34 +19,28 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_adminAddRemoveGroupsStrategy = adminAddRemoveGroupsStrategy;
 		}
 
-		public void AddToGroups(params int[] groupIds)
+		public async Task AddToGroupsAsync(params int[] groupIds)
 		{
-			lock (GroupSelectorLocker.Locker)
+			GroupSelector groupSelector = await _getStrategy.GetAsync().ConfigureAwait(false);
+
+			foreach (int groupId in groupIds)
 			{
-				GroupSelector groupSelector = _getStrategy.Get();
-
-				foreach (int groupId in groupIds)
-				{
-					AddGroup(groupSelector, groupId);
-				}
-
-				_adminAddRemoveGroupsStrategy.AddRemoveGroups(groupSelector);
+				AddGroup(groupSelector, groupId);
 			}
+
+			await _adminAddRemoveGroupsStrategy.AddRemoveGroupsAsync(groupSelector).ConfigureAwait(false);
 		}
 
-		public void AddToGroups(params string[] groupNames)
+		public async Task AddToGroupsAsync(params string[] groupNames)
 		{
-			lock (GroupSelectorLocker.Locker)
+			GroupSelector groupSelector = await _getStrategy.GetAsync().ConfigureAwait(false);
+
+			foreach (string groupName in groupNames)
 			{
-				GroupSelector groupSelector = _getStrategy.Get();
-
-				foreach (string groupName in groupNames)
-				{
-					AddGroup(groupSelector, groupName);
-				}
-
-				_adminAddRemoveGroupsStrategy.AddRemoveGroups(groupSelector);
+				AddGroup(groupSelector, groupName);
 			}
+
+			await _adminAddRemoveGroupsStrategy.AddRemoveGroupsAsync(groupSelector).ConfigureAwait(false);
 		}
 
 		private void AddGroup(GroupSelector groupSelector, int groupId)

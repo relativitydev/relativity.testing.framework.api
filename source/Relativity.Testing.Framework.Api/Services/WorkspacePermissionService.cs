@@ -38,39 +38,39 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
 
 		public void AddRemoveWorkspaceGroups(int workspaceId, GroupSelector groupSelector)
-			=> _workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroups(workspaceId, groupSelector);
+			=> _workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroupsAsync(workspaceId, groupSelector).GetAwaiter().GetResult();
 
 		public void AddWorkspaceToGroup(int workspaceId, int groupId)
-			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroups(workspaceId, groupId);
+			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(workspaceId, groupId).GetAwaiter().GetResult();
 
 		public void AddWorkspaceToGroup(int workspaceId, string groupName)
-			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroups(workspaceId, groupName);
+			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(workspaceId, groupName).GetAwaiter().GetResult();
 
 		public void AddWorkspaceToGroups(int workspaceId, params int[] groupIds)
-			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroups(workspaceId, groupIds);
+			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(workspaceId, groupIds).GetAwaiter().GetResult();
 
 		public void AddWorkspaceToGroups(int workspaceId, params string[] groupNames)
-			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroups(workspaceId, groupNames);
+			=> _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(workspaceId, groupNames).GetAwaiter().GetResult();
 
 		public GroupPermissions GetWorkspaceGroupPermissions(int workspaceId, int groupId)
-			=> _workspaceGetGroupPermissionsStrategy.Get(workspaceId, groupId);
+			=> _workspaceGetGroupPermissionsStrategy.GetAsync(workspaceId, groupId).GetAwaiter().GetResult();
 
 		public GroupPermissions GetWorkspaceGroupPermissions(int workspaceId, string groupName)
-			=> _workspaceGetGroupPermissionsStrategy.Get(workspaceId, groupName);
+			=> _workspaceGetGroupPermissionsStrategy.GetAsync(workspaceId, groupName).GetAwaiter().GetResult();
 
 		public void SetWorkspaceGroupPermissions(int workspaceId, GroupPermissions groupPermissions)
-			=> _workspaceSetGroupPermissionsStrategy.Set(workspaceId, groupPermissions);
+			=> _workspaceSetGroupPermissionsStrategy.SetAsync(workspaceId, groupPermissions).GetAwaiter().GetResult();
 
 		public void SetWorkspaceGroupPermissions(int workspaceId, int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> _workspaceChangeGroupPermissionsStrategy.Set(workspaceId, groupId, groupPermissionsChangeset);
+			=> _workspaceChangeGroupPermissionsStrategy.SetAsync(workspaceId, groupId, groupPermissionsChangeset).GetAwaiter().GetResult();
 
 		public void SetWorkspaceGroupPermissions(int workspaceId, string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> _workspaceChangeGroupPermissionsStrategy.Set(workspaceId, groupName, groupPermissionsChangeset);
+			=> _workspaceChangeGroupPermissionsStrategy.SetAsync(workspaceId, groupName, groupPermissionsChangeset).GetAwaiter().GetResult();
 
 		public void SetWorkspaceGroupPermissions(int workspaceId, int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> _workspaceChangeGroupPermissionsStrategy.Set(workspaceId, groupId, groupPermissionsChangesetSetter);
+			=> _workspaceChangeGroupPermissionsStrategy.SetAsync(workspaceId, groupId, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
 
 		public void SetWorkspaceGroupPermissions(int workspaceId, string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> _workspaceChangeGroupPermissionsStrategy.Set(workspaceId, groupName, groupPermissionsChangesetSetter);
+			=> _workspaceChangeGroupPermissionsStrategy.SetAsync(workspaceId, groupName, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
 	}
 }

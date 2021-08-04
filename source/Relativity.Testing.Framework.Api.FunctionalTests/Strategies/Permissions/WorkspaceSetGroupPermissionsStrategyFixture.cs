@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Arrangement;
@@ -30,54 +31,54 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Set_WithMissingWorkspace()
+		public void SetAsync_WithMissingWorkspace()
 		{
 			int missingId = int.MaxValue;
 
-			var exception = Assert.Throws<HttpRequestException>(() =>
-				Sut.Set(missingId, new GroupPermissions()));
+			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
+				await Sut.SetAsync(missingId, new GroupPermissions()).ConfigureAwait(false));
 
 			exception.Message.Should().StartWith($"Workspace {missingId} is invalid.");
 		}
 
 		[Test]
-		public void Set_WithNullPermissions()
+		public void SetAsync_WithNullPermissions()
 		{
-			Assert.Throws<ArgumentNullException>(() =>
-				Sut.Set(_workspace.ArtifactID, null));
+			Assert.ThrowsAsync<ArgumentNullException>(async () =>
+				await Sut.SetAsync(_workspace.ArtifactID, null).ConfigureAwait(false));
 		}
 
 		[Test]
-		public void Set_ById()
+		public async Task SetAsync_ById()
 		{
 			GroupPermissions permissions = null;
 
 			Arrange(() =>
-				permissions = _workspaceGetGroupPermissionsStrategy.Get(_workspace.ArtifactID, _group.ArtifactID));
+				permissions = _workspaceGetGroupPermissionsStrategy.GetAsync(_workspace.ArtifactID, _group.ArtifactID).GetAwaiter().GetResult());
 
 			permissions.ObjectPermissions[0].ViewSelected = !permissions.ObjectPermissions[0].ViewSelected;
 
-			Sut.Set(_workspace.ArtifactID, permissions);
+			await Sut.SetAsync(_workspace.ArtifactID, permissions).ConfigureAwait(false);
 
-			GroupPermissions gotPermissions = _workspaceGetGroupPermissionsStrategy.Get(_workspace.ArtifactID, _group.ArtifactID);
+			GroupPermissions gotPermissions = await _workspaceGetGroupPermissionsStrategy.GetAsync(_workspace.ArtifactID, _group.ArtifactID).ConfigureAwait(false);
 
 			gotPermissions.Should().BeEquivalentTo(permissions, o => o.Excluding(x => x.LastModified));
 			gotPermissions.LastModified.Should().BeAfter(permissions.LastModified);
 		}
 
 		[Test]
-		public void Set_ByName()
+		public async Task SetAsync_ByName()
 		{
 			GroupPermissions permissions = null;
 
 			Arrange(() =>
-				permissions = _workspaceGetGroupPermissionsStrategy.Get(_workspace.ArtifactID, _group.Name));
+				permissions = _workspaceGetGroupPermissionsStrategy.GetAsync(_workspace.ArtifactID, _group.Name).GetAwaiter().GetResult());
 
 			permissions.ObjectPermissions[0].ViewSelected = !permissions.ObjectPermissions[0].ViewSelected;
 
-			Sut.Set(_workspace.ArtifactID, permissions);
+			await Sut.SetAsync(_workspace.ArtifactID, permissions).ConfigureAwait(false);
 
-			GroupPermissions gotPermissions = _workspaceGetGroupPermissionsStrategy.Get(_workspace.ArtifactID, _group.Name);
+			GroupPermissions gotPermissions = await _workspaceGetGroupPermissionsStrategy.GetAsync(_workspace.ArtifactID, _group.Name).ConfigureAwait(false);
 
 			gotPermissions.Should().BeEquivalentTo(permissions, o => o.Excluding(x => x.LastModified));
 			gotPermissions.LastModified.Should().BeAfter(permissions.LastModified);

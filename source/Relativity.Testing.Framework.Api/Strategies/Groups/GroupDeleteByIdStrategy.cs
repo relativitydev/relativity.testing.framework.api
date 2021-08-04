@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			_ensureExistsByIdStrategy.EnsureExists(id);
 
-			lock (GroupSelectorLocker.Locker)
+			using (GroupSelectorLocker.Locker.LockAsync().GetAwaiter().GetResult())
 			{
 				_restService.Delete($"relativity.groups/workspace/-1/groups/{id}");
 			}

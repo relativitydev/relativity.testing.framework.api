@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Arrangement
@@ -36,7 +37,7 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		{
 			var strategy = domain.Context.Facade.Resolve<IWorkspaceAddToGroupsStrategy>();
 
-			strategy.AddWorkspaceToGroups(workspace.ArtifactID, domain.Entity.ArtifactID);
+			strategy.AddWorkspaceToGroupsAsync(workspace.ArtifactID, domain.Entity.ArtifactID).GetAwaiter().GetResult();
 
 			return domain;
 		}

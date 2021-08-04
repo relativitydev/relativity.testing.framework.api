@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -30,20 +31,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Add()
+		public async Task Add()
 		{
 			GroupSelector selector = null;
 
-			Arrange(() =>
+			Arrange(async () =>
 			{
-				selector = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID, _itemArtifactId);
+				selector = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
 
 				if (!selector.DisabledGroups.Any())
 				{
 					var enabledGroup = selector.EnabledGroups.Last();
 					selector.EnabledGroups.RemoveAll(x => x.ArtifactID == enabledGroup.ArtifactID);
 					selector.DisabledGroups.Add(enabledGroup);
-					Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
+					await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
 				}
 			});
 
@@ -52,9 +53,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 			selector.EnabledGroups.Add(disabledGroup);
 
-			Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
+			await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
 
-			var result = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID, _itemArtifactId);
+			var result = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
 
 			result.Should().NotBeNull();
 			result.DisabledGroups.Should().NotContain(disabledGroup);
@@ -63,20 +64,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Remove()
+		public async Task Remove()
 		{
 			GroupSelector selector = null;
 
-			Arrange(() =>
+			Arrange(async () =>
 			{
-				selector = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID, _itemArtifactId);
+				selector = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
 
 				if (!selector.EnabledGroups.Any())
 				{
 					var disabledGroup = selector.DisabledGroups.Last();
 					selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 					selector.EnabledGroups.Add(disabledGroup);
-					Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
+					await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
 				}
 			});
 
@@ -85,9 +86,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.EnabledGroups.RemoveAll(x => x.ArtifactID == enabledGroup.ArtifactID);
 			selector.DisabledGroups.Add(enabledGroup);
 
-			Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
+			await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
 
-			var result = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID, _itemArtifactId);
+			var result = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
 
 			result.Should().NotBeNull();
 			result.EnabledGroups.Should().NotContain(enabledGroup);

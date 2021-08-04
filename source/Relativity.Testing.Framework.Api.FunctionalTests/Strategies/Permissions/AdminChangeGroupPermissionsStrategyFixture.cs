@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -23,20 +24,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			_adminGetGroupPermissionsStrategy = Facade.Resolve<IAdminGetGroupPermissionsStrategy>();
 
 			Facade.Resolve<IAdminAddToGroupsStrategy>()
-				.AddToGroups(_group.ArtifactID);
+				.AddToGroupsAsync(_group.ArtifactID).GetAwaiter().GetResult();
 		}
 
 		[Test]
-		public void Enable_All_ById()
+		public async Task Enable_All_ById()
 		{
 			ObjectPermission permission = null;
 
 			Arrange(() =>
-				permission = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == "Agent"));
+				permission = _adminGetGroupPermissionsStrategy.GetAsync(_group.ArtifactID).GetAwaiter().GetResult().ObjectPermissions.First(x => x.Name == "Agent"));
 
-			Sut.Set(_group.ArtifactID, x => x.ObjectPermissions[permission.Name].EnableAll());
+			await Sut.SetAsync(_group.ArtifactID, x => x.ObjectPermissions[permission.Name].EnableAll()).ConfigureAwait(false);
 
-			var result = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == permission.Name);
+			var result = (await _adminGetGroupPermissionsStrategy.GetAsync(_group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
 			result.ViewSelected.Should().BeTrue();
 			result.EditSelected.Should().BeTrue();
@@ -46,16 +47,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Enable_All_ByName()
+		public async Task Enable_All_ByName()
 		{
 			ObjectPermission permission = null;
 
 			Arrange(() =>
-				permission = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == "Agent"));
+				permission = _adminGetGroupPermissionsStrategy.GetAsync(_group.ArtifactID).GetAwaiter().GetResult().ObjectPermissions.First(x => x.Name == "Agent"));
 
-			Sut.Set(_group.Name, x => x.ObjectPermissions[permission.Name].EnableAll());
+			await Sut.SetAsync(_group.Name, x => x.ObjectPermissions[permission.Name].EnableAll()).ConfigureAwait(false);
 
-			var result = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == permission.Name);
+			var result = (await _adminGetGroupPermissionsStrategy.GetAsync(_group.Name).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
 			result.ViewSelected.Should().BeTrue();
 			result.EditSelected.Should().BeTrue();
@@ -65,16 +66,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Disable_All_ById()
+		public async Task Disable_All_ById()
 		{
 			ObjectPermission permission = null;
 
 			Arrange(() =>
-				permission = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == "Agent"));
+				permission = _adminGetGroupPermissionsStrategy.GetAsync(_group.ArtifactID).GetAwaiter().GetResult().ObjectPermissions.First(x => x.Name == "Agent"));
 
-			Sut.Set(_group.ArtifactID, x => x.ObjectPermissions[permission.Name].DisableAll());
+			await Sut.SetAsync(_group.ArtifactID, x => x.ObjectPermissions[permission.Name].DisableAll()).ConfigureAwait(false);
 
-			var result = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == permission.Name);
+			var result = (await _adminGetGroupPermissionsStrategy.GetAsync(_group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
 			result.ViewSelected.Should().BeFalse();
 			result.EditSelected.Should().BeFalse();
@@ -84,16 +85,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Disable_All_ByName()
+		public async Task Disable_All_ByName()
 		{
 			ObjectPermission permission = null;
 
 			Arrange(() =>
-				permission = _adminGetGroupPermissionsStrategy.Get(_group.ArtifactID).ObjectPermissions.First(x => x.Name == "Agent"));
+				permission = _adminGetGroupPermissionsStrategy.GetAsync(_group.ArtifactID).GetAwaiter().GetResult().ObjectPermissions.First(x => x.Name == "Agent"));
 
-			Sut.Set(_group.Name, x => x.ObjectPermissions[permission.Name].DisableAll());
+			await Sut.SetAsync(_group.Name, x => x.ObjectPermissions[permission.Name].DisableAll()).ConfigureAwait(false);
 
-			var result = _adminGetGroupPermissionsStrategy.Get(_group.Name).ObjectPermissions.First(x => x.Name == permission.Name);
+			var result = (await _adminGetGroupPermissionsStrategy.GetAsync(_group.Name).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
 			result.ViewSelected.Should().BeFalse();
 			result.EditSelected.Should().BeFalse();

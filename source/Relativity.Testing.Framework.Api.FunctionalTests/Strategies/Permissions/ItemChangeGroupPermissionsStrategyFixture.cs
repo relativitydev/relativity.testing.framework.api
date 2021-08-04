@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -26,19 +27,19 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Create(-1, new ObjectType());
 
 			Facade.Resolve<IAdminAddToGroupsStrategy>()
-				.AddToGroups(_group.ArtifactID);
+				.AddToGroupsAsync(_group.ArtifactID).GetAwaiter().GetResult();
 
 			_itemGetGroupPermissionsStrategy = Facade.Resolve<IItemGetGroupPermissionsStrategy>();
 		}
 
 		[Test]
-		public void Enable_ViewEditByName()
+		public async Task Enable_ViewEditByName()
 		{
 			const string permissionName = "Object Rule";
 
-			Sut.Set(-1, _objectType.ArtifactID, _group.Name, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.ViewEdit));
+			await Sut.SetAsync(-1, _objectType.ArtifactID, _group.Name, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.ViewEdit)).ConfigureAwait(false);
 
-			var result = _itemGetGroupPermissionsStrategy.Get(-1, _objectType.ArtifactID, _group.ArtifactID).ObjectPermissions.First(x => x.Name == permissionName);
+			var result = (await _itemGetGroupPermissionsStrategy.GetAsync(-1, _objectType.ArtifactID, _group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permissionName);
 
 			result.ViewSelected.Should().BeTrue();
 			result.EditSelected.Should().BeTrue();
@@ -48,13 +49,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Enable_ViewEditById()
+		public async Task Enable_ViewEditById()
 		{
 			const string permissionName = "Object Rule";
 
-			Sut.Set(-1, _objectType.ArtifactID, _group.ArtifactID, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.ViewEdit));
+			await Sut.SetAsync(-1, _objectType.ArtifactID, _group.ArtifactID, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.ViewEdit)).ConfigureAwait(false);
 
-			var result = _itemGetGroupPermissionsStrategy.Get(-1, _objectType.ArtifactID, _group.ArtifactID).ObjectPermissions.First(x => x.Name == permissionName);
+			var result = (await _itemGetGroupPermissionsStrategy.GetAsync(-1, _objectType.ArtifactID, _group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permissionName);
 
 			result.ViewSelected.Should().BeTrue();
 			result.EditSelected.Should().BeTrue();
@@ -64,13 +65,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Disable_All_BesidesViewByName()
+		public async Task Disable_All_BesidesViewByName()
 		{
 			const string permissionName = "Object Rule";
 
-			Sut.Set(-1, _objectType.ArtifactID, _group.Name, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View));
+			await Sut.SetAsync(-1, _objectType.ArtifactID, _group.Name, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View)).ConfigureAwait(false);
 
-			var result = _itemGetGroupPermissionsStrategy.Get(-1, _objectType.ArtifactID, _group.ArtifactID).ObjectPermissions.First(x => x.Name == permissionName);
+			var result = (await _itemGetGroupPermissionsStrategy.GetAsync(-1, _objectType.ArtifactID, _group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permissionName);
 
 			result.ViewSelected.Should().BeTrue();
 			result.EditSelected.Should().BeFalse();
@@ -80,13 +81,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Disable_All_BesidesViewById()
+		public async Task Disable_All_BesidesViewById()
 		{
 			const string permissionName = "Object Rule";
 
-			Sut.Set(-1, _objectType.ArtifactID, _group.ArtifactID, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View));
+			await Sut.SetAsync(-1, _objectType.ArtifactID, _group.ArtifactID, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View)).ConfigureAwait(false);
 
-			var result = _itemGetGroupPermissionsStrategy.Get(-1, _objectType.ArtifactID, _group.ArtifactID).ObjectPermissions.First(x => x.Name == permissionName);
+			var result = (await _itemGetGroupPermissionsStrategy.GetAsync(-1, _objectType.ArtifactID, _group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permissionName);
 
 			result.ViewSelected.Should().BeTrue();
 			result.EditSelected.Should().BeFalse();

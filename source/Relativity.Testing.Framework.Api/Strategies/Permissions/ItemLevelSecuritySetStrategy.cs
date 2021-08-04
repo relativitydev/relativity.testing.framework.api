@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -16,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_getWorkspaceItemByIdStrategy = getWorkspaceItemByIdStrategy;
 		}
 
-		public void Set(int workspaceId, int itemId, bool isEnabled)
+		public async Task SetAsync(int workspaceId, int itemId, bool isEnabled)
 		{
 			var itemLevelSecurity = _getWorkspaceItemByIdStrategy.Get(workspaceId, itemId);
 
@@ -30,9 +31,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					itemLevelSecurity
 				};
 
-				_restService.Post(
-					"Relativity.Services.Permission.IPermissionModule/Permission Manager/SetItemLevelSecurityAsync",
-					dto);
+				await _restService.PostAsync(
+					"Relativity.Services.Permission.IPermissionModule/Permission Manager/SetItemLevelSecurityAsync", dto)
+					.ConfigureAwait(false);
 			}
 		}
 	}

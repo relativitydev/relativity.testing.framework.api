@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -20,34 +21,28 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_workspaceAddRemoveGroupsStrategy = workspaceAddRemoveGroupsStrategy;
 		}
 
-		public void AddWorkspaceToGroups(int workspaceId, params int[] groupIds)
+		public async Task AddWorkspaceToGroupsAsync(int workspaceId, params int[] groupIds)
 		{
-			lock (GroupSelectorLocker.Locker)
+			GroupSelector groupSelector = _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
+
+			foreach (int groupId in groupIds)
 			{
-				GroupSelector groupSelector = _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
-
-				foreach (int groupId in groupIds)
-				{
-					AddGroup(groupSelector, groupId);
-				}
-
-				_workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroups(workspaceId, groupSelector);
+				AddGroup(groupSelector, groupId);
 			}
+
+			await _workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroupsAsync(workspaceId, groupSelector).ConfigureAwait(false);
 		}
 
-		public void AddWorkspaceToGroups(int workspaceId, params string[] groupNames)
+		public async Task AddWorkspaceToGroupsAsync(int workspaceId, params string[] groupNames)
 		{
-			lock (GroupSelectorLocker.Locker)
+			GroupSelector groupSelector = _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
+
+			foreach (string groupName in groupNames)
 			{
-				GroupSelector groupSelector = _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
-
-				foreach (string groupName in groupNames)
-				{
-					AddGroup(groupSelector, groupName);
-				}
-
-				_workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroups(workspaceId, groupSelector);
+				AddGroup(groupSelector, groupName);
 			}
+
+			await _workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroupsAsync(workspaceId, groupSelector).ConfigureAwait(false);
 		}
 
 		private void AddGroup(GroupSelector groupSelector, int groupId)

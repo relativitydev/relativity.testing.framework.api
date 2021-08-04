@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
@@ -32,42 +33,42 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_WithMissingWorkspace()
+		public void GetAsync_WithMissingWorkspace()
 		{
-			var exception = Assert.Throws<HttpRequestException>(() =>
-				Sut.Get(MissingId, _groupNotAddedToWorkspace.ArtifactID));
+			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
+				await Sut.GetAsync(MissingId, _groupNotAddedToWorkspace.ArtifactID).ConfigureAwait(false));
 
 			exception.Message.Should().StartWith($"Workspace {MissingId} is invalid.");
 		}
 
 		[Test]
-		public void Get_WithMissingGroup()
+		public async Task GetAsync_WithMissingGroup()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, MissingId);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, MissingId).ConfigureAwait(false);
 
 			result.Should().BeNull();
 		}
 
 		[Test]
-		public void Get_Existing_WithoutAssociation_ById()
+		public async Task GetAsync_Existing_WithoutAssociation_ById()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupNotAddedToWorkspace.ArtifactID);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupNotAddedToWorkspace.ArtifactID).ConfigureAwait(false);
 
 			result.Should().BeNull();
 		}
 
 		[Test]
-		public void Get_Existing_WithoutAssociation_ByName()
+		public async Task GetAsync_Existing_WithoutAssociation_ByName()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupNotAddedToWorkspace.Name);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupNotAddedToWorkspace.Name).ConfigureAwait(false);
 
 			result.Should().BeNull();
 		}
 
 		[Test]
-		public void Get_Existing_WithAssociation_ById()
+		public async Task GetAsync_Existing_WithAssociation_ById()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupAddedToWorkspace.ArtifactID);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupAddedToWorkspace.ArtifactID).ConfigureAwait(false);
 
 			result.Should().NotBeNull();
 
@@ -84,9 +85,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_Existing_WithAssociation_ByName()
+		public async Task GetAsync_Existing_WithAssociation_ByName()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupAddedToWorkspace.Name);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupAddedToWorkspace.Name).ConfigureAwait(false);
 
 			result.Should().NotBeNull();
 

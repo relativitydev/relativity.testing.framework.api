@@ -68,7 +68,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 				var group = Facade.Resolve<ICreateStrategy<Group>>().Create(new Group());
 
-				Facade.Resolve<IWorkspaceAddToGroupsStrategy>().AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, group.ArtifactID);
+				Facade.Resolve<IWorkspaceAddToGroupsStrategy>().AddWorkspaceToGroupsAsync(DefaultWorkspace.ArtifactID, group.ArtifactID).GetAwaiter().GetResult();
 				Facade.Resolve<IUserAddToGroupStrategy>().AddToGroup(localUser.ArtifactID, group.ArtifactID);
 
 				Facade.Resolve<IBatchAssignToUserStrategy>().AssignToUser(DefaultWorkspace.ArtifactID, localBatch.ArtifactID, localUser.ArtifactID);

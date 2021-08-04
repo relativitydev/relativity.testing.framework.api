@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		///     Keywords = "SomeKeyword"
 		///     Notes = "Some note about the client."
 		/// };
-		/// Client client = _clientService.Create(client);
+		/// client = _clientService.Create(client);
 		/// </code>
 		/// </example>
 		Client Create(Client entity);
@@ -56,13 +56,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified client.
 		/// <list type="number">
-		/// <item>If the <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has a positive value, this gets entity by ID and returns it.</item>
-		/// <item>Else if the <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, this gets the entity by name and returns it if it exists.</item>
-		/// <item>Otherwise this creates a new entity using <see cref="ICreateStrategy{T}"/>.</item>
+		/// <item>If the <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has a positive value, this gets the client by ID and returns it.</item>
+		/// <item>Else if the <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, this gets the client by name and returns it if it exists.</item>
+		/// <item>Otherwise this creates a new client using <see cref="ICreateStrategy{T}"/>.</item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The <see cref="Client"/> to require.</param>
-		/// <returns>The created or updated <see cref="Client"/>.</returns>
+		/// <returns>The already existing, or created <see cref="Client"/>.</returns>
 		/// <example>
 		/// <para>This example will search for a client with the ArtifactID "1234567".</para>
 		/// <para>If it is found, it will be returned.</para>
@@ -104,7 +104,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the <see cref="Client"/> by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the client.</param>
-		/// <returns>The <see cref="Client"/> entity if it exists, else <see langword="null"/>.</returns>
+		/// <returns>The <see cref="Client"/> if it exists, else <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Client client = _clientService.Get(1234567);
@@ -116,7 +116,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the <see cref="Client"/> by name.
 		/// </summary>
 		/// <param name="name">The name of the client.</param>
-		/// <returns>The <see cref="Client"/> entity if it exists, else <see langword="null"/>.</returns>
+		/// <returns>The <see cref="Client"/> if it exists, else <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Client client = _clientService.Get("AnotherClient");

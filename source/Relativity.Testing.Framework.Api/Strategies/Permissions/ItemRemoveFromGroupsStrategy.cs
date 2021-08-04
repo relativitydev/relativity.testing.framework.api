@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Models;
 
@@ -23,28 +24,28 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_objectService = objectService;
 		}
 
-		public void RemoveItemFromGroups(int workspaceId, int itemId, params string[] groupNames)
+		public async Task RemoveItemFromGroupsAsync(int workspaceId, int itemId, params string[] groupNames)
 		{
-			GroupSelector groupSelector = _groupSelectorGetStrategy.Get(workspaceId, itemId);
+			GroupSelector groupSelector = await _groupSelectorGetStrategy.GetAsync(workspaceId, itemId).ConfigureAwait(false);
 
 			foreach (var groupName in groupNames)
 			{
 				RemoveGroup(groupSelector, groupName);
 			}
 
-			_itemAddRemoveGroupsStrategy.AddRemoveItemGroups(workspaceId, itemId, groupSelector);
+			await _itemAddRemoveGroupsStrategy.AddRemoveItemGroupsAsync(workspaceId, itemId, groupSelector).ConfigureAwait(false);
 		}
 
-		public void RemoveItemFromGroups(int workspaceId, int itemId, params int[] groupIds)
+		public async Task RemoveItemFromGroupsAsync(int workspaceId, int itemId, params int[] groupIds)
 		{
-			GroupSelector groupSelector = _groupSelectorGetStrategy.Get(workspaceId, itemId);
+			GroupSelector groupSelector = await _groupSelectorGetStrategy.GetAsync(workspaceId, itemId).ConfigureAwait(false);
 
 			foreach (var groupId in groupIds)
 			{
 				RemoveGroup(groupSelector, groupId);
 			}
 
-			_itemAddRemoveGroupsStrategy.AddRemoveItemGroups(workspaceId, itemId, groupSelector);
+			await _itemAddRemoveGroupsStrategy.AddRemoveItemGroupsAsync(workspaceId, itemId, groupSelector).ConfigureAwait(false);
 		}
 
 		private void RemoveGroup(GroupSelector groupSelector, string groupName)

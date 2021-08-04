@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -19,11 +20,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_itemLevelSecuritySetStrategy = itemLevelSecuritySetStrategy;
 		}
 
-		public void AddRemoveItemGroups(int workspaceId, int itemId, GroupSelector selector, bool enableLevelSecurity = true)
+		public async Task AddRemoveItemGroupsAsync(int workspaceId, int itemId, GroupSelector selector, bool enableLevelSecurity = true)
 		{
 			if (enableLevelSecurity)
 			{
-				_itemLevelSecuritySetStrategy.Set(workspaceId, itemId, true);
+				await _itemLevelSecuritySetStrategy.SetAsync(workspaceId, itemId, true).ConfigureAwait(false);
 				selector.LastModified = _getByWorkspaceItemByIdStrategy.Get(workspaceId, itemId).LastModified;
 			}
 
@@ -33,11 +34,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				artifactID = itemId,
 				groupSelector = selector
 			};
-			lock (GroupSelectorLocker.Locker)
+
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
 			{
-				_restService.Post(
-					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/AddRemoveItemGroupsAsync",
-					dto);
+				await _restService.PostAsync(
+					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/AddRemoveItemGroupsAsync", dto)
+					.ConfigureAwait(false);
 			}
 		}
 	}

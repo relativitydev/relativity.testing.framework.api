@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -12,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
-		public GroupPermissions Get(int workspaceId, int itemId, int groupId)
+		public async Task<GroupPermissions> GetAsync(int workspaceId, int itemId, int groupId)
 		{
 			var dto = new
 			{
@@ -20,11 +21,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				ArtifactID = itemId,
 				group = new Artifact(groupId)
 			};
-			lock (GroupSelectorLocker.Locker)
+
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
 			{
-				return _restService.Post<GroupPermissions>(
-					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetItemGroupPermissionsAsync",
-					dto);
+				return await _restService.PostAsync<GroupPermissions>(
+					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetItemGroupPermissionsAsync", dto)
+					.ConfigureAwait(false);
 			}
 		}
 	}

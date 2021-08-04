@@ -17,16 +17,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_groupService = groupService;
 		}
 
-		public List<NamedArtifact> Get(int groupId)
+		public async Task<List<NamedArtifact>> GetAsync(string name)
 		{
-			var dto = new GroupDTO(groupId);
-
-			return _restService.Post<List<NamedArtifact>>(_URL, dto);
-		}
-
-		public List<NamedArtifact> Get(string name)
-		{
-			return Get(_groupService.Get(name).ArtifactID);
+			int groupArtifactId = _groupService.Get(name).ArtifactID;
+			return await GetAsync(groupArtifactId).ConfigureAwait(false);
 		}
 
 		public async Task<List<NamedArtifact>> GetAsync(int groupId)

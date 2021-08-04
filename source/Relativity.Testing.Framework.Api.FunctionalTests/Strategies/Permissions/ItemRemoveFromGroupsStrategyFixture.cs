@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -22,62 +23,59 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void RemoveItemFromGroupsByName()
+		public async Task RemoveItemFromGroupsAsyncByName()
 		{
 			Group[] groups = null;
 			ObjectType objectType = null;
 
-			Arrange(domain =>
+			Arrange(async domain =>
 			{
 				domain.Create(2, out groups);
 				ArrangeWorkingWorkspace(x => x.Create(new ObjectType()).Pick(out objectType));
 
-				Facade.Resolve<IAdminAddToGroupsStrategy>()
-					.AddToGroups(groups.Select(x => x.ArtifactID).ToArray());
+				await Facade.Resolve<IAdminAddToGroupsStrategy>()
+					.AddToGroupsAsync(groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
-				_workspaceAddToGroupsStrategy.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+				await _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
-				Facade.Resolve<IItemLevelSecuritySetStrategy>()
-					.Set(DefaultWorkspace.ArtifactID, objectType.ArtifactID, true);
+				await Facade.Resolve<IItemLevelSecuritySetStrategy>()
+					.SetAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, true).ConfigureAwait(false);
 
-				_itemAddToGroupsStrategy.AddItemToGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray());
+				await _itemAddToGroupsStrategy.AddItemToGroupsAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray()).ConfigureAwait(false);
 			});
 
-			Sut.RemoveItemFromGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray());
+			await Sut.RemoveItemFromGroupsAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray()).ConfigureAwait(false);
 
-			GroupSelector groupSelector = _itemGroupSelectorGetStrategy.
-				Get(DefaultWorkspace.ArtifactID, objectType.ArtifactID);
+			GroupSelector groupSelector = await _itemGroupSelectorGetStrategy.
+				GetAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID).ConfigureAwait(false);
 
 			groupSelector.DisabledGroups.Select(x => x.Name).
 				Should().BeEquivalentTo(groups.Select(x => x.Name));
 		}
 
 		[Test]
-		public void RemoveItemFromGroupsById()
+		public async Task RemoveItemFromGroupsAsyncById()
 		{
 			Group[] groups = null;
 			ObjectType objectType = null;
 
-			Arrange(domain =>
+			Arrange(async domain =>
 			{
 				domain.Create(2, out groups);
 				ArrangeWorkingWorkspace(x => x.Create(new ObjectType()).Pick(out objectType));
 
-				Facade.Resolve<IAdminAddToGroupsStrategy>()
-					.AddToGroups(groups.Select(x => x.ArtifactID).ToArray());
+				await Facade.Resolve<IAdminAddToGroupsStrategy>().AddToGroupsAsync(groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
-				_workspaceAddToGroupsStrategy.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+				await _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
-				Facade.Resolve<IItemLevelSecuritySetStrategy>()
-					.Set(DefaultWorkspace.ArtifactID, objectType.ArtifactID, true);
+				await Facade.Resolve<IItemLevelSecuritySetStrategy>().SetAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, true).ConfigureAwait(false);
 
-				_itemAddToGroupsStrategy.AddItemToGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray());
+				await _itemAddToGroupsStrategy.AddItemToGroupsAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray()).ConfigureAwait(false);
 			});
 
-			Sut.RemoveItemFromGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+			await Sut.RemoveItemFromGroupsAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
-			GroupSelector groupSelector = _itemGroupSelectorGetStrategy.
-				Get(DefaultWorkspace.ArtifactID, objectType.ArtifactID);
+			GroupSelector groupSelector = await _itemGroupSelectorGetStrategy.GetAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID).ConfigureAwait(false);
 
 			groupSelector.DisabledGroups.Select(x => x.Name).
 				Should().BeEquivalentTo(groups.Select(x => x.Name));

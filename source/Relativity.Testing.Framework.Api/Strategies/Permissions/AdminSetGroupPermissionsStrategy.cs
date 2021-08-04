@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
@@ -13,20 +14,28 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
-		public void Set(GroupPermissions groupPermissions)
+		public Task SetAsync(GroupPermissions groupPermissions)
 		{
 			if (groupPermissions is null)
+			{
 				throw new ArgumentNullException(nameof(groupPermissions));
+			}
 
+			return ActionSetAsync(groupPermissions);
+		}
+
+		private async Task ActionSetAsync(GroupPermissions groupPermissions)
+		{
 			var dto = new
 			{
 				groupPermissions
 			};
-			lock (GroupSelectorLocker.Locker)
+
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
 			{
-				_restService.Post(
-					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/SetAdminGroupPermissionsAsync",
-					dto);
+				await _restService.PostAsync(
+					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/SetAdminGroupPermissionsAsync", dto)
+					.ConfigureAwait(false);
 			}
 		}
 	}

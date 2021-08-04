@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -20,9 +21,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_workspaceAddRemoveGroupsStrategy = workspaceAddRemoveGroupsStrategy;
 		}
 
-		public void AddWorkspaceToGroups(int workspaceId, params int[] groupIds)
+		public async Task AddWorkspaceToGroupsAsync(int workspaceId, params int[] groupIds)
 		{
-			lock (GroupSelectorLocker.Locker)
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
 			{
 				GroupSelector groupSelector = _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
 
@@ -31,13 +32,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					AddGroup(groupSelector, groupId);
 				}
 
-				_workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroups(workspaceId, groupSelector);
+				await _workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroupsAsync(workspaceId, groupSelector).ConfigureAwait(false);
 			}
 		}
 
-		public void AddWorkspaceToGroups(int workspaceId, params string[] groupNames)
+		public async Task AddWorkspaceToGroupsAsync(int workspaceId, params string[] groupNames)
 		{
-			lock (GroupSelectorLocker.Locker)
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
 			{
 				GroupSelector groupSelector = _groupSelectorGetByWorkspaceIdStrategy.Get(workspaceId);
 
@@ -46,7 +47,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					AddGroup(groupSelector, groupName);
 				}
 
-				_workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroups(workspaceId, groupSelector);
+				await _workspaceAddRemoveGroupsStrategy.AddRemoveWorkspaceGroupsAsync(workspaceId, groupSelector).ConfigureAwait(false);
 			}
 		}
 

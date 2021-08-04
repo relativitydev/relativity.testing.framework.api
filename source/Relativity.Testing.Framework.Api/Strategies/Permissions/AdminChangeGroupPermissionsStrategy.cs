@@ -1,5 +1,5 @@
 ﻿using System;
-using Relativity.Testing.Framework.Api.Services;
+using System.Threading.Tasks;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -22,64 +22,84 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_adminSetGroupPermissionsStrategy = adminSetGroupPermissionsStrategy;
 		}
 
-		public void Set(int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
+		public Task SetAsync(int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
 		{
 			if (groupPermissionsChangesetSetter is null)
 			{
 				throw new ArgumentNullException(nameof(groupPermissionsChangesetSetter));
 			}
 
-			GroupPermissionsChangeset groupPermissionsChangeset = new GroupPermissionsChangeset();
-			groupPermissionsChangesetSetter.Invoke(groupPermissionsChangeset);
-
-			Set(groupId, groupPermissionsChangeset);
+			return ActionSetAsync(groupId, groupPermissionsChangesetSetter);
 		}
 
-		public void Set(int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
+		public Task SetAsync(int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
 		{
 			if (groupPermissionsChangeset is null)
 			{
 				throw new ArgumentNullException(nameof(groupPermissionsChangeset));
 			}
 
-			_adminAddToGroupsStrategy.AddToGroups(groupId);
-
-			GroupPermissions groupPermissions = _adminGetGroupPermissionsStrategy.Get(groupId);
-
-			groupPermissionsChangeset.Execute(groupPermissions);
-
-			_adminSetGroupPermissionsStrategy.Set(groupPermissions);
+			return ActionSetAsync(groupId, groupPermissionsChangeset);
 		}
 
-		public void Set(string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
+		public Task SetAsync(string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
 		{
 			if (groupPermissionsChangesetSetter is null)
 			{
 				throw new ArgumentNullException(nameof(groupPermissionsChangesetSetter));
 			}
 
-			GroupPermissionsChangeset groupPermissionsChangeset = new GroupPermissionsChangeset();
-			groupPermissionsChangesetSetter.Invoke(groupPermissionsChangeset);
-
-			Set(groupName, groupPermissionsChangeset);
+			return ActionSetAsync(groupName, groupPermissionsChangesetSetter);
 		}
 
-		public void Set(string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
+		public Task SetAsync(string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
 		{
 			if (groupPermissionsChangeset is null)
 			{
 				throw new ArgumentNullException(nameof(groupPermissionsChangeset));
 			}
 
-			_adminAddToGroupsStrategy.AddToGroups(groupName);
+			return ActionSetAsync(groupName, groupPermissionsChangeset);
+		}
 
-			int groupId = _adminGetGroupPermissionsStrategy.Get(groupName).GroupID;
+		private async Task ActionSetAsync(int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
+		{
+			GroupPermissionsChangeset groupPermissionsChangeset = new GroupPermissionsChangeset();
+			groupPermissionsChangesetSetter.Invoke(groupPermissionsChangeset);
 
-			GroupPermissions groupPermissions = _adminGetGroupPermissionsStrategy.Get(groupId);
+			await SetAsync(groupId, groupPermissionsChangeset).ConfigureAwait(false);
+		}
+
+		private async Task ActionSetAsync(int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
+		{
+			await _adminAddToGroupsStrategy.AddToGroupsAsync(groupId).ConfigureAwait(false);
+
+			GroupPermissions groupPermissions = await _adminGetGroupPermissionsStrategy.GetAsync(groupId).ConfigureAwait(false);
 
 			groupPermissionsChangeset.Execute(groupPermissions);
 
-			_adminSetGroupPermissionsStrategy.Set(groupPermissions);
+			await _adminSetGroupPermissionsStrategy.SetAsync(groupPermissions).ConfigureAwait(false);
+		}
+
+		private async Task ActionSetAsync(string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
+		{
+			GroupPermissionsChangeset groupPermissionsChangeset = new GroupPermissionsChangeset();
+			groupPermissionsChangesetSetter.Invoke(groupPermissionsChangeset);
+
+			await SetAsync(groupName, groupPermissionsChangeset).ConfigureAwait(false);
+		}
+
+		private async Task ActionSetAsync(string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
+		{
+			await _adminAddToGroupsStrategy.AddToGroupsAsync(groupName).ConfigureAwait(false);
+
+			int groupId = (await _adminGetGroupPermissionsStrategy.GetAsync(groupName).ConfigureAwait(false)).GroupID;
+
+			GroupPermissions groupPermissions = await _adminGetGroupPermissionsStrategy.GetAsync(groupId).ConfigureAwait(false);
+
+			groupPermissionsChangeset.Execute(groupPermissions);
+
+			await _adminSetGroupPermissionsStrategy.SetAsync(groupPermissions).ConfigureAwait(false);
 		}
 	}
 }

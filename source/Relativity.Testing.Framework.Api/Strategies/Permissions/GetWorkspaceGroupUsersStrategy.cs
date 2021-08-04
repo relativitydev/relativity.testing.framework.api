@@ -16,18 +16,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_groupService = groupService;
 		}
 
-		public List<NamedArtifact> Get(int workspaceId, int groupId)
+		public async Task<List<NamedArtifact>> GetAsync(int workspaceId, string groupName)
 		{
-			var dto = new WorkspaceGroupUserDTO(workspaceId, groupId);
-
-			return _restService.Post<List<NamedArtifact>>(
-				"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetWorkspaceGroupUsersAsync",
-				dto);
-		}
-
-		public List<NamedArtifact> Get(int workspaceId, string groupName)
-		{
-			return Get(workspaceId, _groupService.Get(groupName).ArtifactID);
+			int groupArtifactId = _groupService.Get(groupName).ArtifactID;
+			return await GetAsync(workspaceId, groupArtifactId).ConfigureAwait(false);
 		}
 
 		public async Task<List<NamedArtifact>> GetAsync(int workspaceId, int groupId)

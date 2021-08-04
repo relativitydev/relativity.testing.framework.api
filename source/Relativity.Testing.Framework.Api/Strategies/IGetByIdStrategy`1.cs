@@ -1,4 +1,6 @@
-﻿namespace Relativity.Testing.Framework.Api.Strategies
+﻿using System.Threading.Tasks;
+
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	/// <summary>
 	/// Represents the strategy of getting the entity.
@@ -10,6 +12,6 @@
 		/// Gets the entity.
 		/// </summary>
 		/// <returns>The entity.</returns>
-		T Get();
+		Task<T> GetAsync();
 	}
 }

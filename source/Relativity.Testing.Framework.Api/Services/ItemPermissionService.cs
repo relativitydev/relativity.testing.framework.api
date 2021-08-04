@@ -47,57 +47,57 @@ namespace Relativity.Testing.Framework.Api.Services
 		}
 
 		public GroupSelector GetItemGroupSelector(int workspaceId, int itemId)
-			=> _itemGroupSelectorGetStrategy.Get(workspaceId, itemId);
+			=> _itemGroupSelectorGetStrategy.GetAsync(workspaceId, itemId).GetAwaiter().GetResult();
 
 		public void AddRemoveItemGroups(int workspaceId, int itemId, GroupSelector groupSelector, bool enableLevelSecurity = true)
-			=> _itemAddRemoveGroupsStrategy.AddRemoveItemGroups(workspaceId, itemId, groupSelector, enableLevelSecurity);
+			=> _itemAddRemoveGroupsStrategy.AddRemoveItemGroupsAsync(workspaceId, itemId, groupSelector, enableLevelSecurity).GetAwaiter().GetResult();
 
 		public void AddItemToGroup(int workspaceId, int itemId, string groupName)
-			=> _itemAddToGroupsStrategy.AddItemToGroups(workspaceId, itemId, groupName);
+			=> _itemAddToGroupsStrategy.AddItemToGroupsAsync(workspaceId, itemId, groupName).GetAwaiter().GetResult();
 
 		public void AddItemToGroup(int workspaceId, int itemId, int groupId)
-			=> _itemAddToGroupsStrategy.AddItemToGroups(workspaceId, itemId, groupId);
+			=> _itemAddToGroupsStrategy.AddItemToGroupsAsync(workspaceId, itemId, groupId).GetAwaiter().GetResult();
 
 		public void AddItemToGroups(int workspaceId, int itemId, params string[] groupNames)
-			=> _itemAddToGroupsStrategy.AddItemToGroups(workspaceId, itemId, groupNames);
+			=> _itemAddToGroupsStrategy.AddItemToGroupsAsync(workspaceId, itemId, groupNames).GetAwaiter().GetResult();
 
 		public void AddItemToGroups(int workspaceId, int itemId, params int[] groupIds)
-			=> _itemAddToGroupsStrategy.AddItemToGroups(workspaceId, itemId, groupIds);
+			=> _itemAddToGroupsStrategy.AddItemToGroupsAsync(workspaceId, itemId, groupIds).GetAwaiter().GetResult();
 
 		public void RemoveItemFromGroup(int workspaceId, int itemId, string groupName)
-			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroups(workspaceId, itemId, groupName);
+			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroupsAsync(workspaceId, itemId, groupName).GetAwaiter().GetResult();
 
 		public void RemoveItemFromGroup(int workspaceId, int itemId, int groupId)
-			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroups(workspaceId, itemId, groupId);
+			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroupsAsync(workspaceId, itemId, groupId).GetAwaiter().GetResult();
 
 		public void RemoveItemFromGroups(int workspaceId, int itemId, params string[] groupNames)
-			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroups(workspaceId, itemId, groupNames);
+			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroupsAsync(workspaceId, itemId, groupNames).GetAwaiter().GetResult();
 
 		public void RemoveItemFromGroups(int workspaceId, int itemId, params int[] groupIds)
-			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroups(workspaceId, itemId, groupIds);
+			=> _itemRemoveFromGroupsStrategy.RemoveItemFromGroupsAsync(workspaceId, itemId, groupIds).GetAwaiter().GetResult();
 
 		public GroupPermissions GetItemGroupPermissions(int workspaceId, int itemId, int groupId)
-			=> _itemGetGroupPermissionsStrategy.Get(workspaceId, itemId, groupId);
+			=> _itemGetGroupPermissionsStrategy.GetAsync(workspaceId, itemId, groupId).GetAwaiter().GetResult();
 
 		public void SetItemGroupPermissions(int workspaceId, int itemId, GroupPermissions groupPermissions)
-			=> _itemSetGroupPermissionsStrategy.Set(workspaceId, itemId, groupPermissions);
+			=> _itemSetGroupPermissionsStrategy.SetAsync(workspaceId, itemId, groupPermissions).GetAwaiter().GetResult();
 
 		public void SetItemGroupPermissions(int workspaceId, int itemId, string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> _itemChangeGroupPermissionsStrategy.Set(workspaceId, itemId, groupName, groupPermissionsChangesetSetter);
+			=> _itemChangeGroupPermissionsStrategy.SetAsync(workspaceId, itemId, groupName, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
 
 		public void SetItemGroupPermissions(int workspaceId, int itemId, int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> _itemChangeGroupPermissionsStrategy.Set(workspaceId, itemId, groupId, groupPermissionsChangesetSetter);
+			=> _itemChangeGroupPermissionsStrategy.SetAsync(workspaceId, itemId, groupId, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
 
 		public void SetItemGroupPermissions(int workspaceId, int itemId, string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> _itemChangeGroupPermissionsStrategy.Set(workspaceId, itemId, groupName, groupPermissionsChangeset);
+			=> _itemChangeGroupPermissionsStrategy.SetAsync(workspaceId, itemId, groupName, groupPermissionsChangeset).GetAwaiter().GetResult();
 
 		public void SetItemGroupPermissions(int workspaceId, int itemId, int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> _itemChangeGroupPermissionsStrategy.Set(workspaceId, itemId, groupId, groupPermissionsChangeset);
+			=> _itemChangeGroupPermissionsStrategy.SetAsync(workspaceId, itemId, groupId, groupPermissionsChangeset).GetAwaiter().GetResult();
 
 		public ItemLevelSecurity GetItemLevelSecurity(int workspaceId, int itemId)
 			=> _itemLevelSecurityGetById.Get(workspaceId, itemId);
 
 		public void SetItemLevelSecurity(int workspaceId, int itemId, bool isEnabled)
-			=> _itemLevelSecuritySet.Set(workspaceId, itemId, isEnabled);
+			=> _itemLevelSecuritySet.SetAsync(workspaceId, itemId, isEnabled).GetAwaiter().GetResult();
 	}
 }

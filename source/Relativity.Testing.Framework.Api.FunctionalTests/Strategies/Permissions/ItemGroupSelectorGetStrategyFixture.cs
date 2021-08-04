@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -13,18 +14,17 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class ItemGroupSelectorGetStrategyFixture : ApiServiceTestFixture<IItemGroupSelectorGetStrategy>
 	{
 		[Test]
-		public void Get_MissingWorkspace()
+		public void GetAsync_MissingWorkspace()
 		{
 			int workspaceId = 9_999_999;
 
-			var exception = Assert.Throws<HttpRequestException>(() =>
-				Sut.Get(workspaceId, 1035231));
+			var exception = Assert.ThrowsAsync<HttpRequestException>(async () => await Sut.GetAsync(workspaceId, 1035231).ConfigureAwait(false));
 
 			exception.Message.Should().StartWith($"Workspace {workspaceId} is invalid.");
 		}
 
 		[Test]
-		public void Get_Existing()
+		public async Task GetAsync_Existing()
 		{
 			List<string> defaultDisabledGroupNames = new List<string>
 			{
@@ -37,7 +37,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				"Level 3"
 			};
 
-			var result = Sut.Get(DefaultWorkspace.ArtifactID, 1036758);
+			var result = await Sut.GetAsync(DefaultWorkspace.ArtifactID, 1036758).ConfigureAwait(false);
 
 			result.Should().NotBeNull();
 			result.DisabledGroups.Select(x => x.Name).Should().Contain(defaultDisabledGroupNames);

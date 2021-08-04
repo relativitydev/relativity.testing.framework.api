@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -11,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class WorkspaceAddToGroupsStrategyFixture : ApiServiceTestFixture<IWorkspaceAddToGroupsStrategy>
 	{
 		[Test]
-		public void AddWorkspaceToGroups_ById()
+		public async Task AddWorkspaceToGroupsAsync_ById()
 		{
 			Workspace workspace = null;
 			Group[] groups = null;
@@ -20,7 +21,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Create(2, out groups)
 				.Create(out workspace));
 
-			Sut.AddWorkspaceToGroups(workspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+			await Sut.AddWorkspaceToGroupsAsync(workspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
 			GroupSelector groupSelector = Facade.Resolve<IGetByWorkspaceIdStrategy<GroupSelector>>().
 				Get(workspace.ArtifactID);
@@ -30,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void AddWorkspaceToGroups_ByName()
+		public async Task AddWorkspaceToGroupsAsync_ByName()
 		{
 			Workspace workspace = null;
 			Group[] groups = null;
@@ -39,7 +40,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Create(2, out groups)
 				.Create(out workspace));
 
-			Sut.AddWorkspaceToGroups(workspace.ArtifactID, groups.Select(x => x.Name).ToArray());
+			await Sut.AddWorkspaceToGroupsAsync(workspace.ArtifactID, groups.Select(x => x.Name).ToArray()).ConfigureAwait(false);
 
 			GroupSelector groupSelector = Facade.Resolve<IGetByWorkspaceIdStrategy<GroupSelector>>().
 				Get(workspace.ArtifactID);

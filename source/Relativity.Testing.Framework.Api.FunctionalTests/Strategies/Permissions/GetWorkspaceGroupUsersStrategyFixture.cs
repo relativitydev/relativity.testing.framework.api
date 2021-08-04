@@ -33,30 +33,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_WithMissingWorkspace()
-		{
-			var exception = Assert.Throws<HttpRequestException>(() =>
-				Sut.Get(MissingId, _groupWithUser.ArtifactID));
-
-			exception.Message.Should().StartWith($"Workspace {MissingId} is invalid.");
-		}
-
-		[Test]
 		public void GetAsync_WithMissingWorkspace()
 		{
 			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
 				await Sut.GetAsync(MissingId, _groupWithUser.ArtifactID).ConfigureAwait(false));
 
 			exception.Message.Should().StartWith($"Workspace {MissingId} is invalid.");
-		}
-
-		[Test]
-		public void Get_WithMissingGroup()
-		{
-			var exception = Assert.Throws<HttpRequestException>(() =>
-				Sut.Get(_workspace.ArtifactID, MissingId));
-
-			exception.Message.Should().StartWith($"GroupID {MissingId} is invalid.");
 		}
 
 		[Test]
@@ -69,14 +51,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_WithNoUsers_ById()
-		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupWithNoUsers.ArtifactID);
-
-			result.Should().BeEmpty();
-		}
-
-		[Test]
 		public async Task GetAsync_WithNoUsers_ById()
 		{
 			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupWithNoUsers.ArtifactID).ConfigureAwait(false);
@@ -85,18 +59,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_WithNoUsers_ByName()
+		public async Task GetAsync_WithNoUsers_ByName()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupWithNoUsers.Name);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupWithNoUsers.Name).ConfigureAwait(false);
 
 			result.Should().BeEmpty();
-		}
-
-		[Test]
-		public void Get_WithSingleUser_ById()
-		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupWithUser.ArtifactID);
-			CheckIfUsersListIsAsExpected(result);
 		}
 
 		[Test]
@@ -108,9 +75,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_WithSingleUser_ByName()
+		public async Task GetAsync_WithSingleUser_ByName()
 		{
-			var result = Sut.Get(_workspace.ArtifactID, _groupWithUser.Name);
+			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupWithUser.Name).ConfigureAwait(false);
 
 			CheckIfUsersListIsAsExpected(result);
 		}

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -19,46 +20,45 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void AddItemToGroupsByName()
+		public async Task AddItemToGroupsAsyncByName()
 		{
 			Group[] groups = null;
 			int itemArtifactId = 0;
 
-			Arrange(domain =>
+			Arrange(async domain =>
 			{
 				domain.Create(2, out groups);
 
-				_workspaceAddToGroupsStrategy.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+				await _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 				itemArtifactId = 1035255;
 			});
 
-			Sut.AddItemToGroups(DefaultWorkspace.ArtifactID, itemArtifactId, groups.Select(x => x.Name).ToArray());
+			await Sut.AddItemToGroupsAsync(DefaultWorkspace.ArtifactID, itemArtifactId, groups.Select(x => x.Name).ToArray()).ConfigureAwait(false);
 
-			GroupSelector groupSelector = Facade.Resolve<IItemGroupSelectorGetStrategy>().
-				Get(DefaultWorkspace.ArtifactID, itemArtifactId);
+			GroupSelector groupSelector = await Facade.Resolve<IItemGroupSelectorGetStrategy>().
+				GetAsync(DefaultWorkspace.ArtifactID, itemArtifactId).ConfigureAwait(false);
 
 			groupSelector.EnabledGroups.Select(x => x.Name).
 				Should().BeEquivalentTo(groups.Select(x => x.Name));
 		}
 
 		[Test]
-		public void AddItemToGroupsById()
+		public async Task AddItemToGroupsAsyncById()
 		{
 			Group[] groups = null;
 			int itemArtifactId = 0;
 
-			Arrange(domain =>
+			Arrange(async domain =>
 			{
 				domain.Create(2, out groups);
 
-				_workspaceAddToGroupsStrategy.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
+				await _workspaceAddToGroupsStrategy.AddWorkspaceToGroupsAsync(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 				itemArtifactId = 1035255;
 			});
 
-			Sut.AddItemToGroups(DefaultWorkspace.ArtifactID, itemArtifactId, groups.Select(x => x.ArtifactID).ToArray());
+			await Sut.AddItemToGroupsAsync(DefaultWorkspace.ArtifactID, itemArtifactId, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
 
-			GroupSelector groupSelector = Facade.Resolve<IItemGroupSelectorGetStrategy>().
-				Get(DefaultWorkspace.ArtifactID, itemArtifactId);
+			GroupSelector groupSelector = await Facade.Resolve<IItemGroupSelectorGetStrategy>().GetAsync(DefaultWorkspace.ArtifactID, itemArtifactId).ConfigureAwait(false);
 
 			groupSelector.EnabledGroups.Select(x => x.Name).
 				Should().BeEquivalentTo(groups.Select(x => x.Name));

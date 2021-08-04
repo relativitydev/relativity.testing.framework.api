@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -29,7 +30,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Add()
+		public async Task Add()
 		{
 			GroupSelector selector = null;
 
@@ -43,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 			selector.EnabledGroups.Add(disabledGroup);
 
-			Sut.AddRemoveWorkspaceGroups(_workspace.ArtifactID, selector);
+			await Sut.AddRemoveWorkspaceGroupsAsync(_workspace.ArtifactID, selector).ConfigureAwait(false);
 
 			var result = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
 
@@ -54,11 +55,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Remove()
+		public async Task Remove()
 		{
 			GroupSelector selector = null;
 
-			Arrange(() =>
+			Arrange(async () =>
 			{
 				selector = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
 
@@ -67,7 +68,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					var disabledGroup = selector.DisabledGroups.Last();
 					selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 					selector.EnabledGroups.Add(disabledGroup);
-					Sut.AddRemoveWorkspaceGroups(_workspace.ArtifactID, selector);
+					await Sut.AddRemoveWorkspaceGroupsAsync(_workspace.ArtifactID, selector).ConfigureAwait(false);
 				}
 			});
 
@@ -76,7 +77,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.EnabledGroups.RemoveAll(x => x.ArtifactID == enabledGroup.ArtifactID);
 			selector.DisabledGroups.Add(enabledGroup);
 
-			Sut.AddRemoveWorkspaceGroups(_workspace.ArtifactID, selector);
+			await Sut.AddRemoveWorkspaceGroupsAsync(_workspace.ArtifactID, selector).ConfigureAwait(false);
 
 			var result = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
 

@@ -1,7 +1,9 @@
-﻿namespace Relativity.Testing.Framework.Api.Strategies
+﻿using Relativity.Testing.Framework.Api.Helpers;
+
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal static class GroupSelectorLocker
 	{
-		public static readonly object Locker = new object();
+		public static readonly AsyncLock Locker = new AsyncLock();
 	}
 }

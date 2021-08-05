@@ -51,10 +51,53 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// topSecretWorkspace = _workspaceService.Create(workspace);
 		/// </code>
 		/// </example>
+		/// <example>
+		/// Create a workspace that uses a specific base template.
+		/// <code>
+		/// Workspace workspace = new Workspace
+		/// {
+		///     Name = "MyNewWorkspace",
+		///     TemplateWorkspace = new Workspace { Name = "MyOldWorkspace" }
+		/// };
+		///
+		/// Workspace workspace = _workspaceService.Create(workspace);
+		/// </code>
+		/// </example>
+		/// <example>
+		/// <para>Create a workspace that is compliant with the configuration of the Regression environments (at least as of 2021/08/05).</para>
+		/// <para>Note that the dependent artifacts are assumed to exist on the Regression enviornments.
+		/// If they do not exist, the environment is probably not intended/ready to be tested against.</para>
+		/// <code>
+		/// string applicationName = "YourApplicationNameHere";
+		///
+		/// Client aeroClient = _clientService.Get("Aero CI/CD");
+		/// Matter aeroMatter = _matterService.Get($"{applicationName} CI/CD", aeroClient.ArtifactID);
+		/// Group aeroGroup = _groupService.Get($"{applicationName} CI/CD");
+		/// Workspace templateWorkspace = new Workspace { Name = "Base Template" };
+		/// ResourcePool aeroResourcePool = _objectService.GetAll&lt;ResourcePool&gt;().Where(x => x.Name == "RelativityOne Pool").First();
+		///
+		/// Workspace workspace = new Workspace
+		/// {
+		///     Name = $"{applicationName} - Aero CD",
+		///     Client = client,
+		///     Matter = matter,
+		///     Status = "Active",
+		///     TemplateWorkspace = templateWorkspace,
+		///     WorkspaceAdminGroup = adminGroup,
+		///     ResourcePool = resourcePool,
+		///     SqlServer = resourcePool.SqlServers.First(),
+		///     DefaultCacheLocation = resourcePool.CacheLocationServers.First(),
+		///     DefaultFileRepository = resourcePool.FileRepositories.First(),
+		///     DownloadHandlerUrl = "Relativity.Distributed"
+		/// };
+		///
+		/// Workspace workspace = _workspaceService.Create(workspace);
+		/// </code>
+		/// </example>
 		Workspace Create(Workspace entity);
 
 		/// <summary>
-		/// Creates the specified <see cref="Workspace"/>. with generated documents.
+		/// Creates the specified <see cref="Workspace"/> with generated documents.
 		/// If properties are not specified in the entity, the first value found for each property will be used.
 		/// It is the responsibility of the user writing/running the tests to ensure that they are adhering to all environment related best practices and rules.
 		/// </summary>
@@ -115,7 +158,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace[] GetAll();
 
 		/// <summary>
-		/// Gets all <see cref="Workspace"/>s that are associated by the specified client.
+		/// Gets all <see cref="Workspace"/>s that are associated with the specified client.
 		/// </summary>
 		/// <param name="clientName">The client name.</param>
 		/// <returns>The collection of <see cref="Workspace"/> entities.</returns>

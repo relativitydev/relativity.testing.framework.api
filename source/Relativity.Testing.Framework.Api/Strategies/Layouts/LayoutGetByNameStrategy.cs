@@ -8,12 +8,12 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange(">=12.0")]
-	internal class LayoutGetByNameStrategyV1 : IGetWorkspaceEntityByNameStrategy<Layout>
+	internal class LayoutGetByNameStrategy : IGetWorkspaceEntityByNameStrategy<Layout>
 	{
 		private readonly IRestService _restService;
 		private readonly IObjectService _objectService;
 
-		public LayoutGetByNameStrategyV1(IRestService restService, IObjectService objectService)
+		public LayoutGetByNameStrategy(IRestService restService, IObjectService objectService)
 		{
 			_restService = restService;
 			_objectService = objectService;

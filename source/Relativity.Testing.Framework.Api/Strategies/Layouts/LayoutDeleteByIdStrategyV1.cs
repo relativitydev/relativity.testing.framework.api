@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	[VersionRange(">=12.0")]
+	[VersionRange(">=12.1")]
 	internal class LayoutDeleteByIdStrategyV1 : DeleteWorkspaceEntityByIdStrategy<Layout>
 	{
 		private readonly IRestService _restService;
@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected override void DoDelete(int workspaceId, int entityId)
 		{
-			_restService.Delete($"Relativity.Layouts/workspace/{workspaceId}/layouts/{entityId}");
+			_restService.Delete($"relativity-data-visualization/v1/workspaces/{workspaceId}/layouts/{entityId}");
 		}
 	}
 }

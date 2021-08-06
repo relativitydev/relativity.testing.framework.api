@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12")]
-	internal class LayoutGetByNameStrategyV2 : IGetWorkspaceEntityByNameStrategy<Layout>
+	internal class LayoutGetByNameStrategyNotSupported : IGetWorkspaceEntityByNameStrategy<Layout>
 	{
 		public Layout Get(int workspaceId, string entityName)
 		{

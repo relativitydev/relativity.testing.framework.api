@@ -5,12 +5,12 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	[VersionRange(">=12.1")]
-	internal class LayoutUpdateStrategyV1 : IUpdateWorkspaceEntityStrategy<Layout>
+	[VersionRange(">=12.0 <12.1")]
+	internal class LayoutUpdateStrategyNinebark : IUpdateWorkspaceEntityStrategy<Layout>
 	{
 		private readonly IRestService _restService;
 
-		public LayoutUpdateStrategyV1(IRestService restService)
+		public LayoutUpdateStrategyNinebark(IRestService restService)
 		{
 			_restService = restService;
 		}
@@ -19,17 +19,18 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			var dto = new
 			{
-				layoutRequest = ConvertTab(entity)
+				layoutRequest = ConvertLayout(entity)
 			};
 
-			_restService.Put($"relativity-data-visualization/v1/workspaces/{workspaceId}/layouts/{entity.ArtifactID}", dto);
+			_restService.Put($"Relativity.Layouts/workspace/{workspaceId}/layouts/{entity.ArtifactID}", dto);
 		}
 
-		private JObject ConvertTab(Layout entity)
+		private JObject ConvertLayout(Layout entity)
 		{
 			var tab = JObject.FromObject(entity);
 
 			tab["ObjectType"] = JToken.FromObject(new Securable<NamedArtifact>(JObject.FromObject(entity.ObjectType).ToObject<NamedArtifact>()));
+
 			return tab;
 		}
 	}

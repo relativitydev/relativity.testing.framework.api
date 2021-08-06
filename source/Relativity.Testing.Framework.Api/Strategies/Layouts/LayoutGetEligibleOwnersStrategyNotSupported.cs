@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12")]
-	internal class LayoutGetEligibleOwnersStrategyV2 : IGetWorkspaceEntityByIdStrategy<Layout>
+	internal class LayoutGetEligibleOwnersStrategyNotSupported : IGetWorkspaceEntityByIdStrategy<Layout>
 	{
 		public Layout Get(int workspaceId, int entityId)
 		{

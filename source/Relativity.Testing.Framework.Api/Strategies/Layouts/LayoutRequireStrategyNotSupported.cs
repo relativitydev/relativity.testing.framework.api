@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.0")]
-	internal class LayoutRequireStrategyV2 : IRequireWorkspaceEntityStrategy<Layout>
+	internal class LayoutRequireStrategyNotSupported : IRequireWorkspaceEntityStrategy<Layout>
 	{
 		public Layout Require(int workspaceId, Layout entity)
 		{

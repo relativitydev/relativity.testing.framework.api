@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12")]
-	internal class LayoutDeleteByIdStrategyV2 : IDeleteWorkspaceEntityByIdStrategy<Layout>
+	internal class LayoutDeleteByIdStrategyNotSupported : IDeleteWorkspaceEntityByIdStrategy<Layout>
 	{
 		public void Delete(int workspaceId, int entityId)
 		{

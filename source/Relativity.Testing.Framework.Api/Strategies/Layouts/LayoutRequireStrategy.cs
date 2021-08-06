@@ -5,14 +5,14 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange(">=12.0")]
-	internal class LayoutRequireStrategyV1 : IRequireWorkspaceEntityStrategy<Layout>
+	internal class LayoutRequireStrategy : IRequireWorkspaceEntityStrategy<Layout>
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Layout> _createWorkspaceEntityStrategy;
 		private readonly IGetWorkspaceEntityByIdStrategy<Layout> _getWorkspaceEntityByIdStrategy;
 		private readonly IGetWorkspaceEntityByNameStrategy<Layout> _getWorkspaceEntityByNameStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<Layout> _updateWorkspaceEntityStrategy;
 
-		public LayoutRequireStrategyV1(
+		public LayoutRequireStrategy(
 			ICreateWorkspaceEntityStrategy<Layout> createWorkspaceEntityStrategy,
 			IGetWorkspaceEntityByIdStrategy<Layout> getWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByNameStrategy<Layout> getWorkspaceEntityByNameStrategy,

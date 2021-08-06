@@ -5,19 +5,19 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	[VersionRange(">=12.1")]
-	internal class LayoutGetEligibleOwnersStrategyV1 : ILayoutGetEligibleOwnersStrategy
+	[VersionRange(">=12.0 <12.1")]
+	internal class LayoutGetEligibleOwnersStrategyNinebark : ILayoutGetEligibleOwnersStrategy
 	{
 		private readonly IRestService _restService;
 
-		public LayoutGetEligibleOwnersStrategyV1(IRestService restService)
+		public LayoutGetEligibleOwnersStrategyNinebark(IRestService restService)
 		{
 			_restService = restService;
 		}
 
 		public List<NamedArtifact> GetEligibleOwners(int workspaceId)
 		{
-			return _restService.Get<List<NamedArtifact>>($"relativity-data-visualization/v1/workspaces/{workspaceId}/layouts/eligible-owners");
+			return _restService.Get<List<NamedArtifact>>($"Relativity.Layouts/workspace/{workspaceId}/layouts/eligible-owners");
 		}
 	}
 }

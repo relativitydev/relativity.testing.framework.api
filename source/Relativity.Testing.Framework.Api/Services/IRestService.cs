@@ -9,7 +9,7 @@
 	/// <code>
 	/// IRestService restService = RelativityFacade.Instance.Resolve&lt;IRestService&gt;();
 	///
-	/// string version = Sut.Post&lt;string&gt;("Relativity.Services.InstanceDetails.IInstanceDetailsModule/InstanceDetailsService/GetRelativityVersionAsync");
+	/// string version = restService.Post&lt;string&gt;("Relativity.Services.InstanceDetails.IInstanceDetailsModule/InstanceDetailsService/GetRelativityVersionAsync");
 	/// </code>
 	/// </example>
 	public interface IRestService : IHttpService

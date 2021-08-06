@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				workspaceArtifactID = id
 			};
 
-			using (GroupSelectorLocker.Locker.LockAsync().GetAwaiter().GetResult())
+			using (GroupSelectorLocker.Locker.Lock())
 			{
 				return _restService.Post<GroupSelector>(
 					"Relativity.Services.Permission.IPermissionModule/Permission Manager/GetWorkspaceGroupSelectorAsync",

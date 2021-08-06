@@ -42,4 +42,8 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
 </Project>

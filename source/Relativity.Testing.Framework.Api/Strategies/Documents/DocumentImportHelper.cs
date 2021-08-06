@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using kCura.Relativity.DataReaderClient;
+using Relativity.Testing.Framework.Api.Exceptions;
 using Relativity.Testing.Framework.Api.Services;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -43,7 +44,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected static void JobOnFatalException(JobReport jobReport)
 		{
-			throw jobReport.FatalException;
+			JobReportException jobReportException = new JobReportException("JobReportException", jobReport.FatalException);
+			throw jobReportException;
 		}
 	}
 }

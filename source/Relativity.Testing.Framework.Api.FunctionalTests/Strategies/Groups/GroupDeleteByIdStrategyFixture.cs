@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using FluentAssertions;
 using NUnit.Framework;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
-using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IDeleteByIdStrategy<Group>))]
+	[TestOf(typeof(IGroupService))]
 	public class GroupDeleteByIdStrategyFixture : ApiTestFixture
 	{
-		private IDeleteByIdStrategy<Group> _sut;
+		private IGroupService _sut;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_sut = Facade.Resolve<IDeleteByIdStrategy<Group>>();
+			_sut = Facade.Resolve<IGroupService>();
 		}
 
 		[Test]

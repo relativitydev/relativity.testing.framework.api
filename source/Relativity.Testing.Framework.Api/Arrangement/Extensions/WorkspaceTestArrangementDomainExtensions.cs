@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Arrangement;
 using Relativity.Testing.Framework.Models;
 
@@ -18,11 +17,11 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		/// <param name="domain">The domain.</param>
 		/// <param name="groups">The groups.</param>
 		/// <returns>The same domain.</returns>
-		public static async Task<TestArrangementDomain<Workspace>> AddAsync(this TestArrangementDomain<Workspace> domain, params Group[] groups)
+		public static TestArrangementDomain<Workspace> Add(this TestArrangementDomain<Workspace> domain, params Group[] groups)
 		{
-			var strategy = domain.Context.Facade.Resolve<IWorkspaceAddToGroupsStrategy>();
+			var service = domain.Context.Facade.Resolve<IWorkspacePermissionService>();
 
-			await strategy.AddWorkspaceToGroupsAsync(domain.Entity.ArtifactID, groups.Select(x => x.ArtifactID).ToArray()).ConfigureAwait(false);
+			service.AddWorkspaceToGroups(domain.Entity.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
 
 			return domain;
 		}
@@ -34,10 +33,10 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		/// <param name="group">The group.</param>
 		/// <param name="changeset">The permissions changeset.</param>
 		/// <returns>The same domain.</returns>
-		public static async Task<TestArrangementDomain<Workspace>> SetGroupPermissionsAsync(this TestArrangementDomain<Workspace> domain, Group group, GroupPermissionsChangeset changeset)
+		public static TestArrangementDomain<Workspace> SetGroupPermissions(this TestArrangementDomain<Workspace> domain, Group group, GroupPermissionsChangeset changeset)
 		{
-			var strategy = domain.Context.Facade.Resolve<IWorkspaceChangeGroupPermissionsStrategy>();
-			await strategy.SetAsync(domain.Entity.ArtifactID, group.ArtifactID, changeset).ConfigureAwait(false);
+			var service = domain.Context.Facade.Resolve<IWorkspacePermissionService>();
+			service.SetWorkspaceGroupPermissions(domain.Entity.ArtifactID, group.ArtifactID, changeset);
 
 			return domain;
 		}

@@ -46,7 +46,12 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _requireStrategy.Require(entity);
 
 		public void Delete(int id)
-			=> _deleteByIdStrategy.Delete(id);
+		{
+			using (GroupSelectorLocker.Locker.Lock())
+			{
+				_deleteByIdStrategy.Delete(id);
+			}
+		}
 
 		public Group Get(int id)
 			=> _getByIdStrategy.Get(id);

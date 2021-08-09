@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Arrangement;
-using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
-namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
+namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
-	[TestOf(typeof(IWorkspaceGetGroupPermissionsStrategy))]
-	internal class WorkspaceGetGroupPermissionsStrategyFixture : ApiServiceTestFixture<IWorkspaceGetGroupPermissionsStrategy>
+	[TestOf(typeof(IWorkspacePermissionService))]
+	internal class WorkspaceGetGroupPermissionsStrategyFixture : ApiServiceTestFixture<IWorkspacePermissionService>
 	{
 		private const int MissingId = 999_999_999;
 
@@ -35,40 +34,40 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void GetAsync_WithMissingWorkspace()
 		{
-			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
-				await Sut.GetAsync(MissingId, _groupNotAddedToWorkspace.ArtifactID).ConfigureAwait(false));
+			var exception = Assert.Throws<HttpRequestException>(() =>
+				Sut.GetWorkspaceGroupPermissions(MissingId, _groupNotAddedToWorkspace.ArtifactID));
 
 			exception.Message.Should().StartWith($"Workspace {MissingId} is invalid.");
 		}
 
 		[Test]
-		public async Task GetAsync_WithMissingGroup()
+		public void GetAsync_WithMissingGroup()
 		{
-			var result = await Sut.GetAsync(_workspace.ArtifactID, MissingId).ConfigureAwait(false);
+			var result = Sut.GetWorkspaceGroupPermissions(_workspace.ArtifactID, MissingId);
 
 			result.Should().BeNull();
 		}
 
 		[Test]
-		public async Task GetAsync_Existing_WithoutAssociation_ById()
+		public void GetAsync_Existing_WithoutAssociation_ById()
 		{
-			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupNotAddedToWorkspace.ArtifactID).ConfigureAwait(false);
+			var result = Sut.GetWorkspaceGroupPermissions(_workspace.ArtifactID, _groupNotAddedToWorkspace.ArtifactID);
 
 			result.Should().BeNull();
 		}
 
 		[Test]
-		public async Task GetAsync_Existing_WithoutAssociation_ByName()
+		public void GetAsync_Existing_WithoutAssociation_ByName()
 		{
-			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupNotAddedToWorkspace.Name).ConfigureAwait(false);
+			var result = Sut.GetWorkspaceGroupPermissions(_workspace.ArtifactID, _groupNotAddedToWorkspace.Name);
 
 			result.Should().BeNull();
 		}
 
 		[Test]
-		public async Task GetAsync_Existing_WithAssociation_ById()
+		public void GetAsync_Existing_WithAssociation_ById()
 		{
-			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupAddedToWorkspace.ArtifactID).ConfigureAwait(false);
+			var result = Sut.GetWorkspaceGroupPermissions(_workspace.ArtifactID, _groupAddedToWorkspace.ArtifactID);
 
 			result.Should().NotBeNull();
 
@@ -85,9 +84,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public async Task GetAsync_Existing_WithAssociation_ByName()
+		public void GetAsync_Existing_WithAssociation_ByName()
 		{
-			var result = await Sut.GetAsync(_workspace.ArtifactID, _groupAddedToWorkspace.Name).ConfigureAwait(false);
+			var result = Sut.GetWorkspaceGroupPermissions(_workspace.ArtifactID, _groupAddedToWorkspace.Name);
 
 			result.Should().NotBeNull();
 

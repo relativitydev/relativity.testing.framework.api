@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
@@ -68,7 +69,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 				var group = Facade.Resolve<ICreateStrategy<Group>>().Create(new Group());
 
-				Facade.Resolve<IWorkspaceAddToGroupsStrategy>().AddWorkspaceToGroupsAsync(DefaultWorkspace.ArtifactID, group.ArtifactID).GetAwaiter().GetResult();
+				Facade.Resolve<IWorkspacePermissionService>().AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, group.ArtifactID);
 				Facade.Resolve<IUserAddToGroupStrategy>().AddToGroup(localUser.ArtifactID, group.ArtifactID);
 
 				Facade.Resolve<IBatchAssignToUserStrategy>().AssignToUser(DefaultWorkspace.ArtifactID, localBatch.ArtifactID, localUser.ArtifactID);

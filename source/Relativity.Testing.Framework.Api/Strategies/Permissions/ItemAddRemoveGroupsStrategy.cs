@@ -35,12 +35,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				groupSelector = selector
 			};
 
-			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
-			{
-				await _restService.PostAsync(
-					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/AddRemoveItemGroupsAsync", dto)
-					.ConfigureAwait(false);
-			}
+			await _restService.PostAsync(
+				"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/AddRemoveItemGroupsAsync", dto)
+				.ConfigureAwait(false);
 		}
 	}
 }

@@ -21,12 +21,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				artifactID = itemId
 			};
 
-			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
-			{
-				return await _restService.PostAsync<GroupSelector>(
-					"Relativity.Services.Permission.IPermissionModule/Permission Manager/GetItemGroupSelectorAsync", dto)
-					.ConfigureAwait(false);
-			}
+			return await _restService.PostAsync<GroupSelector>(
+				"Relativity.Services.Permission.IPermissionModule/Permission Manager/GetItemGroupSelectorAsync", dto)
+				.ConfigureAwait(false);
 		}
 	}
 }

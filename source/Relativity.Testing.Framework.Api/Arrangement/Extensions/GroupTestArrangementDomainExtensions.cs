@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
@@ -35,9 +36,9 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		/// <returns>The same domain.</returns>
 		public static TestArrangementDomain<Group> AddTo(this TestArrangementDomain<Group> domain, Workspace workspace)
 		{
-			var strategy = domain.Context.Facade.Resolve<IWorkspaceAddToGroupsStrategy>();
+			var service = domain.Context.Facade.Resolve<IWorkspacePermissionService>();
 
-			strategy.AddWorkspaceToGroupsAsync(workspace.ArtifactID, domain.Entity.ArtifactID).GetAwaiter().GetResult();
+			service.AddWorkspaceToGroups(workspace.ArtifactID, domain.Entity.ArtifactID);
 
 			return domain;
 		}

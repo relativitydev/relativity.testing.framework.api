@@ -32,12 +32,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				groupPermissions
 			};
 
-			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
-			{
-				await _restService.PostAsync(
+			await _restService.PostAsync(
 				"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/SetWorkspaceGroupPermissionsAsync", dto)
-					.ConfigureAwait(false);
-			}
+				.ConfigureAwait(false);
 		}
 	}
 }

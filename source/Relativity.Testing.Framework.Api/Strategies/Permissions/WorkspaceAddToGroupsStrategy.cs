@@ -8,16 +8,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class WorkspaceAddToGroupsStrategy : IWorkspaceAddToGroupsStrategy
 	{
 		private readonly IGetByWorkspaceIdStrategy<GroupSelector> _groupSelectorGetByWorkspaceIdStrategy;
-		private readonly IAdminAddToGroupsStrategy _adminAddToGroupsStrategy;
 		private readonly IWorkspaceAddRemoveGroupsStrategy _workspaceAddRemoveGroupsStrategy;
 
 		public WorkspaceAddToGroupsStrategy(
 			IGetByWorkspaceIdStrategy<GroupSelector> groupSelectorGetByWorkspaceIdStrategy,
-			IAdminAddToGroupsStrategy adminAddToGroupsStrategy,
 			IWorkspaceAddRemoveGroupsStrategy workspaceAddRemoveGroupsStrategy)
 		{
 			_groupSelectorGetByWorkspaceIdStrategy = groupSelectorGetByWorkspaceIdStrategy;
-			_adminAddToGroupsStrategy = adminAddToGroupsStrategy;
 			_workspaceAddRemoveGroupsStrategy = workspaceAddRemoveGroupsStrategy;
 		}
 

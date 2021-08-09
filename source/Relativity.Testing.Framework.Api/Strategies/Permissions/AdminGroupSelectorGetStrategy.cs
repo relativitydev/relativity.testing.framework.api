@@ -15,12 +15,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public async Task<GroupSelector> GetAsync()
 		{
-			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
-			{
-				return await _restService.PostAsync<GroupSelector>(
-					"Relativity.Services.Permission.IPermissionModule/Permission Manager/GetAdminGroupSelectorAsync")
-				.ConfigureAwait(false);
-			}
+			return await _restService.PostAsync<GroupSelector>(
+				"Relativity.Services.Permission.IPermissionModule/Permission Manager/GetAdminGroupSelectorAsync")
+			.ConfigureAwait(false);
 		}
 	}
 }

@@ -23,12 +23,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				group = new Artifact(groupId)
 			};
 
-			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
-			{
-				return await _restService.PostAsync<GroupPermissions>(
-					"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetWorkspaceGroupPermissionsAsync",
-					dto).ConfigureAwait(false);
-			}
+			return await _restService.PostAsync<GroupPermissions>(
+				"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetWorkspaceGroupPermissionsAsync",
+				dto).ConfigureAwait(false);
 		}
 
 		public async Task<GroupPermissions> GetAsync(int workspaceId, string groupName)

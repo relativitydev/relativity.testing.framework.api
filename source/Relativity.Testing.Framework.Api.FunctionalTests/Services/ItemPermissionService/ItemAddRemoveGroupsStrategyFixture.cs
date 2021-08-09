@@ -1,17 +1,15 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
-namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
+namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
 	[Ignore("Refactor when item support will be implemented. By item, we mean ObjectType or Field or FieldCategory.")]
-	[TestOf(typeof(IItemAddRemoveGroupsStrategy))]
-	internal class ItemAddRemoveGroupsStrategyFixture : ApiServiceTestFixture<IItemAddRemoveGroupsStrategy>
+	[TestOf(typeof(IItemPermissionService))]
+	internal class ItemAddRemoveGroupsStrategyFixture : ApiServiceTestFixture<IItemPermissionService>
 	{
-		private IItemGroupSelectorGetStrategy _getByWorkspaceIdStrategy;
 		private int _itemArtifactId;
 
 		private Workspace _workspace;
@@ -24,27 +22,21 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			_itemArtifactId = 1035255;
 		}
 
-		protected override void OnSetUpTest()
-		{
-			base.OnSetUpTest();
-			_getByWorkspaceIdStrategy = Facade.Resolve<IItemGroupSelectorGetStrategy>();
-		}
-
 		[Test]
-		public async Task Add()
+		public void Add()
 		{
 			GroupSelector selector = null;
 
-			Arrange(async () =>
+			Arrange(() =>
 			{
-				selector = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
+				selector = Sut.GetItemGroupSelector(_workspace.ArtifactID, _itemArtifactId);
 
 				if (!selector.DisabledGroups.Any())
 				{
 					var enabledGroup = selector.EnabledGroups.Last();
 					selector.EnabledGroups.RemoveAll(x => x.ArtifactID == enabledGroup.ArtifactID);
 					selector.DisabledGroups.Add(enabledGroup);
-					await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
+					Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
 				}
 			});
 
@@ -53,9 +45,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 			selector.EnabledGroups.Add(disabledGroup);
 
-			await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
+			Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
 
-			var result = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
+			var result = Sut.GetItemGroupSelector(_workspace.ArtifactID, _itemArtifactId);
 
 			result.Should().NotBeNull();
 			result.DisabledGroups.Should().NotContain(disabledGroup);
@@ -64,20 +56,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public async Task Remove()
+		public void Remove()
 		{
 			GroupSelector selector = null;
 
-			Arrange(async () =>
+			Arrange(() =>
 			{
-				selector = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
+				selector = Sut.GetItemGroupSelector(_workspace.ArtifactID, _itemArtifactId);
 
 				if (!selector.EnabledGroups.Any())
 				{
 					var disabledGroup = selector.DisabledGroups.Last();
 					selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 					selector.EnabledGroups.Add(disabledGroup);
-					await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
+					Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
 				}
 			});
 
@@ -86,9 +78,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.EnabledGroups.RemoveAll(x => x.ArtifactID == enabledGroup.ArtifactID);
 			selector.DisabledGroups.Add(enabledGroup);
 
-			await Sut.AddRemoveItemGroupsAsync(_workspace.ArtifactID, _itemArtifactId, selector).ConfigureAwait(false);
+			Sut.AddRemoveItemGroups(_workspace.ArtifactID, _itemArtifactId, selector);
 
-			var result = await _getByWorkspaceIdStrategy.GetAsync(_workspace.ArtifactID, _itemArtifactId).ConfigureAwait(false);
+			var result = Sut.GetItemGroupSelector(_workspace.ArtifactID, _itemArtifactId);
 
 			result.Should().NotBeNull();
 			result.EnabledGroups.Should().NotContain(enabledGroup);

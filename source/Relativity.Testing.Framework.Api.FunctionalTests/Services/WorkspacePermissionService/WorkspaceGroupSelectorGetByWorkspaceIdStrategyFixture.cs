@@ -4,13 +4,13 @@ using System.Linq;
 using System.Net.Http;
 using FluentAssertions;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
-namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
+namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
-	[TestOf(typeof(WorkspaceGroupSelectorGetByWorkspaceIdStrategy))]
-	internal class WorkspaceGroupSelectorGetByWorkspaceIdStrategyFixture : ApiServiceTestFixture<IGetByWorkspaceIdStrategy<GroupSelector>>
+	[TestOf(typeof(IWorkspacePermissionService))]
+	internal class WorkspaceGroupSelectorGetByWorkspaceIdStrategyFixture : ApiServiceTestFixture<IWorkspacePermissionService>
 	{
 		[Test]
 		public void Get_Missing()
@@ -18,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			int id = 9_999_999;
 
 			var exception = Assert.Throws<HttpRequestException>(() =>
-				Sut.Get(id));
+				Sut.GetWorkspaceGroupSelector(id));
 
 			exception.Message.Should().StartWith($"Workspace {id} is invalid.");
 		}
@@ -40,7 +40,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			Arrange(x => x.Create(out entity));
 
-			var result = Sut.Get(entity.ArtifactID);
+			var result = Sut.GetWorkspaceGroupSelector(entity.ArtifactID);
 
 			result.Should().NotBeNull();
 			result.DisabledGroups.Select(x => x.Name).Should().Contain(defaultDisabledGroupNames);

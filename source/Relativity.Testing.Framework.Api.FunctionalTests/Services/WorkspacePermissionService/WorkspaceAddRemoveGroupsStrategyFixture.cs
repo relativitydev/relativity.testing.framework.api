@@ -1,18 +1,15 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
-namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
+namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
 	[NonParallelizable]
-	[TestOf(typeof(IWorkspaceAddRemoveGroupsStrategy))]
-	internal class WorkspaceAddRemoveGroupsStrategyFixture : ApiServiceTestFixture<IWorkspaceAddRemoveGroupsStrategy>
+	[TestOf(typeof(IWorkspacePermissionService))]
+	internal class WorkspaceAddRemoveGroupsStrategyFixture : ApiServiceTestFixture<IWorkspacePermissionService>
 	{
-		private IGetByWorkspaceIdStrategy<GroupSelector> _getByWorkspaceIdStrategy;
-
 		private Workspace _workspace;
 
 		protected override void OnSetUpFixture()
@@ -22,21 +19,14 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Arrange(x => x.Create(out _workspace));
 		}
 
-		protected override void OnSetUpTest()
-		{
-			base.OnSetUpTest();
-
-			_getByWorkspaceIdStrategy = Facade.Resolve<IGetByWorkspaceIdStrategy<GroupSelector>>();
-		}
-
 		[Test]
-		public async Task Add()
+		public void Add()
 		{
 			GroupSelector selector = null;
 
 			Arrange(() =>
 			{
-				selector = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
+				selector = Sut.GetWorkspaceGroupSelector(_workspace.ArtifactID);
 			});
 
 			var disabledGroup = selector.DisabledGroups.Last();
@@ -44,9 +34,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 			selector.EnabledGroups.Add(disabledGroup);
 
-			await Sut.AddRemoveWorkspaceGroupsAsync(_workspace.ArtifactID, selector).ConfigureAwait(false);
+			Sut.AddRemoveWorkspaceGroups(_workspace.ArtifactID, selector);
 
-			var result = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
+			var result = Sut.GetWorkspaceGroupSelector(_workspace.ArtifactID);
 
 			result.Should().NotBeNull();
 			result.DisabledGroups.Should().NotContain(disabledGroup);
@@ -55,20 +45,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public async Task Remove()
+		public void Remove()
 		{
 			GroupSelector selector = null;
 
-			Arrange(async () =>
+			Arrange(() =>
 			{
-				selector = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
+				selector = Sut.GetWorkspaceGroupSelector(_workspace.ArtifactID);
 
 				if (!selector.EnabledGroups.Any())
 				{
 					var disabledGroup = selector.DisabledGroups.Last();
 					selector.DisabledGroups.RemoveAll(x => x.ArtifactID == disabledGroup.ArtifactID);
 					selector.EnabledGroups.Add(disabledGroup);
-					await Sut.AddRemoveWorkspaceGroupsAsync(_workspace.ArtifactID, selector).ConfigureAwait(false);
+					Sut.AddRemoveWorkspaceGroups(_workspace.ArtifactID, selector);
 				}
 			});
 
@@ -77,9 +67,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			selector.EnabledGroups.RemoveAll(x => x.ArtifactID == enabledGroup.ArtifactID);
 			selector.DisabledGroups.Add(enabledGroup);
 
-			await Sut.AddRemoveWorkspaceGroupsAsync(_workspace.ArtifactID, selector).ConfigureAwait(false);
+			Sut.AddRemoveWorkspaceGroups(_workspace.ArtifactID, selector);
 
-			var result = _getByWorkspaceIdStrategy.Get(_workspace.ArtifactID);
+			var result = Sut.GetWorkspaceGroupSelector(_workspace.ArtifactID);
 
 			result.Should().NotBeNull();
 			result.EnabledGroups.Should().NotContain(enabledGroup);

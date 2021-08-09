@@ -34,12 +34,28 @@ namespace Relativity.Testing.Framework.Api.Services
 		void AddItemToGroup(int workspaceId, int itemId, string groupName);
 
 		/// <summary>
+		/// Adds the item to the group.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <param name="itemId">The item ID.</param>
+		/// <param name="groupId">The group id.</param>
+		void AddItemToGroup(int workspaceId, int itemId, int groupId);
+
+		/// <summary>
 		/// Adds the item to the groups.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="itemId">The item ID.</param>
 		/// <param name="groupNames">The group names.</param>
 		void AddItemToGroups(int workspaceId, int itemId, params string[] groupNames);
+
+		/// <summary>
+		/// Adds the item to the groups.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <param name="itemId">The item ID.</param>
+		/// <param name="groupIds">The group ids.</param>
+		void AddItemToGroups(int workspaceId, int itemId, params int[] groupIds);
 
 		/// <summary>
 		/// Removes the item from the group.

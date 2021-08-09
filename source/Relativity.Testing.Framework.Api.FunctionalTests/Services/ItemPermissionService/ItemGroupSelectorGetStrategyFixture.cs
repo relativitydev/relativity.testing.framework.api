@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Services;
 
-namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
+namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
 	[Ignore("Refactor when item support will be implemented. By item, we mean ObjectType or Field or FieldCategory.")]
-	[TestOf(typeof(ItemGroupSelectorGetStrategy))]
-	internal class ItemGroupSelectorGetStrategyFixture : ApiServiceTestFixture<IItemGroupSelectorGetStrategy>
+	[TestOf(typeof(IItemPermissionService))]
+	internal class ItemGroupSelectorGetStrategyFixture : ApiServiceTestFixture<IItemPermissionService>
 	{
 		[Test]
-		public void GetAsync_MissingWorkspace()
+		public void Get_MissingWorkspace()
 		{
 			int workspaceId = 9_999_999;
 
-			var exception = Assert.ThrowsAsync<HttpRequestException>(async () => await Sut.GetAsync(workspaceId, 1035231).ConfigureAwait(false));
+			var exception = Assert.Throws<HttpRequestException>(() => Sut.GetItemGroupSelector(workspaceId, 1035231));
 
 			exception.Message.Should().StartWith($"Workspace {workspaceId} is invalid.");
 		}
 
 		[Test]
-		public async Task GetAsync_Existing()
+		public void Get_Existing()
 		{
 			List<string> defaultDisabledGroupNames = new List<string>
 			{
@@ -37,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				"Level 3"
 			};
 
-			var result = await Sut.GetAsync(DefaultWorkspace.ArtifactID, 1036758).ConfigureAwait(false);
+			var result = Sut.GetItemGroupSelector(DefaultWorkspace.ArtifactID, 1036758);
 
 			result.Should().NotBeNull();
 			result.DisabledGroups.Select(x => x.Name).Should().Contain(defaultDisabledGroupNames);

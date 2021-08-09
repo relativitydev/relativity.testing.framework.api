@@ -37,70 +37,147 @@ namespace Relativity.Testing.Framework.Api.Services
 
 #pragma warning disable S4136 // Method overloads should be grouped together
 		public GroupSelector GetAdminGroupSelector()
-			=> GetAdminGroupSelectorAsync().GetAwaiter().GetResult();
+		{
+			return GetAdminGroupSelectorAsync().GetAwaiter().GetResult();
+		}
 
 		public async Task<GroupSelector> GetAdminGroupSelectorAsync()
-			=> await _getStrategy.GetAsync().ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				return await _getStrategy.GetAsync().ConfigureAwait(false);
+			}
+		}
 
 		public void AddRemoveGroups(GroupSelector selector)
-			=> AddRemoveGroupsAsync(selector).GetAwaiter().GetResult();
+		{
+			AddRemoveGroupsAsync(selector).GetAwaiter().GetResult();
+		}
 
 		public async Task AddRemoveGroupsAsync(GroupSelector selector)
-			=> await _adminAddRemoveGroupsStrategy.AddRemoveGroupsAsync(selector).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminAddRemoveGroupsStrategy.AddRemoveGroupsAsync(selector).ConfigureAwait(false);
+			}
+		}
 
 		public void AddToGroups(params int[] groupIds)
-			=> AddToGroupsAsync(groupIds).GetAwaiter().GetResult();
+		{
+			AddToGroupsAsync(groupIds).GetAwaiter().GetResult();
+		}
 
 		public async Task AddToGroupsAsync(params int[] groupIds)
-			=> await _adminAddToGroupsStrategy.AddToGroupsAsync(groupIds).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminAddToGroupsStrategy.AddToGroupsAsync(groupIds).ConfigureAwait(false);
+			}
+		}
 
 		public void AddToGroups(params string[] groupNames)
-			=> AddToGroupsAsync(groupNames).GetAwaiter().GetResult();
+		{
+			AddToGroupsAsync(groupNames).GetAwaiter().GetResult();
+		}
 
 		public async Task AddToGroupsAsync(params string[] groupNames)
-			=> await _adminAddToGroupsStrategy.AddToGroupsAsync(groupNames).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminAddToGroupsStrategy.AddToGroupsAsync(groupNames).ConfigureAwait(false);
+			}
+		}
 
 		public GroupPermissions GetAdminGroupPermissions(int groupId)
-			=> GetAdminGroupPermissionsAsync(groupId).GetAwaiter().GetResult();
+		{
+			return GetAdminGroupPermissionsAsync(groupId).GetAwaiter().GetResult();
+		}
 
 		public GroupPermissions GetAdminGroupPermissions(string groupName)
-			=> GetAdminGroupPermissionsAsync(groupName).GetAwaiter().GetResult();
+		{
+			return GetAdminGroupPermissionsAsync(groupName).GetAwaiter().GetResult();
+		}
 
 		public async Task<GroupPermissions> GetAdminGroupPermissionsAsync(int groupId)
-			=> await _adminGetGroupPermissionsStrategy.GetAsync(groupId).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				return await _adminGetGroupPermissionsStrategy.GetAsync(groupId).ConfigureAwait(false);
+			}
+		}
 
 		public async Task<GroupPermissions> GetAdminGroupPermissionsAsync(string groupName)
-			=> await _adminGetGroupPermissionsStrategy.GetAsync(groupName).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				return await _adminGetGroupPermissionsStrategy.GetAsync(groupName).ConfigureAwait(false);
+			}
+		}
 
 		public void SetAdminGroupPermissions(GroupPermissions groupPermissions)
-			=> SetAdminGroupPermissionsAsync(groupPermissions).GetAwaiter().GetResult();
+		{
+			SetAdminGroupPermissionsAsync(groupPermissions).GetAwaiter().GetResult();
+		}
 
 		public async Task SetAdminGroupPermissionsAsync(GroupPermissions groupPermissions)
-			=> await _adminSetGroupPermissionsStrategy.SetAsync(groupPermissions).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminSetGroupPermissionsStrategy.SetAsync(groupPermissions).ConfigureAwait(false);
+			}
+		}
 
 		public void SetAdminGroupPermissions(int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> SetAdminGroupPermissionsAsync(groupId, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
+		{
+			SetAdminGroupPermissionsAsync(groupId, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
+		}
 
 		public async Task SetAdminGroupPermissionsAsync(int groupId, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> await _adminChangeGroupPermissionsStrategy.SetAsync(groupId, groupPermissionsChangesetSetter).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminChangeGroupPermissionsStrategy.SetAsync(groupId, groupPermissionsChangesetSetter).ConfigureAwait(false);
+			}
+		}
 
 		public void SetAdminGroupPermissions(string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> SetAdminGroupPermissionsAsync(groupName, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
+		{
+			SetAdminGroupPermissionsAsync(groupName, groupPermissionsChangesetSetter).GetAwaiter().GetResult();
+		}
 
 		public async Task SetAdminGroupPermissionsAsync(string groupName, Action<GroupPermissionsChangeset> groupPermissionsChangesetSetter)
-			=> await _adminChangeGroupPermissionsStrategy.SetAsync(groupName, groupPermissionsChangesetSetter).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminChangeGroupPermissionsStrategy.SetAsync(groupName, groupPermissionsChangesetSetter).ConfigureAwait(false);
+			}
+		}
 
 		public void SetAdminGroupPermissions(int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> SetAdminGroupPermissionsAsync(groupId, groupPermissionsChangeset).GetAwaiter().GetResult();
+		{
+			SetAdminGroupPermissionsAsync(groupId, groupPermissionsChangeset).GetAwaiter().GetResult();
+		}
 
 		public async Task SetAdminGroupPermissionsAsync(int groupId, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> await _adminChangeGroupPermissionsStrategy.SetAsync(groupId, groupPermissionsChangeset).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminChangeGroupPermissionsStrategy.SetAsync(groupId, groupPermissionsChangeset).ConfigureAwait(false);
+			}
+		}
 
 		public void SetAdminGroupPermissions(string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> SetAdminGroupPermissionsAsync(groupName, groupPermissionsChangeset).GetAwaiter().GetResult();
+		{
+			SetAdminGroupPermissionsAsync(groupName, groupPermissionsChangeset).GetAwaiter().GetResult();
+		}
 
 		public async Task SetAdminGroupPermissionsAsync(string groupName, GroupPermissionsChangeset groupPermissionsChangeset)
-			=> await _adminChangeGroupPermissionsStrategy.SetAsync(groupName, groupPermissionsChangeset).ConfigureAwait(false);
+		{
+			using (await GroupSelectorLocker.Locker.LockAsync().ConfigureAwait(false))
+			{
+				await _adminChangeGroupPermissionsStrategy.SetAsync(groupName, groupPermissionsChangeset).ConfigureAwait(false);
+			}
+		}
 #pragma warning restore S4136 // Method overloads should be grouped together
 	}
 }

@@ -7,16 +7,9 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ICreateStrategy<Matter>))]
-	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<Matter>>
+	[TestOf(typeof(ICreateStrategyWithAsync<Matter>))]
+	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategyWithAsync<Matter>>
 	{
-		[Test]
-		public void Create_WithNull()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				Sut.Create(null));
-		}
-
 		[Test]
 		public void Create_WithEmptyEntity()
 		{

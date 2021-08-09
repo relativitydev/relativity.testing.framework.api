@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -42,6 +43,36 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Matter Create(Matter entity);
+
+		/// <summary>
+		/// Asynchronously creates the specified <see cref="Matter"/>.
+		/// </summary>
+		/// <param name="entity">The matter to create.</param>
+		/// <returns>The task with created matter.</returns>
+		/// <example>
+		/// Create any old matter.
+		/// <code>
+		/// Matter matter = await _matterService.CreateAsync(Matter()).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		/// <example>
+		/// Create a matter with specified properties.
+		/// <code>
+		/// Client client = _clientService.Create(Client());
+		///
+		/// Matter matter = new Matter
+		/// {
+		///     Name = "Dark",
+		///     Number = 12345,
+		///     Status = "Active",
+		///     Client = client
+		///     Keywords = "SomeKeyword"
+		///     Notes = "Some note about the matter."
+		/// };
+		/// matter = await _matterService.CreateAsync(Matter()).ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<Matter> CreateAsync(Matter entity);
 
 		/// <summary>
 		/// Requires the specified matter.
@@ -140,5 +171,27 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Update(Matter entity);
+
+		/// <summary>
+		/// Asynchronously gets all of available clients in a Relativity environment.
+		/// </summary>
+		/// <returns>The task with array with pairs of Names and Artifact IDs of available clients.</returns>
+		/// <example>
+		/// <code>
+		/// ArtifactIdNamePair[] allClients = await _matterService.GetEligibleClientsAsync().ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<ArtifactIdNamePair[]> GetEligibleClientsAsync();
+
+		/// <summary>
+		/// Asynchronously gets all of available matter statuses in a Relativity environment.
+		/// </summary>
+		/// <returns>The task with array with pairs of Names and Artifact IDs of available statuses.</returns>
+		/// <example>
+		/// <code>
+		/// ArtifactIdNamePair[] allStatuses = await _matterService.GetEligibleStatusesAsync().ConfigureAwait(false);
+		/// </code>
+		/// </example>
+		Task<ArtifactIdNamePair[]> GetEligibleStatusesAsync();
 	}
 }

@@ -39,7 +39,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			if (jobReport.ErrorRowCount > 0)
 			{
 				IEnumerable<string> errors = jobReport.ErrorRows.Select(x => $"{x.Identifier} - {x.Message}");
-				JobReportException jobReportException = new JobReportException($"Import API job completed with errors:{string.Join("\n", errors)}", jobReport.FatalException);
+				JobReportException jobReportException = new JobReportException($"Import API job completed with errors:{string.Join("\n", errors)}");
 				throw jobReportException;
 			}
 		}

@@ -75,7 +75,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Task<MessageOfTheDay> UpdateAsync(MessageOfTheDay entity);
 
 		/// <summary>
-		/// Dismiss message of the day for specified user
+		/// Dismiss message of the day for the user with the specified ArtifacftID
 		/// by default dismissing MotD for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
@@ -86,6 +86,18 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Dismiss(int? userId = null);
+
+		/// <summary>
+		/// Dismiss message of the day for the user with the specified email address.
+		/// </summary>
+		/// <param name="emailAddress">The user email address.</param>
+		/// <example>
+		/// <code>
+		/// string userEmailAddress = AUser@test.com;
+		/// _messageOfTheDayService.Dismiss(userEmailAddress);
+		/// </code>
+		/// </example>
+		void Dismiss(string emailAddress);
 
 		/// <summary>
 		/// Dismiss message of the day for specified user

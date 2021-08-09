@@ -41,6 +41,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void Dismiss(int? userId = null)
 			=> _dismissMotdStrategy.Dismiss(userId);
 
+		public void Dismiss(string emailAddress)
+			=> _dismissMotdStrategy.Dismiss(emailAddress);
+
 		public async Task DismissAsync(int? userId = null)
 			=> await _dismissMotdStrategy.DismissAsync(userId).ConfigureAwait(false);
 

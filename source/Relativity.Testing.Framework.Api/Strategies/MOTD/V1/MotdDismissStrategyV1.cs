@@ -34,6 +34,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService.Post(url);
 		}
 
+		public void Dismiss(string emailAddress)
+		{
+			int userId = _userGetByEmailStrategy.Get(emailAddress).ArtifactID;
+
+			Dismiss(userId);
+		}
+
 		public async Task DismissAsync(int? userId = null)
 		{
 			if (userId == null)

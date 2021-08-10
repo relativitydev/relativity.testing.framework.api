@@ -38,7 +38,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="itemId">The item ID.</param>
-		/// <param name="groupId">The group id.</param>
+		/// <param name="groupId">The group ID.</param>
 		void AddItemToGroup(int workspaceId, int itemId, int groupId);
 
 		/// <summary>
@@ -54,7 +54,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="itemId">The item ID.</param>
-		/// <param name="groupIds">The group ids.</param>
+		/// <param name="groupIds">The group IDs.</param>
 		void AddItemToGroups(int workspaceId, int itemId, params int[] groupIds);
 
 		/// <summary>

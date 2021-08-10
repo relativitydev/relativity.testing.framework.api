@@ -19,26 +19,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 		}
 
 		[Test]
-		public void RemoveItemFromGroupsAsyncByName()
+		public void RemoveItemFromGroupsByName()
 		{
 			Group[] groups = null;
 			ObjectType objectType = null;
-
-			Arrange(domain =>
-			{
-				domain.Create(2, out groups);
-				ArrangeWorkingWorkspace(x => x.Create(new ObjectType()).Pick(out objectType));
-
-				Facade.Resolve<IAdminPermissionService>()
-					.AddToGroups(groups.Select(x => x.ArtifactID).ToArray());
-
-				_workspacePermissionService.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
-
-				Facade.Resolve<IItemLevelSecuritySetStrategy>()
-					.SetAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, true).GetAwaiter().GetResult();
-
-				Sut.AddItemToGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray());
-			});
+			ArrangeWorkspace(out groups, out objectType);
 
 			Sut.RemoveItemFromGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray());
 
@@ -48,30 +33,40 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 		}
 
 		[Test]
-		public void RemoveItemFromGroupsAsyncById()
+		public void RemoveItemFromGroupsById()
 		{
 			Group[] groups = null;
 			ObjectType objectType = null;
-
-			Arrange(domain =>
-			{
-				domain.Create(2, out groups);
-				ArrangeWorkingWorkspace(x => x.Create(new ObjectType()).Pick(out objectType));
-
-				Facade.Resolve<IAdminPermissionService>().AddToGroupsAsync(groups.Select(x => x.ArtifactID).ToArray());
-
-				_workspacePermissionService.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
-
-				Facade.Resolve<IItemLevelSecuritySetStrategy>().SetAsync(DefaultWorkspace.ArtifactID, objectType.ArtifactID, true).GetAwaiter().GetResult();
-
-				Sut.AddItemToGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.Name).ToArray());
-			});
+			ArrangeWorkspace(out groups, out objectType);
 
 			Sut.RemoveItemFromGroups(DefaultWorkspace.ArtifactID, objectType.ArtifactID, groups.Select(x => x.ArtifactID).ToArray());
 
 			GroupSelector groupSelector = Sut.GetItemGroupSelector(DefaultWorkspace.ArtifactID, objectType.ArtifactID);
 
 			groupSelector.DisabledGroups.Select(x => x.Name).Should().BeEquivalentTo(groups.Select(x => x.Name));
+		}
+
+		private void ArrangeWorkspace(out Group[] groups, out ObjectType objectType)
+		{
+			Group[] localGroups = null;
+			ObjectType localObjectType = null;
+
+			Arrange(domain =>
+			{
+				domain.Create(2, out localGroups);
+				ArrangeWorkingWorkspace(x => x.Create(new ObjectType()).Pick(out localObjectType));
+
+				Facade.Resolve<IAdminPermissionService>().AddToGroupsAsync(localGroups.Select(x => x.ArtifactID).ToArray());
+
+				_workspacePermissionService.AddWorkspaceToGroups(DefaultWorkspace.ArtifactID, localGroups.Select(x => x.ArtifactID).ToArray());
+
+				Facade.Resolve<IItemLevelSecuritySetStrategy>().SetAsync(DefaultWorkspace.ArtifactID, localObjectType.ArtifactID, true).GetAwaiter().GetResult();
+
+				Sut.AddItemToGroups(DefaultWorkspace.ArtifactID, localObjectType.ArtifactID, localGroups.Select(x => x.Name).ToArray());
+			});
+
+			groups = localGroups;
+			objectType = localObjectType;
 		}
 	}
 }

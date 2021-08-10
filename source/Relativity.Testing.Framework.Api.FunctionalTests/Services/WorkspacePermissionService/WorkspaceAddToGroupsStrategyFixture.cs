@@ -11,7 +11,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 	internal class WorkspaceAddToGroupsStrategyFixture : ApiServiceTestFixture<IWorkspacePermissionService>
 	{
 		[Test]
-		public void AddWorkspaceToGroupsAsync_ById()
+		public void AddWorkspaceToGroups_ById()
 		{
 			Workspace workspace = null;
 			Group[] groups = null;
@@ -30,7 +30,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 		}
 
 		[Test]
-		public void AddWorkspaceToGroupsAsync_ByName()
+		public void AddWorkspaceToGroups_ByName()
 		{
 			Workspace workspace = null;
 			Group[] groups = null;

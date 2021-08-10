@@ -35,11 +35,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 
 			var result = (await Sut.GetAdminGroupPermissionsAsync(_group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
-			result.ViewSelected.Should().BeTrue();
-			result.EditSelected.Should().BeTrue();
-			result.DeleteSelected.Should().BeTrue();
-			result.AddSelected.Should().BeTrue();
-			result.EditSecuritySelected.Should().BeTrue();
+			CheckIfAllPermissionsAreSetAccordingToExpectedValue(result, expectedValue: true);
 		}
 
 		[Test]
@@ -54,11 +50,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 
 			var result = (await Sut.GetAdminGroupPermissionsAsync(_group.Name).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
-			result.ViewSelected.Should().BeTrue();
-			result.EditSelected.Should().BeTrue();
-			result.DeleteSelected.Should().BeTrue();
-			result.AddSelected.Should().BeTrue();
-			result.EditSecuritySelected.Should().BeTrue();
+			CheckIfAllPermissionsAreSetAccordingToExpectedValue(result, expectedValue: true);
 		}
 
 		[Test]
@@ -73,11 +65,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 
 			var result = (await Sut.GetAdminGroupPermissionsAsync(_group.ArtifactID).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
-			result.ViewSelected.Should().BeFalse();
-			result.EditSelected.Should().BeFalse();
-			result.DeleteSelected.Should().BeFalse();
-			result.AddSelected.Should().BeFalse();
-			result.EditSecuritySelected.Should().BeFalse();
+			CheckIfAllPermissionsAreSetAccordingToExpectedValue(result, expectedValue: false);
 		}
 
 		[Test]
@@ -92,11 +80,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 
 			var result = (await Sut.GetAdminGroupPermissionsAsync(_group.Name).ConfigureAwait(false)).ObjectPermissions.First(x => x.Name == permission.Name);
 
-			result.ViewSelected.Should().BeFalse();
-			result.EditSelected.Should().BeFalse();
-			result.DeleteSelected.Should().BeFalse();
-			result.AddSelected.Should().BeFalse();
-			result.EditSecuritySelected.Should().BeFalse();
+			CheckIfAllPermissionsAreSetAccordingToExpectedValue(result, expectedValue: false);
+		}
+
+		private void CheckIfAllPermissionsAreSetAccordingToExpectedValue(ObjectPermission result, bool expectedValue)
+		{
+			result.ViewSelected.Should().Be(expectedValue);
+			result.EditSelected.Should().Be(expectedValue);
+			result.DeleteSelected.Should().Be(expectedValue);
+			result.AddSelected.Should().Be(expectedValue);
+			result.EditSecuritySelected.Should().Be(expectedValue);
 		}
 	}
 }

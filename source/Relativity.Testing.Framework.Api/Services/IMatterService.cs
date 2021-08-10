@@ -173,6 +173,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Update(Matter entity);
 
 		/// <summary>
+		/// Gets all of available clients in a Relativity environment.
+		/// </summary>
+		/// <returns>The array with pairs of Names and Artifact IDs of available clients.</returns>
+		/// <example>
+		/// <code>
+		/// ArtifactIdNamePair[] allClients = _matterService.GetEligibleClientsAsync();
+		/// </code>
+		/// </example>
+		ArtifactIdNamePair[] GetEligibleClients();
+
+		/// <summary>
 		/// Asynchronously gets all of available clients in a Relativity environment.
 		/// </summary>
 		/// <returns>The task with array with pairs of Names and Artifact IDs of available clients.</returns>
@@ -182,6 +193,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Task<ArtifactIdNamePair[]> GetEligibleClientsAsync();
+
+		/// <summary>
+		/// Gets all of available matter statuses in a Relativity environment.
+		/// </summary>
+		/// <returns>The array with pairs of Names and Artifact IDs of available statuses.</returns>
+		/// <example>
+		/// <code>
+		/// ArtifactIdNamePair[] allStatuses = _matterService.GetEligibleStatusesAsync();
+		/// </code>
+		/// </example>
+		ArtifactIdNamePair[] GetEligibleStatuses();
 
 		/// <summary>
 		/// Asynchronously gets all of available matter statuses in a Relativity environment.

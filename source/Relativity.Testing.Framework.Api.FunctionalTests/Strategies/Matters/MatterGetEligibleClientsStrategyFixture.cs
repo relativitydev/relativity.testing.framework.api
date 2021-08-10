@@ -16,11 +16,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public async Task GetAllAsync_ReturnsNotNull()
+		public async Task GetAllAsync_ReturnsNotEmptyClientsList()
 		{
 			ArtifactIdNamePair[] result = await Sut.GetAllAsync().ConfigureAwait(false);
 
 			Assert.NotNull(result);
+			Assert.IsNotEmpty(result);
+			Assert.IsFalse(result[0].ArtifactID < 1 || string.IsNullOrWhiteSpace(result[0].Name));
 		}
 	}
 }

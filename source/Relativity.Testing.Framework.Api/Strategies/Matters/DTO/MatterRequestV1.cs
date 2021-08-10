@@ -1,5 +1,4 @@
-﻿using Relativity.Testing.Framework.Api.Models;
-using Relativity.Testing.Framework.Models;
+﻿using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
@@ -9,14 +8,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			Name = matter.Name;
 			Number = matter.Number;
-			Status = new SecuredValue<Artifact>
-			{
-				Value = new Artifact(statusId)
-			};
-			Client = new SecuredValue<Artifact>
-			{
-				Value = new Artifact(matter.Client.ArtifactID)
-			};
+			Status = new Securable<Artifact>(new Artifact(statusId));
+			Client = new Securable<Artifact>(new Artifact(matter.Client.ArtifactID));
 			Keywords = matter.Keywords;
 			Notes = matter.Notes;
 		}
@@ -25,9 +18,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public string Number { get; set; }
 
-		public SecuredValue<Artifact> Status { get; set; }
+		public Securable<Artifact> Status { get; set; }
 
-		public SecuredValue<Artifact> Client { get; set; }
+		public Securable<Artifact> Client { get; set; }
 
 		public string Keywords { get; set; }
 

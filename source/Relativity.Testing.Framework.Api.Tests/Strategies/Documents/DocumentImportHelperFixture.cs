@@ -1,7 +1,9 @@
 ﻿using Moq;
 using NUnit.Framework;
+using Relativity.Testing.Framework.Api.Exceptions;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Tests.Strategies.Documents.ImportApi;
 
 namespace Relativity.Testing.Framework.Api.Tests.Strategies.Documents
 {
@@ -23,9 +25,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.Documents
         [Test]
         public void JobOnComplete_WithJobReportWithFatalException_ShouldThrowJobReportException()
         {
-            var jobReport = new JobReport(//with a fatal exception); 
-            DocumentImportHelper.JobOnComplete(jobReport);
-            //Assert that JobReportException jobReportException = new JobReportException("Import job failed", jobReport.FatalException); is thrown. 
+            JobReport jobReport = FakeJobImport.Get(fatalException: true);
+            Assert.Throws<JobReportException>(() => DocumentImportHelper.JobOnComplete(jobReport));
         }
     }
 }

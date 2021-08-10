@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -121,5 +122,18 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Update(int workspaceId, Tab entity);
+
+		/// <summary>
+		/// Retrieves a list of all object types in a workspace available for creating or updating a tab.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve available object types for.</param>
+		/// <returns>>List of <see cref="ObjectType"/>.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;ObjectType&gt; result = _tabService.GetAvailableObjectTypes(workspaceId);
+		/// </code>
+		/// </example>
+		List<ObjectType> GetAvailableObjectTypes(int workspaceId);
 	}
 }

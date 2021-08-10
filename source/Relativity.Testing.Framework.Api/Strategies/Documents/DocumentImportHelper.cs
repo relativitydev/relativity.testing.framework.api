@@ -47,6 +47,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected static void JobOnFatalException(JobReport jobReport)
 		{
 			JobReportException jobReportException = new JobReportException("Import job failed", jobReport.FatalException);
+			throw jobReportException;
 		}
 	}
 }

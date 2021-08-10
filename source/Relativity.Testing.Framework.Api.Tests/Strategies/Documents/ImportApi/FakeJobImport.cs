@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.Documents.ImportApi
 
             if (fatalException)
             {
-                var prop = jobReport.GetType().GetProperty("FatalException", BindingFlags.NonPublic | BindingFlags.Instance);
+                PropertyInfo prop = jobReport.GetType().GetProperty("FatalException", BindingFlags.NonPublic | BindingFlags.Instance);
                 prop.SetValue(jobReport, new NullReferenceException());
             }
 

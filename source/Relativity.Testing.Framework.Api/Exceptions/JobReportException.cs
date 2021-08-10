@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Relativity.Testing.Framework.Api.Exceptions
 {
@@ -19,9 +20,8 @@ namespace Relativity.Testing.Framework.Api.Exceptions
         {
         }
 
-        protected JobReportException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
+        protected JobReportException(SerializationInfo serializationInfo, StreamingContext streamingContext)
         {
-            throw new NotImplementedException();
         }
     }
 }

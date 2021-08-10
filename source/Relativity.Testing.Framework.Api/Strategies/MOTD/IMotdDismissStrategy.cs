@@ -6,6 +6,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		void Dismiss(int? userId = null);
 
+		void Dismiss(string emailAddress);
+
 		Task DismissAsync(int? userId = null);
 	}
 }

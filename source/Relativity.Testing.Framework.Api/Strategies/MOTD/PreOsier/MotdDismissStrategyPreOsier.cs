@@ -30,6 +30,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService.Post(_POST_URL, dto);
 		}
 
+		public void Dismiss(string emailAddress)
+		{
+			int userId = _userGetByEmailStrategy.Get(emailAddress).ArtifactID;
+
+			Dismiss(userId);
+		}
+
 		public async Task DismissAsync(int? userId = null)
 		{
 			var dto = BuildDto(userId);

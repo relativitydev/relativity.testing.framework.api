@@ -178,7 +178,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>The array with pairs of Names and Artifact IDs of available clients.</returns>
 		/// <example>
 		/// <code>
-		/// ArtifactIdNamePair[] allClients = _matterService.GetEligibleClientsAsync();
+		/// ArtifactIdNamePair[] allClients = _matterService.GetEligibleClients();
 		/// </code>
 		/// </example>
 		ArtifactIdNamePair[] GetEligibleClients();
@@ -200,7 +200,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>The array with pairs of Names and Artifact IDs of available statuses.</returns>
 		/// <example>
 		/// <code>
-		/// ArtifactIdNamePair[] allStatuses = _matterService.GetEligibleStatusesAsync();
+		/// ArtifactIdNamePair[] allStatuses = _matterService.GetEligibleStatuses();
 		/// </code>
 		/// </example>
 		ArtifactIdNamePair[] GetEligibleStatuses();

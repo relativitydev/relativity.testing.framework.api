@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Api.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies.Documents
 {
-    [TestOf(typeof(DocumentImportHelper))]
+	[TestOf(typeof(DocumentImportHelper))]
 	internal class DocumentImportHelperFixture : ApiServiceTestFixture<IDocumentSingleNativeImportStrategy>
 	{
 		[Test]

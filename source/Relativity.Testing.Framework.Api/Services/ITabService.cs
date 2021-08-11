@@ -135,5 +135,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		List<ObjectType> GetAvailableObjectTypes(int workspaceId);
+
+		/// <summary>
+		/// Gets the <see cref="Meta"/> with admin-level metadata about admin and system tabs.
+		/// </summary>
+		/// <example>
+		/// <code>
+		/// Meta meta = _tabService.GetAdminLevelMetadata();
+		/// </code>
+		/// </example>
+		/// <returns>The <see cref="Meta"/> entitiy.</returns>
+		Meta GetAdminLevelMetadata();
 	}
 }

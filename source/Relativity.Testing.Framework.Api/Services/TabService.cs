@@ -53,8 +53,6 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public List<ObjectType> GetAvailableObjectTypes(int workspaceId)
-		{
-			return _tabGetAvailableObjectTypesStrategy.Get(workspaceId);
-		}
+			=> _tabGetAvailableObjectTypesStrategy.Get(workspaceId);
 	}
 }

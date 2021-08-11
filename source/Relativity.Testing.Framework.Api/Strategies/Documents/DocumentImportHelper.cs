@@ -28,7 +28,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			importApiJob.OnFatalException -= JobOnFatalException;
 		}
 
-		internal static void JobOnComplete(JobReport jobReport)
+		protected static void JobOnComplete(JobReport jobReport)
 		{
 			if (jobReport.FatalException != null)
 			{

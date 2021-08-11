@@ -3,20 +3,23 @@ using System.Runtime.Serialization;
 
 namespace Relativity.Testing.Framework.Api.Exceptions
 {
+    /// <summary>
+    /// The Exception that is thrown when there is a FatalException on a JobReport.
+    /// </summary>
     [Serializable]
     public class JobReportException : Exception
     {
-        public JobReportException(string message)
+        internal JobReportException(string message)
             : base(message)
         {
         }
 
-        public JobReportException(string message, Exception innerException)
+        internal JobReportException(string message, Exception innerException)
             : base(message, innerException)
         {
         }
 
-        public JobReportException()
+        internal JobReportException()
         {
         }
 

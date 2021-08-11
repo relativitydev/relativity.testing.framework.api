@@ -40,7 +40,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void DocumentImportHelper_WhenInvalidDataTable_ThrowsJobReportException()
 		{
-            IDocumentService documentService = Facade.Resolve<IDocumentService>();
+			IDocumentService documentService = Facade.Resolve<IDocumentService>();
 			using (DataTable dataTable = new DataTable())
 			{
 				Assert.Throws<JobReportException>(() => documentService.ImportNatives(DefaultWorkspace.ArtifactID, dataTable));

@@ -21,8 +21,8 @@ namespace Relativity.Testing.Framework.Api.Exceptions
         }
 
         protected JobReportException(SerializationInfo serializationInfo, StreamingContext streamingContext)
+            : base(serializationInfo, streamingContext)
         {
-            throw new NotImplementedException();
         }
     }
 }

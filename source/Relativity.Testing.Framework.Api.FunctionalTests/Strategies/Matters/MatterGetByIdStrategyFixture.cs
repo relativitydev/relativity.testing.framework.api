@@ -11,7 +11,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Get_Missing()
 		{
-			var result = Sut.Get(int.MaxValue);
+			Matter result = Sut.Get(int.MaxValue);
 
 			result.Should().BeNull();
 		}
@@ -26,7 +26,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Create(3, new Matter { Client = client })
 					.PickMiddle(out expectedEntity));
 
-			var result = Sut.Get(expectedEntity.ArtifactID);
+			Matter result = Sut.Get(expectedEntity.ArtifactID);
 
 			result.Should().BeEquivalentTo(
 				expectedEntity,

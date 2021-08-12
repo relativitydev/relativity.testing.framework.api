@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fix
 
-- Return a JobReportException in JobOnFatalException for the DocumentImportHelper to not swallow up stacktrace. - [TESTENG-1404](https://jira.kcura.com/browse/TESTENG-1404)
+- Throw a JobReportException in JobOnFatalException for the DocumentImportHelper to not swallow up stacktrace. - [TESTENG-1404](https://jira.kcura.com/browse/TESTENG-1404)
 
 ## [4.3.0] - 2021-08-10
 

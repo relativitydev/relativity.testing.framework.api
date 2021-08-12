@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Api.Strategies.Tabs;
-using Relativity.Testing.Framework.Api.Strategies.Tabs.DTO;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -65,7 +63,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public Meta GetAdminLevelMetadata()
 			=> _tabGetAdminLevelMetadataStrategy.Get();
 
-		public List<TabEligibleParentV1> GetEligibleParents(int workspaceId)
+		public List<TabEligibleParent> GetEligibleParents(int workspaceId)
 			=> _tabGetEligibleParentsStrategy.Get(workspaceId);
 	}
 }

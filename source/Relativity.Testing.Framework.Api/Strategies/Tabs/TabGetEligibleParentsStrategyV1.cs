@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Services;
-using Relativity.Testing.Framework.Api.Strategies.Tabs.DTO;
-using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
-namespace Relativity.Testing.Framework.Api.Strategies.Tabs
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange(">=12.1")]
 	internal class TabGetEligibleParentsStrategyV1 : ITabGetEligibleParentsStrategy
@@ -16,9 +14,9 @@ namespace Relativity.Testing.Framework.Api.Strategies.Tabs
 			_restService = restService;
 		}
 
-		public List<TabEligibleParentV1> Get(int id)
+		public List<TabEligibleParent> Get(int workspaceId)
 		{
-			return _restService.Get<List<TabEligibleParentV1>>($"relativity-data-visualization/V1/workspaces/{id}/tabs/eligible-parents");
+			return _restService.Get<List<TabEligibleParent>>($"relativity-data-visualization/V1/workspaces/{workspaceId}/tabs/eligible-parents");
 		}
 	}
 }

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using Relativity.Testing.Framework.Api.Strategies.Tabs.DTO;
 
-namespace Relativity.Testing.Framework.Api.Strategies.Tabs
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface ITabGetEligibleParentsStrategy
 	{
-		List<TabEligibleParentV1> Get(int id);
+		List<TabEligibleParent> Get(int workspaceId);
 	}
 }

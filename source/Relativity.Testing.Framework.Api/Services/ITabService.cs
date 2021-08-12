@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Api.Strategies.Tabs.DTO;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -158,7 +157,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// List&lt;TabEligibleParentV1&gt; result = _tabService.GetEligibleParents(workspaceId);
 		/// </code>
 		/// </example>
-		/// <returns>List of <see cref="TabEligibleParentV1"/> entities.</returns>
-		List<TabEligibleParentV1> GetEligibleParents(int workspaceId);
+		/// <returns>List of <see cref="TabEligibleParent"/> entities.</returns>
+		List<TabEligibleParent> GetEligibleParents(int workspaceId);
 	}
 }

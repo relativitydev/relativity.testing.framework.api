@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
-namespace Relativity.Testing.Framework.Api.Strategies.Tabs
+namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
 	internal class TabGetAvailableObjectTypesStrategyNotSupported : ITabGetAvailableObjectTypesByWorkspaceIDStrategy

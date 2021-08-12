@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Models;
 
-namespace Relativity.Testing.Framework.Api.Strategies.Tabs.DTO
+namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class TabEligibleParentV1
+	public class TabEligibleParent
 	{
 		public NamedArtifactWithGuids ObjectIdentifier { get; set; }
 

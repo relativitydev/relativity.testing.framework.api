@@ -12,7 +12,15 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	[TestOf(typeof(MatterGetEligibleStatusesStrategyV1))]
 	public class MatterGetEligibleStatusesStrategyV1Fixture
 	{
-		private readonly string _getAllAsyncUrl = "relativity-environment/v1/workspaces/-1/matters/eligible-statuses";
+		private const string _GET_ALL_URL = "relativity-environment/v1/workspaces/-1/matters/eligible-statuses";
+		private readonly ArtifactIdNamePair[] _expectedStatusesResponse = new[]
+		{
+			new ArtifactIdNamePair
+			{
+				ArtifactID = 1,
+				Name = "Test Status Name"
+			}
+		};
 
 		private Mock<IRestService> _mockRestService;
 		private MatterGetEligibleStatusesStrategyV1 _sut;
@@ -26,28 +34,49 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
+		public void GetAll_ShouldCallRestServiceWithExpectedUrl()
+		{
+			_sut.GetAll();
+			VerifyRestServiceGetAsyncWasCalled();
+		}
+
+		[Test]
+		public void GetAll_ShouldReturnRestServiceResponse()
+		{
+			SetupRestServiceMock();
+
+			ArtifactIdNamePair[] result = _sut.GetAll();
+
+			result.Should().BeEquivalentTo(_expectedStatusesResponse);
+		}
+
+		[Test]
 		public async Task GetAllAsync_ShouldCallRestServiceWithExpectedUrl()
 		{
 			await _sut.GetAllAsync().ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.GetAsync<ArtifactIdNamePair[]>(_getAllAsyncUrl, null), Times.Once);
+			VerifyRestServiceGetAsyncWasCalled();
 		}
 
 		[Test]
 		public async Task GetAllAsync_ShouldReturnRestServiceResponse()
 		{
-			var testStatus = new ArtifactIdNamePair
-			{
-				ArtifactID = 1,
-				Name = "Test Status Name"
-			};
-			ArtifactIdNamePair[] expectedResponse = new[] { testStatus };
-			_mockRestService
-				.Setup(restService => restService.GetAsync<ArtifactIdNamePair[]>(_getAllAsyncUrl, null))
-				.Returns(Task.FromResult(expectedResponse));
+			SetupRestServiceMock();
 
 			ArtifactIdNamePair[] result = await _sut.GetAllAsync().ConfigureAwait(false);
 
-			result.Should().BeEquivalentTo(expectedResponse);
+			result.Should().BeEquivalentTo(_expectedStatusesResponse);
+		}
+
+		private void VerifyRestServiceGetAsyncWasCalled()
+		{
+			_mockRestService.Verify(restService => restService.GetAsync<ArtifactIdNamePair[]>(_GET_ALL_URL, null), Times.Once);
+		}
+
+		private void SetupRestServiceMock()
+		{
+			_mockRestService
+				.Setup(restService => restService.GetAsync<ArtifactIdNamePair[]>(_GET_ALL_URL, null))
+				.Returns(Task.FromResult(_expectedStatusesResponse));
 		}
 	}
 }

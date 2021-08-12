@@ -15,6 +15,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
+		public ArtifactIdNamePair[] GetAll()
+		{
+			return GetAllAsync().Result;
+		}
+
 		public async Task<ArtifactIdNamePair[]> GetAllAsync()
 		{
 			return await _restService.GetAsync<ArtifactIdNamePair[]>(

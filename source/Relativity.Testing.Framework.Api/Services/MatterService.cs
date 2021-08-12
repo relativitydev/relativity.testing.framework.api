@@ -65,13 +65,13 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _updateStrategy.Update(entity);
 
 		public ArtifactIdNamePair[] GetEligibleClients()
-			=> _getEligibleClientsStrategy.GetAllAsync().Result;
+			=> _getEligibleClientsStrategy.GetAll();
 
 		public async Task<ArtifactIdNamePair[]> GetEligibleClientsAsync()
 			=> await _getEligibleClientsStrategy.GetAllAsync().ConfigureAwait(false);
 
 		public ArtifactIdNamePair[] GetEligibleStatuses()
-			=> _getEligibleStatusesStrategy.GetAllAsync().Result;
+			=> _getEligibleStatusesStrategy.GetAll();
 
 		public async Task<ArtifactIdNamePair[]> GetEligibleStatusesAsync()
 			=> await _getEligibleStatusesStrategy.GetAllAsync().ConfigureAwait(false);

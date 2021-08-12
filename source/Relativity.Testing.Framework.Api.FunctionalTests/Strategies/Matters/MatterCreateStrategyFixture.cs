@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Extensions;
@@ -15,8 +15,43 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			var entity = new Matter();
 
-			var result = Sut.Create(entity);
+			Matter result = Sut.Create(entity);
 
+			TestIfMatterIsValid(result);
+		}
+
+		[Test]
+		public void Create_WithFilledEntity()
+		{
+			Matter entity = ArrangeMatterWithClient();
+
+			Matter result = Sut.Create(entity.Copy());
+
+			TestIfCreatedMatterIsEquivalentToExpected(entity, result);
+		}
+
+		[Test]
+		public async Task CreateAsync_WithEmptyEntity()
+		{
+			var entity = new Matter();
+
+			Matter result = await Sut.CreateAsync(entity).ConfigureAwait(false);
+
+			TestIfMatterIsValid(result);
+		}
+
+		[Test]
+		public async Task CreateAsync_WithFilledEntity()
+		{
+			Matter entity = ArrangeMatterWithClient();
+
+			Matter result = await Sut.CreateAsync(entity.Copy()).ConfigureAwait(false);
+
+			TestIfCreatedMatterIsEquivalentToExpected(entity, result);
+		}
+
+		private static void TestIfMatterIsValid(Matter result)
+		{
 			result.ArtifactID.Should().BePositive();
 			result.Name.Should().NotBeNullOrEmpty();
 			result.Number.Should().NotBeNullOrEmpty();
@@ -26,8 +61,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Notes.Should().BeEmpty();
 		}
 
-		[Test]
-		public void Create_WithFilledEntity()
+		private Matter ArrangeMatterWithClient()
 		{
 			Client client = null;
 
@@ -42,9 +76,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				Keywords = Randomizer.GetString(),
 				Notes = Randomizer.GetString()
 			};
+			return entity;
+		}
 
-			var result = Sut.Create(entity.Copy());
-
+		private static void TestIfCreatedMatterIsEquivalentToExpected(Matter entity, Matter result)
+		{
 			result.ArtifactID.Should().BePositive();
 			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client.Status.ArtifactID));
 		}

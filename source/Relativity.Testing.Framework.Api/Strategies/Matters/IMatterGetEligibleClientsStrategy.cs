@@ -5,6 +5,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IMatterGetEligibleClientsStrategy
 	{
+		ArtifactIdNamePair[] GetAll();
+
 		Task<ArtifactIdNamePair[]> GetAllAsync();
 	}
 }

@@ -48,6 +48,36 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
+		public void Create_WithNull_ThrowsArgumentNullException()
+		{
+			Assert.Throws<ArgumentNullException>(() =>
+				_sut.Create(null));
+		}
+
+		[Test]
+		public void Create_WithValidEntity_ShouldCallRestServiceWithExpectedUrl()
+		{
+			Matter matter = GetTestMatter();
+			MatterDtoPreOsier expectedDto = GetExpectedMatterDtoPreOsier(matter);
+			SetupRestServicePostResponse(expectedDto);
+
+			_sut.Create(matter);
+			VerifyRestServicePostAsyncWasCalled(expectedDto);
+		}
+
+		[Test]
+		public void Create_WithValidEntity_ShouldReturnEntityWithFilledArtifactId()
+		{
+			Matter matter = GetTestMatter();
+			MatterDtoPreOsier expectedDto = GetExpectedMatterDtoPreOsier(matter);
+			SetupRestServicePostResponse(expectedDto);
+
+			Matter result = _sut.Create(matter);
+
+			result.ArtifactID.Should().Be(_MATTER_ID);
+		}
+
+		[Test]
 		public void CreateAsync_WithNull_ThrowsArgumentNullException()
 		{
 			Assert.ThrowsAsync<ArgumentNullException>(() =>
@@ -62,8 +92,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			SetupRestServicePostResponse(expectedDto);
 
 			await _sut.CreateAsync(matter).ConfigureAwait(false);
-
-			_mockRestService.Verify(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterDtoPreOsier>(e => CompareMatterDtoPreOsier(e, expectedDto)), 2, null), Times.Once);
+			VerifyRestServicePostAsyncWasCalled(expectedDto);
 		}
 
 		[Test]
@@ -103,6 +132,11 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_mockRestService.
 				Setup(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterDtoPreOsier>(e => CompareMatterDtoPreOsier(e, expectedDto)), 2, null)).Returns(Task.FromResult(_MATTER_ID));
+		}
+
+		private void VerifyRestServicePostAsyncWasCalled(MatterDtoPreOsier expectedDto)
+		{
+			_mockRestService.Verify(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterDtoPreOsier>(e => CompareMatterDtoPreOsier(e, expectedDto)), 2, null), Times.Once);
 		}
 
 		private static bool CompareMatterDtoPreOsier(MatterDtoPreOsier entity, MatterDtoPreOsier expectedDto)

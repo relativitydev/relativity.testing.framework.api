@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Strategies.Tabs.DTO;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -146,5 +147,18 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </example>
 		/// <returns>The <see cref="Meta"/> entitiy.</returns>
 		Meta GetAdminLevelMetadata();
+
+		/// <summary>
+		/// Retrieves a list of parent tabs, which can be associated with a tab for adding or updating it.
+		/// </summary>
+		/// /// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve parent tabs for.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;TabEligibleParentV1&gt; result = _tabService.GetEligibleParents(workspaceId);
+		/// </code>
+		/// </example>
+		/// <returns>List of <see cref="TabEligibleParentV1"/> entities.</returns>
+		List<TabEligibleParentV1> GetEligibleParents(int workspaceId);
 	}
 }

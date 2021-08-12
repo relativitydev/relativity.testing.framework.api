@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Api.Strategies.Tabs;
+using Relativity.Testing.Framework.Api.Strategies.Tabs.DTO;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -16,6 +17,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IUpdateWorkspaceEntityStrategy<Tab> _updateWorkspaceEntityStrategy;
 		private readonly ITabGetAvailableObjectTypesByWorkspaceIDStrategy _tabGetAvailableObjectTypesStrategy;
 		private readonly ITabGetAdminLevelMetadataStrategy _tabGetAdminLevelMetadataStrategy;
+		private readonly ITabGetEligibleParentsStrategy _tabGetEligibleParentsStrategy;
 
 		public TabService(
 			ICreateWorkspaceEntityStrategy<Tab> createWorkspaceEntityStrategy,
@@ -25,7 +27,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			IGetWorkspaceEntityByNameStrategy<Tab> getWorkspaceEntityByName,
 			IUpdateWorkspaceEntityStrategy<Tab> updateWorkspaceEntityStrategy,
 			ITabGetAvailableObjectTypesByWorkspaceIDStrategy tabGetAvailableObjectTypesStrategy,
-			ITabGetAdminLevelMetadataStrategy tabGetAdminLevelMetadataStrategy)
+			ITabGetAdminLevelMetadataStrategy tabGetAdminLevelMetadataStrategy,
+			ITabGetEligibleParentsStrategy tabGetEligibleParentsStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_requireWorkspaceEntityStrategy = requireWorkspaceEntityStrategy;
@@ -35,6 +38,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 			_tabGetAvailableObjectTypesStrategy = tabGetAvailableObjectTypesStrategy;
 			_tabGetAdminLevelMetadataStrategy = tabGetAdminLevelMetadataStrategy;
+			_tabGetEligibleParentsStrategy = tabGetEligibleParentsStrategy;
 		}
 
 		public Tab Create(int workspaceId, Tab entity)
@@ -60,5 +64,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public Meta GetAdminLevelMetadata()
 			=> _tabGetAdminLevelMetadataStrategy.Get();
+
+		public List<TabEligibleParentV1> GetEligibleParents(int workspaceId)
+			=> _tabGetEligibleParentsStrategy.Get(workspaceId);
 	}
 }

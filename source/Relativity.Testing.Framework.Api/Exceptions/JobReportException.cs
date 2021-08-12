@@ -9,17 +9,29 @@ namespace Relativity.Testing.Framework.Api.Exceptions
     [Serializable]
     public class JobReportException : Exception
     {
-        internal JobReportException(string message)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JobReportException"/> class.
+        /// </summary>
+        /// <param name="message">The message that describes the error.</param>
+        public JobReportException(string message)
             : base(message)
         {
         }
 
-        internal JobReportException(string message, Exception innerException)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JobReportException"/> class.
+        /// </summary>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        public JobReportException(string message, Exception innerException)
             : base(message, innerException)
         {
         }
 
-        internal JobReportException()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JobReportException"/> class.
+        /// </summary>
+        public JobReportException()
         {
         }
 

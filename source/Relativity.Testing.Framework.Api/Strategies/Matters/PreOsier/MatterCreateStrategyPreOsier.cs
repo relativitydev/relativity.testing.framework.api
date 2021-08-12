@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			entity.Client = _clientRequireStrategy.Require(entity.Client);
 			int statusId = GetStatusId(entity.Status);
 
-			object dto = new MatterDtoPreOsier(entity, statusId);
+			object dto = new MatterCreateRequestPreOsier(entity, statusId);
 
 			entity.ArtifactID = await _restService.PostAsync<int>(
 				"Relativity.Services.Matter.IMatterModule/Matter%20Manager/CreateSingleAsync",

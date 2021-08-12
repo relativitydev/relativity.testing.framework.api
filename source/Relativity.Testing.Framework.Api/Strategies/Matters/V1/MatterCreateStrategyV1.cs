@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			entity.Client = _clientRequireStrategy.Require(entity.Client);
 			int statusId = GetStatusId(entity.Status);
 
-			var dto = new MatterDtoV1(entity, statusId);
+			var dto = new MatterCreateRequestV1(entity, statusId);
 
 			entity.ArtifactID = await _restService.PostAsync<int>(
 				"relativity-environment/v1/workspaces/-1/matters", dto)

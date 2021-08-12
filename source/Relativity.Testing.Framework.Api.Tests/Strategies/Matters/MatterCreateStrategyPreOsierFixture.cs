@@ -58,19 +58,19 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Create_WithValidEntity_ShouldCallRestServiceWithExpectedUrl()
 		{
 			Matter matter = GetTestMatter();
-			MatterDtoPreOsier expectedDto = GetExpectedMatterDtoPreOsier(matter);
-			SetupRestServicePostResponse(expectedDto);
+			MatterCreateRequestPreOsier expectedCreateRequest = GetExpectedMatterCreateRequestPreOsier(matter);
+			SetupRestServicePostResponse(expectedCreateRequest);
 
 			_sut.Create(matter);
-			VerifyRestServicePostAsyncWasCalled(expectedDto);
+			VerifyRestServicePostAsyncWasCalled(expectedCreateRequest);
 		}
 
 		[Test]
 		public void Create_WithValidEntity_ShouldReturnEntityWithFilledArtifactId()
 		{
 			Matter matter = GetTestMatter();
-			MatterDtoPreOsier expectedDto = GetExpectedMatterDtoPreOsier(matter);
-			SetupRestServicePostResponse(expectedDto);
+			MatterCreateRequestPreOsier expectedCreateRequest = GetExpectedMatterCreateRequestPreOsier(matter);
+			SetupRestServicePostResponse(expectedCreateRequest);
 
 			Matter result = _sut.Create(matter);
 
@@ -88,31 +88,31 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public async Task CreateAsync_WithValidEntity_ShouldCallRestServiceWithExpectedUrl()
 		{
 			Matter matter = GetTestMatter();
-			MatterDtoPreOsier expectedDto = GetExpectedMatterDtoPreOsier(matter);
-			SetupRestServicePostResponse(expectedDto);
+			MatterCreateRequestPreOsier expectedCreateRequest = GetExpectedMatterCreateRequestPreOsier(matter);
+			SetupRestServicePostResponse(expectedCreateRequest);
 
 			await _sut.CreateAsync(matter).ConfigureAwait(false);
-			VerifyRestServicePostAsyncWasCalled(expectedDto);
+			VerifyRestServicePostAsyncWasCalled(expectedCreateRequest);
 		}
 
 		[Test]
 		public async Task CreateAsync_WithValidEntity_ShouldReturnEntityWithFilledArtifactId()
 		{
 			Matter matter = GetTestMatter();
-			MatterDtoPreOsier expectedDto = GetExpectedMatterDtoPreOsier(matter);
-			SetupRestServicePostResponse(expectedDto);
+			MatterCreateRequestPreOsier expectedCreateRequest = GetExpectedMatterCreateRequestPreOsier(matter);
+			SetupRestServicePostResponse(expectedCreateRequest);
 
 			Matter result = await _sut.CreateAsync(matter).ConfigureAwait(false);
 
 			result.ArtifactID.Should().Be(_MATTER_ID);
 		}
 
-		private static MatterDtoPreOsier GetExpectedMatterDtoPreOsier(Matter matter)
+		private static MatterCreateRequestPreOsier GetExpectedMatterCreateRequestPreOsier(Matter matter)
 		{
-			var expectedDto = new MatterDtoPreOsier(matter, _STATUS_ID);
-			expectedDto.MatterDTO.Client.ArtifactID = _CLIENT_ID;
-			expectedDto.MatterDTO.Status.ArtifactID = _STATUS_ID;
-			return expectedDto;
+			var expectedCreateRequest = new MatterCreateRequestPreOsier(matter, _STATUS_ID);
+			expectedCreateRequest.MatterDTO.Client.ArtifactID = _CLIENT_ID;
+			expectedCreateRequest.MatterDTO.Status.ArtifactID = _STATUS_ID;
+			return expectedCreateRequest;
 		}
 
 		private Matter GetTestMatter()
@@ -128,25 +128,36 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			};
 		}
 
-		private void SetupRestServicePostResponse(MatterDtoPreOsier expectedDto)
+		private void SetupRestServicePostResponse(MatterCreateRequestPreOsier expectedCreateRequest)
 		{
-			_mockRestService.
-				Setup(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterDtoPreOsier>(e => CompareMatterDtoPreOsier(e, expectedDto)), 2, null)).Returns(Task.FromResult(_MATTER_ID));
+			_mockRestService.Setup(
+				restService => restService.PostAsync<int>(
+					_CREATE_URL,
+					It.Is<MatterCreateRequestPreOsier>(request => CompareMatterDtoPreOsier(request.MatterDTO, expectedCreateRequest.MatterDTO)),
+					2,
+					null))
+				.Returns(Task.FromResult(_MATTER_ID));
 		}
 
-		private void VerifyRestServicePostAsyncWasCalled(MatterDtoPreOsier expectedDto)
+		private void VerifyRestServicePostAsyncWasCalled(MatterCreateRequestPreOsier expectedDto)
 		{
-			_mockRestService.Verify(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterDtoPreOsier>(e => CompareMatterDtoPreOsier(e, expectedDto)), 2, null), Times.Once);
+			_mockRestService.Verify(
+				restService => restService.PostAsync<int>(
+					_CREATE_URL,
+					It.Is<MatterCreateRequestPreOsier>(request => CompareMatterDtoPreOsier(request.MatterDTO, expectedDto.MatterDTO)),
+					2,
+					null),
+				Times.Once);
 		}
 
-		private static bool CompareMatterDtoPreOsier(MatterDtoPreOsier entity, MatterDtoPreOsier expectedDto)
+		private static bool CompareMatterDtoPreOsier(MatterRequestPreOsier request, MatterRequestPreOsier expectedRequest)
 		{
-			return entity.MatterDTO.Name.Equals(expectedDto.MatterDTO.Name) &&
-				entity.MatterDTO.Number.Equals(expectedDto.MatterDTO.Number) &&
-				entity.MatterDTO.Keywords.Equals(expectedDto.MatterDTO.Keywords) &&
-				entity.MatterDTO.Notes.Equals(expectedDto.MatterDTO.Notes) &&
-				entity.MatterDTO.Status.ArtifactID == expectedDto.MatterDTO.Status.ArtifactID &&
-				entity.MatterDTO.Client.ArtifactID == expectedDto.MatterDTO.Client.ArtifactID;
+			return request.Name.Equals(expectedRequest.Name) &&
+				request.Number.Equals(expectedRequest.Number) &&
+				request.Keywords.Equals(expectedRequest.Keywords) &&
+				request.Notes.Equals(expectedRequest.Notes) &&
+				request.Status.ArtifactID == expectedRequest.Status.ArtifactID &&
+				request.Client.ArtifactID == expectedRequest.Client.ArtifactID;
 		}
 	}
 }

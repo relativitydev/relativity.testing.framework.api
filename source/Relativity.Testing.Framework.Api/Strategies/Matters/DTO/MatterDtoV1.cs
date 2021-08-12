@@ -1,14 +1,21 @@
-﻿using Relativity.Testing.Framework.Models;
+﻿using System;
+using System.Collections.Generic;
+using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class MatterDtoV1
+	internal class MatterDTOV1 : MatterBaseDtoV1
 	{
-		public MatterDtoV1(Matter matter, int statusId)
-		{
-			MatterRequest = new MatterRequestV1(matter, statusId);
-		}
+		public int ArtifactID { get; set; }
 
-		public MatterRequestV1 MatterRequest { get; set; }
+		public List<HttpAction> Actions { get; set; }
+
+		public NamedArtifact CreatedBy { get; set; }
+
+		public DateTime CreatedOn { get; set; }
+
+		public NamedArtifact LastModifieddBy { get; set; }
+
+		public DateTime LastModifiedOn { get; set; }
 	}
 }

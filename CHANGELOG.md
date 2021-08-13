@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- New version strategies for IMatterService - [RTF-1259](https://jira.kcura.com/browse/RTF-1259)
+- GetEligibleStatuses, GetEligibleClients methods, withExtendedMetadata optional parameter for Get and restrictedUpdate optional parameter for Update  methods in IMatterService. - [RTF-1259](https://jira.kcura.com/browse/RTF-1259)
 
 ### Changed
 

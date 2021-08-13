@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IMatterGetByNameAndClientIdStrategy _getByNameAndClientIdStrategy;
 
-		private readonly IUpdateStrategy<Matter> _updateStrategy;
+		private readonly IMatterUpdateStrategy _updateStrategy;
 
 		private readonly IMatterGetEligibleStatusesStrategy _getEligibleStatusesStrategy;
 
@@ -29,7 +29,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			IDeleteByIdStrategy<Matter> deleteByIdStrategy,
 			IMatterGetByIdStrategy getByIdStrategy,
 			IMatterGetByNameAndClientIdStrategy getByNameAndClientIdStrategy,
-			IUpdateStrategy<Matter> updateStrategy,
+			IMatterUpdateStrategy updateStrategy,
 			IMatterGetEligibleStatusesStrategy getEligibleStatusesStrategy,
 			IMatterGetEligibleClientsStrategy getEligibleClientsStrategy)
 		{
@@ -61,8 +61,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		public Matter Get(string name, int clientId)
 			=> _getByNameAndClientIdStrategy.Get(name, clientId);
 
-		public void Update(Matter entity)
-			=> _updateStrategy.Update(entity);
+		public void Update(Matter entity, bool restrictedUpdate = false)
+			=> _updateStrategy.Update(entity, restrictedUpdate);
 
 		public ArtifactIdNamePair[] GetEligibleClients()
 			=> _getEligibleClientsStrategy.GetAll();

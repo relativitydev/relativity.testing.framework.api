@@ -78,7 +78,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			MockMatterStatusGetChoiceIdByNameStrategy.Verify(getChoiceIdByNameStrategy => getChoiceIdByNameStrategy.GetId(_STATUS), Times.Once);
 		}
 
-		protected void TestIfUpdateWithValidEntityWithMatterArtifactIdFilledCallsMatterGetByNameAndClientIdStrategy()
+		protected void TestIfUpdateWithValidEntityWithMatterArtifactIdFilledDoesNotCallMatterGetByNameAndClientIdStrategy()
 		{
 			Matter matter = GetTestMatter(true, _clientWithArtifactId);
 

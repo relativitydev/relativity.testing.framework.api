@@ -34,7 +34,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 		[Test]
 		public void Update_WithValidEntityWithMatterArtifactIdFilled_ShouldNotCallMatterGetByNameAndClientIdStrategy()
-			=> TestIfUpdateWithValidEntityWithMatterArtifactIdFilledCallsMatterGetByNameAndClientIdStrategy();
+			=> TestIfUpdateWithValidEntityWithMatterArtifactIdFilledDoesNotCallMatterGetByNameAndClientIdStrategy();
 
 		[Test]
 		public void Update_WithoutMatterArtifactIdFilled_ShouldCallMatterGetByNameAndClientIdStrategy()

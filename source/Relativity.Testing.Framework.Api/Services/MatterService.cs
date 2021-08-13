@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IDeleteByIdStrategy<Matter> _deleteByIdStrategy;
 
-		private readonly IGetByIdStrategy<Matter> _getByIdStrategy;
+		private readonly IMatterGetByIdStrategy _getByIdStrategy;
 
 		private readonly IMatterGetByNameAndClientIdStrategy _getByNameAndClientIdStrategy;
 
@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			ICreateStrategyWithAsync<Matter> createStrategy,
 			IRequireStrategy<Matter> requireStrategy,
 			IDeleteByIdStrategy<Matter> deleteByIdStrategy,
-			IGetByIdStrategy<Matter> getByIdStrategy,
+			IMatterGetByIdStrategy getByIdStrategy,
 			IMatterGetByNameAndClientIdStrategy getByNameAndClientIdStrategy,
 			IUpdateStrategy<Matter> updateStrategy,
 			IMatterGetEligibleStatusesStrategy getEligibleStatusesStrategy,
@@ -55,8 +55,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void Delete(int id)
 			=> _deleteByIdStrategy.Delete(id);
 
-		public Matter Get(int id)
-			=> _getByIdStrategy.Get(id);
+		public Matter Get(int id, bool withExtendedMetadata = false)
+			=> _getByIdStrategy.Get(id, withExtendedMetadata);
 
 		public Matter Get(string name, int clientId)
 			=> _getByNameAndClientIdStrategy.Get(name, clientId);

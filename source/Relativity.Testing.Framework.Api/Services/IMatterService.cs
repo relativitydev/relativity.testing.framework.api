@@ -136,13 +136,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the <see cref="Matter"/> by the ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the matter.</param>
+		/// <param name="withExtendedMetadata">If set to true Meta field will be populated on get. Default is false.</param>
 		/// <returns>The <see cref="Matter"/> if it exists, otherwise <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Matter matter = _matterService.Get(1234567);
 		/// </code>
 		/// </example>
-		Matter Get(int id);
+		Matter Get(int id, bool withExtendedMetadata = false);
 
 		/// <summary>
 		/// Gets the <see cref="Matter"/> by the matter name, and Client ArtifactID.

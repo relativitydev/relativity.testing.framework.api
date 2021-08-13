@@ -2,9 +2,9 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class MatterDtoPreOsier
+	internal class MatterCreateRequestPreOsier
 	{
-		public MatterDtoPreOsier(Matter matter, int statusId)
+		public MatterCreateRequestPreOsier(Matter matter, int statusId)
 		{
 			MatterDTO = new MatterRequestPreOsier(matter, statusId);
 		}

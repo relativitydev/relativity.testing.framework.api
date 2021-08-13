@@ -19,29 +19,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Keywords = value.Keywords,
 				Notes = value.Notes,
 				Actions = value.Actions,
-				CreatedBy = value.CreatedBy,
-				CreatedOn = value.CreatedOn,
-				LastModifiedBy = value.LastModifieddBy,
-				LastModifiedOn = value.LastModifiedOn
-			};
-			return mapped;
-		}
-
-		internal static Matter DoMappingFromExtendedMetadataDTO(
-			this MatterExtendedMetadataDTOV1 value,
-			ArtifactIdNamePair client,
-			string statusName)
-		{
-			var mapped = new Matter
-			{
-				Name = value.Name,
-				ArtifactID = value.ArtifactID,
-				Number = value.Number,
-				Client = MapClientFromArtifactIdNamePair(client),
-				Status = statusName,
-				Keywords = value.Keywords,
-				Notes = value.Notes,
-				Actions = value.Actions,
 				Meta = value.Meta,
 				CreatedBy = value.CreatedBy,
 				CreatedOn = value.CreatedOn,

@@ -49,18 +49,19 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void GetWithExtendedMetadataV1_Missing_ThrowsException()
 		{
-			HttpRequestException exception = Assert.Throws<HttpRequestException>(() => Sut.GetWithExtendedMetadata(int.MaxValue));
+			HttpRequestException exception = Assert.Throws<HttpRequestException>(() => Sut.Get(int.MaxValue, true));
 
 			exception.Message.Should().Contain(_V1_NOT_FOUND_EXCEPTION_MESSAGE);
 		}
 
+		[VersionRange(">=12.1")]
 		[Test]
 		public void GetWithExtendedMetadata_Existing_ReturnsExpectedMatter()
 		{
 			Matter expectedEntity = null;
 			expectedEntity = ArrangeMatter(expectedEntity);
 
-			Matter result = Sut.GetWithExtendedMetadata(expectedEntity.ArtifactID);
+			Matter result = Sut.Get(expectedEntity.ArtifactID, true);
 
 			result.Should().BeEquivalentTo(
 				expectedEntity,
@@ -71,7 +72,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void GetWithExtendedMetadataPreOsier_ThrowsArgumentException()
 		{
-			ArgumentException exception = Assert.Throws<ArgumentException>(() => Sut.GetWithExtendedMetadata(1));
+			ArgumentException exception = Assert.Throws<ArgumentException>(() => Sut.Get(1, true));
 
 			exception.Message.Should().Contain(_NOT_SUPPORTED_EXCEPTION_MESSAGE);
 		}

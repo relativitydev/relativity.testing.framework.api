@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -14,6 +16,12 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	{
 		private const int _MATTER_ID = 1;
 		private readonly string _getUrl = $"relativity-environment/v1/workspaces/-1/matters/{_MATTER_ID}";
+		private readonly string _getWithExtendedMetadata = $"relativity-environment/v1/workspaces/-1/matters/{_MATTER_ID}/true/true";
+		private readonly Meta _meta = new Meta
+		{
+			ReadOnly = new List<string> { "Test", "Readonly" },
+			Unsupported = new List<string> { "Test", "Usupported", "Items" }
+		};
 
 		private Mock<IRestService> _mockRestService;
 		private Mock<IMatterGetEligibleStatusesStrategy> _mockGetMatterEligibleStatusesStrategy;
@@ -37,10 +45,31 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void Get_WithValidId_ShouldCallRestServiceWithExpectedUrl()
+		public void Get_WithValidIdWithoutExtendedMetadata_ShouldCallRestServiceWithExpectedUrl()
 		{
 			_sut.Get(_MATTER_ID);
 			_mockRestService.Verify(restService => restService.Get<MatterDTOV1>(_getUrl, null), Times.Once);
+		}
+
+		[Test]
+		public void Get_WithValidIdWithExtendedMetadata_ShouldCallRestServiceWithExpectedUrl()
+		{
+			_sut.Get(_MATTER_ID, true);
+			_mockRestService.Verify(restService => restService.Get<MatterDTOV1>(_getWithExtendedMetadata, null), Times.Once);
+		}
+
+		[Test]
+		public void Get_WithValidIdWithExtendedMetadata_ShouldReturnEntityWithMetaFilled()
+		{
+			Matter result = _sut.Get(_MATTER_ID, true);
+
+			Assert.NotNull(result.Meta);
+			Assert.NotNull(result.Meta.ReadOnly);
+			Assert.IsNotEmpty(result.Meta.ReadOnly);
+			result.Meta.ReadOnly.Should().BeEquivalentTo(_meta.ReadOnly);
+			Assert.NotNull(result.Meta.Unsupported);
+			Assert.IsNotEmpty(result.Meta.Unsupported);
+			result.Meta.Unsupported.Should().BeEquivalentTo(_meta.Unsupported);
 		}
 
 		[Test]
@@ -94,6 +123,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				Status = new Securable<Artifact>(new Artifact(statusID))
 			};
 			_mockRestService.Setup(restService => restService.Get<MatterDTOV1>(_getUrl, null)).Returns(matterDTO);
+			matterDTO.Meta = _meta;
+			_mockRestService.Setup(restService => restService.Get<MatterDTOV1>(_getWithExtendedMetadata, null)).Returns(matterDTO);
 		}
 	}
 }

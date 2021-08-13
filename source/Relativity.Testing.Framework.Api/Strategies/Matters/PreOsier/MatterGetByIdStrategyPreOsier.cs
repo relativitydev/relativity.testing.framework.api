@@ -13,9 +13,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 		}
 
-		public Matter GetWithExtendedMetadata(int id)
+		public Matter Get(int id, bool withExtendedMetadata = false)
 		{
-			throw new ArgumentException("The method Get with extended metadata does not support version of Relativity lower than 12.1");
+			if (withExtendedMetadata)
+			{
+				throw new ArgumentException("The method Get with extended metadata does not support version of Relativity lower than 12.1");
+			}
+
+			return base.Get(id);
 		}
 	}
 }

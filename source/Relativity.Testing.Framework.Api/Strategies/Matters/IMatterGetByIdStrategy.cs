@@ -2,8 +2,8 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal interface IMatterGetByIdStrategy : IGetByIdStrategy<Matter>
+	internal interface IMatterGetByIdStrategy
 	{
-		Matter GetWithExtendedMetadata(int id);
+		Matter Get(int id, bool withExtendedMetadata = false);
 	}
 }

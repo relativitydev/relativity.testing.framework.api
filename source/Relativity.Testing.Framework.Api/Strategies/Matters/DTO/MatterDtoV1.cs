@@ -10,6 +10,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public List<HttpAction> Actions { get; set; }
 
+		public Meta Meta { get; set; }
+
 		public NamedArtifact CreatedBy { get; set; }
 
 		public DateTime CreatedOn { get; set; }

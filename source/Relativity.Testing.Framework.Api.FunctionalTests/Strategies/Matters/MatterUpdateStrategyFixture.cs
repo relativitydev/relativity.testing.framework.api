@@ -11,13 +11,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUpdateStrategy<Matter>))]
 	internal class MatterUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<Matter>>
 	{
-		private IGetByIdStrategy<Matter> _getByIdStrategy;
+		private IMatterGetByIdStrategy _getByIdStrategy;
 		private ICreateStrategy<Matter> _createStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
-			_getByIdStrategy = Facade.Resolve<IGetByIdStrategy<Matter>>();
+			_getByIdStrategy = Facade.Resolve<IMatterGetByIdStrategy>();
 			_createStrategy = Facade.Resolve<ICreateStrategy<Matter>>();
 		}
 

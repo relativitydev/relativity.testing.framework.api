@@ -26,7 +26,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void GetWithExtendedMetadata_WithAnyId_ThrowsArgumentsException()
 		{
-			ArgumentException exception = Assert.Throws<ArgumentException>(() => _sut.GetWithExtendedMetadata(1));
+			ArgumentException exception = Assert.Throws<ArgumentException>(() => _sut.Get(1, true));
 			exception.Message.Should().Contain(_NOT_SUPPORTED_METHOD_EXCEPTION_MESSAGE);
 		}
 	}

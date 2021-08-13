@@ -26,12 +26,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_artifactIdValidator = artifactIdValidator;
 		}
 
-		public Matter Get(int id)
+		public Matter Get(int id, bool withExtendedMetadata = false)
 		{
 			_artifactIdValidator.Validate(id, "Matter");
+			string getUrl = GetUrl(id, withExtendedMetadata);
 
-			MatterDTOV1 matterDTO = _restService.Get<MatterDTOV1>(
-				$"relativity-environment/v1/workspaces/-1/matters/{id}");
+			MatterDTOV1 matterDTO = _restService.Get<MatterDTOV1>(getUrl);
 			string statusName = GetStatusNameById(matterDTO.Status.Value.ArtifactID);
 			ArtifactIdNamePair client = GetClientById(matterDTO.Client.Value.ArtifactID);
 
@@ -39,17 +39,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			return mappedMatter;
 		}
 
-		public Matter GetWithExtendedMetadata(int id)
+		private string GetUrl(int id, bool withExtendedMetadata)
 		{
-			_artifactIdValidator.Validate(id, "Matter");
-
-			MatterExtendedMetadataDTOV1 matterDTO = _restService.Get<MatterExtendedMetadataDTOV1>(
-				$"relativity-environment/v1/workspaces/-1/matters/{id}/true/true");
-			string statusName = GetStatusNameById(matterDTO.Status.Value.ArtifactID);
-			ArtifactIdNamePair client = GetClientById(matterDTO.Client.Value.ArtifactID);
-
-			Matter mappedMatter = matterDTO.DoMappingFromExtendedMetadataDTO(client, statusName);
-			return mappedMatter;
+			return withExtendedMetadata ?
+				$"relativity-environment/v1/workspaces/-1/matters/{id}/true/true" :
+				$"relativity-environment/v1/workspaces/-1/matters/{id}";
 		}
 
 		private string GetStatusNameById(int statusID)

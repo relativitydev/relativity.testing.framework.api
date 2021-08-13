@@ -55,8 +55,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void Delete(int id)
 			=> _deleteByIdStrategy.Delete(id);
 
-		public Matter Get(int id)
-			=> _getByIdStrategy.Get(id);
+		public Matter Get(int id, bool withExtendedMetadata = false)
+			=> _getByIdStrategy.Get(id, withExtendedMetadata);
 
 		public Matter Get(string name, int clientId)
 			=> _getByNameAndClientIdStrategy.Get(name, clientId);

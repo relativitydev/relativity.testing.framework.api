@@ -162,6 +162,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified <see cref="Matter"/>.
 		/// </summary>
 		/// <param name="entity">The matter to update.</param>
+		/// <param name="restrictedUpdate">If set to true the LastModifiedOn date will be added to API request and its value must match the LastModifiedOn date for the matter stored in Relativity. Otherwise, you receive a 409 error, indicating that the object has been modified. Default set to false.</param>
 		/// <example>
 		/// <code>
 		/// Matter matter = _matterService.Get("AnotherMatter", 2345678);
@@ -171,7 +172,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// matter = _matterService.Update(matter);
 		/// </code>
 		/// </example>
-		void Update(Matter entity);
+		void Update(Matter entity, bool restrictedUpdate = false);
 
 		/// <summary>
 		/// Gets all of available clients in a Relativity environment.

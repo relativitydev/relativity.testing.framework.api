@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private readonly Meta _meta = new Meta
 		{
 			ReadOnly = new List<string> { "Test", "Readonly" },
-			Unsupported = new List<string> { "Test", "Usupported", "Items" }
+			Unsupported = new List<string> { "Test", "Unsupported", "Items" }
 		};
 
 		private Mock<IRestService> _mockRestService;

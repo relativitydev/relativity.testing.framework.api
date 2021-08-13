@@ -13,8 +13,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private const string _V1_NOT_FOUND_EXCEPTION_MESSAGE = "The object does not exist or you do not have permission to access it.";
 
+		[VersionRange("<12.1")]
 		[Test]
-		public void Delete_Missing()
+		public void DeletePreOsier_Missing()
 		{
 			int id = 9_999_999;
 
@@ -22,6 +23,18 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				Sut.Delete(id));
 
 			exception.Message.Should().StartWith($"Matter ArtifactID {id} is invalid.");
+		}
+
+		[VersionRange(">=12.1")]
+		[Test]
+		public void DeleteV1_Missing()
+		{
+			int id = 9_999_999;
+
+			HttpRequestException exception = Assert.Throws<HttpRequestException>(() =>
+				Sut.Delete(id));
+
+			exception.Message.Should().Contain("The object does not exist or you do not have permission to access it.");
 		}
 
 		[VersionRange("<12.1")]

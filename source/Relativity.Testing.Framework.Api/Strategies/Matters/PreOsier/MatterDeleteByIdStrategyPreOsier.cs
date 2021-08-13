@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class MatterDeleteByIdStrategy : DeleteByIdStrategy<Matter>
+	[VersionRange("<12.1")]
+	internal class MatterDeleteByIdStrategyPreOsier : DeleteByIdStrategy<Matter>
 	{
 		private readonly IRestService _restService;
 
-		public MatterDeleteByIdStrategy(IRestService restService)
+		public MatterDeleteByIdStrategyPreOsier(IRestService restService)
 		{
 			_restService = restService;
 		}

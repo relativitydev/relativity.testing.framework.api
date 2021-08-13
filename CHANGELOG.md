@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.1] - 2021-08-06
+
+### Fix
+
+- Throw a JobReportException in JobOnFatalException for the DocumentImportHelper to not swallow up stacktrace. - [TESTENG-1404](https://jira.kcura.com/browse/TESTENG-1404)
+
+## [4.3.0] - 2021-08-10
+
+### Added
+
+- Added strategy for dismissing the message of the day by the email address of the user. - [RTF-1385](https://jira.kcura.com/browse/RTF-1385)
+
 ## [4.2.0] - 2021-08-06
 
 ### Added

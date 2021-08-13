@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using kCura.Relativity.DataReaderClient;
+using Relativity.Testing.Framework.Api.Exceptions;
 using Relativity.Testing.Framework.Api.Services;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -31,19 +32,22 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			if (jobReport.FatalException != null)
 			{
-				throw jobReport.FatalException;
+				JobReportException jobReportException = new JobReportException("Import job failed", jobReport.FatalException);
+				throw jobReportException;
 			}
 
 			if (jobReport.ErrorRowCount > 0)
 			{
 				IEnumerable<string> errors = jobReport.ErrorRows.Select(x => $"{x.Identifier} - {x.Message}");
-				throw new Exception($"Import API job completed with errors:{string.Join("\n", errors)}");
+				JobReportException jobReportException = new JobReportException($"Import API job completed with errors:{string.Join("\n", errors)}");
+				throw jobReportException;
 			}
 		}
 
 		protected static void JobOnFatalException(JobReport jobReport)
 		{
-			throw jobReport.FatalException;
+			JobReportException jobReportException = new JobReportException("Import job failed", jobReport.FatalException);
+			throw jobReportException;
 		}
 	}
 }

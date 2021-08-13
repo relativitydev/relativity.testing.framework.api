@@ -8,8 +8,8 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IUpdateStrategy<Matter>))]
-	internal class MatterUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<Matter>>
+	[TestOf(typeof(IMatterUpdateStrategy))]
+	internal class MatterUpdateStrategyFixture : ApiServiceTestFixture<IMatterUpdateStrategy>
 	{
 		private IMatterGetByIdStrategy _getByIdStrategy;
 		private ICreateStrategy<Matter> _createStrategy;

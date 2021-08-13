@@ -7,13 +7,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class MatterRequireStrategy : IRequireStrategy<Matter>
 	{
 		private readonly ICreateStrategy<Matter> _createStrategy;
-		private readonly IUpdateStrategy<Matter> _updateStrategy;
+		private readonly IMatterUpdateStrategy _updateStrategy;
 		private readonly IMatterGetByIdStrategy _getByIdStrategy;
 		private readonly IMatterGetByNameAndClientIdStrategy _matterGetByNameAndClientIdStrategy;
 
 		public MatterRequireStrategy(
 			ICreateStrategy<Matter> createStrategy,
-			IUpdateStrategy<Matter> updateStrategy,
+			IMatterUpdateStrategy updateStrategy,
 			IMatterGetByIdStrategy getByIdStrategy,
 			IMatterGetByNameAndClientIdStrategy matterGetByNameAndClientIdStrategy)
 		{

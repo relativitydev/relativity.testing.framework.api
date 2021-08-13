@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var result = _restService.Get<JObject>($"Relativity.Scripts/workspace/{workspaceId}/Scripts/{entityId}");
 
-			result["RelativityApplications"] = result["RelativityApplications"]["ViewableItems"];
+			result["RelativityApplications"] = result["RelativityApplications"]?["ViewableItems"];
 
 			return result.ToObject<Script>();
 		}

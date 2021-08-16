@@ -1,10 +1,13 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading.Tasks;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class MatterCreateStrategy : CreateStrategy<Matter>
+	[VersionRange("<12.1")]
+	internal class MatterCreateStrategyPreOsier : CreateStrategyWithAsync<Matter>
 	{
 		private readonly IRestService _restService;
 
@@ -12,7 +15,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private readonly IRequireStrategy<Client> _clientRequireStrategy;
 
-		public MatterCreateStrategy(
+		public MatterCreateStrategyPreOsier(
 			IRestService restService,
 			IMatterStatusGetChoiceIdByNameStrategy matterStatusGetChoiceIdByNameStrategy,
 			IRequireStrategy<Client> clientRequireStrategy)
@@ -24,30 +27,20 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected override Matter DoCreate(Matter entity)
 		{
+			return DoCreateAsync(entity).Result;
+		}
+
+		protected override async Task<Matter> DoCreateAsync(Matter entity)
+		{
 			entity.Client = _clientRequireStrategy.Require(entity.Client);
+			int statusId = GetStatusId(entity.Status);
 
-			object dto = new
-			{
-				matterDTO = new
-				{
-					entity.Name,
-					entity.Number,
-					Status = new
-					{
-						ArtifactID = GetStatusId(entity.Status)
-					},
-					Client = new
-					{
-						entity.Client.ArtifactID
-					},
-					entity.Keywords,
-					entity.Notes
-				}
-			};
+			object dto = new MatterCreateRequestPreOsier(entity, statusId);
 
-			entity.ArtifactID = _restService.Post<int>(
+			entity.ArtifactID = await _restService.PostAsync<int>(
 				"Relativity.Services.Matter.IMatterModule/Matter%20Manager/CreateSingleAsync",
-				dto);
+				dto)
+				.ConfigureAwait(false);
 
 			return entity;
 		}

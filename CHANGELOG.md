@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.0] - 2021-08-16
+
+### Added
+
+- GetEligibleStatuses, GetEligibleClients methods, withExtendedMetadata optional parameter for Get and restrictedUpdate optional parameter for Update  methods in IMatterService. - [RTF-1259](https://jira.kcura.com/browse/RTF-1259)
+
+### Changed
+
+- RTF version bumped to 5.0.0. - [RTF-1259](https://jira.kcura.com/browse/RTF-1259)
+
 ## [4.3.2]- 2021-08-13
 
 ### Fixed

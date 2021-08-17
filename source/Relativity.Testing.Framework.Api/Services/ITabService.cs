@@ -148,6 +148,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		Meta GetAdminLevelMetadata();
 
 		/// <summary>
+		/// Retrieves a list of parent tabs, which can be associated with a tab for adding or updating it.
+		/// </summary>
+		/// /// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve parent tabs for.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;TabEligibleParentV1&gt; result = _tabService.GetEligibleParents(workspaceId);
+		/// </code>
+		/// </example>
+		/// <returns>List of <see cref="TabEligibleParent"/> entities.</returns>
+		List<TabEligibleParent> GetEligibleParents(int workspaceId);
+
+		/// <summary>
 		/// Gets current order of the tabs in a workspace.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs order for.</param>

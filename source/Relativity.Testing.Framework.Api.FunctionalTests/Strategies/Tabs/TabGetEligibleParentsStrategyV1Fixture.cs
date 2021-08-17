@@ -5,9 +5,9 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ITabGetAvailableObjectTypesByWorkspaceIDStrategy))]
+	[TestOf(typeof(ITabGetEligibleParentsStrategy))]
 	[VersionRange(">=12.1")]
-	internal class TabGetAvailableObjectTypesV1Fixture : ApiServiceTestFixture<ITabGetAvailableObjectTypesByWorkspaceIDStrategy>
+	internal class TabGetEligibleParentsStrategyV1Fixture : ApiServiceTestFixture<ITabGetEligibleParentsStrategy>
 	{
 		[Test]
 		public void Get_AllForDefault()

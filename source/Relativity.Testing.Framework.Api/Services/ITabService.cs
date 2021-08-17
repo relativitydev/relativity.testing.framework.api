@@ -144,7 +144,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Meta meta = _tabService.GetAdminLevelMetadata();
 		/// </code>
 		/// </example>
-		/// <returns>The <see cref="Meta"/> entitiy.</returns>
+		/// <returns>The <see cref="Meta"/> entity.</returns>
 		Meta GetAdminLevelMetadata();
 
 		/// <summary>
@@ -164,7 +164,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets current order of the tabs in a workspace.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs order for.</param>
-		/// <returns>List of <see cref="Tab"/>. Only basic information and Order fields are filled.</returns>
+		/// <returns>Ordered list of <see cref="Tab"/>s. Only basic information and Order fields are filled.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1234567;

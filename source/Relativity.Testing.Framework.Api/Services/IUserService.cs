@@ -13,15 +13,15 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IUserService
 	{
 		/// <summary>
-		/// Creates the specified user.
+		/// Creates the specified <see cref="User"/>.
 		/// </summary>
-		/// <param name="entity">The entity to create.</param>
-		/// <returns>The created entity.</returns>
+		/// <param name="user">The <see cref="User"/> to create.</param>
+		/// <returns>The created <see cref="User"/>.</returns>
 		/// <example>
 		/// <code>
 		/// User user = new User
 		/// {
-		/// 	FirtName = "User First Name",
+		/// 	FirstName = "User First Name",
 		/// 	LastName = "User Last Name",
 		/// 	EmailAddress = "test@email.com",
 		/// 	Type = "External",
@@ -31,72 +31,72 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// User createdUser = _userService.Create(user);
 		/// </code>
 		/// </example>
-		User Create(User entity);
+		User Create(User user);
 
 		/// <summary>
-		/// Requires the specified user.
-		/// Returns existing object if the <paramref name="entity"/> has the properties (ArtifactID, Email) set to be able to get the entity;
-		/// otherwise creates a new entity.
+		/// Requires the specified <see cref="User"/>.
+		/// Returns existing <see cref="User"/> if the <paramref name="user"/> has the properties (ArtifactID, Email) set to be able to get the user;
+		/// otherwise creates a new user.
 		/// </summary>
-		/// <param name="entity">The entity to require.</param>
-		/// <param name="ensureNew">The boolean value indicating whether we going to delete the same entity. By default true.</param>
-		/// <returns>The entity required.</returns>
+		/// <param name="user">The <see cref="User"/> to require.</param>
+		/// <param name="ensureNew">The boolean value indicating whether we going to delete the same user. By default true.</param>
+		/// <returns>The <see cref="User"/> required.</returns>
 		/// <example>
 		/// <code>
 		/// User existingUser = new User
 		/// {
-		/// 	FirtName = "Existing User First Name",
+		/// 	FirstName = "Existing User First Name",
 		/// 	LastName = "Existing User Last Name",
 		/// 	EmailAddress = "existing_user@email.com",
 		/// 	ArtifactID = 1
 		/// }
-		/// User requiredUser = _userService.Require(user, false);
+		/// User requiredUser = _userService.Require(user, false); // Will require existing user without recreating it and return it
 		/// </code>
 		/// </example>
 		/// <example>
 		/// <code>
 		/// User userToCreate = new User
 		/// {
-		/// 	FirtName = "User First Name",
+		/// 	FirstName = "User First Name",
 		/// 	LastName = "User Last Name",
 		/// 	EmailAddress = "not_existing_user@email.com",
 		/// 	Type = "External",
 		/// 	Password = "TestPassword2345!",
 		/// 	DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
 		/// }
-		/// User createdUser = _userService.Require(user);
+		/// User createdUser = _userService.Require(user); // Will create a new user from given model and return it
 		/// </code>
 		/// </example>
 		/// <example>
 		/// <code>
 		/// User existingUser = new User
 		/// {
-		/// 	FirtName = "Existing User First Name",
+		/// 	FirstName = "Existing User First Name",
 		/// 	LastName = "Existing User Last Name",
 		/// 	EmailAddress = "existing_user@email.com",
 		/// 	ArtifactID = 1
 		/// }
-		/// User recreatedUser = _userService.Require(user);
+		/// User recreatedUser = _userService.Require(user); // Will recreate existing user and return it
 		/// </code>
 		/// </example>
-		User Require(User entity, bool ensureNew = true);
+		User Require(User user, bool ensureNew = true);
 
 		/// <summary>
-		/// Deletes the user by ID.
+		/// Deletes the <see cref="User"/> by ArtifactID.
 		/// </summary>
-		/// <param name="id">The artifact ID of the user.</param>
+		/// <param name="artifactID">The ArtifactID of the user.</param>
 		/// <example>
 		/// <code>
 		/// int userID = 23236;
 		/// _userService.Delete(userID);
 		/// </code>
 		/// </example>
-		void Delete(int id);
+		void Delete(int artifactID);
 
 		/// <summary>
-		/// Gets the user by ID.
+		/// Gets the <see cref="User"/> by ArtifactID.
 		/// </summary>
-		/// <param name="id">The artifact ID of the user.</param>
+		/// <param name="artifactID">The ArtifactID of the user.</param>
 		/// <returns>The <see cref="User"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
@@ -104,12 +104,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// User user =_userService.Get(userID);
 		/// </code>
 		/// </example>
-		User Get(int id);
+		User Get(int artifactID);
 
 		/// <summary>
-		/// Gets the user by the specified email address.
+		/// Gets the <see cref="User"/> by the specified email address.
 		/// </summary>
-		/// <param name="email">The email address.</param>
+		/// <param name="email">The email address of the user.</param>
 		/// <returns>The <see cref="User"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
@@ -120,9 +120,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		User GetByEmail(string email);
 
 		/// <summary>
-		/// Determines whether the user with the specified email address exists.
+		/// Determines whether the <see cref="User"/> with the specified email address exists.
 		/// </summary>
-		/// <param name="email">The email address.</param>
+		/// <param name="email">The email address of the user.</param>
 		/// <returns><see langword="true"/> if a user exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
@@ -133,10 +133,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool ExistsByEmail(string email);
 
 		/// <summary>
-		/// Adds the user to the group.
+		/// Adds the <see cref="User"/> to the group.
 		/// </summary>
-		/// <param name="userId">The user ID.</param>
-		/// <param name="groupId">The group ID.</param>
+		/// <param name="userArtifactID">The user ArtifactID.</param>
+		/// <param name="groupArtifactID">The group ArtifactID.</param>
 		/// <example>
 		/// <code>
 		/// int userID = 324546;
@@ -144,13 +144,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _userService.AddToGroup(userID, groupID);
 		/// </code>
 		/// </example>
-		void AddToGroup(int userId, int groupId);
+		void AddToGroup(int userArtifactID, int groupArtifactID);
 
 		/// <summary>
-		/// Removes the user from the group.
+		/// Removes the <see cref="User"/> from the group.
 		/// </summary>
-		/// <param name="userId">The user ID.</param>
-		/// <param name="groupId">The group ID.</param>
+		/// <param name="userArtifactID">The user ArtifactID.</param>
+		/// <param name="groupArtifactID">The group ArtifactID.</param>
 		/// <example>
 		/// <code>
 		/// int userID = 324546;
@@ -158,12 +158,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _userService.RemoveFromGroup(userID, groupID);
 		/// </code>
 		/// </example>
-		void RemoveFromGroup(int userId, int groupId);
+		void RemoveFromGroup(int userArtifactID, int groupArtifactID);
 
 		/// <summary>
-		/// Updates the specified user.
+		/// Updates the specified <see cref="User"/>.
 		/// </summary>
-		/// <param name="entity">The entity to update.</param>
+		/// <param name="user">The <see cref="User"/> to update.</param>
 		/// <example>
 		/// <code>
 		/// User existingUser = _userService.GetByEmail("some_existing_user@email.com");
@@ -173,6 +173,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _userService.Update(existingUser);
 		/// </code>
 		/// </example>
-		void Update(User entity);
+		void Update(User user);
 	}
 }

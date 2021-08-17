@@ -5,12 +5,12 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class TabCreateStrategyPrePrairieSmoke : CreateWorkspaceEntityStrategy<Tab>
+	internal class TabCreateStrategyPreOsier : CreateWorkspaceEntityStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 		private readonly ITabFillRequiredPropertiesStrategy _tabFillRequiredPropertiesStrategy;
 
-		public TabCreateStrategyPrePrairieSmoke(
+		public TabCreateStrategyPreOsier(
 			IRestService restService,
 			ITabFillRequiredPropertiesStrategy tabFillRequiredPropertiesStrategy)
 		{
@@ -22,9 +22,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			entity = _tabFillRequiredPropertiesStrategy.FillRequiredProperties(workspaceId, entity);
 
-			TabDtoPrePrairieSmoke tabDto = new TabDtoPrePrairieSmoke
+			TabDtoPreOsier tabDto = new TabDtoPreOsier
 			{
-				Tab = TabRequestPrePrairieSmoke.FromTab(workspaceId, entity)
+				Tab = TabRequestPreOsier.FromTab(workspaceId, entity)
 			};
 
 			int artifactId = _restService.Post<int>($"Relativity.Tabs/workspace/{workspaceId}/tabs", tabDto);

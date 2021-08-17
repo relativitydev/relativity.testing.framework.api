@@ -6,11 +6,11 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class TabDeleteByIdStrategyPrePrairieSmoke : DeleteWorkspaceEntityByIdStrategy<Tab>
+	internal class TabDeleteByIdStrategyPreOsier : DeleteWorkspaceEntityByIdStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 
-		public TabDeleteByIdStrategyPrePrairieSmoke(IRestService restService)
+		public TabDeleteByIdStrategyPreOsier(IRestService restService)
 		{
 			_restService = restService;
 		}

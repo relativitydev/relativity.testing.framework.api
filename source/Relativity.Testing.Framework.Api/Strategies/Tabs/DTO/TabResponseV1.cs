@@ -16,14 +16,18 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			Tab tab = new Tab
 			{
 				ArtifactID = ObjectIdentifier.ArtifactID,
-				IconIdentifier = (TabIconIdentifier)ChoiceNameToEnumMapper.GetEnumValue(typeof(TabIconIdentifier), IconIdentifier),
+				IconIdentifier = string.IsNullOrWhiteSpace(IconIdentifier) ?
+					TabIconIdentifier.Unknown :
+					(TabIconIdentifier)ChoiceNameToEnumMapper.GetEnumValue(typeof(TabIconIdentifier), IconIdentifier),
 				IsDefault = IsDefault,
 				IsShownInSidebar = IsShownInSidebar,
 				IsVisible = IsVisible,
 				Link = Link,
-				LinkType = (TabLinkType)ChoiceNameToEnumMapper.GetEnumValue(typeof(TabLinkType), LinkType),
+				LinkType = string.IsNullOrWhiteSpace(IconIdentifier) ?
+					TabLinkType.Unknown :
+					(TabLinkType)ChoiceNameToEnumMapper.GetEnumValue(typeof(TabLinkType), LinkType),
 				Name = ObjectIdentifier.Name,
-				ObjectType = ObjectType.Value,
+				ObjectType = ObjectType?.Value,
 				Order = Order,
 				Parent = Parent.Value,
 				RelativityApplications = RelativityApplications?.ViewableItems

@@ -29,7 +29,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private readonly IGetAllStrategy<ResourceServer> _resourceServerGetAllStrategy;
 
-		private readonly IGetAllStrategy<ResourcePool> _getAllResorcePoolsStrategy;
+		private readonly IGetAllStrategy<ResourcePool> _getAllResourcePoolsStrategy;
 
 		private readonly IObjectService _objectService;
 
@@ -55,7 +55,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_getClientByNameStrategy = getClientByNameStrategy;
 			_matterGetByNameAndClientIdStrategy = matterGetByNameAndClientIdStrategy;
 			_resourceServerGetAllStrategy = resourceServerGetAllStrategy;
-			_getAllResorcePoolsStrategy = getAllResorcePoolsStrategy;
+			_getAllResourcePoolsStrategy = getAllResorcePoolsStrategy;
 			_objectService = objectService;
 		}
 
@@ -131,7 +131,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ResourcePool == null)
 			{
-				entity.ResourcePool = _getAllResorcePoolsStrategy.GetAll().First();
+				entity.ResourcePool = _getAllResourcePoolsStrategy.GetAll().First();
 			}
 
 			if (entity.DefaultCacheLocation == null)
@@ -229,7 +229,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 			else
 			{
-				var getMatter = _objectService.Query<Matter>().Where(x => x.Name, "Relativity Template").FirstOrDefault();
+				Matter getMatter = null;
+
+				if (clientId.HasValue)
+				{
+					getMatter = _objectService.Query<Matter>().Where(x => x.Client, clientId.Value).FirstOrDefault();
+				}
+
+				if (getMatter == null)
+				{
+					getMatter = _objectService.Query<Matter>().Where(x => x.Name, "Relativity Template").FirstOrDefault();
+				}
 
 				if (getMatter == null)
 				{

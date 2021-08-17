@@ -46,17 +46,17 @@ namespace Relativity.Testing.Framework.Api.Services
 			_updateStrategy = updateStrategy;
 		}
 
-		public User Create(User entity)
-			=> _createStrategy.Create(entity);
+		public User Create(User user)
+			=> _createStrategy.Create(user);
 
-		public User Require(User entity, bool ensureNew = true)
-			=> _requireWithEnsureNewStrategy.Require(entity, ensureNew);
+		public User Require(User user, bool ensureNew = true)
+			=> _requireWithEnsureNewStrategy.Require(user, ensureNew);
 
-		public void Delete(int id)
-			=> _deleteByIdStrategy.Delete(id);
+		public void Delete(int artifactID)
+			=> _deleteByIdStrategy.Delete(artifactID);
 
-		public User Get(int id)
-			=> _getByIdStrategy.Get(id);
+		public User Get(int artifactID)
+			=> _getByIdStrategy.Get(artifactID);
 
 		public User GetByEmail(string email)
 			=> _getByEmailStrategy.Get(email);
@@ -64,13 +64,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		public bool ExistsByEmail(string email)
 			=> _existsByEmailStrategy.Exists(email);
 
-		public void AddToGroup(int userId, int groupId)
-			=> _addToGroupStrategy.AddToGroup(userId, groupId);
+		public void AddToGroup(int userArtifactID, int groupArtifactID)
+			=> _addToGroupStrategy.AddToGroup(userArtifactID, groupArtifactID);
 
-		public void RemoveFromGroup(int userId, int groupId)
-			=> _removeFromGroupStrategy.RemoveFromGroup(userId, groupId);
+		public void RemoveFromGroup(int userArtifactID, int groupArtifactID)
+			=> _removeFromGroupStrategy.RemoveFromGroup(userArtifactID, groupArtifactID);
 
-		public void Update(User entity)
-			=> _updateStrategy.Update(entity);
+		public void Update(User user)
+			=> _updateStrategy.Update(user);
 	}
 }

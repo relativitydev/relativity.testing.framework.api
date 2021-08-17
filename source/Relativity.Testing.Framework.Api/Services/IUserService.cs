@@ -41,7 +41,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="user">The <see cref="User"/> to require.</param>
 		/// <param name="ensureNew">The boolean value indicating whether we going to delete the same user. By default true.</param>
 		/// <returns>The <see cref="User"/> required.</returns>
-		/// <example>
+		/// <example> This shows how to require existing user and get it without recreating it.
 		/// <code>
 		/// User existingUser = new User
 		/// {
@@ -50,10 +50,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	EmailAddress = "existing_user@email.com",
 		/// 	ArtifactID = 1
 		/// }
-		/// User requiredUser = _userService.Require(user, false); // Will require existing user without recreating it and return it
+		/// User requiredUser = _userService.Require(user, false);
 		/// </code>
 		/// </example>
-		/// <example>
+		/// <example> This shows how to create a new user from given model and get it using Require method.
 		/// <code>
 		/// User userToCreate = new User
 		/// {
@@ -64,10 +64,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	Password = "TestPassword2345!",
 		/// 	DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
 		/// }
-		/// User createdUser = _userService.Require(user); // Will create a new user from given model and return it
+		/// User createdUser = _userService.Require(user);
 		/// </code>
 		/// </example>
-		/// <example>
+		/// <example> This shows how to recreate existing user and get it using Require method.
 		/// <code>
 		/// User existingUser = new User
 		/// {
@@ -76,7 +76,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	EmailAddress = "existing_user@email.com",
 		/// 	ArtifactID = 1
 		/// }
-		/// User recreatedUser = _userService.Require(user); // Will recreate existing user and return it
+		/// User recreatedUser = _userService.Require(user);
 		/// </code>
 		/// </example>
 		User Require(User user, bool ensureNew = true);

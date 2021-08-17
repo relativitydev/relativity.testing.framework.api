@@ -159,5 +159,18 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </example>
 		/// <returns>List of <see cref="TabEligibleParent"/> entities.</returns>
 		List<TabEligibleParent> GetEligibleParents(int workspaceId);
+
+		/// <summary>
+		/// Retrieves a list of tabs with information about each tab that the calling user can navigate to in a specific workspace.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs navigation information for.</param>
+		/// <returns>List of <see cref="Tab"/> entities.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;Tab&gt; result = _tabService.GetAllForNavigation(workspaceId);
+		/// </code>
+		/// </example>
+		List<Tab> GetAllForNavigation(int workspaceId);
 	}
 }

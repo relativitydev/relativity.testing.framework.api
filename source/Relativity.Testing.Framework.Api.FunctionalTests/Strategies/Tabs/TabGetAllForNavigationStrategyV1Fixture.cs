@@ -12,11 +12,21 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class TabGetAllForNavigationStrategyV1Fixture : ApiServiceTestFixture<ITabGetAllForNavigationStrategy>
 	{
 		[Test]
-		public void Get_()
+		public void Get_ForDefault()
 		{
 			var result = new List<Tab>();
 
 			Assert.DoesNotThrow(() => result = Sut.Get(DefaultWorkspace.ArtifactID));
+
+			result.Should().NotBeEmpty();
+		}
+
+		[Test]
+		public void Get_ForAdminContext()
+		{
+			var result = new List<Tab>();
+
+			Assert.DoesNotThrow(() => result = Sut.Get(-1));
 
 			result.Should().NotBeEmpty();
 		}

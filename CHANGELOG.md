@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.0] - 2021-08-18
+
+### Added
+
+- GetAvailableObjectTypes method in ITabService. - [RTF-762](https://jira.kcura.com/browse/RTF-762)
+- GetEligibleParents method in ITabService.  - [RTF-1205](https://jira.kcura.com/browse/RTF-1205)
+- GetAdminLevelMetadata method in ITabService. - [RTF-1207](https://jira.kcura.com/browse/RTF-1207)
+- GetTabsOrder method in ITabService.  - [RTF-1208](https://jira.kcura.com/browse/RTF-1208)
+- GetAllForNavigation method in ITabService. - [RTF-1209](https://jira.kcura.com/browse/RTF-1209)
+
 ## [4.4.0] - 2021-08-16
 
 ### Added

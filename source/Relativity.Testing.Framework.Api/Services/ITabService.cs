@@ -160,7 +160,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>List of <see cref="TabEligibleParent"/> entities.</returns>
 		List<TabEligibleParent> GetEligibleParents(int workspaceId);
 
-    /// <summary>
+		/// <summary>
 		/// Gets current order of the tabs in a workspace.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs order for.</param>
@@ -173,7 +173,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </example>
 		List<Tab> GetTabsOrder(int workspaceId);
 
-    /// <summary>
+		/// <summary>
 		/// Retrieves a list of tabs with information about each tab that the calling user can navigate to in a specific workspace.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs navigation information for.</param>

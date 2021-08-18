@@ -18,13 +18,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to create the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="view">The entity to create.</param>
+		/// <param name="view">The view to create.</param>
 		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1015427;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
-		/// 	.Get(workspaceID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceID, "Control Number");
 		/// View viewtoCreate = new View
 		/// {
 		/// 	Name = "Test View Name",
@@ -61,7 +60,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 1015427;
 		/// int viewArtifactID = 1024345;
-		/// View[] views = _viewService.GetAll(workspaceID, viewArtifactID);
+		/// View view = _viewService.Get(workspaceID, viewArtifactID);
 		/// </code>
 		/// </example>
 		View Get(int workspaceArtifactID, int viewArtifactID);
@@ -77,7 +76,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 1015427;
 		/// int viewName = "Test View Name";
-		/// View[] views = _viewService.GetAll(workspaceID, viewName);
+		/// View view = _viewService.Get(workspaceID, viewName);
 		/// </code>
 		/// </example>
 		View Get(int workspaceArtifactID, string viewName);
@@ -98,8 +97,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceID = 1015427;
 		/// int existingViewID = 1024345;
 		/// int updatedOrder = 5;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
-		/// 	.Get(workspaceID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceID, "Control Number");
 		/// View viewToUpdate = new View
 		/// {
 		/// 	ArtifactID = existingViewID,
@@ -115,8 +113,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceID = 1015427;
 		/// int existingViewName = "Test Existing View Name",
 		/// int updatedOrder = 5;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
-		/// 	.Get(workspaceID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceID, "Control Number");
 		/// View viewToUpdate = new View
 		/// {
 		/// 	Name = existingViewName
@@ -129,8 +126,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example> This shows how to create new view by using Require method with View entity that doesn't have ArtifactID field filled and Name that doesn't match any existing View.
 		/// <code>
 		/// int workspaceID = 1015427;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
-		/// 	.Get(workspaceID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceID, "Control Number");
 		/// View viewtoCreate = new View
 		/// {
 		/// 	Name = "Test Not Existing View Name",

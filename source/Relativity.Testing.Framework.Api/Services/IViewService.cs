@@ -6,71 +6,172 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// <summary>
 	/// Represent the API view service.
 	/// </summary>
+	/// <example>
+	/// <code>
+	/// _viewService = relativityFacade.Resolve&lt;IViewService&gt;();
+	/// </code>
+	/// </example>
 	public interface IViewService
 	{
 		/// <summary>
-		///  Creates the specified view.
+		///  Creates the specified <see cref="View"/>.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to create the view,
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to create the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The entity to create.</param>
+		/// <param name="view">The entity to create.</param>
 		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
-		View Create(int workspaceId, View entity);
+		/// <example>
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
+		/// 	.Get(workspaceID, "Control Number");
+		/// View viewtoCreate = new View
+		/// {
+		/// 	Name = "Test View Name",
+		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		/// }
+		/// View createdView = _viewService.Create(workspaceID, viewtoCreate);
+		/// </code>
+		/// </example>
+		View Create(int workspaceArtifactID, View view);
 
 		/// <summary>
-		/// Gets all views in workspace.
+		/// Gets all <see cref="View"/>s in workspace.
 		/// Returns not all fields for faster response.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the view,
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to get the view,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <returns>The collection of <see cref="View"/> entities.</returns>
-		View[] GetAll(int workspaceId);
+		/// <example>
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// View[] views = _viewService.GetAll(workspaceID);
+		/// </code>
+		/// </example>
+		View[] GetAll(int workspaceArtifactID);
 
 		/// <summary>
-		/// Gets the view by the specified ID.
+		/// Gets the <see cref="View"/> by the specified ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the view,
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to get the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The Artifact ID of the view.</param>
+		/// <param name="viewArtifactID">The ArtifactID of the view.</param>
 		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
-		View Get(int workspaceId, int entityId);
+		/// <example>
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// int viewArtifactID = 1024345;
+		/// View[] views = _viewService.GetAll(workspaceID, viewArtifactID);
+		/// </code>
+		/// </example>
+		View Get(int workspaceArtifactID, int viewArtifactID);
 
 		/// <summary>
-		/// Gets the view by the specified name.
+		/// Gets the <see cref="View"/> by the specified name.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the view,
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to get the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityName">The name of the view.</param>
+		/// <param name="viewName">The name of the view.</param>
 		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
-		View Get(int workspaceId, string entityName);
+		/// <example>
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// int viewName = "Test View Name";
+		/// View[] views = _viewService.GetAll(workspaceID, viewName);
+		/// </code>
+		/// </example>
+		View Get(int workspaceArtifactID, string viewName);
 
 		/// <summary>
-		/// Requires the specified view.
+		/// Requires the specified <see cref="View"/>.
 		/// <list type="number">
-		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</item>
-		/// <item>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, gets entity by name and updates it if it exists.</item>
-		/// <item>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</item>
+		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="view"/> has positive value, gets view by ArtifactID and updates it.</description></item>
+		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="view"/> has a value, gets view by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new view using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
 		/// </list>
 		/// </summary>
 		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require view.</param>
-		/// <param name="entity">The entity to require.</param>
-		View Require(int workspaceId, View entity);
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to require view.</param>
+		/// <param name="view">The view to require.</param>
+		/// <example> This shows how to update view by using Require method with View entity that hase ArtifactID field filled.
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// int existingViewID = 1024345;
+		/// int updatedOrder = 5;
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
+		/// 	.Get(workspaceID, "Control Number");
+		/// View viewToUpdate = new View
+		/// {
+		/// 	ArtifactID = existingViewID,
+		/// 	Name = "Test Existing View Name",
+		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		/// 	Order = updatedOrder
+		/// }
+		/// View updatedView = _viewService.Require(workspaceID, viewToUpdate);
+		/// </code>
+		/// </example>
+		/// <example> This shows how to update view by using Require method with View entity that hase Name field filled.
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// int existingViewName = "Test Existing View Name",
+		/// int updatedOrder = 5;
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
+		/// 	.Get(workspaceID, "Control Number");
+		/// View viewToUpdate = new View
+		/// {
+		/// 	Name = existingViewName
+		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		/// 	Order = updatedOrder
+		/// }
+		/// View updatedView = _viewService.Require(workspaceID, viewToUpdate);
+		/// </code>
+		/// </example>
+		/// <example> This shows how to create new view by using Require method with View entity that doesn't have ArtifactID field filled and Name that doesn't match any existing View.
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;()
+		/// 	.Get(workspaceID, "Control Number");
+		/// View viewtoCreate = new View
+		/// {
+		/// 	Name = "Test Not Existing View Name",
+		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		/// }
+		/// View createdView = _viewService.Require(workspaceID, viewtoCreate);
+		/// </code>
+		/// </example>
+		View Require(int workspaceArtifactID, View view);
 
 		/// <summary>
-		/// Determines whether the view with the specified case artifact ID exists.
+		/// Determines whether the <see cref="View"/> with the specified ArtifactID exists.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to check existing of view,
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to check existing of view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The Artifact ID of the view.</param>
+		/// <param name="viewArtifactID">The ArtifactID of the view.</param>
 		/// <returns><see langword="true"/> if a view exists; otherwise, <see langword="false"/>.</returns>
-		bool Exists(int workspaceId, int entityId);
+		/// <example>
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// int viewArtifactID = 1024345;
+		/// bool viewExists = _viewService.Exists(workspaceID, viewArtifactID);
+		/// </code>
+		/// </example>
+		bool Exists(int workspaceArtifactID, int viewArtifactID);
 
 		/// <summary>
-		/// Updates the specified view.
+		/// Updates the specified <see cref="View"/>.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the view.</param>
-		/// <param name="entity">The entity to update.</param>
-		void Update(int workspaceId, View entity);
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to update the view.</param>
+		/// <param name="view">The <see cref="View"/> to update.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceID = 1015427;
+		/// int existingViewArtifactID = 1024345;
+		/// View viewToUpdate = _viewService.Get(workspaceID, existingViewArtifactID);
+		/// viewToUpdate.Name = "Updated View Name";
+		/// viewToUpdate.Order = 345;
+		/// _viewService.Update(workspaceID, existingViewArtifactID);
+		/// </code>
+		/// </example>
+		void Update(int workspaceArtifactID, View view);
 	}
 }

@@ -43,7 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			IGetByNameStrategy<Client> getClientByNameStrategy,
 			IMatterGetByNameAndClientIdStrategy matterGetByNameAndClientIdStrategy,
 			IGetAllStrategy<ResourceServer> resourceServerGetAllStrategy,
-			IGetAllStrategy<ResourcePool> getAllResorcePoolsStrategy,
+			IGetAllStrategy<ResourcePool> getAllResourcePoolsStrategy,
 			IObjectService objectService)
 #pragma warning restore S107 // Methods should not have too many parameters
 		{
@@ -55,7 +55,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_getClientByNameStrategy = getClientByNameStrategy;
 			_matterGetByNameAndClientIdStrategy = matterGetByNameAndClientIdStrategy;
 			_resourceServerGetAllStrategy = resourceServerGetAllStrategy;
-			_getAllResourcePoolsStrategy = getAllResorcePoolsStrategy;
+			_getAllResourcePoolsStrategy = getAllResourcePoolsStrategy;
 			_objectService = objectService;
 		}
 
@@ -86,7 +86,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 				if (!workspaces.Any())
 				{
-					throw new Exception("There is no workspaces in the environment.");
+					throw new Exception("There are no workspaces in the environment.");
 				}
 
 				return workspaces.Any(x => x.Name == DefaultTemplateWorkspaceName)
@@ -120,7 +120,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			entity.Client = ResolveClient(entity.Client);
 
-			int matterId = ResolveMatterId(entity.Matter, entity.Client?.ArtifactID);
+			int matterId = ResolveMatterID(entity.Matter, entity.Client?.ArtifactID);
 
 			var servers = _resourceServerGetAllStrategy.GetAll();
 
@@ -208,56 +208,65 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 		}
 
-		private int ResolveMatterId(NamedArtifact matter, int? clientId)
+		private int ResolveMatterID(NamedArtifact matter, int? clientID)
 		{
+			int matterID;
+
 			if (matter?.ArtifactID > 0)
 			{
-				return matter.ArtifactID;
+				matterID = matter.ArtifactID;
 			}
 			else if (matter?.Name != null)
 			{
-				if (clientId is null)
+				if (clientID is null)
 				{
 					throw new InvalidOperationException("Cannot resolve matter as client ID is not specified.");
 				}
 
-				Matter gotMatter = _matterGetByNameAndClientIdStrategy.Get(matter.Name, clientId.Value);
+				Matter gotMatter = _matterGetByNameAndClientIdStrategy.Get(matter.Name, clientID.Value);
 
-				return gotMatter != null
+				matterID = gotMatter != null
 					? gotMatter.ArtifactID
 					: throw ObjectNotFoundException.CreateForNotFoundByName<Matter>(matter.Name);
 			}
 			else
 			{
-				Matter getMatter = null;
-
-				if (clientId.HasValue)
-				{
-					getMatter = _objectService.Query<Matter>().Where(x => x.Client, clientId.Value).FirstOrDefault();
-				}
-
-				if (getMatter == null)
-				{
-					getMatter = _objectService.Query<Matter>().Where(x => x.Name, "Relativity Template").FirstOrDefault();
-				}
-
-				if (getMatter == null)
-				{
-					getMatter = _objectService.Query<Matter>().Where(x => x.Name, "Sample Matter").FirstOrDefault();
-				}
-
-				if (getMatter == null)
-				{
-					getMatter = _objectService.Query<Matter>().FirstOrDefault();
-				}
-
-				if (getMatter == null)
-				{
-					throw new InvalidOperationException("Cannot resolve matter.");
-				}
-
-				return getMatter.ArtifactID;
+				matterID = ResolveMatterIDForBlankMatter(clientID);
 			}
+
+			return matterID;
+		}
+
+		private int ResolveMatterIDForBlankMatter(int? clientID)
+		{
+			Matter matter = null;
+
+			if (clientID.HasValue)
+			{
+				matter = _objectService.Query<Matter>().Where(x => x.Client, clientID.Value).FirstOrDefault();
+			}
+
+			if (matter == null)
+			{
+				matter = _objectService.Query<Matter>().Where(x => x.Name, "Relativity Template").FirstOrDefault();
+			}
+
+			if (matter == null)
+			{
+				matter = _objectService.Query<Matter>().Where(x => x.Name, "Sample Matter").FirstOrDefault();
+			}
+
+			if (matter == null)
+			{
+				matter = _objectService.Query<Matter>().FirstOrDefault();
+			}
+
+			if (matter == null)
+			{
+				throw new InvalidOperationException("No matter available.");
+			}
+
+			return matter.ArtifactID;
 		}
 	}
 }

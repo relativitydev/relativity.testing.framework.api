@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Newtonsoft.Json.Linq;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
@@ -8,33 +7,33 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class TabGetByIdStrategyPrePrairieSmoke : IGetWorkspaceEntityByIdStrategy<Tab>
+	internal class TabGetByNameStrategyPreOsier : IGetWorkspaceEntityByNameStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 		private readonly IObjectService _objectService;
 
-		public TabGetByIdStrategyPrePrairieSmoke(IRestService restService, IObjectService objectService)
+		public TabGetByNameStrategyPreOsier(IRestService restService, IObjectService objectService)
 		{
 			_restService = restService;
 			_objectService = objectService;
 		}
 
-		public Tab Get(int workspaceId, int entityId)
+		public Tab Get(int workspaceId, string entityName)
 		{
-			bool isExist = _objectService.Query<Tab>()
+			Tab tab = _objectService.Query<Tab>()
 				.For(workspaceId)
 				.FetchOnlyArtifactID()
-				.Where(x => x.ArtifactID, entityId)
-				.Any();
+				.Where(x => x.Name, entityName)
+				.FirstOrDefault();
 
-			if (!isExist)
+			if (tab == null)
 			{
 				return null;
 			}
 
-			TabResponsePrePrairieSmoke result = _restService.Get<TabResponsePrePrairieSmoke>($"Relativity.Tabs/workspace/{workspaceId}/tabs/{entityId}");
+			TabResponsePrePrairieSmoke result = _restService.Get<TabResponsePrePrairieSmoke>($"Relativity.Tabs/workspace/{workspaceId}/tabs/{tab.ArtifactID}");
 
-			Tab tab = result.ToTab();
+			tab = result.ToTab();
 
 			return tab;
 		}

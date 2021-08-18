@@ -6,11 +6,11 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class TabUpdateStrategyPrePrairieSmoke : IUpdateWorkspaceEntityStrategy<Tab>
+	internal class TabUpdateStrategyPreOsier : IUpdateWorkspaceEntityStrategy<Tab>
 	{
 		private readonly IRestService _restService;
 
-		public TabUpdateStrategyPrePrairieSmoke(IRestService restService)
+		public TabUpdateStrategyPreOsier(IRestService restService)
 		{
 			_restService = restService;
 		}
@@ -22,9 +22,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				throw new ArgumentNullException(nameof(entity));
 			}
 
-			TabDtoPrePrairieSmoke tabDto = new TabDtoPrePrairieSmoke
+			TabDtoPreOsier tabDto = new TabDtoPreOsier
 			{
-				Tab = TabRequestPrePrairieSmoke.FromTab(workspaceId, entity)
+				Tab = TabRequestPreOsier.FromTab(workspaceId, entity)
 			};
 
 			_restService.Put($"Relativity.Tabs/workspace/{workspaceId}/tabs", tabDto);

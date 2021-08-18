@@ -23,7 +23,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				IsShownInSidebar = IsShownInSidebar,
 				IsVisible = IsVisible,
 				Link = Link,
-				LinkType = string.IsNullOrWhiteSpace(IconIdentifier) ?
+				LinkType = string.IsNullOrWhiteSpace(LinkType) ?
 					TabLinkType.Unknown :
 					(TabLinkType)ChoiceNameToEnumMapper.GetEnumValue(typeof(TabLinkType), LinkType),
 				Name = ObjectIdentifier.Name,

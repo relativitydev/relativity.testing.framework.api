@@ -17,6 +17,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly ITabGetAdminLevelMetadataStrategy _tabGetAdminLevelMetadataStrategy;
 		private readonly ITabGetEligibleParentsStrategy _tabGetEligibleParentsStrategy;
 		private readonly ITabGetOrderStrategy _tabGetOrderStrategy;
+		private readonly ITabGetAllForNavigationStrategy _tabGetAllForNavigationStrategy;
 
 		public TabService(
 			ICreateWorkspaceEntityStrategy<Tab> createWorkspaceEntityStrategy,
@@ -28,7 +29,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			ITabGetAvailableObjectTypesByWorkspaceIDStrategy tabGetAvailableObjectTypesStrategy,
 			ITabGetAdminLevelMetadataStrategy tabGetAdminLevelMetadataStrategy,
 			ITabGetEligibleParentsStrategy tabGetEligibleParentsStrategy,
-			ITabGetOrderStrategy tabGetOrderStrategy)
+			ITabGetOrderStrategy tabGetOrderStrategy,
+			ITabGetAllForNavigationStrategy tabGetAllForNavigationStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_requireWorkspaceEntityStrategy = requireWorkspaceEntityStrategy;
@@ -40,6 +42,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_tabGetAdminLevelMetadataStrategy = tabGetAdminLevelMetadataStrategy;
 			_tabGetEligibleParentsStrategy = tabGetEligibleParentsStrategy;
 			_tabGetOrderStrategy = tabGetOrderStrategy;
+			_tabGetAllForNavigationStrategy = tabGetAllForNavigationStrategy;
 		}
 
 		public Tab Create(int workspaceId, Tab entity)
@@ -71,5 +74,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public List<Tab> GetTabsOrder(int workspaceId)
 			=> _tabGetOrderStrategy.Get(workspaceId);
+
+		public List<Tab> GetAllForNavigation(int workspaceId)
+			=> _tabGetAllForNavigationStrategy.Get(workspaceId);
 	}
 }

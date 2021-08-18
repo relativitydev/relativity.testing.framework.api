@@ -16,7 +16,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly ITabGetAvailableObjectTypesByWorkspaceIDStrategy _tabGetAvailableObjectTypesStrategy;
 		private readonly ITabGetAdminLevelMetadataStrategy _tabGetAdminLevelMetadataStrategy;
 		private readonly ITabGetEligibleParentsStrategy _tabGetEligibleParentsStrategy;
-    private readonly ITabGetOrderStrategy _tabGetOrderStrategy;
+		private readonly ITabGetOrderStrategy _tabGetOrderStrategy;
 		private readonly ITabGetAllForNavigationStrategy _tabGetAllForNavigationStrategy;
 
 		public TabService(

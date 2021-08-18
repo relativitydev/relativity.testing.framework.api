@@ -31,25 +31,25 @@ namespace Relativity.Testing.Framework.Api.Services
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 		}
 
-		public View Create(int workspaceId, View entity)
-			=> _createWorkspaceEntityStrategy.Create(workspaceId, entity);
+		public View Create(int workspaceArtifactID, View view)
+			=> _createWorkspaceEntityStrategy.Create(workspaceArtifactID, view);
 
-		public View[] GetAll(int workspaceId)
-			=> _getAllWorkspaceEntitiesStrategy.GetAll(workspaceId);
+		public View[] GetAll(int workspaceArtifactID)
+			=> _getAllWorkspaceEntitiesStrategy.GetAll(workspaceArtifactID);
 
-		public View Get(int workspaceId, int entityId)
-			=> _getWorkspaceEntityByIdStrategy.Get(workspaceId, entityId);
+		public View Get(int workspaceArtifactID, int viewArtifactID)
+			=> _getWorkspaceEntityByIdStrategy.Get(workspaceArtifactID, viewArtifactID);
 
-		public View Get(int workspaceId, string entityName)
-			=> _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityName);
+		public View Get(int workspaceArtifactID, string viewName)
+			=> _getWorkspaceEntityByNameStrategy.Get(workspaceArtifactID, viewName);
 
-		public View Require(int workspaceId, View entity)
-			=> _requireWorkspaceEntityStrategy.Require(workspaceId, entity);
+		public View Require(int workspaceArtifactID, View view)
+			=> _requireWorkspaceEntityStrategy.Require(workspaceArtifactID, view);
 
-		public bool Exists(int workspaceId, int entityId)
-			=> _existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId);
+		public bool Exists(int workspaceArtifactID, int viewArtifactID)
+			=> _existsWorkspaceEntityByIdStrategy.Exists(workspaceArtifactID, viewArtifactID);
 
-		public void Update(int workspaceId, View entity)
-			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
+		public void Update(int workspaceArtifactID, View view)
+			=> _updateWorkspaceEntityStrategy.Update(workspaceArtifactID, view);
 	}
 }

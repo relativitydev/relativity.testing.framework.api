@@ -45,7 +45,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <list type="number">
 		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="tab"/> has positive value, gets entity by ID and updates it.</description></item>
 		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="tab"/> have a value, gets entity by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new <see cref="Tab"/> using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
+		/// <item><description>Otherwise creates a new <see cref="Tab"/>.</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="workspaceArtifactID">The Artifact ID of the workspace where you want to require tab,

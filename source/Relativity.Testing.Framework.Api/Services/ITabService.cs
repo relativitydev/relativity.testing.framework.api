@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -121,5 +122,68 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Update(int workspaceId, Tab entity);
+
+		/// <summary>
+		/// Retrieves a list of all object types in a workspace available for creating or updating a tab.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve available object types for.</param>
+		/// <returns>>List of <see cref="ObjectType"/>.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;ObjectType&gt; result = _tabService.GetAvailableObjectTypes(workspaceId);
+		/// </code>
+		/// </example>
+		List<ObjectType> GetAvailableObjectTypes(int workspaceId);
+
+		/// <summary>
+		/// Gets the <see cref="Meta"/> with admin-level metadata about admin and system tabs.
+		/// </summary>
+		/// <example>
+		/// <code>
+		/// Meta meta = _tabService.GetAdminLevelMetadata();
+		/// </code>
+		/// </example>
+		/// <returns>The <see cref="Meta"/> entity.</returns>
+		Meta GetAdminLevelMetadata();
+
+		/// <summary>
+		/// Retrieves a list of parent tabs, which can be associated with a tab for adding or updating it.
+		/// </summary>
+		/// /// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve parent tabs for.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;TabEligibleParentV1&gt; result = _tabService.GetEligibleParents(workspaceId);
+		/// </code>
+		/// </example>
+		/// <returns>List of <see cref="TabEligibleParent"/> entities.</returns>
+		List<TabEligibleParent> GetEligibleParents(int workspaceId);
+
+		/// <summary>
+		/// Gets current order of the tabs in a workspace.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs order for.</param>
+		/// <returns>Ordered list of <see cref="Tab"/>s. Only basic information and Order fields are filled.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;Tab&gt; = _tabService.GetTabsOrder(workspaceId);
+		/// </code>
+		/// </example>
+		List<Tab> GetTabsOrder(int workspaceId);
+
+		/// <summary>
+		/// Retrieves a list of tabs with information about each tab that the calling user can navigate to in a specific workspace.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs navigation information for.</param>
+		/// <returns>List of <see cref="Tab"/> entities.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234567;
+		/// List&lt;Tab&gt; result = _tabService.GetAllForNavigation(workspaceId);
+		/// </code>
+		/// </example>
+		List<Tab> GetAllForNavigation(int workspaceId);
 	}
 }

@@ -43,9 +43,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified tab.
 		/// <list type="number">
-		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="tab"/> has positive value, gets entity by ID and updates it.</item>
-		/// <item>If <see cref="NamedArtifact.Name"/> property of <paramref name="tab"/> have a value, gets entity by name and updates it if it exists.</item>
-		/// <item>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</item>
+		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="tab"/> has positive value, gets entity by ID and updates it.</description></item>
+		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="tab"/> have a value, gets entity by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new <see cref="Tab"/> using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="workspaceArtifactID">The Artifact ID of the workspace where you want to require tab,
@@ -68,7 +68,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Tab Require(int workspaceArtifactID, Tab tab);
 
 		/// <summary>
-		/// Deletes the tab by ID.
+		/// Deletes the <see cref="Tab"/> by ID.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The Artifact ID of the workspace where you want to delete the tab,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -82,7 +82,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceArtifactID, int tabArtifactId);
 
 		/// <summary>
-		/// Gets the tab by the specified ID.
+		/// Gets the <see cref="Tab"/> by the specified ID.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The Artifact ID of the workspace where you want to get the tab,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -97,7 +97,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Tab Get(int workspaceArtifactID, int tabArtifactId);
 
 		/// <summary>
-		/// Gets the tab by the specified name.
+		/// Gets the <see cref="Tab"/> by the specified name.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The Artifact ID of the workspace where you want to get the tab,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -112,7 +112,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Tab Get(int workspaceArtifactID, string tabName);
 
 		/// <summary>
-		/// Updates the specified tab.
+		/// Updates the specified <see cref="Tab"/>.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The Artifact ID of the workspace where you want to update the tab,
 		/// or use -1 to indicate the admin-level context.</param>

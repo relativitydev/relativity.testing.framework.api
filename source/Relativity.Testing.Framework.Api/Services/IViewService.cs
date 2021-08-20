@@ -18,12 +18,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to create the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="view">The view to create.</param>
+		/// <param name="view">The <see cref="View"/> to create.</param>
 		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceArtifactID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewtoCreate = new View
 		/// {
 		/// 	Name = "Test View Name",
@@ -86,10 +86,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <list type="number">
 		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="view"/> has positive value, gets view by ArtifactID and updates it.</description></item>
 		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="view"/> has a value, gets view by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new view using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
+		/// <item><description>Otherwise creates a new <see cref="View"/>.</description></item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The <see cref="View"/> entity.</returns>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to require view.</param>
 		/// <param name="view">The view to require.</param>
 		/// <example> This shows how to update view by using Require method with View entity that hase ArtifactID field filled.
@@ -97,7 +97,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1015427;
 		/// int existingViewArtifactID = 1024345;
 		/// int updatedOrder = 5;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceArtifactID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewToUpdate = new View
 		/// {
 		/// 	ArtifactID = existingViewArtifactID,
@@ -113,7 +113,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1015427;
 		/// int existingViewName = "Test Existing View Name",
 		/// int updatedOrder = 5;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceArtifactID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewToUpdate = new View
 		/// {
 		/// 	Name = existingViewName
@@ -126,7 +126,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example> This shows how to create new view by using Require method with View entity that doesn't have ArtifactID field filled and Name that doesn't match any existing View.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
-		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;FixedLengthTextField&gt;&gt;().Get(workspaceArtifactID, "Control Number");
+		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewtoCreate = new View
 		/// {
 		/// 	Name = "Test Not Existing View Name",
@@ -140,7 +140,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Determines whether the <see cref="View"/> with the specified ArtifactID exists.
 		/// </summary>
-		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to check existing of view,
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to check if a view exists,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="viewArtifactID">The ArtifactID of the view.</param>
 		/// <returns><see langword="true"/> if a view exists; otherwise, <see langword="false"/>.</returns>

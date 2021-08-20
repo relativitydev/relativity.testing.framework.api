@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -12,6 +13,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IGetWorkspaceEntityByIdStrategy<Tab> _getWorkspaceEntityByIdStrategy;
 		private readonly IGetWorkspaceEntityByNameStrategy<Tab> _getWorkspaceEntityByNameStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<Tab> _updateWorkspaceEntityStrategy;
+		private readonly ITabGetAvailableObjectTypesByWorkspaceIDStrategy _tabGetAvailableObjectTypesStrategy;
+		private readonly ITabGetAdminLevelMetadataStrategy _tabGetAdminLevelMetadataStrategy;
+		private readonly ITabGetEligibleParentsStrategy _tabGetEligibleParentsStrategy;
+		private readonly ITabGetOrderStrategy _tabGetOrderStrategy;
+		private readonly ITabGetAllForNavigationStrategy _tabGetAllForNavigationStrategy;
 
 		public TabService(
 			ICreateWorkspaceEntityStrategy<Tab> createWorkspaceEntityStrategy,
@@ -19,7 +25,12 @@ namespace Relativity.Testing.Framework.Api.Services
 			IDeleteWorkspaceEntityByIdStrategy<Tab> deleteWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByIdStrategy<Tab> getWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByNameStrategy<Tab> getWorkspaceEntityByName,
-			IUpdateWorkspaceEntityStrategy<Tab> updateWorkspaceEntityStrategy)
+			IUpdateWorkspaceEntityStrategy<Tab> updateWorkspaceEntityStrategy,
+			ITabGetAvailableObjectTypesByWorkspaceIDStrategy tabGetAvailableObjectTypesStrategy,
+			ITabGetAdminLevelMetadataStrategy tabGetAdminLevelMetadataStrategy,
+			ITabGetEligibleParentsStrategy tabGetEligibleParentsStrategy,
+			ITabGetOrderStrategy tabGetOrderStrategy,
+			ITabGetAllForNavigationStrategy tabGetAllForNavigationStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_requireWorkspaceEntityStrategy = requireWorkspaceEntityStrategy;
@@ -27,6 +38,11 @@ namespace Relativity.Testing.Framework.Api.Services
 			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByName;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
+			_tabGetAvailableObjectTypesStrategy = tabGetAvailableObjectTypesStrategy;
+			_tabGetAdminLevelMetadataStrategy = tabGetAdminLevelMetadataStrategy;
+			_tabGetEligibleParentsStrategy = tabGetEligibleParentsStrategy;
+			_tabGetOrderStrategy = tabGetOrderStrategy;
+			_tabGetAllForNavigationStrategy = tabGetAllForNavigationStrategy;
 		}
 
 		public Tab Create(int workspaceId, Tab entity)
@@ -46,5 +62,20 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Update(int workspaceId, Tab entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
+
+		public List<ObjectType> GetAvailableObjectTypes(int workspaceId)
+			=> _tabGetAvailableObjectTypesStrategy.Get(workspaceId);
+
+		public Meta GetAdminLevelMetadata()
+			=> _tabGetAdminLevelMetadataStrategy.Get();
+
+		public List<TabEligibleParent> GetEligibleParents(int workspaceId)
+			=> _tabGetEligibleParentsStrategy.Get(workspaceId);
+
+		public List<Tab> GetTabsOrder(int workspaceId)
+			=> _tabGetOrderStrategy.Get(workspaceId);
+
+		public List<Tab> GetAllForNavigation(int workspaceId)
+			=> _tabGetAllForNavigationStrategy.Get(workspaceId);
 	}
 }

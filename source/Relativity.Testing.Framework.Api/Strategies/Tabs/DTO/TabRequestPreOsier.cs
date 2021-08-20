@@ -3,17 +3,17 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class TabRequestPrePrairieSmoke : TabRequestBase
+	internal class TabRequestPreOsier : TabRequestBase
 	{
 		public NamedArtifact ObjectType { get; set; }
 
-		internal static TabRequestPrePrairieSmoke FromTab(int workspaceId, Tab entity)
+		internal static TabRequestPreOsier FromTab(int workspaceId, Tab entity)
 		{
 			entity = SetParent(workspaceId, entity);
 
 			entity = SetObjectType(entity);
 
-			TabRequestPrePrairieSmoke tab = new TabRequestPrePrairieSmoke
+			TabRequestPreOsier tab = new TabRequestPreOsier
 			{
 				ArtifactID = entity.ArtifactID,
 				IconIdentifier = ChoiceNameToEnumMapper.GetName(entity.IconIdentifier),

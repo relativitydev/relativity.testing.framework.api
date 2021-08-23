@@ -45,37 +45,37 @@ namespace Relativity.Testing.Framework.Api.Services
 			_tabGetAllForNavigationStrategy = tabGetAllForNavigationStrategy;
 		}
 
-		public Tab Create(int workspaceArtifactID, Tab tab)
-			=> _createWorkspaceEntityStrategy.Create(workspaceArtifactID, tab);
+		public Tab Create(int workspaceId, Tab entity)
+			=> _createWorkspaceEntityStrategy.Create(workspaceId, entity);
 
-		public Tab Require(int workspaceArtifactID, Tab tab)
-			=> _requireWorkspaceEntityStrategy.Require(workspaceArtifactID, tab);
+		public Tab Require(int workspaceId, Tab entity)
+			=> _requireWorkspaceEntityStrategy.Require(workspaceId, entity);
 
-		public void Delete(int workspaceArtifactID, int tabArtifactId)
-			=> _deleteWorkspaceEntityByIdStrategy.Delete(workspaceArtifactID, tabArtifactId);
+		public void Delete(int workspaceId, int entityId)
+			=> _deleteWorkspaceEntityByIdStrategy.Delete(workspaceId, entityId);
 
-		public Tab Get(int workspaceArtifactID, int tabArtifactId)
-			=> _getWorkspaceEntityByIdStrategy.Get(workspaceArtifactID, tabArtifactId);
+		public Tab Get(int workspaceId, int entityId)
+			=> _getWorkspaceEntityByIdStrategy.Get(workspaceId, entityId);
 
-		public Tab Get(int workspaceArtifactID, string tabName)
-			=> _getWorkspaceEntityByNameStrategy.Get(workspaceArtifactID, tabName);
+		public Tab Get(int workspaceId, string entityName)
+			=> _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityName);
 
-		public void Update(int workspaceArtifactID, Tab tab)
-			=> _updateWorkspaceEntityStrategy.Update(workspaceArtifactID, tab);
+		public void Update(int workspaceId, Tab entity)
+			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
-		public List<ObjectType> GetAvailableObjectTypes(int workspaceArtifactID)
-			=> _tabGetAvailableObjectTypesStrategy.Get(workspaceArtifactID);
+		public List<ObjectType> GetAvailableObjectTypes(int workspaceId)
+			=> _tabGetAvailableObjectTypesStrategy.Get(workspaceId);
 
 		public Meta GetAdminLevelMetadata()
 			=> _tabGetAdminLevelMetadataStrategy.Get();
 
-		public List<TabEligibleParent> GetEligibleParents(int workspaceArtifactID)
-			=> _tabGetEligibleParentsStrategy.Get(workspaceArtifactID);
+		public List<TabEligibleParent> GetEligibleParents(int workspaceId)
+			=> _tabGetEligibleParentsStrategy.Get(workspaceId);
 
-		public List<Tab> GetTabsOrder(int workspaceArtifactID)
-			=> _tabGetOrderStrategy.Get(workspaceArtifactID);
+		public List<Tab> GetTabsOrder(int workspaceId)
+			=> _tabGetOrderStrategy.Get(workspaceId);
 
-		public List<Tab> GetAllForNavigation(int workspaceArtifactID)
-			=> _tabGetAllForNavigationStrategy.Get(workspaceArtifactID);
+		public List<Tab> GetAllForNavigation(int workspaceId)
+			=> _tabGetAllForNavigationStrategy.Get(workspaceId);
 	}
 }

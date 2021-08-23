@@ -9,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// </summary>
 	/// <example>
 	/// <code>
-	/// _tabService = relativityFacade.Resolve&lt;ITabService&gt;();
+	/// ITabService _tabService = relativityFacade.Resolve&lt;ITabService&gt;();
 	/// </code>
 	/// </example>
 	public interface ITabService
@@ -23,17 +23,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>The created <see cref="Tab"/>.</returns>
 		/// <example>
 		/// <code>
-		/// Tab tab = _tabService.Create(-1, new Tab());
+		/// int workspaceArtifactID = -1;
+		/// Tab tab = _tabService.Create(workspaceArtifactID, new Tab());
 		/// </code>
 		/// </example>
 		/// <example>
 		/// <code>
+		/// int workspaceArtifactID = 1234567;
 		/// Tab tab = new Tab
 		/// {
 		///     Name = "MySpecialTab",
 		///     LinkType = TabLinkType.Parent
 		/// };
-		/// Tab tab = _tabService.Create(1015247, tab);
+		/// Tab tab = _tabService.Create(workspaceArtifactID, tab);
 		/// </code>
 		/// </example>
 		Tab Create(int workspaceId, Tab entity);
@@ -41,9 +43,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified tab.
 		/// <list type="number">
-		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</item>
-		/// <item>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</item>
-		/// <item>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</item>
+		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
+		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new <see cref="Tab"/>.</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require tab,
@@ -53,32 +55,34 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// In this example, the tab does not exist, so it will be created.
 		/// <code>
+		/// int workspaceArtifactID = 1234567;
 		/// Tab tab = new Tab
 		/// {
 		///     Name = "MySpecialTab",
 		///     LinkType = TabLinkType.Parent
 		/// };
-		/// Tab tab = _tabService.Require(1015247, tab);
+		/// Tab tab = _tabService.Require(workspaceArtifactID, tab);
 		/// </code>
 		/// However, if the tab did exist, it would be updated to match the definition.
 		/// </example>
 		Tab Require(int workspaceId, Tab entity);
 
 		/// <summary>
-		/// Deletes the tab by ID.
+		/// Deletes the <see cref="Tab"/> by ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to delete the tab,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityId">The artifact ID of the <see cref="Tab"/>.</param>
 		/// <example>
 		/// <code>
-		/// _tabService.Require(1015247, tab.ArtifactId);
+		/// int workspaceArtifactID = 1234567;
+		/// _tabService.Delete(workspaceArtifactID, tab.ArtifactId);
 		/// </code>
 		/// </example>
 		void Delete(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the tab by the specified ID.
+		/// Gets the <see cref="Tab"/> by the specified ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the tab,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -86,13 +90,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="Tab"/> entity.</returns>
 		/// <example>
 		/// <code>
-		/// Tab tab = _tabService.Get(1015247, tab.ArtifactId);
+		/// int workspaceArtifactID = 1234567;
+		/// Tab tab = _tabService.Get(workspaceArtifactID, tab.ArtifactId);
 		/// </code>
 		/// </example>
 		Tab Get(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the tab by the specified name.
+		/// Gets the <see cref="Tab"/> by the specified name.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the tab,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -100,13 +105,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>The <see cref="Tab"/> entity.</returns>
 		/// <example>
 		/// <code>
-		/// Tab tab = _tabService.Get(1015247, "MyTabName");
+		/// int workspaceArtifactID = 1234567;
+		/// Tab tab = _tabService.Get(workspaceArtifactID, "MyTabName");
 		/// </code>
 		/// </example>
 		Tab Get(int workspaceId, string entityName);
 
 		/// <summary>
-		/// Updates the specified tab.
+		/// Updates the specified <see cref="Tab"/>.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the tab,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -114,11 +120,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Must include the ArtifactID of the Tab in the model.</param>
 		/// <example>
 		/// <code>
-		/// Tab tab = _tabService.Get(1015247, "MyTabName");
+		/// int workspaceArtifactID = 1234567;
+		/// Tab tab = _tabService.Get(workspaceArtifactID, "MyTabName");
 		///
 		/// tab.Name = "AnotherName"
 		///
-		/// tab = _tabService.Update(1015247, tab);
+		/// _tabService.Update(workspaceArtifactID, tab);
 		/// </code>
 		/// </example>
 		void Update(int workspaceId, Tab entity);
@@ -130,8 +137,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>>List of <see cref="ObjectType"/>.</returns>
 		/// <example>
 		/// <code>
-		/// int workspaceId = 1234567;
-		/// List&lt;ObjectType&gt; result = _tabService.GetAvailableObjectTypes(workspaceId);
+		/// int workspaceArtifactID = 1234567;
+		/// List&lt;ObjectType&gt; result = _tabService.GetAvailableObjectTypes(workspaceArtifactID);
 		/// </code>
 		/// </example>
 		List<ObjectType> GetAvailableObjectTypes(int workspaceId);
@@ -153,8 +160,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// /// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve parent tabs for.</param>
 		/// <example>
 		/// <code>
-		/// int workspaceId = 1234567;
-		/// List&lt;TabEligibleParentV1&gt; result = _tabService.GetEligibleParents(workspaceId);
+		/// int workspaceArtifactID = 1234567;
+		/// List&lt;TabEligibleParentV1&gt; result = _tabService.GetEligibleParents(workspaceArtifactID);
 		/// </code>
 		/// </example>
 		/// <returns>List of <see cref="TabEligibleParent"/> entities.</returns>
@@ -167,8 +174,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>Ordered list of <see cref="Tab"/>s. Only basic information and Order fields are filled.</returns>
 		/// <example>
 		/// <code>
-		/// int workspaceId = 1234567;
-		/// List&lt;Tab&gt; = _tabService.GetTabsOrder(workspaceId);
+		/// int workspaceArtifactID = 1234567;
+		/// List&lt;Tab&gt; = _tabService.GetTabsOrder(workspaceArtifactID);
 		/// </code>
 		/// </example>
 		List<Tab> GetTabsOrder(int workspaceId);
@@ -180,8 +187,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>List of <see cref="Tab"/> entities.</returns>
 		/// <example>
 		/// <code>
-		/// int workspaceId = 1234567;
-		/// List&lt;Tab&gt; result = _tabService.GetAllForNavigation(workspaceId);
+		/// int workspaceArtifactID = 1234567;
+		/// List&lt;Tab&gt; result = _tabService.GetAllForNavigation(workspaceArtifactID);
 		/// </code>
 		/// </example>
 		List<Tab> GetAllForNavigation(int workspaceId);

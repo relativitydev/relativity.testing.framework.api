@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the new <see cref="KeywordSearch"/>.</param>
 		/// <param name="entity">The <see cref="KeywordSearch"/> to create.</param>
 		/// <returns>The created <see cref="KeywordSearch"/>.</returns>
-		/// <example> This shows how to create new keyword search basing on control number for entities that contain "EXAMPLE_CONTROL_NUMBER", which returns Control Number fields and sorts results in descending order.
+		/// <example> This shows how to create new keyword search using the control number to search for entities that contain "EXAMPLE_CONTROL_NUMBER", which returns Control Number fields and sorts results in descending order.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
 		/// const string controlNumber = "Control Number";

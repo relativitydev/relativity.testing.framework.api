@@ -147,7 +147,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        .\FunctionalTest.ps1 `
+        .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
@@ -193,7 +193,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        .\FunctionalTest.ps1 `
+        .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
@@ -240,7 +240,7 @@ jobs:
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       shell: pwsh
       run: |
-        .\FunctionalTest.ps1 `
+        .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
@@ -286,7 +286,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        .\FunctionalTest.ps1 `
+        .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `

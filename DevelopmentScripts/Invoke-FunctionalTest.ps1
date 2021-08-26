@@ -46,7 +46,7 @@ Start-Sleep 180 # Environments are less likely to throw 500s if they are up for 
 $Credentials = $Instance.Credentials | Where-Object { $_.CredentialType.Name -eq "Relativity" }
 $RelativityHostAddress = "$($instance.ServiceName).relativityhopper.com"
 
-./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" `
+./New-TestSettings.ps1 -ServerBindingType "https" `
   -RelativityHostAddress $RelativityHostAddress `
   -AdminUsername $Credentials.Username `
   -AdminPassword $Credentials.Password `

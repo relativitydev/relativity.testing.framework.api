@@ -25,7 +25,7 @@ $HopperApiKey = (Invoke-RestMethod -Method GET `
   -Uri "https://testengineering-github.vault.azure.net/secrets/HopperApiKey?api-version=7.1" `
   -Headers @{ Authorization="Bearer $AccessToken" }).value
 
-Import-Module ./DevelopmentScripts/HopperPowerShellClient/*/HopperPowerShellClient.psm1
+Import-Module ./HopperPowerShellClient/*/HopperPowerShellClient.psm1
 
 $Instance = New-Instance -ApiUrl "$HopperAPIURL" `
   -ApiKey $HopperApiKey `

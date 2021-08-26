@@ -106,7 +106,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        FunctionalTest.ps1 `
+        .\FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
@@ -152,7 +152,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        FunctionalTest.ps1 `
+        .\FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
@@ -198,7 +198,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        FunctionalTest.ps1 `
+        .\FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
@@ -244,7 +244,7 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
-        FunctionalTest.ps1 `
+        .\FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `

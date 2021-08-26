@@ -309,7 +309,7 @@ jobs:
 
   Publish:
     runs-on: windows-latest
-    needs: [Build, FunctionalTestPrairieSmoke, FunctionalTestOsier, FunctionalTestNinebark]
+    needs: [Build, FunctionalTestSundrop, FunctionalTestPrairieSmoke, FunctionalTestOsier, FunctionalTestNinebark]
 
     steps:
     - name: Checkout

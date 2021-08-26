@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.1] - 2021-08-26
+
+### Updated
+
+- Relativity supported version range updated from [11.3 - 12.2] to [11.3 - 12.3] - [RTF-1392](https://jira.kcura.com/browse/RTF-1392)
+
 ## [4.5.0] - 2021-08-19
 
 ### Added

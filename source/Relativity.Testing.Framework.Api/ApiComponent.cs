@@ -41,7 +41,7 @@ namespace Relativity.Testing.Framework.Api
 		/// <summary>
 		/// The supported Relativity version range.
 		/// </summary>
-		public const string SupportedRelativityVersionRange = "11.3 - 12.2";
+		public const string SupportedRelativityVersionRange = "11.3 - 12.3";
 
 		/// <summary>
 		/// Gets the kepler service factory.

@@ -101,11 +101,11 @@ jobs:
         path: Tests
 
     - name: Functional Test Sundrop
-      working-directory: DevelopmentScripts
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
+      working-directory: DevelopmentScripts
       run: |
         .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
@@ -152,6 +152,7 @@ jobs:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
+      working-directory: DevelopmentScripts
       run: |
         .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
@@ -198,6 +199,7 @@ jobs:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
+      working-directory: DevelopmentScripts
       run: |
         .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
@@ -244,6 +246,7 @@ jobs:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
+      working-directory: DevelopmentScripts
       run: |
         .\Invoke-FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `

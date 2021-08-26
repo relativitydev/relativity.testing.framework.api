@@ -59,7 +59,7 @@ $ResultsPath = Join-Path (Get-Location) "Artifacts/Logs/$SUTVersion"
 # This sets the location for the trace logs for the tests.
 $Env:ResultsLocation = $ResultsPath
 
-dotnet test Tests\Relativity.Testing.Framework.Api.FunctionalTests.dll `
+dotnet test ..\Tests\Relativity.Testing.Framework.Api.FunctionalTests.dll `
   --nologo `
   --ResultsDirectory $ResultsPath `
   "--logger:nunit;LogFilePath=$LogFilePath" `

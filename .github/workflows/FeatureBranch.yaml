@@ -101,6 +101,7 @@ jobs:
         path: Tests
 
     - name: Functional Test Sundrop
+      working-directory: DevelopmentScripts
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}

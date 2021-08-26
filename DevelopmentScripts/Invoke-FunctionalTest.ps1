@@ -2,7 +2,7 @@ param(
     $ClientID,
     $ClientSecret,
     $DirectoryID,
-    $RunID,
+    $VirtualMachineTag,
     $HopperAPIURL,
     $HopperUsername,
     $BuildOwner,
@@ -27,7 +27,7 @@ $HopperApiKey = (Invoke-RestMethod -Method GET `
 
 Import-Module ./HopperPowerShellClient/*/HopperPowerShellClient.psm1
 
-$VirtualMachineName = $RunID.$SUTVersion
+$VirtualMachineName = "$VirtualMachineTag.$SUTVersion"
 
 $Instance = New-Instance -ApiUrl "$HopperAPIURL" `
   -ApiKey $HopperApiKey `

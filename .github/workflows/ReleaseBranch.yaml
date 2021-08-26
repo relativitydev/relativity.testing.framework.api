@@ -152,7 +152,7 @@ jobs:
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineName ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
+          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
           -HopperAPIURL ${{ env.HOPPER_API_URL }} `
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
@@ -199,7 +199,7 @@ jobs:
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineName ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
+          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
           -HopperAPIURL ${{ env.HOPPER_API_URL }} `
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
@@ -246,7 +246,7 @@ jobs:
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineName ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
+          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
           -HopperAPIURL ${{ env.HOPPER_API_URL }} `
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
@@ -293,7 +293,7 @@ jobs:
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `
           -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineName ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
+          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
           -HopperAPIURL ${{ env.HOPPER_API_URL }} `
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `

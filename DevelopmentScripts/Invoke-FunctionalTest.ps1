@@ -53,8 +53,8 @@ $RelativityHostAddress = "$($instance.ServiceName).relativityhopper.com"
   -RunSettingsPrefix $SUTVersion
 
 $TestSettings = "$($SUTVersion)FunctionalTest.runsettings"
-$LogFilePath = Join-Path (Get-Location) "Artifacts/Logs/{assembly}.{framework}.$($SUTVersion)TestResults.xml"
-$ResultsPath = Join-Path (Get-Location) "Artifacts/Logs/$SUTVersion"
+$LogFilePath = Join-Path (Get-Location) "../Artifacts/Logs/{assembly}.{framework}.$($SUTVersion)TestResults.xml"
+$ResultsPath = Join-Path (Get-Location) "../Artifacts/Logs/$SUTVersion"
 
 # This sets the location for the trace logs for the tests.
 $Env:ResultsLocation = $ResultsPath

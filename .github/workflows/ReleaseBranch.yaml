@@ -147,6 +147,10 @@ jobs:
         ClientId: ${{ secrets.CLIENTID }}
         ClientSecret: ${{ secrets.CLIENTSECRET }}
       run: |
+        echo where am I
+        $pwd
+        echo what's around?
+        ls
         .\FunctionalTest.ps1 `
           -ClientID ${{ env.ClientId }} `
           -ClientSecret ${{ env.CLIENTSECRET }} `

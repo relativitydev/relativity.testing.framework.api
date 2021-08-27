@@ -6,15 +6,27 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class LibraryApplicationWaitUntilInstallFinishedStrategy : ILibraryApplicationWaitUntilInstallFinishedStrategy
+	/// <summary>
+	/// Responsible for polling until an application is installed.
+	/// </summary>
+	public class LibraryApplicationWaitUntilInstallFinishedStrategy : ILibraryApplicationWaitUntilInstallFinishedStrategy
 	{
 		private readonly IRestService _restService;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="LibraryApplicationWaitUntilInstallFinishedStrategy"/> class.
+		/// </summary>
+		/// <param name="restService">An abstraction of the underlying Relativity API surface.</param>
 		public LibraryApplicationWaitUntilInstallFinishedStrategy(IRestService restService)
 		{
 			_restService = restService;
 		}
 
+		/// <summary>
+		/// Polls until the specified application is installed; times-out after 10 minutes.
+		/// </summary>
+		/// <param name="applicationId">The application being installed.</param>
+		/// <param name="applicationInstallId">The running installation to poll.</param>
 		public void WaitUntilInstallFinished(int applicationId, int applicationInstallId)
 		{
 			Stopwatch watch = new Stopwatch();
@@ -37,7 +49,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 						Console.WriteLine("Application install is InProgress.");
 						break;
 					case RelativityApplicationInstallStatusCode.Failed:
-						throw new Exception($"Application failed to install. Exception Message: {string.Join("\n", statusCodeRespose.ValidationMessages)}");
+						string exceptionMsg = (statusCodeRespose.ValidationMessages == null || statusCodeRespose.ValidationMessages.Count == 0)
+							? "Application failed to install. Relativity ADS did not return any validation messages. Relativity logs and errors may contain more information."
+							: $"Application failed to install. Exception Message: {string.Join("\n", statusCodeRespose.ValidationMessages)}";
+						throw new Exception(exceptionMsg);
 					case RelativityApplicationInstallStatusCode.Completed:
 					case RelativityApplicationInstallStatusCode.Canceled:
 						keepPolling = false;

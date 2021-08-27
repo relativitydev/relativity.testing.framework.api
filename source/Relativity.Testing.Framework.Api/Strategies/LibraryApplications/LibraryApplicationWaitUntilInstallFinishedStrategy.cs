@@ -6,27 +6,15 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	/// <summary>
-	/// Responsible for polling until an application is installed.
-	/// </summary>
-	public class LibraryApplicationWaitUntilInstallFinishedStrategy : ILibraryApplicationWaitUntilInstallFinishedStrategy
+	internal class LibraryApplicationWaitUntilInstallFinishedStrategy : ILibraryApplicationWaitUntilInstallFinishedStrategy
 	{
 		private readonly IRestService _restService;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="LibraryApplicationWaitUntilInstallFinishedStrategy"/> class.
-		/// </summary>
-		/// <param name="restService">An abstraction of the underlying Relativity API surface.</param>
 		public LibraryApplicationWaitUntilInstallFinishedStrategy(IRestService restService)
 		{
 			_restService = restService;
 		}
 
-		/// <summary>
-		/// Polls until the specified application is installed; times-out after 10 minutes.
-		/// </summary>
-		/// <param name="applicationId">The application being installed.</param>
-		/// <param name="applicationInstallId">The running installation to poll.</param>
 		public void WaitUntilInstallFinished(int applicationId, int applicationInstallId)
 		{
 			Stopwatch watch = new Stopwatch();

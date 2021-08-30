@@ -8,6 +8,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IQueryResourcesStrategy))]
+	[Parallelizable(ParallelScope.None)]
 	internal class ResourcePoolQueryResourcesStrategyFixture : ApiServiceTestFixture<IQueryResourcesStrategy>
 	{
 		private IGetAllStrategy<ResourcePool> _getAllStrategy;

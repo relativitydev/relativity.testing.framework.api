@@ -6,6 +6,7 @@ using Relativity.Testing.Framework.Api.Strategies;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IQueryEligibleToAddClientsStrategy))]
+	[Parallelizable(ParallelScope.None)]
 	internal class ResourcePoolQueryEligibleClientsStrategyFixture : ApiServiceTestFixture<IQueryEligibleToAddClientsStrategy>
 	{
 		[Test]

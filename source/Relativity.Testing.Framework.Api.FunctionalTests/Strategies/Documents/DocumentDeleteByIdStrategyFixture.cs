@@ -12,14 +12,14 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class DocumentDeleteByIdStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<Document>>
 	{
 		[Test]
-		public void Delete_Missing()
+		public void Get_Missing()
 		{
 			Assert.Throws<HttpRequestException>(() =>
 				Sut.Delete(DefaultWorkspace.ArtifactID, int.MaxValue));
 		}
 
 		[Test]
-		public void Delete_Existing()
+		public void Get_Existing()
 		{
 			Workspace workspace = null;
 			Arrange(x => x.Create(out workspace));

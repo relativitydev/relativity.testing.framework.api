@@ -123,7 +123,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Tab Strategies will now use v1 versioned API in PriarieSmoke and later.
+- Tab Strategies will now use v1 versioned API in PriarieSmoke and later
   - Create
   - GetById
   - GetByName
@@ -422,7 +422,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- ObjectManager Strategies:
+- ObjectManager Strategies
   - MassDelete
   - MassCreate
   - MassUpdate
@@ -442,15 +442,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Script Strategies:
-  - EnqueueRunJob,
-  - ReadRunJob,
-  - QueryActionJobResults,
-  - RunStatusAction,
-  - RunTableAction,
-  - Preview.
-- AccountPool Strategies:
-  - DeleteAndAcquireStandardAccount.
+- Script Strategies
+  - EnqueueRunJob
+  - ReadRunJob
+  - QueryActionJobResults
+  - RunStatusAction
+  - RunTableAction
+  - Preview
+- AccountPool Strategies
+  - DeleteAndAcquireStandardAccount
 - SetItemPermissions.
 - Contributing guide.
 
@@ -476,10 +476,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- OcrProfile Strategies:
-  - Create,
-  - Delete,
-  - GetById.
+- OcrProfile Strategies
+  - Create
+  - Delete
+  - GetById
 - AdminPermissionService.
 
 ### Changed
@@ -499,14 +499,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- ObjectType Strategies:
-  - GetDependencyList,
-  - GetAvailableParentObjectTypes.
-- Script Strategies:
-  - Create,
-  - Read,
-  - Update,
-  - Delete.
+- ObjectType Strategies
+  - GetDependencyList
+  - GetAvailableParentObjectTpes
+- Script Strategies
+  - Create
+  - Read
+  - Update
+  - Delete
 
 ### Changed
 
@@ -516,19 +516,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- SearchProvider Strategies:
-  - Create,
-  - Read,
-  - Update,
-  - Delete,
-  - Require,
-  - GetDependenciesList.
-- Error Strategies:
-  - Create,
-  - Get,
-- Permissions Strategies:
-  - GetAdminGroupUsers,
-  - GetWorkspaceGroupUsers.
+- SearchProvider Strategies
+  - Create
+  - Read
+  - Update
+  - Delete
+  - Require
+  - GetDependenciesList
+- Error Strategies
+  - Create
+  - Get
+- Permissions Strategies
+  - GetAdminGroupUsers
+  - GetWorkspaceGroupUsers
 
 ### Changed
 
@@ -539,12 +539,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Ninebark support.
-- Layout Strategies:
-  - Create,
-  - Read,
-  - GetEligibleOwnersse,
-  - Delete,
-  - Require.
+- Layout Strategies
+  - Create
+  - Read
+  - GetEligibleOwnersse
+  - Delete
+  - Require
 
 ### Removed
 
@@ -554,28 +554,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- User Strategies:
-  - Require.
-- ResourcePool Strategies:
-  - QueryEligibleResources,
-  - QueryClients,
-  - AddResources,
-  - RemoveResources,
-- Tab Strategies:
-  - Create,
-  - Read,
-  - Delete,
-  - Update,
-  - Require.
+- User Strategies
+  - Require
+- ResourcePool Strategies
+  - QueryEligibleResources
+  - QueryClients
+  - AddResources
+  - RemoveResources
+- Tab Strategies
+  - Create
+  - Read
+  - Delete
+  - Update
+  - Require
 
 ## [0.20.0] - 2020-10-26
 
 ### Added
 
-- ResourcePool Strategies:
-  - QueryResources.
-- View Strategies:
-  - GetAll.
+- ResourcePool Strategies
+  - QueryResources
+- View Strategies
+  - GetAll
 
 ### Changed
 
@@ -585,35 +585,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Entity Strategies:
-  - Create,
-  - Get,
-  - GetAll,
-  - Update,
-  - Require,
-  - Delete.
-- BatchSet Strategies:
-  - Create,
-  - Get,
-  - Create Batches,
-  - Purge Batches.
-- Batch Strategies:
-  - Get,
-  - GetAll,
-  - AssignToUser,
-  - Query.
-- View Strategies:
-  - Create,
-  - Read,
-  - Update,
-  - Require,
-  - AccessStatus,
-  - ViewOwner.
-- ResourcePool Strategies:
-  - Create,
-  - Read,
-  - Update,
-  - Delete.
+- Entity Strategies
+  - Create
+  - Get
+  - GetAll
+  - Update
+  - Require
+  - Delete
+- BatchSet Strategies
+  - Create
+  - Get
+  - Create Batches
+  - Purge Batches
+- Batch Strategies
+  - Get
+  - GetAll
+  - AssignToUser
+  - Query
+- View Strategies
+  - Create
+  - Read
+  - Update
+  - Require
+  - AccessStatus
+  - ViewOwner
+- ResourcePool Strategies
+  - Create
+  - Read
+  - Update
+  - Delete
 
 ### Fixed
 
@@ -627,41 +627,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- ObjectManager Strategies:
-  - Create,
-  - Update,
-  - Delete.
-- ProductionSet Strategies:
-  - Stage,
-  - Run,
-  - WaitForStatus.
-- Document Strategies:
-  - Get,
-  - Delete.
-- Markup Set Strategies:
-  - Create,
-  - Read,
-  - Delete,
-  - Require.
-- Field Strategies:
-  - Require.
+- ObjectManager Strategies
+  - Create
+  - Update
+  - Delete
+- ProductionSet Strategies
+  - Stage
+  - Run
+  - WaitForStatus
+- Document Strategies
+  - Get
+  - Delete
+- Markup Set Strategies
+  - Create
+  - Read
+  - Delete
+  - Require
+- Field Strategies
+  - Require
 
 ## [0.17.0] - 2020-09-14
 
 ### Added
 
-- Strategies for running production sets:
-  - Get Production Status Strategy.
-- Production Data Source Strategies:
-  - Read,
-  - Update.
+- Strategies for running production sets
+  - Get Production Status Strategy
+- Production Data Source Strategies
+  - Read
+  - Update
 - User Group Email Notifications to the User model.
 
-- Production Placeholder Strategies:
-  - Create,
-  - Read,
-  - Update,
-  - Delete.
+- Production Placeholder Strategies
+  - Create
+  - Read
+  - Update
+  - Delete
 - Implement Await function for Production.
 - Implement Await function for Production Data Source.
 
@@ -677,27 +677,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Production Data Source Strategies:
-  - Create,
-  - Delete.
+- Production Data Source Strategies
+  - Create
+  - Delete
 
 ## [0.15.0] - 2020-08-17
 
 ### Added
 
-- Resource pool Strategies:
-  - GetAll.
-- Resource server Strategies:
-  - GetAll.
-- Production Set Strategies:
-  - Create,
-  - Read,
-  - Delete.
+- Resource pool Strategies
+  - GetAll
+- Resource server Strategies
+  - GetAll
+- Production Set Strategies
+  - Create
+  - Read
+  - Delete
 
 ### Changed
 
-- Workspace methods now use REST for Relativity versions 11.3.0 and higher:
-  - Create.
+- Workspace methods now use REST for Relativity versions 11.3.0 and higher
+  - Create
 
 ### Fixed
 
@@ -707,54 +707,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Group Strategies:
-  - Update,
-  - Require.
-- Matter Strategies:
-  - Update,
-  - Require.
-- Agent Strategies:
-  - Update,
-  - Require.
+- Group Strategies
+  - Update
+  - Require
+- Matter Strategies
+  - Update
+  - Require
+- Agent Strategies
+  - Update
+  - Require
 
 ### Changed
 
-- Group methods now use REST for Relativity versions 11.3.0 and higher:
-  - DeleteGroup,
-  - CreateGroup.
-- Field Strategies:
-  - Add Field Propagation to base Field functionality,
-  - Add Relational Fields to FixedLengthTextField model.
+- Group methods now use REST for Relativity versions 11.3.0 and higher
+  - DeleteGroup
+  - CreateGroup
+- Field Strategies
+  - Add Field Propagation to base Field functionality
+  - Add Relational Fields to FixedLengthTextField model
 
 ## [0.13.0] - 2020-07-20
 
 ### Added
 
-- KeywordSearch Strategies:
-  - Require,
-  - Query.
+- KeywordSearch Strategies
+  - Require
+  - Query
 - Add AccountPool functionality for multiple users during UI tests.
 
 ### Changed
 
-- User methods now use REST for Relativity versions 11.3.0 and higher:
-  - CreateUser,
-  - UserExistsByEmail,
-  - DeleteUser,
-  - GetUserById,
-  - GetUserByEmail,
+- User methods now use REST for Relativity versions 11.3.0 and higher
+  - CreateUser
+  - UserExistsByEmail
+  - DeleteUser
+  - GetUserById
+  - GetUserByEmail
 
 ## [0.12.0] - 2020-07-06
 
 ### Added
 
-- Workspace Strategies:
-  - CreateWithDocs.
-- KeywordSearch Strategies:
-  - Get,
-  - Create,
-  - Delete,
-  - Update.
+- Workspace Strategies
+  - CreateWithDocs
+- KeywordSearch Strategies
+  - Get
+  - Create
+  - Delete
+  - Update
 
 ### Fixed
 
@@ -765,9 +765,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Document Strategies:
-  - GetAll,
-  - Import.
+- Document Strategies
+  - GetAll
+  - Import
 
 ### Fixed
 
@@ -778,8 +778,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Lanceleaf support.
-- User Strategies:
-  - RemoveFromGroup.
+- User Strategies
+  - RemoveFromGroup
 
 ### Fixed
 
@@ -790,14 +790,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Choice Strategies:
-  - Get,
-  - Create,
-  - Update,
-  - Require,
-  - Delete.
-- MOTD Strategies:
-  - Get,
-  - Update,
-  - Dismiss,
-  - HadDismissed.
+- Choice Strategies
+  - Get
+  - Create
+  - Update
+  - Require
+  - Delete
+- MOTD Strategies
+  - Get
+  - Update
+  - Dismiss
+  - HadDismissed

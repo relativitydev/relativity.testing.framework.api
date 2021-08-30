@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<Tab>))]
-	[NonParallelizable] // We're seeing a lot of tab tests fail, so I'm hoping this will help alleviate it. https://jira.kcura.com/browse/RTF-854
+	[NonParallelizable] // We're seeing a lot of tab tests fail, so I'm hoping this will help alleviate it. RTF-854
 	internal class TabCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<Tab>>
 	{
 		[Test]

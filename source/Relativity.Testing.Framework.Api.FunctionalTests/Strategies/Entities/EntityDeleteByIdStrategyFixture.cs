@@ -18,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange("<12.2")] // Defect in PrairieSmoke-EA image. Can't run until https://jira.kcura.com/browse/REL-546511 is merged into a new template.
+		[VersionRange("<12.2")] // Defect in PrairieSmoke-EA image. Can't run until REL-546511 is merged into a new template.
 		public void Delete_Existing()
 		{
 			Entity toDelete = null;

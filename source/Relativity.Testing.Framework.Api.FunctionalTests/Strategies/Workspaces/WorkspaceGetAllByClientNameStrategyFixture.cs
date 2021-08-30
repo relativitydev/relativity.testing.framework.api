@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEmpty();
 		}
 
-		// TODO: Rewrite this test when https://jira.kcura.com/browse/RTF-48 will be finished.
+		// TODO: Rewrite this test when RTF-48 will be finished.
 		[Test]
 		public void GetAllByClientName_Existing()
 		{

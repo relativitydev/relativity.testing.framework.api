@@ -146,7 +146,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		[Test]
 		public void Mass_Update()
 		{
-			// Code Smell - Is there a different way we should be setting the value here? - https://jira.kcura.com/browse/RTF-959
+			// Code Smell - Is there a different way we should be setting the value here?
 			var documentsToUpdate = _documentService.GetAll(_workspace.ArtifactID)
 				.Take(2);
 

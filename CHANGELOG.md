@@ -15,121 +15,121 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- GetAvailableObjectTypes method in ITabService. - [RTF-762](https://jira.kcura.com/browse/RTF-762)
-- GetEligibleParents method in ITabService.  - [RTF-1205](https://jira.kcura.com/browse/RTF-1205)
-- GetAdminLevelMetadata method in ITabService. - [RTF-1207](https://jira.kcura.com/browse/RTF-1207)
-- GetTabsOrder method in ITabService.  - [RTF-1208](https://jira.kcura.com/browse/RTF-1208)
-- GetAllForNavigation method in ITabService. - [RTF-1209](https://jira.kcura.com/browse/RTF-1209)
+- GetAvailableObjectTypes method in ITabService.
+- GetEligibleParents method in ITabService.
+- GetAdminLevelMetadata method in ITabService.
+- GetTabsOrder method in ITabService.
+- GetAllForNavigation method in ITabService.
 
 ## [4.4.1]- 2021-08-18
 
 ### Fixed
 
-- On workspace create, use matter from specified client when matter is not provided. - [RTF-1338](https://jira.kcura.com/browse/RTF-1338)
+- On workspace create, use matter from specified client when matter is not provided.
 
 ## [4.4.0] - 2021-08-16
 
 ### Added
 
-- GetEligibleStatuses, GetEligibleClients methods, withExtendedMetadata optional parameter for Get and restrictedUpdate optional parameter for Update  methods in IMatterService. - [RTF-1259](https://jira.kcura.com/browse/RTF-1259)
+- GetEligibleStatuses, GetEligibleClients methods, withExtendedMetadata optional parameter for Get and restrictedUpdate optional parameter for Update  methods in IMatterService.
 
 ### Changed
 
-- RTF version bumped to 5.0.0. - [RTF-1259](https://jira.kcura.com/browse/RTF-1259)
+- RTF version bumped to 5.0.0.
 
 ## [4.3.2]- 2021-08-13
 
 ### Fixed
 
-- Creating/Retrieving a script from the admin case will no longer result in a null reference exception. - [TESTENG-1428](https://jira.kcura.com/browse/TESTENG-1428)
+- Creating/Retrieving a script from the admin case will no longer result in a null reference exception.
 
 ## [4.3.1] - 2021-08-12
 
 ### Fixed
 
-- Throw a JobReportException in JobOnFatalException for the DocumentImportHelper to not swallow up stacktrace. - [TESTENG-1404](https://jira.kcura.com/browse/TESTENG-1404)
+- Throw a JobReportException in JobOnFatalException for the DocumentImportHelper to not swallow up stacktrace.
 
 ## [4.3.0] - 2021-08-10
 
 ### Added
 
-- Added strategy for dismissing the message of the day by the email address of the user. - [RTF-1385](https://jira.kcura.com/browse/RTF-1385)
+- Added strategy for dismissing the message of the day by the email address of the user.
 
 ## [4.2.0] - 2021-08-06
 
 ### Added
 
-- Strategies for Delete, Update Layouts and Get Owners that use API V1 - [RTF-1258](https://jira.kcura.com/browse/RTF-1258)
+- Strategies for Delete, Update Layouts and Get Owners that use API V1.
 
 ## [4.1.0] - 2021-08-02
 
 ### Fixed
 
-- Return type of GetCategories method in ILayoutService. - [RTF-1287](https://jira.kcura.com/browse/RTF-1287)
+- Return type of GetCategories method in ILayoutService.
 
 ## [4.0.0] - 2021-07-30
 
 ### Changed
 
-- Return type, from int to long, of Run and RunAsync methods of IImagingJobService. - [RTF-1378](https://jira.kcura.com/browse/RTF-1378)
+- Return type, from int to long, of Run and RunAsync methods of IImagingJobService.
 
 ## [3.28.0] - 2021-07-30
 
 ### Added
 
-- Remove inactive imaging jobs method in IImagingEnvironmentService. - [RTF-11255](https://jira.kcura.com/browse/RTF-1255)
-- Retrieve the size of a mass imaging job method in IImagingEnvironmentService. - [RTF-1255](https://jira.kcura.com/browse/RTF-1255)
+- Remove inactive imaging jobs method in IImagingEnvironmentService.
+- Retrieve the size of a mass imaging job method in IImagingEnvironmentService.
 
 ## [3.27.0] - 2021-07-30
 
 ### Added
 
-- Get Imaging Document Status methods for IImagingDocumentService. - [RTF-1254](https://jira.kcura.com/browse/RTF-1254)
+- Get Imaging Document Status methods for IImagingDocumentService.
 
 ## [3.26.0] - 2021-07-29
 
 ### Added
 
-- Retry Imaging Set Errors methods for IImagingJobService. - [RTF-1368](https://jira.kcura.com/browse/RTF-1368)
-- Update Imaging Job Priority methods for IImagingJobService. - [RTF-1369](https://jira.kcura.com/browse/RTF-1369)
+- Retry Imaging Set Errors methods for IImagingJobService.
+- Update Imaging Job Priority methods for IImagingJobService.
 
 ## [3.25.0] - 2021-07-29
 
 ### Added
 
-- Cancel Imaging Job methods for IImagingJobService. - [RTF-1367](https://jira.kcura.com/browse/RTF-1367)
+- Cancel Imaging Job methods for IImagingJobService.
 
 ## [3.24.0] - 2021-07-28
 
 ### Added
 
-- SubmitMassImagingJob methods for IImagingJobService. - [RTF-1366](https://jira.kcura.com/browse/RTF-1366)
+- SubmitMassImagingJob methods for IImagingJobService.
 
 ## [3.23.0] - 2021-07-27
 
 ### Added
 
-- Strategies for Create and Read Layouts that use API V1 - [RTF-1258](https://jira.kcura.com/browse/RTF-1258)
+- Strategies for Create and Read Layouts that use API V1.
 
 
 ## [3.22.0] - 2021-07-26
 
 ### Added
 
-- SubmitSingleImage methods for IImagingJobService. - [RTF-1365](https://jira.kcura.com/browse/RTF-1365)
+- SubmitSingleImage methods for IImagingJobService.
 
 ## [3.21.0] - 2021-07-23
 
 ### Added
 
-- IsTextOnly method in IMessageOfTheDayService. - [RTF-1260](https://jira.kcura.com/browse/RTF-1260)
-- Support for V1 Notifications Manager (MotD) API which will be used for Relativity 12.1+ - [RTF-1260](https://jira.kcura.com/browse/RTF-1260)
+- IsTextOnly method in IMessageOfTheDayService.
+- Support for V1 Notifications Manager (MotD) API which will be used for Relativity 12.1+.
 
 ## [3.20.0] - 2021-07-22
 
 ### Changed
 
-- Tab Strategies will now use v1 versioned API in PriarieSmoke and later. - [RTF-1266](https://jira.kcura.com/browse/RTF-1266)
+- Tab Strategies will now use v1 versioned API in PriarieSmoke and later
   - Create
   - GetById
   - GetByName
@@ -141,223 +141,221 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- WaitForTheJobToComplete methods for IImagingJobService. - [RTF-1376](https://jira.kcura.com/browse/RTF-1376)
+- WaitForTheJobToComplete methods for IImagingJobService.
 
 ## [3.18.0] - 2021-07-22
 
 ### Added
 
-- Release methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+- Release methods for IImagingSetService.
 
 ## [3.17.0] - 2021-07-21
 
 ### Added
 
-- Hide methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+- Hide methods for IImagingSetService.
 
 ## [3.16.0] - 2021-07-20
 
 ### Added
 
-- IImagingJobService with Run methods. - [RTF-1364](https://jira.kcura.com/browse/RTF-1364)
+- IImagingJobService with Run methods.
 
 ## [3.15.0] - 2021-07-15
 
 ### Added
 
-- IApplicationFieldCodeService with CRUD methods for ApplicationFieldCode. - [RTF-1252](https://jira.kcura.com/browse/RTF-1252)
+- IApplicationFieldCodeService with CRUD methods for ApplicationFieldCode.
 
 ## [3.14.0] - 2021-07-15
 
 ### Added
 
-- Delete and DeleteAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+- Delete and DeleteAsync methods for IImagingSetService.
 
 ## [3.13.0] - 2021-07-14
 
 ### Added
 
-- Update and UpdateAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+- Update and UpdateAsync methods for IImagingSetService.
 
 ## [3.12.1] - 2021-07-14
 
 ### Fixed
 
-- InvalidOperationException when calling RelyOn<ApiComponent> on RelativityFacade with EnableApplicationInsights setting set to false. - [RTF-1361](https://jira.kcura.com/browse/RTF-1361)
+- InvalidOperationException when calling RelyOn<ApiComponent> on RelativityFacade with EnableApplicationInsights setting set to false.
 
 ## [3.12.0] - 2021-07-14
 
 ### Added
 
-- GetStatus and GetStatusAsync methods for IImagingSetService. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+- GetStatus and GetStatusAsync methods for IImagingSetService.
 
 ## [3.11.0] - 2021-07-13
 
 ### Added
 
-- IImagingSetService with Get and Create methods for ImagingSet. - [RTF-1250](https://jira.kcura.com/browse/RTF-1250)
+- IImagingSetService with Get and Create methods for ImagingSet.
 
 ## [3.10.0] - 2021-07-12
 
 ### Added
 
-- IImagingNativeTypeService with Get method NativeType. - [RTF-1251](https://jira.kcura.com/browse/RTF-1251)
+- IImagingNativeTypeService with Get method NativeType.
 
 ## [3.9.0] - 2021-07-09
 
 ### Added
 
-- IImagingService with methods for CRUD operations on ImagingProfile. - [RTF-1249](https://jira.kcura.com/browse/RTF-1249)
+- IImagingService with methods for CRUD operations on ImagingProfile.
 
 ## [3.8.0] - 2021-07-08
 
 ### Changed
 
-- InstanceSetting Update and Create operations will now use v1 API for Relativity version 12.1 and higher. - [RTF-1256](https://jira.kcura.com/browse/RTF-1256)
+- InstanceSetting Update and Create operations will now use v1 API for Relativity version 12.1 and higher.
 
 ## [3.7.0] - 2021-07-08
 
 ### Added
 
-- IKeyboardShortcutsService with method for retrieving Keyboard Shortucts for workspace. - [RTF-1257](https://jira.kcura.com/browse/RTF-1257)
-
+- IKeyboardShortcutsService with method for retrieving Keyboard Shortucts for workspace.
 ### Changed
 
-- RTF version changed to v4.5.0. - [RTF-1257](https://jira.kcura.com/browse/RTF-1257)
+- RTF version changed to v4.5.0.
 
 ## [3.6.0] - 2021-07-07
 
 ### Changed
 
-- InstanceSetting Read and Delete operations will now use v1 API for Relativity version 12.1 and higher. - [RTF-1256](https://jira.kcura.com/browse/RTF-1256)
+- InstanceSetting Read and Delete operations will now use v1 API for Relativity version 12.1 and higher.
 
 ## [3.5.0] - 2021-07-05
 
 ### Added
 
-- Async method for IPermissionService methods using IDs. - [TESTENG-1276](https://jira.kcura.com/browse/TESTENG-1276)
+- Async method for IPermissionService methods using IDs.
 
 ## [3.4.0] - 2021-07-05
 
 ### Added
 
-- Async method for IHttpService. - [TESTENG-1275](https://jira.kcura.com/browse/TESTENG-1275)
-
+- Async method for IHttpService.
 ## [3.3.0] - 2021-07-02
 
 ### Added
 
-- Batch Set Update and Delete operations for version 12.1 and higher. - [RTF-1245](https://jira.kcura.com/browse/RTF-1245)
+- Batch Set Update and Delete operations for version 12.1 and higher.
 
 ### Changed
 
-- Batch Set requests will now use the V1 versioned API for 12.1 and higher. - [RTF-1245](https://jira.kcura.com/browse/RTF-1245)
+- Batch Set requests will now use the V1 versioned API for 12.1 and higher.
 
 ## [3.2.3] - 2021-06-29
 
 ### Fixed
 
-- Sending of metrics to ApplicationInsights. - https://github.com/relativitydev/relativity.testing.framework.api/issues/46
+- Sending of metrics to ApplicationInsights.
 
 ## [3.2.2] - 2021-06-29
 
 ### Removed
 
-- Duplicated ExpressionExtensions class. - [TESTENG-1273](https://jira.kcura.com/browse/TESTENG-1273)
+- Duplicated ExpressionExtensions class.
 
 ## [3.2.1] - 2021-06-25
 
 ### Fixed
 
-- Added NUnit to the dependencies for the project/package. - [TESTENG-477](https://jira.kcura.com/browse/TESTENG-477)
+- Added NUnit to the dependencies for the project/package.
 
 ## [3.2.0] - 2021-06-24
 
 ### Changed
 
-- Client requests will now use the V1 versioned API for 12.1 and higher. - [RTF-1247](https://jira.kcura.com/browse/RTF-1247)
+- Client requests will now use the V1 versioned API for 12.1 and higher.
 
 ## [3.1.0] - 2021-06-23
 
 ### Added
 
-- Batch Checkout and Batch Checkin method in BatchService - [RTF-1246](https://jira.kcura.com/browse/RTF-1246)
+- Batch Checkout and Batch Checkin method in BatchService.
 
 ## [3.0.1] - 2021-06-18
 
 ### Fixed
 
-- Choice creation now respects the parent field on the choice model. - [TESTENG-1218](https://jira.kcura.com/browse/TESTENG-1218)
+- Choice creation now respects the parent field on the choice model.
 
 ## [3.0.0] - 2021-06-14
 
 ### Removed
 
-- Strategies and services implementations made internal - [RTF-1229](https://jira.kcura.com/browse/RTF-1229)
+- Strategies and services implementations made internal.
 
 ### Added
 
-- Get by ID for IUserService. - [RTF-1229](https://jira.kcura.com/browse/RTF-1229)
+- Get by ID for IUserService.
 
 ## [2.3.0] - 2021-06-11
 
 ### Added
 
-- Ability to perform action as a particular user in BatchSetService. - [RTF-1100](https://jira.kcura.com/browse/RTF-1100)
+- Ability to perform action as a particular user in BatchSetService.
 
 ## [2.2.1] - 2021-06-11
 
 ### Fixed
 
-- User.Require() with ensureNew=true will now also poll for deletion before attempting to recreate the user if the user was specifyed by email, instead of by ArtifactID. - [TESTENG-1128](https://jira.kcura.com/browse/TESTENG-1128)
+- User.Require() with ensureNew=true will now also poll for deletion before attempting to recreate the user if the user was specifyed by email, instead of by ArtifactID.
 
 ## [2.2.0] - 2021-06-10
 
 ### Changed
 
-- User.Require() with ensureNew=true will now poll for deletion before attempting to recreate the user. - [TESTENG-1128](https://jira.kcura.com/browse/TESTENG-1128)
+- User.Require() with ensureNew=true will now poll for deletion before attempting to recreate the user.
 
 ## [2.1.1] - 2021-06-09
 
 ### Changed
 
-- RTF version changed to v3.1.3. - [TESTENG-908](https://jira.kcura.com/browse/TESTENG-908)
+- RTF version changed to v3.1.3.
 
 ## [2.1.0] - 2021-06-03
 
 ### Added
 
-- PrairieSmoke support. - [RTF-1225](https://jira.kcura.com/browse/RTF-1225)
+- PrairieSmoke support.
 
 ## [2.0.0] - 2021-05-28
 
 ### Changed
 
-- Properties in ObjectType class to reflect properties of ObjectType API DTOs. - [TESTENG-898](https://jira.kcura.com/browse/TESTENG-898)
+- Properties in ObjectType class to reflect properties of ObjectType API DTOs.
 
 ## [1.2.3] - 2021-05-27
 
 ### Fixed
 
-- Set included assets for Relativity.DataExchange.Client.SDK to also contain build. - [TESTENG-1143](https://jira.kcura.com/browse/TESTENG-1143)
+- Set included assets for Relativity.DataExchange.Client.SDK to also contain build.
 
 ## [1.2.2] - 2021-05-27
 
 ### Added
 
--  Polling mechanism in-between the deletion and creation of user in AccountPoolService. - [TESTENG-1128](https://jira.kcura.com/browse/TESTENG-1128)
+-  Polling mechanism in-between the deletion and creation of user in AccountPoolService.
 
 ## [1.2.1] - 2021-05-26
 
 ### Added
 
-- Update error message in AddWorkspaceToGroups with artifactIds. - [TESTENG-922](https://jira.kcura.com/browse/TESTENG-922)
+- Update error message in AddWorkspaceToGroups with artifactIds.
 
 ## [1.2.0] - 2021-05-17
 
 ### Added
 
-- EnsureEnvironmentCanRunScripts strategy. - [TESTENG-1089](https://jira.kcura.com/browse/TESTENG-1089)
+- EnsureEnvironmentCanRunScripts strategy.
 
 ## [1.1.1] - 2021-05-13
 
@@ -367,444 +365,444 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- IdentityFieldId setting for Image import Job. - [TESTENG-1045](https://jira.kcura.com/browse/TESTENG-1045)
-- FileField strategies - [RTF-1129](https://jira.kcura.com/browse/RTF-1129)
+- IdentityFieldId setting for Image import Job.
+- FileField strategies
   - DownloadFile
   - UploadFile
 
 ### Changed
 
-- License is now checked into the repository instead of generated at build time. - [RTF-1012](https://jira.kcura.com/browse/RTF-1012)
-- Permission Services support both ID and Names. - [RTF-1080](https://jira.kcura.com/browse/RTF-1080)
-- IKeplerService no longer has a class constraint. - [RTF-1191](https://jira.kcura.com/browse/RTF-1191)
+- License is now checked into the repository instead of generated at build time.
+- Permission Services support both ID and Names.
+- IKeplerService no longer has a class constraint.
 
 ## [1.0.0] - 2021-04-16
 
 ### Added
 
-- Castle.Windsor and Castle.Core version limitation caused by RTF package. - [RTF-1121](https://jira.kcura.com/browse/RTF-1121)
-- Osier support - [RTF-1078](https://jira.kcura.com/browse/RTF-1078)
+- Castle.Windsor and Castle.Core version limitation caused by RTF package.
+- Osier support.
 
 ### Removed
 
-- RetryInterceptor from LibraryApplicationService and HttpService, which was hiding original error message from InstallToLibrary method. - [RTF-1048]](https://jira.kcura.com/browse/RTF-1048)
+- RetryInterceptor from LibraryApplicationService and HttpService, which was hiding original error message from InstallToLibrary method.
 
 ### Changed
 
-- Altered WaitUserAddedToGroupStrategy to wait 30s only if lockbox is enabled. - [RTF-1122](https://jira.kcura.com/browse/RTF-1122)
-- Update namespaces to better adhere to company standards. - [RTF-1107](https://jira.kcura.com/browse/RTF-1107)
-- Pinned minimum version of 1.0.0 for RTF [RTF-1083](https://jira.kcura.com/browse/RTF-1083)
+- Altered WaitUserAddedToGroupStrategy to wait 30s only if lockbox is enabled.
+- Update namespaces to better adhere to company standards.
+- Pinned minimum version of 1.0.0 for RTF.
 
 ### Fixed
 
-- Fixing spelling of SetLength in the Query functions - [TESTENG-978](https://jira.kcura.com/browse/TESTENG-978)
+- Fixing spelling of SetLength in the Query functions.
 
 ## [0.29.0] - 2021-04-02
 
 ### Added
 
-- Moved in TestArrangement code and related strategies [RTF-963](https://jira.kcura.com/browse/RTF-963)
-- Layout Strategies [RTF-981](https://jira.kcura.com/browse/RTF-981)
+- Moved in TestArrangement code and related strategies.
+- Layout Strategies
   - GetCategories
   - AddFields
 
 ### Changed
 
-- Fix Agent RunInterval field value mapping - [RTF-1036](https://jira.kcura.com/browse/RTF-1036)
-- Updated RestService with the option to return a raw response - [TESTENG-860](https://jira.kcura.com/browse/TESTENG-860)
-- RsapiObjectExistsByStrategy renamed to ObjectQueryExistsByIdStrategy and now uses IObjectService in place of IRsapiObjectService - [RTF-1074](https://jira.kcura.com/browse/RTF-1074)
+- Fix Agent RunInterval field value mapping.
+- Updated RestService with the option to return a raw response.
+- RsapiObjectExistsByStrategy renamed to ObjectQueryExistsByIdStrategy and now uses IObjectService in place of IRsapiObjectService.
 
 ### Removed
 
-- Removed Rsapi dependencies - [RTF-953](https://jira.kcura.com/browse/RTF-953)
-- Support for versions of Relativity prior to 11.3 - [RTF-1120](https://jira.kcura.com/browse/RTF-1120)
-- Stratiegies for Relativity 11.3 and lower - [RTF-1124](https://jira.kcura.com/browse/RTF-1124)
+- Removed Rsapi dependencies.
+- Support for versions of Relativity prior to 11.3.
+- Stratiegies for Relativity 11.3 and lower.
 
 ### Fixed
 
-- Fix for passing ObjectType when creating tab with LinkType different then Object - [RTF-1061](https://jira.kcura.com/browse/RTF-1061)
-- Agent:Update will now look up the current RunInterval of the agent to be update, if that property is not set on the model- [RTF-1039](https://jira.kcura.com/browse/RTF-1039)
-- CurrencyField model can now be used in conjunction with the FieldService. - [TESTENG-906](https://jira.kcura.com/browse/TESTENG-906)
+- Fix for passing ObjectType when creating tab with LinkType different then Object.
+- Agent:Update will now look up the current RunInterval of the agent to be update, if that property is not set on the model.
+- CurrencyField model can now be used in conjunction with the FieldService.
 
 ## [0.28.0] - 2021-03-10
 
 ### Added
 
 - ObjectManager Strategies
-  - MassDelete - [RTF-1026](https://jira.kcura.com/browse/RTF-1026)
-  - MassCreate - [RTF-1027](https://jira.kcura.com/browse/RTF-1027)
-  - MassUpdate - [RTF-1028](https://jira.kcura.com/browse/RTF-1028)
-- Added polling logic to UserAddToGroupStrategy  [TESTENG-720](https://jira.kcura.com/browse/TESTENG-720)
+  - MassDelete
+  - MassCreate
+  - MassUpdate
+- Added polling logic to UserAddToGroupStrategy.
 
 ### Changed
 
-- Warn instead of Error when running outside of the verified Relativity version range - [RTF-1011](https://jira.kcura.com/browse/RTF-1011)
-- Item permission service use name instead of ID for group identifier - [RTF-1050](https://jira.kcura.com/browse/RTF-1050)
-- Rename RelativityApplication services to match LibraryApplication strategies - [RTF-1029](https://jira.kcura.com/browse/RTF-1029)
+- Warn instead of Error when running outside of the verified Relativity version range.
+- Item permission service use name instead of ID for group identifier.
+- Rename RelativityApplication services to match LibraryApplication strategies.
 
 ### Fixed
 
-- A potential null value exception when waiting for an application to be installed. - [RTF-1043](https://jira.kcura.com/browse/RTF-1043)
+- A potential null value exception when waiting for an application to be installed.
 
 ## [0.27.0] - 2021-02-12
 
 ### Added
 
 - Script Strategies
-  - EnqueueRunJob [RTF-998](https://jira.kcura.com/browse/RTF-998)
-  - ReadRunJob [RTF-998](https://jira.kcura.com/browse/RTF-998)
-  - QueryActionJobResults [RTF-998](https://jira.kcura.com/browse/RTF-998)
-  - RunStatusAction [RTF-998](https://jira.kcura.com/browse/RTF-998)
-  - RunTableAction [RTF-998](https://jira.kcura.com/browse/RTF-998)
-  - Preview [RTF-999](https://jira.kcura.com/browse/RTF-999)
+  - EnqueueRunJob
+  - ReadRunJob
+  - QueryActionJobResults
+  - RunStatusAction
+  - RunTableAction
+  - Preview
 - AccountPool Strategies
-  - DeleteAndAcquireStandardAccount - [TESTENG-742](https://jira.kcura.com/browse/TESTENG-742)
-- SetItemPermissions - [RTF-985](https://jira.kcura.com/browse/RTF-985)
-- Contributing guide - [RTF-92](https://jira.kcura.com/browse/RTF-92)
+  - DeleteAndAcquireStandardAccount
+- SetItemPermissions.
+- Contributing guide.
 
 ### Changed
 
-- Various permissions related strategies now use ArtifactId instead of name, and also lock to help prevent stale permissions requests. - [RTF-985](https://jira.kcura.com/browse/RTF-985)
-- ObjectManager requests will now use the ObjectTypeGuid Attribute to look up the object using the specified Guid. - [RTF-1020](https://jira.kcura.com/browse/RTF-1020)
-- ObjectManager requests will now look for FieldGuid and FieldArtifactId attributes on fields and mapping them back to the fields on the model. - [RTF-1025](https://jira.kcura.com/browse/RTF-1025)
-- Workspace:Delete now explicitly waits for the workspace to be deleted before proceeding. - [RTF-992](https://jira.kcura.com/browse/RTF-992)
+- Various permissions related strategies now use ArtifactId instead of name, and also lock to help prevent stale permissions requests.
+- ObjectManager requests will now use the ObjectTypeGuid Attribute to look up the object using the specified Guid.
+- ObjectManager requests will now look for FieldGuid and FieldArtifactId attributes on fields and mapping them back to the fields on the model.
+- Workspace:Delete now explicitly waits for the workspace to be deleted before proceeding.
 
 ## [0.26.0] - 2021-01-30
 
 ### Changed
 
-- Made most all strategy interfaces internal and moved most of them over from the core package. - [RTF-754](https://jira.kcura.com/browse/RTF-754)
-- Migrate IAccountPoolService into RTF.API - [RTF-997](https://jira.kcura.com/browse/RTF-997)
+- Made most all strategy interfaces internal and moved most of them over from the core package.
+- Migrate IAccountPoolService into RTF.API.
 
 ### Fixed
 
-- HttpClient will now only be created once when the service is instantiated, instead of for every request. - [RTF-994](https://jira.kcura.com/browse/RTF-994)
+- HttpClient will now only be created once when the service is instantiated, instead of for every request.
 
 ## [0.25.0] - 2021-01-15
 
 ### Added
 
 - OcrProfile Strategies
-  - Create [RTF-898](https://jira.kcura.com/browse/RTF-898)
-  - Delete [RTF-899](https://jira.kcura.com/browse/RTF-899)
-  - GetById [RTF-872](https://jira.kcura.com/browse/RTF-872)
-- AdminPermissionService [RTF-946](https://jira.kcura.com/browse/RTF-946)
+  - Create
+  - Delete
+  - GetById
+- AdminPermissionService.
 
 ### Changed
 
-- Added note about respecting environment rules in workspace create xml documentation. - [RTF-904](https://jira.kcura.com/browse/RTF-904)
-- Client status property is now a NamedArtifact, instead of an enum. - [RTF-947](https://jira.kcura.com/browse/RTF-947)
-- RSAPI ensuring will now only run on versions lower than 11.3. - [RTF-920](https://jira.kcura.com/browse/RTF-920)
-- Split PermissionService into WorkspacePermissionService, ItemPermissionService, and the new AdminPermissionService. - [RTF-946](https://jira.kcura.com/browse/RTF-946)
-- LibraryApplication strategies now take advantage of the `relavity-environment/v1` APIs when testing against 12.1 and newer versions of Relativity. - [RTF-814](https://jira.kcura.com/browse/RTF-814)
+- Added note about respecting environment rules in workspace create xml documentation.
+- Client status property is now a NamedArtifact, instead of an enum.
+- RSAPI ensuring will now only run on versions lower than 11.3.
+- Split PermissionService into WorkspacePermissionService, ItemPermissionService, and the new AdminPermissionService.
+- LibraryApplication strategies now take advantage of the `relavity-environment/v1` APIs when testing against 12.1 and newer versions of Relativity.
 
 ### Fixed
 
-- AgentGetById strategy will now return AgentType and AgentServer information. - [RTF-889](https://jira.kcura.com/browse/RTF-889)
-- Various group related strategy now use a Lock to prevent the GroupSelector from becoming stale and causing issues. - [RTF-860](https://jira.kcura.com/browse/RTF-860)
+- AgentGetById strategy will now return AgentType and AgentServer information.
+- Various group related strategy now use a Lock to prevent the GroupSelector from becoming stale and causing issues.
 
 ## [0.24.0] - 2020-12-22
 
 ### Added
 
 - ObjectType Strategies
-  - GetDependencyList - [RTF-880](https://jira.kcura.com/browse/RTF-880)
-  - GetAvailableParentObjectTypes - [RTF-879](https://jira.kcura.com/browse/RTF-879)
+  - GetDependencyList
+  - GetAvailableParentObjectTpes
 - Script Strategies
-  - Create - [RTF-874](https://jira.kcura.com/browse/RTF-874)
-  - Read - [RTF-875](https://jira.kcura.com/browse/RTF-875)
-  - Update - [RTF-876](https://jira.kcura.com/browse/RTF-876)
-  - Delete - [RTF-877](https://jira.kcura.com/browse/RTF-877)
+  - Create
+  - Read
+  - Update
+  - Delete
 
 ### Changed
 
-- Workspace create requests will now time out after 300 seconds instead of 100. - [RTF-903](https://jira.kcura.com/browse/RTF-903)
+- Workspace create requests will now time out after 300 seconds instead of 100.
 
 ## [0.23.0] - 2020-12-07
 
 ### Added
 
 - SearchProvider Strategies
-  - Create - [RTF-712](https://jira.kcura.com/browse/RTF-712)
-  - Read - [RTF-713](https://jira.kcura.com/browse/RTF-713)
-  - Update - [RTF-714](https://jira.kcura.com/browse/RTF-714)
-  - Delete - [RTF-715](https://jira.kcura.com/browse/RTF-715)
-  - Require - [RTF-716](https://jira.kcura.com/browse/RTF-716)
-  - GetDependenciesList - [RTF-717](https://jira.kcura.com/browse/RTF-717)
+  - Create
+  - Read
+  - Update
+  - Delete
+  - Require
+  - GetDependenciesList
 - Error Strategies
-  - Create - [RTF-846](https://jira.kcura.com/browse/RTF-846)
-  - Get - [RTF-847](https://jira.kcura.com/browse/RTF-847)
+  - Create
+  - Get
 - Permissions Strategies
-  - GetAdminGroupUsers [RTF-858](https://jira.kcura.com/browse/RTF-858)
-  - GetWorkspaceGroupUsers [RTF-857](https://jira.kcura.com/browse/RTF-857)
+  - GetAdminGroupUsers
+  - GetWorkspaceGroupUsers
 
 ### Changed
 
-- API requests will retry once if the request encountered an internal server error. [RTF-771](https://jira.kcura.com/browse/RTF-771)
+- API requests will retry once if the request encountered an internal server error.
 
 ## [0.22.0] - 2020-11-23
 
 ### Added
 
-- Ninebark support - [RTF-833](https://jira.kcura.com/browse/RTF-833)
+- Ninebark support.
 - Layout Strategies
-  - Create - [RTF-840](https://jira.kcura.com/browse/RTF-840)
-  - Read - [RTF-841](https://jira.kcura.com/browse/RTF-841)
-  - GetEligibleOwners - [RTF-842](https://jira.kcura.com/browse/RTF-842)
-  - Delete - [RTF-843](https://jira.kcura.com/browse/RTF-843)
-  - Require -[RTF-844](https://jira.kcura.com/browse/RTF-844)
+  - Create
+  - Read
+  - GetEligibleOwnersse
+  - Delete
+  - Require
 
 ### Removed
 
-- Goatsbeard support
+- Goatsbeard support.
 
 ## [0.21.0] - 2020-11-09
 
 ### Added
 
 - User Strategies
-  - Require - [RTF-508](https://jira.kcura.com/browse/RTF-508)
+  - Require
 - ResourcePool Strategies
-  - QueryEligibleResources - [RTF-741](https://jira.kcura.com/browse/RTF-741)
-  - QueryClients - [RTF-742](https://jira.kcura.com/browse/RTF-742)
-  - AddResources - [RTF-743](https://jira.kcura.com/browse/RTF-743)
-  - RemoveResources - [RTF-744](https://jira.kcura.com/browse/RTF-744)
+  - QueryEligibleResources
+  - QueryClients
+  - AddResources
+  - RemoveResources
 - Tab Strategies
-  - Create - [RTF-763](https://jira.kcura.com/browse/RTF-763)
-  - Read - [RTF-764](https://jira.kcura.com/browse/RTF-764)
-  - Delete - [RTF-766](https://jira.kcura.com/browse/RTF-766)
-  - Update - [RTF-765](https://jira.kcura.com/browse/RTF-765)
-  - Require - [RTF-767](https://jira.kcura.com/browse/RTF-767)
+  - Create
+  - Read
+  - Delete
+  - Update
+  - Require
 
 ## [0.20.0] - 2020-10-26
 
 ### Added
 
 - ResourcePool Strategies
-  - QueryResources - [RTF-740](https://jira.kcura.com/browse/RTF-740)
+  - QueryResources
 - View Strategies
-  - GetAll - [RTF-746](https://jira.kcura.com/browse/RTF-746)
+  - GetAll
 
 ### Changed
 
-- ApiComponent will now retry a few times if the Ensure method fails to talk to REST or RSAPI. - [RTF-769](https://jira.kcura.com/browse/RTF-769)
+- ApiComponent will now retry a few times if the Ensure method fails to talk to REST or RSAPI.
 
 ## [0.19.0] - 2020-10-12
 
 ### Added
 
 - Entity Strategies
-  - Create - [RTF-693](https://jira.kcura.com/browse/RTF-693)
-  - Get - [RTF-694](https://jira.kcura.com/browse/RTF-694)
-  - GetAll - [RTF-694](https://jira.kcura.com/browse/RTF-694)
-  - Update - [RTF-695](https://jira.kcura.com/browse/RTF-695)
-  - Require - [RTF-697](https://jira.kcura.com/browse/RTF-697)
-  - Delete - [RTF-696](https://jira.kcura.com/browse/RTF-696)
+  - Create
+  - Get
+  - GetAll
+  - Update
+  - Require
+  - Delete
 - BatchSet Strategies
-  - Create - [RTF-706](https://jira.kcura.com/browse/RTF-706)
-  - Get - [RTF-736](https://jira.kcura.com/browse/RTF-736)
-  - Create Batches - [RTF-732](https://jira.kcura.com/browse/RTF-732)
-  - Purge Batches - [RTF-738](https://jira.kcura.com/browse/RTF-738)
+  - Create
+  - Get
+  - Create Batches
+  - Purge Batches
 - Batch Strategies
-  - Get - [RTF-707](https://jira.kcura.com/browse/RTF-707)
-  - GetAll - [RTF-707](https://jira.kcura.com/browse/RTF-707)
-  - AssignToUser - [RTF-708](https://jira.kcura.com/browse/RTF-708)
-  - Query - [RTF-711](https://jira.kcura.com/browse/RTF-711)
+  - Get
+  - GetAll
+  - AssignToUser
+  - Query
 - View Strategies
-  - Create - [RTF-701](https://jira.kcura.com/browse/RTF-701)
-  - Read - [RTF-702](https://jira.kcura.com/browse/RTF-702)
-  - Update - [RTF-703](https://jira.kcura.com/browse/RTF-703)
-  - Require - [RTF-705](https://jira.kcura.com/browse/RTF-705)
-  - AccessStatus - [RTF-733](https://jira.kcura.com/browse/RTF-733)
-  - ViewOwner - [RTF-734](https://jira.kcura.com/browse/RTF-734)
+  - Create
+  - Read
+  - Update
+  - Require
+  - AccessStatus
+  - ViewOwner
 - ResourcePool Strategies
-  - Create - [RTF-749](https://jira.kcura.com/browse/RTF-749)
-  - Read - [RTF-698](https://jira.kcura.com/browse/RTF-698)
-  - Update - [RTF-699](https://jira.kcura.com/browse/RTF-699)
-  - Delete - [RTF-700](https://jira.kcura.com/browse/RTF-700)
+  - Create
+  - Read
+  - Update
+  - Delete
 
 ### Fixed
 
-- Catching a potential exception when a production is deleted halfway though the GetProductionsById method. - [RTF-721](https://jira.kcura.com/browse/RTF-721)
+- Catching a potential exception when a production is deleted halfway though the GetProductionsById method.
 
 ### Removed
 
-- Support for 10.2 versions of Realtivity. [RTF-658](https://jira.kcura.com/browse/RTF-658)
+- Support for 10.2 versions of Realtivity.
 
 ## [0.18.0] - 2020-09-28
 
 ### Added
 
 - ObjectManager Strategies
-  - Create - [RTF-657](https://jira.kcura.com/browse/RTF-657)
-  - Update - [RTF-652](https://jira.kcura.com/browse/RTF-652)
-  - Delete - [RTF-651](https://jira.kcura.com/browse/RTF-651)
+  - Create
+  - Update
+  - Delete
 - ProductionSet Strategies
-  - Stage [RTF-567](https://jira.kcura.com/browse/RTF-567)
-  - Run [RTF-568](https://jira.kcura.com/browse/RTF-568)
-  - WaitForStatus [RTF-584](https://jira.kcura.com/browse/RTF-584)
+  - Stage
+  - Run
+  - WaitForStatus
 - Document Strategies
-  - Get - [RTF-649](https://jira.kcura.com/browse/RTF-649)
-  - Delete - [RTF-663](https://jira.kcura.com/browse/RTF-663)
+  - Get
+  - Delete
 - Markup Set Strategies
-  - Create - [RTF-642](https://jira.kcura.com/browse/RTF-642)
-  - Read - [RTF-643](https://jira.kcura.com/browse/RTF-643)
-  - Delete - [RTF-645](https://jira.kcura.com/browse/RTF-645)
-  - Require - [RTF-646](https://jira.kcura.com/browse/RTF-646)
+  - Create
+  - Read
+  - Delete
+  - Require
 - Field Strategies
-  - Require - [RTF-406](https://jira.kcura.com/browse/RTF-406)
+  - Require
 
 ## [0.17.0] - 2020-09-14
 
 ### Added
 
 - Strategies for running production sets
-  - Get Production Status Strategy [RTF-569](https://jira.kcura.com/browse/RTF-569)
+  - Get Production Status Strategy
 - Production Data Source Strategies
-  - Read - [RTF-571](https://jira.kcura.com/browse/RTF-571)
-  - Update - [RTF-572](https://jira.kcura.com/browse/RTF-572)
-- User Group Email Notifications to the User model  - [RTF-507](https://jira.kcura.com/browse/RTF-507)
+  - Read
+  - Update
+- User Group Email Notifications to the User model.
 
 - Production Placeholder Strategies
-  - Create - [RTF-625](https://jira.kcura.com/browse/RTF-625)
-  - Read - [RTF-626](https://jira.kcura.com/browse/RTF-626)
-  - Update - [RTF-627](https://jira.kcura.com/browse/RTF-627)
-  - Delete - [RTF-628](https://jira.kcura.com/browse/RTF-628)
-- Implement Await function for Production - [RTF-623](https://jira.kcura.com/browse/RTF-623)
-- Implement Await function for Production Data Source - [RTF-624](https://jira.kcura.com/browse/RTF-624)
+  - Create
+  - Read
+  - Update
+  - Delete
+- Implement Await function for Production.
+- Implement Await function for Production Data Source.
 
 ### Changed
 
-- Update User model and properties due to changes for 11.3 - [RTF-590](https://jira.kcura.com/browse/RTF-590)
+- Update User model and properties due to changes for 11.3.
 
 ### Fixed
 
-- RSAPI over REST calls are now correctly using the REST URL, instead of the RSAPI URL. - [RTF-631](https://jira.kcura.com/browse/RTF-631)
+- RSAPI over REST calls are now correctly using the REST URL, instead of the RSAPI URL.
 
 ## [0.16.0] - 2020-08-31
 
 ### Added
 
 - Production Data Source Strategies
-  - Create - [RTF-570](https://jira.kcura.com/browse/RTF-570)
-  - Delete - [RTF-573](https://jira.kcura.com/browse/RTF-573)
+  - Create
+  - Delete
 
 ## [0.15.0] - 2020-08-17
 
 ### Added
 
 - Resource pool Strategies
-  - GetAll - [RTF-557](https://jira.kcura.com/browse/RTF-557)
+  - GetAll
 - Resource server Strategies
-  - GetAll - [RTF-557](https://jira.kcura.com/browse/RTF-557)
+  - GetAll
 - Production Set Strategies
-  - Create - [RTF-564](https://jira.kcura.com/browse/RTF-564)
-  - Read - [RTF-565](https://jira.kcura.com/browse/RTF-565)
-  - Delete - [RTF-566](https://jira.kcura.com/browse/RTF-566)
+  - Create
+  - Read
+  - Delete
 
 ### Changed
 
 - Workspace methods now use REST for Relativity versions 11.3.0 and higher
-  - Create - [RTF-557](https://jira.kcura.com/browse/RTF-557)
+  - Create
 
 ### Fixed
 
-- User requests to Relativity 11.3 now correctly map returned `FirstName`, `LastName`, `EmailAddress`, and `Password` values. [RTF-575](https://jira.kcura.com/browse/RTF-575)
+- User requests to Relativity 11.3 now correctly map returned `FirstName`, `LastName`, `EmailAddress`, and `Password` values.
 
 ## [0.14.0] - 2020-08-03
 
 ### Added
 
 - Group Strategies
-  - Update - [RTF-552](https://jira.kcura.com/browse/RTF-552)
-  - Require - [RTF-553](https://jira.kcura.com/browse/RTF-553)
+  - Update
+  - Require
 - Matter Strategies
-  - Update - [RTF-550](https://jira.kcura.com/browse/RTF-550)
-  - Require - [RTF-551](https://jira.kcura.com/browse/RTF-551)
+  - Update
+  - Require
 - Agent Strategies
-  - Update - [RTF-544](https://jira.kcura.com/browse/RTF-544)
-  - Require - [RTF-544](https://jira.kcura.com/browse/RTF-544)
+  - Update
+  - Require
 
 ### Changed
 
 - Group methods now use REST for Relativity versions 11.3.0 and higher
-  - DeleteGroup - [RTF-540](https://jira.kcura.com/browse/RTF-540)
-  - CreateGroup - [RTF-539](https://jira.kcura.com/browse/RTF-539)
+  - DeleteGroup
+  - CreateGroup
 - Field Strategies
-  - Add Field Propagation to base Field functionality - [REL-450762](https://jira.kcura.com/browse/REL-450762)
-  - Add Relational Fields to FixedLengthTextField model - [RTF-558](https://jira.kcura.com/browse/RTF-558)
+  - Add Field Propagation to base Field functionality
+  - Add Relational Fields to FixedLengthTextField model
 
 ## [0.13.0] - 2020-07-20
 
 ### Added
 
 - KeywordSearch Strategies
-  - Require - [RTF-518](https://jira.kcura.com/browse/RTF-518)
-  - Query - [RTF-520](https://jira.kcura.com/browse/RTF-520)
-- Add AccountPool functionality for multiple users during UI tests - [RTF-489](https://jira.kcura.com/browse/RTF-489)
+  - Require
+  - Query
+- Add AccountPool functionality for multiple users during UI tests.
 
 ### Changed
 
 - User methods now use REST for Relativity versions 11.3.0 and higher
-  - CreateUser - [RTF-533](https://jira.kcura.com/browse/RTF-533)
-  - UserExistsByEmail - [RTF-535](https://jira.kcura.com/browse/RTF-535)
-  - DeleteUser - [RTF-534](https://jira.kcura.com/browse/RTF-534)
-  - GetUserById - [RTF-559](https://jira.kcura.com/browse/RTF-559)
-  - GetUserByEmail - [RTF-536](https://jira.kcura.com/browse/RTF-536)
+  - CreateUser
+  - UserExistsByEmail
+  - DeleteUser
+  - GetUserById
+  - GetUserByEmail
 
 ## [0.12.0] - 2020-07-06
 
 ### Added
 
 - Workspace Strategies
-  - CreateWithDocs - [RTF-335](https://jira.kcura.com/browse/RTF-335)
+  - CreateWithDocs
 - KeywordSearch Strategies
-  - Get - [RTF-514](https://jira.kcura.com/browse/RTF-514)
-  - Create - [RTF-515](https://jira.kcura.com/browse/RTF-515)
-  - Delete - [RTF-516](https://jira.kcura.com/browse/RTF-516)
-  - Update - [RTF-517](https://jira.kcura.com/browse/RTF-517)
+  - Get
+  - Create
+  - Delete
+  - Update
 
 ### Fixed
 
-- Declare dependencies targeting a specific build number. [RTF-499](https://jira.kcura.com/browse/RTF-499)
-- Use passed in WorkspaceAdminGroup when requesting workspace creation. [RTF-519](https://jira.kcura.com/browse/RTF-519)
+- Declare dependencies targeting a specific build number.
+- Use passed in WorkspaceAdminGroup when requesting workspace creation.
 
 ## [0.11.0] - 2020-06-22
 
 ### Added
 
 - Document Strategies
-  - GetAll - [RTF-461](https://jira.kcura.com/browse/RTF-461)
-  - Import - [RTF-456](https://jira.kcura.com/browse/RTF-456)
+  - GetAll
+  - Import
 
 ### Fixed
 
-- Temporary fix for `Yes/No`, `Fixed-Length Text`, and `ObjectType` field mapping for IObjectService requests. [RTF-486](https://jira.kcura.com/browse/RTF-486)
+- Temporary fix for `Yes/No`, `Fixed-Length Text`, and `ObjectType` field mapping for IObjectService requests.
 
 ## [0.10.0] - 2020-06-08
 
 ### Added
 
-- Lanceleaf support - [RTF-430](https://jira.kcura.com/browse/RTF-430)
+- Lanceleaf support.
 - User Strategies
-  - RemoveFromGroup - [RTF-448](https://jira.kcura.com/browse/RTF-448)
+  - RemoveFromGroup
 
 ### Fixed
 
-- Using PerformRelativityVersionCheck will no longer cause an issue with lazy loading the RelativityFacade. - [RTF-447](https://jira.kcura.com/browse/RTF-447)
-- Multiversion support. - [RTF-433](https://jira.kcura.com/browse/RTF-433)
+- Using PerformRelativityVersionCheck will no longer cause an issue with lazy loading the RelativityFacade.
+- Multiversion support.
 
 ## [0.9.0] - 2020-05-25
 
 ### Added
 
 - Choice Strategies
-  - Get - [RTF-419](https://jira.kcura.com/browse/RTF-419)
-  - Create - [RTF-418](https://jira.kcura.com/browse/RTF-418)
-  - Update - [RTF-420](https://jira.kcura.com/browse/RTF-420)
-  - Require - [RTF-422](https://jira.kcura.com/browse/RTF-422)
-  - Delete - [RTF-421](https://jira.kcura.com/browse/RTF-421)
-- MOTD Strategies - [RTF-399](https://jira.kcura.com/browse/RTF-399)
+  - Get
+  - Create
+  - Update
+  - Require
+  - Delete
+- MOTD Strategies
   - Get
   - Update
   - Dismiss

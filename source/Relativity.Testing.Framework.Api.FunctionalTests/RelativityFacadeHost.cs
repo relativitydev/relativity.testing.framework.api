@@ -30,8 +30,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 
 		public IRelativityFacade SetUpFacade()
 		{
-			// Code Smell - Can we remove the internal Facade function of TestSession? - https://jira.kcura.com/browse/RTF-956
-			// Code Smell - Can we remove the internal RelativityFacade constructor? - https://jira.kcura.com/browse/RTF-957
+			// Code Smell - Can we remove the internal Facade function of TestSession?
+			// Code Smell - Can we remove the internal RelativityFacade constructor?
 			return TestSession.Current.Facade = Facade = new RelativityFacade();
 		}
 

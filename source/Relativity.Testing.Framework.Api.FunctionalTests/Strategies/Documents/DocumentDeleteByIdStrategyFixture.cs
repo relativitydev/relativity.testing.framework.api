@@ -21,16 +21,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Get_Existing()
 		{
-			Workspace workspace = null;
-			Arrange(x => x.Create(out workspace));
+			var documentService = Facade.Resolve<IDocumentService>();
+			var documentToDelete = documentService.GetAll(DefaultWorkspace.ArtifactID).First();
 
-			IDocumentService documentService = Facade.Resolve<IDocumentService>();
-			documentService.ImportGeneratedDocuments(workspace.ArtifactID, 1);
-			Document documentToDelete = documentService.GetAll(workspace.ArtifactID).FirstOrDefault();
+			Sut.Delete(DefaultWorkspace.ArtifactID, documentToDelete.ArtifactID);
 
-			Sut.Delete(workspace.ArtifactID, documentToDelete.ArtifactID);
-
-			Document[] result = documentService.GetAll(workspace.ArtifactID);
+			var result = documentService.GetAll(DefaultWorkspace.ArtifactID);
 
 			result.Should().NotContain(documentToDelete);
 		}

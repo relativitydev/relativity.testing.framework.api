@@ -12,21 +12,25 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class DocumentDeleteByIdStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<Document>>
 	{
 		[Test]
-		public void Get_Missing()
+		public void Delete_Missing()
 		{
 			Assert.Throws<HttpRequestException>(() =>
 				Sut.Delete(DefaultWorkspace.ArtifactID, int.MaxValue));
 		}
 
 		[Test]
-		public void Get_Existing()
+		public void Delete_Existing()
 		{
-			var documentService = Facade.Resolve<IDocumentService>();
-			var documentToDelete = documentService.GetAll(DefaultWorkspace.ArtifactID).First();
+			Workspace workspace = null;
+			Arrange(x => x.Create(out workspace));
 
-			Sut.Delete(DefaultWorkspace.ArtifactID, documentToDelete.ArtifactID);
+			IDocumentService documentService = Facade.Resolve<IDocumentService>();
+			documentService.ImportGeneratedDocuments(workspace.ArtifactID, 1);
+			Document documentToDelete = documentService.GetAll(workspace.ArtifactID).FirstOrDefault();
 
-			var result = documentService.GetAll(DefaultWorkspace.ArtifactID);
+			Sut.Delete(workspace.ArtifactID, documentToDelete.ArtifactID);
+
+			Document[] result = documentService.GetAll(workspace.ArtifactID);
 
 			result.Should().NotContain(documentToDelete);
 		}

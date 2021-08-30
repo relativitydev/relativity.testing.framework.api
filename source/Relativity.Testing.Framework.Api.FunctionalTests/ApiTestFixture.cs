@@ -73,7 +73,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 				AddNUnitParameters().
 				Build();
 
-			// Code Smell - Can we remove the reliance on this internal class? RTF-958
+			// Code Smell - Can we remove the reliance on this internal class?
 			return new ConfigurationService(configurationRoot);
 		}
 	}

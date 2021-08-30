@@ -10,7 +10,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IUpdateStrategy<ResourcePool>))]
-	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated. https://jira.kcura.com/browse/RTF-753")]
+	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated.")]
 	internal class ResourcePoolUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<ResourcePool>>
 	{
 		private IGetByIdStrategy<ResourcePool> _getByIdStrategy;

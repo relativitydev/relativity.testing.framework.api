@@ -75,7 +75,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		internal static string GetRingSetupVersionReferencedInAssembly(Assembly assembly)
 		{
 			AssemblyName[] referencedAssemblies = assembly.GetReferencedAssemblies();
-			string ringSetupVersion = referencedAssemblies.FirstOrDefault(x => x.Name == "Relativity.Testing.Framework.RingSetup").Version.ToString();
+			string ringSetupVersion = referencedAssemblies.FirstOrDefault(x => x.Name == "Relativity.Testing.Framework.RingSetup")?.Version?.ToString();
 			return ringSetupVersion;
 		}
 

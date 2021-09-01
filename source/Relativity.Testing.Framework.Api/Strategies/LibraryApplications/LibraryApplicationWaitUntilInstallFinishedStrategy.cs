@@ -37,7 +37,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 						Console.WriteLine("Application install is InProgress.");
 						break;
 					case RelativityApplicationInstallStatusCode.Failed:
-						throw new Exception($"Application failed to install. Exception Message: {string.Join("\n", statusCodeRespose.ValidationMessages)}");
+						string exceptionMsg = (statusCodeRespose.ValidationMessages == null || statusCodeRespose.ValidationMessages.Count == 0)
+							? "Application failed to install. Relativity ADS did not return any validation messages. Relativity logs and errors may contain more information."
+							: $"Application failed to install. Exception Message: {string.Join("\n", statusCodeRespose.ValidationMessages)}";
+						throw new Exception(exceptionMsg);
 					case RelativityApplicationInstallStatusCode.Completed:
 					case RelativityApplicationInstallStatusCode.Canceled:
 						keepPolling = false;

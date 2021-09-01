@@ -5,11 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
 ## [4.6.0] - 2021-09-01
 
 ### Changed
 
 - Consumers can now use the ApiComponent against Relativity 12.3
+
+## [4.5.2] - 2021-09-01
+
+### Changed
+
+- Capture additional ApplicationInsights metadata for RingSetup version and Relativity hostname.
+- Include custom ApplicationInsights metadata on exceptions in addition to successful requests.
 
 ## [4.5.1] - 2021-08-27
 

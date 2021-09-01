@@ -32,7 +32,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange("<12.3")] // Defect in SunDrop EAU - REL-590561
+		[VersionRange("<12.3")] // Defect in SunDrop EA - REL-590561
 		public void Delete_AdminLevel()
 		{
 			Choice existingChoice = null;

@@ -25,7 +25,7 @@ In addition to the [default information](https://docs.microsoft.com/en-us/azure/
 | RelativityTestingFrameworkVersion | The version of RTF that is running. | 1.1.1 |
 | RelativityVersion | The version of Relativity that RTF is running against. | 12.1.2.3 |
 | TestAssemblyName | The name of the assembly that NUnit is running. | Relativity.Testing.Framework.Api.FunctionalTests |
-| Parameters | Contains all parameters you send into a strategy. **Might potentially contain sensitive information (passwords)**. | 1015024 && 1018047 |
+| Parameters | Contains all parameters you send into a strategy. Note that object parameters will not be expanded. | 1015024 && 1018047 |
 | Method | The name of the method/strategy being called. | IsInstalledInWorkspace |
 | Class | The name of the class/service running. | RelativityApplicationService |
 | ProcessingTime | The time in the milliseconds that the method took to run. | 1123.897 |

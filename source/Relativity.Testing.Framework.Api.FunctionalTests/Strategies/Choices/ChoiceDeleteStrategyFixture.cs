@@ -4,6 +4,7 @@ using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -31,6 +32,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		[VersionRange("<12.3")] // Defect in SunDrop EAU - REL-590561
 		public void Delete_AdminLevel()
 		{
 			Choice existingChoice = null;

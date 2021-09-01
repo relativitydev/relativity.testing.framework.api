@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		private readonly IRelativityFacade _relativityFacade;
 		private readonly string _rtfVersion;
 		private readonly string _testAssemblyName;
-		private readonly bool _usingRingSetup;
+		private readonly string _ringSetupVersion;
 
 		protected ApplicationInsightsInterceptor(IRelativityFacade relativityFacade)
 		{
@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			_testAssemblyName = ConvertAppDomainToAssemblyName(executingAssemblyDomainName);
 
 			Assembly executingAssembly = GetAssemblyFromAppDomainOrNull(_testAssemblyName);
-			_usingRingSetup = (executingAssembly != null) && RingSetupIsReferencedInAssembly(executingAssembly);
+			_ringSetupVersion = (executingAssembly != null) ? GetRingSetupVersionReferencedInAssembly(executingAssembly) : null;
 		}
 
 		protected TelemetryClient TelemetryClient { get; set; }
@@ -46,7 +46,8 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 				{ "Parameters", string.Join(" && ", invocation.Arguments.Where(x => x != null)) },
 				{ "RelativityTestingFrameworkVersion", _rtfVersion },
 				{ "TestAssemblyName", _testAssemblyName },
-				{ "AdsCiCd", _usingRingSetup.ToString() }
+				{ "RingSetupVersion", _ringSetupVersion },
+				{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
 			};
 			return properties;
 		}
@@ -71,11 +72,11 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			return assemblyName;
 		}
 
-		internal static bool RingSetupIsReferencedInAssembly(Assembly assembly)
+		internal static string GetRingSetupVersionReferencedInAssembly(Assembly assembly)
 		{
 			AssemblyName[] referencedAssemblies = assembly.GetReferencedAssemblies();
-			bool isReferencingRingSetup = referencedAssemblies.FirstOrDefault(x => x.Name == "Relativity.Testing.Framework.RingSetup") != null;
-			return isReferencingRingSetup;
+			string ringSetupVersion = referencedAssemblies.FirstOrDefault(x => x.Name == "Relativity.Testing.Framework.RingSetup")?.Version?.ToString();
+			return ringSetupVersion;
 		}
 
 		internal static Assembly GetAssemblyFromAppDomainOrNull(string assemblyName)

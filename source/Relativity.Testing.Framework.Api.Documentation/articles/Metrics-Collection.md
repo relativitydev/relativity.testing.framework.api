@@ -29,7 +29,8 @@ In addition to the [default information](https://docs.microsoft.com/en-us/azure/
 | Method | The name of the method/strategy being called. | IsInstalledInWorkspace |
 | Class | The name of the class/service running. | RelativityApplicationService |
 | ProcessingTime | The time in the milliseconds that the method took to run. | 1123.897 |
-| AdsCiCd | If the NUnit process is running for AdsCiCd. | true |
+| RingSetupVersion | The version of the Relativity.Testing.Framework.RingSetup assembly, if loaded | 0.13.0 |
+| Hostname | The hostname of the Relativity environment that RTF is running against. | P-DV-VM-CUP7WET |
 
 
 ### API Error Metrics 

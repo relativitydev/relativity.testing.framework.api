@@ -14,8 +14,8 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior:
 Code example or detailed description of the steps to reproduce the issue.
 
-**Relativity Testing Framework API Versions**
-Which version of Relativity.Testing.Framework.API components are you using?
+**Relativity Testing Framework Versions**
+Which version of Relativity.Testing.Framework components are you using?
 
 **Environment Details**
 What type and version of environment are you testing against?

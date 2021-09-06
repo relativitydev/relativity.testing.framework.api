@@ -1,6 +1,5 @@
 ---
-name: "[Feature]: *Use a clear and descriptive title for the issue to identify the
-  \  suggestion.*"
+name: "[Feature]: Use a clear and descriptive title for the issue to identify the suggestion."
 about: Suggest an idea for this project
 title: ''
 labels: enhancement

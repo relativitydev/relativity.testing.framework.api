@@ -34,7 +34,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				{
 					if (watch.Elapsed > _deletionTimeout)
 					{
-						throw new InvalidOperationException($"Failed to delete an user with ArtifactID={artifactId}.");
+						throw new InvalidOperationException($"The user with the ArtifactID {artifactId} was not deleted after {_deletionTimeout.TotalSeconds} seconds.");
 					}
 					else
 					{
@@ -58,7 +58,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				{
 					if (watch.Elapsed > _deletionTimeout)
 					{
-						throw new InvalidOperationException($"Failed to delete an user with email address={email}.");
+						throw new InvalidOperationException($"The user with the email address {email} was not deleted after {_deletionTimeout.TotalSeconds} seconds.");
 					}
 					else
 					{

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -73,7 +74,6 @@ namespace Relativity.Testing.Framework.Api.Services
 			{
 				AccountBaseInfo accountInfo = GetNewStandardAccountInfo();
 				DeleteStandardAccount(accountInfo.Email);
-				_waitUserDeletedStrategy.Wait(accountInfo.Email);
 				CreateNewUser(accountInfo);
 
 				AccountEntry accountEntry = new AccountEntry(accountInfo) { IsAcquired = true };
@@ -93,7 +93,26 @@ namespace Relativity.Testing.Framework.Api.Services
 			{
 				_standardAccountEntries.RemoveAll(account => account.Info.Email == email);
 				_userDeleteByIdStrategy.Delete(existingUser.ArtifactID);
-				_logService.Trace($"Removed {email} standard account");
+				_logService.Trace($"The request to have Relativity delete the {email} account was received.");
+				WaitDeleteStandardAccount(email);
+			}
+		}
+
+		internal void WaitDeleteStandardAccount(string email)
+		{
+			try
+			{
+				_logService.Trace($"Waiting for the {email} account to be deleted.");
+				_waitUserDeletedStrategy.Wait(email);
+			}
+			catch (InvalidOperationException ex)
+			{
+				_logService.Trace($"The {email} account was requested to be deleted, but was not removed.");
+
+				throw new InvalidOperationException(
+					$@"The request to delete the {email} account was accepted, but the account was not removed.
+Please ensure that the environment that you are testing against is in a good state.
+Also check for any errors in Relativity that might be relevant.", ex);
 			}
 		}
 

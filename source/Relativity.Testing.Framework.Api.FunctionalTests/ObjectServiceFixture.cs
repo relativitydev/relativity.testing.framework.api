@@ -30,6 +30,17 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		}
 
 		[Test]
+		public void Create()
+		{
+			Lists entityToCreate = new Lists().FillRequiredProperties();
+
+			Lists result = Sut.Create(-1, entityToCreate);
+
+			result.Should().BeEquivalentTo(entityToCreate, o => o.Excluding(x => x.ArtifactID));
+			result.ArtifactID.Should().BePositive();
+		}
+
+		[Test]
 		public void Mass_Create()
 		{
 			var entitiesToCreate = new List<Lists> { new Lists().FillRequiredProperties(), new Lists().FillRequiredProperties() };

@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ProductionsPlaceholderCreateStrategy : CreateWorkspaceEntityStrategy<ProductionPlaceholder>
+	[VersionRange("<12.1")]
+	internal class ProductionsPlaceholderCreateStrategyPreOsier : CreateWorkspaceEntityStrategy<ProductionPlaceholder>
 	{
 		private readonly IRestService _restService;
 		private readonly IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder> _getWorkspaceEntityByIdStrategy;
 
-		public ProductionsPlaceholderCreateStrategy(
+		public ProductionsPlaceholderCreateStrategyPreOsier(
 			IRestService restService,
 			IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder> getWorkspaceEntityByIdStrategy)
 		{

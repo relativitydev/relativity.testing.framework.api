@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// Creates the specified entity of <typeparamref name="TObject"/> type.
 		/// </summary>
 		/// <typeparam name="TObject">The type of the object to create.</typeparam>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to create the object, use -1 for administrator level context .</param>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to create the object, use -1 for administrator level context.</param>
 		/// <param name="entity">The entity to create.</param>
 		/// <returns>Returns the created <typeparamref name="TObject"/> object.</returns>
 		/// <example> This example shows how to create object using a data model with ObjectTypeName attribute and existing object type name.
@@ -80,7 +80,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// <summary>
 		/// Updates specified fields on a list of Documents or Relativity Dynamic Objects (RDOs) that match a set of identifiers by setting the fields to the same value.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to create the object, use -1 for administrator level context .</param>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the object, use -1 for administrator level context.</param>
 		/// <param name="massRequestByObjectIdentifiers">A request to update multiple Documents or Relativity Dynamic Objects (RDOs) that have the specified identifiers.</param>
 		/// <remarks>A <see cref="MassUpdateByObjectIdentifiersRequest"/> object specifies the identifiers used to select a list of objects with the same type for updating. It also includes the same
 		/// values for all object fields that are to be updated. In the Relativity UI, this update operation is equivalent to the user selecting the Checked or These option in
@@ -113,12 +113,12 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		void Update(int workspaceId, MassUpdateByObjectIdentifiersRequest massRequestByObjectIdentifiers);
 
 		/// <summary>
-		/// Creates the specified workspace entities of <typeparamref name="TObject"/> type.
+		/// Updates the specified workspace entity of <typeparamref name="TObject"/> type.
 		/// </summary>
 		/// <typeparam name="TObject">The type of the object.</typeparam>
 		/// <param name="workspaceId">The workspace ArtifactID.</param>
 		/// <param name="entity">The entity to update.</param>
-		/// <example> This shows how to update the value of the SingleChoiceField of known Name 'Confidential Designation' on the Document.
+		/// <example> This shows how to update the value of the SingleChoiceField 'Confidential Designation' on the Document.
 		/// <code>
 		/// [ObjectTypeName("Document")]
 		/// internal class DocumentWithSingleChoice : Document
@@ -214,7 +214,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// </summary>
 		/// <typeparam name="TObject">The type of the object.</typeparam>
 		/// <returns>The <see cref="ObjectQuery{TObject}"/> object.</returns>
-		/// <example> This example shows how to get all entities of Field type for workspace with specified ArtifactID.
+		/// <example> This example shows how to query for entities of Field type for workspace with specified ArtifactID.
 		/// <code>
 		/// int workspaceArtifactID = 1017850;
 		/// List&lt;Field&gt; fields = _objectService.Query&lt;Field&gt;().For(workspaceArtifactID).ToList();

@@ -16,18 +16,22 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource> _deleteWorkspaceEntityByIdStrategy;
 
+		private readonly IProductionPlaceholderGetDefaultFieldValuesStrategy _getDefaultFieldValuesStrategy;
+
 		public ProductionPlaceholderService(
 			ICreateWorkspaceEntityStrategy<ProductionPlaceholder> createWorkspaceEntityStrategy,
 			IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder> getWorkspaceEntityByIdStrategy,
 			IExistsWorkspaceEntityByIdStrategy<ProductionPlaceholder> existsWorkspaceEntityByIdStrategy,
 			IUpdateWorkspaceEntityStrategy<ProductionPlaceholder> updateWorkspaceEntityStrategy,
-			IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource> deleteWorkspaceEntityByIdStrategy)
+			IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource> deleteWorkspaceEntityByIdStrategy,
+			IProductionPlaceholderGetDefaultFieldValuesStrategy getDefaultFieldValuesStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 			_existsWorkspaceEntityByIdStrategy = existsWorkspaceEntityByIdStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 			_deleteWorkspaceEntityByIdStrategy = deleteWorkspaceEntityByIdStrategy;
+			_getDefaultFieldValuesStrategy = getDefaultFieldValuesStrategy;
 		}
 
 		public ProductionPlaceholder Create(int workspaceId, ProductionPlaceholder entity)
@@ -44,5 +48,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Delete(int workspaceId, int entityId)
 			=> _deleteWorkspaceEntityByIdStrategy.Delete(workspaceId, entityId);
+
+		public DefaultFieldValue<NamedArtifact> GetDefaultFieldValues(int workspaceId)
+			=> _getDefaultFieldValuesStrategy.Get(workspaceId);
 	}
 }

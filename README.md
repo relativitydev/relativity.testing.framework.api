@@ -4,17 +4,18 @@ This repository contains a C#/NuGet library that abstracts out API functionality
 
 ## Build Tasks
 
-This repository builds with the dotnet sdk. It supports standard tasks like dotnet build, dotnet test (for unit testing), and dotnet pack.
+This repository builds with the [dotnet sdk](https://dotnet.microsoft.com/download). It supports standard tasks like dotnet build, dotnet test and dotnet pack.
 
 ## Local Testing
+
+This repository has unit and functional tests in it. Functional tests have Category=FunctionalTests on it.
 
 ### Unit Testing
 
 Run through the standard compile and (unit) test tasks. These can be done without any external environment to test on.
-Note that unit tests located at Relativity.Testing.Framework.Api.Tests folder.
 
 ```PowerShell
-dotnet test
+dotnet test --filter TestCategory!=FunctionalTests
 ```
 
 ### Functional Testing
@@ -35,10 +36,17 @@ This script will create FunctionalTest.runsettings and put it next to itself. Yo
 
 #### Running Functional Tests
 
-Run Tests:
+Run Tests in Visual Studio:
 
 * Attach your runsettings file to the solution in Visual Studio.
 * Use the built in test runner.
+
+You can also run functional tests from the command line providing all necessary runsettings as inline parameters:
+
+```PowerShell
+dotnet test --filter TestCategory=FunctionalTests --  ServerBindingType=https RelativityHostAddress=TheOneSut AdminUsername=TheOneAdmin@kcura.com AdminPassword=TheOnePassword1!
+
+```
 
 ## Documentation
 

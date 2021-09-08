@@ -15,7 +15,7 @@ This repository has unit and functional tests in it. Functional tests have Categ
 Run through the standard compile and (unit) test tasks. These can be done without any external environment to test on.
 
 ```PowerShell
-dotnet test --filter TestCategory!=FunctionalTests
+dotnet test ./Source/ --filter TestCategory!=FunctionalTests
 ```
 
 ### Functional Testing
@@ -29,7 +29,7 @@ Before we can run the tests, we'll need to provide a runsettings file that point
 To create the runsettings file in project root run the following comand replacing instance settings parameters with what you need:
 
 ```PowerShell
-./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "TheOneSut" -AdminUsername "TheOneAdmin@kcura.com" -AdminPassword "TheOnePassword1!"
+./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "YOUR_HOST_ADDRESS" -AdminUsername "YOUR_ADMIN_USERNAME" -AdminPassword "YOUR_ADMIN_PASSWORD"
 
 ```
 This script will create FunctionalTest.runsettings and put it next to itself. You shall use this file to setup functional testing.
@@ -44,7 +44,7 @@ Run Tests in Visual Studio:
 You can also run functional tests from the command line providing all necessary runsettings as inline parameters:
 
 ```PowerShell
-dotnet test --filter TestCategory=FunctionalTests --  ServerBindingType=https RelativityHostAddress=TheOneSut AdminUsername=TheOneAdmin@kcura.com AdminPassword=TheOnePassword1!
+dotnet test ./Source/ --filter TestCategory=FunctionalTests --  ServerBindingType=https RelativityHostAddress=YOUR_HOST_ADDRESS AdminUsername=YOUR_ADMIN_USERNAME AdminPassword=YOUR_ADMIN_PASSWORD
 
 ```
 

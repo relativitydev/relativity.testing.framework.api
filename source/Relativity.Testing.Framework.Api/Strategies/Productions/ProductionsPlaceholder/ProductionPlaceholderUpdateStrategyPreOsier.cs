@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public ProductionPlaceholderUpdateStrategyPreOsier(IRestService restService)
 		{
-		_restService = restService;
+			_restService = restService;
 		}
 
 		public void Update(int workspaceId, ProductionPlaceholder entity)

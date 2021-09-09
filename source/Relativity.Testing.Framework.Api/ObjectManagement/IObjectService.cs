@@ -144,7 +144,69 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 			where TObject : Artifact;
 
 		/// <summary>
-		/// Deletes the workspace entity by the specified ArtifactIDs of workspace and entity.
+		/// Updates the specified workspace entity fields.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <param name="entityId">The ArtifactID of the entity to update.</param>
+		/// <param name="fieldValues">List of Field Reference and Value for updating entity. </param>
+		/// <example> This shows how to update the values of the 'Extracted Text' and 'Group Identifier' fields on the Document.
+		/// <code>
+		/// int workspaceArtifactID = 1017850;
+		/// int existingDocumentToUpdateArtifactID = 1039664;
+		/// var fieldsToUpdate = new List&lt;FieldRefValuePair&gt;
+		/// {
+		/// 	new FieldRefValuePair
+		/// 	{
+		/// 		Field = new FieldRef
+		/// 		{
+		/// 			Name = "Group Identifier"
+		/// 		},
+		/// 		Value = "Updated Group Identifier"
+		/// 	},
+		/// 	new FieldRefValuePair
+		/// 	{
+		/// 		Field = new FieldRef
+		/// 		{
+		/// 			Name = "Extracted Text"
+		/// 		},
+		/// 		Value = "Updated Extracted Text"
+		/// 	}
+		/// };
+		/// _objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);
+		/// </code>
+		/// </example>
+		/// <example> This shows how to update the values of the fields with known ArtifactIDs on the Document.
+		/// <code>
+		/// int workspaceArtifactID = 1017850;
+		/// int existingDocumentToUpdateArtifactID = 1039664;
+		/// int existingDocumentFieldArtifactID = 5345435;
+		/// int existingDocumentBoolFieldArtifactID = 478324;
+		/// var fieldsToUpdate = new List&lt;FieldRefValuePair&gt;
+		/// {
+		/// 	new FieldRefValuePair
+		/// 	{
+		/// 		Field = new FieldRef
+		/// 		{
+		/// 			ArtifactID = existingDocumentStringFieldArtifactID
+		/// 		},
+		/// 		Value = "Some updated value of text field"
+		/// 	},
+		/// 	new FieldRefValuePair
+		/// 	{
+		/// 		Field = new FieldRef
+		/// 		{
+		/// 			ArtifactID = existingDocumentBoolFieldArtifactID
+		/// 		},
+		/// 		Value = bool
+		/// 	}
+		/// };
+		/// _objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);
+		/// </code>
+		/// </example>
+		void Update(int workspaceId, int entityId, IList<FieldRefValuePair> fieldValues);
+
+		/// <summary>
+		/// Deletes the workspace entity by the specified IDs of workspace and entity.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ArtifactID.</param>
 		/// <param name="entityId">The entity ArtifactID.</param>

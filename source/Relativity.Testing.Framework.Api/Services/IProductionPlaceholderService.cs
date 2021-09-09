@@ -44,5 +44,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
 		/// <param name="entityId">The Artifact ID of the production placeholder.</param>
 		void Delete(int workspaceId, int entityId);
+
+		/// <summary>
+		/// Retrieve default field values for a placeholder.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
+		/// <returns>The <see cref="DefaultFieldValue{NamedArtifact}"/>.</returns>
+		DefaultFieldValue<NamedArtifact> GetDefaultFieldValues(int workspaceId);
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -18,17 +17,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var dto = PrepareTestData();
 
 			var result = Sut.Create(DefaultWorkspace.ArtifactID, dto);
-
-			result.Should().NotBeNull();
-			result.ArtifactID.Should().BePositive();
-		}
-
-		[Test]
-		public async Task CreateAsync_WithNativeImagingProfile_ShouldBeSuccessful()
-		{
-			var dto = PrepareTestData();
-
-			var result = await Sut.CreateAsync(DefaultWorkspace.ArtifactID, dto).ConfigureAwait(false);
 
 			result.Should().NotBeNull();
 			result.ArtifactID.Should().BePositive();

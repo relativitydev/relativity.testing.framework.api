@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -29,19 +28,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			imagingProfile.Name = Randomizer.GetString();
 
 			Assert.DoesNotThrow(() => Sut.Update(DefaultWorkspace.ArtifactID, imagingProfile));
-
-			imagingProfile.Name.Should().NotBeSameAs(dto.Name);
-		}
-
-		[Test]
-		public async Task UpdateAsync_BasicImagingProfile_ShouldBeSuccessful()
-		{
-			var dto = PrepareData();
-
-			var imagingProfile = await _basicImagingProfileCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, dto).ConfigureAwait(false);
-			imagingProfile.Name = Randomizer.GetString();
-
-			Assert.DoesNotThrowAsync(() => Sut.UpdateAsync(DefaultWorkspace.ArtifactID, imagingProfile));
 
 			imagingProfile.Name.Should().NotBeSameAs(dto.Name);
 		}

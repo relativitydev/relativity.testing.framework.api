@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -18,11 +17,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public bool IsTextOnly()
 		{
 			return _restService.Get<bool>(_GET_URL);
-		}
-
-		public async Task<bool> IsTextOnlyAsync()
-		{
-			return await _restService.GetAsync<bool>(_GET_URL).ConfigureAwait(false);
 		}
 	}
 }

@@ -15,13 +15,5 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Assert.DoesNotThrow(() => size = Sut.Get());
 			Assert.IsTrue(size > 0);
 		}
-
-		[Test]
-		public void GetAsync_ShouldNotThrow()
-		{
-			int size = 0;
-			Assert.DoesNotThrowAsync(async () => size = await Sut.GetAsync().ConfigureAwait(false));
-			Assert.IsTrue(size > 0);
-		}
 	}
 }

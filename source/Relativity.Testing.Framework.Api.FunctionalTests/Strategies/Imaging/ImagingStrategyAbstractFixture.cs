@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Strategies;
+﻿using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
@@ -34,24 +33,10 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Facade.Resolve<IWaitForImagingJobToCompleteStrategy>().Wait(DefaultWorkspace.ArtifactID, imagingSetId);
 		}
 
-		public async Task WaitUntilImagingSetStatusIsCompletedAsync(int imagingSetId)
-		{
-			await Facade.Resolve<IWaitForImagingJobToCompleteStrategy>()
-				.WaitAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false);
-		}
-
 		public int CreateImagingSetAndRunJob()
 		{
 			int imagingSetId = CreateImagingSet().ArtifactID;
 			Facade.Resolve<IImagingJobRunStrategy>().Run(DefaultWorkspace.ArtifactID, imagingSetId);
-			return imagingSetId;
-		}
-
-		public async Task<int> CreateImagingSetAndRunJobAsync()
-		{
-			int imagingSetId = (await CreateImagingSetAsync().ConfigureAwait(false)).ArtifactID;
-			await Facade.Resolve<IImagingJobRunStrategy>()
-				.RunAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false);
 			return imagingSetId;
 		}
 
@@ -61,16 +46,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			ImagingSet imagingSet = Facade.Resolve<IImagingSetCreateStrategy>()
 				.Create(DefaultWorkspace.ArtifactID, imagingSetCreateRequest);
-			return imagingSet;
-		}
-
-		public async Task<ImagingSet> CreateImagingSetAsync()
-		{
-			ImagingSetRequest imagingSetCreateRequest = await ArrangeImagingSetRequestWithImagingProfileAsync()
-				.ConfigureAwait(false);
-
-			ImagingSet imagingSet = await Facade.Resolve<IImagingSetCreateStrategy>()
-				.CreateAsync(DefaultWorkspace.ArtifactID, imagingSetCreateRequest).ConfigureAwait(false);
 			return imagingSet;
 		}
 
@@ -84,29 +59,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			return imagingSetCreateRequest;
 		}
 
-		public async Task<ImagingSetRequest> ArrangeImagingSetRequestWithImagingProfileAsync()
-		{
-			KeywordSearch keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>()
-				.Create(DefaultWorkspace.ArtifactID, new KeywordSearch());
-			ImagingProfile imagingProfile = await ArrangeImagingProfileAsync().ConfigureAwait(false);
-
-			ImagingSetRequest imagingSetCreateRequest = PrepareImagingSetRequest(keywordSearch, imagingProfile);
-			return imagingSetCreateRequest;
-		}
-
 		public ImagingProfile ArrangeImagingProfile()
 		{
 			CreateBasicImagingProfileDTO imagingProfileDto = PrepareBasicImagingProfileDto();
 			ImagingProfile imagingProfile = Facade.Resolve<IImagingProfileCreateBasicStrategy>()
 				.Create(DefaultWorkspace.ArtifactID, imagingProfileDto);
-			return imagingProfile;
-		}
-
-		public async Task<ImagingProfile> ArrangeImagingProfileAsync()
-		{
-			CreateBasicImagingProfileDTO imagingProfileDto = PrepareBasicImagingProfileDto();
-			ImagingProfile imagingProfile = await Facade.Resolve<IImagingProfileCreateBasicStrategy>()
-				.CreateAsync(DefaultWorkspace.ArtifactID, imagingProfileDto).ConfigureAwait(false);
 			return imagingProfile;
 		}
 

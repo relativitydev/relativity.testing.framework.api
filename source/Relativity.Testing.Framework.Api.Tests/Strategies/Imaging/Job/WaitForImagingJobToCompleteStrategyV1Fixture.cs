@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -34,16 +33,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public async Task WaitAsync_WithAnyParameters_ShouldCallImagingSetValidator()
-		{
-			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Completed" }));
-
-			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-
-			_mockImagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
-		}
-
-		[Test]
 		public void Wait_WithAnyParameters_ShouldCallImagingSetValidator()
 		{
 			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(new ImagingSetDetailedStatus { Status = "Completed" });
@@ -61,16 +50,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public async Task WaitAsync_WhenStatusCompleted_ShouldCallImagingSetStatusGetStrategyOnce()
-		{
-			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Completed" }));
-
-			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-
-			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
-		}
-
-		[Test]
 		public void Wait_WhenStatusCompleted_ShouldCallImagingSetStatusGetStrategyOnce()
 		{
 			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(new ImagingSetDetailedStatus { Status = "Completed" });
@@ -78,18 +57,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID);
 
 			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.Get(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
-		}
-
-		[Test]
-		public async Task WaitAsync_WaitsUntilStatusIsCompleted()
-		{
-			await TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCallAsync("Completed").ConfigureAwait(false);
-		}
-
-		[Test]
-		public async Task WaitAsync_WaitsUntilStatusIsCompletedWithErrors()
-		{
-			await TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCallAsync("Completed with Errors").ConfigureAwait(false);
 		}
 
 		[Test]
@@ -113,28 +80,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				_sut.Wait(_WORKSPACE_ID, _IMAGING_SET_ID, _EXCEPTION_TIMEOUT));
 
 			exception.Message.Should().Contain(_timeoutException);
-		}
-
-		[Test]
-		public void WaitAsync_WhenStatusNotCompleted_ShouldThrowExceptionOnTimeout()
-		{
-			_mockImagingSetStatusGetStrategy.Setup(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID)).Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Staging" }));
-
-			InvalidOperationException exception = Assert.ThrowsAsync<InvalidOperationException>(() =>
-				_sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID, _EXCEPTION_TIMEOUT));
-
-			exception.Message.Should().Contain(_timeoutException);
-		}
-
-		private async Task TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCallAsync(string secondCallStatusValue)
-		{
-			_mockImagingSetStatusGetStrategy.SetupSequence(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID))
-				.Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = "Staging" }))
-				.Returns(Task.FromResult(new ImagingSetDetailedStatus { Status = secondCallStatusValue }));
-
-			await _sut.WaitAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-
-			_mockImagingSetStatusGetStrategy.Verify(getStatusStrategy => getStatusStrategy.GetAsync(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Exactly(2));
 		}
 
 		private void TestIfWaitCallsGetStatusStrategyTwiceWhenItReturnsCompletedStatusOnSecondCall(string secondCallStatusValue)

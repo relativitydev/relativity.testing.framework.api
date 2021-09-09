@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Strategies;
+﻿using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -7,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Services
 {
 	internal class MatterService : IMatterService
 	{
-		private readonly ICreateStrategyWithAsync<Matter> _createStrategy;
+		private readonly ICreateStrategy<Matter> _createStrategy;
 
 		private readonly IRequireStrategy<Matter> _requireStrategy;
 
@@ -24,7 +23,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IMatterGetEligibleClientsStrategy _getEligibleClientsStrategy;
 
 		public MatterService(
-			ICreateStrategyWithAsync<Matter> createStrategy,
+			ICreateStrategy<Matter> createStrategy,
 			IRequireStrategy<Matter> requireStrategy,
 			IDeleteByIdStrategy<Matter> deleteByIdStrategy,
 			IMatterGetByIdStrategy getByIdStrategy,
@@ -46,9 +45,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		public Matter Create(Matter entity)
 			=> _createStrategy.Create(entity);
 
-		public async Task<Matter> CreateAsync(Matter entity)
-			=> await _createStrategy.CreateAsync(entity).ConfigureAwait(false);
-
 		public Matter Require(Matter entity)
 			=> _requireStrategy.Require(entity);
 
@@ -67,13 +63,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public ArtifactIdNamePair[] GetEligibleClients()
 			=> _getEligibleClientsStrategy.GetAll();
 
-		public async Task<ArtifactIdNamePair[]> GetEligibleClientsAsync()
-			=> await _getEligibleClientsStrategy.GetAllAsync().ConfigureAwait(false);
-
 		public ArtifactIdNamePair[] GetEligibleStatuses()
 			=> _getEligibleStatusesStrategy.GetAll();
-
-		public async Task<ArtifactIdNamePair[]> GetEligibleStatusesAsync()
-			=> await _getEligibleStatusesStrategy.GetAllAsync().ConfigureAwait(false);
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -33,14 +32,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Get_WithAnyInput_ShouldCallValidator()
 		{
 			_sut.Get(WorkspaceId, NativeTypeId);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "NativeType"), Times.Once);
-		}
-
-		[Test]
-		public async Task GetAsync_WithAnyInput_ShouldCallValidator()
-		{
-			await _sut.GetAsync(WorkspaceId, NativeTypeId).ConfigureAwait(false);
 			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
 			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "NativeType"), Times.Once);
 		}

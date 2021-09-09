@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Configuration;
+﻿using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -26,17 +25,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		MessageOfTheDay Get();
 
 		/// <summary>
-		/// Gets the message of the day.
-		/// </summary>
-		/// <returns>A <see cref="Task"/> with an <see cref="MessageOfTheDay"/> instance.</returns>
-		/// <example>
-		/// <code>
-		/// MessageOfTheDay currentMotd = await _messageOfTheDayService.GetAsync().ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<MessageOfTheDay> GetAsync();
-
-		/// <summary>
 		/// Updates the message of the day.
 		/// </summary>
 		/// <param name="entity">The entity to update.</param>
@@ -54,25 +42,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		MessageOfTheDay Update(MessageOfTheDay entity);
-
-		/// <summary>
-		/// Updates the message of the day.
-		/// </summary>
-		/// <param name="entity">The entity to update.</param>
-		/// <returns>Returns an <see cref="MessageOfTheDay"/> instance.</returns>
-		/// <example>
-		/// <code>
-		/// MessageOfTheDay currentMotd = await _messageOfTheDayService.GetAsync().ConfigureAwait(false);
-		/// var toUpdate = new MessageOfTheDay
-		/// {
-		/// 	Enabled = !currentMotd.Enabled,
-		/// 	Message = Randomizer.GetString(),
-		/// 	AllowDismiss = !currentMotd.AllowDismiss
-		/// };
-		/// MessageOfTheDay updatedMotd = await _messageOfTheDayService.UpdateAsync(toUpdate).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<MessageOfTheDay> UpdateAsync(MessageOfTheDay entity);
 
 		/// <summary>
 		/// Dismiss message of the day for the user with the specified ArtifactID
@@ -100,20 +69,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Dismiss(string emailAddress);
 
 		/// <summary>
-		/// Dismiss message of the day for specified user
-		/// by default dismissing MotD for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
-		/// </summary>
-		/// <param name="userId">The user artifact ID.</param>
-		/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-		/// <example>
-		/// <code>
-		/// int userArtifactID = 1015427;
-		/// await _messageOfTheDayService.DismissAsync(userArtifactID).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task DismissAsync(int? userId = null);
-
-		/// <summary>
 		/// Determines whether specific user dismissed MotD.
 		/// by default determining MotD dismissal for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
 		/// </summary>
@@ -128,20 +83,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool HasDismissed(int? userId = null);
 
 		/// <summary>
-		/// Determines whether specific user dismissed MotD.
-		/// by default determining MotD dismissal for Admin User provided by <see cref="RelativityInstanceConfiguration.AdminUsername"/>.
-		/// </summary>
-		/// <param name="userId">The user artifact ID.</param>
-		/// <returns><see langword="true"/> if an user dismissed MotD; otherwise, <see langword="false"/>.</returns>
-		/// <example>
-		/// <code>
-		/// int userArtifactID = 1015427;
-		/// bool hasDismissed = await _messageOfTheDayService.HasDismissedAsync(userArtifactID).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<bool> HasDismissedAsync(int? userId = null);
-
-		/// <summary>
 		/// Determines whether MotD is text-only.
 		/// </summary>
 		/// <returns><see langword="true"/> if MotD is text-only; otherwise, <see langword="false"/>.</returns>
@@ -151,16 +92,5 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		bool IsTextOnly();
-
-		/// <summary>
-		/// Determines whether MotD is text-only.
-		/// </summary>
-		/// <returns><see langword="true"/> if MotD is text-only; otherwise, <see langword="false"/>.</returns>
-		/// <example>
-		/// <code>
-		/// bool isTextOnly = await _messageOfTheDayService.IsTextOnlyAsync().ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<bool> IsTextOnlyAsync();
 	}
 }

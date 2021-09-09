@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Validators;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
@@ -27,15 +26,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var url = BuildUrl(workspaceId, applicationFieldCodeId);
 
 			return _restService.Get<ApplicationFieldCode>(url);
-		}
-
-		public async Task<ApplicationFieldCode> GetAsync(int workspaceId, int applicationFieldCodeId)
-		{
-			ValidateInput(workspaceId, applicationFieldCodeId);
-
-			var url = BuildUrl(workspaceId, applicationFieldCodeId);
-
-			return await _restService.GetAsync<ApplicationFieldCode>(url).ConfigureAwait(false);
 		}
 
 		private void ValidateInput(int workspaceId, int applicationFieldCodeId)

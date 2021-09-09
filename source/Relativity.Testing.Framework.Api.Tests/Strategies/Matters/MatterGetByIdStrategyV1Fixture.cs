@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -83,14 +82,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Get_WithValidId_ShouldCallGetEligibleStatusesStrategy()
 		{
 			_sut.Get(_MATTER_ID);
-			_mockGetMatterEligibleStatusesStrategy.Verify(statusesStrategy => statusesStrategy.GetAllAsync(), Times.Once);
+			_mockGetMatterEligibleStatusesStrategy.Verify(statusesStrategy => statusesStrategy.GetAll(), Times.Once);
 		}
 
 		[Test]
 		public void Get_WithValidId_ShouldCallGetEligibleClientsStrategy()
 		{
 			_sut.Get(_MATTER_ID);
-			_mockGetMatterEligibleClientsStrategy.Verify(clientsStrategy => clientsStrategy.GetAllAsync(), Times.Once);
+			_mockGetMatterEligibleClientsStrategy.Verify(clientsStrategy => clientsStrategy.GetAll(), Times.Once);
 		}
 
 		private void SetupGetMatterEligibleClientsStrategyMock(int clientID)
@@ -101,7 +100,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				ArtifactID = clientID,
 				Name = "Test Client"
 			};
-			_mockGetMatterEligibleClientsStrategy.Setup(getClientsStrategy => getClientsStrategy.GetAllAsync()).Returns(Task.FromResult(new[] { client }));
+			_mockGetMatterEligibleClientsStrategy.Setup(getClientsStrategy => getClientsStrategy.GetAll()).Returns(new[] { client });
 		}
 
 		private void SetupGetMatterEligibleStatusesStrategyMock(int statusID)
@@ -112,7 +111,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				ArtifactID = statusID,
 				Name = "Test Status"
 			};
-			_mockGetMatterEligibleStatusesStrategy.Setup(getStatusesStrategy => getStatusesStrategy.GetAllAsync()).Returns(Task.FromResult(new[] { status }));
+			_mockGetMatterEligibleStatusesStrategy.Setup(getStatusesStrategy => getStatusesStrategy.GetAll()).Returns(new[] { status });
 		}
 
 		private void SetupRestServiceMock(int clientID, int statusID)

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -10,39 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IImagingSetUpdateStrategy))]
 	internal class ImagingSetUpdateStrategyFixture : ImagingStrategyAbstractFixture<IImagingSetUpdateStrategy>
 	{
-		[Test]
-		[VersionRange(">=12.1")]
-		public async Task UpdateAsync_ValidParameters_ReturnsExpectedImagingSetId()
-		{
-			var expectedImagingSet = CreateImagingSetWithUpdatedName();
-			var updatedImagingSetId = await UpdateImagingSetAsync(expectedImagingSet).ConfigureAwait(false);
-
-			updatedImagingSetId.Should().Be(expectedImagingSet.ArtifactID);
-		}
-
-		[Test]
-		[VersionRange(">=12.1")]
-		public async Task UpdateAsync_ValidParameters_UpdatesImagingSet()
-		{
-			var expectedImagingSet = CreateImagingSetWithUpdatedName();
-			var updatedImagingSetId = await UpdateImagingSetAsync(expectedImagingSet).ConfigureAwait(false);
-
-			var imagingSetAfterUpdate = await Facade.Resolve<IImagingSetGetStrategy>()
-				.GetAsync(DefaultWorkspace.ArtifactID, updatedImagingSetId).ConfigureAwait(false);
-
-			imagingSetAfterUpdate.Should().BeEquivalentTo(expectedImagingSet);
-		}
-
-		private async Task<int> UpdateImagingSetAsync(ImagingSet imagingSetToUpdate)
-		{
-			var imagingSetUpdateRequest = PrepareImagingSetRequestFromImagingSet(imagingSetToUpdate);
-
-			var updatedImagingSetId = await Sut.UpdateAsync(
-				DefaultWorkspace.ArtifactID, imagingSetToUpdate.ArtifactID, imagingSetUpdateRequest)
-				.ConfigureAwait(false);
-			return updatedImagingSetId;
-		}
-
 		[Test]
 		[VersionRange(">=12.1")]
 		public void Update_ValidParameters_ReturnsExpectedImagingSetId()

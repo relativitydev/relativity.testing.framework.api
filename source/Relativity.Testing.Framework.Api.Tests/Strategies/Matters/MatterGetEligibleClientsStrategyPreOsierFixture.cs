@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -50,33 +49,16 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			result.Should().BeEquivalentTo(_expectedClientsResponse);
 		}
 
-		[Test]
-		public async Task GetAllAsync_ShouldCallRestServiceWithExpectedUrl()
-		{
-			await _sut.GetAllAsync().ConfigureAwait(false);
-			VerifyRestServicePostAsyncWasCalled();
-		}
-
-		[Test]
-		public async Task GetAllAsync_ShouldReturnRestServiceResponse()
-		{
-			SetupMockRestService();
-
-			ArtifactIdNamePair[] result = await _sut.GetAllAsync().ConfigureAwait(false);
-
-			result.Should().BeEquivalentTo(_expectedClientsResponse);
-		}
-
 		private void VerifyRestServicePostAsyncWasCalled()
 		{
-			_mockRestService.Verify(restService => restService.PostAsync<ArtifactIdNamePair[]>(_GET_ALL_URL, null, 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<ArtifactIdNamePair[]>(_GET_ALL_URL, null, 2, null), Times.Once);
 		}
 
 		private void SetupMockRestService()
 		{
 			_mockRestService
-				.Setup(restService => restService.PostAsync<ArtifactIdNamePair[]>(_GET_ALL_URL, null, 2, null))
-				.Returns(Task.FromResult(_expectedClientsResponse));
+				.Setup(restService => restService.Post<ArtifactIdNamePair[]>(_GET_ALL_URL, null, 2, null))
+				.Returns(_expectedClientsResponse);
 		}
 	}
 }

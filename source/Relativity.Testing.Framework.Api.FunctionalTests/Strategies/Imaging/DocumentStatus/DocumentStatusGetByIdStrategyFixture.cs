@@ -19,25 +19,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void GetAsync_Missing()
-		{
-			Assert.ThrowsAsync<HttpRequestException>(() => Sut.GetAsync(DefaultWorkspace.ArtifactID, int.MaxValue));
-		}
-
-		[Test]
 		public void Get_Existing_DoesNotThrowException()
 		{
 			int documentId = ArrangeDocumentId();
 
 			Assert.DoesNotThrow(() => Sut.Get(DefaultWorkspace.ArtifactID, documentId));
-		}
-
-		[Test]
-		public void GetAsync_Existing_DoesNotThrowException()
-		{
-			int documentId = ArrangeDocumentId();
-
-			Assert.DoesNotThrowAsync(() => Sut.GetAsync(DefaultWorkspace.ArtifactID, documentId));
 		}
 
 		private int ArrangeDocumentId()

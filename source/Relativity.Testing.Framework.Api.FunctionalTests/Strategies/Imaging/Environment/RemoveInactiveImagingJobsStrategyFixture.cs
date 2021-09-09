@@ -13,11 +13,5 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			Assert.DoesNotThrow(() => Sut.Remove());
 		}
-
-		[Test]
-		public void RemoveAsync_ShouldNotThrow()
-		{
-			Assert.DoesNotThrowAsync(() => Sut.RemoveAsync());
-		}
 	}
 }

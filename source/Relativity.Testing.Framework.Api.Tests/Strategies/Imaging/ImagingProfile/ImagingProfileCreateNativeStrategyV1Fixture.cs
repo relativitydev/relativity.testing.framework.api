@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -39,19 +38,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Create_WithAnyWorkspaceId_ShouldCallValidator()
 		{
 			_sut.Create(WorkspaceId, new CreateNativeImagingProfileDTO());
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-		}
-
-		[Test]
-		public void CreateAsync_WithNull_ShouldThrowArgumentNullException()
-		{
-			Assert.ThrowsAsync<ArgumentNullException>(() => _sut.CreateAsync(WorkspaceId, null));
-		}
-
-		[Test]
-		public async Task CreateAsync_WithAnyWorkspaceId_ShouldCallValidator()
-		{
-			await _sut.CreateAsync(WorkspaceId, new CreateNativeImagingProfileDTO()).ConfigureAwait(false);
 			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
 		}
 	}

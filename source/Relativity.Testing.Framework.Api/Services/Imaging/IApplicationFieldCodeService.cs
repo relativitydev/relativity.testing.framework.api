@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Models;
+﻿using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -34,26 +33,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		ApplicationFieldCode Create(int workspaceId, ApplicationFieldCode applicationFieldCode);
 
 		/// <summary>
-		/// Creates a new Application Field Code instance.
-		/// </summary>
-		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCode">A <see cref="ApplicationFieldCode"/> object to be created.</param>
-		/// <returns>A <see cref="Task"/> with an <see cref="ApplicationFieldCode"/> instance.</returns>
-		/// <example>
-		/// <code>
-		/// var workspaceId = 1015427;
-		/// var applicationFieldCode = new ApplicationFieldCode()
-		/// {
-		/// 	Application = ApplicationType.MicrosoftExcel,
-		/// 	FieldCode = "Author",
-		/// 	Option = ApplicationFieldCodeOption.DocumentDefault
-		/// };
-		/// var createdApplicationFieldCode = await _applicationFieldCodeService.CreateAsync(workspaceId, applicationFieldCode).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<ApplicationFieldCode> CreateAsync(int workspaceId, ApplicationFieldCode applicationFieldCode);
-
-		/// <summary>
 		/// Updates an existing Application Field Code instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
@@ -71,23 +50,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		ApplicationFieldCode Update(int workspaceId, ApplicationFieldCode applicationFieldCode);
 
 		/// <summary>
-		/// Updates an existing Application Field Code instance.
-		/// </summary>
-		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCode">An <see cref="ApplicationFieldCode"/> object with updated fields, reflecting the desired final state of the Application Field Code.</param>
-		/// <returns>A <see cref="Task"/> with an <see cref="ApplicationFieldCode"/> instance.</returns>
-		/// <example>
-		/// <code>
-		/// var workspaceId = 1015427;
-		/// var applicationFieldCodeId = 1018877;
-		/// var applicationFieldCode = await _applicationFieldCodeService.GetAsync(workspaceId, applicationFieldCodeId).ConfigureAwait(false);
-		/// applicationFieldCode.Option = ApplicationFieldCodeOption.DocumentDefault;
-		/// var updatedApplicationFieldCode = await _applicationFieldCodeService.UpdateAsync(workspaceId, applicationFieldCode).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<ApplicationFieldCode> UpdateAsync(int workspaceId, ApplicationFieldCode applicationFieldCode);
-
-		/// <summary>
 		/// Retrieves the <see cref="ApplicationFieldCode"/> with the specified Artifact ID.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
@@ -103,21 +65,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		ApplicationFieldCode Get(int workspaceId, int applicationFieldCodeId);
 
 		/// <summary>
-		/// Retrieves the <see cref="ApplicationFieldCode"/> with the specified Artifact ID.
-		/// </summary>
-		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCodeId">The Artifact ID of the <see cref="ApplicationFieldCode"/> instance to read.</param>
-		/// <returns>A <see cref="Task"/> with an <see cref="ApplicationFieldCode"/> instance.</returns>
-		/// <example>
-		/// <code>
-		/// var workspaceId = 1015427;
-		/// var applicationFieldCodeId = 1018877;
-		/// var applicationFieldCode = await _applicationFieldCodeService.GetAsync(workspaceId, applicationFieldCodeId).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task<ApplicationFieldCode> GetAsync(int workspaceId, int applicationFieldCodeId);
-
-		/// <summary>
 		/// Deletes an Application Field Code instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
@@ -130,20 +77,5 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Delete(int workspaceId, int applicationFieldCodeId);
-
-		/// <summary>
-		/// Deletes an Application Field Code instance.
-		/// </summary>
-		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCodeId">The Artifact ID of the <see cref="ApplicationFieldCode"/> instance to delete.</param>
-		/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-		/// <example>
-		/// <code>
-		/// var workspaceId = 1015427;
-		/// var applicationFieldCodeId = 1018877;
-		/// await _applicationFieldCodeService.DeleteAsync(workspaceId, applicationFieldCodeId).ConfigureAwait(false);
-		/// </code>
-		/// </example>
-		Task DeleteAsync(int workspaceId, int applicationFieldCodeId);
 	}
 }

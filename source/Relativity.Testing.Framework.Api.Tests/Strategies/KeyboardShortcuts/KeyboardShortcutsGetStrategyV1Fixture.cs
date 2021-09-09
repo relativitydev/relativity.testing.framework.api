@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -29,60 +28,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				.Setup(validator => validator.Validate(It.Is<int>(id => id < 1), "Workspace"))
 				.Throws(new ArgumentException(_INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE));
 			_sut = new KeyboardShortcutsGetStrategyV1(_mockRestService.Object, mockArtifactIdValidator.Object);
-		}
-
-		[Test]
-		public void GetAsync_WithAdminContextWorkspaceId_ThrowsException()
-		{
-			TestIfGetAsyncThrowsInvalidWorkspaceIdException(-1);
-		}
-
-		[Test]
-		public void GetAsync_WithZeroWorkspaceId_ThrowsException()
-		{
-			TestIfGetAsyncThrowsInvalidWorkspaceIdException(0);
-		}
-
-		[Test]
-		public void GetAsync_WithValidWorkspaceId_DoesNotThrowException()
-		{
-			Assert.DoesNotThrowAsync(async () => await _sut.GetAsync(1, null).ConfigureAwait(false));
-		}
-
-		private void TestIfGetAsyncThrowsInvalidWorkspaceIdException(int workspaceId)
-		{
-			var result = Assert.ThrowsAsync<ArgumentException>(async () =>
-				await _sut.GetAsync(workspaceId, null).ConfigureAwait(false));
-
-			result.Message.Should().Contain(_INVALID_WORKSPACE_ID_EXCEPTION_MESSAGE);
-		}
-
-		[Test]
-		public async Task GetAsync_WithNullIncludeOptions_CallsApiWithoutQueryParameters()
-		{
-			var workspaceId = 1;
-			await _sut.GetAsync(workspaceId, null).ConfigureAwait(false);
-
-			_mockRestService.Verify(
-				restService => restService.GetAsync<IEnumerable<KeyboardShortcut>>($"relativity-review/v1/workspaces/{workspaceId}/keyboard-shortcuts", null),
-				Times.Once);
-		}
-
-		[Test]
-		public async Task GetAsync_WithFilledIncludeOptions_CallsApiWithQueryParameters()
-		{
-			var workspaceId = 1;
-			var includeOptions = new KeyboardShortcutsIncludeOptions
-			{
-				IncludeSystemShortcuts = false,
-				IncludeFieldShortcuts = false
-			};
-			string expectedApiUrl = GetExpectedApiUrlWithQueryParameters(workspaceId, includeOptions);
-
-			await _sut.GetAsync(workspaceId, includeOptions).ConfigureAwait(false);
-
-			_mockRestService.Verify(
-				restService => restService.GetAsync<IEnumerable<KeyboardShortcut>>(expectedApiUrl, null), Times.Once);
 		}
 
 		[Test]

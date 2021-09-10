@@ -41,10 +41,10 @@ Run Tests in Visual Studio:
 * Attach your runsettings file to the solution in Visual Studio.
 * Use the built in test runner.
 
-You can also run functional tests from the command line providing all necessary runsettings as inline parameters:
+You can also run functional tests from the command line:
 
 ```PowerShell
-dotnet test ./Source/ --filter TestCategory=FunctionalTests --  ServerBindingType=https RelativityHostAddress=YOUR_HOST_ADDRESS AdminUsername=YOUR_ADMIN_USERNAME AdminPassword=YOUR_ADMIN_PASSWORD
+dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScripts\FunctionalTest.runsettings
 
 ```
 

@@ -1,0 +1,11 @@
+<RunSettings>
+  <TestRunParameters>
+    <Parameter name="ServerBindingType" value="https" />
+    <Parameter name="RelativityHostAddress" value="YOUR_HOST_ADDRESS" />
+    <Parameter name="AdminUsername" value="YOUR_ADMIN_USERNAME" />
+    <Parameter name="AdminPassword" value="YOUR_ADMIN_PASSWORD" />
+    <Parameter name="RestServicesHostAddress" value="YOUR_HOST_ADDRESS" />
+    <Parameter name="WebApiHostAddress" value="YOUR_HOST_ADDRESS" />
+    <Parameter name="RAPDirectory" value="C:\Users\Maria.kizhaeva\Projects\TestTools\relativity.testing.framework.api\DevelopmentScripts\..\Artifacts" />
+  </TestRunParameters>
+</RunSettings>

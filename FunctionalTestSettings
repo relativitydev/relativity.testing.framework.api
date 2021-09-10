@@ -1,0 +1,7 @@
+--params ServerBindingType=https
+--params RelativityHostAddress=YOUR_HOST_ADDRESS
+--params AdminUsername=YOUR_ADMIN_USERNAME
+--params AdminPassword=YOUR_ADMIN_PASSWORD
+--params RestServicesHostAddress=YOUR_HOST_ADDRESS
+--params WebApiHostAddress=YOUR_HOST_ADDRESS
+--params RAPDirectory=C:\Users\Maria.kizhaeva\Projects\TestTools\relativity.testing.framework.api\DevelopmentScripts\..\Artifacts

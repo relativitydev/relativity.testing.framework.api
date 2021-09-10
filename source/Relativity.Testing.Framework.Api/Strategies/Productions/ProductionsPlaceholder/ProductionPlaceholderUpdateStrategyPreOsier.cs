@@ -1,16 +1,18 @@
 ﻿using System;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ProductionPlaceholderUpdateStrategy : IUpdateWorkspaceEntityStrategy<ProductionPlaceholder>
+	[VersionRange("<12.1")]
+	internal class ProductionPlaceholderUpdateStrategyPreOsier : IUpdateWorkspaceEntityStrategy<ProductionPlaceholder>
 	{
 		private readonly IRestService _restService;
 
-		public ProductionPlaceholderUpdateStrategy(IRestService restService)
+		public ProductionPlaceholderUpdateStrategyPreOsier(IRestService restService)
 		{
-		_restService = restService;
+			_restService = restService;
 		}
 
 		public void Update(int workspaceId, ProductionPlaceholder entity)

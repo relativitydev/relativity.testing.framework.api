@@ -36,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void GetAll_ShouldCallRestServiceWithExpectedUrl()
 		{
 			_sut.GetAll();
-			VerifyRestServicePostAsyncWasCalled();
+			VerifyRestServicePostWasCalled();
 		}
 
 		[Test]
@@ -49,7 +49,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			result.Should().BeEquivalentTo(_expectedClientsResponse);
 		}
 
-		private void VerifyRestServicePostAsyncWasCalled()
+		private void VerifyRestServicePostWasCalled()
 		{
 			_mockRestService.Verify(restService => restService.Post<ArtifactIdNamePair[]>(_GET_ALL_URL, null, 2, null), Times.Once);
 		}

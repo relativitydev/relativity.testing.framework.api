@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ICreateStrategyWithAsync<Matter>))]
+	[TestOf(typeof(ICreateStrategy<Matter>))]
 	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<Matter>>
 	{
 		[Test]

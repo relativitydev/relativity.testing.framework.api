@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ViewGetAccessStatusStrategy : IGetWorkspaceEntityByIdStrategy<ViewAccessStatus>
+	[VersionRange("<12.1")]
+	internal class ViewGetAccessStatusStrategyPreOsier : IGetWorkspaceEntityByIdStrategy<ViewAccessStatus>
 	{
 		private readonly IRestService _restService;
 		private readonly IExistsWorkspaceEntityByIdStrategy<View> _existsWorkspaceEntityByIdStrategy;
 
-		public ViewGetAccessStatusStrategy(
+		public ViewGetAccessStatusStrategyPreOsier(
 			IRestService restService,
 			IExistsWorkspaceEntityByIdStrategy<View> existsWorkspaceEntityByIdStrategy)
 		{

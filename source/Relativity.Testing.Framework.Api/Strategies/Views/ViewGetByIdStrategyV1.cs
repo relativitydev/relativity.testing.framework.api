@@ -1,14 +1,17 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using Newtonsoft.Json.Linq;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ViewGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<View>
+	[VersionRange(">=12.1")]
+	internal class ViewGetByIdStrategyV1 : IGetWorkspaceEntityByIdStrategy<View>
 	{
 		private readonly IRestService _restService;
 		private readonly IExistsWorkspaceEntityByIdStrategy<View> _existsWorkspaceEntityByIdStrategy;
 
-		public ViewGetByIdStrategy(
+		public ViewGetByIdStrategyV1(
 			IRestService restService,
 			IExistsWorkspaceEntityByIdStrategy<View> existsWorkspaceEntityByIdStrategy)
 		{
@@ -23,13 +26,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				return null;
 			}
 
-			var dto = new
-			{
-				workspaceArtifactID = workspaceId,
-				viewArtifactID = entityId
-			};
-
-			return _restService.Post<View>("Relativity.Services.View.IViewModule/View%20Manager/ReadSingleAsync", dto);
+			var result = _restService.Get<JObject>($"Relativity.Rest/API/relativity-data-visualization/V1/workspaces/{workspaceId}/views/{entityId}");
+			return result.ToObject<View>();
 		}
 	}
 }

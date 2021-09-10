@@ -6,8 +6,8 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[NonParallelizable]
 	[TestOf(typeof(IWorkspaceAddRemoveGroupsStrategy))]
+	[Parallelizable(ParallelScope.Fixtures)]
 	internal class WorkspaceAddRemoveGroupsStrategyFixture : ApiServiceTestFixture<IWorkspaceAddRemoveGroupsStrategy>
 	{
 		private IGetByWorkspaceIdStrategy<GroupSelector> _getByWorkspaceIdStrategy;

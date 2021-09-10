@@ -6,8 +6,8 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[NonParallelizable]
 	[TestOf(typeof(IAdminChangeGroupPermissionsStrategy))]
+	[Parallelizable(ParallelScope.Fixtures)]
 	internal class AdminChangeGroupPermissionsStrategyFixture : ApiServiceTestFixture<IAdminChangeGroupPermissionsStrategy>
 	{
 		private Group _group;

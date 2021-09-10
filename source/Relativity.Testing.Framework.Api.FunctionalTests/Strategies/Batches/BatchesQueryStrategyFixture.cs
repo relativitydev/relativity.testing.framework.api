@@ -24,7 +24,10 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Arrange(() =>
 			{
 				var keywordSearch = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>()
-					.Create(DefaultWorkspace.ArtifactID, new KeywordSearch());
+					.Create(DefaultWorkspace.ArtifactID, new KeywordSearch
+					{
+						SearchText = "DOC* NOT docx"
+					});
 
 				var batchModel = new BatchSet
 				{

@@ -7,7 +7,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
 	[TestOf(typeof(AccountPoolService))]
-	[NonParallelizable]
+	[Parallelizable(ParallelScope.Fixtures)]
 	public class AccountPoolFixture : ApiTestFixture
 	{
 		private readonly List<AccountBaseInfo> _users = new List<AccountBaseInfo>();

@@ -8,6 +8,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[VersionRange(">=12.1")]
 	[TestOf(typeof(IImagingSetReleaseStrategy))]
+	[Parallelizable(ParallelScope.Fixtures)]
 	internal class ImagingSetReleaseStrategyFixture : ImagingStrategyAbstractFixture<IImagingSetReleaseStrategy>
 	{
 		private const string _RELEASE_ON_NOT_RUN_JOB_EXCEPTION = "Unable to update QC status, the imaging set must be Completed or Completed With Errors";

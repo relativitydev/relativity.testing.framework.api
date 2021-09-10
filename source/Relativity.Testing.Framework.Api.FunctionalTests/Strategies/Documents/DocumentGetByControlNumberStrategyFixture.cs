@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Get_Existing()
 		{
-			const string fileName = "single_native.docx";
+			const string fileName = "double_native.docx";
 			var filePath = $@"{AppDomain.CurrentDomain.BaseDirectory}\files\{fileName}";
 
 			Arrange(() =>

@@ -9,7 +9,7 @@ using Relativity.Testing.Framework.Models.Fields;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Services
 {
 	[TestOf(typeof(FileFieldService))]
-	[NonParallelizable]
+	[Parallelizable(ParallelScope.Fixtures)]
 	public class FileFieldServiceFixture : ApiTestFixture
 	{
 		private const string _FILENAME = "Test File Field File Name";

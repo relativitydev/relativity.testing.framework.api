@@ -8,8 +8,8 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[NonParallelizable]
 	[TestOf(typeof(IGetAdminGroupUsersStrategy))]
+	[Parallelizable(ParallelScope.Fixtures)]
 	internal class GetAdminGroupUsersStrategyFixture : ApiServiceTestFixture<IGetAdminGroupUsersStrategy>
 	{
 		private const int MissingId = 999_999_999;

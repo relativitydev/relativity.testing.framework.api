@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -20,18 +19,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var imagingJobSubmitSingleDocumentRequest = ArrangeRequest(imagingProfile);
 
 			var imagingJobId = Sut.SubmitSingleDocument(DefaultWorkspace.ArtifactID, document.ArtifactID, imagingJobSubmitSingleDocumentRequest);
-
-			Assert.That(imagingJobId > 0);
-		}
-
-		[Test]
-		public async Task SubmitSingleDocumentAsync_ReturnsImagingJobId()
-		{
-			var document = ArrangeDocument();
-			var imagingProfile = ArrangeImagingProfile();
-			var imagingJobSubmitSingleDocumentRequest = ArrangeRequest(imagingProfile);
-
-			var imagingJobId = await Sut.SubmitSingleDocumentAsync(DefaultWorkspace.ArtifactID, document.ArtifactID, imagingJobSubmitSingleDocumentRequest).ConfigureAwait(false);
 
 			Assert.That(imagingJobId > 0);
 		}

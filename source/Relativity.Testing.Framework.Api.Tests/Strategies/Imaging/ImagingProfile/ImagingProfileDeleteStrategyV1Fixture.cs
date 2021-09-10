@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -33,14 +32,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Delete_WithAnyInput_ShouldCallValidator()
 		{
 			_sut.Delete(WorkspaceId, ImagingProfileId);
-			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "ImagingProfile"), Times.Once);
-		}
-
-		[Test]
-		public async Task DeleteAsync_WithAnyInput_ShouldCallValidator()
-		{
-			await _sut.DeleteAsync(WorkspaceId, ImagingProfileId).ConfigureAwait(false);
 			_workspaceIdValidator.Verify(x => x.Validate(It.IsAny<int>()), Times.Once);
 			_artifactIdValidator.Verify(x => x.Validate(It.IsAny<int>(), "ImagingProfile"), Times.Once);
 		}

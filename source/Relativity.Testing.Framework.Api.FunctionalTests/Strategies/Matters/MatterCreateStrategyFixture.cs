@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
@@ -7,8 +6,8 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ICreateStrategyWithAsync<Matter>))]
-	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategyWithAsync<Matter>>
+	[TestOf(typeof(ICreateStrategy<Matter>))]
+	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<Matter>>
 	{
 		[Test]
 		public void Create_WithEmptyEntity()
@@ -26,26 +25,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Matter entity = ArrangeMatterWithClient();
 
 			Matter result = Sut.Create(entity.Copy());
-
-			TestIfCreatedMatterIsEquivalentToExpected(entity, result);
-		}
-
-		[Test]
-		public async Task CreateAsync_WithEmptyEntity()
-		{
-			var entity = new Matter();
-
-			Matter result = await Sut.CreateAsync(entity).ConfigureAwait(false);
-
-			TestIfMatterIsValid(result);
-		}
-
-		[Test]
-		public async Task CreateAsync_WithFilledEntity()
-		{
-			Matter entity = ArrangeMatterWithClient();
-
-			Matter result = await Sut.CreateAsync(entity.Copy()).ConfigureAwait(false);
 
 			TestIfCreatedMatterIsEquivalentToExpected(entity, result);
 		}

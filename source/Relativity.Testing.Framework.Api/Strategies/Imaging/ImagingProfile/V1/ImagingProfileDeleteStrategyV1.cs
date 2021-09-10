@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Validators;
 using Relativity.Testing.Framework.Versioning;
 
@@ -26,15 +25,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var url = BuildUrl(workspaceId, imagingProfileId);
 
 			_restService.Delete(url);
-		}
-
-		public async Task DeleteAsync(int workspaceId, int imagingProfileId)
-		{
-			ValidateInput(workspaceId, imagingProfileId);
-
-			var url = BuildUrl(workspaceId, imagingProfileId);
-
-			await _restService.DeleteAsync(url).ConfigureAwait(false);
 		}
 
 		private void ValidateInput(int workspaceId, int imagingProfileId)

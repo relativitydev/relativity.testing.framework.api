@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -19,16 +18,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var imagingJobPriorityRequest = ArrangeImagingJobPriorityRequest();
 
 			Assert.DoesNotThrow(() => Sut.UpdatePriority(DefaultWorkspace.ArtifactID, imagingJobId, imagingJobPriorityRequest));
-		}
-
-		[Test]
-		public async Task UpdatePriorityAsync_ShouldNotThrow()
-		{
-			int imagingSetId = CreateImagingSet().ArtifactID;
-			long imagingJobId = await Facade.Resolve<IImagingJobRunStrategy>().RunAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false);
-			var imagingJobPriorityRequest = ArrangeImagingJobPriorityRequest();
-
-			Assert.DoesNotThrowAsync(() => Sut.UpdatePriorityAsync(DefaultWorkspace.ArtifactID, imagingJobId, imagingJobPriorityRequest));
 		}
 
 		private ImagingJobPriorityRequest ArrangeImagingJobPriorityRequest()

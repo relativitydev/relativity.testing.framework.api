@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -40,19 +39,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Create_WithAnyWorkspaceId_ShouldCallValidator()
 		{
 			_sut.Create(_WORKSPACE_ID, new ApplicationFieldCode());
-			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
-		}
-
-		[Test]
-		public void CreateAsync_WithNull_ShouldThrowArgumentNullException()
-		{
-			Assert.ThrowsAsync<ArgumentNullException>(() => _sut.CreateAsync(_WORKSPACE_ID, null));
-		}
-
-		[Test]
-		public async Task CreateAsync_WithAnyWorkspaceId_ShouldCallValidator()
-		{
-			await _sut.CreateAsync(_WORKSPACE_ID, new ApplicationFieldCode()).ConfigureAwait(false);
 			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
 		}
 	}

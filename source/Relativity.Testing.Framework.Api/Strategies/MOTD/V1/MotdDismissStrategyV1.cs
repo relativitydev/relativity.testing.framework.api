@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Versioning;
 
@@ -39,18 +38,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			int userId = _userGetByEmailStrategy.Get(emailAddress).ArtifactID;
 
 			Dismiss(userId);
-		}
-
-		public async Task DismissAsync(int? userId = null)
-		{
-			if (userId == null)
-			{
-				userId = _userGetByEmailStrategy.Get(_configurationService.RelativityInstance.AdminUsername).ArtifactID;
-			}
-
-			var url = BuildUrl(userId.Value);
-
-			await _restService.PostAsync(url).ConfigureAwait(false);
 		}
 
 		private string BuildUrl(int userId)

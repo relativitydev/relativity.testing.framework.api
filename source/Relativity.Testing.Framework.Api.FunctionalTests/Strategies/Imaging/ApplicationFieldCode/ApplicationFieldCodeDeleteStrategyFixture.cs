@@ -1,5 +1,4 @@
 ﻿using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -30,29 +29,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void DeleteAsync_NotExistingApplicationFieldCode_ShouldThrowNotFoundException()
-		{
-			var exception = Assert.ThrowsAsync<HttpRequestException>(() => Sut.DeleteAsync(DefaultWorkspace.ArtifactID, int.MaxValue));
-
-			exception.Message.Should().StartWith("StatusCode: 404, ReasonPhrase: 'Not Found'");
-		}
-
-		[Test]
 		public void Delete_ExistingApplicationFieldCode_ShouldBeSuccessful()
 		{
 			var applicationFieldCode = PrepareTestData();
 			applicationFieldCode = _applicationFieldCodeCreateStrategy.Create(DefaultWorkspace.ArtifactID, applicationFieldCode);
 
 			Assert.DoesNotThrow(() => Sut.Delete(DefaultWorkspace.ArtifactID, applicationFieldCode.ArtifactID));
-		}
-
-		[Test]
-		public async Task DeleteAsync_ExistingApplicationFieldCode_ShouldBeSuccessful()
-		{
-			var applicationFieldCode = PrepareTestData();
-			applicationFieldCode = await _applicationFieldCodeCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, applicationFieldCode).ConfigureAwait(false);
-
-			Assert.DoesNotThrowAsync(() => Sut.DeleteAsync(DefaultWorkspace.ArtifactID, applicationFieldCode.ArtifactID));
 		}
 
 		private ApplicationFieldCode PrepareTestData()

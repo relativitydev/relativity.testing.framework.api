@@ -1,5 +1,4 @@
 ﻿using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -30,14 +29,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void DeleteAsync_NotExitingImagingProfile_ShouldThrowNotFoundException()
-		{
-			var exception = Assert.ThrowsAsync<HttpRequestException>(() => Sut.DeleteAsync(DefaultWorkspace.ArtifactID, int.MaxValue));
-
-			exception.Message.Should().StartWith("StatusCode: 404, ReasonPhrase: 'Not Found'");
-		}
-
-		[Test]
 		public void Delete_ExistingBasicImagingProfile_ShouldBeSuccessful()
 		{
 			var dto = PrepareTestData();
@@ -45,16 +36,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var imagingProfile = _basicImagingProfileCreateStrategy.Create(DefaultWorkspace.ArtifactID, dto);
 
 			Assert.DoesNotThrow(() => Sut.Delete(DefaultWorkspace.ArtifactID, imagingProfile.ArtifactID));
-		}
-
-		[Test]
-		public async Task DeleteAsync_ExistingBasicImagingProfile_ShouldBeSuccessful()
-		{
-			var dto = PrepareTestData();
-
-			var imagingProfile = await _basicImagingProfileCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, dto).ConfigureAwait(false);
-
-			Assert.DoesNotThrowAsync(() => Sut.DeleteAsync(DefaultWorkspace.ArtifactID, imagingProfile.ArtifactID));
 		}
 
 		private CreateBasicImagingProfileDTO PrepareTestData()

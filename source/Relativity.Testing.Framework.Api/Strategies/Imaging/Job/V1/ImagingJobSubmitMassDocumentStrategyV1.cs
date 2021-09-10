@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Validators;
 using Relativity.Testing.Framework.Models;
@@ -29,17 +28,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var url = BuildUrl(workspaceId);
 
 			var result = _restService.Post<JObject>(url, dto);
-			return (long)result["ImagingJobID"];
-		}
-
-		public async Task<long> SubmitMassDocumentAsync(int workspaceId, ImagingMassJobRequest imagingMassJobRequest)
-		{
-			_workspaceIdValidator.Validate(workspaceId);
-
-			var dto = BuildDto(imagingMassJobRequest);
-			var url = BuildUrl(workspaceId);
-
-			var result = await _restService.PostAsync<JObject>(url, dto).ConfigureAwait(false);
 			return (long)result["ImagingJobID"];
 		}
 

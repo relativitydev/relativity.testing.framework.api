@@ -8,7 +8,7 @@ This repository builds with the [dotnet sdk](https://dotnet.microsoft.com/downlo
 
 ## Local Testing
 
-This repository has unit and functional tests in it. Functional tests have Category=FunctionalTests on it.
+This repository has unit and functional tests in it. Functional tests have Category=FunctionalTests.
 
 ### Unit Testing
 
@@ -26,7 +26,7 @@ This should ideally be an ephemeral one that we can throw away afterwards.
 #### Creating Runsettings
 
 Before we can run the tests, we'll need to provide a runsettings file that points the tests to the instance of Relativity that is being tested against.
-To create the runsettings file in project root run the following comand replacing instance settings parameters with what you need:
+To create the runsettings file, run the following command, replacing instance settings parameters with what you need:
 
 ```PowerShell
 ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "YOUR_HOST_ADDRESS" -AdminUsername "YOUR_ADMIN_USERNAME" -AdminPassword "YOUR_ADMIN_PASSWORD"

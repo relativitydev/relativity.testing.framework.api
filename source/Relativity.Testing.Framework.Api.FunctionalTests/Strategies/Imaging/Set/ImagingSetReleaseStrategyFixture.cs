@@ -1,5 +1,4 @@
 ﻿using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -14,31 +13,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private const string _RELEASE_ON_NOT_RUN_JOB_EXCEPTION = "Unable to update QC status, the imaging set must be Completed or Completed With Errors";
 
 		[Test]
-		public async Task ReleaseAsync_ValidIdsRunJob_DoesNotThrowException()
-		{
-			int imagingSetId = await CreateImagingSetAndRunJobAsync().ConfigureAwait(false);
-			await WaitUntilImagingSetStatusIsCompletedAsync(imagingSetId).ConfigureAwait(false);
-
-			Assert.DoesNotThrowAsync(() => Sut.ReleaseAsync(DefaultWorkspace.ArtifactID, imagingSetId));
-		}
-
-		[Test]
 		public void Release_ValidIdsRunJob_DoesNotThrowException()
 		{
 			int imagingSetId = CreateImagingSetAndRunJob();
 			WaitUntilImagingSetStatusIsCompleted(imagingSetId);
 
 			Assert.DoesNotThrow(() => Sut.Release(DefaultWorkspace.ArtifactID, imagingSetId));
-		}
-
-		[Test]
-		public async Task ReleaseAsync_ValidIdsNotRunJob_ThrowsException()
-		{
-			int imagingSetId = (await CreateImagingSetAsync().ConfigureAwait(false)).ArtifactID;
-
-			HttpRequestException result = Assert.ThrowsAsync<HttpRequestException>(()
-				=> Sut.ReleaseAsync(DefaultWorkspace.ArtifactID, imagingSetId));
-			result.Message.Should().Contain(_RELEASE_ON_NOT_RUN_JOB_EXCEPTION);
 		}
 
 		[Test]

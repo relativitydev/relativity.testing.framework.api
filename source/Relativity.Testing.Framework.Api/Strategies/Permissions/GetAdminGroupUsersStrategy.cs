@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
@@ -27,13 +26,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public List<NamedArtifact> Get(string name)
 		{
 			return Get(_groupService.Get(name).ArtifactID);
-		}
-
-		public async Task<List<NamedArtifact>> GetAsync(int groupId)
-		{
-			var dto = new GroupDTO(groupId);
-
-			return await _restService.PostAsync<List<NamedArtifact>>(_URL, dto).ConfigureAwait(false);
 		}
 	}
 }

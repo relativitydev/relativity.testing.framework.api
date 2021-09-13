@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -17,13 +16,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public ArtifactIdNamePair[] GetAll()
 		{
-			return GetAllAsync().Result;
-		}
-
-		public async Task<ArtifactIdNamePair[]> GetAllAsync()
-		{
-			return await _restService.GetAsync<ArtifactIdNamePair[]>(
-				"relativity-environment/v1/workspaces/-1/matters/eligible-statuses").ConfigureAwait(false);
+			return _restService.Get<ArtifactIdNamePair[]>("relativity-environment/v1/workspaces/-1/matters/eligible-statuses");
 		}
 	}
 }

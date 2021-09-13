@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -39,28 +38,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				if (!completed)
 				{
 					Thread.Sleep(_waitTime);
-				}
-			}
-		}
-
-		public async Task WaitAsync(int workspaceId, int imagingSetId, double timeout = 2.0)
-		{
-			ValidateTimeoutValue(timeout);
-			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
-
-			var changeStatusTimeout = TimeSpan.FromMinutes(timeout);
-			bool completed = false;
-			var watch = Stopwatch.StartNew();
-
-			while (!completed)
-			{
-				CheckTimeoutAndThrowExceptionIfReached(imagingSetId, changeStatusTimeout, watch, timeout);
-
-				string status = (await _imagingSetStatusGetStrategy.GetAsync(workspaceId, imagingSetId).ConfigureAwait(false)).Status;
-				completed = CheckIfJobIsCompleted(status);
-				if (!completed)
-				{
-					await Task.Delay(_waitTime).ConfigureAwait(false);
 				}
 			}
 		}

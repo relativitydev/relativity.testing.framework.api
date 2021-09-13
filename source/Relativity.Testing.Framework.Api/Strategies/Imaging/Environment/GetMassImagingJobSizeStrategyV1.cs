@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -18,12 +17,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			var url = BuildUrl();
 			return _restService.Get<int>(url);
-		}
-
-		public async Task<int> GetAsync()
-		{
-			var url = BuildUrl();
-			return await _restService.GetAsync<int>(url).ConfigureAwait(false);
 		}
 
 		private string BuildUrl()

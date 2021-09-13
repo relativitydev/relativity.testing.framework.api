@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Arrangement;
@@ -40,26 +39,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void GetAsync_WithMissingGroup()
-		{
-			var exception = Assert.ThrowsAsync<HttpRequestException>(async () =>
-				await Sut.GetAsync(MissingId).ConfigureAwait(false));
-
-			exception.Message.Should().StartWith($"GroupID {MissingId} is invalid.");
-		}
-
-		[Test]
 		public void Get_WithNoUsers_ById()
 		{
 			var result = Sut.Get(_groupWithNoUsers.ArtifactID);
-
-			result.Should().BeEmpty();
-		}
-
-		[Test]
-		public async Task GetAsync_WithNoUsers_ById()
-		{
-			var result = await Sut.GetAsync(_groupWithNoUsers.ArtifactID).ConfigureAwait(false);
 
 			result.Should().BeEmpty();
 		}
@@ -76,14 +58,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public void Get_WithSingleUser_ById()
 		{
 			var result = Sut.Get(_groupWithUser.ArtifactID);
-
-			TestIfUsersListIsAsExpected(result);
-		}
-
-		[Test]
-		public async Task GetAsync_WithSingleUser_ById()
-		{
-			var result = await Sut.GetAsync(_groupWithUser.ArtifactID).ConfigureAwait(false);
 
 			TestIfUsersListIsAsExpected(result);
 		}

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -35,10 +34,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.Imaging.Job
 				.Setup(restService => restService.Post<JObject>(It.IsAny<string>(), It.IsAny<object>(), 2, null))
 				.Returns(new JObject {	{ "ImagingJobID", "2" } });
 
-			_mockRestService
-				.Setup(restService => restService.PostAsync<JObject>(It.IsAny<string>(), It.IsAny<object>(), 2, null))
-				.Returns(Task.FromResult(new JObject { { "ImagingJobID", "2" } }));
-
 			_sut = new ImagingJobSubmitSingleDocumentStrategyV1(_mockRestService.Object, _mockArtifactIdValidator.Object, _mockWorkspaceIdValidator.Object);
 		}
 
@@ -46,14 +41,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.Imaging.Job
 		public void Run_WithAnyParameters_ShouldCallValidators()
 		{
 			_sut.SubmitSingleDocument(_WORKSPACE_ID, _DOCUMENT_ID, _singleDocumentImagingJobRequest);
-			_mockArtifactIdValidator.Verify(x => x.Validate(_DOCUMENT_ID, "Document"), Times.Once);
-			_mockWorkspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
-		}
-
-		[Test]
-		public async Task RunAsync_WithAnyParameters_ShouldCallValidators()
-		{
-			await _sut.SubmitSingleDocumentAsync(_WORKSPACE_ID, _DOCUMENT_ID, _singleDocumentImagingJobRequest).ConfigureAwait(false);
 			_mockArtifactIdValidator.Verify(x => x.Validate(_DOCUMENT_ID, "Document"), Times.Once);
 			_mockWorkspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
 		}

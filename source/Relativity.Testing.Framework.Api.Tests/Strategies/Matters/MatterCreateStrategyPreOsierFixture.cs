@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -62,7 +61,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			SetupRestServicePostResponse(expectedCreateRequest);
 
 			_sut.Create(matter);
-			VerifyRestServicePostAsyncWasCalled(expectedCreateRequest);
+			VerifyRestServicePostWasCalled(expectedCreateRequest);
 		}
 
 		[Test]
@@ -73,36 +72,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			SetupRestServicePostResponse(expectedCreateRequest);
 
 			Matter result = _sut.Create(matter);
-
-			result.ArtifactID.Should().Be(_MATTER_ID);
-		}
-
-		[Test]
-		public void CreateAsync_WithNull_ThrowsArgumentNullException()
-		{
-			Assert.ThrowsAsync<ArgumentNullException>(() =>
-				_sut.CreateAsync(null));
-		}
-
-		[Test]
-		public async Task CreateAsync_WithValidEntity_ShouldCallRestServiceWithExpectedUrl()
-		{
-			Matter matter = GetTestMatter();
-			MatterCreateRequestPreOsier expectedCreateRequest = GetExpectedMatterCreateRequestPreOsier(matter);
-			SetupRestServicePostResponse(expectedCreateRequest);
-
-			await _sut.CreateAsync(matter).ConfigureAwait(false);
-			VerifyRestServicePostAsyncWasCalled(expectedCreateRequest);
-		}
-
-		[Test]
-		public async Task CreateAsync_WithValidEntity_ShouldReturnEntityWithFilledArtifactId()
-		{
-			Matter matter = GetTestMatter();
-			MatterCreateRequestPreOsier expectedCreateRequest = GetExpectedMatterCreateRequestPreOsier(matter);
-			SetupRestServicePostResponse(expectedCreateRequest);
-
-			Matter result = await _sut.CreateAsync(matter).ConfigureAwait(false);
 
 			result.ArtifactID.Should().Be(_MATTER_ID);
 		}
@@ -131,18 +100,18 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private void SetupRestServicePostResponse(MatterCreateRequestPreOsier expectedCreateRequest)
 		{
 			_mockRestService.Setup(
-				restService => restService.PostAsync<int>(
+				restService => restService.Post<int>(
 					_CREATE_URL,
 					It.Is<MatterCreateRequestPreOsier>(request => CompareMatterDtoPreOsier(request.MatterDTO, expectedCreateRequest.MatterDTO)),
 					2,
 					null))
-				.Returns(Task.FromResult(_MATTER_ID));
+				.Returns(_MATTER_ID);
 		}
 
-		private void VerifyRestServicePostAsyncWasCalled(MatterCreateRequestPreOsier expectedDto)
+		private void VerifyRestServicePostWasCalled(MatterCreateRequestPreOsier expectedDto)
 		{
 			_mockRestService.Verify(
-				restService => restService.PostAsync<int>(
+				restService => restService.Post<int>(
 					_CREATE_URL,
 					It.Is<MatterCreateRequestPreOsier>(request => CompareMatterDtoPreOsier(request.MatterDTO, expectedDto.MatterDTO)),
 					2,

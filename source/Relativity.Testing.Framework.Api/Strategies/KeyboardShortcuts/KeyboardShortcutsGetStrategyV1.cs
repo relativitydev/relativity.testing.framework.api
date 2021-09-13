@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Validators;
 using Relativity.Testing.Framework.Models;
@@ -27,17 +26,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var url = BuildUrlWithIncludeOptionsAsQueryParamaters(workspaceId, includeOptions);
 
 			var result = _restService.Get<IEnumerable<KeyboardShortcut>>(url);
-
-			return result;
-		}
-
-		public async Task<IEnumerable<KeyboardShortcut>> GetAsync(int workspaceId, KeyboardShortcutsIncludeOptions includeOptions = null)
-		{
-			_artifactIdValidator.Validate(workspaceId, "Workspace");
-
-			var url = BuildUrlWithIncludeOptionsAsQueryParamaters(workspaceId, includeOptions);
-
-			var result = await _restService.GetAsync<IEnumerable<KeyboardShortcut>>(url).ConfigureAwait(false);
 
 			return result;
 		}

@@ -5,11 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.9.1] - 2021-09-15
+## [5.0.1] - 2021-09-15
 
 ### Added
 
 - Support for View Manager Service V1 API
+
+## [5.0.0] - 2021-09-10
+
+### Removed
+
+- All Async specific strategies.
 
 ## [4.9.0] - 2021-09-09
 

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Strategies;
+﻿using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -16,11 +15,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		public NativeType Get(int workspaceId, int nativeTypeId)
 		{
 			return _nativeTypeGetStrategy.Get(workspaceId, nativeTypeId);
-		}
-
-		public async Task<NativeType> GetAsync(int workspaceId, int nativeTypeId)
-		{
-			return await _nativeTypeGetStrategy.GetAsync(workspaceId, nativeTypeId).ConfigureAwait(false);
 		}
 	}
 }

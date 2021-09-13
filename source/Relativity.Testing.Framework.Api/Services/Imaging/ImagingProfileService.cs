@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Strategies;
+﻿using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -29,31 +28,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		public ImagingProfile CreateBasic(int workspaceId, CreateBasicImagingProfileDTO dto)
 			=> _basicImagingProfileCreateStrategy.Create(workspaceId, dto);
 
-		public async Task<ImagingProfile> CreateBasicAsync(int workspaceId, CreateBasicImagingProfileDTO dto)
-			=> await _basicImagingProfileCreateStrategy.CreateAsync(workspaceId, dto).ConfigureAwait(false);
-
 		public ImagingProfile CreateNative(int workspaceId, CreateNativeImagingProfileDTO dto)
 			=> _nativeImagingProfileCreateStrategy.Create(workspaceId, dto);
-
-		public async Task<ImagingProfile> CreateNativeAsync(int workspaceId, CreateNativeImagingProfileDTO dto)
-			=> await _nativeImagingProfileCreateStrategy.CreateAsync(workspaceId, dto).ConfigureAwait(false);
 
 		public void Update(int workspaceId, ImagingProfile imagingProfile)
 			=> _imagingProfileUpdateStrategy.Update(workspaceId, imagingProfile);
 
-		public async Task UpdateAsync(int workspaceId, ImagingProfile imagingProfile)
-			=> await _imagingProfileUpdateStrategy.UpdateAsync(workspaceId, imagingProfile).ConfigureAwait(false);
-
 		public ImagingProfile Get(int workspaceId, int imagingProfileId)
 			=> _imagingProfileGetStrategy.Get(workspaceId, imagingProfileId);
 
-		public async Task<ImagingProfile> GetAsync(int workspaceId, int imagingProfileId)
-			=> await _imagingProfileGetStrategy.GetAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
-
 		public void Delete(int workspaceId, int imagingProfileId)
 			=> _imagingProfileDeleteStrategy.Delete(workspaceId, imagingProfileId);
-
-		public async Task DeleteAsync(int workspaceId, int imagingProfileId)
-			=> await _imagingProfileDeleteStrategy.DeleteAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -25,15 +24,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService.Post(_POST_URL, dto);
 
 			return _motdGetStrategy.Get();
-		}
-
-		public async Task<MessageOfTheDay> UpdateAsync(MessageOfTheDay entity)
-		{
-			var dto = BuildDto(entity);
-
-			await _restService.PostAsync(_POST_URL, dto).ConfigureAwait(false);
-
-			return await _motdGetStrategy.GetAsync().ConfigureAwait(false);
 		}
 
 		private object BuildDto(MessageOfTheDay entity)

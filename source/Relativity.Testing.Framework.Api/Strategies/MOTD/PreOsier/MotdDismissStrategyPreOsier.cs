@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Versioning;
 
@@ -35,13 +34,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			int userId = _userGetByEmailStrategy.Get(emailAddress).ArtifactID;
 
 			Dismiss(userId);
-		}
-
-		public async Task DismissAsync(int? userId = null)
-		{
-			var dto = BuildDto(userId);
-
-			await _restService.PostAsync(_POST_URL, dto).ConfigureAwait(false);
 		}
 
 		private object BuildDto(int? userId = null)

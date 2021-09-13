@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
@@ -28,17 +27,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var url = BuildUrl(workspaceId, imagingSetId);
 
 			var result = _restService.Post<JObject>(url, dto);
-			return (long)result["ImagingJobID"];
-		}
-
-		public async Task<long> RetryErrorsAsync(int workspaceId, int imagingSetId, ImagingSetJobRequest retryErrorsRequest = null)
-		{
-			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
-
-			var dto = BuildDto(retryErrorsRequest);
-			var url = BuildUrl(workspaceId, imagingSetId);
-
-			var result = await _restService.PostAsync<JObject>(url, dto).ConfigureAwait(false);
 			return (long)result["ImagingJobID"];
 		}
 

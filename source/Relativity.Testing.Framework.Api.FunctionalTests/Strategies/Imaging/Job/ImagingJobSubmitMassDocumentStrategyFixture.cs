@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -23,16 +22,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var imagingMassJobRequest = ArrangeRequest();
 
 			var imagingJobId = Sut.SubmitMassDocument(DefaultWorkspace.ArtifactID, imagingMassJobRequest);
-
-			Assert.That(imagingJobId > 0);
-		}
-
-		[Test]
-		public async Task SubmitMassDocumentAsync_ReturnsImagingJobId()
-		{
-			var imagingMassJobRequest = ArrangeRequest();
-
-			var imagingJobId = await Sut.SubmitMassDocumentAsync(DefaultWorkspace.ArtifactID, imagingMassJobRequest).ConfigureAwait(false);
 
 			Assert.That(imagingJobId > 0);
 		}

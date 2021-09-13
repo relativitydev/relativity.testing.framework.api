@@ -27,7 +27,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 
 			var result = _restService.Get<JObject>($"Relativity.Rest/API/relativity-data-visualization/V1/workspaces/{workspaceId}/views/{entityId}");
-			return result.ToObject<View>();
+			return ConvertResponse(result).ToObject<View>();
+		}
+
+		private JObject ConvertResponse(JObject response)
+		{
+			response["ObjectType"] = response["ObjectType"]["Value"];
+			response["Name"] = response["ObjectIdentifier"]["Name"];
+			response["ArtifactID"] = response["ObjectIdentifier"]["ArtifactID"];
+			response["RelativityApplications"] = response["RelativityApplications"]["ViewableItems"];
+			response["Fields"] = response["Fields"]["ViewableItems"];
+			return response;
 		}
 	}
 }

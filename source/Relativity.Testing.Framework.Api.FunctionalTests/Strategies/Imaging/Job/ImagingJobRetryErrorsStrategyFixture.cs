@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -22,30 +21,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public async Task RetryErrorsAsync_WithOptionalRequest_ReturnsImagingJobId()
-		{
-			int imagingSetId = CreateImagingSet().ArtifactID;
-			var retryErrorsRequest = ArrangeRetryErrorsRequest();
-
-			var imagingJobId = await Sut.RetryErrorsAsync(DefaultWorkspace.ArtifactID, imagingSetId, retryErrorsRequest).ConfigureAwait(false);
-			Assert.IsTrue(imagingJobId > 0);
-		}
-
-		[Test]
 		public void RetryErrors_WithoutOptionalRequest_ReturnsImagingJobId()
 		{
 			int imagingSetId = CreateImagingSet().ArtifactID;
 
 			var imagingJobId = Sut.RetryErrors(DefaultWorkspace.ArtifactID, imagingSetId);
-			Assert.IsTrue(imagingJobId > 0);
-		}
-
-		[Test]
-		public async Task RetryErrorsAsync_WithoutOptionalRequest_ReturnsImagingJobId()
-		{
-			int imagingSetId = CreateImagingSet().ArtifactID;
-
-			var imagingJobId = await Sut.RetryErrorsAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false);
 			Assert.IsTrue(imagingJobId > 0);
 		}
 

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
@@ -11,17 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class ImagingJobRunStrategyFixture : ImagingStrategyAbstractFixture<IImagingJobRunStrategy>
 	{
 		[Test]
-		public async Task RunAsync_ValidIds_ReturnsImagingJobId()
-		{
-			ImagingSet imagingSet = CreateImagingSet();
-
-			long imagingJobId = await Sut.RunAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID)
-				.ConfigureAwait(false);
-
-			Assert.That(imagingJobId > 0);
-		}
-
-		[Test]
 		public void Run_ValidIds_ReturnsImagingJobId()
 		{
 			ImagingSet imagingSet = CreateImagingSet();
@@ -29,19 +17,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			long imagingJobId = Sut.Run(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID);
 
 			Assert.That(imagingJobId > 0);
-		}
-
-		[Test]
-		public async Task RunAsync_ValidIds_ChangesImagingSetStatus()
-		{
-			ImagingSet imagingSet = CreateImagingSet();
-
-			await Sut.RunAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID).ConfigureAwait(false);
-
-			ImagingSetDetailedStatus imagingSetStatusAfterRun = await Facade.Resolve<IImagingSetStatusGetStrategy>()
-				.GetAsync(DefaultWorkspace.ArtifactID, imagingSet.ArtifactID).ConfigureAwait(false);
-
-			Assert.That(!imagingSet.Status.Status.Equals(imagingSetStatusAfterRun.Status));
 		}
 
 		[Test]

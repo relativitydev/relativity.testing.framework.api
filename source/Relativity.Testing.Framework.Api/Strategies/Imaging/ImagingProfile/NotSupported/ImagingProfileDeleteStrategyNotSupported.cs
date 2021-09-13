@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -8,11 +7,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ImagingProfileDeleteStrategyNotSupported : IImagingProfileDeleteStrategy
 	{
 		public void Delete(int workspaceId, int imagingProfileId)
-		{
-			throw new ArgumentException("The method Delete imaging profile does not support version of Relativity lower than 12.1.");
-		}
-
-		public Task DeleteAsync(int workspaceId, int imagingProfileId)
 		{
 			throw new ArgumentException("The method Delete imaging profile does not support version of Relativity lower than 12.1.");
 		}

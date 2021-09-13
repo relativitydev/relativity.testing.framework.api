@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -19,11 +18,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public MessageOfTheDay Get()
 		{
 			return _restService.Post<MessageOfTheDay>(_POST_URL);
-		}
-
-		public async Task<MessageOfTheDay> GetAsync()
-		{
-			return await _restService.PostAsync<MessageOfTheDay>(_POST_URL).ConfigureAwait(false);
 		}
 	}
 }

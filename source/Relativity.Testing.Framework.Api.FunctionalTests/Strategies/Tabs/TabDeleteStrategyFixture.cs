@@ -8,7 +8,6 @@ using Relativity.Testing.Framework.Strategies;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IDeleteWorkspaceEntityByIdStrategy<Tab>))]
-	[NonParallelizable] // We're seeing a lot of tab tests fail, so I'm hoping this will help alleviate it.
 	internal class TabDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<Tab>>
 	{
 		[Test]

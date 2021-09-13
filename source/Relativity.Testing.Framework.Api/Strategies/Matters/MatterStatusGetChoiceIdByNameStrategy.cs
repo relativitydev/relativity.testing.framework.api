@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected override ArtifactIdNamePair[] GetAll()
 		{
-			return _matterGetEligibleStatusesStrategy.GetAllAsync().Result;
+			return _matterGetEligibleStatusesStrategy.GetAll();
 		}
 	}
 }

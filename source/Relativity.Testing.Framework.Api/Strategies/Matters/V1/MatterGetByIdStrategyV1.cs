@@ -48,14 +48,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private string GetStatusNameById(int statusID)
 		{
-			return _matterGetEligibleStatusesStrategy.GetAllAsync().Result
-				.FirstOrDefault(status => status.ArtifactID == statusID).Name;
+			return _matterGetEligibleStatusesStrategy.GetAll().FirstOrDefault(status => status.ArtifactID == statusID).Name;
 		}
 
 		private ArtifactIdNamePair GetClientById(int statusID)
 		{
-			return _matterGetEligibleClientsStrategy.GetAllAsync().Result
-				.FirstOrDefault(client => client.ArtifactID == statusID);
+			return _matterGetEligibleClientsStrategy.GetAll().FirstOrDefault(client => client.ArtifactID == statusID);
 		}
 	}
 }

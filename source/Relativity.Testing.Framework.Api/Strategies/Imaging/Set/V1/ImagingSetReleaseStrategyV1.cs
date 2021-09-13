@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -25,14 +24,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			string url = GetUrlWithParameters(workspaceId, imagingSetId);
 
 			_restService.Post(url);
-		}
-
-		public async Task ReleaseAsync(int workspaceId, int imagingSetId)
-		{
-			_imagingSetValidator.ValidateIds(workspaceId, imagingSetId);
-			string url = GetUrlWithParameters(workspaceId, imagingSetId);
-
-			await _restService.PostAsync(url).ConfigureAwait(false);
 		}
 
 		private static string GetUrlWithParameters(int workspaceId, int imagingSetId)

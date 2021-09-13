@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
@@ -50,17 +49,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public async Task HasDismissedAsync_False()
-		{
-			User testUser = null;
-			Arrange(x => x.Create(out testUser));
-
-			var hasDismissedResult = await Sut.HasDismissedAsync(testUser.ArtifactID).ConfigureAwait(false);
-
-			hasDismissedResult.Should().BeFalse();
-		}
-
-		[Test]
 		public void HasDismissed_True()
 		{
 			User testUser = null;
@@ -71,21 +59,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			});
 
 			Sut.HasDismissed(testUser.ArtifactID).Should().BeTrue();
-		}
-
-		[Test]
-		public async Task HasDismissedAsync_True()
-		{
-			User testUser = null;
-			Arrange(x =>
-			{
-				x.Create(out testUser);
-				Facade.Resolve<IMotdDismissStrategy>().Dismiss(testUser.ArtifactID);
-			});
-
-			var hasDismissedResult = await Sut.HasDismissedAsync(testUser.ArtifactID).ConfigureAwait(false);
-
-			hasDismissedResult.Should().BeTrue();
 		}
 	}
 }

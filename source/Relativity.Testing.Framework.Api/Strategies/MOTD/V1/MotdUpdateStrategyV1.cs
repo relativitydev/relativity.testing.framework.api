@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -21,13 +20,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var dto = BuildDto(entity);
 
 			return _restService.Put<MessageOfTheDay>(_PUT_URL, dto);
-		}
-
-		public async Task<MessageOfTheDay> UpdateAsync(MessageOfTheDay entity)
-		{
-			var dto = BuildDto(entity);
-
-			return await _restService.PutAsync<MessageOfTheDay>(_PUT_URL, dto).ConfigureAwait(false);
 		}
 
 		private object BuildDto(MessageOfTheDay entity)

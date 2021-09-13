@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -18,12 +17,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			var url = BuildUrl();
 			_restService.Delete(url);
-		}
-
-		public async Task RemoveAsync()
-		{
-			var url = BuildUrl();
-			await _restService.DeleteAsync(url).ConfigureAwait(false);
 		}
 
 		private string BuildUrl()

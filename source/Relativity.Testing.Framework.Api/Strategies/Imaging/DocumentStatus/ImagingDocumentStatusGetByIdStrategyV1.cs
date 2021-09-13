@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -19,12 +18,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			var getDocumentStatusUrl = BuildDocumentStatusUrl(workspaceId, documentArtifactId);
 			return _restService.Get<DocumentStatus>(getDocumentStatusUrl);
-		}
-
-		public async Task<DocumentStatus> GetAsync(int workspaceId, int documentArtifactId)
-		{
-			var getDocumentStatusUrl = BuildDocumentStatusUrl(workspaceId, documentArtifactId);
-			return await _restService.GetAsync<DocumentStatus>(getDocumentStatusUrl).ConfigureAwait(false);
 		}
 
 		private string BuildDocumentStatusUrl(int workspaceId, int documentArtifactId)

@@ -29,14 +29,5 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			result.Message.Should().Contain(_NOT_SUPPORTED_EXCEPTION_MESSAGE);
 		}
-
-		[Test]
-		public void HideAsync_ForNotSupportedVersion_ThrowsArgumentException()
-		{
-			var result = Assert.ThrowsAsync<ArgumentException>(async () =>
-				await _sut.HideAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false));
-
-			result.Message.Should().Contain(_NOT_SUPPORTED_EXCEPTION_MESSAGE);
-		}
 	}
 }

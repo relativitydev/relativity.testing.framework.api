@@ -1,5 +1,4 @@
 ﻿using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -14,31 +13,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 		[Test]
 		[VersionRange(">=12.1")]
-		public async Task HideAsync_ValidIdsAndCompletedJob_DoesNotThrowException()
-		{
-			int imagingSetId = await CreateImagingSetAndRunJobAsync().ConfigureAwait(false);
-			await WaitUntilImagingSetStatusIsCompletedAsync(imagingSetId).ConfigureAwait(false);
-			Assert.DoesNotThrowAsync(async () => await Sut.HideAsync(DefaultWorkspace.ArtifactID, imagingSetId).ConfigureAwait(false));
-		}
-
-		[Test]
-		[VersionRange(">=12.1")]
 		public void Hide_ValidIdsAndCompletedJob_DoesNotThrowException()
 		{
 			int imagingSetId = CreateImagingSetAndRunJob();
 			WaitUntilImagingSetStatusIsCompleted(imagingSetId);
 			Assert.DoesNotThrow(() => Sut.Hide(DefaultWorkspace.ArtifactID, imagingSetId));
-		}
-
-		[Test]
-		[VersionRange(">=12.1")]
-		public async Task HideAsync_ValidIdsAndNotCompletedJob_ThrowsException()
-		{
-			int imagingSetId = (await CreateImagingSetAsync().ConfigureAwait(false)).ArtifactID;
-
-			HttpRequestException exception = Assert.ThrowsAsync<HttpRequestException>(() => Sut.HideAsync(DefaultWorkspace.ArtifactID, imagingSetId));
-
-			exception.Message.Should().Contain(_JOB_NOT_COMPLETED_EXCEPTION_MESSAGE);
 		}
 
 		[Test]

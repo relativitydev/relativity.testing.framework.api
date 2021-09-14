@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
@@ -19,20 +18,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		public void GetAll_ReturnsNotEmptyStatusesList()
 		{
 			ArtifactIdNamePair[] result = Sut.GetAll();
-			TestIfResultListIsValid(result);
-		}
-
-		[Test]
-		public void GetAllAsync_DoesNotThrowException()
-		{
-			Assert.DoesNotThrowAsync(() =>
-				Sut.GetAllAsync());
-		}
-
-		[Test]
-		public async Task GetAllAsync_ReturnsNotEmptyStatusesList()
-		{
-			ArtifactIdNamePair[] result = await Sut.GetAllAsync().ConfigureAwait(false);
 			TestIfResultListIsValid(result);
 		}
 

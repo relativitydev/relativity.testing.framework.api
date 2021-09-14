@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -36,24 +35,10 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public async Task ReleaseAsync_WithAnyParameters_ShouldCallImagingSetValidator()
-		{
-			await _sut.ReleaseAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockImagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
-		}
-
-		[Test]
 		public void Release_ShouldCallIRestService()
 		{
 			_sut.Release(_WORKSPACE_ID, _IMAGING_SET_ID);
 			_mockRestService.Verify(restService => restService.Post(_releaseUrl, null, null), Times.Once);
-		}
-
-		[Test]
-		public async Task ReleaseAsync_ShouldCallIRestService()
-		{
-			await _sut.ReleaseAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync(_releaseUrl, null, null), Times.Once);
 		}
 	}
 }

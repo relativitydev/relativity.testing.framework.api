@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -36,24 +35,10 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public async Task HideAsync_WithAnyParameters_ShouldCallImagingSetValidator()
-		{
-			await _sut.HideAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_imagingSetValidator.Verify(validator => validator.ValidateIds(_WORKSPACE_ID, _IMAGING_SET_ID), Times.Once);
-		}
-
-		[Test]
 		public void Hide_ShouldCallIRestService()
 		{
 			_sut.Hide(_WORKSPACE_ID, _IMAGING_SET_ID);
 			_mockRestService.Verify(restService => restService.Post(_hideUrl, null, null), Times.Once);
-		}
-
-		[Test]
-		public async Task HideAsync_ShouldCallIRestService()
-		{
-			await _sut.HideAsync(_WORKSPACE_ID, _IMAGING_SET_ID).ConfigureAwait(false);
-			_mockRestService.Verify(restService => restService.PostAsync(_hideUrl, null, null), Times.Once);
 		}
 	}
 }

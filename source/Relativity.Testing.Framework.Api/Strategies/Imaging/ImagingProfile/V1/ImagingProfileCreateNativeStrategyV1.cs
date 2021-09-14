@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Validators;
 using Relativity.Testing.Framework.Models;
@@ -31,18 +30,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var imagingProfileId = _restService.Post<int>(url, request);
 
 			return _imagingProfileGetStrategy.Get(workspaceId, imagingProfileId);
-		}
-
-		public async Task<ImagingProfile> CreateAsync(int workspaceId, CreateNativeImagingProfileDTO dto)
-		{
-			ValidateInput(workspaceId, dto);
-
-			var url = BuildUrl(workspaceId);
-			var request = BuildRequest(dto);
-
-			var imagingProfileId = await _restService.PostAsync<int>(url, request).ConfigureAwait(false);
-
-			return await _imagingProfileGetStrategy.GetAsync(workspaceId, imagingProfileId).ConfigureAwait(false);
 		}
 
 		private void ValidateInput(int workspaceId, CreateNativeImagingProfileDTO input)

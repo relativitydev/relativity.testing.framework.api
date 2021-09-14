@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -42,21 +41,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			_applicationFieldCodeArtifactId = applicationFieldCode.ArtifactID;
 
 			var updatedApplicationFieldCode = Sut.Update(DefaultWorkspace.ArtifactID, applicationFieldCode);
-
-			updatedApplicationFieldCode.Should().BeEquivalentTo(applicationFieldCode, option => option.Excluding(x => x.Name));
-		}
-
-		[Test]
-		public async Task UpdateAsync_ExistingApplicationFieldCode_ShouldBeSuccessful()
-		{
-			var applicationFieldCode = PrepareTestData();
-
-			applicationFieldCode = await _applicationFieldCodeCreateStrategy.CreateAsync(DefaultWorkspace.ArtifactID, applicationFieldCode).ConfigureAwait(false);
-			applicationFieldCode.Option = ApplicationFieldCodeOption.DocumentDefault;
-
-			_applicationFieldCodeArtifactId = applicationFieldCode.ArtifactID;
-
-			var updatedApplicationFieldCode = await Sut.UpdateAsync(DefaultWorkspace.ArtifactID, applicationFieldCode).ConfigureAwait(false);
 
 			updatedApplicationFieldCode.Should().BeEquivalentTo(applicationFieldCode, option => option.Excluding(x => x.Name));
 		}

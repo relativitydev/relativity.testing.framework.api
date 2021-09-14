@@ -7,7 +7,6 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[NonParallelizable] // These tests cause deadlocks in the database when run in parallel.
 	[TestOf(typeof(ObjectTypeRequireStrategy))]
 	internal class MarkupSetRequireStrategyFixture : ApiServiceTestFixture<IRequireWorkspaceEntityStrategy<MarkupSet>>
 	{
@@ -33,7 +32,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			Arrange(() =>
 			{
-				existingMarkupSet = _createWorkspaceEntityStrategy.Create(DefaultWorkspace.ArtifactID, new MarkupSet());
+				existingMarkupSet = _createWorkspaceEntityStrategy.Create(DefaultWorkspace.ArtifactID, new MarkupSet
+				{
+					Name = Randomizer.GetString(),
+					Order = Randomizer.GetInt(int.MaxValue),
+					RedactionText = Randomizer.GetString()
+				});
 			});
 
 			var toUpdate = existingMarkupSet.Copy();

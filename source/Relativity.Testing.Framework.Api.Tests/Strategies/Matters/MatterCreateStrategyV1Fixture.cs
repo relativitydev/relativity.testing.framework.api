@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -62,7 +61,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			_sut.Create(matter);
 
-			VerifyRestServicePostAsyncWasCalled(expectedCreateRequest);
+			VerifyRestServicePostWasCalled(expectedCreateRequest);
 		}
 
 		[Test]
@@ -73,37 +72,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			SetupRestServicePostResponse(expectedCreateRequest);
 
 			Matter result = _sut.Create(matter);
-
-			result.ArtifactID.Should().Be(_MATTER_ID);
-		}
-
-		[Test]
-		public void CreateAsync_WithNull_ThrowsArgumentNullException()
-		{
-			Assert.ThrowsAsync<ArgumentNullException>(() =>
-				_sut.CreateAsync(null));
-		}
-
-		[Test]
-		public async Task CreateAsync_WithValidEntity_ShouldCallRestServiceWithExpectedUrl()
-		{
-			Matter matter = GetTestMatter();
-			MatterCreateRequestV1 expectedCreateRequest = GetExpectedMatterCreateRequestV1(matter);
-			SetupRestServicePostResponse(expectedCreateRequest);
-
-			await _sut.CreateAsync(matter).ConfigureAwait(false);
-
-			VerifyRestServicePostAsyncWasCalled(expectedCreateRequest);
-		}
-
-		[Test]
-		public async Task CreateAsync_WithValidEntity_ShouldReturnEntityWithFilledArtifactId()
-		{
-			Matter matter = GetTestMatter();
-			MatterCreateRequestV1 expectedCreateRequest = GetExpectedMatterCreateRequestV1(matter);
-			SetupRestServicePostResponse(expectedCreateRequest);
-
-			Matter result = await _sut.CreateAsync(matter).ConfigureAwait(false);
 
 			result.ArtifactID.Should().Be(_MATTER_ID);
 		}
@@ -132,12 +100,12 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private void SetupRestServicePostResponse(MatterCreateRequestV1 expectedCreateRequest)
 		{
 			_mockRestService.
-				Setup(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterCreateRequestV1>(e => CompareMatterCreateRequestV1(e, expectedCreateRequest)), 2, null)).Returns(Task.FromResult(_MATTER_ID));
+				Setup(restService => restService.Post<int>(_CREATE_URL, It.Is<MatterCreateRequestV1>(e => CompareMatterCreateRequestV1(e, expectedCreateRequest)), 2, null)).Returns(_MATTER_ID);
 		}
 
-		private void VerifyRestServicePostAsyncWasCalled(MatterCreateRequestV1 expectedCreateRequest)
+		private void VerifyRestServicePostWasCalled(MatterCreateRequestV1 expectedCreateRequest)
 		{
-			_mockRestService.Verify(restService => restService.PostAsync<int>(_CREATE_URL, It.Is<MatterCreateRequestV1>(e => CompareMatterCreateRequestV1(e, expectedCreateRequest)), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<int>(_CREATE_URL, It.Is<MatterCreateRequestV1>(e => CompareMatterCreateRequestV1(e, expectedCreateRequest)), 2, null), Times.Once);
 		}
 
 		private static bool CompareMatterCreateRequestV1(MatterCreateRequestV1 entity, MatterCreateRequestV1 expectedCreateRequest)

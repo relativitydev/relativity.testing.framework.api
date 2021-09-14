@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -39,13 +38,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		List<NamedArtifact> GetAdminGroupUsers(string groupName);
 
 		/// <summary>
-		/// Asynchronously gets the users from a group at the admin case level.
-		/// </summary>
-		/// <param name="groupId">The group id.</param>
-		/// <returns>A task with list of <see cref="NamedArtifact"/>s.</returns>
-		Task<List<NamedArtifact>> GetAdminGroupUsersAsync(int groupId);
-
-		/// <summary>
 		/// Gets the users from the group with workspace permissions.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
@@ -60,13 +52,5 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="groupName">The group Name.</param>
 		/// <returns>A list of <see cref="NamedArtifact"/>s.</returns>
 		List<NamedArtifact> GetWorkspaceGroupUsers(int workspaceId, string groupName);
-
-		/// <summary>
-		/// Asynchronously gets the users from the group with workspace permissions.
-		/// </summary>
-		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="groupId">The group id.</param>
-		/// <returns>A task with list of <see cref="NamedArtifact"/>s.</returns>
-		Task<List<NamedArtifact>> GetWorkspaceGroupUsersAsync(int workspaceId, int groupId);
 	}
 }

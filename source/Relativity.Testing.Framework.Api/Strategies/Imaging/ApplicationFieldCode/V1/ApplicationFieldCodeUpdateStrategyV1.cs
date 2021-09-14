@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Validators;
 using Relativity.Testing.Framework.Models;
@@ -38,22 +37,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var applicationFieldCodeId = _restService.Post<int>(url, dto);
 
 			return _applicationFieldCodeGetStrategy.Get(workspaceId, applicationFieldCodeId);
-		}
-
-		public async Task<ApplicationFieldCode> UpdateAsync(int workspaceId, ApplicationFieldCode applicationFieldCode)
-		{
-			ValidateInput(workspaceId, applicationFieldCode);
-
-			var url = BuildUrl(workspaceId, applicationFieldCode.ArtifactID);
-
-			var dto = new
-			{
-				applicationFieldCode
-			};
-
-			var applicationFieldCodeId = await _restService.PostAsync<int>(url, dto).ConfigureAwait(false);
-
-			return await _applicationFieldCodeGetStrategy.GetAsync(workspaceId, applicationFieldCodeId).ConfigureAwait(false);
 		}
 
 		private void ValidateInput(int workspaceId, ApplicationFieldCode applicationFieldCode)

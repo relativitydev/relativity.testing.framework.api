@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -33,14 +32,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Delete_WithAnyInput_ShouldCallValidator()
 		{
 			_sut.Delete(_WORKSPACE_ID, _APPLICATION_FIELD_CODE_ID);
-			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
-			_artifactIdValidator.Verify(x => x.Validate(_APPLICATION_FIELD_CODE_ID, "ApplicationFieldCode"), Times.Once);
-		}
-
-		[Test]
-		public async Task DeleteAsync_WithAnyInput_ShouldCallValidator()
-		{
-			await _sut.DeleteAsync(_WORKSPACE_ID, _APPLICATION_FIELD_CODE_ID).ConfigureAwait(false);
 			_workspaceIdValidator.Verify(x => x.Validate(_WORKSPACE_ID), Times.Once);
 			_artifactIdValidator.Verify(x => x.Validate(_APPLICATION_FIELD_CODE_ID, "ApplicationFieldCode"), Times.Once);
 		}

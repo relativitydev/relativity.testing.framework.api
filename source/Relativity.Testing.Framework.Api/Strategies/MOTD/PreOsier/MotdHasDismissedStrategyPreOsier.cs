@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Versioning;
 
@@ -28,13 +27,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var dto = BuildDto(userId);
 
 			return _restService.Post<bool>(_POST_URL, dto);
-		}
-
-		public async Task<bool> HasDismissedAsync(int? userId = null)
-		{
-			var dto = BuildDto(userId);
-
-			return await _restService.PostAsync<bool>(_POST_URL, dto).ConfigureAwait(false);
 		}
 
 		private object BuildDto(int? userId = null)

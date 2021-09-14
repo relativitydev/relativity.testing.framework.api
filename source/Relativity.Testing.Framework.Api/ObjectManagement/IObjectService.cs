@@ -149,10 +149,11 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="entityId">The ArtifactID of the entity to update.</param>
 		/// <param name="fieldValues">List of Field Reference and Value for updating entity. </param>
-		/// <example> This shows how to update the values of the 'Extracted Text' and 'Group Identifier' fields on the Document.
+		/// <example> This shows how to update the values of the 'Extracted Text','Group Identifier' and 'Confidential Designation' fields on the Document.
 		/// <code>
 		/// int workspaceArtifactID = 1017850;
 		/// int existingDocumentToUpdateArtifactID = 1039664;
+		/// int existingConfidentialDesignationChoiceArtifactID = 1038092;
 		/// var fieldsToUpdate = new List&lt;FieldRefValuePair&gt;
 		/// {
 		/// 	new FieldRefValuePair
@@ -170,6 +171,17 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// 			Name = "Extracted Text"
 		/// 		},
 		/// 		Value = "Updated Extracted Text"
+		/// 	},
+		/// 	new FieldRefValuePair
+		/// 	{
+		/// 		Field = new FieldRef
+		/// 		{
+		/// 			Name = "Confidential Designation"
+		/// 		},
+		/// 		Value = new NamedArtifact
+		/// 		{
+		/// 			ArtifactID = existingConfidentialDesignationChoiceArtifactID
+		/// 		}
 		/// 	}
 		/// };
 		/// _objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);
@@ -179,8 +191,10 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// <code>
 		/// int workspaceArtifactID = 1017850;
 		/// int existingDocumentToUpdateArtifactID = 1039664;
-		/// int existingDocumentFieldArtifactID = 5345435;
+		/// int existingDocumentStringFieldArtifactID  = 5345435;
 		/// int existingDocumentBoolFieldArtifactID = 478324;
+		/// int existingDocumentSingleChoiceFieldArtifactID = 1038055; // ArtifactID of the 'Confidential Designation' Single Choice Field
+		/// int existingDocumentSingleChoiceChoiceArtifactID = 1038092; // ArtifactID of the Choice 'Attorneys' Eyes Only' for 'Confidential Designation' Field
 		/// var fieldsToUpdate = new List&lt;FieldRefValuePair&gt;
 		/// {
 		/// 	new FieldRefValuePair
@@ -198,7 +212,18 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// 			ArtifactID = existingDocumentBoolFieldArtifactID
 		/// 		},
 		/// 		Value = bool
-		/// 	}
+		/// 	},
+		/// 	new FieldRefValuePair
+		/// 	{
+		/// 		Field = new FieldRef
+		/// 		{
+		/// 			ArtifactID = existingDocumentSingleChoiceFieldArtifactID
+		/// 		},
+		/// 		Value = new NamedArtifact
+		/// 		{
+		/// 			ArtifactID = existingDocumentSingleChoiceChoiceArtifactID
+		/// 		}
+		/// 	},
 		/// };
 		/// _objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);
 		/// </code>

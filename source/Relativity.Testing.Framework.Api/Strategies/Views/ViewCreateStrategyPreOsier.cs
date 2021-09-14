@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ViewCreateStrategy : CreateWorkspaceEntityStrategy<View>
+	[VersionRange("<12.1")]
+	internal class ViewCreateStrategyPreOsier : CreateWorkspaceEntityStrategy<View>
 	{
 		private readonly IRestService _restService;
 		private readonly IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 
-		public ViewCreateStrategy(
+		public ViewCreateStrategyPreOsier(
 			IRestService restService,
 			IGetWorkspaceEntityByIdStrategy<View> getWorkspaceEntityByIdStrategy)
 		{

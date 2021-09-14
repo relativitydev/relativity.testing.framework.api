@@ -32,11 +32,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private JObject ConvertResponse(JObject response)
 		{
+			response["ArtifactTypeId"] = response["ObjectType"]["Value"]["ArtifactTypeID"];
 			response["ObjectType"] = response["ObjectType"]["Value"];
 			response["Name"] = response["ObjectIdentifier"]["Name"];
-			response["ArtifactID"] = response["ObjectIdentifier"]["ArtifactID"];
+			response["ArtifactId"] = response["ObjectIdentifier"]["ArtifactID"];
 			response["RelativityApplications"] = response["RelativityApplications"]["ViewableItems"];
 			response["Fields"] = response["Fields"]["ViewableItems"];
+			response["Owner"] = response["Owner"]["Value"];
 			return response;
 		}
 	}

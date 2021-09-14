@@ -56,6 +56,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var result = _getWorkspaceEntityByIdStrategy.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Fields.Should().NotBeNullOrEmpty();
+
 			result.Should().BeEquivalentTo(toUpdate, o => o
 				.Excluding(x => x.IsVisible)
 				.Excluding(x => x.SystemCreatedBy)

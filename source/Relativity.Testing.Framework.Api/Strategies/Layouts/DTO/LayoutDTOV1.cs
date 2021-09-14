@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Relativity.Testing.Framework.Api.DTO;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
@@ -8,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
 	{
 		public NamedArtifactWithGuids ObjectIdentifier { get; set; }
 
-		public LayoutSecuredValueDTOV1 ObjectType { get; set; }
+		public SecuredValueDTO ObjectType { get; set; }
 
 		public string Order { get; set; }
 
@@ -20,9 +21,9 @@ namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
 
 		public DateTime CreatedOn { get; set; }
 
-		public LayoutSecuredValueDTOV1 CreatedBy { get; set; }
+		public SecuredValueDTO CreatedBy { get; set; }
 
-		public LayoutSecuredValueDTOV1 LastModifiedBy { get; set; }
+		public SecuredValueDTO LastModifiedBy { get; set; }
 
 		public DateTime LastModifiedOn { get; set; }
 
@@ -34,6 +35,6 @@ namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
 
 		public List<LayoutActionDTOV1> Actions { get; set; }
 
-		public LayoutSecuredValueDTOV1 Owner { get; set; }
+		public SecuredValueDTO Owner { get; set; }
 	}
 }

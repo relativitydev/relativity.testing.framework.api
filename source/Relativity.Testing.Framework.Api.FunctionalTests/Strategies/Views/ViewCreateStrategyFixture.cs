@@ -88,7 +88,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Excluding(x => x.SystemCreatedBy)
 				.Excluding(x => x.SystemCreatedOn)
 				.Excluding(x => x.SystemLastModifiedBy)
-				.Excluding(x => x.SystemLastModifiedOn));
+				.Excluding(x => x.SystemLastModifiedOn)
+				.Excluding(x => x.Dashboard));
 		}
 	}
 }

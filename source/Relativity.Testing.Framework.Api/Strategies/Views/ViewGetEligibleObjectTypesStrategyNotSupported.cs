@@ -10,7 +10,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		public List<NamedArtifact> GetEligibleObjectTypes(int workspaceId)
 		{
-			throw new ArgumentException("The method Get does not support version of Relativity lower than 12.1.");
+			throw new ArgumentException("The method GetEligibleObjectTypes does not support version of Relativity lower than 12.1.");
 		}
 	}
 }

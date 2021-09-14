@@ -9,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.DTO
 
 		public int ArtifactTypeID { get; set; }
 
-		public SecuredValueDTO ObjectType { get; set; }
+		public Securable<NamedArtifact> ObjectType { get; set; }
 
 		public int Order { get; set; }
 
@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.DTO
 
 		public List<NamedArtifact> RelativityApplications { get; set; }
 
-		public SecuredValueDTO Owner { get; set; }
+		public Securable<NamedArtifact> Owner { get; set; }
 
 		public string Name { get; set; }
 

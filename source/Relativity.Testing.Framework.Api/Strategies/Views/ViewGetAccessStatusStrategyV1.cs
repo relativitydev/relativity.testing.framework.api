@@ -21,9 +21,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public ViewAccessStatus Get(int workspaceId, int entityId)
 		{
 			if (!_existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId))
+			{
 				return null;
+			}
 
-			return _restService.Get<ViewAccessStatus>($"Relativity.Rest/API/relativity-data-visualization/V1/workspaces/{workspaceId}/views/{entityId}/access-status");
+			return _restService.Get<ViewAccessStatus>($"relativity-data-visualization/V1/workspaces/{workspaceId}/views/{entityId}/access-status");
 		}
 	}
 }

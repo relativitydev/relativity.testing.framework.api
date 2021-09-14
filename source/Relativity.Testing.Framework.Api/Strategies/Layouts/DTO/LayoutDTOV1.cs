@@ -9,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
 	{
 		public NamedArtifactWithGuids ObjectIdentifier { get; set; }
 
-		public SecuredValueDTO ObjectType { get; set; }
+		public Securable<NamedArtifact> ObjectType { get; set; }
 
 		public string Order { get; set; }
 
@@ -21,9 +21,9 @@ namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
 
 		public DateTime CreatedOn { get; set; }
 
-		public SecuredValueDTO CreatedBy { get; set; }
+		public Securable<NamedArtifact> CreatedBy { get; set; }
 
-		public SecuredValueDTO LastModifiedBy { get; set; }
+		public Securable<NamedArtifact> LastModifiedBy { get; set; }
 
 		public DateTime LastModifiedOn { get; set; }
 
@@ -35,6 +35,6 @@ namespace Relativity.Testing.Framework.Api.Strategies.Layouts.DTO
 
 		public List<LayoutActionDTOV1> Actions { get; set; }
 
-		public SecuredValueDTO Owner { get; set; }
+		public Securable<NamedArtifactWithGuids> Owner { get; set; }
 	}
 }

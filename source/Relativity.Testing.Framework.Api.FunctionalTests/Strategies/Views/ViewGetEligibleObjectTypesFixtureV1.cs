@@ -7,7 +7,8 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[VersionRange(">=12.1")]
-	internal class ViewGetEligibleObjectTypesFixtureV1 : ApiServiceTestFixture<IViewGetEligibleObjectTypesStrategy>
+	[TestOf(typeof(IViewGetEligibleObjectTypesStrategy))]
+	internal class ViewGetEligibleObjectTypesStrategyFixture : ApiServiceTestFixture<IViewGetEligibleObjectTypesStrategy>
 	{
 		[Test]
 		public void GetAll()

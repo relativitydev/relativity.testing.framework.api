@@ -14,14 +14,6 @@ namespace Relativity.Testing.Framework.Api.DTO
 				VisibleInDropdown = entity.VisibleInDropdown,
 				QueryHint = entity.QueryHint,
 				RelativityApplications = entity.RelativityApplications,
-				Owner = new SecuredValueDTO
-				{
-					Value = new NamedArtifactWithGuids
-					{
-						Name = entity.Owner.Name,
-						ArtifactID = entity.Owner.ArtifactID
-					}
-				},
 				Name = entity.Name,
 				Fields = entity.Fields,
 				Sorts = entity.Sorts,
@@ -29,6 +21,18 @@ namespace Relativity.Testing.Framework.Api.DTO
 				GroupDefinitionFieldArtifactID = entity.GroupDefinitionFieldArtifactId,
 				SearchCriteria = entity.SearchCriteria
 			};
+			if (entity.Owner != null)
+			{
+				resultDTO.Owner = new Securable<NamedArtifact>
+				{
+					Value = new NamedArtifact
+					{
+						Name = entity.Owner.Name,
+						ArtifactID = entity.Owner.ArtifactID
+					}
+				};
+			}
+
 			return resultDTO;
 		}
 	}

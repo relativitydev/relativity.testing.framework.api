@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -12,6 +13,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IRequireWorkspaceEntityStrategy<View> _requireWorkspaceEntityStrategy;
 		private readonly IExistsWorkspaceEntityByIdStrategy<View> _existsWorkspaceEntityByIdStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<View> _updateWorkspaceEntityStrategy;
+		private readonly IViewGetEligibleObjectTypesStrategy _getEligibleObjectTypesStrategy;
+		private readonly IGetAllWorkspaceViewOwnersStrategy<NamedArtifact> _getAllWorkspaceViewOwnersStrategy;
 
 		public ViewService(
 			ICreateWorkspaceEntityStrategy<View> cretCreateWorkspaceEntityStrategy,
@@ -20,7 +23,9 @@ namespace Relativity.Testing.Framework.Api.Services
 			IGetWorkspaceEntityByNameStrategy<View> getWorkspaceEntityByNameStrategy,
 			IRequireWorkspaceEntityStrategy<View> requireWorkspaceEntityStrategy,
 			IExistsWorkspaceEntityByIdStrategy<View> existsWorkspaceEntityByIdStrategy,
-			IUpdateWorkspaceEntityStrategy<View> updateWorkspaceEntityStrategy)
+			IUpdateWorkspaceEntityStrategy<View> updateWorkspaceEntityStrategy,
+			IViewGetEligibleObjectTypesStrategy getEligibleObjectTypesStrategy,
+			IGetAllWorkspaceViewOwnersStrategy<NamedArtifact> getAllWorkspaceViewOwnersStrategy)
 		{
 			_createWorkspaceEntityStrategy = cretCreateWorkspaceEntityStrategy;
 			_getAllWorkspaceEntitiesStrategy = getAllWorkspaceEntitiesStrategy;
@@ -29,6 +34,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			_requireWorkspaceEntityStrategy = requireWorkspaceEntityStrategy;
 			_existsWorkspaceEntityByIdStrategy = existsWorkspaceEntityByIdStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
+			_getEligibleObjectTypesStrategy = getEligibleObjectTypesStrategy;
+			_getAllWorkspaceViewOwnersStrategy = getAllWorkspaceViewOwnersStrategy;
 		}
 
 		public View Create(int workspaceArtifactID, View view)
@@ -51,5 +58,11 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Update(int workspaceArtifactID, View view)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceArtifactID, view);
+
+		public List<NamedArtifact> GetEligibleObjectTypes(int workspaceId)
+			=> _getEligibleObjectTypesStrategy.GetEligibleObjectTypes(workspaceId);
+
+		public NamedArtifact[] GetViewOwners(int workspaceId)
+		=> _getAllWorkspaceViewOwnersStrategy.GetViewOwners(workspaceId);
 	}
 }

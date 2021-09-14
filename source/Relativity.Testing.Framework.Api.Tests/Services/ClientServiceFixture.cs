@@ -26,6 +26,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Services
 			var mockGetByIdStrategy = new Mock<IGetByIdStrategy<Client>>();
 			var mockGetByNameStrategy = new Mock<IGetByNameStrategy<Client>>();
 			var mockUpdateStrategy = new Mock<IUpdateStrategy<Client>>();
+			var mockClientDomainRequestKeyStrategy = new Mock<IClientDomainRequestKeyStrategy>();
 
 			_sut = new ClientService(
 				mockCreateStrategy.Object,
@@ -33,7 +34,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Services
 				mockDeleteStrategy.Object,
 				mockGetByIdStrategy.Object,
 				mockGetByNameStrategy.Object,
-				mockUpdateStrategy.Object);
+				mockUpdateStrategy.Object,
+				mockClientDomainRequestKeyStrategy.Object);
 		}
 
 		[Test]

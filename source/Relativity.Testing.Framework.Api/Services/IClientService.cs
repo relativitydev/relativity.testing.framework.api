@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Models;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -123,5 +124,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Client Get(string name);
+
+		/// <summary>
+		/// Gets a list of available statuses for a <see cref="Client"/>.
+		/// </summary>
+		/// <returns>List of of available statuses.</returns>
+		/// <example>
+		/// <code>
+		/// IList&lt;ArtifactIdNamePair&gt; availableStatuses = _clientService.GetEligibleStatuses();
+		/// </code>
+		/// </example>
+		IList<ArtifactIdNamePair> GetEligibleStatuses();
 	}
 }

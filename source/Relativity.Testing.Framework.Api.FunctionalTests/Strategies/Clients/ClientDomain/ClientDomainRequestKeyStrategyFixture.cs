@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Threading;
+using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -14,34 +15,39 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private const string _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION = "Relativity.Core";
 		private IClientDomainRequestKeyStrategy _sut;
 		private IInstanceSettingsService _instanceSettingsService;
-		private string _initialClientDomainFeatureAvailableInstanceSettingValue;
+		private bool _instanceSettingNeedsChange;
 
 		[OneTimeSetUp]
 		public void SetUp()
 		{
 			_sut = Facade.Resolve<IClientDomainRequestKeyStrategy>();
 			_instanceSettingsService = Facade.Resolve<IInstanceSettingsService>();
-			_initialClientDomainFeatureAvailableInstanceSettingValue = _instanceSettingsService.Get(_CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME, _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION).Value;
-			var clientDomainFeatureAvailableInstanceSetting = new InstanceSetting
+			_instanceSettingNeedsChange = _instanceSettingsService.Get(_CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME, _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION).Value.Equals("False");
+			if (_instanceSettingNeedsChange)
 			{
-				Value = "True",
-				Name = _CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME,
-				Section = _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION
-			};
-			_instanceSettingsService.Update(clientDomainFeatureAvailableInstanceSetting);
+				_instanceSettingsService.UpdateValue(_CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME, _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION, "True");
+				bool notUpdated = CheckIfClientDomainFeatureIsDisabled();
+
+				while (notUpdated)
+				{
+					Thread.Sleep(100);
+					notUpdated = CheckIfClientDomainFeatureIsDisabled();
+				}
+			}
+		}
+
+		private bool CheckIfClientDomainFeatureIsDisabled()
+		{
+			return _instanceSettingsService.Get(_CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME, _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION).Equals("False");
 		}
 
 		[OneTimeTearDown]
 		public void OneTimeTearDown()
 		{
-			_sut = Facade.Resolve<IClientDomainRequestKeyStrategy>();
-			var clientDomainFeatureAvailableInstanceSetting = new InstanceSetting
+			if (_instanceSettingNeedsChange)
 			{
-				Value = _initialClientDomainFeatureAvailableInstanceSettingValue,
-				Name = _CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME,
-				Section = _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION
-			};
-			_instanceSettingsService.Update(clientDomainFeatureAvailableInstanceSetting);
+				_instanceSettingsService.UpdateValue(_CLIENT_DOMAIN_FEATURE_AVAILABLE_NAME, _CLIENT_DOMAIN_FEATURE_AVAILABLE_SECTION, "False");
+			}
 		}
 
 		[Test]

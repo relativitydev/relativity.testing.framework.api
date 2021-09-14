@@ -19,13 +19,16 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IUpdateStrategy<Client> _updateStrategy;
 
+		private readonly IClientDomainRequestKeyStrategy _clientDomainRequestKeyStrategy;
+
 		public ClientService(
 			ICreateStrategy<Client> createStrategy,
 			IRequireStrategy<Client> requireStrategy,
 			IDeleteByIdStrategy<Client> deleteByIdStrategy,
 			IGetByIdStrategy<Client> getByIdStrategy,
 			IGetByNameStrategy<Client> getByNameStrategy,
-			IUpdateStrategy<Client> updateStrategy)
+			IUpdateStrategy<Client> updateStrategy,
+			IClientDomainRequestKeyStrategy clientDomainRequestKeyStrategy)
 		{
 			_createStrategy = createStrategy;
 			_requireStrategy = requireStrategy;
@@ -33,6 +36,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_getByIdStrategy = getByIdStrategy;
 			_getByNameStrategy = getByNameStrategy;
 			_updateStrategy = updateStrategy;
+			_clientDomainRequestKeyStrategy = clientDomainRequestKeyStrategy;
 		}
 
 		public Client Create(Client entity)
@@ -63,6 +67,9 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Update(Client entity)
 			=> _updateStrategy.Update(entity);
+
+		public string RequestClientDomainKey(int clientArtifactID)
+			=> _clientDomainRequestKeyStrategy.Request(clientArtifactID);
 
 		public void ValidateClientId(int id)
 		{

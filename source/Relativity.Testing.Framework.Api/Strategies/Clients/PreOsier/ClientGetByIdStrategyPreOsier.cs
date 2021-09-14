@@ -5,9 +5,9 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class ClientGetByIdStrategyPrePrairieSmoke : ObjectQueryGetByIdStrategy<Client>
+	internal class ClientGetByIdStrategyPreOsier : ObjectQueryGetByIdStrategy<Client>
 	{
-		public ClientGetByIdStrategyPrePrairieSmoke(IObjectService objectService)
+		public ClientGetByIdStrategyPreOsier(IObjectService objectService)
 			: base(objectService)
 		{
 		}

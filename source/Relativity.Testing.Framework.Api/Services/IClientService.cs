@@ -123,5 +123,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		Client Get(string name);
+
+		/// <summary>
+		/// Creates and return the client domain activation key required to initiate the activation process for client domain.
+		/// </summary>
+		/// <remarks>For this request to be succesfull the "ClientDomainFeatureAvailable" instance setting in "Relativity.Core" section must be set to True.</remarks>
+		/// <param name="clientArtifactID">The ArtifactID of the client.</param>
+		/// <example>
+		/// <code>
+		/// int existingClientArtifactID = 1022342;
+		/// string clientDomainActivationKey = _clientService.RequestClientDomainKey(existingClientArtifactID);
+		/// </code>
+		/// </example>
+		/// <returns>Client Domain activation key. </returns>
+		string RequestClientDomainKey(int clientArtifactID);
 	}
 }

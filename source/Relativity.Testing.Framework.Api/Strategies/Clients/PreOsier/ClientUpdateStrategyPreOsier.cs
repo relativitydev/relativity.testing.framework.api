@@ -5,13 +5,13 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies.Clients
 {
 	[VersionRange("<12.1")]
-	internal class ClientUpdateStrategyPrePrairieSmoke : IUpdateStrategy<Client>
+	internal class ClientUpdateStrategyPreOsier : IUpdateStrategy<Client>
 	{
 		private readonly IRestService _restService;
 
 		private readonly IClientStatusEnsureArtifactIdIsFilledStrategy _clientStatusEnsureArtifactIdIsFilledStrategy;
 
-		public ClientUpdateStrategyPrePrairieSmoke(
+		public ClientUpdateStrategyPreOsier(
 			IRestService restService,
 			IClientStatusEnsureArtifactIdIsFilledStrategy clientStatusEnsureArtifactIdIsFilledStrategy)
 		{

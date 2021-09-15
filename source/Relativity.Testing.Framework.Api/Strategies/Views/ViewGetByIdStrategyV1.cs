@@ -26,7 +26,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				return null;
 			}
 
-			var result = _restService.Get<JObject>($"Relativity.Rest/API/relativity-data-visualization/V1/workspaces/{workspaceId}/views/{entityId}");
+			var result = _restService.Get<JObject>($"relativity-data-visualization/V1/workspaces/{workspaceId}/views/{entityId}");
 			return ConvertResponse(result).ToObject<View>();
 		}
 

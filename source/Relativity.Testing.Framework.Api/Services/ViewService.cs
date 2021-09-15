@@ -63,6 +63,6 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _getEligibleObjectTypesStrategy.GetEligibleObjectTypes(workspaceId);
 
 		public NamedArtifact[] GetViewOwners(int workspaceId)
-		=> _getAllWorkspaceViewOwnersStrategy.GetViewOwners(workspaceId);
+			=> _getAllWorkspaceViewOwnersStrategy.GetViewOwners(workspaceId);
 	}
 }

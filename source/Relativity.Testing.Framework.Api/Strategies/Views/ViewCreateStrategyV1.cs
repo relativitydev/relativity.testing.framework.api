@@ -26,10 +26,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var dto = new
 			{
-				viewRequest = ViewDTOMapper.ConvertToDTO(entity)
+				viewRequest = entity.MapToDTO()
 			};
 
-			var artifactId = _restService.Post<int>($"/Relativity.Rest/API/relativity-data-visualization/V1/workspaces/{workspaceId}/views", dto);
+			var artifactId = _restService.Post<int>($"relativity-data-visualization/V1/workspaces/{workspaceId}/views", dto);
 
 			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, artifactId);
 		}

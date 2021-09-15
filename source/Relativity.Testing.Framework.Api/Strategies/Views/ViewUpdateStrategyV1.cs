@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var dto = new
 			{
-				viewRequest = ViewDTOMapper.ConvertToDTO(entity)
+				viewRequest = ViewDTOMapper.MapToDTO(entity)
 			};
 
 			_restService.Put($"relativity-data-visualization/V1/workspaces/{workspaceId}/views", dto);

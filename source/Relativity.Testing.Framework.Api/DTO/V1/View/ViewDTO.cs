@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.DTO
 {
 	internal class ViewDTO
 	{
+		public NamedArtifact ObjectIdentifier { get; set; }
+
 		public int ArtifactID { get; set; }
 
 		public int ArtifactTypeID { get; set; }
@@ -17,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.DTO
 
 		public string QueryHint { get; set; }
 
-		public List<NamedArtifact> RelativityApplications { get; set; }
+		public List<NamedArtifact> RelativityApplicationsList { get; set; }
 
 		public Securable<NamedArtifact> Owner { get; set; }
 

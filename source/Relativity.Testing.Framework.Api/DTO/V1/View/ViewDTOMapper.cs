@@ -4,7 +4,7 @@ namespace Relativity.Testing.Framework.Api.DTO
 {
 	internal static class ViewDTOMapper
 	{
-		public static ViewDTO ConvertToDTO(View entity)
+		internal static ViewDTO MapToDTO(this View entity)
 		{
 			ViewDTO resultDTO = new ViewDTO
 			{
@@ -13,11 +13,11 @@ namespace Relativity.Testing.Framework.Api.DTO
 				Order = entity.Order,
 				VisibleInDropdown = entity.VisibleInDropdown,
 				QueryHint = entity.QueryHint,
-				RelativityApplications = entity.RelativityApplications,
 				Name = entity.Name,
 				Fields = entity.Fields,
 				Sorts = entity.Sorts,
 				Dashboard = entity.Dashboard,
+				RelativityApplicationsList = entity.RelativityApplications,
 				GroupDefinitionFieldArtifactID = entity.GroupDefinitionFieldArtifactId,
 				SearchCriteria = entity.SearchCriteria
 			};

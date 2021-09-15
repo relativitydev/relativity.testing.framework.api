@@ -17,8 +17,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Creates the specified agent.
 		/// </summary>
-		/// <param name="entity">The <see cref="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity to create.</param>
-		/// <returns>The created <see cref="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity.</returns>
+		/// <param name="entity">The <see cref="Agent">agent</see> entity to create.</param>
+		/// <returns>The created <see cref="Agent">agent</see> entity.</returns>
 		/// <example>
 		/// <code>
 		/// var agentType =  relativityFacade.Resolve&#60;IGetByNameStrategy&#60;AgentType&#62;&#62;()
@@ -43,7 +43,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <item><description>Otherwise creates a new entity using <see cref="ICreateStrategy{T}"/>.</description></item>
 		/// </list>
 		/// </summary>
-		/// <param name="entity">The <see cref="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity to require.</param>
+		/// <param name="entity">The <see cref="Agent">agent</see> entity to require.</param>
 		/// <returns>The required entity .</returns>
 		/// <example>
 		/// <code>

@@ -1,4 +1,4 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -165,9 +165,44 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// View viewToUpdate = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
 		/// viewToUpdate.Name = "Updated View Name";
 		/// viewToUpdate.Order = 345;
-		/// _viewService.Update(workspaceArtifactID, existingViewArtifactID);
+		/// _viewService.Update(workspaceArtifactID, view);
 		/// </code>
 		/// </example>
 		void Update(int workspaceArtifactID, View view);
+
+		/// <summary>
+		/// Gets the list of of object types in a specific workspace.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <returns>The list of <see cref="NamedArtifact"/> objects.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactID = 1015427;
+		/// int existingViewArtifactID = 1024345;
+		/// var eligibleObjectTypes = _viewService.GetEligibleObjectTypes(workspaceArtifactID);
+		/// View view = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
+		/// view.ObjectType = eligibleObjectTypes[0];
+		/// _viewService.Update(workspaceArtifactID, view);
+		/// </code>
+		/// </example>
+		List<NamedArtifact> GetEligibleObjectTypes(int workspaceId);
+
+		/// <summary>
+		/// Gets a list of users eligible to be view owners in a specific workspace.
+		/// You can then use this list to assign owners to a view.
+		/// </summary>
+		/// <param name="workspaceId">The workspace ID.</param>
+		/// <returns>An array of <see cref="NamedArtifact"/> objects.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactID = 1015427;
+		/// int existingViewArtifactID = 1024345;
+		/// var owners = _viewService.GetViewOwners(workspaceArtifactID);
+		/// View view = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
+		/// view.Owner = owners[0];
+		/// _viewService.Update(workspaceArtifactID, view);
+		/// </code>
+		/// </example>
+		NamedArtifact[] GetViewOwners(int workspaceId);
 	}
 }

@@ -40,7 +40,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
 					QueryHint = string.Empty,
 					RelativityApplications = new List<NamedArtifact>(),
-					Sorts = new List<Sort>(),
+					Sorts = new List<Sort>()
 				})
 				.Pick(out existingView));
 
@@ -51,7 +51,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = Sut.Require(DefaultWorkspace.ArtifactID, toUpdate);
 
 			result.Should().BeEquivalentTo(toUpdate, o => o
-				.Excluding(x => x.SystemLastModifiedOn));
+				.Excluding(x => x.SystemLastModifiedOn)
+				.Excluding(x => x.Dashboard));
 		}
 
 		[Test]
@@ -67,7 +68,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
 				QueryHint = string.Empty,
 				RelativityApplications = new List<NamedArtifact>(),
-				Sorts = new List<Sort>(),
+				Sorts = new List<Sort>()
 			};
 
 			var result = Sut.Require(DefaultWorkspace.ArtifactID, entity);
@@ -80,7 +81,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Excluding(x => x.SystemCreatedBy)
 				.Excluding(x => x.SystemCreatedOn)
 				.Excluding(x => x.SystemLastModifiedBy)
-				.Excluding(x => x.SystemLastModifiedOn));
+				.Excluding(x => x.SystemLastModifiedOn)
+				.Excluding(x => x.Dashboard));
 		}
 	}
 }

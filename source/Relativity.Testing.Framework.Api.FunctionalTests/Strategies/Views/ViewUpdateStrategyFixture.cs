@@ -13,12 +13,14 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 		private IGetWorkspaceEntityByNameStrategy<FixedLengthTextField> _getWorkspaceEntityByNameStrategy;
+		private IGetAllWorkspaceViewOwnersStrategy<NamedArtifact> _getViewOwnersStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
 			_getWorkspaceEntityByIdStrategy = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<View>>();
 			_getWorkspaceEntityByNameStrategy = Facade.Resolve<IGetWorkspaceEntityByNameStrategy<FixedLengthTextField>>();
+			_getViewOwnersStrategy = Facade.Resolve<IGetAllWorkspaceViewOwnersStrategy<NamedArtifact>>();
 		}
 
 		[Test]
@@ -35,16 +37,20 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			View existingView = null;
 
+			var eligibleOwners = _getViewOwnersStrategy.GetViewOwners(DefaultWorkspace.ArtifactID);
+			NamedArtifact owner = eligibleOwners.Length > 1 ? eligibleOwners[1] : new NamedArtifact { Name = string.Empty };
+
 			ArrangeWorkingWorkspace(x => x
 				.Create(new View
 				{
-					Owner = new NamedArtifact { Name = string.Empty },
+					Owner = owner,
 					Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
 					QueryHint = string.Empty,
 					RelativityApplications = new List<NamedArtifact>(),
 					Sorts = new List<Sort>(),
 					IsVisible = false,
-					SearchCriteria = new CriteriaCollection()
+					SearchCriteria = new CriteriaCollection(),
+					VisibleInDropdown = true
 				})
 				.Pick(out existingView));
 
@@ -56,6 +62,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var result = _getWorkspaceEntityByIdStrategy.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Fields.Should().NotBeNullOrEmpty();
+
 			result.Should().BeEquivalentTo(toUpdate, o => o
 				.Excluding(x => x.IsVisible)
 				.Excluding(x => x.SystemCreatedBy)

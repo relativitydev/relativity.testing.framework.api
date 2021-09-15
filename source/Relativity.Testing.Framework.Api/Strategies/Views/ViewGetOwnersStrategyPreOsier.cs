@@ -1,13 +1,15 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ViewGetOwnersStrategy : IGetAllWorkspaceViewOwnersStrategy<NamedArtifact>
+	[VersionRange("<12.1")]
+	internal class ViewGetOwnersStrategyPreOsier : IGetAllWorkspaceViewOwnersStrategy<NamedArtifact>
 	{
 		private readonly IRestService _restService;
 
-		public ViewGetOwnersStrategy(
+		public ViewGetOwnersStrategyPreOsier(
 			IRestService restService)
 		{
 			_restService = restService;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
@@ -18,19 +19,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_DoesNotThrowException()
-		{
-			Assert.DoesNotThrow(() => _sut.Get());
-		}
-
-		[Test]
 		public void Get_ReturnsListOfStatuses()
 		{
-			IList<ArtifactIdNamePair> result = _sut.Get();
+			IEnumerable<NamedArtifact> result = _sut.Get();
 
 			result.Should().NotBeEmpty();
-			result[0].Name.Should().NotBeNullOrWhiteSpace();
-			result[0].ArtifactID.Should().BePositive();
+			result.First().Name.Should().NotBeNullOrWhiteSpace();
+			result.First().ArtifactID.Should().BePositive();
 		}
 	}
 }

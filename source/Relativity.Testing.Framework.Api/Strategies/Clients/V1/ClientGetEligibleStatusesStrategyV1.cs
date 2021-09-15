@@ -15,9 +15,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
-		public IList<ArtifactIdNamePair> Get()
+		public IEnumerable<NamedArtifact> Get()
 		{
-			return _restService.Get<IList<ArtifactIdNamePair>>("relativity-identity/v1/workspaces/-1/clients/eligible-statuses");
+			return _restService.Get<IEnumerable<NamedArtifact>>("relativity-identity/v1/workspaces/-1/clients/eligible-statuses");
 		}
 	}
 }

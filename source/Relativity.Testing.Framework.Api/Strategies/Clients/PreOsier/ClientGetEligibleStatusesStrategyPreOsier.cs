@@ -15,9 +15,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_restService = restService;
 		}
 
-		public IList<ArtifactIdNamePair> Get()
+		public IEnumerable<NamedArtifact> Get()
 		{
-			return _restService.Get<IList<ArtifactIdNamePair>>("/Relativity.Services.Client.IClientModule/Client%20Manager/GetStatusChoicesForClientAsync");
+			return _restService.Get<IEnumerable<NamedArtifact>>("/Relativity.Services.Client.IClientModule/Client%20Manager/GetStatusChoicesForClientAsync");
 		}
 	}
 }

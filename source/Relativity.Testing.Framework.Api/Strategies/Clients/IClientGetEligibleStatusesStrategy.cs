@@ -5,6 +5,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IClientGetEligibleStatusesStrategy
 	{
-		IList<ArtifactIdNamePair> Get();
+		IEnumerable<NamedArtifact> Get();
 	}
 }

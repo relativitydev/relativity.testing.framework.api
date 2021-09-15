@@ -13,9 +13,9 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	internal class ClientGetEligibleStatusesStrategyV1Fixture
 	{
 		private const string _GET_URL = "relativity-identity/v1/workspaces/-1/clients/eligible-statuses";
-		private readonly List<ArtifactIdNamePair> _expectedStatusesResponse = new List<ArtifactIdNamePair>
+		private readonly IEnumerable<NamedArtifact> _expectedStatusesResponse = new List<NamedArtifact>
 		{
-			new ArtifactIdNamePair
+			new NamedArtifact
 			{
 				ArtifactID = 1,
 				Name = "Test Status Name"
@@ -36,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void Get_ShouldCallRestServiceWithExpectedUrl()
 		{
 			_sut.Get();
-			_mockRestService.Verify(restService => restService.Get<IList<ArtifactIdNamePair>>(_GET_URL, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Get<IEnumerable<NamedArtifact>>(_GET_URL, null), Times.Once);
 		}
 
 		[Test]
@@ -44,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			SetupMockRestService();
 
-			IList<ArtifactIdNamePair> result = _sut.Get();
+			IEnumerable<NamedArtifact> result = _sut.Get();
 
 			result.Should().BeEquivalentTo(_expectedStatusesResponse);
 		}
@@ -52,7 +52,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private void SetupMockRestService()
 		{
 			_mockRestService
-				.Setup(restService => restService.Get<IList<ArtifactIdNamePair>>(_GET_URL, null))
+				.Setup(restService => restService.Get<IEnumerable<NamedArtifact>>(_GET_URL, null))
 				.Returns(_expectedStatusesResponse);
 		}
 	}

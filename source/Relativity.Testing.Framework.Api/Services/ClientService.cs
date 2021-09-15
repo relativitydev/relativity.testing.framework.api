@@ -69,7 +69,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void Update(Client entity)
 			=> _updateStrategy.Update(entity);
 
-		public IList<ArtifactIdNamePair> GetEligibleStatuses()
+		public IEnumerable<NamedArtifact> GetEligibleStatuses()
 			=> _getEligibleStatusesStrategy.Get();
 
 		public void ValidateClientId(int id)

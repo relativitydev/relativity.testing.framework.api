@@ -131,9 +131,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>List of of available statuses.</returns>
 		/// <example>
 		/// <code>
-		/// IList&lt;ArtifactIdNamePair&gt; availableStatuses = _clientService.GetEligibleStatuses();
+		/// IEnumerable&lt;NamedArtifact&gt; availableStatuses = _clientService.GetEligibleStatuses();
 		/// </code>
 		/// </example>
-		IList<ArtifactIdNamePair> GetEligibleStatuses();
+		IEnumerable<NamedArtifact> GetEligibleStatuses();
 	}
 }

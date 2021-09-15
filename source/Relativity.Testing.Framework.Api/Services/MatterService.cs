@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public Matter Get(string name, int clientId)
 			=> _getByNameAndClientIdStrategy.Get(name, clientId);
 
-		public void Update(Matter entity, bool restrictedUpdate = false)
+		public Matter Update(Matter entity, bool restrictedUpdate = false)
 			=> _updateStrategy.Update(entity, restrictedUpdate);
 
 		public ArtifactIdNamePair[] GetEligibleClients()

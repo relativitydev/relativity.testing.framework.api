@@ -8,26 +8,26 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class UserUpdateStrategy : IUpdateStrategy<User>
 	{
 		private readonly IRestService _restService;
-
 		private readonly IChoiceResolveByObjectFieldAndNameStrategy _choiceResolveByObjectFieldAndNameStrategy;
-
 		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
-
 		private readonly IUserAddToGroupStrategy _userAddToGroupStrategy;
+		private readonly IGetByIdStrategy<User> _getByIdStrategy;
 
 		public UserUpdateStrategy(
 			IRestService restService,
 			IChoiceResolveByObjectFieldAndNameStrategy choiceResolveByObjectFieldAndNameStrategy,
 			IUserGetByEmailStrategy userGetByEmailStrategy,
-			IUserAddToGroupStrategy userAddToGroupStrategy)
+			IUserAddToGroupStrategy userAddToGroupStrategy,
+			IGetByIdStrategy<User> getByIdStrategy)
 		{
 			_restService = restService;
 			_choiceResolveByObjectFieldAndNameStrategy = choiceResolveByObjectFieldAndNameStrategy;
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_userAddToGroupStrategy = userAddToGroupStrategy;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
-		public void Update(User entity)
+		public User Update(User entity)
 		{
 			if (entity is null)
 			{
@@ -89,6 +89,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					_userAddToGroupStrategy.AddToGroup(createdUser.ArtifactID, group.ArtifactID);
 				}
 			}
+
+			return _getByIdStrategy.Get(entity.ArtifactID);
 		}
 
 		private void AddPasswordProvider(int userArtifactId)

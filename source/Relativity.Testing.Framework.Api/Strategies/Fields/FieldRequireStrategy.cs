@@ -6,18 +6,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class FieldRequireStrategy<TFieldModel> : IRequireWorkspaceEntityStrategy<TFieldModel>
 		where TFieldModel : Field
 	{
-		private readonly IGetWorkspaceEntityByIdStrategy<TFieldModel> _getFieldByIdStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<TFieldModel> _updateWorkspaceEntityStrategy;
 		private readonly ICreateWorkspaceEntityStrategy<TFieldModel> _createWorkspaceEntityStrategy;
 		private readonly IGetWorkspaceEntityByNameStrategy<TFieldModel> _getWorkspaceEntityByNameStrategy;
 
 		public FieldRequireStrategy(
-			IGetWorkspaceEntityByIdStrategy<TFieldModel> getFieldByIdStrategy,
 			IUpdateWorkspaceEntityStrategy<TFieldModel> updateWorkspaceEntityStrategy,
 			ICreateWorkspaceEntityStrategy<TFieldModel> createWorkspaceEntityStrategy,
 			IGetWorkspaceEntityByNameStrategy<TFieldModel> getWorkspaceEntityByNameStrategy)
 		{
-			_getFieldByIdStrategy = getFieldByIdStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByNameStrategy;
@@ -32,8 +29,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-				return _getFieldByIdStrategy.Get(workspaceId, entity.ArtifactID);
+				return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 			}
 
 			if (entity.Name != null)
@@ -47,8 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-					return _getFieldByIdStrategy.Get(workspaceId, entity.ArtifactID);
+					return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 				}
 			}
 

@@ -38,7 +38,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update script.</param>
 		/// <param name="entity">The entity to update.</param>
-		void Update(int workspaceId, Script entity);
+		/// <returns>The updated entity.</returns>
+		Script Update(int workspaceId, Script entity);
 
 		/// <summary>
 		/// Gives a preview of what the exact SQL the script will run given a set of parameters.

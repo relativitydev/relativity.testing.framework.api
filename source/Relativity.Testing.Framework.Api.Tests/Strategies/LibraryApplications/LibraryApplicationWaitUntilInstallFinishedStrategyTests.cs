@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;

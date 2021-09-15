@@ -47,7 +47,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public KeywordSearch[] Query(int workspaceId, string condition)
 			=> _keywordSearchQueryStrategy.Query(workspaceId, condition);
 
-		public void Update(int workspaceId, KeywordSearch entity)
+		public KeywordSearch Update(int workspaceId, KeywordSearch entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public KeywordSearch Require(int workspaceId, KeywordSearch entity)

@@ -70,7 +70,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void RemoveFromGroup(int userArtifactID, int groupArtifactID)
 			=> _removeFromGroupStrategy.RemoveFromGroup(userArtifactID, groupArtifactID);
 
-		public void Update(User user)
+		public User Update(User user)
 			=> _updateStrategy.Update(user);
 	}
 }

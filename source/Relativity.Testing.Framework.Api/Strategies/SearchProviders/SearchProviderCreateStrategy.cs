@@ -7,10 +7,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class SearchProviderCreateStrategy : CreateWorkspaceEntityStrategy<SearchProvider>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<SearchProvider> _getWorkspaceEntityByIdStrategy;
 
-		public SearchProviderCreateStrategy(IRestService restService)
+		public SearchProviderCreateStrategy(IRestService restService, IGetWorkspaceEntityByIdStrategy<SearchProvider> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
 		protected override SearchProvider DoCreate(int workspaceId, SearchProvider entity)
@@ -26,9 +28,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				searchProvider
 			};
 
-			entity.ArtifactID = _restService.Post<int>($"Relativity.SearchProviders/workspace/{workspaceId}/searchproviders", dto);
+			var artifactID = _restService.Post<int>($"Relativity.SearchProviders/workspace/{workspaceId}/searchproviders", dto);
 
-			return entity;
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, artifactID);
 		}
 	}
 }

@@ -4,6 +4,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IMatterUpdateStrategy
 	{
-		void Update(Matter entity, bool restrictedUpdate = false);
+		Matter Update(Matter entity, bool restrictedUpdate = false);
 	}
 }

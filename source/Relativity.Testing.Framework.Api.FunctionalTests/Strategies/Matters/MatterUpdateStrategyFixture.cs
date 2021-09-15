@@ -11,13 +11,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IMatterUpdateStrategy))]
 	internal class MatterUpdateStrategyFixture : ApiServiceTestFixture<IMatterUpdateStrategy>
 	{
-		private IMatterGetByIdStrategy _getByIdStrategy;
 		private ICreateStrategy<Matter> _createStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
-			_getByIdStrategy = Facade.Resolve<IMatterGetByIdStrategy>();
 			_createStrategy = Facade.Resolve<ICreateStrategy<Matter>>();
 		}
 
@@ -41,9 +39,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Matter toUpdate = existingEntity.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Sut.Update(toUpdate);
-
-			Matter result = _getByIdStrategy.Get(toUpdate.ArtifactID);
+			Matter result = Sut.Update(toUpdate);
 
 			result.Should().BeEquivalentTo(
 				toUpdate,

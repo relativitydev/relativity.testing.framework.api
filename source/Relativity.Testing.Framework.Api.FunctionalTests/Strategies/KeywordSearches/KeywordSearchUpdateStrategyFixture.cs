@@ -10,16 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUpdateWorkspaceEntityStrategy<KeywordSearch>))]
 	internal class KeywordSearchUpdateStrategyFixture : ApiServiceTestFixture<IUpdateWorkspaceEntityStrategy<KeywordSearch>>
 	{
-		private IGetWorkspaceEntityByIdStrategy<KeywordSearch> _getWorkspaceEntityByIdStrategy;
-		private ICreateWorkspaceEntityStrategy<KeywordSearch> _createWorkspaceEntityStrategy;
-
-		protected override void OnSetUpFixture()
-		{
-			base.OnSetUpFixture();
-			_getWorkspaceEntityByIdStrategy = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<KeywordSearch>>();
-			_createWorkspaceEntityStrategy = Facade.Resolve<ICreateWorkspaceEntityStrategy<KeywordSearch>>();
-		}
-
 		[Test]
 		public void Update_WithNull()
 		{
@@ -55,9 +45,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					}
 			};
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
-			var result = _getWorkspaceEntityByIdStrategy.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate, y => y.Excluding(x => x.SystemLastModifiedOn));
 		}
 	}

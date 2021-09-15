@@ -66,7 +66,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public AgentType GetAgentType(string name)
 			=> _getByNameStrategy.Get(name);
 
-		public void Update(Agent entity)
+		public Agent Update(Agent entity)
 			=> _updateStrategy.Update(entity);
 
 		public Agent Require(Agent entity)

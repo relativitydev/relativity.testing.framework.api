@@ -7,14 +7,16 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ObjectTypeUpdateStrategy : IUpdateWorkspaceEntityStrategy<ObjectType>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<ObjectType> _getWorkspaceEntityByIdStrategy;
 
 		public ObjectTypeUpdateStrategy(
-			IRestService restService)
+			IRestService restService, IGetWorkspaceEntityByIdStrategy<ObjectType> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, ObjectType entity)
+		public ObjectType Update(int workspaceId, ObjectType entity)
 		{
 			if (entity == null)
 			{
@@ -38,6 +40,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"relativity.objectTypes/workspace/{workspaceId}/objectTypes/{entity.ArtifactID}", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

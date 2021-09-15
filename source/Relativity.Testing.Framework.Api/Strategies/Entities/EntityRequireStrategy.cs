@@ -32,8 +32,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-				return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+				return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 			}
 
 			if (entity.FullName != null)
@@ -46,8 +45,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-					return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+					return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 				}
 			}
 

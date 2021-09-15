@@ -10,13 +10,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetWorkspaceEntityByNameStrategy<ObjectType>))]
 	internal class ObjectTypeUpdateStrategyFixture : ApiServiceTestFixture<IUpdateWorkspaceEntityStrategy<ObjectType>>
 	{
-		private IGetWorkspaceEntityByIdStrategy<ObjectType> _getWorkspaceEntityByIdStrategy;
 		private ICreateWorkspaceEntityStrategy<ObjectType> _createWorkspaceEntityStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
-			_getWorkspaceEntityByIdStrategy = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ObjectType>>();
 			_createWorkspaceEntityStrategy = Facade.Resolve<ICreateWorkspaceEntityStrategy<ObjectType>>();
 		}
 
@@ -43,9 +41,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.PivotEnabled = true;
 			toUpdate.SamplingEnabled = true;
 
-			Sut.Update(-1, toUpdate);
+			var result = Sut.Update(-1, toUpdate);
 
-			var result = _getWorkspaceEntityByIdStrategy.Get(-1, toUpdate.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate);
 		}
 	}

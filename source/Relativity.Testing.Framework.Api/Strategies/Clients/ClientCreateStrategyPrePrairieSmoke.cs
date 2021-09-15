@@ -9,15 +9,17 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ClientCreateStrategyPrePrairieSmoke : CreateStrategy<Client>
 	{
 		private readonly IRestService _restService;
-
 		private readonly IClientStatusEnsureArtifactIdIsFilledStrategy _clientStatusEnsureArtifactIdIsFilledStrategy;
+		private readonly IGetByIdStrategy<Client> _getByIdStrategy;
 
 		public ClientCreateStrategyPrePrairieSmoke(
 			IRestService restService,
-			IClientStatusEnsureArtifactIdIsFilledStrategy clientStatusEnsureArtifactIdIsFilledStrategy)
+			IClientStatusEnsureArtifactIdIsFilledStrategy clientStatusEnsureArtifactIdIsFilledStrategy,
+			IGetByIdStrategy<Client> getByIdStrategy)
 		{
 			_restService = restService;
 			_clientStatusEnsureArtifactIdIsFilledStrategy = clientStatusEnsureArtifactIdIsFilledStrategy;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
 		protected override Client DoCreate(Client entity)
@@ -25,11 +27,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_clientStatusEnsureArtifactIdIsFilledStrategy.Ensure(entity);
 			var dto = new ClientDTOPrePrairieSmoke(entity);
 
-			entity.ArtifactID = _restService.Post<int>(
+			var artifactID = _restService.Post<int>(
 				"Relativity.Services.Client.IClientModule/Client%20Manager/CreateSingleAsync",
 				dto);
 
-			return entity;
+			return _getByIdStrategy.Get(artifactID);
 		}
 	}
 }

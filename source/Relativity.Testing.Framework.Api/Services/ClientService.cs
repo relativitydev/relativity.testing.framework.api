@@ -61,7 +61,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			return result;
 		}
 
-		public void Update(Client entity)
+		public Client Update(Client entity)
 			=> _updateStrategy.Update(entity);
 
 		public void ValidateClientId(int id)

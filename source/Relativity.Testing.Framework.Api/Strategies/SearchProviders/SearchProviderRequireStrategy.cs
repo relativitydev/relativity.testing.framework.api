@@ -6,18 +6,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class SearchProviderRequireStrategy : IRequireWorkspaceEntityStrategy<SearchProvider>
 	{
 		private readonly ICreateWorkspaceEntityStrategy<SearchProvider> _createWorkspaceEntityStrategy;
-		private readonly IGetWorkspaceEntityByIdStrategy<SearchProvider> _getWorkspaceEntityByIdStrategy;
 		private readonly IGetWorkspaceEntityByNameStrategy<SearchProvider> _getWorkspaceEntityByNameStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<SearchProvider> _updateWorkspaceEntityStrategy;
 
 		public SearchProviderRequireStrategy(
 			ICreateWorkspaceEntityStrategy<SearchProvider> createWorkspaceEntityStrategy,
-			IGetWorkspaceEntityByIdStrategy<SearchProvider> getWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByNameStrategy<SearchProvider> getWorkspaceEntityByNameStrategy,
 			IUpdateWorkspaceEntityStrategy<SearchProvider> updateWorkspaceEntityStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
-			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByNameStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 		}
@@ -31,8 +28,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-				return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+				return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 			}
 
 			if (entity.Name != null)
@@ -45,8 +41,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-					return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+					return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 				}
 			}
 

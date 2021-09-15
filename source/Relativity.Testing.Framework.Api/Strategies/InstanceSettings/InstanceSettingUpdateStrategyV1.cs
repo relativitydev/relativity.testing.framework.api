@@ -10,8 +10,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		private readonly IRestService _restService;
 
-		public InstanceSettingUpdateStrategyV1(IRestService restService, IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy)
-			: base(instanceSettingGetByNameAndSectionStrategy)
+		public InstanceSettingUpdateStrategyV1(
+			IRestService restService,
+			IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy,
+			IGetByIdStrategy<InstanceSetting> getByIdStrategy)
+			: base(instanceSettingGetByNameAndSectionStrategy, getByIdStrategy)
 		{
 			_restService = restService;
 		}

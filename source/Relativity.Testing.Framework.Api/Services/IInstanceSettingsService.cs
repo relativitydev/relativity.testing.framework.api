@@ -146,6 +146,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <para>Otherwise, the InstanceSetting will be looked up by Name and Section.</para>
 		/// </summary>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated entity.</returns>
 		/// <example>
 		/// <code>
 		/// InstanceSetting instanceSetting = new InstanceSetting
@@ -169,7 +170,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// InstanceSetting result = _instanceSettingsService.Update(instanceSetting);
 		/// </code>
 		/// </example>
-		void Update(InstanceSetting entity);
+		InstanceSetting Update(InstanceSetting entity);
 
 		/// <summary>
 		/// Updates value of an existing <see cref="InstanceSetting"/>.

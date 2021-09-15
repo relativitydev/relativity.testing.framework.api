@@ -6,18 +6,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class KeywordSearchRequireStrategy : IRequireWorkspaceEntityStrategy<KeywordSearch>
 	{
 		private readonly ICreateWorkspaceEntityStrategy<KeywordSearch> _createWorkspaceEntityStrategy;
-		private readonly IGetWorkspaceEntityByIdStrategy<KeywordSearch> _getWorkspaceEntityByIdStrategy;
 		private readonly IGetWorkspaceEntityByNameStrategy<KeywordSearch> _getWorkspaceEntityByNameStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<KeywordSearch> _updateWorkspaceEntityStrategy;
 
 		public KeywordSearchRequireStrategy(
 			ICreateWorkspaceEntityStrategy<KeywordSearch> createWorkspaceEntityStrategy,
-			IGetWorkspaceEntityByIdStrategy<KeywordSearch> getWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByNameStrategy<KeywordSearch> getWorkspaceEntityByNameStrategy,
 			IUpdateWorkspaceEntityStrategy<KeywordSearch> updateWorkspaceEntityStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
-			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByNameStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 		}
@@ -31,8 +28,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-				return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+				return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 			}
 
 			if (entity.Name != null)
@@ -45,8 +41,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-					return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+					return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 				}
 			}
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies.InstanceSettings
@@ -7,13 +6,17 @@ namespace Relativity.Testing.Framework.Api.Strategies.InstanceSettings
 	internal abstract class InstanceSettingUpdateAbstractStrategy : IUpdateStrategy<InstanceSetting>
 	{
 		private readonly IInstanceSettingGetByNameAndSectionStrategy _instanceSettingGetByNameAndSectionStrategy;
+		private readonly IGetByIdStrategy<InstanceSetting> _getByIdStrategy;
 
-		protected InstanceSettingUpdateAbstractStrategy(IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy)
+		protected InstanceSettingUpdateAbstractStrategy(
+			IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy,
+			IGetByIdStrategy<InstanceSetting> getByIdStrategy)
 		{
 			_instanceSettingGetByNameAndSectionStrategy = instanceSettingGetByNameAndSectionStrategy;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
-		public virtual void Update(InstanceSetting entity)
+		public virtual InstanceSetting Update(InstanceSetting entity)
 		{
 			if (entity is null)
 			{
@@ -33,6 +36,8 @@ namespace Relativity.Testing.Framework.Api.Strategies.InstanceSettings
 			}
 
 			DoUpdate(entity);
+
+			return _getByIdStrategy.Get(entity.ArtifactID);
 		}
 
 		protected abstract void DoUpdate(InstanceSetting entity);

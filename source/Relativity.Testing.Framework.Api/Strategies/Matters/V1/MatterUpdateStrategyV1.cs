@@ -11,18 +11,21 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IRestService _restService;
 		private readonly IMatterStatusGetChoiceIdByNameStrategy _matterStatusGetChoiceIdByNameStrategy;
 		private readonly IMatterGetByNameAndClientIdStrategy _matterGetByNameAndClientIdStrategy;
+		private readonly IMatterGetByIdStrategy _matterGetByIdStrategy;
 
 		public MatterUpdateStrategyV1(
 			IRestService restService,
 			IMatterStatusGetChoiceIdByNameStrategy matterStatusGetChoiceIdByNameStrategy,
-			IMatterGetByNameAndClientIdStrategy matterGetByNameAndClientIdStrategy)
+			IMatterGetByNameAndClientIdStrategy matterGetByNameAndClientIdStrategy,
+			IMatterGetByIdStrategy matterGetByIdStrategy)
 		{
 			_restService = restService;
 			_matterStatusGetChoiceIdByNameStrategy = matterStatusGetChoiceIdByNameStrategy;
 			_matterGetByNameAndClientIdStrategy = matterGetByNameAndClientIdStrategy;
+			_matterGetByIdStrategy = matterGetByIdStrategy;
 		}
 
-		public void Update(Matter entity, bool restrictedUpdate = false)
+		public Matter Update(Matter entity, bool restrictedUpdate = false)
 		{
 			ValidateEntity(entity);
 
@@ -43,6 +46,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var dto = new MatterUpdateRequest(entity, statusID, restrictedUpdate);
 
 			_restService.Put($"relativity-environment/v1/workspaces/-1/matters/{entity.ArtifactID}", dto);
+
+			return _matterGetByIdStrategy.Get(entity.ArtifactID);
 		}
 
 		private static void ValidateEntity(Matter entity)

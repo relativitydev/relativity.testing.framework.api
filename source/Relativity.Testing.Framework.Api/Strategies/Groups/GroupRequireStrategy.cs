@@ -34,8 +34,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateStrategy.Update(entity);
-				return _getByIdStrategy.Get(entity.ArtifactID);
+				return _updateStrategy.Update(entity);
 			}
 
 			if (entity.Name != null)
@@ -44,8 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				if (existedEntity != null)
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateStrategy.Update(entity);
-					return _getByIdStrategy.Get(entity.ArtifactID);
+					return _updateStrategy.Update(entity);
 				}
 			}
 

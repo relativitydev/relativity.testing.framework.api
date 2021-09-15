@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_getByClientNameStrategy = getByClientNameStrategy;
 		}
 
-		public void Update(ResourcePool entity)
+		public ResourcePool Update(ResourcePool entity)
 		{
 			ResolveResourcePoolEntity(entity);
 
@@ -37,6 +37,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"relativity.resourcepools/workspace/-1/resource-pools/{entity.ArtifactID}", dto);
+
+			return _getByNameStrategy.Get(entity.Name);
 		}
 
 		private void ResolveResourcePoolEntity(ResourcePool entity)

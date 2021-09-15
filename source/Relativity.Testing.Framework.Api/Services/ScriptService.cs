@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public Script Get(int workspaceId, int entityId)
 			=> _getWorkspaceEntityByIdStrategy.Get(workspaceId, entityId);
 
-		public void Update(int workspaceId, Script entity)
+		public Script Update(int workspaceId, Script entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public string Preview(int workspaceId, int scriptId, List<ScriptInput> inputs = null, double timeZoneOffset = 0)

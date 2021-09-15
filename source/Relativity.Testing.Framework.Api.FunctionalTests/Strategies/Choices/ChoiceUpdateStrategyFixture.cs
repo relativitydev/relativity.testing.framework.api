@@ -12,7 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private ICreateWorkspaceEntityStrategy<MultipleChoiceField> _createFieldStrategy;
 		private ICreateWorkspaceEntityStrategy<Choice> _createChoiceStrategy;
-		private IGetWorkspaceEntityByIdStrategy<Choice> _getWorkspaceEntityById;
 
 		protected override void OnSetUpFixture()
 		{
@@ -20,7 +19,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			_createFieldStrategy = Facade.Resolve<ICreateWorkspaceEntityStrategy<MultipleChoiceField>>();
 			_createChoiceStrategy = Facade.Resolve<ICreateWorkspaceEntityStrategy<Choice>>();
-			_getWorkspaceEntityById = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<Choice>>();
 		}
 
 		[Test]
@@ -45,9 +43,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.Name = Randomizer.GetString();
 			toUpdate.Order = 100;
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
-			var result = _getWorkspaceEntityById.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate);
 		}
 
@@ -67,9 +64,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.Order = 100;
 			toUpdate.Color = ChoiceColor.Orange;
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
-			var result = _getWorkspaceEntityById.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate);
 		}
 	}

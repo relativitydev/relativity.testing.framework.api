@@ -13,7 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated.")]
 	internal class ResourcePoolUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<ResourcePool>>
 	{
-		private IGetByIdStrategy<ResourcePool> _getByIdStrategy;
 		private IGetAllStrategy<ResourcePool> _getAllStrategy;
 
 		protected override void OnSetUpFixture()
@@ -25,7 +24,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				Assert.Inconclusive();
 			}
 
-			_getByIdStrategy = Facade.Resolve<IGetByIdStrategy<ResourcePool>>();
 			_getAllStrategy = Facade.Resolve<IGetAllStrategy<ResourcePool>>();
 		}
 
@@ -44,11 +42,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = getallResourcePool.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Sut.Update(toUpdate);
+			var result = Sut.Update(toUpdate);
 
-			var result = _getByIdStrategy.Get(toUpdate.ArtifactID);
-			result.Should().BeEquivalentTo(toUpdate, o => o.
-				Excluding(x => x.Client.ArtifactID));
+			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client.ArtifactID));
 		}
 	}
 }

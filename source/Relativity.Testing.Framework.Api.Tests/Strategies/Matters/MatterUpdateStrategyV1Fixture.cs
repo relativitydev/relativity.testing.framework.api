@@ -13,7 +13,11 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void SetUp()
 		{
 			DoSetUp();
-			Sut = new MatterUpdateStrategyV1(MockRestService.Object, MockMatterStatusGetChoiceIdByNameStrategy.Object, MockMatterGetByNameAndClientIdStrategy.Object);
+			Sut = new MatterUpdateStrategyV1(
+				MockRestService.Object,
+				MockMatterStatusGetChoiceIdByNameStrategy.Object,
+				MockMatterGetByNameAndClientIdStrategy.Object,
+				MockMatterGetByIdStrategy.Object);
 		}
 
 		[Test]

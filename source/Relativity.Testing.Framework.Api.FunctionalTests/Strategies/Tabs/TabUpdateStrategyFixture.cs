@@ -27,9 +27,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			toUpdate.Name = Randomizer.GetString("AT_{0}");
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<Tab>>().Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
 			result.Should().BeEquivalentTo(toUpdate);
 		}
@@ -51,9 +49,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.Name = Randomizer.GetString("AT_{0}");
 			toUpdate.Link = "http://some.external.link.us";
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<Tab>>().Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
 			result.Should().BeEquivalentTo(toUpdate);
 		}

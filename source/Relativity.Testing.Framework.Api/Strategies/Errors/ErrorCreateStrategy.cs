@@ -7,10 +7,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ErrorCreateStrategy : CreateStrategy<Error>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetByIdStrategy<Error> _getByIdStrategy;
 
-		public ErrorCreateStrategy(IRestService restService)
+		public ErrorCreateStrategy(IRestService restService, IGetByIdStrategy<Error> getByIdStrategy)
 		{
 			_restService = restService;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
 		protected override Error DoCreate(Error entity)
@@ -20,9 +22,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				errorDTO = entity
 			};
 
-			entity.ArtifactID = _restService.Post<int>("Relativity.Services.Error.IErrorModule/Error Manager/CreateSingleAsync", dto);
+			var artifactID = _restService.Post<int>("Relativity.Services.Error.IErrorModule/Error Manager/CreateSingleAsync", dto);
 
-			return entity;
+			return _getByIdStrategy.Get(artifactID);
 		}
 	}
 }

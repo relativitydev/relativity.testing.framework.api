@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
@@ -148,6 +147,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the <see cref="ObjectType"/>,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entity">The <see cref="ObjectType"/> to update.</param>
+		/// <returns>The updated <see cref="ObjectType"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -159,7 +159,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _objectTypeService.Update(workspaceArtifactID, objectTypeToUpdate);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, ObjectType entity);
+		ObjectType Update(int workspaceId, ObjectType entity);
 
 		/// <summary>
 		/// Gets the list of dependencies.

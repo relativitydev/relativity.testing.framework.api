@@ -10,14 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUpdateWorkspaceEntityStrategy<MarkupSet>))]
 	internal class MarkupSetUpdateStrategyFixture : ApiServiceTestFixture<IUpdateWorkspaceEntityStrategy<MarkupSet>>
 	{
-		private IGetWorkspaceEntityByIdStrategy<MarkupSet> _getWorkspaceEntityByIdStrategy;
-
-		protected override void OnSetUpFixture()
-		{
-			base.OnSetUpFixture();
-			_getWorkspaceEntityByIdStrategy = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<MarkupSet>>();
-		}
-
 		[Test]
 		public void Update_WithNull()
 		{
@@ -42,9 +34,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.Order = Randomizer.GetInt(500);
 			toUpdate.RedactionText = Randomizer.GetString();
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
-			var result = _getWorkspaceEntityByIdStrategy.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate);
 		}
 	}

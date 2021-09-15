@@ -10,8 +10,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		private readonly IRestService _restService;
 
-		public InstanceSettingUpdateStrategyPrePrairieSmoke(IRestService restService, IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy)
-		 : base(instanceSettingGetByNameAndSectionStrategy)
+		public InstanceSettingUpdateStrategyPrePrairieSmoke(
+			IRestService restService,
+			IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy,
+			IGetByIdStrategy<InstanceSetting> getByIdStrategy)
+		 : base(instanceSettingGetByNameAndSectionStrategy, getByIdStrategy)
 		{
 			_restService = restService;
 		}

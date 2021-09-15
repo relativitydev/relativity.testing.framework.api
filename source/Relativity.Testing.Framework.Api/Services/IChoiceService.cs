@@ -133,6 +133,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the choice,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = -1;
@@ -143,6 +144,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _choiceService.Update(workspaceId, toUpdate);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, Choice entity);
+		Choice Update(int workspaceId, Choice entity);
 	}
 }

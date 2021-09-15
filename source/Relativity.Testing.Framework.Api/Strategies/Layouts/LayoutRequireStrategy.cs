@@ -8,18 +8,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class LayoutRequireStrategy : IRequireWorkspaceEntityStrategy<Layout>
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Layout> _createWorkspaceEntityStrategy;
-		private readonly IGetWorkspaceEntityByIdStrategy<Layout> _getWorkspaceEntityByIdStrategy;
 		private readonly IGetWorkspaceEntityByNameStrategy<Layout> _getWorkspaceEntityByNameStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<Layout> _updateWorkspaceEntityStrategy;
 
 		public LayoutRequireStrategy(
 			ICreateWorkspaceEntityStrategy<Layout> createWorkspaceEntityStrategy,
-			IGetWorkspaceEntityByIdStrategy<Layout> getWorkspaceEntityByIdStrategy,
 			IGetWorkspaceEntityByNameStrategy<Layout> getWorkspaceEntityByNameStrategy,
 			IUpdateWorkspaceEntityStrategy<Layout> updateWorkspaceEntityStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
-			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 			_getWorkspaceEntityByNameStrategy = getWorkspaceEntityByNameStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 		}
@@ -33,8 +30,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-				return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+				return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 			}
 
 			if (entity.Name != null)
@@ -47,8 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-					return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+					return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 				}
 			}
 

@@ -9,13 +9,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ViewUpdateStrategyPreOsier : IUpdateWorkspaceEntityStrategy<View>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 
-		public ViewUpdateStrategyPreOsier(IRestService restService)
+		public ViewUpdateStrategyPreOsier(IRestService restService,  IGetWorkspaceEntityByIdStrategy<View> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, View entity)
+		public View Update(int workspaceId, View entity)
 		{
 			if (entity == null)
 			{
@@ -29,6 +31,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Post("Relativity.Services.View.IViewModule/View%20Manager/UpdateSingleAsync", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

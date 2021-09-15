@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public bool Exists(int workspaceId, int entityId)
 			=> _existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId);
 
-		public void Update(int workspaceId, int productionId, ProductionDataSource entity)
+		public ProductionDataSource Update(int workspaceId, int productionId, ProductionDataSource entity)
 			=> _updateProductionsDataSourceStrategy.Update(workspaceId, productionId, entity);
 
 		public ProductionDataSource Get(int workspaceId, int entityId)

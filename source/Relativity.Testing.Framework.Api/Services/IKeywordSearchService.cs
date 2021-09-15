@@ -1,5 +1,4 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Models;
+﻿using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -108,6 +107,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the <see cref="KeywordSearch"/>.</param>
 		/// <param name="entity">The <see cref="KeywordSearch"/> to update.</param>
+		/// <returns>The updated <see cref="KeywordSearch"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -118,7 +118,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _keywordSearchService.Update(workspaceArtifactID, keywordSearchToUpdate);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, KeywordSearch entity);
+		KeywordSearch Update(int workspaceId, KeywordSearch entity);
 
 		/// <summary>
 		/// Requires the specified <see cref="KeywordSearch"/>.

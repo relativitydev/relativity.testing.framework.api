@@ -7,18 +7,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ChoiceRequireStrategy : IRequireWorkspaceEntityStrategy<Choice>
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Choice> _createWorkspaceEntityStrategy;
-		private readonly IGetWorkspaceEntityByIdStrategy<Choice> _getWorkspaceEntityByIdStrategy;
 		private readonly IChoiceGetAllByObjectFieldStrategy _getAllByObjectFieldStrategy;
 		private readonly IUpdateWorkspaceEntityStrategy<Choice> _updateWorkspaceEntityStrategy;
 
 		public ChoiceRequireStrategy(
 			ICreateWorkspaceEntityStrategy<Choice> createWorkspaceEntityStrategy,
-			IGetWorkspaceEntityByIdStrategy<Choice> getWorkspaceEntityByIdStrategy,
 			IChoiceGetAllByObjectFieldStrategy getAllByObjectFieldStrategy,
 			IUpdateWorkspaceEntityStrategy<Choice> updateWorkspaceEntityStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
-			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 			_getAllByObjectFieldStrategy = getAllByObjectFieldStrategy;
 			_updateWorkspaceEntityStrategy = updateWorkspaceEntityStrategy;
 		}
@@ -32,8 +29,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-				return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+				return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 			}
 
 			if (entity.Name != null && entity.ObjectType?.Name != null && entity.Field?.Name != null)
@@ -48,8 +44,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateWorkspaceEntityStrategy.Update(workspaceId, entity);
-					return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
+					return _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 				}
 			}
 

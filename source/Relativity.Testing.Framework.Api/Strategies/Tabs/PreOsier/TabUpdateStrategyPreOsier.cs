@@ -9,13 +9,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class TabUpdateStrategyPreOsier : IUpdateWorkspaceEntityStrategy<Tab>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<Tab> _getWorkspaceEntityByIdStrategy;
 
-		public TabUpdateStrategyPreOsier(IRestService restService)
+		public TabUpdateStrategyPreOsier(IRestService restService, IGetWorkspaceEntityByIdStrategy<Tab> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, Tab entity)
+		public Tab Update(int workspaceId, Tab entity)
 		{
 			if (entity == null)
 			{
@@ -28,6 +30,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"Relativity.Tabs/workspace/{workspaceId}/tabs", tabDto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

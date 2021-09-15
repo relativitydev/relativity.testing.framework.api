@@ -34,6 +34,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 		protected Mock<IMatterGetByNameAndClientIdStrategy> MockMatterGetByNameAndClientIdStrategy { get; private set; }
 
+		protected Mock<IMatterGetByIdStrategy> MockMatterGetByIdStrategy { get; private set; }
+
 		protected void DoSetUp()
 		{
 			MockRestService = new Mock<IRestService>();
@@ -41,6 +43,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			MockMatterStatusGetChoiceIdByNameStrategy.
 				Setup(getStatusStrategy => getStatusStrategy.GetId(_STATUS)).Returns(_STATUS_ID);
 			MockMatterGetByNameAndClientIdStrategy = new Mock<IMatterGetByNameAndClientIdStrategy>();
+			MockMatterGetByIdStrategy = new Mock<IMatterGetByIdStrategy>();
 		}
 
 		protected void TestIfUpdateWithNullThrowsArgumentNullException()

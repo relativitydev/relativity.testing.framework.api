@@ -9,14 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUpdateStrategy<InstanceSetting>))]
 	internal class InstanceSettingUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<InstanceSetting>>
 	{
-		private IGetByIdStrategy<InstanceSetting> _getByIdStrategy;
-
-		protected override void OnSetUpTest()
-		{
-			base.OnSetUpTest();
-			_getByIdStrategy = Facade.Resolve<IGetByIdStrategy<InstanceSetting>>();
-		}
-
 		[Test]
 		public void Update_WithNull()
 		{
@@ -38,9 +30,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				Machine = Randomizer.GetString("AT_Machine_")
 			};
 
-			Sut.Update(instanceSettingToUpdate);
-
-			var result = _getByIdStrategy.Get(instanceSetting.ArtifactID);
+			var result = Sut.Update(instanceSettingToUpdate);
 
 			result.Value.Should().Be(instanceSettingToUpdate.Value);
 			result.Machine.Should().Be(instanceSettingToUpdate.Machine);

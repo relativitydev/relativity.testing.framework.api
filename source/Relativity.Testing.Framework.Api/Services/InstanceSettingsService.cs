@@ -62,7 +62,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public InstanceSetting Get(string name, string section)
 			=> _instanceSettingGetByNameAndSectionStrategy.Get(name, section);
 
-		public void Update(InstanceSetting entity)
+		public InstanceSetting Update(InstanceSetting entity)
 			=> _updateStrategy.Update(entity);
 
 		public void UpdateValue(string name, string section, string value)

@@ -51,7 +51,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public List<NamedArtifact> GetEligibleOwners(int workspaceId)
 			=> _layoutGetEligibleOwnersStrategy.GetEligibleOwners(workspaceId);
 
-		public void Update(int workspaceId, Layout entity)
+		public Layout Update(int workspaceId, Layout entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public void AddFields(int workspaceId, Layout entity, List<CategoryField> categoryFields)

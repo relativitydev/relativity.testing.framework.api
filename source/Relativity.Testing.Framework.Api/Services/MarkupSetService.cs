@@ -47,7 +47,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public bool Exists(int workspaceId, int entityId)
 			=> _existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId);
 
-		public void Update(int workspaceId, MarkupSet entity)
+		public MarkupSet Update(int workspaceId, MarkupSet entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public void Delete(int workspaceId, int entityId)

@@ -10,14 +10,19 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		private readonly IRestService _restService;
 		private readonly IGetAllByNamesStrategy<Group> _getAllByNamesStrategy;
+		private readonly IGetByIdStrategy<Group> _getByIdStrategy;
 
-		public GroupUpdateStrategy(IRestService restService, IGetAllByNamesStrategy<Group> getAllByNamesStrategy)
+		public GroupUpdateStrategy(
+			IRestService restService,
+			IGetAllByNamesStrategy<Group> getAllByNamesStrategy,
+			IGetByIdStrategy<Group> getByIdStrategy)
 		{
 			_restService = restService;
 			_getAllByNamesStrategy = getAllByNamesStrategy;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
-		public void Update(Group entity)
+		public Group Update(Group entity)
 		{
 			if (entity is null)
 			{
@@ -64,6 +69,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"relativity.groups/workspace/-1/groups/{entity.ArtifactID}", dto);
+
+			return _getByIdStrategy.Get(entity.ArtifactID);
 		}
 	}
 }

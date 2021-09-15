@@ -9,13 +9,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class LayoutUpdateStrategyNinebark : IUpdateWorkspaceEntityStrategy<Layout>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<Layout> _getWorkspaceEntityByIdStrategy;
 
-		public LayoutUpdateStrategyNinebark(IRestService restService)
+		public LayoutUpdateStrategyNinebark(IRestService restService, IGetWorkspaceEntityByIdStrategy<Layout> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, Layout entity)
+		public Layout Update(int workspaceId, Layout entity)
 		{
 			var dto = new
 			{
@@ -23,6 +25,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"Relativity.Layouts/workspace/{workspaceId}/layouts/{entity.ArtifactID}", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 
 		private JObject ConvertLayout(Layout entity)

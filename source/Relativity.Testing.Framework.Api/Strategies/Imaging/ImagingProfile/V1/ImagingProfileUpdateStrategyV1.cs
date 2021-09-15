@@ -10,15 +10,20 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ImagingProfileUpdateStrategyV1 : IImagingProfileUpdateStrategy
 	{
 		private readonly IRestService _restService;
+		private readonly IImagingProfileGetStrategy _imagingProfileGetStrategy;
 		private readonly IWorkspaceIdValidator _workspaceIdValidator;
 
-		public ImagingProfileUpdateStrategyV1(IRestService restService, IWorkspaceIdValidator workspaceIdValidator)
+		public ImagingProfileUpdateStrategyV1(
+			IRestService restService,
+			IImagingProfileGetStrategy imagingProfileGetStrategy,
+			IWorkspaceIdValidator workspaceIdValidator)
 		{
 			_restService = restService;
+			_imagingProfileGetStrategy = imagingProfileGetStrategy;
 			_workspaceIdValidator = workspaceIdValidator;
 		}
 
-		public void Update(int workspaceId, ImagingProfile imagingProfile)
+		public ImagingProfile Update(int workspaceId, ImagingProfile imagingProfile)
 		{
 			ValidateInput(workspaceId, imagingProfile);
 
@@ -26,6 +31,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var request = BuildRequest(imagingProfile);
 
 			_restService.Post(url, request);
+
+			return _imagingProfileGetStrategy.Get(workspaceId, imagingProfile.ArtifactID);
 		}
 
 		private void ValidateInput(int workspaceId, ImagingProfile input)

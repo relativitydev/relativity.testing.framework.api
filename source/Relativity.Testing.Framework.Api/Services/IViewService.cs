@@ -158,6 +158,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to update the view.</param>
 		/// <param name="view">The <see cref="View"/> to update.</param>
+		/// <returns>The updated <see cref="View"/> entity.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -168,7 +169,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _viewService.Update(workspaceArtifactID, view);
 		/// </code>
 		/// </example>
-		void Update(int workspaceArtifactID, View view);
+		View Update(int workspaceArtifactID, View view);
 
 		/// <summary>
 		/// Gets the list of of object types in a specific workspace.

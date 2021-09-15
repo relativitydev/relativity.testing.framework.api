@@ -85,7 +85,10 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			{
 				result.ArtifactID.Should().BePositive();
 				result.Groups.Should().ContainSingle().Which.ArtifactID.Should().BePositive();
-				result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Groups).Excluding(x => x.Client.Status.ArtifactID));
+				result.Client.ArtifactID.Should().Be(entity.Client.ArtifactID);
+				result.EmailAddress.Should().Be(entity.EmailAddress);
+				result.FirstName.Should().Be(entity.FirstName);
+				result.LastName.Should().Be(entity.LastName);
 			}
 
 			var gotEntity = Facade.Resolve<IUserGetByEmailStrategy>().Get(result.EmailAddress);

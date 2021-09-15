@@ -32,7 +32,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = Sut.Require(toUpdate);
 
 			result.Client.ArtifactID.Should().Be(toUpdate.Client.ArtifactID);
-			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(
+				toUpdate,
+				o => o.Excluding(x => x.Client)
+					.Excluding(x => x.Password)
+					.Excluding(x => x.DocumentSkip)
+					.Excluding(x => x.ArtifactID));
 		}
 
 		[Test]
@@ -47,7 +52,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			result.ArtifactID.Should().BePositive();
 			result.Client.ArtifactID.Should().Be(user.Client.ArtifactID);
-			result.Should().BeEquivalentTo(user, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client));
+			result.EmailAddress.Should().Be(user.EmailAddress);
+			result.FirstName.Should().Be(user.FirstName);
+			result.LastName.Should().Be(user.LastName);
 		}
 
 		[Test]
@@ -80,7 +87,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			result.ArtifactID.Should().BePositive();
 			result.Client.ArtifactID.Should().Be(user.Client.ArtifactID);
-			result.Should().BeEquivalentTo(user, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client));
+			result.EmailAddress.Should().Be(user.EmailAddress);
+			result.FirstName.Should().Be(user.FirstName);
+			result.LastName.Should().Be(user.LastName);
 		}
 	}
 }

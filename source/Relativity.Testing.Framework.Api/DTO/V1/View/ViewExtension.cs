@@ -2,7 +2,7 @@
 
 namespace Relativity.Testing.Framework.Api.DTO
 {
-	internal static class ViewDTOMapper
+	internal static class ViewExtension
 	{
 		internal static ViewDTO MapToDTO(this View entity)
 		{

@@ -11,7 +11,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IRestService _restService;
 		private readonly IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 
-		public ViewUpdateStrategyPreOsier(IRestService restService,  IGetWorkspaceEntityByIdStrategy<View> getWorkspaceEntityByIdStrategy)
+		public ViewUpdateStrategyPreOsier(IRestService restService, IGetWorkspaceEntityByIdStrategy<View> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
 			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;

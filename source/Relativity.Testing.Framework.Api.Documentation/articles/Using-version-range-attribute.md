@@ -1,4 +1,4 @@
-﻿[Version range attribute](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Versioning.VersionRangeAttribute.html) can simplify ignoring of tests for a specific version of Relativity. For example, if you need to run some test only on the Relativity version higher than goatsbeard all that you need is to add that attribute on it:
+﻿[Version range attribute](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Versioning.VersionRangeAttribute.html) can simplify ignoring of tests for a specific version of Relativity. For example, if you need to run some test only on the Relativity version higher than goatsbeard all that you need is to add that attribute on it:
 
 ```
 [Test]

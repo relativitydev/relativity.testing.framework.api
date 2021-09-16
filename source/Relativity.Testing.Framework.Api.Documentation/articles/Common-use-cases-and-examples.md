@@ -5,7 +5,7 @@ Here are some examples of common use cases for things you might want to do with 
 
 # Setup
 
-Before creating anything, remember to RelyOn the [CoreComponent](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.CoreComponent.html) and [ApiComponent](/api/Relativity.Testing.Framework.Api.ApiComponent.html).
+Before creating anything, remember to RelyOn the [CoreComponent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html) and [ApiComponent](/api/Relativity.Testing.Framework.Api.ApiComponent.html).
 
 ```
 [OneTimeSetup]
@@ -35,7 +35,7 @@ Workspace workspace = _workspaceService.Create(new Workspace());
 
 ## A Workspace with a specific name
 
-The properties on the [model](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.Workspace.html) can be specified, and those value will be used to make the request.
+The properties on the [model](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) can be specified, and those value will be used to make the request.
 
 ```
 Workspace workspace = new Workspace
@@ -108,7 +108,7 @@ _objectService = RelativityFacade.Instance.Resolve<IObjectService>();
 In your code, you should model object types as DTOs.
 This allows RTF to make requests using these object types, and map values to them as part of those requests.
 
-In this example, we are assuming that your application contains an [ObjectType](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.ObjectType.html) called SomeObjectType, and it has a field attached to it called SomeField.
+In this example, we are assuming that your application contains an [ObjectType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ObjectType.html) called SomeObjectType, and it has a field attached to it called SomeField.
 
 ```
 public class SomeObjectType : NamedArtifact
@@ -124,7 +124,7 @@ public class SomeObjectType : NamedArtifact
 
 ## Creating RDOs
 
-We can then use the DTO for the [ObjectType](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.ObjectType.html) to make RDOs using the [ObjectService](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html).
+We can then use the DTO for the [ObjectType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ObjectType.html) to make RDOs using the [ObjectService](/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html).
 
 ```
 SomeObjectType someObjectType = _objectService.Create(_workspace.ArtifactID, new RapTemplate

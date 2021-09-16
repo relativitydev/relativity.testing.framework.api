@@ -1,7 +1,7 @@
 # ApiComponent
 
-Before using the [ApiComponent](/api/Relativity.Testing.Framework.Api.ApiComponent.html), make sure that you have relied on the [CoreComponent](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.CoreComponent.html).
-See the [Getting Started guide](https://github.com/relativityone/relativity.testing.framework/wiki/Getting-Started) for [Relativity.Testing.Framework](https://probable-happiness-2926a3e8.pages.github.io/) for more information on this.
+Before using the [ApiComponent](/api/Relativity.Testing.Framework.Api.ApiComponent.html), make sure that you have relied on the [CoreComponent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html).
+See the [Getting Started guide](https://github.com/relativityone/relativity.testing.framework/wiki/Getting-Started) for [Relativity.Testing.Framework](https://relativitydev.github.io/relativity.testing.framework/) for more information on this.
 
 ## Relying on the ApiComponent
 
@@ -56,7 +56,7 @@ Workspace workspace = _workspaceService.Create(workspace);
 
 ### Accessing properties
 
-When you create or request an object with [Relativity.Testing.Framework](https://probable-happiness-2926a3e8.pages.github.io/), the return value will usually be a DTO with the properties filled out on it.
+When you create or request an object with [Relativity.Testing.Framework](https://relativitydev.github.io/relativity.testing.framework/), the return value will usually be a DTO with the properties filled out on it.
 If you need to reference any of the values on the object, they are available as regular properties.
 
 ```

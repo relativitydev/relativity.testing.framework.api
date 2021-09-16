@@ -44,7 +44,7 @@ Note the space! By convention, the framework assumes a class "NamedLikeThis" ref
 
 If this does not work for you there are two options:
 
-1. Using our [attributes](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.html), ['ObjectTypeName'](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.ObjectTypeNameAttribute.html) for the class name and ['FieldName'](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.FieldNameAttribute.html) for the property name.
+1. Using our [attributes](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.html), ['ObjectTypeName'](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.ObjectTypeNameAttribute.html) for the class name and ['FieldName'](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.FieldNameAttribute.html) for the property name.
 2. Renaming class and properties. This way will work fine but not always it is possible.
 
 An example of overriding the conventional approach using attributes:
@@ -58,7 +58,7 @@ public class ShortClient : Artifact
 }
 ```
 
-But if don't need to parse some property then you can mark it like [NonField](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.NonFieldAttribute.html) and we will not deserialize that property.
+But if don't need to parse some property then you can mark it like [NonField](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.NonFieldAttribute.html) and we will not deserialize that property.
 
 ```
 [ObjectTypeName("Client")]
@@ -69,7 +69,7 @@ public class ShortClient : Artifact
 }
 ```
 
-As of version 0.27.0, you can also specify [object type](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.ObjectTypeGuidAttribute.html) and [fields](https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Attributes.FieldGuidAttribute.html) by Guids.
+As of version 0.27.0, you can also specify [object type](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.ObjectTypeGuidAttribute.html) and [fields](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.FieldGuidAttribute.html) by Guids.
 
 ```
 [ObjectTypeGuid(TheGuidForClient)]

@@ -15,6 +15,8 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		private readonly string _testAssemblyName;
 		private readonly string _ringSetupVersion;
 
+		private bool _enabled;
+
 		protected ApplicationInsightsInterceptor(IRelativityFacade relativityFacade)
 		{
 #pragma warning disable CS0618 // Maintain existing behavior (auto-property default was true)
@@ -48,18 +50,18 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		{
 			get
 			{
-				bool enabled = false;
+				_enabled = false;
 				if (CollectionState == DataCollection.All)
 				{
-					enabled = true;
+					_enabled = true;
 				}
 
-				return enabled;
+				return _enabled;
 			}
 
 			set
 			{
-				IsEnabled = value;
+				_enabled = value;
 			}
 		}
 

@@ -17,6 +17,10 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 		protected ApplicationInsightsInterceptor(IRelativityFacade relativityFacade)
 		{
+#pragma warning disable CS0618 // Maintain existing behavior (auto-property default was true)
+			IsEnabled = true;
+#pragma warning restore CS0618 // Type or member is obsolete
+
 			_relativityFacade = relativityFacade;
 
 			TelemetryClient = _relativityFacade.Resolve<IApplicationInsightsTelemetryClient>().Instance;
@@ -32,7 +36,37 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 		protected TelemetryClient TelemetryClient { get; set; }
 
-		public bool IsEnabled { get; set; } = true;
+		/// <summary>
+		/// Gets or sets a value indicating whether or not DataCollection.All is configured for this interceptor.
+		/// </summary>
+		/// <remarks>
+		/// This will return 'false' when CollectionState is 'UsageOnly', this is to avoid
+		/// any external client violating that state (by incorrectly treating configuration as 'All').
+		/// </remarks>
+		[Obsolete("This property exists to maintain any backwards compatibility; update to use CollectionState.")]
+		public bool IsEnabled
+		{
+			get
+			{
+				bool enabled = false;
+				if (CollectionState == DataCollection.All)
+				{
+					enabled = true;
+				}
+
+				return enabled;
+			}
+
+			set
+			{
+				IsEnabled = value;
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating what type of data is being collected.
+		/// </summary>
+		public DataCollection CollectionState { get; set; } = DataCollection.UsageOnly;
 
 		public abstract void Intercept(IInvocation invocation);
 

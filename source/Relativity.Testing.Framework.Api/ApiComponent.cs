@@ -70,10 +70,36 @@ namespace Relativity.Testing.Framework.Api
 
 			var configurationService = container.ResolveAll<IConfigurationService>().FirstOrDefault();
 
-			if (configurationService != null && !configurationService.GetValueOrDefault("EnableApplicationInsights", true))
+			if (configurationService != null)
 			{
-				container.Resolve<ApplicationInsightsEventInterceptor>().IsEnabled = false;
-				container.Resolve<ApplicationInsightsMetricInterceptor>().IsEnabled = false;
+				DataCollection stateToConfigure;
+				string defaultValue = DataCollection.UsageOnly.ToString();
+				string configuredValue = configurationService.GetValueOrDefault("EnableApplicationInsights", defaultValue).ToLower();
+
+				switch (configuredValue)
+				{
+					case "all":
+						stateToConfigure = DataCollection.All;
+						break;
+					case "true":
+						stateToConfigure = DataCollection.All;
+						break;
+					case "usageonly":
+						stateToConfigure = DataCollection.UsageOnly;
+						break;
+					case "none":
+						stateToConfigure = DataCollection.None;
+						break;
+					case "false":
+						stateToConfigure = DataCollection.None;
+						break;
+					default:
+						stateToConfigure = DataCollection.None;
+						break;
+				}
+
+				container.Resolve<ApplicationInsightsEventInterceptor>().CollectionState = stateToConfigure;
+				container.Resolve<ApplicationInsightsMetricInterceptor>().CollectionState = stateToConfigure;
 			}
 
 			container.Register(

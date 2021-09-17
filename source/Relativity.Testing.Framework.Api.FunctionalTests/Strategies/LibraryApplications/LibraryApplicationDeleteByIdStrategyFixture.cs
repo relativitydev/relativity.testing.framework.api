@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Net.Http;
 using FluentAssertions;
-using FluentAssertions.Execution;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
@@ -32,7 +32,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Delete_Missing()
 		{
-			Assert.Throws<RelativityComponentEnsuringException>(() => Sut.Delete(12345));
+			Assert.Throws<HttpRequestException>(() => Sut.Delete(12345));
 		}
 
 		[Test]

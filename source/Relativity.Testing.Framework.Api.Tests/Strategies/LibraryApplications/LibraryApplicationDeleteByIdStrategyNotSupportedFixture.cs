@@ -9,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	[TestOf(typeof(LibraryApplicationDeleteByIdStrategyNotSupported))]
 	public class LibraryApplicationDeleteByIdStrategyNotSupportedFixture
 	{
-		private const string _NOT_SUPPORTED_EXCEPTION_MESSAGE = "The method Delete does not support version of Relativity lower than 12.";
+		private const string _NOT_SUPPORTED_EXCEPTION_MESSAGE = "The method Delete does not support version of Relativity lower than 12.1.";
 		private const int _APPLICATION_ID = 10000;
 
 		private LibraryApplicationDeleteByIdStrategyNotSupported _strategy;

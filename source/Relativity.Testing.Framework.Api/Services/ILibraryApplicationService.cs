@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// </summary>
 	/// <example>
 	/// <code>
-	/// _libraryApplicationService = RelatvityFacade.Resolve&lt;ILibraryApplicationService&gt;();
+	/// _libraryApplicationService = RelativityFacade.Resolve&lt;ILibraryApplicationService&gt;();
 	/// </code>
 	/// </example>
 	public interface ILibraryApplicationService

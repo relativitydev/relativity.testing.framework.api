@@ -46,6 +46,9 @@
     <None Update="app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Files\RAPTemplate.rap">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Files\SampleFileForFileField">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

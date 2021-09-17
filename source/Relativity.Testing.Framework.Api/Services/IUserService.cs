@@ -164,6 +164,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified <see cref="User"/>.
 		/// </summary>
 		/// <param name="user">The <see cref="User"/> to update.</param>
+		/// <returns>The updated <see cref="User"/>.</returns>
 		/// <example>
 		/// <code>
 		/// User existingUser = _userService.GetByEmail("some_existing_user@email.com");
@@ -173,6 +174,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// _userService.Update(existingUser);
 		/// </code>
 		/// </example>
-		void Update(User user);
+		User Update(User user);
 	}
 }

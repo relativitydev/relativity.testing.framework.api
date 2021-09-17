@@ -9,13 +9,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class TabUpdateStrategyV1 : IUpdateWorkspaceEntityStrategy<Tab>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<Tab> _getWorkspaceEntityByIdStrategy;
 
-		public TabUpdateStrategyV1(IRestService restService)
+		public TabUpdateStrategyV1(IRestService restService, IGetWorkspaceEntityByIdStrategy<Tab> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, Tab entity)
+		public Tab Update(int workspaceId, Tab entity)
 		{
 			if (entity == null)
 			{
@@ -28,6 +30,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"relativity-data-visualization/v1/workspaces/{workspaceId}/tabs/{tabDto.TabRequest.ArtifactID}", tabDto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

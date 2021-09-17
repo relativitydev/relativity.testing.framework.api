@@ -12,13 +12,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		where TFieldModel : Field
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<TFieldModel> _getFieldByIdStrategy;
 
-		public FieldUpdateStrategy(IRestService restService)
+		public FieldUpdateStrategy(IRestService restService, IGetWorkspaceEntityByIdStrategy<TFieldModel> getFieldByIdStrategy)
 		{
 			_restService = restService;
+			_getFieldByIdStrategy = getFieldByIdStrategy;
 		}
 
-		public void Update(int workspaceId, TFieldModel entity)
+		public TFieldModel Update(int workspaceId, TFieldModel entity)
 		{
 			if (entity == null)
 			{
@@ -48,6 +50,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			dtoAsString = RemoveArtifactIdProperty(dtoAsString);
 
 			_restService.Put(url, dtoAsString);
+
+			return _getFieldByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 
 		private string ConvertPoplateToObject(string dtoAsString)

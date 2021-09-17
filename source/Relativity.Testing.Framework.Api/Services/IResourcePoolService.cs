@@ -40,7 +40,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified resource pool.
 		/// </summary>
 		/// <param name="entity">The entity to update.</param>
-		void Update(ResourcePool entity);
+		/// <returns>The updated <see cref="ResourcePool"/> entity.</returns>
+		ResourcePool Update(ResourcePool entity);
 
 		/// <summary>
 		/// Deletes the specified resource pool by the Artifact ID.

@@ -7,13 +7,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class EntityUpdateStrategy : IUpdateWorkspaceEntityStrategy<Entity>
 	{
 		private readonly IObjectService _objectService;
+		private readonly IGetWorkspaceEntityByIdStrategy<Entity> _getWorkspaceEntityByIdStrategy;
 
-		public EntityUpdateStrategy(IObjectService objectService)
+		public EntityUpdateStrategy(IObjectService objectService, IGetWorkspaceEntityByIdStrategy<Entity> getWorkspaceEntityByIdStrategy)
 		{
 			_objectService = objectService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		void IUpdateWorkspaceEntityStrategy<Entity>.Update(int workspaceId, Entity entity)
+		public Entity Update(int workspaceId, Entity entity)
 		{
 			if (entity == null)
 			{
@@ -21,6 +23,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 
 			_objectService.Update(workspaceId, entity);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

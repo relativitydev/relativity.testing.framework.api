@@ -78,11 +78,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingField.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Facade.Resolve<IUpdateWorkspaceEntityStrategy<MultipleObjectField>>().
+			var result = Facade.Resolve<IUpdateWorkspaceEntityStrategy<MultipleObjectField>>().
 				Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<MultipleObjectField>>().
-				Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 
 			result.ObjectType.Name.Should().Be(toUpdate.ObjectType.Name);
 			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.ObjectType));
@@ -115,11 +112,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingField.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Facade.Resolve<IUpdateWorkspaceEntityStrategy<SingleObjectField>>().
+			var result = Facade.Resolve<IUpdateWorkspaceEntityStrategy<SingleObjectField>>().
 				Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<SingleObjectField>>().
-				Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 
 			result.ObjectType.Name.Should().Be(toUpdate.ObjectType.Name);
 			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.ObjectType));
@@ -184,11 +178,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingField.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Facade.Resolve<IUpdateWorkspaceEntityStrategy<FixedLengthTextField>>().
+			var result = Facade.Resolve<IUpdateWorkspaceEntityStrategy<FixedLengthTextField>>().
 				Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<FixedLengthTextField>>().
-				Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 
 			result.ObjectType.Name.Should().Be(toUpdate.ObjectType.Name);
 			result.Should().BeEquivalentTo(toUpdate, o => o.
@@ -216,11 +207,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingField.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Facade.Resolve<IUpdateWorkspaceEntityStrategy<TFieldModel>>().
+			var result = Facade.Resolve<IUpdateWorkspaceEntityStrategy<TFieldModel>>().
 				Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<TFieldModel>>().
-				Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 
 			result.ObjectType.Name.Should().Be(toUpdate.ObjectType.Name);
 			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.ObjectType));

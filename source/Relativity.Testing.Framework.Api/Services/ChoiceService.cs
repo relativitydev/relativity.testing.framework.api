@@ -45,7 +45,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public IEnumerable<Choice> GetAll(int workspaceId, string objectTypeName, string fieldName)
 			=> _getAllByObjectFieldStrategy.GetAll(workspaceId, objectTypeName, fieldName);
 
-		public void Update(int workspaceId, Choice entity)
+		public Choice Update(int workspaceId, Choice entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 	}
 }

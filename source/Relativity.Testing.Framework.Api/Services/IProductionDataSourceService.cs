@@ -45,6 +45,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the production data source.</param>
 		/// <param name="productionId">The Artifact ID of production.</param>
 		/// <param name="entity">The entity to update.</param>
-		void Update(int workspaceId, int productionId, ProductionDataSource entity);
+		/// <returns>The updated data source entity.</returns>
+		ProductionDataSource Update(int workspaceId, int productionId, ProductionDataSource entity);
 	}
 }

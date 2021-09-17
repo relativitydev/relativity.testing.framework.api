@@ -8,13 +8,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class SearchProviderUpdateStrategy : IUpdateWorkspaceEntityStrategy<SearchProvider>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<SearchProvider> _getWorkspaceEntityByIdStrategy;
 
-		public SearchProviderUpdateStrategy(IRestService restService)
+		public SearchProviderUpdateStrategy(IRestService restService, IGetWorkspaceEntityByIdStrategy<SearchProvider> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, SearchProvider entity)
+		public SearchProvider Update(int workspaceId, SearchProvider entity)
 		{
 			if (entity == null)
 			{
@@ -31,6 +33,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"Relativity.SearchProviders/workspace/{workspaceId}/searchproviders/{entity.ArtifactID}", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

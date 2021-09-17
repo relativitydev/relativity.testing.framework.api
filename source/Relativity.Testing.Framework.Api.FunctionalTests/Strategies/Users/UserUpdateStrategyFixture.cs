@@ -28,9 +28,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.EmailAddress = Randomizer.GetString("AT_{0}@mail.com");
 			toUpdate.Password = null;
 
-			Sut.Update(toUpdate);
-
-			var result = Facade.Resolve<IGetByIdStrategy<User>>().Get(toUpdate.ArtifactID);
+			var result = Sut.Update(toUpdate);
 
 			result.Client.ArtifactID.Should().Be(toUpdate.Client.ArtifactID);
 			result.EmailAddress.Should().BeEquivalentTo(toUpdate.EmailAddress);

@@ -124,6 +124,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified group.
 		/// </summary>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated <see cref="Group"/> entity.</returns>
 		/// <example>
 		/// <code>
 		/// var groupId = 1;
@@ -132,9 +133,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	Name = "Some Existing Group Name",
 		/// 	Keywords = "Test Edited Keywords"
 		/// }
-		///  _groupService.Update(entity);
+		/// var updatedGroup = _groupService.Update(entity);
 		/// </code>
 		/// </example>
-		void Update(Group entity);
+		Group Update(Group entity);
 	}
 }

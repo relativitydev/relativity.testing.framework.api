@@ -118,6 +118,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entity">The <see cref="Tab"/> to update.
 		/// Must include the ArtifactID of the Tab in the model.</param>
+		/// <returns>The updated <see cref="Tab"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -125,10 +126,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// tab.Name = "AnotherName"
 		///
-		/// _tabService.Update(workspaceArtifactID, tab);
+		/// tab = _tabService.Update(workspaceArtifactID, tab);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, Tab entity);
+		Tab Update(int workspaceId, Tab entity);
 
 		/// <summary>
 		/// Retrieves a list of all object types in a workspace available for creating or updating a tab.

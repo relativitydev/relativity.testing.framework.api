@@ -2,10 +2,8 @@
 using System.Text;
 using Newtonsoft.Json;
 using Relativity.Testing.Framework.Api.Attributes;
-using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
-using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
@@ -13,12 +11,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class FileFieldUploadStrategy : IFileFieldUploadStrategy
 	{
 		private readonly IRestService _restService;
-		private readonly IObjectService _objectService;
 
-		public FileFieldUploadStrategy(IRestService restService, IObjectService objectService)
+		public FileFieldUploadStrategy(IRestService restService)
 		{
 			_restService = restService;
-			_objectService = objectService;
 		}
 
 		public FileFieldDTO UploadFile(int workspaceId, FileFieldDTO fileFieldDto)

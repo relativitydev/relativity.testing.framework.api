@@ -11,13 +11,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ScriptUpdateStrategy : IUpdateWorkspaceEntityStrategy<Script>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<Script> _getWorkspaceEntityByIdStrategy;
 
-		public ScriptUpdateStrategy(IRestService restService)
+		public ScriptUpdateStrategy(IRestService restService, IGetWorkspaceEntityByIdStrategy<Script> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, Script entity)
+		public Script Update(int workspaceId, Script entity)
 		{
 			if (entity == null)
 			{
@@ -62,6 +64,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"Relativity.Scripts/workspace/{workspaceId}/Scripts/{entity.ArtifactID}", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

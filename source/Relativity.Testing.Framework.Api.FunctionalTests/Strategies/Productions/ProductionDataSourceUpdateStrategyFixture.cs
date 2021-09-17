@@ -51,9 +51,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var toUpdate = existingProductionDataSource.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Sut.Update(DefaultWorkspace.ArtifactID, _production.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, _production.ArtifactID, toUpdate);
 
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ProductionDataSource>>().Get(DefaultWorkspace.ArtifactID, existingProductionDataSource.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate, x => x.Excluding(y => y.ArtifactTypeId)
 				.Excluding(y => y.Placeholder).Excluding(y => y.SavedSearch.Name).Excluding(y => y.MarkupSet)
 				.Excluding(y => y.ProductionId));

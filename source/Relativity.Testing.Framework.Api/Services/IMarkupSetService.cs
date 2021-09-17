@@ -1,5 +1,4 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Models;
+﻿using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -139,6 +138,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the <see cref="MarkupSet"/>,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entity">The <see cref="MarkupSet"/> to update.</param>
+		/// <returns>The updated <see cref="MarkupSet"/> entity.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -147,10 +147,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// markupSetToUpdate.Name = "Updated Makup Set Name";
 		/// markupSetToUpdate.Order = 200;
 		/// markupSetToUpdate.RedactionText = "Updated Redaction Set";
-		/// _markupSetService.Update(workspaceArtifactID, markupSetToUpdate);
+		/// MarkupSet updatedMarkupSet = _markupSetService.Update(workspaceArtifactID, markupSetToUpdate);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, MarkupSet entity);
+		MarkupSet Update(int workspaceId, MarkupSet entity);
 
 		/// <summary>
 		/// Deletes the <see cref="MarkupSet"/> by the specified ArtifactID.

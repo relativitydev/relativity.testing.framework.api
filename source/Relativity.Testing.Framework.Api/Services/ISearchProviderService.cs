@@ -45,7 +45,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update search provider.</param>
 		/// <param name="entity">The entity to update.</param>
-		void Update(int workspaceId, SearchProvider entity);
+		/// <returns>The updated entity.</returns>
+		SearchProvider Update(int workspaceId, SearchProvider entity);
 
 		/// <summary>
 		/// Requires the specified search provider.

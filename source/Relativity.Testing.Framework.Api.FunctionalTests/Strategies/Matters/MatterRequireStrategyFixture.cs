@@ -62,7 +62,15 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			result.ArtifactID.Should().BePositive();
 			result.Client.ArtifactID.Should().Be(matter.Client.ArtifactID);
-			result.Should().BeEquivalentTo(matter, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(
+				matter,
+				o => o.Excluding(x => x.ArtifactID)
+					.Excluding(x => x.Client)
+					.Excluding(x => x.Actions)
+					.Excluding(x => x.CreatedOn)
+					.Excluding(x => x.CreatedBy)
+					.Excluding(x => x.LastModifiedOn)
+					.Excluding(x => x.LastModifiedBy));
 		}
 	}
 }

@@ -82,6 +82,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the entity.</param>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -95,10 +96,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	DocumentNumberingPrefix = Randomizer.GetString(),
 		/// 	Type = new NamedArtifact { Name = "Person", ArtifactID = someExistingTypeArtifactId }
 		/// };
-		/// _entityService.Update(workspaceId, entityToUpdate);
+		/// var updatedEntitiy = _entityService.Update(workspaceId, entityToUpdate);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, Entity entity);
+		Entity Update(int workspaceId, Entity entity);
 
 		/// <summary>
 		/// Requires the specified entity.

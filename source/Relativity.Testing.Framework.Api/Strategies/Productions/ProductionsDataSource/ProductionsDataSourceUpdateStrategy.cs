@@ -7,13 +7,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ProductionsDataSourceUpdateStrategy : IUpdateProductionsDataSourceStrategy
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<ProductionDataSource> _getWorkspaceEntityByIdStrategy;
 
-		public ProductionsDataSourceUpdateStrategy(IRestService restService)
+		public ProductionsDataSourceUpdateStrategy(IRestService restService, IGetWorkspaceEntityByIdStrategy<ProductionDataSource> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, int productionId, ProductionDataSource entity)
+		public ProductionDataSource Update(int workspaceId, int productionId, ProductionDataSource entity)
 		{
 			if (entity == null)
 			{
@@ -28,6 +30,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Post("Relativity.Productions.Services.IProductionModule/Production%20Data%20Source%20Manager/UpdateSingleAsync", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

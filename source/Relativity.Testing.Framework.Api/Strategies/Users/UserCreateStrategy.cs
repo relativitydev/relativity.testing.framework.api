@@ -8,27 +8,26 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class UserCreateStrategy : CreateStrategy<User>
 	{
 		private readonly IRestService _restService;
-
 		private readonly IRequireStrategy<Client> _clientRequireStrategy;
-
 		private readonly IChoiceResolveByObjectFieldAndNameStrategy _choiceResolveByObjectFieldAndNameStrategy;
-
 		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
-
 		private readonly IUserAddToGroupStrategy _userAddToGroupStrategy;
+		private readonly IGetByIdStrategy<User> _getByIdStrategy;
 
 		public UserCreateStrategy(
 			IRestService restService,
 			IRequireStrategy<Client> clientRequireStrategy,
 			IChoiceResolveByObjectFieldAndNameStrategy choiceResolveByObjectFieldAndNameStrategy,
 			IUserGetByEmailStrategy userGetByEmailStrategy,
-			IUserAddToGroupStrategy userAddToGroupStrategy)
+			IUserAddToGroupStrategy userAddToGroupStrategy,
+			IGetByIdStrategy<User> getByIdStrategy)
 		{
 			_restService = restService;
 			_clientRequireStrategy = clientRequireStrategy;
 			_choiceResolveByObjectFieldAndNameStrategy = choiceResolveByObjectFieldAndNameStrategy;
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_userAddToGroupStrategy = userAddToGroupStrategy;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
 		protected override User DoCreate(User entity)
@@ -86,9 +85,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				}
 			}
 
-			entity.ArtifactID = createdUser.ArtifactID;
-
-			return entity;
+			return _getByIdStrategy.Get(createdUser.ArtifactID);
 		}
 
 		private void AddPasswordProvider(int userArtifactId)

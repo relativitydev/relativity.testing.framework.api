@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;

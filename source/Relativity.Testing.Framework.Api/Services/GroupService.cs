@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public IEnumerable<Group> GetAll(IEnumerable<string> names)
 			=> _getAllByNamesStrategy.GetAll(names);
 
-		public void Update(Group entity)
+		public Group Update(Group entity)
 			=> _updateStrategy.Update(entity);
 	}
 }

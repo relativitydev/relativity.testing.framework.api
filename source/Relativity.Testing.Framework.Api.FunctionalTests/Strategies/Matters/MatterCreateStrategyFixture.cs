@@ -61,7 +61,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private static void TestIfCreatedMatterIsEquivalentToExpected(Matter entity, Matter result)
 		{
 			result.ArtifactID.Should().BePositive();
-			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client.Status.ArtifactID));
+			result.Should().BeEquivalentTo(
+				entity,
+				o => o.Excluding(x => x.ArtifactID)
+					.Excluding(x => x.Client.Status.ArtifactID)
+					.Excluding(x => x.Client.Number)
+					.Excluding(x => x.Actions)
+					.Excluding(x => x.CreatedOn)
+					.Excluding(x => x.CreatedBy)
+					.Excluding(x => x.LastModifiedOn)
+					.Excluding(x => x.LastModifiedBy));
 		}
 	}
 }

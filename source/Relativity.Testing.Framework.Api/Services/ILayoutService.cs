@@ -130,16 +130,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the layout,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
 		/// var existingLayoutId = 1;
 		/// Layout layoutToUpdate = _layoutService.Get(workspaceId, existingLayoutId);
 		/// layoutToUpdate.Name = "Some Updated Layout Name";
-		/// _layoutService.Update(workspaceId, layoutToUpdate);
+		/// Layout updatedLayout = _layoutService.Update(workspaceId, layoutToUpdate);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, Layout entity);
+		Layout Update(int workspaceId, Layout entity);
 
 		/// <summary>
 		/// Builds the layout.

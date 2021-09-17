@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -19,12 +20,17 @@ namespace Relativity.Testing.Framework.Api.Strategies.Clients
 			_clientStatusEnsureArtifactIdIsFilledStrategy = clientStatusEnsureArtifactIdIsFilledStrategy;
 		}
 
-		public void Update(Client entity)
+		public Client Update(Client entity)
 		{
+			if (entity is null)
+			{
+				throw new ArgumentNullException(nameof(entity));
+			}
+
 			_clientStatusEnsureArtifactIdIsFilledStrategy.Ensure(entity);
 			var dto = new ClientDTOV1(entity);
 
-			_restService.Put<Client>(
+			return _restService.Put<Client>(
 				$"Relativity.rest/api/relativity-identity/v1/workspaces/-1/clients/{entity.ArtifactID}",
 				dto);
 		}

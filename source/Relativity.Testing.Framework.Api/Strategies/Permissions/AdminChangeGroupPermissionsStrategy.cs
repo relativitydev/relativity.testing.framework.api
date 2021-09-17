@@ -1,5 +1,4 @@
 ﻿using System;
-using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies

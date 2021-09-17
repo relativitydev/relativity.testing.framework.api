@@ -11,14 +11,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class ProductionPlaceholderUpdateStrategyFixture : ApiServiceTestFixture<IUpdateWorkspaceEntityStrategy<ProductionPlaceholder>>
 	{
 		private ICreateWorkspaceEntityStrategy<ProductionPlaceholder> _createProductionPlaceholderStrategy;
-		private IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder> _getWorkspaceEntityById;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
 
 			_createProductionPlaceholderStrategy = Facade.Resolve<ICreateWorkspaceEntityStrategy<ProductionPlaceholder>>();
-			_getWorkspaceEntityById = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder>>();
 		}
 
 		[Test]
@@ -42,9 +40,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.Name = Randomizer.GetString();
 			toUpdate.CustomText = "Updated Text";
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
-			var result = _getWorkspaceEntityById.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Should().BeEquivalentTo(toUpdate, x => x.Excluding(y => y.FileData));
 		}
 	}

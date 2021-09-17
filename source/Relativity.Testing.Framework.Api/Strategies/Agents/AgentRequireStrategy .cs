@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -8,22 +7,16 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal class AgentRequireStrategy : IRequireStrategy<Agent>
 	{
-		private readonly IRestService _restService;
 		private readonly IUpdateStrategy<Agent> _updateStrategy;
-		private readonly IGetByIdStrategy<Agent> _getByIdStrategy;
 		private readonly ICreateStrategy<Agent> _createStrategy;
 		private readonly IAgentGetAllByAgentTypeNameStrategy _agentGetAllByAgentTypeNameStrategy;
 
 		public AgentRequireStrategy(
-			IRestService restService,
 			IUpdateStrategy<Agent> updateStrategy,
-			IGetByIdStrategy<Agent> getByIdStrategy,
 			ICreateStrategy<Agent> createStrategy,
 			IAgentGetAllByAgentTypeNameStrategy agentGetAllByAgentTypeNameStrategy)
 		{
-			_restService = restService;
 			_updateStrategy = updateStrategy;
-			_getByIdStrategy = getByIdStrategy;
 			_createStrategy = createStrategy;
 			_agentGetAllByAgentTypeNameStrategy = agentGetAllByAgentTypeNameStrategy;
 		}
@@ -37,8 +30,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ArtifactID != 0)
 			{
-				_updateStrategy.Update(entity);
-				return _getByIdStrategy.Get(entity.ArtifactID);
+				return _updateStrategy.Update(entity);
 			}
 
 			if (entity.AgentType != null)
@@ -51,8 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				else
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-					_updateStrategy.Update(entity);
-					return _getByIdStrategy.Get(entity.ArtifactID);
+					return _updateStrategy.Update(entity);
 				}
 			}
 			else

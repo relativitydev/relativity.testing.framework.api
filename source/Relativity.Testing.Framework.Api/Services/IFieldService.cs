@@ -133,6 +133,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the field,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -152,10 +153,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	OpenToAssociations = true,
 		/// 	Name = "Updated Name"
 		/// };
-		/// _fieldService.Update(workspaceId, userFieldToUpdate);
+		/// var updatedUserField = _fieldService.Update(workspaceId, userFieldToUpdate);
 		/// </code>
 		/// </example>
-		void Update<TFieldModel>(int workspaceId, TFieldModel entity)
+		TFieldModel Update<TFieldModel>(int workspaceId, TFieldModel entity)
 			where TFieldModel : Field;
 
 		/// <summary>

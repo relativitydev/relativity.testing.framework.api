@@ -36,7 +36,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the production placeholder.</param>
 		/// <param name="entity">The entity to update.</param>
-		void Update(int workspaceId, ProductionPlaceholder entity);
+		/// <returns>The updated production placeholder source entity.</returns>
+		ProductionPlaceholder Update(int workspaceId, ProductionPlaceholder entity);
 
 		/// <summary>
 		/// Delete the production placeholder by the specified artifact ID.

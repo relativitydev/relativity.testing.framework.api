@@ -27,9 +27,10 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var imagingProfile = _basicImagingProfileCreateStrategy.Create(DefaultWorkspace.ArtifactID, dto);
 			imagingProfile.Name = Randomizer.GetString();
 
-			Assert.DoesNotThrow(() => Sut.Update(DefaultWorkspace.ArtifactID, imagingProfile));
+			var updatedImagingProfile = new ImagingProfile();
+			Assert.DoesNotThrow(() => updatedImagingProfile = Sut.Update(DefaultWorkspace.ArtifactID, imagingProfile));
 
-			imagingProfile.Name.Should().NotBeSameAs(dto.Name);
+			imagingProfile.Name.Should().Be(updatedImagingProfile.Name);
 		}
 
 		private CreateBasicImagingProfileDTO PrepareData()

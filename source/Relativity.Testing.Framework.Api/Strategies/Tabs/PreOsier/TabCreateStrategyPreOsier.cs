@@ -9,13 +9,16 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	{
 		private readonly IRestService _restService;
 		private readonly ITabFillRequiredPropertiesStrategy _tabFillRequiredPropertiesStrategy;
+		private readonly IGetWorkspaceEntityByIdStrategy<Tab> _getWorkspaceEntityByIdStrategy;
 
 		public TabCreateStrategyPreOsier(
 			IRestService restService,
-			ITabFillRequiredPropertiesStrategy tabFillRequiredPropertiesStrategy)
+			ITabFillRequiredPropertiesStrategy tabFillRequiredPropertiesStrategy,
+			IGetWorkspaceEntityByIdStrategy<Tab> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
 			_tabFillRequiredPropertiesStrategy = tabFillRequiredPropertiesStrategy;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
 		protected override Tab DoCreate(int workspaceId, Tab entity)
@@ -28,9 +31,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			int artifactId = _restService.Post<int>($"Relativity.Tabs/workspace/{workspaceId}/tabs", tabDto);
-			entity.ArtifactID = artifactId;
 
-			return entity;
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, artifactId);
 		}
 	}
 }

@@ -31,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public ImagingProfile CreateNative(int workspaceId, CreateNativeImagingProfileDTO dto)
 			=> _nativeImagingProfileCreateStrategy.Create(workspaceId, dto);
 
-		public void Update(int workspaceId, ImagingProfile imagingProfile)
+		public ImagingProfile Update(int workspaceId, ImagingProfile imagingProfile)
 			=> _imagingProfileUpdateStrategy.Update(workspaceId, imagingProfile);
 
 		public ImagingProfile Get(int workspaceId, int imagingProfileId)

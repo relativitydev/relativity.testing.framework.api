@@ -14,7 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private AgentType _agentType;
 		private AgentServer _agentServer;
 		private ICreateStrategy<Agent> _createStrategy;
-		private IGetByIdStrategy<Agent> _getByIdStrategy;
 
 		protected override void OnSetUpTest()
 		{
@@ -25,7 +24,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			_agentServer = Facade.Resolve<IAgentServerGetAvailableStrategy>().GetAvailable(_agentType.Name)[0];
 
 			_createStrategy = Facade.Resolve<ICreateStrategy<Agent>>();
-			_getByIdStrategy = Facade.Resolve<IGetByIdStrategy<Agent>>();
 		}
 
 		[Test]
@@ -52,9 +50,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.AgentType = _agentType;
 			toUpdate.RunInterval = 21;
 
-			Sut.Update(toUpdate);
-
-			var result = _getByIdStrategy.Get(toUpdate.ArtifactID);
+			var result = Sut.Update(toUpdate);
 
 			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.ArtifactID)
 				.Excluding(x => x.AgentType.ArtifactID)

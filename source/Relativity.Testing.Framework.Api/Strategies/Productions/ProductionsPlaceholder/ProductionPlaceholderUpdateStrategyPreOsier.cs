@@ -9,13 +9,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class ProductionPlaceholderUpdateStrategyPreOsier : IUpdateWorkspaceEntityStrategy<ProductionPlaceholder>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder> _getWorkspaceEntityByIdStrategy;
 
-		public ProductionPlaceholderUpdateStrategyPreOsier(IRestService restService)
+		public ProductionPlaceholderUpdateStrategyPreOsier(IRestService restService, IGetWorkspaceEntityByIdStrategy<ProductionPlaceholder> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, ProductionPlaceholder entity)
+		public ProductionPlaceholder Update(int workspaceId, ProductionPlaceholder entity)
 		{
 			if (entity == null)
 			{
@@ -29,6 +31,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Post($"Relativity.Productions.Services.IProductionModule/Production%20Placeholder%20Manager/UpdateSingleAsync", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 	}
 }

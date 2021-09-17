@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public ResourcePool Get(string name)
 			=> _getByNameStrategy.Get(name);
 
-		public void Update(ResourcePool entity)
+		public ResourcePool Update(ResourcePool entity)
 			=> _updateStrategy.Update(entity);
 
 		public void Delete(int entityId)

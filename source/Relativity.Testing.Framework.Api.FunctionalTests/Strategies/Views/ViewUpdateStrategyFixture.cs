@@ -11,14 +11,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUpdateWorkspaceEntityStrategy<View>))]
 	internal class ViewUpdateStrategyFixture : ApiServiceTestFixture<IUpdateWorkspaceEntityStrategy<View>>
 	{
-		private IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 		private IGetWorkspaceEntityByNameStrategy<FixedLengthTextField> _getWorkspaceEntityByNameStrategy;
 		private IGetAllWorkspaceViewOwnersStrategy<NamedArtifact> _getViewOwnersStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
-			_getWorkspaceEntityByIdStrategy = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<View>>();
 			_getWorkspaceEntityByNameStrategy = Facade.Resolve<IGetWorkspaceEntityByNameStrategy<FixedLengthTextField>>();
 			_getViewOwnersStrategy = Facade.Resolve<IGetAllWorkspaceViewOwnersStrategy<NamedArtifact>>();
 		}
@@ -58,9 +56,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			toUpdate.Name = Randomizer.GetString();
 			toUpdate.Order = Randomizer.GetInt(101, 99999);
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
-			var result = _getWorkspaceEntityByIdStrategy.Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
 			result.Fields.Should().NotBeNullOrEmpty();
 
 			result.Should().BeEquivalentTo(toUpdate, o => o

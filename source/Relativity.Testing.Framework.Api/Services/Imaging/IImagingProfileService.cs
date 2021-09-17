@@ -119,6 +119,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="imagingProfile">An <see cref="ImagingProfile"/> object with updated fields, reflecting the desired final state of the Imaging Profile.</param>
+		/// <returns>Returns updated <see cref="ImagingProfile"/> instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -126,7 +127,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var updatedImagingProfile = _imagingProfileService.Update(workspaceId, someImagingProfile);
 		/// </code>
 		/// </example>
-		void Update(int workspaceId, ImagingProfile imagingProfile);
+		ImagingProfile Update(int workspaceId, ImagingProfile imagingProfile);
 
 		/// <summary>
 		/// Retrieves the <see cref="ImagingProfile"/> with the specified Artifact ID.

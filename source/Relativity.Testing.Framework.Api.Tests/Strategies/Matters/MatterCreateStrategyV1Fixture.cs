@@ -1,5 +1,4 @@
 ﻿using System;
-using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -24,6 +23,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private Mock<IRestService> _mockRestService;
 		private Mock<IMatterStatusGetChoiceIdByNameStrategy> _mockMatterStatusGetChoiceIdByNameStrategy;
 		private Mock<IRequireStrategy<Client>> _mockClientRequireStrategy;
+		private Mock<IMatterGetByIdStrategy> _mockMatterGetByIdStrategy;
 		private MatterCreateStrategyV1 _sut;
 
 		[SetUp]
@@ -34,6 +34,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			_mockMatterStatusGetChoiceIdByNameStrategy.
 				Setup(getStatusStrategy => getStatusStrategy.GetId(_STATUS)).Returns(_STATUS_ID);
 			_mockClientRequireStrategy = new Mock<IRequireStrategy<Client>>();
+			_mockMatterGetByIdStrategy = new Mock<IMatterGetByIdStrategy>();
+
 			var requiredClient = new Client
 			{
 				ArtifactID = _CLIENT_ID,
@@ -42,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			_mockClientRequireStrategy.
 				Setup(clientRequireStrategy => clientRequireStrategy.Require(_client)).Returns(requiredClient);
 
-			_sut = new MatterCreateStrategyV1(_mockRestService.Object, _mockMatterStatusGetChoiceIdByNameStrategy.Object, _mockClientRequireStrategy.Object);
+			_sut = new MatterCreateStrategyV1(_mockRestService.Object, _mockMatterStatusGetChoiceIdByNameStrategy.Object, _mockClientRequireStrategy.Object, _mockMatterGetByIdStrategy.Object);
 		}
 
 		[Test]
@@ -62,18 +64,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			_sut.Create(matter);
 
 			VerifyRestServicePostWasCalled(expectedCreateRequest);
-		}
-
-		[Test]
-		public void Create_WithValidEntity_ShouldReturnEntityWithFilledArtifactId()
-		{
-			Matter matter = GetTestMatter();
-			MatterCreateRequestV1 expectedCreateRequest = GetExpectedMatterCreateRequestV1(matter);
-			SetupRestServicePostResponse(expectedCreateRequest);
-
-			Matter result = _sut.Create(matter);
-
-			result.ArtifactID.Should().Be(_MATTER_ID);
 		}
 
 		private static MatterCreateRequestV1 GetExpectedMatterCreateRequestV1(Matter matter)

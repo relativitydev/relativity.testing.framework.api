@@ -1,5 +1,4 @@
 ﻿using System.Net.Http;
-using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;

@@ -45,7 +45,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public SearchProvider Get(int workspaceId, string entityName)
 			=> _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityName);
 
-		public void Update(int workspaceId, SearchProvider entity)
+		public SearchProvider Update(int workspaceId, SearchProvider entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public SearchProvider Require(int workspaceId, SearchProvider entity)

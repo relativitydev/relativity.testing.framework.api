@@ -44,14 +44,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified <see cref="Client"/>.
 		/// </summary>
 		/// <param name="entity">The <see cref="Client"/> model to use to update the existing client with.</param>
+		/// <returns>The updated client.</returns>
 		/// <example>
 		/// <code>
 		/// Client client = _clientService.Get("Some Client Name");
 		/// client.Keywords = "SampleKeywords";
-		/// _clientService.Update(client);
+		/// Client updatedClient = _clientService.Update(client);
 		/// </code>
 		/// </example>
-		void Update(Client entity);
+		Client Update(Client entity);
 
 		/// <summary>
 		/// Requires the specified client.

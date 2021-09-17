@@ -56,7 +56,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public bool Exists(int workspaceArtifactID, int viewArtifactID)
 			=> _existsWorkspaceEntityByIdStrategy.Exists(workspaceArtifactID, viewArtifactID);
 
-		public void Update(int workspaceArtifactID, View view)
+		public View Update(int workspaceArtifactID, View view)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceArtifactID, view);
 
 		public List<NamedArtifact> GetEligibleObjectTypes(int workspaceId)

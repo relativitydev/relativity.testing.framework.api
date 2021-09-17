@@ -16,6 +16,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 		private ImagingProfileUpdateStrategyV1 _sut;
 		private Mock<IRestService> _mockRestService;
+		private Mock<IImagingProfileGetStrategy> _mockImagingProfileGetStrategy;
 		private Mock<IWorkspaceIdValidator> _workspaceIdValidator;
 
 		[SetUp]
@@ -23,8 +24,9 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_mockRestService = new Mock<IRestService>();
 			_workspaceIdValidator = new Mock<IWorkspaceIdValidator>();
+			_mockImagingProfileGetStrategy = new Mock<IImagingProfileGetStrategy>();
 
-			_sut = new ImagingProfileUpdateStrategyV1(_mockRestService.Object, _workspaceIdValidator.Object);
+			_sut = new ImagingProfileUpdateStrategyV1(_mockRestService.Object, _mockImagingProfileGetStrategy.Object, _workspaceIdValidator.Object);
 		}
 
 		[Test]

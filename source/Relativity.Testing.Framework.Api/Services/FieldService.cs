@@ -53,10 +53,10 @@ namespace Relativity.Testing.Framework.Api.Services
 				Get(workspaceId, entityName);
 		}
 
-		public void Update<TFieldModel>(int workspaceId, TFieldModel entity)
+		public TFieldModel Update<TFieldModel>(int workspaceId, TFieldModel entity)
 			where TFieldModel : Field
 		{
-			_facade.Resolve<IUpdateWorkspaceEntityStrategy<TFieldModel>>().
+			return _facade.Resolve<IUpdateWorkspaceEntityStrategy<TFieldModel>>().
 				Update(workspaceId, entity);
 		}
 

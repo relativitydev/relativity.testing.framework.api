@@ -29,9 +29,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			toUpdate.Name = Randomizer.GetString("AT_{0}");
 
-			Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
-
-			var result = Facade.Resolve<IGetWorkspaceEntityByIdStrategy<Layout>>().Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
+			var result = Sut.Update(DefaultWorkspace.ArtifactID, toUpdate);
 
 			result.Should().BeEquivalentTo(toUpdate);
 		}

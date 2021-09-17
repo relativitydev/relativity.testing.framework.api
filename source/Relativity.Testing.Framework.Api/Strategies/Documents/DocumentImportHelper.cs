@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using kCura.Relativity.DataReaderClient;
 using Relativity.Testing.Framework.Api.Exceptions;

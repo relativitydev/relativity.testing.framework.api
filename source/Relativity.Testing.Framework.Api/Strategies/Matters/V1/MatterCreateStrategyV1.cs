@@ -9,19 +9,20 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class MatterCreateStrategyV1 : CreateStrategy<Matter>
 	{
 		private readonly IRestService _restService;
-
 		private readonly IMatterStatusGetChoiceIdByNameStrategy _matterStatusGetChoiceIdByNameStrategy;
-
 		private readonly IRequireStrategy<Client> _clientRequireStrategy;
+		private readonly IMatterGetByIdStrategy _getByIdStrategy;
 
 		public MatterCreateStrategyV1(
 			IRestService restService,
 			IMatterStatusGetChoiceIdByNameStrategy matterStatusGetChoiceIdByNameStrategy,
-			IRequireStrategy<Client> clientRequireStrategy)
+			IRequireStrategy<Client> clientRequireStrategy,
+			IMatterGetByIdStrategy getByIdStrategy)
 		{
 			_restService = restService;
 			_matterStatusGetChoiceIdByNameStrategy = matterStatusGetChoiceIdByNameStrategy;
 			_clientRequireStrategy = clientRequireStrategy;
+			_getByIdStrategy = getByIdStrategy;
 		}
 
 		protected override Matter DoCreate(Matter entity)
@@ -31,9 +32,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var dto = new MatterCreateRequestV1(entity, statusId);
 
-			entity.ArtifactID = _restService.Post<int>("relativity-environment/v1/workspaces/-1/matters", dto);
+			var artifactID = _restService.Post<int>("relativity-environment/v1/workspaces/-1/matters", dto);
 
-			return entity;
+			return _getByIdStrategy.Get(artifactID);
 		}
 
 		private int GetStatusId(string status)

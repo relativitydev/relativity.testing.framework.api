@@ -9,13 +9,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class LayoutUpdateStrategyV1 : IUpdateWorkspaceEntityStrategy<Layout>
 	{
 		private readonly IRestService _restService;
+		private readonly IGetWorkspaceEntityByIdStrategy<Layout> _getWorkspaceEntityByIdStrategy;
 
-		public LayoutUpdateStrategyV1(IRestService restService)
+		public LayoutUpdateStrategyV1(IRestService restService, IGetWorkspaceEntityByIdStrategy<Layout> getWorkspaceEntityByIdStrategy)
 		{
 			_restService = restService;
+			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
 		}
 
-		public void Update(int workspaceId, Layout entity)
+		public Layout Update(int workspaceId, Layout entity)
 		{
 			var dto = new
 			{
@@ -23,6 +25,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"relativity-data-visualization/v1/workspaces/{workspaceId}/layouts/{entity.ArtifactID}", dto);
+
+			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, entity.ArtifactID);
 		}
 
 		private JObject ConvertTab(Layout entity)

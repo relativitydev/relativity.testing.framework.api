@@ -60,7 +60,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public Tab Get(int workspaceId, string entityName)
 			=> _getWorkspaceEntityByNameStrategy.Get(workspaceId, entityName);
 
-		public void Update(int workspaceId, Tab entity)
+		public Tab Update(int workspaceId, Tab entity)
 			=> _updateWorkspaceEntityStrategy.Update(workspaceId, entity);
 
 		public List<ObjectType> GetAvailableObjectTypes(int workspaceId)

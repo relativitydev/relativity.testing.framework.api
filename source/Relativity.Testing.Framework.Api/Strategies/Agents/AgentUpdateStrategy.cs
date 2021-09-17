@@ -22,7 +22,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_getAgentByIdStrategy = getAgentById;
 		}
 
-		public void Update(Agent entity)
+		public Agent Update(Agent entity)
 		{
 			if (entity is null)
 			{
@@ -61,6 +61,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 
 			_restService.Put($"relativity.agents/workspace/-1/agents/{entity.ArtifactID}", agentUpdateRequest);
+
+			return _getAgentByIdStrategy.Get(entity.ArtifactID);
 		}
 
 		internal int GetCurrentRunIntervalIfNotSet(Agent entity)

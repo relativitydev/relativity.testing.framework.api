@@ -155,13 +155,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified Agent.
 		/// </summary>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>The updated <see href="https://probable-happiness-2926a3e8.pages.github.io/api/Relativity.Testing.Framework.Models.Agent.html">agent</see> entity.</returns>
 		/// <example>
 		/// <code>
-		/// var agentToUpdate = _agentService.Get(agentArtifactId);
+		/// Agent agentToUpdate = _agentService.Get(agentArtifactId);
 		/// agentToUpdate.Enabled = false;
-		/// _agentService.Update(agentToUpdate);
+		/// Agent updatedAgent = _agentService.Update(agentToUpdate);
 		/// </code>
 		/// </example>
-		void Update(Agent entity);
+		Agent Update(Agent entity);
 	}
 }

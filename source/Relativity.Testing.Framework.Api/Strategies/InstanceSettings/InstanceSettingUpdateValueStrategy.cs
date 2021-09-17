@@ -1,5 +1,4 @@
 ﻿using Relativity.Testing.Framework.Models;
-using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {

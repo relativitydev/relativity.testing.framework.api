@@ -15,6 +15,7 @@
     }
   ],
   "build": {
+    "cleanupCacheHistory": false,
     "content": [
       {
         "files": [
@@ -29,20 +30,19 @@
       }
     ],
     "dest": "_site",
-    "globalMetadataFiles": [],
+    "disableGitFeatures": false,
     "fileMetadataFiles": [],
+    "ForceRebuild": true,
+    "globalMetadataFiles": [],
+    "keepFileLink": false,
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "postProcessors": [],
     "template": [
       "default"
     ],
-    "postProcessors": [],
-    "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false,
-    "ForceRebuild": true,
     "xref": [
-      "https://probable-happiness-2926a3e8.pages.github.io/xrefmap.yml"
+      "https://relativitydev.github.io/relativity.testing.framework/xrefmap.yml"
     ]
   }
 }

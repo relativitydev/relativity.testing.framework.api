@@ -49,7 +49,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// Client client = _clientService.Get("Some Client Name");
 		/// client.Keywords = "SampleKeywords";
-		/// _clientService.Update(client);
+		/// Client updatedClient = _clientService.Update(client);
 		/// </code>
 		/// </example>
 		Client Update(Client entity);

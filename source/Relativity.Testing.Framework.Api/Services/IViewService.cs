@@ -166,7 +166,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// View viewToUpdate = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
 		/// viewToUpdate.Name = "Updated View Name";
 		/// viewToUpdate.Order = 345;
-		/// _viewService.Update(workspaceArtifactID, view);
+		/// View updatedView = _viewService.Update(workspaceArtifactID, view);
 		/// </code>
 		/// </example>
 		View Update(int workspaceArtifactID, View view);

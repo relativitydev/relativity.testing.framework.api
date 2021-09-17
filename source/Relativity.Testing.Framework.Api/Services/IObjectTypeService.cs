@@ -156,7 +156,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// objectTypeToUpdate.Name = "Updated Object Type Name";
 		/// objectTypeToUpdate.PivotEnabled = true;
 		/// objectTypeToUpdate.EnableSnapshotAuditingOnDelete = true;
-		/// _objectTypeService.Update(workspaceArtifactID, objectTypeToUpdate);
+		/// ObjectType updatedObjectType = _objectTypeService.Update(workspaceArtifactID, objectTypeToUpdate);
 		/// </code>
 		/// </example>
 		ObjectType Update(int workspaceId, ObjectType entity);

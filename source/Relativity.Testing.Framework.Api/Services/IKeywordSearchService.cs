@@ -115,7 +115,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// KeywordSearch keywordSearchToUpdate = _keywordSearchService.Get(workspaceArtifactID, keywordSearchName);
 		/// keywordSearchToUpdate.Name = "Updated Keyword Search Name";
 		/// keywordSearchToUpdate.Notes = "Keyword Search Notes";
-		/// _keywordSearchService.Update(workspaceArtifactID, keywordSearchToUpdate);
+		/// KeywordSearch updatedKeywordSearch = _keywordSearchService.Update(workspaceArtifactID, keywordSearchToUpdate);
 		/// </code>
 		/// </example>
 		KeywordSearch Update(int workspaceId, KeywordSearch entity);

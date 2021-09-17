@@ -96,7 +96,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	DocumentNumberingPrefix = Randomizer.GetString(),
 		/// 	Type = new NamedArtifact { Name = "Person", ArtifactID = someExistingTypeArtifactId }
 		/// };
-		/// _entityService.Update(workspaceId, entityToUpdate);
+		/// var updatedEntitiy = _entityService.Update(workspaceId, entityToUpdate);
 		/// </code>
 		/// </example>
 		Entity Update(int workspaceId, Entity entity);

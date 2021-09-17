@@ -153,7 +153,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	OpenToAssociations = true,
 		/// 	Name = "Updated Name"
 		/// };
-		/// _fieldService.Update(workspaceId, userFieldToUpdate);
+		/// var updatedUserField = _fieldService.Update(workspaceId, userFieldToUpdate);
 		/// </code>
 		/// </example>
 		TFieldModel Update<TFieldModel>(int workspaceId, TFieldModel entity)

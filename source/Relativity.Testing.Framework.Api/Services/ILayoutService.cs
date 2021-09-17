@@ -137,7 +137,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var existingLayoutId = 1;
 		/// Layout layoutToUpdate = _layoutService.Get(workspaceId, existingLayoutId);
 		/// layoutToUpdate.Name = "Some Updated Layout Name";
-		/// _layoutService.Update(workspaceId, layoutToUpdate);
+		/// Layout updatedLayout = _layoutService.Update(workspaceId, layoutToUpdate);
 		/// </code>
 		/// </example>
 		Layout Update(int workspaceId, Layout entity);

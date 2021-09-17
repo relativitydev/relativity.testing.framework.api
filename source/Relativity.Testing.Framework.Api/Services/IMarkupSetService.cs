@@ -147,7 +147,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// markupSetToUpdate.Name = "Updated Makup Set Name";
 		/// markupSetToUpdate.Order = 200;
 		/// markupSetToUpdate.RedactionText = "Updated Redaction Set";
-		/// _markupSetService.Update(workspaceArtifactID, markupSetToUpdate);
+		/// MarkupSet updatedMarkupSet = _markupSetService.Update(workspaceArtifactID, markupSetToUpdate);
 		/// </code>
 		/// </example>
 		MarkupSet Update(int workspaceId, MarkupSet entity);

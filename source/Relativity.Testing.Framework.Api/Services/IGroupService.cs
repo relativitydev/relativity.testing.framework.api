@@ -133,7 +133,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	Name = "Some Existing Group Name",
 		/// 	Keywords = "Test Edited Keywords"
 		/// }
-		///  _groupService.Update(entity);
+		/// var updatedGroup = _groupService.Update(entity);
 		/// </code>
 		/// </example>
 		Group Update(Group entity);

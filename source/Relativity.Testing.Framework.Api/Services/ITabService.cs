@@ -126,7 +126,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// tab.Name = "AnotherName"
 		///
-		/// _tabService.Update(workspaceArtifactID, tab);
+		/// tab = _tabService.Update(workspaceArtifactID, tab);
 		/// </code>
 		/// </example>
 		Tab Update(int workspaceId, Tab entity);

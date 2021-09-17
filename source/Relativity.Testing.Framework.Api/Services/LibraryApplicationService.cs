@@ -44,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public LibraryApplication Get(string name)
 			=> _getByNameStrategy.Get(name);
 
-		public void DeleteFromLibrary(int id)
-			=> _deleteByIdStrategy.Delete(id);
+		public void DeleteFromLibrary(int applicationId)
+			=> _deleteByIdStrategy.Delete(applicationId);
 	}
 }

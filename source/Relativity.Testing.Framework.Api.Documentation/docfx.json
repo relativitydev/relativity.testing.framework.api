@@ -40,6 +40,9 @@
     "keepFileLink": false,
     "cleanupCacheHistory": false,
     "disableGitFeatures": false,
-    "ForceRebuild":  true
+    "ForceRebuild": true,
+    "xref": [
+      "https://probable-happiness-2926a3e8.pages.github.io/xrefmap.yml"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
@@ -19,13 +20,16 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IUpdateStrategy<Client> _updateStrategy;
 
+		private readonly IClientGetEligibleStatusesStrategy _getEligibleStatusesStrategy;
+
 		public ClientService(
 			ICreateStrategy<Client> createStrategy,
 			IRequireStrategy<Client> requireStrategy,
 			IDeleteByIdStrategy<Client> deleteByIdStrategy,
 			IGetByIdStrategy<Client> getByIdStrategy,
 			IGetByNameStrategy<Client> getByNameStrategy,
-			IUpdateStrategy<Client> updateStrategy)
+			IUpdateStrategy<Client> updateStrategy,
+			IClientGetEligibleStatusesStrategy getEligibleStatusesStrategy)
 		{
 			_createStrategy = createStrategy;
 			_requireStrategy = requireStrategy;
@@ -33,6 +37,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_getByIdStrategy = getByIdStrategy;
 			_getByNameStrategy = getByNameStrategy;
 			_updateStrategy = updateStrategy;
+			_getEligibleStatusesStrategy = getEligibleStatusesStrategy;
 		}
 
 		public Client Create(Client entity)
@@ -63,6 +68,9 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Update(Client entity)
 			=> _updateStrategy.Update(entity);
+
+		public IEnumerable<NamedArtifact> GetEligibleStatuses()
+			=> _getEligibleStatusesStrategy.Get();
 
 		public void ValidateClientId(int id)
 		{

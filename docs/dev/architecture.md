@@ -34,7 +34,7 @@ As described in [IRelativityComponent](https://github.com/relativitydev/relativi
 
 Additionally, this component will ensure that the SUT is active by pinging the "Relativity.Services.Environmental.IEnvironmentModule/Ping Service/Ping" endpoint.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ApiComponent.cs), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.ApiComponent.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ApiComponent.cs), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.ApiComponent.html)
 
 ### Making API Requests
 
@@ -43,13 +43,13 @@ Additionally, this component will ensure that the SUT is active by pinging the "
 The HttpService is responsible for interacting with the HTTP APIs in Relativity.
 It is a wrapper around the C# HttpClient, with built in serialization, deserialization, and response checking.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/HttpService.cs), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.Services.HttpService.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/HttpService.cs), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.Services.HttpService.html)
 
 ##### RestService
 
 The RestService is a further abstraction built on top of the HttpService, built specifically to work with the Relativity.Rest endpoints.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/RestService.cs), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.Services.RestService.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/RestService.cs), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.Services.RestService.html)
 
 #### Services
 
@@ -59,14 +59,14 @@ Services can also be thought of as a collection of strategies for a specific obj
 
 Since this is the public entry point to using the strategies, this is where the end user documentation should be focused.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Services), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.Services.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Services), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.Services.html)
 
 #### Strategies
 
 Relativity.Testing.Framework.Api defines the actions that can be called into as strategies.
 This mostly translates as individual requests to the API endpoints (e.g. [Getting a client](https://platform.relativity.com/RelativityOne/Content/BD_Identity/Client_Manager_service.htm#_Retrieve_a_client)), but can also be more complex actions, like requiring an object (i.e. check to see if it exists, create it if it doesn't or if it does, run an update on it to make sure that it has the correct configuration).
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Strategies), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.Strategies.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Strategies), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.Strategies.html)
 
 #### Object Manager
 
@@ -77,16 +77,16 @@ These use a builder pattern instead of normal strategies, but otherwise function
 
 This is the service that interacts with the Object Manager APIs.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/ObjectManagement), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.ObjectManagement.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/ObjectManagement), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.ObjectManagement.html)
 
 ##### Querying
 
 This code defines the objects used during the queries to Object Manager.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Querying), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.Querying.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Querying), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.Querying.html)
 
 #### Kepler
 
 The KeplerServiceFactory is used to create a service proxy and communicate with the Kepler services for passed in interfaces.
 
-[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Kepler), [docs](https://glowing-spork-1e23a31b.pages.github.io/api/Relativity.Testing.Framework.Api.Kepler.IKeplerServiceFactory.html)
+[source](https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api/Kepler), [docs](https://relativitydev.github.io/relativity.testing.framework.api/api/Relativity.Testing.Framework.Api.Kepler.IKeplerServiceFactory.html)

@@ -1,14 +1,18 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.DTO;
+using Relativity.Testing.Framework.Api.Services;
+using Relativity.Testing.Framework.Api.Strategies.Layouts.DTO;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ViewCreateStrategy : CreateWorkspaceEntityStrategy<View>
+	[VersionRange(">=12.1")]
+	internal class ViewCreateStrategyV1 : CreateWorkspaceEntityStrategy<View>
 	{
 		private readonly IRestService _restService;
 		private readonly IGetWorkspaceEntityByIdStrategy<View> _getWorkspaceEntityByIdStrategy;
 
-		public ViewCreateStrategy(
+		public ViewCreateStrategyV1(
 			IRestService restService,
 			IGetWorkspaceEntityByIdStrategy<View> getWorkspaceEntityByIdStrategy)
 		{
@@ -22,11 +26,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var dto = new
 			{
-				workspaceArtifactID = workspaceId,
-				viewDTO = entity
+				viewRequest = entity.MapToDTO()
 			};
 
-			var artifactId = _restService.Post<int>("Relativity.Services.View.IViewModule/View%20Manager/CreateSingleAsync", dto);
+			var artifactId = _restService.Post<int>($"relativity-data-visualization/V1/workspaces/{workspaceId}/views", dto);
 
 			return _getWorkspaceEntityByIdStrategy.Get(workspaceId, artifactId);
 		}

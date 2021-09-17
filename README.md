@@ -50,4 +50,4 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ## Documentation
 
-For more details check out our documentation that can be found [here](https://glowing-spork-1e23a31b.pages.github.io/)
+For more details check out our documentation that can be found [here](https://relativitydev.github.io/relativity.testing.framework.api/)

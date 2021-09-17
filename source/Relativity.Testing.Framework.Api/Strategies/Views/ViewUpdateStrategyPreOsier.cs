@@ -1,14 +1,16 @@
 ﻿using System;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ViewUpdateStrategy : IUpdateWorkspaceEntityStrategy<View>
+	[VersionRange("<12.1")]
+	internal class ViewUpdateStrategyPreOsier : IUpdateWorkspaceEntityStrategy<View>
 	{
 		private readonly IRestService _restService;
 
-		public ViewUpdateStrategy(IRestService restService)
+		public ViewUpdateStrategyPreOsier(IRestService restService)
 		{
 			_restService = restService;
 		}

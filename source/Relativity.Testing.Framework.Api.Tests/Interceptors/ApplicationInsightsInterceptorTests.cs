@@ -9,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.Tests
 	{
 		private TestApplicationInsightsInterceptor _unit;
 
-		private Mock<IRelativityFacade> _mockFacade; // Ignored.
+		private Mock<IRelativityFacade> _mockFacade;
 		private Mock<IApplicationInsightsTelemetryClient> _mockApplicationInsightsClient;
 
 		[SetUp]
@@ -26,24 +26,15 @@ namespace Relativity.Testing.Framework.Api.Tests
 		}
 
 		[Test]
-		public void Ensure_OldBehavior_MatchesNewBehavior([Values] DataCollection testCollectionState)
+		[Description("'All' should map to 'True'; everything else should map to 'false'. This avoids legacy consumers violating collection state.")]
+		public void EnsurePropertiesAreExpected_DataCollection_IsEnabled([Values] DataCollection testCollectionState)
 		{
+			bool expectedEnabled = false;
 			_unit.CollectionState = testCollectionState;
 
-			bool expectedEnabled = false;
-			switch (testCollectionState)
+			if (testCollectionState == DataCollection.All)
 			{
-				case DataCollection.All:
-					expectedEnabled = true;
-					break;
-				case DataCollection.UsageOnly:
-					expectedEnabled = false;
-					break;
-				case DataCollection.None:
-					expectedEnabled = false;
-					break;
-				default:
-					break;
+				expectedEnabled = true;
 			}
 
 #pragma warning disable CS0618 // Intentionally testing old behavior for backwards compatibility.

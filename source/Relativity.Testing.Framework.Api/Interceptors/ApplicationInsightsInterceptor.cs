@@ -50,17 +50,14 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		{
 			get
 			{
-				_enabled = false;
-				if (CollectionState == DataCollection.All)
-				{
-					_enabled = true;
-				}
-
-				return _enabled;
+				return CollectionState == DataCollection.All;
 			}
 
 			set
 			{
+				// Only here to maintain backwards compilability.
+				// Anything setting this value (other than us) shouldn't have been.
+				// Should this just be gutted now then? Clients control it with 'EnableApplicationInsights'
 				_enabled = value;
 			}
 		}

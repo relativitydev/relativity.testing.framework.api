@@ -6,10 +6,9 @@
 	public enum DataCollection
 	{
 		/// <summary>
-		/// All available data is collected, including
-		/// potentially sensitive data (e.g. stack traces).
+		/// No data is collected by the framework.
 		/// </summary>
-		All,
+		None,
 
 		/// <summary>
 		/// Only non-identifying information is collected.
@@ -18,8 +17,9 @@
 		UsageOnly,
 
 		/// <summary>
-		/// No data is collected by the framework.
+		/// All available data is collected, including
+		/// potentially sensitive data (e.g. stack traces).
 		/// </summary>
-		None
+		All
 	}
 }

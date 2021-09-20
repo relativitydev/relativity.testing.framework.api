@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Api.Tests.Utilities;
 namespace Relativity.Testing.Framework.Api.Tests
 {
 	[TestFixture]
-	public class ApplicationInsightsInterceptorTests
+	public class ApplicationInsightsInterceptorFixture
 	{
 		private TestApplicationInsightsInterceptor _unit;
 

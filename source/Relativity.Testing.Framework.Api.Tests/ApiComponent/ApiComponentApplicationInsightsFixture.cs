@@ -9,7 +9,7 @@ using Relativity.Testing.Framework.Configuration;
 namespace Relativity.Testing.Framework.Api.Tests
 {
 	[TestFixture]
-	public class ApiComponentApplicationInsightsTests
+	public class ApiComponentApplicationInsightsFixture
 	{
 		private const string _CONFIGURATION_KEY = "EnableApplicationInsights";
 

@@ -22,10 +22,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Utilities
 		/// <param name="invocation">An ignored invocation instance.</param>
 		public override void Intercept(IInvocation invocation)
 		{
-			// There may be cases in the future where we want to exercise other methods.
-			// E.g. which properties come back from BuildInvocationProperties?
-			// This method could then be used to provide indirect access for
-			// mocking IInvocation (without touching/relying on a prod interceptor)
+			BuildInvocationProperties(invocation);
 		}
 	}
 }

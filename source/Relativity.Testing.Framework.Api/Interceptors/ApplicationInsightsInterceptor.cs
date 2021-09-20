@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 			_relativityFacade = relativityFacade;
 
-			TelemetryClient = _relativityFacade.Resolve<IApplicationInsightsTelemetryClient>().Instance;
+			TelemetryClient = _relativityFacade.Resolve<IApplicationInsightsTelemetryClient>();
 
 			_rtfVersion = Assembly.GetAssembly(typeof(ApplicationInsightsInterceptor)).GetName().Version.ToString();
 
@@ -36,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			_ringSetupVersion = (executingAssembly != null) ? GetRingSetupVersionReferencedInAssembly(executingAssembly) : null;
 		}
 
-		protected TelemetryClient TelemetryClient { get; set; }
+		protected IApplicationInsightsTelemetryClient TelemetryClient { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether or not DataCollection.All is configured for this interceptor.

@@ -7,7 +7,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
 ## Table of Contents
 
 - [Relativity.Testing.Framework.Api](#relativitytestingframeworkapi)
-  - [Official Support](#official-support)
+  - [Supported Relativity Versions](#supported-relativity-versions)
   - [Documentation](#documentation)
   - [Where to get help](#where-to-get-help)
   - [Build Tasks](#build-tasks)
@@ -19,7 +19,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
   - [Contributing](#contributing)
   - [Reporting Issues](#reporting-issues)
 
-## Official Support
+## Supported Relativity Versions
 
 - Official support is only provided for the following versions.
   - RelativityOne current and preview versions

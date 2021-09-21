@@ -15,6 +15,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 		private ApplicationInsightsEventInterceptor _unit;
 
 		private Mock<IInvocation> _mockInvocation;
+		private Mock<IRelativityFacade> _mockFacade;
 		private Mock<IApplicationInsightsTelemetryClient> _mockTelemetryClient;
 
 		private static readonly IEnumerable<TestCaseData> _dataCollectionStateToExpectedProperties =
@@ -52,10 +53,21 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 		[SetUp]
 		public void SetUp()
 		{
+			Type testType = GetType();
+			MethodInfo testMethod = testType.GetMethod("SetUp");
+
 			_mockInvocation = new Mock<IInvocation>();
+			_mockFacade = new Mock<IRelativityFacade>();
 			_mockTelemetryClient = new Mock<IApplicationInsightsTelemetryClient>();
 
-			_unit = new ApplicationInsightsEventInterceptor(new Mock<IRelativityFacade>().Object);
+			_mockInvocation.Setup(x => x.TargetType).Returns(testType);
+			_mockInvocation.Setup(x => x.Method).Returns(testMethod);
+
+			_mockFacade
+				.Setup(x => x.Resolve<IApplicationInsightsTelemetryClient>())
+				.Returns(_mockTelemetryClient.Object);
+
+			_unit = new ApplicationInsightsEventInterceptor(_mockFacade.Object);
 		}
 
 		[TestCaseSource(nameof(_dataCollectionStateToExpectedProperties))]
@@ -66,26 +78,29 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 
 			_unit.Intercept(_mockInvocation.Object);
 
-			_mockTelemetryClient.Verify(x => x.TrackMetric(
-				It.IsAny<string>(),
-				It.IsAny<double>(),
-				It.Is<Dictionary<string, string>>(
-					actualProps => OnlyExpected(expectedPropertyKeys, actualProps))));
+			_mockTelemetryClient.Verify(
+				x => x.TrackEvent(
+					It.IsAny<string>(),
+					It.Is<Dictionary<string, string>>(
+						actualProps => OnlyExpected(expectedPropertyKeys, actualProps)),
+					It.IsAny<Dictionary<string, double>>()),
+				Times.Once,
+				"There was a mismatch between expected invocation properties and actual.");
 		}
 
 		[Test]
-		public void Ensure_NoProperties_WhenDataCollectionIsNone()
+		public void Ensure_NoPropertiesTracked_WhenDataCollectionIsNone()
 		{
 			_unit.CollectionState = DataCollection.None;
 
 			_unit.Intercept(_mockInvocation.Object);
 
 			_mockTelemetryClient.Verify(
-				x => x.TrackMetric(
+				x => x.TrackEvent(
 					It.IsAny<string>(),
-					It.IsAny<double>(),
-					It.Is<Dictionary<string, string>>(
-						props => !props.Any())), Times.Once);
+					It.IsAny<Dictionary<string, string>>(),
+					It.IsAny<Dictionary<string, double>>()),
+				Times.Never);
 		}
 
 		[Test]
@@ -109,8 +124,9 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 			Exception dynamite = new Exception();
 			_unit.CollectionState = DataCollection.All;
 			_mockInvocation.Setup(x => x.Proceed()).Throws(dynamite);
+			_mockInvocation.Setup(x => x.TargetType).Returns(GetType());
 
-			_unit.Intercept(_mockInvocation.Object);
+			Assert.Throws<Exception>(() => _unit.Intercept(_mockInvocation.Object));
 
 			_mockTelemetryClient.Verify(
 				x => x.TrackException(
@@ -128,12 +144,10 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 			_mockInvocation.Setup(x => x.Proceed()).Throws(dynamite);
 			_mockInvocation.Setup(x => x.TargetType).Throws(dynamite);
 
-			_unit.Intercept(_mockInvocation.Object);
+			Assert.Throws<Exception>(() => _unit.Intercept(_mockInvocation.Object));
 
 			_mockTelemetryClient.Verify(
-				x => x.TrackException(
-					dynamite,
-					It.IsAny<Dictionary<string, string>>()),
+				x => x.TrackException(dynamite),
 				Times.Once);
 		}
 

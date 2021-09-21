@@ -71,17 +71,40 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 		protected Dictionary<string, string> BuildInvocationProperties(IInvocation invocation)
 		{
-			var properties = new Dictionary<string, string>
+			var properties = new Dictionary<string, string>();
+
+			switch (CollectionState)
 			{
-				{ "RelativityVersion", _relativityFacade.RelativityInstanceVersion },
-				{ "Class", invocation.TargetType.Name },
-				{ "Method", invocation.Method.Name },
-				{ "Parameters", string.Join(" && ", invocation.Arguments.Where(x => x != null)) },
-				{ "RelativityTestingFrameworkVersion", _rtfVersion },
-				{ "TestAssemblyName", _testAssemblyName },
-				{ "RingSetupVersion", _ringSetupVersion },
-				{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
-			};
+				case DataCollection.None:
+					break;
+				case DataCollection.UsageOnly:
+					properties = new Dictionary<string, string>
+					{
+						{ "RelativityVersion", _relativityFacade.RelativityInstanceVersion },
+						{ "Class", invocation.TargetType.Name },
+						{ "Method", invocation.Method.Name },
+						{ "RelativityTestingFrameworkVersion", _rtfVersion },
+						{ "RingSetupVersion", _ringSetupVersion },
+						{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
+					};
+					break;
+				case DataCollection.All:
+					properties = new Dictionary<string, string>
+					{
+						{ "RelativityVersion", _relativityFacade.RelativityInstanceVersion },
+						{ "Class", invocation.TargetType.Name },
+						{ "Method", invocation.Method.Name },
+						{ "Parameters", string.Join(" && ", invocation.Arguments.Where(x => x != null)) },
+						{ "RelativityTestingFrameworkVersion", _rtfVersion },
+						{ "TestAssemblyName", _testAssemblyName },
+						{ "RingSetupVersion", _ringSetupVersion },
+						{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
+					};
+					break;
+				default:
+					break;
+			}
+
 			return properties;
 		}
 

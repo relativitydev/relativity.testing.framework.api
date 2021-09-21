@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Castle.DynamicProxy;
 using Moq;
 using NUnit.Framework;
@@ -12,6 +14,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 	{
 		private ApplicationInsightsMetricInterceptor _unit;
 
+		private Mock<IInvocation> _mockInvocation;
+		private Mock<IRelativityFacade> _mockFacade;
 		private Mock<IApplicationInsightsTelemetryClient> _mockTelemetryClient;
 
 		private static readonly IEnumerable<TestCaseData> _dataCollectionStateToExpectedProperties =
@@ -48,9 +52,21 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 		[SetUp]
 		public void SetUp()
 		{
+			Type testType = GetType();
+			MethodInfo testMethod = testType.GetMethod("SetUp");
+
+			_mockInvocation = new Mock<IInvocation>();
+			_mockFacade = new Mock<IRelativityFacade>();
 			_mockTelemetryClient = new Mock<IApplicationInsightsTelemetryClient>();
 
-			_unit = new ApplicationInsightsMetricInterceptor(new Mock<IRelativityFacade>().Object);
+			_mockInvocation.Setup(x => x.TargetType).Returns(testType);
+			_mockInvocation.Setup(x => x.Method).Returns(testMethod);
+
+			_mockFacade
+				.Setup(x => x.Resolve<IApplicationInsightsTelemetryClient>())
+				.Returns(_mockTelemetryClient.Object);
+
+			_unit = new ApplicationInsightsMetricInterceptor(_mockFacade.Object);
 		}
 
 		[TestCaseSource(nameof(_dataCollectionStateToExpectedProperties))]
@@ -59,7 +75,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 		{
 			_unit.CollectionState = testCollectionState;
 
-			_unit.Intercept(new Mock<IInvocation>().Object);
+			_unit.Intercept(_mockInvocation.Object);
 
 			_mockTelemetryClient.Verify(x => x.TrackMetric(
 				It.IsAny<string>(),
@@ -73,14 +89,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Interceptors
 		{
 			_unit.CollectionState = DataCollection.None;
 
-			_unit.Intercept(new Mock<IInvocation>().Object);
+			_unit.Intercept(_mockInvocation.Object);
 
 			_mockTelemetryClient.Verify(
 				x => x.TrackMetric(
 					It.IsAny<string>(),
 					It.IsAny<double>(),
-					It.Is<Dictionary<string, string>>(
-						props => !props.Any())), Times.Once);
+					It.IsAny<Dictionary<string, string>>()),
+				Times.Never);
 		}
 
 		private bool OnlyExpected(IEnumerable<string> expectedKeys, Dictionary<string, string> actualProps)

@@ -1,6 +1,37 @@
 # Relativity.Testing.Framework.Api
 
+:+1::tada: Welcome to Relativity.Testing.Framework.Api! :tada::+1:
+
 This repository contains a C#/NuGet library that abstracts out API functionality for Relativity test setup and teardown.
+
+## Table of Contents
+
+- [Relativity.Testing.Framework.Api](#relativitytestingframeworkapi)
+  - [Official Support](#official-support)
+  - [Documentation](#documentation)
+  - [Where to get help](#where-to-get-help)
+  - [Build Tasks](#build-tasks)
+  - [Local Testing](#local-testing)
+    - [Unit Testing](#unit-testing)
+    - [Functional Testing](#functional-testing)
+      - [Creating Runsettings](#creating-runsettings)
+      - [Running Functional Tests](#running-funtional-tests)
+  - [Contributing](#contributing)
+  - [Reporting Issues](#reporting-issues)
+
+## Official Support
+
+- Official support is only provided for the following versions.
+  - RelativityOne current and preview versions
+  - Relativity Server 2022 (12.1) and later
+
+## Documentation
+
+For more details and common usage patterns check out [our documentation](https://relativitydev.github.io/relativity.testing.framework.api/).
+
+## Where to get help
+
+- For general help and questions, please start a [Discussion](https://github.com/relativitydev/relativity.testing.framework/discussions).
 
 ## Build Tasks
 
@@ -48,6 +79,14 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ```
 
-## Documentation
+## Contributing
 
-For more details check out our documentation that can be found [here](https://relativitydev.github.io/relativity.testing.framework.api/)
+See [CONTRIBUTING.md](https://github.com/relativitydev/relativity.testing.framework/blob/master/CONTRIBUTING.md).
+
+## Reporting Issues
+
+For feature enhancements or bug reports, please create an [Issue](https://github.com/relativitydev/relativity.testing.framework/issues) using the respective template. Before reporting an issue, please follow these guidelines. It helps us in understanding the request and provide a quicker response time.
+
+- Determine if it's a bug report or a feature enhancement.
+- Perform a quick search in the [issue tracker](https://github.com/relativitydev/relativity.testing.framework/issues) to see if the issue has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
+- If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.

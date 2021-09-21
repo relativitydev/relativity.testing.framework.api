@@ -31,7 +31,7 @@ For more details and common usage patterns check out [our documentation](https:/
 
 ## Where to get help
 
-- For general help and questions, please start a [Discussion](https://github.com/relativitydev/relativity.testing.framework/discussions).
+- For general help and questions, please start a [Discussion](https://github.com/relativitydev/relativity.testing.framework.api/discussions).
 
 ## Build Tasks
 
@@ -81,12 +81,12 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/relativitydev/relativity.testing.framework/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/CONTRIBUTING.md).
 
 ## Reporting Issues
 
-For feature enhancements or bug reports, please create an [Issue](https://github.com/relativitydev/relativity.testing.framework/issues) using the respective template. Before reporting an issue, please follow these guidelines. It helps us in understanding the request and provide a quicker response time.
+For feature enhancements or bug reports, please create an [Issue](https://github.com/relativitydev/relativity.testing.framework.api/issues) using the respective template. Before reporting an issue, please follow these guidelines. It helps us in understanding the request and provide a quicker response time.
 
 - Determine if it's a bug report or a feature enhancement.
-- Perform a quick search in the [issue tracker](https://github.com/relativitydev/relativity.testing.framework/issues) to see if the issue has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
+- Perform a quick search in the [issue tracker](https://github.com/relativitydev/relativity.testing.framework.api/issues) to see if the issue has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
 - If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.

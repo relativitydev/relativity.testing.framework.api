@@ -5,6 +5,11 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// <summary>
 	/// Represents the Library application API service.
 	/// </summary>
+	/// <example>
+	/// <code>
+	/// _libraryApplicationService = RelativityFacade.Resolve&lt;ILibraryApplicationService&gt;();
+	/// </code>
+	/// </example>
 	public interface ILibraryApplicationService
 	{
 		/// <summary>
@@ -36,5 +41,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="name">The name.</param>
 		/// <returns>The <see cref="LibraryApplication"/> entity or <see langword="null"/>.</returns>
 		LibraryApplication Get(string name);
+
+		/// <summary>
+		/// Delete the application from the library.
+		/// </summary>
+		/// <param name="applicationId">The ArtifactID of the application to delete from the library.</param>
+		/// <example>
+		/// <code>
+		/// int applicationID = 1015427;
+		/// _libraryApplicationService.DeleteFromLibrary(applicationID);
+		/// </code>
+		/// </example>
+		void DeleteFromLibrary(int applicationId);
 	}
 }

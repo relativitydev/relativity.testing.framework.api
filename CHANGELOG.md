@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [5.2.0] - 2021-09-16
+## [5.4.0] - 2021-09-21
 
 ### Added
 
@@ -14,6 +14,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - The 'EnableApplicationInsights' configuration key now respects (case-insensitive) the values "All" (same as "True"), "UsageOnly" (new), and "None" (same as "False").
+
+## [5.3.0] - 2021-09-17
+
+### Added
+
+- Support for LibraryApplication Service Delete V1 API
+
+## [5.2.0] - 2021-09-17
+
+### Added
+
+- GetEligibleStatuses method for IClientService. 
 
 ## [5.1.0] - 2021-09-15
 

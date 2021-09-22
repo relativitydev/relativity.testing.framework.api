@@ -101,8 +101,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 1234567;
 		/// int scriptID  = 1987156;
+		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// string sqlStatment = _scriptService.Preview(workspaceID, scriptID);
+		/// scriptInputs.Add(new ScriptInputClass()
+		/// {
+		/// 	ID = "workspaceArtifactId",
+		/// 	Value = workspaceID
+		/// });
+		///
+		/// string sqlStatment = _scriptService.Preview(workspaceID, scriptID, scriptInputs);
 		/// </code>
 		/// </example>
 		string Preview(int workspaceId, int scriptId, List<ScriptInput> inputs = null, double timeZoneOffset = 0);
@@ -119,8 +126,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 1234567;
 		/// int scriptID  = 1987156;
+		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// EnqueueRunJobResponse response = _scriptService.EnqueueRunJob(workspaceID, scriptID);
+		/// scriptInputs.Add(new ScriptInputClass()
+		/// {
+		/// 	ID = "workspaceArtifactId",
+		/// 	Value = workspaceID
+		/// });
+		///
+		/// EnqueueRunJobResponse response = _scriptService.EnqueueRunJob(workspaceID, scriptID, scriptInputs);
 		/// </code>
 		/// </example>
 		EnqueueRunJobResponse EnqueueRunJob(int workspaceId, int scriptId, List<ScriptInput> inputs = null, double timeZoneOffset = 0);
@@ -164,7 +178,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var getAction = enqueueRunJobResponse.Actions.Find(x => x.Verb == "GET");
 		/// var actionIndex = enqueueRunJobResponse.Actions.IndexOf(getAction);
 		///
-		/// ActionResultsQueryResponse queryResponce = _scriptService.QueryActionJobResults(workspaceID, enqueueRunJobResponse.RunJobID, actionIndex, actionQueryRequest);
+		/// var queryRequest = new ActionQueryRequest()
+		/// {
+		/// 	Condition = "'IsAlive' == false",
+		/// 	ColumnNames = new List&lt;string&gt;() { "*" },
+		/// 	Sorts = new List&lt;ActionColumnSort&gt;(),
+		/// }
+		///
+		/// ActionResultsQueryResponse queryResponce = _scriptService.QueryActionJobResults(workspaceID, enqueueRunJobResponse.RunJobID, actionIndex, queryRequest);
 		/// </code>
 		/// </example>
 		ActionResultsQueryResponse QueryActionJobResults(int workspaceId, Guid runJobId, int actionIndex, ActionQueryRequest actionQueryRequest = null, int start = 0, int length = 100);
@@ -180,8 +201,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 1234567;
 		/// int scriptID  = 1987156;
+		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// int result = _scriptService.RunStatusAction(workspaceID, scriptID);
+		/// scriptInputs.Add(new ScriptInputClass()
+		/// {
+		/// 	ID = "workspaceArtifactId",
+		/// 	Value = workspaceID
+		/// });
+		///
+		/// int result = _scriptService.RunStatusAction(workspaceID, scriptID, scriptInputs);
 		/// </code>
 		/// </example>
 		int RunStatusAction(int workspaceId, int scriptId, List<ScriptInput> inputs = null);
@@ -198,8 +226,22 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 1234567;
 		/// int scriptID  = 1987156;
+		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// DataTable result = _scriptService.RunTableAction(workspaceID, scriptID);
+		/// scriptInputs.Add(new ScriptInputClass()
+		/// {
+		/// 	ID = "workspaceArtifactId",
+		/// 	Value = workspaceID
+		/// });
+		///
+		/// var queryRequest = new ActionQueryRequest()
+		/// {
+		/// 	Condition = "'IsAlive' == false",
+		/// 	ColumnNames = new List&lt;string&gt;() { "*" },
+		/// 	Sorts = new List&lt;ActionColumnSort&gt;(),
+		/// }
+		///
+		/// DataTable result = _scriptService.RunTableAction(workspaceID, scriptID, scriptInputs, queryRequest);
 		/// </code>
 		/// </example>
 		DataTable RunTableAction(int workspaceId, int scriptId, List<ScriptInput> inputs = null, ActionQueryRequest actionQueryRequest = null);

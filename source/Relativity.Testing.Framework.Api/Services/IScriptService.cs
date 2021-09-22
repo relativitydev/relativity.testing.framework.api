@@ -103,7 +103,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int scriptID  = 1987156;
 		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// scriptInputs.Add(new ScriptInputClass()
+		/// scriptInputs.Add(new ScriptInput()
 		/// {
 		/// 	ID = "workspaceArtifactId",
 		/// 	Value = workspaceID
@@ -128,7 +128,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int scriptID  = 1987156;
 		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// scriptInputs.Add(new ScriptInputClass()
+		/// scriptInputs.Add(new ScriptInput()
 		/// {
 		/// 	ID = "workspaceArtifactId",
 		/// 	Value = workspaceID
@@ -203,7 +203,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int scriptID  = 1987156;
 		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// scriptInputs.Add(new ScriptInputClass()
+		/// scriptInputs.Add(new ScriptInput()
 		/// {
 		/// 	ID = "workspaceArtifactId",
 		/// 	Value = workspaceID
@@ -228,7 +228,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int scriptID  = 1987156;
 		/// var scriptInputs = new List&lt;ScriptInput&gt;();
 		///
-		/// scriptInputs.Add(new ScriptInputClass()
+		/// scriptInputs.Add(new ScriptInput()
 		/// {
 		/// 	ID = "workspaceArtifactId",
 		/// 	Value = workspaceID

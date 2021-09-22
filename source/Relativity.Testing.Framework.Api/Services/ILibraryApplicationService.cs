@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Services
 	/// </summary>
 	/// <example>
 	/// <code>
-	/// _libraryApplicationService = RelativityFacade.Resolve&lt;ILibraryApplicationService&gt;();
+	/// ILibraryApplicationService _libraryApplicationService = RelativityFacade.Resolve&lt;ILibraryApplicationService&gt;();
 	/// </code>
 	/// </example>
 	public interface ILibraryApplicationService
@@ -18,6 +18,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="pathToRap">Path to the RAP file.</param>
 		/// <param name="options">Represents a request for creating or updating a Library Application.</param>
 		/// <returns>Artifact ID of installed application.</returns>
+		/// <example>
+		/// <code>
+		/// string pathToRap = "path/to/cutting/edge/app.rap";
+		/// var options = new LibraryApplicationInstallOptions { IgnoreVersion = true };
+		/// int applicationID = _libraryApplicationService.InstallToLibrary(pathToRap, options);
+		/// </code>
+		/// </example>
 		int InstallToLibrary(string pathToRap, LibraryApplicationInstallOptions options = null);
 
 		/// <summary>
@@ -25,6 +32,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">>Workspace ID to install the application to.</param>
 		/// <param name="applicationId">Application ID to install.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceID = 123456;
+		/// int applicationID = 1015427;
+		/// _libraryApplicationService.InstallToWorkspace(workspaceID, applicationID);
+		/// </code>
+		/// </example>
 		void InstallToWorkspace(int workspaceId, int applicationId);
 
 		/// <summary>
@@ -33,6 +47,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">Workspace ID to check.</param>
 		/// <param name="applicationId">Application ID to check.</param>
 		/// <returns><see langword="true"/> if an application is installed in workspace; otherwise, <see langword="false"/>.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceID = 123456;
+		/// string applicationName = "CuttingEdgeAppName";
+		/// bool isInstalled = _libraryApplicationService.IsInstalledInWorkspace(workspaceID, applicationName);
+		/// </code>
+		/// </example>
 		bool IsInstalledInWorkspace(int workspaceId, int applicationId);
 
 		/// <summary>
@@ -40,6 +61,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="name">The name.</param>
 		/// <returns>The <see cref="LibraryApplication"/> entity or <see langword="null"/>.</returns>
+		/// <example>
+		/// <code>
+		/// string applicationName = "CuttingEdgeAppName";
+		/// LibraryApplication application = _libraryApplicationService.Get(applicationName);
+		/// </code>
+		/// </example>
 		LibraryApplication Get(string name);
 
 		/// <summary>

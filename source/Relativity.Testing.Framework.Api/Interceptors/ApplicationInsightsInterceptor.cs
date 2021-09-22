@@ -57,31 +57,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			{
 				// Only here to maintain backwards compilability.
 				// Anything setting this value (other than us) shouldn't have been.
-				// Should this just be gutted now then? Clients control it with 'EnableApplicationInsights'
-				_enabled = value;
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets a value indicating whether or not DataCollection.All is configured for this interceptor.
-		/// </summary>
-		/// <remarks>
-		/// This will return 'false' when CollectionState is 'UsageOnly', this is to avoid
-		/// any external client violating that state (by incorrectly treating configuration as 'All').
-		/// </remarks>
-		[Obsolete("This property exists to maintain any backwards compatibility; update to use CollectionState.")]
-		public bool IsEnabled
-		{
-			get
-			{
-				return CollectionState == DataCollection.All;
-			}
-
-			set
-			{
-				// Only here to maintain backwards compilability.
-				// Anything setting this value (other than us) shouldn't have been.
-				// Should this just be gutted now then? Clients control it with 'EnableApplicationInsights'
+				// Can this just be gutted? Clients control it with 'EnableApplicationInsights'
 				_enabled = value;
 			}
 		}
@@ -89,7 +65,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		/// <summary>
 		/// Gets or sets a value indicating what type of data is being collected.
 		/// </summary>
-		public DataCollection CollectionState { get; set; } = DataCollection.UsageOnly;
+		public DataCollection CollectionState { get; set; } = DataCollection.All;
 
 		public abstract void Intercept(IInvocation invocation);
 

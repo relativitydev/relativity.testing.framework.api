@@ -45,39 +45,6 @@ jobs:
     - name: Compile
       run: dotnet build "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo
 
-    - name: Test
-      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
-
-    - name: Upload UnitTest Logs
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: Logs
-        path: Artifacts/Logs/
-
-    - name: Package
-      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
-
-    - name: Upload NuGet Packages
-      uses: actions/upload-artifact@v2
-      with:
-        name: NuGetPackages
-        path: Artifacts/NuGet/
-
-    - name: Upload Tests
-      uses: actions/upload-artifact@v2
-      with:
-        name: Tests
-        path: source/Relativity.Testing.Framework.Api.FunctionalTests/bin/Debug/net462
-        retention-days: 1
-
-    - name: Upload DevelopmentScripts
-      uses: actions/upload-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-        retention-days: 1
-
   Publish:
     runs-on: windows-latest
     needs: [Build]

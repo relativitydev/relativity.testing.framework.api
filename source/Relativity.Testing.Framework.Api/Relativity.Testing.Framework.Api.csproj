@@ -8,6 +8,10 @@
     <Description>The API library for the Relativity.Testing.Framework contains services and strategies for making requests to Relativity.</Description>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <LogLevel>Warning</LogLevel>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\net462\Relativity.Testing.Framework.Api.xml</DocumentationFile>
   </PropertyGroup>

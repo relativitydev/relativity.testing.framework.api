@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <LogLevel>Warning</LogLevel>
+    <LogLevel>Verbose</LogLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

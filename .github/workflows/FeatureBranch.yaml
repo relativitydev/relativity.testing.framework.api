@@ -68,3 +68,4 @@ jobs:
         Invoke-WebRequest https://github.com/dotnet/docfx/releases/download/v2.58.4/docfx.zip -OutFile docfx.zip
         Expand-Archive -Path .\docfx.zip -DestinationPath DocFx
         DocFx/docfx.exe source/Relativity.Testing.Framework.Api.Documentation/docfx.json --loglevel Verbose
+        DocFx/docfx.exe source/Relativity.Testing.Framework.Api.Documentation/docfx.json --loglevel Verbose

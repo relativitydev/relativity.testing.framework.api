@@ -277,6 +277,9 @@ jobs:
       run: |
         Invoke-WebRequest https://github.com/dotnet/docfx/releases/download/v2.58.4/docfx.zip -OutFile docfx.zip
         Expand-Archive -Path .\docfx.zip -DestinationPath DocFx
+        
+        # DocFx needs to be called two times because of a caching issue with external crefs. 
+        DocFx/docfx.exe source/Relativity.Testing.Framework.Api.Documentation/docfx.json
         DocFx/docfx.exe source/Relativity.Testing.Framework.Api.Documentation/docfx.json
 
     - name: Publish

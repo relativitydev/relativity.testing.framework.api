@@ -41,8 +41,5 @@
     "template": [
       "default"
     ],
-    "xref": [
-      "https://relativitydev.github.io/relativity.testing.framework/xrefmap.yml"
-    ]
   }
 }

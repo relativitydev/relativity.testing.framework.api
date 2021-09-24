@@ -58,6 +58,11 @@ jobs:
       with:
         dotnet-version: 3.1.408
 
+    - name: Test HTTP Call
+      run: |
+        $output = Invoke-WebRequest https://relativitydev.github.io/relativity.testing.framework/xrefmap.yml
+        $output.content
+
     - name: Build Documentation
       run: |
         Invoke-WebRequest https://github.com/dotnet/docfx/releases/download/v2.58.4/docfx.zip -OutFile docfx.zip

@@ -15,9 +15,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Creates the specified production data source.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
-		/// <param name="productionId">The Artifact ID of production.</param>
-		/// <param name="entity">The data source entity to create.</param>
+		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
+		/// <param name="productionId">The Artifact ID of the <see cref="Production"/>.</param>
+		/// <param name="entity">The <see cref="ProductionDataSource"/> to create.</param>
 		/// <returns>The created data source entity.</returns>
 		/// <example>
 		/// <code>
@@ -45,8 +45,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Determines whether the production data source with the specified case artifact ID exists.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
-		/// <param name="entityId">The Artifact ID of the production data source.</param>
+		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
+		/// <param name="entityId">The Artifact ID of the <see cref="ProductionDataSource"/>.</param>
 		/// <returns><see langword="true"/> if a production data source exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
@@ -61,8 +61,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Delete the production data source by the specified artifact ID.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
-		/// <param name="entityId">The Artifact ID of the production data source.</param>
+		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
+		/// <param name="entityId">The Artifact ID of the <see cref="ProductionDataSource"/>.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;
@@ -76,8 +76,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets the production data source by the specified workspace ID and production set ID.
 		/// </summary>
-		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="entityId">The entity ID.</param>
+		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
+		/// <param name="entityId">The Artifact ID of the <see cref="ProductionDataSource"/>.</param>
 		/// <returns>The entity.</returns>
 		/// <example>
 		/// <code>
@@ -92,9 +92,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Updates the specified production data source.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the production data source.</param>
-		/// <param name="productionId">The Artifact ID of production.</param>
-		/// <param name="entity">The entity to update.</param>
+		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
+		/// <param name="productionId">The Artifact ID of the <see cref="Production"/>.</param>
+		/// <param name="entity">The <see cref="ProductionDataSource"/> to update.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;

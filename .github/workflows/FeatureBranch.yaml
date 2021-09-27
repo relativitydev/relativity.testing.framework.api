@@ -45,176 +45,23 @@ jobs:
     - name: Compile
       run: dotnet build "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo
 
-    - name: Test
-      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
-
-    - name: Upload UnitTest Logs
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: Logs
-        path: Artifacts/Logs/
-
-    - name: Package
-      run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build --include-symbols
-
-    - name: Upload NuGet Packages
-      uses: actions/upload-artifact@v2
-      with:
-        name: NuGetPackages
-        path: Artifacts/NuGet/
-
-    - name: Upload Tests
-      uses: actions/upload-artifact@v2
-      with:
-        name: Tests
-        path: source/Relativity.Testing.Framework.Api.FunctionalTests/bin/Debug/net462
-        retention-days: 1
-
-    - name: Upload DevelopmentScripts
-      uses: actions/upload-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-        retention-days: 1
-
-  FunctionalTestSundrop:
+  Publish:
     runs-on: windows-latest
-    needs: Build
+    needs: [Build]
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.408
-
-    - name: Download DevelopmentScripts
-      uses: actions/download-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-
-    - name: Download Tests
-      uses: actions/download-artifact@v2
-      with:
-        name: Tests
-        path: Tests
-
-    - name: Functional Test Sundrop
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      working-directory: DevelopmentScripts
+        
+    - name: Build Documentation
       run: |
-        .\Invoke-FunctionalTest.ps1 `
-          -ClientID ${{ env.ClientId }} `
-          -ClientSecret ${{ env.CLIENTSECRET }} `
-          -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
-          -HopperAPIURL ${{ env.HOPPER_API_URL }} `
-          -HopperUsername ${{ env.HOPPER_USER }} `
-          -BuildOwner ${{ github.actor }} `
-          -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-sundrop-ea
+        Invoke-WebRequest https://github.com/dotnet/docfx/releases/download/v2.58.4/docfx.zip -OutFile docfx.zip
+        Expand-Archive -Path .\docfx.zip -DestinationPath Do  cFx
 
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: SundropLogs
-        path: Artifacts/Logs/
-
-  FunctionalTestPrairieSmoke:
-    runs-on: windows-latest
-    needs: Build
-
-    steps:
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.408
-
-    - name: Download DevelopmentScripts
-      uses: actions/download-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-
-    - name: Download Tests
-      uses: actions/download-artifact@v2
-      with:
-        name: Tests
-        path: Tests
-
-    - name: Functional Test PrairieSmoke
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      working-directory: DevelopmentScripts
-      run: |
-        .\Invoke-FunctionalTest.ps1 `
-          -ClientID ${{ env.ClientId }} `
-          -ClientSecret ${{ env.CLIENTSECRET }} `
-          -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
-          -HopperAPIURL ${{ env.HOPPER_API_URL }} `
-          -HopperUsername ${{ env.HOPPER_USER }} `
-          -BuildOwner ${{ github.actor }} `
-          -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-prairiesmoke-1
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: PrairieSmokeLogs
-        path: Artifacts/Logs/
-
-  FunctionalTestOsier:
-    runs-on: windows-latest
-    needs: Build
-
-    steps:
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.408
-
-    - name: Download DevelopmentScripts
-      uses: actions/download-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-
-    - name: Download Tests
-      uses: actions/download-artifact@v2
-      with:
-        name: Tests
-        path: Tests
-
-    - name: Functional Test Osier
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      working-directory: DevelopmentScripts
-      run: |
-        .\Invoke-FunctionalTest.ps1 `
-          -ClientID ${{ env.ClientId }} `
-          -ClientSecret ${{ env.CLIENTSECRET }} `
-          -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
-          -HopperAPIURL ${{ env.HOPPER_API_URL }} `
-          -HopperUsername ${{ env.HOPPER_USER }} `
-          -BuildOwner ${{ github.actor }} `
-          -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-osier-2
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: OsierLogs
-        path: Artifacts/Logs/
+        dotnet build source/Relativity.Testing.Framework.Api.Documentation/Relativity.Testing.Framework.Api.Documentation.csproj
+        DocFx/docfx.exe source/Relativity.Testing.Framework.Api.Documentation/docfx.json

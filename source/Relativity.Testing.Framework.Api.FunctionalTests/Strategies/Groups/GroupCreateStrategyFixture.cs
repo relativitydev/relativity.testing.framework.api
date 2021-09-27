@@ -19,13 +19,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Create_WithNull()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				_sut.Create(null));
-		}
-
-		[Test]
 		public void Create_WithEmptyEntity()
 		{
 			var result = _sut.Create(new Group());
@@ -51,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = _sut.Create(entity.Copy());
 
 			result.ArtifactID.Should().BePositive();
-			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client.Number).Excluding(x => x.Client.Status.ArtifactID));
+			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client.Number).Excluding(x => x.Client.Status.ArtifactID).Excluding(x => x.Type));
 		}
 	}
 }

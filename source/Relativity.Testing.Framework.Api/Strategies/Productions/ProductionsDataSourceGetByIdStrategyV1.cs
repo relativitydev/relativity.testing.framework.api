@@ -1,14 +1,16 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ProductionsDataSourceGetByIdStrategy : IGetWorkspaceEntityByIdStrategy<ProductionDataSource>
+	[VersionRange(">=12.1")]
+	internal class ProductionsDataSourceGetByIdStrategyV1 : IGetWorkspaceEntityByIdStrategy<ProductionDataSource>
 	{
 		private readonly IRestService _restService;
 		private readonly IExistsWorkspaceEntityByIdStrategy<ProductionDataSource> _existsWorkspaceEntityByIdStrategy;
 
-		public ProductionsDataSourceGetByIdStrategy(
+		public ProductionsDataSourceGetByIdStrategyV1(
 			IRestService restService,
 			IExistsWorkspaceEntityByIdStrategy<ProductionDataSource> existsWorkspaceEntityByIdStrategy)
 		{
@@ -23,14 +25,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				return null;
 			}
 
-			var dto = new
-			{
-				workspaceArtifactID = workspaceId,
-				dataSourceArtifactID = entityId,
-				withPlaceholderImage = true
-			};
-
-			return _restService.Post<ProductionDataSource>("Relativity.Productions.Services.IProductionModule/Production%20Data%20Source%20Manager/ReadSingleAsync", dto);
+			return _restService.Get<ProductionDataSource>($"relativity-productions/V1/workspaces/{workspaceId}/production-data-sources/{entityId}?withPlaceholderImage=true");
 		}
 	}
 }

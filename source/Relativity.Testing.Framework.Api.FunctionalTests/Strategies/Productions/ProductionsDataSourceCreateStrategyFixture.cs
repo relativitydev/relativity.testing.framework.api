@@ -7,7 +7,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<Production>))]
-	internal class ProductionsCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<Production>>
+	internal class ProductionsDataSourceCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<Production>>
 	{
 		[Test]
 		public void Create_WithNull()

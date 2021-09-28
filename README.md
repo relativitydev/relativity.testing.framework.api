@@ -15,7 +15,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
     - [Unit Testing](#unit-testing)
     - [Functional Testing](#functional-testing)
       - [Creating Runsettings](#creating-runsettings)
-      - [Running Functional Tests](#running-funtional-tests)
+      - [Running Functional Tests](#running-functional-tests)
   - [Contributing](#contributing)
   - [Reporting Issues](#reporting-issues)
 

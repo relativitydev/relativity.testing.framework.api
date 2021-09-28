@@ -8,7 +8,7 @@ namespace Relativity.Testing.Framework.Api.Extensions
 	{
 		public static User MapToUser(this UserDtoV1 userDto, Client client)
 		{
-			return new User
+			var user = new User
 			{
 				ArtifactID = userDto.ArtifactID,
 				FirstName = userDto.FirstName,
@@ -25,20 +25,15 @@ namespace Relativity.Testing.Framework.Api.Extensions
 				KeyboardShortcuts = userDto.DocumentViewerProperties.AllowKeyboardShortcuts,
 				DocumentViewer = userDto.DocumentViewerProperties.DocumentViewer,
 				FullName = $"{userDto.FirstName}, {userDto.LastName}",
-				BetaUser = false,
-				AdvancedSearchPublicByDefault = false,
-				NativeViewerCacheAhead = false,
-				ChangePassword = false,
-				MaximumPasswordAge = 90,
-				ChangePasswordNextLogin = true,
-				Password = string.Empty,
-				DocumentSkip = UserDocumentSkip.Enabled,
-				DataFocus = 5,
-				EnforceViewerCompatibility = false,
-				SkipDefaultPreference = UserSkipDefaultPreference.Skip,
-				CanChangeDocumentViewer = true,
-				DisableOnDate = DateTime.UtcNow.Date.AddYears(1).AddHours(8).AddMinutes(45).AddSeconds(30),
+				SkipDefaultPreference = userDto.DocumentViewerProperties.SkipDefaultPreference ? UserSkipDefaultPreference.Skip : UserSkipDefaultPreference.Normal,
+				AdvancedSearchPublicByDefault = userDto.SavedSearchDefaultsToPublic,
+				CanChangeDocumentViewer = userDto.DocumentViewerProperties.AllowDocumentViewerChange,
+				ShowFilters = userDto.DefaultFilterVisibility,
+				Name = userDto.LastName,
+				DocumentSkip = userDto.DocumentViewerProperties.AllowDocumentSkipPreferenceChange ? UserDocumentSkip.Enabled : UserDocumentSkip.Disabled
 			};
+
+			return user;
 		}
 	}
 }

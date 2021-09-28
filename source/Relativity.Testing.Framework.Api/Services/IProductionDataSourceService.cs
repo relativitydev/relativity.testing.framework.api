@@ -107,5 +107,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Update(int workspaceId, int productionId, ProductionDataSource entity);
+
+		/// <summary>
+		/// Retrieves default field values for a data source.
+		/// </summary>
+		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
+		/// <returns>Default values for a data source as <see cref="ProductionDataSourceDefaultValues"/> object.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceID = 123456;
+		///
+		/// ProductionDataSourceDefaultValues defaultValues = _productionDataSourceService.GetDefaultFieldValues(workspaceID);
+		/// </code>
+		/// </example>
+		ProductionDataSourceDefaultValues GetDefaultFieldValues(int workspaceId);
 	}
 }

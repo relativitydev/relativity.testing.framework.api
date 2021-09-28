@@ -45,6 +45,6 @@ namespace Relativity.Testing.Framework.Api.Services
 			=> _getWorkspaceEntityByIdStrategy.Get(workspaceId, entityId);
 
 		public ProductionDataSourceDefaultValues GetDefaultFieldValues(int workspaceId)
-		=> _getDefaultFieldValuesStrategy.Get(workspaceId);
+			=> _getDefaultFieldValuesStrategy.Get(workspaceId);
 	}
 }

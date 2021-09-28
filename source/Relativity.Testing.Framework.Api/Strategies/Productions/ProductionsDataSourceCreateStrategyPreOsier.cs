@@ -6,13 +6,13 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class ProductionsDataSourceCreateStrategy : ICreateWorkspaceEntityStrategy<ProductionDataSource>
+	internal class ProductionsDataSourceCreateStrategyPreOsier : ICreateWorkspaceEntityStrategy<ProductionDataSource>
 	{
 		private readonly IRestService _restService;
 		private readonly IGetWorkspaceEntityByIdStrategy<ProductionDataSource> _getWorkspaceEntityByIdStrategy;
 		private readonly IWaitCreateWorkspaceEntityStrategy _waitCreateWorkspaceEntityStrategy;
 
-		public ProductionsDataSourceCreateStrategy(
+		public ProductionsDataSourceCreateStrategyPreOsier(
 			IRestService restService,
 			IGetWorkspaceEntityByIdStrategy<ProductionDataSource> getWorkspaceEntityByIdStrategy,
 			IWaitCreateWorkspaceEntityStrategy waitCreateWorkspaceEntityStrategy)

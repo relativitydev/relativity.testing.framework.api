@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -8,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class ProductionPlaceholderGetDefaultFieldValuesStrategyFixture : ApiServiceTestFixture<IProductionPlaceholderGetDefaultFieldValuesStrategy>
 	{
 		[Test]
-		public void Get_ShouldNotThrown()
+		public void Get_ShouldNotThrow()
 		{
 			Assert.DoesNotThrow(() => Sut.Get(DefaultWorkspace.ArtifactID));
 		}

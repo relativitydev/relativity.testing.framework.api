@@ -30,7 +30,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the error by the specified ID.
 		/// </summary>
 		/// <param name="entityId">The Artifact ID of the error.</param>
-		/// <returns>>The <see cref="Entity"/> error or <see langword="null"/>.</returns>
+		/// <returns>>The [Entity](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html) error or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var error = _errorService.Get(someExistingErrorArtifactId);

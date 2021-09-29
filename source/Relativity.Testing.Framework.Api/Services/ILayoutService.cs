@@ -101,7 +101,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the layout,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityId">The artifact ID of the layout.</param>
-		/// <returns>The <see cref="Layout"/> entity.</returns>
+		/// <returns>The [Layout](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Layout.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;

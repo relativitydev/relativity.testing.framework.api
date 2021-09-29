@@ -40,7 +40,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Requires the specified choice.
 		/// <list type="number">
 		/// <item><description>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
-		/// <item><description>If [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) and <see cref="Choice.ObjectType"/> and <see cref="Choice.Field"/> name properties of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
+		/// <item><description>If [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) and [Choice.ObjectType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Choice.html#Relativity_Testing_Framework_Models_Choice_ObjectType) and [Choice.Field](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Choice.html#Relativity_Testing_Framework_Models_Choice_Field) name properties of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
 		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
 		/// </list>
 		/// </summary>

@@ -53,7 +53,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get search provider.</param>
 		/// <param name="entityId">The artifact ID of the search provider.</param>
-		/// <returns>The <see cref="KeywordSearch"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;

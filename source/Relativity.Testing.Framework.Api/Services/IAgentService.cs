@@ -39,8 +39,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Requires the specified Agent(s).
 		/// <list type="number">
 		/// <item><description>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by id and updates it.</description></item>
-		/// <item><description>If <see cref="Agent.AgentType"/> property of <paramref name="entity"/> exists, gets entity by type and updates it.</description></item>
-		/// <item><description>Otherwise creates a new entity using <see cref="ICreateStrategy{T}"/>.</description></item>
+		/// <item><description>If [Agent.AgentType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html#Relativity_Testing_Framework_Models_Agent_AgentType) property of <paramref name="entity"/> exists, gets entity by type and updates it.</description></item>
+		/// <item><description>Otherwise creates a new entity using [ICreateStrategy{T}](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html)agent</see> entity to require.</param>
@@ -84,7 +84,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets all agent types.
 		/// </summary>
-		/// <returns>The collection of <see cref="AgentType"/> entities.</returns>
+		/// <returns>The collection of [AgentType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AgentType.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// IEnumerable&#60;AgentType&#62; allAgentTypes = _agentService.GetAllAgentTypes();
@@ -96,7 +96,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets available agent servers for specified agent type.
 		/// </summary>
 		/// <param name="agentTypeName">The agent type name.</param>
-		/// <returns>The collection of <see cref="AgentServer"/> entities.</returns>
+		/// <returns>The collection of [AgentServer](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AgentServer.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// IEnumerable&#60;AgentServer&#62; availableAgentServes = _agentService.GetAvailableAgentServers(someAgent.AgentType.Name);
@@ -108,7 +108,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the agent by the specified ID.
 		/// </summary>
 		/// <param name="id">The artifact ID of the agent.</param>
-		/// <returns>The <see cref="Agent"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Agent agent = _agentService.Get(someAgentArtifatId);
@@ -119,7 +119,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets all agents.
 		/// </summary>
-		/// <returns>The collection of <see cref="Agent"/> entities.</returns>
+		/// <returns>The collection of [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// IEnumerable&#60;Agent&#62; allAgents = _agentService.GetAllAgents();
@@ -131,7 +131,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets all agents by specified agent type.
 		/// </summary>
 		/// <param name="agentTypeName">The agent type name.</param>
-		/// <returns>The collection of <see cref="Agent"/> entities.</returns>
+		/// <returns>The collection of [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// IEnumerable&#60;Agent&#62; = _agentService.GetAllAgentsForAgentType("Sample Agent Type Name");
@@ -143,7 +143,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets agent type by specified name.
 		/// </summary>
 		/// <param name="name">The agent type name.</param>
-		/// <returns>The collection of <see cref="AgentType"/> entities.</returns>
+		/// <returns>The collection of [AgentType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AgentType.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// AgentType sampleAgentType = _agentService.GetAgentType("Sample Agent Type Name");

@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Creates the specified client.
 		/// </summary>
-		/// <param name="entity">The <see cref="Client"/> to create.</param>
+		/// <param name="entity">The [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) to create.</param>
 		/// <returns>The created client.</returns>
 		/// <example>
 		/// Create any old client.
@@ -42,9 +42,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		Client Create(Client entity);
 
 		/// <summary>
-		/// Updates the specified <see cref="Client"/>.
+		/// Updates the specified [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html).
 		/// </summary>
-		/// <param name="entity">The <see cref="Client"/> model to use to update the existing client with.</param>
+		/// <param name="entity">The [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) model to use to update the existing client with.</param>
 		/// <example>
 		/// <code>
 		/// Client client = _clientService.Get("Some Client Name");
@@ -59,11 +59,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <list type="number">
 		/// <item>If the [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has a positive value, this gets the client by ID and returns it.</item>
 		/// <item>Else if the [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, this gets the client by name and returns it if it exists.</item>
-		/// <item>Otherwise this creates a new client using <see cref="ICreateStrategy{T}"/>.</item>
+		/// <item>Otherwise this creates a new client using [ICreateStrategy{T}](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
 		/// </list>
 		/// </summary>
-		/// <param name="entity">The <see cref="Client"/> to require.</param>
-		/// <returns>The already existing, or created <see cref="Client"/>.</returns>
+		/// <param name="entity">The [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) to require.</param>
+		/// <returns>The already existing, or created [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html).</returns>
 		/// <example>
 		/// <para>This example will search for a client with the ArtifactID "1234567".</para>
 		/// <para>If it is found, it will be returned.</para>
@@ -91,7 +91,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Client Require(Client entity);
 
 		/// <summary>
-		/// Deletes the <see cref="Client"/> by ID.
+		/// Deletes the [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) by ID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the client.</param>
 		/// <example>
@@ -102,10 +102,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int id);
 
 		/// <summary>
-		/// Gets the <see cref="Client"/> by ArtifactID.
+		/// Gets the [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the client.</param>
-		/// <returns>The <see cref="Client"/> if it exists, else <see langword="null"/>.</returns>
+		/// <returns>The [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) if it exists, else <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Client client = _clientService.Get(1234567);
@@ -114,10 +114,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		Client Get(int id);
 
 		/// <summary>
-		/// Gets the <see cref="Client"/> by name.
+		/// Gets the [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) by name.
 		/// </summary>
 		/// <param name="name">The name of the client.</param>
-		/// <returns>The <see cref="Client"/> if it exists, else <see langword="null"/>.</returns>
+		/// <returns>The [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) if it exists, else <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Client client = _clientService.Get("AnotherClient");
@@ -126,7 +126,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Client Get(string name);
 
 		/// <summary>
-		/// Gets a list of available statuses for a <see cref="Client"/>.
+		/// Gets a list of available statuses for a [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html).
 		/// </summary>
 		/// <returns>List of of available statuses.</returns>
 		/// <example>

@@ -31,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <list type="number">
 		/// <item>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID using <see cref="IGetByIdStrategy{T}"/> and returns it.</item>
 		/// <item>If [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, gets entity by name using <see cref="IGetByNameStrategy{T}"/> and returns it if it exists.</item>
-		/// <item>Otherwise creates a new entity using <see cref="ICreateStrategy{T}"/>.</item>
+		/// <item>Otherwise creates a new entity using [ICreateStrategy{T}](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The entity to require.</param>

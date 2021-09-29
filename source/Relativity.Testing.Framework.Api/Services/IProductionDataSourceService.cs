@@ -111,8 +111,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Retrieves default field values for a data source.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
-		/// <returns>Default values for a data source as <see cref="ProductionDataSourceDefaultValues"/> object.</returns>
+		/// <param name="workspaceId">The Artifact ID of the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).</param>
+		/// <returns>Default values for a data source as [ProductionDataSourceDefaultValues](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionDataSourceDefaultValues.html) object.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;

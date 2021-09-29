@@ -8,7 +8,7 @@
 	{
 		/// <summary>
 		/// Ensures whether the entity with the specified ID exists.
-		/// If it does not, throws <see cref="ObjectNotFoundException"/>.
+		/// If it does not, throws [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html).
 		/// </summary>
 		/// <param name="id">The artifact ID of the entity.</param>
 		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)Failed to find entity by ID.</exception>

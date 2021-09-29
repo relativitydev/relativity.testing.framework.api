@@ -99,10 +99,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		string StandardAccountType { get; set; }
 
 		/// <summary>
-		/// Gets or sets the standard account <see cref="Client"/>.
+		/// Gets or sets the standard account [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html).
 		/// </summary>
 		/// <value>
-		/// A <see cref="Client"/> to use for the pooled users.
+		/// A [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) to use for the pooled users.
 		/// </value>
 		/// <example>
 		/// <code>

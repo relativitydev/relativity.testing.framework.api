@@ -2,7 +2,7 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class DefaultFieldValueDto
+	internal class DefaultFieldValueDto<T>
 	{
 		public int ID { get; set; }
 
@@ -10,6 +10,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public Guid Guid { get; set; }
 #pragma warning restore CA1720 // Identifier contains type name
 
-		public ChoiceFieldValueDto DefaultValue { get; set; }
+		public T DefaultValue { get; set; }
 	}
 }

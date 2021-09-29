@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class ProductionPlaceholderGetDefaultFieldValuesStrategyFixture : ApiServiceTestFixture<IProductionPlaceholderGetDefaultFieldValuesStrategy>
 	{
 		[Test]
-		public void Get_ShouldNotThrown()
+		public void Get_ShouldNotThrow()
 		{
 			Assert.DoesNotThrow(() => Sut.Get(DefaultWorkspace.ArtifactID));
 		}

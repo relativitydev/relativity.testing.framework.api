@@ -8,7 +8,7 @@ using Relativity.Testing.Framework.Strategies;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource>))]
-	internal class ProductionsDeleteDataSourceStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource>>
+	internal class ProductionsDataSourceDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource>>
 	{
 		private Production _production;
 		private KeywordSearch _keywordSearch;

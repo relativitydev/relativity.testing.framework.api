@@ -1,15 +1,17 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class GroupDeleteByIdStrategy : DeleteByIdStrategy<Group>
+	[VersionRange("<12.1")]
+	internal class GroupDeleteByIdStrategyPreOsier : DeleteByIdStrategy<Group>
 	{
 		private readonly IRestService _restService;
 		private readonly IEnsureExistsByIdStrategy<Group> _ensureExistsByIdStrategy;
 
-		public GroupDeleteByIdStrategy(IRestService restService, IEnsureExistsByIdStrategy<Group> ensureExistsByIdStrategy)
+		public GroupDeleteByIdStrategyPreOsier(IRestService restService, IEnsureExistsByIdStrategy<Group> ensureExistsByIdStrategy)
 		{
 			_restService = restService;
 			_ensureExistsByIdStrategy = ensureExistsByIdStrategy;

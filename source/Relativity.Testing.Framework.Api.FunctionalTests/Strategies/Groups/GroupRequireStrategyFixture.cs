@@ -45,17 +45,27 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		[Test]
 		public void Require_Missing()
 		{
-			var group = new Group
+			var groupToRequire = new Group
 			{
 				Name = Randomizer.GetString("AT_Name_"),
 				Client = _client
 			};
 
-			var result = Sut.Require(group);
+			Group result = Sut.Require(groupToRequire);
 
 			result.ArtifactID.Should().BePositive();
-			result.Client.ArtifactID.Should().Be(group.Client.ArtifactID);
-			result.Should().BeEquivalentTo(group, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client));
+			result.Client.ArtifactID.Should().Be(groupToRequire.Client.ArtifactID);
+			result.Should().BeEquivalentTo(
+				groupToRequire,
+				o => o.Excluding(group => group.Client)
+					.Excluding(group => group.ArtifactID)
+					.Excluding(group => group.Actions)
+					.Excluding(group => group.Meta)
+					.Excluding(group => group.Guids)
+					.Excluding(group => group.LastModifiedBy)
+					.Excluding(group => group.LastModifiedOn)
+					.Excluding(group => group.CreatedBy)
+					.Excluding(group => group.CreatedOn));
 		}
 	}
 }

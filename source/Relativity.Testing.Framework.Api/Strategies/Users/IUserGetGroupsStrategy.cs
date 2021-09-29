@@ -5,6 +5,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal interface IUserGetGroupsStrategy
 	{
-		List<NamedArtifact> GetGroups(int userId);
+		IList<NamedArtifact> GetGroups(int userId);
 	}
 }

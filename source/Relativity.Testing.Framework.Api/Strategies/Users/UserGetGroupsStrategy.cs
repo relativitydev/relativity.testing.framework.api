@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_objectMappingService = objectMappingService;
 		}
 
-		public List<NamedArtifact> GetGroups(int userId)
+		public IList<NamedArtifact> GetGroups(int userId)
 		{
 			var request = new
 			{

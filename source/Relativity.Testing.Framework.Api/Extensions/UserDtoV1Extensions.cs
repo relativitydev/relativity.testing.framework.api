@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Extensions
 {
 	internal static class UserDtoV1Extensions
 	{
-		public static User MapToUser(this UserDtoV1 userDto, Client client, List<NamedArtifact> groups)
+		public static User MapToUser(this UserDtoV1 userDto, Client client, IList<NamedArtifact> groups)
 		{
 			var user = new User
 			{

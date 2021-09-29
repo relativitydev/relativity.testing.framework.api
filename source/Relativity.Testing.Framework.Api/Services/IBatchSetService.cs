@@ -224,7 +224,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Delete(int workspaceId, int entityId, UserCredentials userCredentials);
-		
+
 		/// <summary>
 		/// Runs create batches operation for a specific [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>

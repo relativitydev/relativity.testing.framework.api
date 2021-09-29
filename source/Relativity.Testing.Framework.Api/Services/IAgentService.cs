@@ -17,8 +17,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Creates the specified agent.
 		/// </summary>
-		/// <param name="entity">The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html)agent</see> entity to create.</param>
-		/// <returns>The created [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html)agent</see> entity.</returns>
+		/// <param name="entity">The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entity to create.</param>
+		/// <returns>The created [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var agentType =  relativityFacade.Resolve&#60;IGetByNameStrategy&#60;AgentType&#62;&#62;()
@@ -43,7 +43,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <item><description>Otherwise creates a new entity using [ICreateStrategy{T}](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</description></item>
 		/// </list>
 		/// </summary>
-		/// <param name="entity">The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html)agent</see> entity to require.</param>
+		/// <param name="entity">The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entity to require.</param>
 		/// <returns>The required entity .</returns>
 		/// <example>
 		/// <code>

@@ -1,7 +1,7 @@
 ﻿using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
-{ 
+{
 	/// <summary>
 	/// Represents the production data source API service.
 	/// </summary>

@@ -18,7 +18,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <returns>The [ArtifactReference](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ArtifactReference.html) object.</returns>
 		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)
 		/// The choice object is not found.
-		/// </exception>
 		ArtifactReference ResolveReference(int workspaceId, string objectTypeName, string fieldName, string choiceName);
 
 		/// <summary>
@@ -31,7 +30,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <returns>The [ArtifactReference](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ArtifactReference.html) object.</returns>
 		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)
 		/// The choice object is not found.
-		/// </exception>
 		ArtifactReference ResolveReference(string objectTypeName, string fieldName, string choiceName);
 	}
 }

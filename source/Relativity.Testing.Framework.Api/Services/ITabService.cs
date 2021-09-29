@@ -134,7 +134,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Retrieves a list of all object types in a workspace available for creating or updating a tab.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve available object types for.</param>
-		/// <returns>>List of <see cref="ObjectType"/>.</returns>
+		/// <returns>>List of [ObjectType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ObjectType.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;

@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// </summary>
 		/// <param name="name">The name.</param>
 		/// <param name="clientId">The client ID.</param>
-		/// <returns>The <see cref="Matter"/> object or <see langword="null"/>.</returns>
+		/// <returns>The [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html) object or <see langword="null"/>.</returns>
 		Matter Get(string name, int clientId);
 	}
 }

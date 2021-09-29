@@ -12,26 +12,25 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly Lazy<ArtifactIdNamePair[]> _lazyAllChoices;
 
 		/// <summary>
-		/// Initializes a new instance of the <see 
-		/// ="CachedGetChoiceIdByNameStrategyBase"/> class.
+		/// Initializes a new instance of the <see cref="CachedGetChoiceIdByNameStrategyBase"/> class.
 		/// </summary>
 		protected CachedGetChoiceIdByNameStrategyBase()
 		{
 			_lazyAllChoices = new Lazy<ArtifactIdNamePair[]>(GetAll);
 		}
-		
+
 		/// <summary>
 		/// Gets all choice objects of specific type as [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html) array.
 		/// </summary>
 		/// <returns>All choice objects of specific type.</returns>
 		protected abstract ArtifactIdNamePair[] GetAll();
-		
+
 		/// <summary>
 		/// Gets the artifact ID of specific choice object by name.
 		/// </summary>
 		/// <param name="name">The name.</param>
 		/// <returns>The artifact ID.</returns>
-		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)The choice object is not found by name.</exception>
+		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)The choice object is not found by name.
 		public int GetId(string name)
 		{
 			ArtifactIdNamePair[] allChoices = _lazyAllChoices.Value;

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
@@ -28,7 +24,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				throw new ArgumentNullException(nameof(group));
 			}
 
-			if (group.ArtifactID == 0)
+			if (group.ArtifactID < 1)
 			{
 				if (group.Name != null)
 				{
@@ -56,7 +52,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				throw new ArgumentException("Can't find the entity.", nameof(group));
 			}
 
-			return group.ArtifactID;
+			return entityByName.ArtifactID;
 		}
 	}
 }

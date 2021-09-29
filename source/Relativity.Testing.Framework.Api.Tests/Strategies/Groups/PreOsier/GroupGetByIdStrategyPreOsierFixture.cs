@@ -4,8 +4,6 @@ using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Strategies;
-using Relativity.Testing.Framework.Api.Validators;
-using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Tests.Strategies
 {

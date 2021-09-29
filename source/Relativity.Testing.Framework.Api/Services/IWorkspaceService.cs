@@ -14,7 +14,7 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IWorkspaceService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="Workspace"/>.
+		/// Creates the specified [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).
 		/// If properties are not specified in the entity, the first value found for each property will be used.
 		/// It is the responsibility of the user writing/running the tests to ensure that they are adhering to all environment related best practices and rules.
 		/// </summary>
@@ -97,7 +97,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace Create(Workspace entity);
 
 		/// <summary>
-		/// Creates the specified <see cref="Workspace"/> with generated documents.
+		/// Creates the specified [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) with generated documents.
 		/// If properties are not specified in the entity, the first value found for each property will be used.
 		/// It is the responsibility of the user writing/running the tests to ensure that they are adhering to all environment related best practices and rules.
 		/// </summary>
@@ -112,7 +112,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace CreateWithDocs(Workspace entity, int numberOfDocuments = 10);
 
 		/// <summary>
-		/// Delete the <see cref="Workspace"/> by ArtifactID.
+		/// Delete the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the workspace to delete.</param>
 		/// <example>
@@ -123,10 +123,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int id);
 
 		/// <summary>
-		/// Gets the <see cref="Workspace"/> by ArtifactID.
+		/// Gets the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the workspace to get.</param>
-		/// <returns>The <see cref="Workspace"/> if it exists, otherwise <see langword="null"/>.</returns>
+		/// <returns>The <see xref="Workspace"/> if it exists, otherwise <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Workspace workspace = _workspaceService.Get(1234567);
@@ -135,10 +135,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace Get(int id);
 
 		/// <summary>
-		/// Gets the <see cref="Workspace"/> by the specified name.
+		/// Gets the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) by the specified name.
 		/// </summary>
 		/// <param name="name">The name of the workspace to get.</param>
-		/// <returns>The <see cref="Workspace"/> if it exists, otherwise <see langword="null"/>.</returns>
+		/// <returns>The [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) if it exists, otherwise <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Workspace lowSecretWorkspace = _workspaceService.Get("Low Secret[Feel Free To Look Inside] [But Still Don't Delete]");
@@ -147,9 +147,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace Get(string name);
 
 		/// <summary>
-		/// Get all <see cref="Workspace"/>s in the environment.
+		/// Get all [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html)s in the environment.
 		/// </summary>
-		/// <returns>An array of <see cref="Workspace"/>s.</returns>
+		/// <returns>An array of [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html)s.</returns>
 		/// <example>
 		/// <code>
 		/// Workspace[] workspace = _workspaceService.GetAll();
@@ -158,10 +158,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace[] GetAll();
 
 		/// <summary>
-		/// Gets all <see cref="Workspace"/>s that are associated with the specified client.
+		/// Gets all [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html)s that are associated with the specified client.
 		/// </summary>
 		/// <param name="clientName">The client name.</param>
-		/// <returns>The collection of <see cref="Workspace"/> entities.</returns>
+		/// <returns>The collection of [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// List&lt;Workspace&gt; workspace = _workspaceService.GetAllByClientName(existingClientName).ToList();
@@ -170,7 +170,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		IEnumerable<Workspace> GetAllByClientName(string clientName);
 
 		/// <summary>
-		/// Determines whether the <see cref="Workspace"/> with the specified ArtifactID exists.
+		/// Determines whether the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) with the specified ArtifactID exists.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the workspace to check the existence of.</param>
 		/// <returns><see langword="true"/> if the workspace exists, otherwise <see langword="false"/>.</returns>

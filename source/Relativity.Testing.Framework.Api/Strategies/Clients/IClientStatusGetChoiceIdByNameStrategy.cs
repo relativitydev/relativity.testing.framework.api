@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="name">The name.</param>
 		/// <returns>The artifact ID.</returns>
-		/// <exception cref="ObjectNotFoundException">The choice object is not found by name.</exception>
+		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)The choice object is not found by name.</exception>
 		int GetId(string name);
 	}
 }

@@ -42,8 +42,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <para>Creates the specified <see cref="InstanceSetting"/> if it does not exist.</para>
 		/// <para>If it does exist, it will be updated instead.</para>
 		/// <list type="number">
-		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and returns it.</item>
-		/// <item>If <see cref="NamedArtifact.Name"/> and <see cref="InstanceSetting.Section"/> properties of <paramref name="entity"/> have a value, gets entity by name and returns it if it exists.</item>
+		/// <item>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and returns it.</item>
+		/// <item>If [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) and <see cref="InstanceSetting.Section"/> properties of <paramref name="entity"/> have a value, gets entity by name and returns it if it exists.</item>
 		/// <item>Otherwise creates a new entity using <see cref="ICreateStrategy{T}"/>.</item>
 		/// </list>
 		/// </summary>

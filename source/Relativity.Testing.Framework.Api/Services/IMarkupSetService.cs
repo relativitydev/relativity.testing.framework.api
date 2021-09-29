@@ -69,8 +69,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified <see cref="MarkupSet"/>.
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets <see cref="MarkupSet"/> by ArtifactID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, gets <see cref="MarkupSet"/> by name and updates it if it exists.</description></item>
+		/// <item><description>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets <see cref="MarkupSet"/> by ArtifactID and updates it.</description></item>
+		/// <item><description>If [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, gets <see cref="MarkupSet"/> by name and updates it if it exists.</description></item>
 		/// <item><description>Otherwise creates a new <see cref="MarkupSet"/>.</description></item>
 		/// </list>
 		/// </summary>

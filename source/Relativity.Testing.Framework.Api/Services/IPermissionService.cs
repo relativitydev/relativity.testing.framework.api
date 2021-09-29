@@ -27,14 +27,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the users from a group at the admin case level.
 		/// </summary>
 		/// <param name="groupId">The group id.</param>
-		/// <returns>A list of <see cref="NamedArtifact"/>s.</returns>
+		/// <returns>A list of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html)s.</returns>
 		List<NamedArtifact> GetAdminGroupUsers(int groupId);
 
 		/// <summary>
 		/// Gets the users from a group at the admin case level.
 		/// </summary>
 		/// <param name="groupName">The group Name.</param>
-		/// <returns>A list of <see cref="NamedArtifact"/>s.</returns>
+		/// <returns>A list of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html)s.</returns>
 		List<NamedArtifact> GetAdminGroupUsers(string groupName);
 
 		/// <summary>
@@ -42,7 +42,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="groupId">The group id.</param>
-		/// <returns>A list of <see cref="NamedArtifact"/>s.</returns>
+		/// <returns>A list of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html)s.</returns>
 		List<NamedArtifact> GetWorkspaceGroupUsers(int workspaceId, int groupId);
 
 		/// <summary>
@@ -50,7 +50,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="groupName">The group Name.</param>
-		/// <returns>A list of <see cref="NamedArtifact"/>s.</returns>
+		/// <returns>A list of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html)s.</returns>
 		List<NamedArtifact> GetWorkspaceGroupUsers(int workspaceId, string groupName);
 	}
 }

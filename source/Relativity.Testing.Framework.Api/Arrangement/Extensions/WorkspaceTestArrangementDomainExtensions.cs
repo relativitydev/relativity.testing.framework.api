@@ -7,7 +7,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Arrangement
 {
 	/// <summary>
-	/// Provides a set of extension methods for <see cref="TestArrangementDomain{TEntity}"/> of <see cref="Workspace"/>.
+	/// Provides a set of extension methods for <see cref="TestArrangementDomain{TEntity}"/> of [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).
 	/// </summary>
 	public static class WorkspaceTestArrangementDomainExtensions
 	{

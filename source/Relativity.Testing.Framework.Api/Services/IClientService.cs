@@ -57,8 +57,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified client.
 		/// <list type="number">
-		/// <item>If the <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has a positive value, this gets the client by ID and returns it.</item>
-		/// <item>Else if the <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, this gets the client by name and returns it if it exists.</item>
+		/// <item>If the [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has a positive value, this gets the client by ID and returns it.</item>
+		/// <item>Else if the [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, this gets the client by name and returns it if it exists.</item>
 		/// <item>Otherwise this creates a new client using <see cref="ICreateStrategy{T}"/>.</item>
 		/// </list>
 		/// </summary>

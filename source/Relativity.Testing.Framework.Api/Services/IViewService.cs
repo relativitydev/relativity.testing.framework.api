@@ -14,12 +14,12 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IViewService
 	{
 		/// <summary>
-		///  Creates the specified <see cref="View"/>.
+		///  Creates the specified [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html).
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to create the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="view">The <see cref="View"/> to create.</param>
-		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
+		/// <param name="view">The [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) to create.</param>
+		/// <returns>The [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -35,12 +35,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		View Create(int workspaceArtifactID, View view);
 
 		/// <summary>
-		/// Gets all <see cref="View"/>s in workspace.
+		/// Gets all [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html)s in workspace.
 		/// Returns not all fields for faster response.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to get the view,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <returns>The collection of <see cref="View"/> entities.</returns>
+		/// <returns>The collection of [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -50,12 +50,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		View[] GetAll(int workspaceArtifactID);
 
 		/// <summary>
-		/// Gets the <see cref="View"/> by the specified ArtifactID.
+		/// Gets the [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) by the specified ArtifactID.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to get the view,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="viewArtifactID">The ArtifactID of the view.</param>
-		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -66,12 +66,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		View Get(int workspaceArtifactID, int viewArtifactID);
 
 		/// <summary>
-		/// Gets the <see cref="View"/> by the specified name.
+		/// Gets the [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) by the specified name.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to get the view,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="viewName">The name of the view.</param>
-		/// <returns>The <see cref="View"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -82,14 +82,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		View Get(int workspaceArtifactID, string viewName);
 
 		/// <summary>
-		/// Requires the specified <see cref="View"/>.
+		/// Requires the specified [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html).
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="view"/> has positive value, gets view by ArtifactID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="view"/> has a value, gets view by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new <see cref="View"/>.</description></item>
+		/// <item><description>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="view"/> has positive value, gets view by ArtifactID and updates it.</description></item>
+		/// <item><description>If [NamedArtifact.Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="view"/> has a value, gets view by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html).</description></item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="View"/> entity.</returns>
+		/// <returns>The [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) entity.</returns>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to require view.</param>
 		/// <param name="view">The view to require.</param>
 		/// <example> This shows how to update view by using Require method with View entity that hase ArtifactID field filled.
@@ -138,7 +138,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		View Require(int workspaceArtifactID, View view);
 
 		/// <summary>
-		/// Determines whether the <see cref="View"/> with the specified ArtifactID exists.
+		/// Determines whether the [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) with the specified ArtifactID exists.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to check if a view exists,
 		/// or use -1 to indicate the admin-level context.</param>
@@ -154,10 +154,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool Exists(int workspaceArtifactID, int viewArtifactID);
 
 		/// <summary>
-		/// Updates the specified <see cref="View"/>.
+		/// Updates the specified [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html).
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace where you want to update the view.</param>
-		/// <param name="view">The <see cref="View"/> to update.</param>
+		/// <param name="view">The [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html) to update.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -174,7 +174,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the list of of object types in a specific workspace.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <returns>The list of <see cref="NamedArtifact"/> objects.</returns>
+		/// <returns>The list of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html) objects.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -192,7 +192,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// You can then use this list to assign owners to a view.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <returns>An array of <see cref="NamedArtifact"/> objects.</returns>
+		/// <returns>An array of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html) objects.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;

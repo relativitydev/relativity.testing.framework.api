@@ -1,7 +1,7 @@
 ﻿using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
-{
+{ 
 	/// <summary>
 	/// Represents the production data source API service.
 	/// </summary>
@@ -15,9 +15,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Creates the specified production data source.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
-		/// <param name="productionId">The Artifact ID of the <see cref="Production"/>.</param>
-		/// <param name="entity">The <see cref="ProductionDataSource"/> to create.</param>
+		/// <param name="workspaceId">The Artifact ID of the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).</param>
+		/// <param name="productionId">The Artifact ID of the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
+		/// <param name="entity">The [ProductionDataSource](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionDataSource.html) to create.</param>
 		/// <returns>The created data source entity.</returns>
 		/// <example>
 		/// <code>
@@ -45,8 +45,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Determines whether the production data source with the specified case artifact ID exists.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
-		/// <param name="entityId">The Artifact ID of the <see cref="ProductionDataSource"/>.</param>
+		/// <param name="workspaceId">The Artifact ID of the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).</param>
+		/// <param name="entityId">The Artifact ID of the [ProductionDataSource](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionDataSource.html).</param>
 		/// <returns><see langword="true"/> if a production data source exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
@@ -61,8 +61,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Delete the production data source by the specified artifact ID.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
-		/// <param name="entityId">The Artifact ID of the <see cref="ProductionDataSource"/>.</param>
+		/// <param name="workspaceId">The Artifact ID of the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).</param>
+		/// <param name="entityId">The Artifact ID of the [ProductionDataSource](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionDataSource.html).</param>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;
@@ -76,8 +76,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets the production data source by the specified workspace ID and production set ID.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
-		/// <param name="entityId">The Artifact ID of the <see cref="ProductionDataSource"/>.</param>
+		/// <param name="workspaceId">The Artifact ID of the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).</param>
+		/// <param name="entityId">The Artifact ID of the [ProductionDataSource](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionDataSource.html).</param>
 		/// <returns>The entity.</returns>
 		/// <example>
 		/// <code>
@@ -92,9 +92,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Updates the specified production data source.
 		/// </summary>
-		/// <param name="workspaceId">The Artifact ID of the <see cref="Workspace"/>.</param>
-		/// <param name="productionId">The Artifact ID of the <see cref="Production"/>.</param>
-		/// <param name="entity">The <see cref="ProductionDataSource"/> to update.</param>
+		/// <param name="workspaceId">The Artifact ID of the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).</param>
+		/// <param name="productionId">The Artifact ID of the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
+		/// <param name="entity">The [ProductionDataSource](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionDataSource.html) to update.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;

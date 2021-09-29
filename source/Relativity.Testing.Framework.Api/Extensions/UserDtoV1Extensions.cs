@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
@@ -6,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Extensions
 {
 	internal static class UserDtoV1Extensions
 	{
-		public static User MapToUser(this UserDtoV1 userDto, Client client)
+		public static User MapToUser(this UserDtoV1 userDto, Client client, List<NamedArtifact> groups)
 		{
 			var user = new User
 			{
@@ -30,7 +31,8 @@ namespace Relativity.Testing.Framework.Api.Extensions
 				CanChangeDocumentViewer = userDto.DocumentViewerProperties.AllowDocumentViewerChange,
 				ShowFilters = userDto.DefaultFilterVisibility,
 				Name = userDto.LastName,
-				DocumentSkip = userDto.DocumentViewerProperties.AllowDocumentSkipPreferenceChange ? UserDocumentSkip.Enabled : UserDocumentSkip.Disabled
+				DocumentSkip = userDto.DocumentViewerProperties.AllowDocumentSkipPreferenceChange ? UserDocumentSkip.Enabled : UserDocumentSkip.Disabled,
+				Groups = groups == null ? new List<Artifact>() : groups.Select(x => new Artifact { ArtifactID = x.ArtifactID }).ToList()
 			};
 
 			return user;

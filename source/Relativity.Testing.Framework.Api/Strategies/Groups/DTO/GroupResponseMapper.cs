@@ -13,7 +13,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Client = MapClientFromNamedArtifactWithGuids(value.Client.Value),
 				Type = value.Type,
 				Keywords = value.Keywords,
-				Notes = value.Notes
+				Notes = value.Notes,
+				Meta = value.Meta,
+				Actions = value.Actions,
+				Guids = value.Guids
 			};
 			return mapped;
 		}

@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class GroupResponse : NamedArtifactWithGuids
+	internal class GroupResponse : TimeStampedNamedArtifact, IHaveGuids
 	{
+		public List<Guid> Guids { get; set; }
+
 		public Securable<NamedArtifactWithGuids> Client { get; set; }
 
 		public GroupType Type { get; set; } = GroupType.SystemGroup;

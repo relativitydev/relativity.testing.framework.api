@@ -67,14 +67,6 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				Times.Once);
 		}
 
-		private bool CheckIfGroupRequestIsEquivalentToExpected(GroupRequest request)
-		{
-			return request.Name.Equals(_groupToCreate.Name) &&
-				request.Client.Value.ArtifactID == _client.ArtifactID &&
-				request.Notes.Equals(_groupToCreate.Notes) &&
-				request.Keywords.Equals(_groupToCreate.Keywords);
-		}
-
 		[Test]
 		public void Create_WithValidGroup_ShouldReturnExpectedGroup()
 		{
@@ -115,6 +107,14 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			_mockClientRequireService
 				.Setup(requireStrategy => requireStrategy.Require(_groupToCreate.Client))
 				.Returns(_client);
+		}
+
+		private bool CheckIfGroupRequestIsEquivalentToExpected(GroupRequest request)
+		{
+			return request.Name.Equals(_groupToCreate.Name) &&
+				request.Client.Value.ArtifactID == _client.ArtifactID &&
+				request.Notes.Equals(_groupToCreate.Notes) &&
+				request.Keywords.Equals(_groupToCreate.Keywords);
 		}
 	}
 }

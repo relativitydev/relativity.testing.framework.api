@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Castle.DynamicProxy;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Tests.Utilities;
 

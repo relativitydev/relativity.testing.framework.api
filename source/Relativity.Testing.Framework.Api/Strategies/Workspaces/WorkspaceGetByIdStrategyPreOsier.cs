@@ -1,14 +1,16 @@
 ﻿using System.Linq;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class WorkspaceGetByIdStrategy : IGetByIdStrategy<Workspace>
+	[VersionRange("<12.1")]
+	internal class WorkspaceGetByIdStrategyPreOsier : IGetByIdStrategy<Workspace>
 	{
 		private readonly IObjectService _objectService;
 
-		public WorkspaceGetByIdStrategy(IObjectService objectService)
+		public WorkspaceGetByIdStrategyPreOsier(IObjectService objectService)
 		{
 			_objectService = objectService;
 		}

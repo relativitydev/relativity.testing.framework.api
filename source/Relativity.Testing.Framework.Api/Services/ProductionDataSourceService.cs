@@ -11,19 +11,22 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource> _deleteWorkspaceEntityByIdStrategy;
 		private readonly IUpdateProductionsDataSourceStrategy _updateProductionsDataSourceStrategy;
 		private readonly IGetWorkspaceEntityByIdStrategy<ProductionDataSource> _getWorkspaceEntityByIdStrategy;
+		private readonly IProductionsDataSourceGetDefaultFieldValuesStrategy _getDefaultFieldValuesStrategy;
 
 		public ProductionDataSourceService(
 			ICreateWorkspaceEntityStrategy<ProductionDataSource> createWorkspaceEntityStrategy,
 			IExistsWorkspaceEntityByIdStrategy<ProductionDataSource> existsWorkspaceEntityByIdStrategy,
 			IDeleteWorkspaceEntityByIdStrategy<ProductionDataSource> deleteWorkspaceEntityByIdStrategy,
 			IUpdateProductionsDataSourceStrategy updateProductionsDataSourceStrategy,
-			IGetWorkspaceEntityByIdStrategy<ProductionDataSource> getWorkspaceEntityByIdStrategy)
+			IGetWorkspaceEntityByIdStrategy<ProductionDataSource> getWorkspaceEntityByIdStrategy,
+			IProductionsDataSourceGetDefaultFieldValuesStrategy getDefaultFieldValuesStrategy)
 		{
 			_createWorkspaceEntityStrategy = createWorkspaceEntityStrategy;
 			_existsWorkspaceEntityByIdStrategy = existsWorkspaceEntityByIdStrategy;
 			_deleteWorkspaceEntityByIdStrategy = deleteWorkspaceEntityByIdStrategy;
 			_updateProductionsDataSourceStrategy = updateProductionsDataSourceStrategy;
 			_getWorkspaceEntityByIdStrategy = getWorkspaceEntityByIdStrategy;
+			_getDefaultFieldValuesStrategy = getDefaultFieldValuesStrategy;
 		}
 
 		public ProductionDataSource Create(int workspaceId, int productionId, ProductionDataSource entity)
@@ -40,5 +43,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public ProductionDataSource Get(int workspaceId, int entityId)
 			=> _getWorkspaceEntityByIdStrategy.Get(workspaceId, entityId);
+
+		public ProductionDataSourceDefaultValues GetDefaultFieldValues(int workspaceId)
+			=> _getDefaultFieldValuesStrategy.Get(workspaceId);
 	}
 }

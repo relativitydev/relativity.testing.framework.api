@@ -102,7 +102,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 			else
 			{
-				throw new InvalidOperationException("Failed to create a workspace as template workspace is not specified.");
+				throw new ArgumentException("Failed to create a workspace as template workspace has neither name nor ArtifactID specified.");
 			}
 
 			return workspace;
@@ -116,7 +116,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (!workspaces.Any())
 			{
-				throw new Exception("There are no workspaces in the environment.");
+				throw new ObjectNotFoundException("There are no workspaces in the environment.");
 			}
 
 			templateWorkspace = workspaces.FirstOrDefault(x => _defaultTemplateWorkspaceNames.Contains(x.Name)) ?? workspaces.First(x => x.Status == "Active");

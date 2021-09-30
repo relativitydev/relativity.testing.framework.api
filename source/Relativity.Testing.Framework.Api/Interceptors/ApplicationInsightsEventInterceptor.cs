@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 		public override void Intercept(IInvocation invocation)
 		{
-			if (IsEnabled)
+			if (CollectionState != DataCollection.None)
 			{
 				try
 				{

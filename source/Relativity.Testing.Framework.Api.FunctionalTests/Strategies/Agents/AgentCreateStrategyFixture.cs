@@ -74,7 +74,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Name.Should().StartWith(_agentType.Name);
 			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID)
 				.Excluding(x => x.AgentType.ArtifactID)
-				.Excluding(x => x.Name));
+				.Excluding(x => x.Name)
+				.Excluding(x => x.Message));
 		}
 	}
 }

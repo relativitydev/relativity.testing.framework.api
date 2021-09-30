@@ -2,6 +2,6 @@
 {
 	internal class ProductionPlaceholderDefaultFieldValuesDto
 	{
-		public DefaultFieldValueDto Type { get; set; }
+		public DefaultFieldValueDto<ChoiceFieldValueDto> Type { get; set; }
 	}
 }

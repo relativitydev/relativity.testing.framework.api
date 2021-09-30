@@ -90,14 +90,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (templateWorkspace == null)
 			{
-				Workspace[] workspaces = _getAllWorkspacesStrategy.GetAll();
-
-				if (!workspaces.Any())
-				{
-					throw new Exception("There are no workspaces in the environment.");
-				}
-
-				workspace = workspaces.FirstOrDefault(x => _defaultTemplateWorkspaceNames.Contains(x.Name)) ?? workspaces.First(x => x.Status == "Active");
+				workspace = GetDefaultTemplate();
 			}
 			else if (templateWorkspace.ArtifactID > 0)
 			{
@@ -105,12 +98,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 			else if (templateWorkspace.Name != null)
 			{
-				workspace = _getWorkspaceByNameStrategy.Get(templateWorkspace.Name);
-
-				if (workspace == null)
-				{
-					throw ObjectNotFoundException.CreateForNotFoundByName<Workspace>(templateWorkspace.Name);
-				}
+				workspace = GetTemplateByName(templateWorkspace.Name);
 			}
 			else
 			{
@@ -118,6 +106,34 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 
 			return workspace;
+		}
+
+		private NamedArtifact GetDefaultTemplate()
+		{
+			NamedArtifact templateWorkspace;
+
+			Workspace[] workspaces = _getAllWorkspacesStrategy.GetAll();
+
+			if (!workspaces.Any())
+			{
+				throw new Exception("There are no workspaces in the environment.");
+			}
+
+			templateWorkspace = workspaces.FirstOrDefault(x => _defaultTemplateWorkspaceNames.Contains(x.Name)) ?? workspaces.First(x => x.Status == "Active");
+
+			return templateWorkspace;
+		}
+
+		private NamedArtifact GetTemplateByName(string name)
+		{
+			NamedArtifact templateWorkspace = _getWorkspaceByNameStrategy.Get(name);
+
+			if (templateWorkspace == null)
+			{
+				throw ObjectNotFoundException.CreateForNotFoundByName<Workspace>(name);
+			}
+
+			return templateWorkspace;
 		}
 
 		private Group ResolveGroup(Group group)

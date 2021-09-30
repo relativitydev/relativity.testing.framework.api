@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Strategies;
 namespace Relativity.Testing.Framework.Api.Services
 {
 	/// <summary>
-	/// Represents the agent API service.
+	/// Represents the [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) API service.
 	/// </summary>
 	/// <example>
 	/// <code>
@@ -38,9 +38,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified Agent(s).
 		/// <list type="number">
-		/// <item><description>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by id and updates it.</description></item>
-		/// <item><description>If [Agent.AgentType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html#Relativity_Testing_Framework_Models_Agent_AgentType) property of <paramref name="entity"/> exists, gets entity by type and updates it.</description></item>
-		/// <item><description>Otherwise creates a new entity using [ICreateStrategy{T}](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</description></item>
+		/// <item><description>If Artifact.ArtifactID property of <paramref name="entity"/> has positive value, gets entity by id and updates it.</description></item>
+		/// <item><description>If Agent.AgentType property of <paramref name="entity"/> exists, gets entity by type and updates it.</description></item>
+		/// <item><description>Otherwise creates a new entity using ICreateStrategy{T}.</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The [Agent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html) entity to require.</param>

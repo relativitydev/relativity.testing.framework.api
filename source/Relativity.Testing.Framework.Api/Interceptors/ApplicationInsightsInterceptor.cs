@@ -25,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 			_relativityFacade = relativityFacade;
 
-			TelemetryClient = _relativityFacade.Resolve<IApplicationInsightsTelemetryClient>().Instance;
+			TelemetryClient = _relativityFacade.Resolve<IApplicationInsightsTelemetryClient>();
 
 			_rtfVersion = Assembly.GetAssembly(typeof(ApplicationInsightsInterceptor)).GetName().Version.ToString();
 
@@ -36,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			_ringSetupVersion = (executingAssembly != null) ? GetRingSetupVersionReferencedInAssembly(executingAssembly) : null;
 		}
 
-		protected TelemetryClient TelemetryClient { get; set; }
+		protected IApplicationInsightsTelemetryClient TelemetryClient { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether or not DataCollection.All is configured for this interceptor.
@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 			{
 				// Only here to maintain backwards compilability.
 				// Anything setting this value (other than us) shouldn't have been.
-				// Should this just be gutted now then? Clients control it with 'EnableApplicationInsights'
+				// Can this just be gutted? Clients control it with 'EnableApplicationInsights'
 				_enabled = value;
 			}
 		}
@@ -65,23 +65,46 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 		/// <summary>
 		/// Gets or sets a value indicating what type of data is being collected.
 		/// </summary>
-		public DataCollection CollectionState { get; set; } = DataCollection.UsageOnly;
+		public DataCollection CollectionState { get; set; } = DataCollection.All;
 
 		public abstract void Intercept(IInvocation invocation);
 
 		protected Dictionary<string, string> BuildInvocationProperties(IInvocation invocation)
 		{
-			var properties = new Dictionary<string, string>
+			var properties = new Dictionary<string, string>();
+
+			switch (CollectionState)
 			{
-				{ "RelativityVersion", _relativityFacade.RelativityInstanceVersion },
-				{ "Class", invocation.TargetType.Name },
-				{ "Method", invocation.Method.Name },
-				{ "Parameters", string.Join(" && ", invocation.Arguments.Where(x => x != null)) },
-				{ "RelativityTestingFrameworkVersion", _rtfVersion },
-				{ "TestAssemblyName", _testAssemblyName },
-				{ "RingSetupVersion", _ringSetupVersion },
-				{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
-			};
+				case DataCollection.None:
+					break;
+				case DataCollection.UsageOnly:
+					properties = new Dictionary<string, string>
+					{
+						{ "RelativityVersion", _relativityFacade.RelativityInstanceVersion },
+						{ "Class", invocation.TargetType.Name },
+						{ "Method", invocation.Method.Name },
+						{ "RelativityTestingFrameworkVersion", _rtfVersion },
+						{ "RingSetupVersion", _ringSetupVersion },
+						{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
+					};
+					break;
+				case DataCollection.All:
+					properties = new Dictionary<string, string>
+					{
+						{ "RelativityVersion", _relativityFacade.RelativityInstanceVersion },
+						{ "Class", invocation.TargetType.Name },
+						{ "Method", invocation.Method.Name },
+						{ "Parameters", string.Join(" && ", invocation.Arguments.Where(x => x != null)) },
+						{ "RelativityTestingFrameworkVersion", _rtfVersion },
+						{ "TestAssemblyName", _testAssemblyName },
+						{ "RingSetupVersion", _ringSetupVersion },
+						{ "Hostname", _relativityFacade?.Config?.RelativityInstance?.RelativityHostAddress }
+					};
+					break;
+				default:
+					break;
+			}
+
 			return properties;
 		}
 

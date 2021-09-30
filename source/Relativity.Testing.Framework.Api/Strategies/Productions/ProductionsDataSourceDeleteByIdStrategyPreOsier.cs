@@ -1,16 +1,18 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ProductionsDataSourceDeleteByIdStrategy : DeleteWorkspaceEntityByIdStrategy<ProductionDataSource>
+	[VersionRange("<12.1")]
+	internal class ProductionsDataSourceDeleteByIdStrategyPreOsier : DeleteWorkspaceEntityByIdStrategy<ProductionDataSource>
 	{
 		private readonly IRestService _restService;
 		private readonly IExistsWorkspaceEntityByIdStrategy<ProductionDataSource> _existsWorkspaceEntityByIdStrategy;
 		private readonly IWaitDeleteWorkspaceEntityStrategy _waitDeleteWorkspaceEntityStrategy;
 
-		public ProductionsDataSourceDeleteByIdStrategy(
+		public ProductionsDataSourceDeleteByIdStrategyPreOsier(
 			IRestService restService,
 			IExistsWorkspaceEntityByIdStrategy<ProductionDataSource> existsWorkspaceEntityByIdStrategy,
 			IWaitDeleteWorkspaceEntityStrategy waitDeleteWorkspaceEntityStrategy)

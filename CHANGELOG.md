@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.6.0] - 2021-09-30
+
+### Changed
+
+- Application Insights interceptors have a new 'UsageOnly' state; assembly names, method parameters, and stack traces will not be recorded.
+
 ## [5.5.0] - 2021-09-29
 
 ### Added
@@ -15,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- The DataCollection enumeration (All, UsageOnly, None). 
+- The DataCollection enumeration (All, UsageOnly, None).
 
 ### Changed
 

@@ -74,7 +74,7 @@ namespace Relativity.Testing.Framework.Api.Tests
 		[TestCase("All", DataCollection.All)]
 		[TestCase("UsageOnly", DataCollection.UsageOnly)]
 		[TestCase("None", DataCollection.None)]
-		[TestCase("AnythingElse", DataCollection.None)]
+		[TestCase("AnythingElse", DataCollection.All)]
 		public void WhenValueExists_Install_EventInterceptorInExpectedState(
 			string testValue,
 			DataCollection expectedState)
@@ -94,7 +94,7 @@ namespace Relativity.Testing.Framework.Api.Tests
 		[TestCase("All", DataCollection.All)]
 		[TestCase("UsageOnly", DataCollection.UsageOnly)]
 		[TestCase("None", DataCollection.None)]
-		[TestCase("AnythingElse", DataCollection.None)]
+		[TestCase("AnythingElse", DataCollection.All)]
 		public void WhenValueExists_Install_MetricInterceptorInExpectedState(
 			string testValue,
 			DataCollection expectedState)

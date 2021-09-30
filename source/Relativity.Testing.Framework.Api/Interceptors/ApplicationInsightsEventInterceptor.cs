@@ -13,9 +13,7 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 		public override void Intercept(IInvocation invocation)
 		{
-#pragma warning disable CS0618 // Type or member is obsolete
-			if (IsEnabled)
-#pragma warning restore CS0618 // Type or member is obsolete
+			if (CollectionState != DataCollection.None)
 			{
 				try
 				{

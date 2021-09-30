@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Strategies;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -24,6 +25,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IUpdateStrategy<User> _updateStrategy;
 
+		private readonly IUserGetGroupsStrategy _userGetGroupsStrategy;
+
 		public UserService(
 			ICreateStrategy<User> createStrategy,
 			IRequireWithEnsureNewStrategy<User> requireWithEnsureNewStrategy,
@@ -33,7 +36,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			IUserExistsByEmailStrategy existsByEmailStrategy,
 			IUserAddToGroupStrategy addToGroupStrategy,
 			IUserRemoveFromGroupStrategy removeFromGroupStrategy,
-			IUpdateStrategy<User> updateStrategy)
+			IUpdateStrategy<User> updateStrategy,
+			IUserGetGroupsStrategy userGetGroupsStrategy)
 		{
 			_createStrategy = createStrategy;
 			_requireWithEnsureNewStrategy = requireWithEnsureNewStrategy;
@@ -44,6 +48,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_addToGroupStrategy = addToGroupStrategy;
 			_removeFromGroupStrategy = removeFromGroupStrategy;
 			_updateStrategy = updateStrategy;
+			_userGetGroupsStrategy = userGetGroupsStrategy;
 		}
 
 		public User Create(User user)
@@ -72,5 +77,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public void Update(User user)
 			=> _updateStrategy.Update(user);
+
+		public IList<NamedArtifact> GetGroups(int userArtifactID)
+			=> _userGetGroupsStrategy.GetGroups(userArtifactID);
 	}
 }

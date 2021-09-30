@@ -16,7 +16,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Notes = value.Notes,
 				Meta = value.Meta,
 				Actions = value.Actions,
-				Guids = value.Guids
+				Guids = value.Guids,
+				CreatedBy = value.CreatedBy,
+				CreatedOn = value.CreatedOn,
+				LastModifiedBy = value.LastModifiedBy,
+				LastModifiedOn = value.LastModifiedOn
 			};
 			return mapped;
 		}

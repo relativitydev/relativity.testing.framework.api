@@ -39,7 +39,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = Sut.Require(toUpdate);
 
 			result.Client.ArtifactID.Should().Be(toUpdate.Client.ArtifactID);
-			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client).Excluding(x => x.LastModifiedOn).Excluding(x => x.LastModifiedBy));
 		}
 
 		[Test]

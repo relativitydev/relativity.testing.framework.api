@@ -36,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			Group result = Sut.Update(toUpdate);
 
-			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client).Excluding(x => x.LastModifiedOn).Excluding(x => x.LastModifiedBy));
 			result.Client.Should().BeEquivalentTo(toUpdate.Client, o => o.Excluding(x => x.Number).Excluding(x => x.Status.ArtifactID));
 		}
 	}

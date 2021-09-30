@@ -51,7 +51,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					.Excluding(group => group.Type)
 					.Excluding(group => group.Actions)
 					.Excluding(group => group.Guids)
-					.Excluding(group => group.Meta));
+					.Excluding(group => group.Meta)
+					.Excluding(group => group.CreatedOn)
+					.Excluding(group => group.CreatedBy)
+					.Excluding(group => group.LastModifiedOn)
+					.Excluding(group => group.LastModifiedBy));
 		}
 	}
 }

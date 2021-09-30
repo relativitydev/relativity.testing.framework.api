@@ -13,11 +13,11 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IImagingSetService
 	{
 		/// <summary>
-		/// Creates imaging set based on provided <see cref="ImagingSetRequest"/> properties.
+		/// Creates imaging set based on provided [ImagingSetRequest](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSetRequest.html) properties.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
 		/// <param name="imagingSetRequest">The Imaging Set Request that included basing information about the Imaging Set that should be created.</param>
-		/// <returns>The created <see cref="ImagingSet"/>.</returns>
+		/// <returns>The created [ImagingSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSet.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
@@ -56,7 +56,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
 		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
-		/// <returns>The <see cref="ImagingSet"/> with specified <paramref name="imagingSetId"/>.</returns>
+		/// <returns>The [ImagingSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSet.html) with specified <paramref name="imagingSetId"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
@@ -110,7 +110,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging set.</param>
 		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
-		/// <returns>The <see cref="ImagingSetDetailedStatus"/> repesenting the status of imaging set.</returns>
+		/// <returns>The [ImagingSetDetailedStatus](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSetDetailedStatus.html) repesenting the status of imaging set.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;

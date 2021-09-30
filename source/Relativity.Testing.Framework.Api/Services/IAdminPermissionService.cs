@@ -15,7 +15,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets the admin group selector.
 		/// </summary>
-		/// <returns>The <see cref="GroupSelector">group selector</see> entity.</returns>
+		/// <returns>The [GroupSelector](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupSelector.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// GroupSelector groupSelector = _adminPermissionService.GetAdminGroupSelector();
@@ -63,7 +63,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the admin permissions for a group.
 		/// </summary>
 		/// <param name="groupId">The group ID.</param>
-		/// <returns>An instance of <see cref="GroupPermissions"/>.</returns>
+		/// <returns>An instance of [GroupPermissions](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissions.html).</returns>
 		/// <example>
 		/// <code>
 		/// var groudId = 89743;
@@ -76,7 +76,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the admin permissions for a group.
 		/// </summary>
 		/// <param name="groupName">The group name.</param>
-		/// <returns>An instance of <see cref="GroupPermissions"/>.</returns>
+		/// <returns>An instance of [GroupPermissions](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissions.html).</returns>
 		/// <example>
 		/// <code>
 		/// var groupName = "Group1";

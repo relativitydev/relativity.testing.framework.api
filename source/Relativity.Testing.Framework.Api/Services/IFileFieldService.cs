@@ -18,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Downloads a file from a file field.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="fileFieldDto">The <see cref="FileFieldDTO"/> containing information about the File Field of the file to download.
+		/// <param name="fileFieldDto">The [FileFieldDTO](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FileFieldDTO.html) containing information about the File Field of the file to download.
 		/// Must contain ArtifactId or Name of the Field and ObjectRef as well as FileStream that can be written.</param>
 		/// <returns>FileField object containing downloaded file.</returns>
 		/// <exception cref="ArgumentException">The fileFieldDto does not contain all needed data.</exception>
@@ -53,7 +53,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Uploads a file to the file field. Saves the objects with the uploadd file.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="fileFieldDto">The <see cref="FileFieldDTO"/> containing information about the File Field,
+		/// <param name="fileFieldDto">The [FileFieldDTO](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FileFieldDTO.html) containing information about the File Field,
 		/// file name and filestrean with the file to upload. Must contain ArtifactId or Name of the Field and ObjectRef.</param>
 		/// <returns>FileField object containing the GUID of the uploaded file.</returns>
 		/// <exception cref="ArgumentException">The fileFieldDto does not contain all needed data.</exception>

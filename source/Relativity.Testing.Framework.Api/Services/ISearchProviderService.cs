@@ -69,7 +69,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get search provider.</param>
 		/// <param name="entityName">The name of the search provider.</param>
-		/// <returns>The <see cref="SearchProvider"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [SearchProvider](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.SearchProvider.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;
@@ -107,7 +107,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <item>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="SearchProvider"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [SearchProvider](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.SearchProvider.html) entity or <see langword="null"/>.</returns>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require search provider.</param>
 		/// <param name="entity">The entity to require.</param>
 		/// <example>

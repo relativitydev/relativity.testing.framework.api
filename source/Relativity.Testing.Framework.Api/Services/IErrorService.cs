@@ -41,7 +41,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets all errors.
 		/// </summary>
-		/// <returns>The collection of <see cref="Error"/> errors.</returns>
+		/// <returns>The collection of [Error](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Error.html) errors.</returns>
 		/// <example>
 		/// <code>
 		/// var errors = _errorService.GetAll(entity);
@@ -54,7 +54,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="from">The start of a date range.</param>
 		/// <param name="to">The end of a date range.</param>
-		/// <returns>The collection of <see cref="Error"/> errors.</returns>
+		/// <returns>The collection of [Error](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Error.html) errors.</returns>
 		/// <example>
 		/// <code>
 		/// var currentDateTime = DateTime.Now;

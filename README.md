@@ -16,6 +16,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
     - [Functional Testing](#functional-testing)
       - [Creating Runsettings](#creating-runsettings)
       - [Running Functional Tests](#running-functional-tests)
+    - [Logging](#Logging)
   - [Contributing](#contributing)
   - [Reporting Issues](#reporting-issues)
 
@@ -69,8 +70,8 @@ This script will create FunctionalTest.runsettings and put it next to itself. Yo
 
 Run Tests in Visual Studio:
 
-* Attach your runsettings file to the solution in Visual Studio.
-* Use the built in test runner.
+- Attach your runsettings file to the solution in Visual Studio.
+- Use the built in test runner.
 
 You can also run functional tests from the command line:
 
@@ -78,6 +79,10 @@ You can also run functional tests from the command line:
 dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScripts\FunctionalTest.runsettings
 
 ```
+
+### Logging
+
+Relativity.Testing.Framework.Api allows users to disable sending us stack traces of their code by default (while still sending other non-sensitive usage information) with the EnableApplicationInsights flag. By default this flag is set to true and will log "Usage-Only" items. For further details please read [Metrics-Collection.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Metrics-Collection.md).
 
 ## Contributing
 

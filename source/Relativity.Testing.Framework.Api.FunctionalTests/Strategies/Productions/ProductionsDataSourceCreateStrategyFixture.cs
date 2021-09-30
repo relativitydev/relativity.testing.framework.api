@@ -7,7 +7,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ICreateWorkspaceEntityStrategy<ProductionDataSource>))]
-	internal class ProductionsCreateDataSourceStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<ProductionDataSource>>
+	internal class ProductionsDataSourceCreateStrategyFixture : ApiServiceTestFixture<ICreateWorkspaceEntityStrategy<ProductionDataSource>>
 	{
 		private Production _production;
 		private KeywordSearch _keywordSearch;

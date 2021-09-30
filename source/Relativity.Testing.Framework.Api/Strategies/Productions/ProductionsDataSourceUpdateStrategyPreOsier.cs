@@ -1,14 +1,16 @@
 ﻿using System;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ProductionsDataSourceUpdateStrategy : IUpdateProductionsDataSourceStrategy
+	[VersionRange("<12.1")]
+	internal class ProductionsDataSourceUpdateStrategyPreOsier : IUpdateProductionsDataSourceStrategy
 	{
 		private readonly IRestService _restService;
 
-		public ProductionsDataSourceUpdateStrategy(IRestService restService)
+		public ProductionsDataSourceUpdateStrategyPreOsier(IRestService restService)
 		{
 			_restService = restService;
 		}

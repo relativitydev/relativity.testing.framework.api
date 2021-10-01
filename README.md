@@ -64,6 +64,7 @@ To create the runsettings file, run the following command, replacing instance se
 ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "YOUR_HOST_ADDRESS" -AdminUsername "YOUR_ADMIN_USERNAME" -AdminPassword "YOUR_ADMIN_PASSWORD"
 
 ```
+
 This script will create FunctionalTest.runsettings and put it next to itself. You shall use this file to setup functional testing.
 
 #### Running Functional Tests
@@ -82,7 +83,7 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ### Logging
 
-Relativity.Testing.Framework.Api allows users to disable sending us stack traces of their code by default (while still sending other non-sensitive usage information) with the EnableApplicationInsights flag. By default this flag is set to true and will log "Usage-Only" items. For further details please read [Metrics-Collection.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Metrics-Collection.md).
+Relativity.Testing.Framework.Api allows users to disable sending us stack traces of their code by default (while still sending other non-sensitive usage information) with the EnableApplicationInsights flag. The flag is a boolean that should be set in your RunSettings. For further details please read [Metrics-Collection.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Metrics-Collection.md).
 
 ## Contributing
 

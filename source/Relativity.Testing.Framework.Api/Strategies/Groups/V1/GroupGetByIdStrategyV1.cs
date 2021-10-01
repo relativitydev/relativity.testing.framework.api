@@ -9,6 +9,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	[VersionRange(">=12.1")]
 	internal class GroupGetByIdStrategyV1 : IGroupGetByIdStrategy
 	{
+		private const string _ENTITY_NOT_FOUND_EXCEPTION_MESSAGE = "The object does not exist or you do not have permission to access it.";
 		private readonly IArtifactIdValidator _artifactIdValidator;
 		private readonly IRestService _restService;
 
@@ -31,14 +32,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Group mappedGroup = response.MapToGroup();
 				return mappedGroup;
 			}
-			catch (HttpRequestException exception)
+			catch (HttpRequestException exception) when (exception.Message.Contains(_ENTITY_NOT_FOUND_EXCEPTION_MESSAGE))
 			{
-				if (exception.Message.Contains("The object does not exist or you do not have permission to access it."))
-				{
-					return null;
-				}
-
-				throw;
+				return null;
 			}
 		}
 	}

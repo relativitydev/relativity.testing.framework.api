@@ -1,7 +1,7 @@
 name: Feature Enhancement
 description: Suggest an idea for this project
-title: "[Feature]: *Use a clear and descriptive title for the issue to identify the suggestion.*"
-labels: [enhancement]
+title: ""
+labels: [enhancement, untriaged]
 body:
 - type: textarea
   id: description

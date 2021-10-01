@@ -83,7 +83,7 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ### Logging
 
-Relativity.Testing.Framework.Api allows users to choose how much logging to share when providing stack traces. When EnableApplicationInsights is set to true, the logger disables logging stack traces of your code, while still sending other non-sensitive usage information relevant to Relativity.Testing.Framework.Api. The flag is a boolean that should be set in your RunSettings with the Key="EnableApplicationInsights". For further details please read [Metrics-Collection.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Metrics-Collection.md).
+Relativity.Testing.Framework.Api allows users to choose how much logging to share when providing stack traces. When EnableApplicationInsights is set to true, the logger disables logging stack traces of your code, while still logging other non-sensitive usage information relevant for helping us debug. The flag is a boolean that should be set in your RunSettings with the Key="EnableApplicationInsights". For further details please read [Metrics-Collection.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Metrics-Collection.md).
 
 ## Contributing
 

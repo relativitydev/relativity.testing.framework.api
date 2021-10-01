@@ -1,6 +1,6 @@
 name: Feature Enhancement
 description: Suggest an idea for this project
-title: ""
+title: "The feature enhancement title"
 labels: [enhancement, untriaged]
 body:
 - type: textarea

@@ -1,6 +1,6 @@
 name: Bug Report
 description: File a bug report
-title: ""
+title: "The bug report title"
 labels: [bug, untriaged]
 body:
 - type: markdown

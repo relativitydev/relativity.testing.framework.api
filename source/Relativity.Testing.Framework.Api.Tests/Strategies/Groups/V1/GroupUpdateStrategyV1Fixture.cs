@@ -80,7 +80,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void Update_WithValidGroupWithoutArtifactIDWithName_ShouldCallRestServiceWithExpectedParamaters()
+		public void Update_WithValidGroupWithoutArtifactIDWithName_ShouldCallRestServiceWithExpectedParameters()
 		{
 			var groupToUpdate = new Group
 			{
@@ -115,8 +115,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				.Setup(getByNameStrategy => getByNameStrategy.Get(nonexistentName))
 				.Returns<Group>(null);
 
-			ArgumentException exception = Assert.Throws<ArgumentException>(() => _sut.Update(groupToUpdate));
-			exception.Message.Should().Contain("Can't find the entity");
+			ObjectNotFoundException exception = Assert.Throws<ObjectNotFoundException>(() => _sut.Update(groupToUpdate));
+			exception.Message.Should().StartWith($"Failed to find Group entity by '{nonexistentName}' name.");
 		}
 
 		[Test]

@@ -27,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var dto = new GroupDTO(entity);
 
 			var response = _restService.Post<GroupResponse>("relativity.groups/workspace/-1/groups", dto);
-			Group mappedGroup = response.DoMappingFromResponse();
+			Group mappedGroup = response.MapToGroup();
 
 			return mappedGroup;
 		}

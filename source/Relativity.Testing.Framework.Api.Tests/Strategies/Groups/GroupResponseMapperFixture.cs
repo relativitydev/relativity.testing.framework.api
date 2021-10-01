@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	internal class GroupResponseMapperFixture
 	{
 		[Test]
-		public void DoMappingFromResponse_MapsProperties()
+		public void MapToGroup_MapsProperties()
 		{
 			var groupGuids = new List<Guid>
 			{
@@ -114,7 +114,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				LastModifiedOn = modifiedOn
 			};
 
-			Group mappedGroup = groupResponse.DoMappingFromResponse();
+			Group mappedGroup = groupResponse.MapToGroup();
 
 			mappedGroup.Should().NotBeNull();
 			mappedGroup.Should().BeEquivalentTo(expectedGroup);

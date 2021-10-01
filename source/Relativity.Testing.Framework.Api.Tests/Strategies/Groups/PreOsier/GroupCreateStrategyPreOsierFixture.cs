@@ -52,7 +52,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				Notes = _groupToCreate.Notes
 			};
 			SetupMockRestService();
-			SetupMockClientRquireStrategy();
+			SetupMockClientRequireStrategy();
 			_sut = new GroupCreateStrategyPreOsier(_mockRestService.Object, _mockClientRequireService.Object);
 		}
 
@@ -76,7 +76,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void Create_WithNull_ShouldThrowNullExceptio()
+		public void Create_WithNull_ShouldThrowNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() =>
 				_sut.Create(null));
@@ -101,7 +101,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				.Returns(mockGroupResponse);
 		}
 
-		private void SetupMockClientRquireStrategy()
+		private void SetupMockClientRequireStrategy()
 		{
 			_mockClientRequireService = new Mock<IRequireStrategy<Client>>();
 			_mockClientRequireService

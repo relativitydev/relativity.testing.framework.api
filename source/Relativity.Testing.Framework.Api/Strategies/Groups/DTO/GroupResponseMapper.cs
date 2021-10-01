@@ -4,7 +4,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal static class GroupResponseMapper
 	{
-		internal static Group DoMappingFromResponse(this GroupResponse value)
+		internal static Group MapToGroup(this GroupResponse value)
 		{
 			var mapped = new Group
 			{

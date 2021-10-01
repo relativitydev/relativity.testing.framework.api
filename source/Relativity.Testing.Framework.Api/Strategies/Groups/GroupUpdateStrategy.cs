@@ -42,7 +42,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entityByName == null)
 			{
-				throw new ArgumentException("Can't find the entity.", nameof(group));
+				throw ObjectNotFoundException.CreateForNotFoundByName<Group>(group.Name);
 			}
 
 			return entityByName.ArtifactID;

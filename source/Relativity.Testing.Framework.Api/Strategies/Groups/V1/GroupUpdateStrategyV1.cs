@@ -21,7 +21,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			GroupResponse updatedGroup = _restService.Put<GroupResponse>($"Relativity-Identity/v1/groups/{group.ArtifactID}", dto);
 
-			return updatedGroup.DoMappingFromResponse();
+			return updatedGroup.MapToGroup();
 		}
 	}
 }

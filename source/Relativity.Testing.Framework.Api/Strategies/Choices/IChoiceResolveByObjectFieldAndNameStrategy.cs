@@ -16,7 +16,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <param name="fieldName">Name of the field.</param>
 		/// <param name="choiceName">Name of the choice.</param>
 		/// <returns>The [ArtifactReference](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ArtifactReference.html) object.</returns>
-		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)
+		/// <exception>[ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html).</exception>
 		/// The choice object is not found.
 		ArtifactReference ResolveReference(int workspaceId, string objectTypeName, string fieldName, string choiceName);
 
@@ -28,7 +28,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <param name="fieldName">Name of the field.</param>
 		/// <param name="choiceName">Name of the choice.</param>
 		/// <returns>The [ArtifactReference](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ArtifactReference.html) object.</returns>
-		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)
+		/// <exception>[ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)</exception>
 		/// The choice object is not found.
 		ArtifactReference ResolveReference(string objectTypeName, string fieldName, string choiceName);
 	}

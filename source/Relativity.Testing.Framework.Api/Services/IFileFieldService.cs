@@ -54,7 +54,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="fileFieldDto">The [FileFieldDTO](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FileFieldDTO.html) containing information about the File Field,
-		/// file name and filestrean with the file to upload. Must contain ArtifactId or Name of the Field and ObjectRef.</param>
+		/// file name and filestream with the file to upload. Must contain ArtifactId or Name of the Field and ObjectRef.</param>
 		/// <returns>FileField object containing the GUID of the uploaded file.</returns>
 		/// <exception cref="ArgumentException">The fileFieldDto does not contain all needed data.</exception>
 		/// <example>

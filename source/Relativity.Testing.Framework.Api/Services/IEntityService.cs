@@ -103,9 +103,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified entity.
 		/// <list type="number">
-		/// <item><description>If [Artifact.ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
 		/// <item><description>If [Entity.FullName](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html#Relativity_Testing_Framework_Models_Entity_FullName) full name property of <paramref name="entity"/> have a value, gets entity by full name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
+		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy&lt;T>"/>.</description></item>
 		/// </list>
 		/// </summary>
 		/// <returns>The [Entity](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html) entity or <see langword="null"/>.</returns>

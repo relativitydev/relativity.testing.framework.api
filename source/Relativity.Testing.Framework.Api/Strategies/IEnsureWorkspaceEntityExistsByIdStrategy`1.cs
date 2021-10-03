@@ -12,7 +12,7 @@
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="entityId">The artifact ID of the entity.</param>
-		/// [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)Failed to find entity by ID.
+		/// <exception>[ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)Failed to find entity by ID.</exception>
 		void EnsureExists(int workspaceId, int entityId);
 	}
 }

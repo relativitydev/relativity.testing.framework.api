@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api
 {
 	/// <summary>
 	/// Represents the API component of Relativity Testing Framework.
-	/// <see cref="ApiComponent"/> should be registered in [RelativityFacade](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.RelativityFacade.html) thru [IRelativityFacade.RelyOn{T}()](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.IRelativityFacade.html#Relativity_Testing_Framework_IRelativityFacade_RelyOn__1) method after [CoreComponent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html).
+	/// <see cref="ApiComponent"/> should be registered in [RelativityFacade](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.RelativityFacade.html) thru [IRelativityFacade.RelyOn&lt;T>()](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.IRelativityFacade.html#Relativity_Testing_Framework_IRelativityFacade_RelyOn__1) method after [CoreComponent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html).
 	/// </summary>
 	public class ApiComponent : IRelativityComponent, IWindsorInstaller
 	{

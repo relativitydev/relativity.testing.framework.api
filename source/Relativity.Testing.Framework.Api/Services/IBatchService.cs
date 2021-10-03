@@ -31,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets all batches.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get all batches.</param>
-		/// <returns>The collection of [Batches](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html) entities.</returns>
+		/// <returns>The collection of [Batches](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html).</returns>
 		/// <example>
 		/// <code>
 		/// List&lt;Batch&gt; batches = _batchService.GetAll(1015427);

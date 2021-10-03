@@ -45,7 +45,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		/// <summary>
 		/// Dismiss message of the day for the user with the specified ArtifactID
-		/// by default dismissing MotD for Admin User provided by [RelativityInstanceConfiguration.AdminUsername](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Configuration.RelativityInstanceConfiguration.html#Relativity_Testing_Framework_Configuration_RelativityInstanceConfiguration_AdminUsername).
+		/// by default dismissing MotD for Admin User provided by [AdminUsername](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Configuration.RelativityInstanceConfiguration.html#Relativity_Testing_Framework_Configuration_RelativityInstanceConfiguration_AdminUsername).
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
 		/// <example>
@@ -70,7 +70,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		/// <summary>
 		/// Determines whether specific user dismissed MotD.
-		/// by default determining MotD dismissal for Admin User provided by [RelativityInstanceConfiguration.AdminUsername](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Configuration.RelativityInstanceConfiguration.html#Relativity_Testing_Framework_Configuration_RelativityInstanceConfiguration_AdminUsername).
+		/// by default determining MotD dismissal for Admin User provided by [AdminUsername](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Configuration.RelativityInstanceConfiguration.html#Relativity_Testing_Framework_Configuration_RelativityInstanceConfiguration_AdminUsername).
 		/// </summary>
 		/// <param name="userId">The user artifact ID.</param>
 		/// <returns><see langword="true"/> if an user dismissed MotD; otherwise, <see langword="false"/>.</returns>

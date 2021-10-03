@@ -126,7 +126,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the workspace to get.</param>
-		/// <returns>The <see xref="Workspace"/> if it exists, otherwise <see langword="null"/>.</returns>
+		/// <returns>The [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) if it exists, otherwise <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Workspace workspace = _workspaceService.Get(1234567);

@@ -43,11 +43,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				DefaultFileRepository = dto.DefaultFileRepository.Value,
 				DefaultCacheLocation = dto.DefaultCacheLocation.Value,
 				DownloadHandlerUrl = dto.DownloadHandlerUrl,
-				SqlFullTextLanguage = new NamedArtifact
-				{
-					Name = dto.SqlFullTextLanguage.Name,
-					ArtifactID = dto.SqlFullTextLanguage.ID
-				},
+				SqlFullTextLanguage = (SqlFullTextLanguage)dto.SqlFullTextLanguage.ID,
 				Keywords = dto.Keywords,
 				Notes = dto.Notes
 			};

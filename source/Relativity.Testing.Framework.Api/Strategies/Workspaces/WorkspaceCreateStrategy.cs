@@ -163,7 +163,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					entity.Keywords,
 					entity.Notes,
 					ResourcePool = new Securable<Artifact>(entity.ResourcePool),
-					SqlFullTextLanguage = entity.SqlFullTextLanguage == null ? 1033 : entity.SqlFullTextLanguage.ArtifactID,
+					SqlFullTextLanguage = entity.SqlFullTextLanguage == 0 ? 1033 : (int)entity.SqlFullTextLanguage,
 					SqlServer = new Securable<Artifact>(entity.SqlServer),
 					Status = new Artifact(675),
 					Template = new Securable<Artifact>(new Artifact(templateWorkspaceId)),

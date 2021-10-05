@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
-using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -18,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Get_Existing_PreOsier()
+		public void Get_Existing()
 		{
 			var result = Sut.Get(DefaultWorkspace.ArtifactID);
 

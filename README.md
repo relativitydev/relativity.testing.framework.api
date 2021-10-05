@@ -16,6 +16,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
     - [Functional Testing](#functional-testing)
       - [Creating Runsettings](#creating-runsettings)
       - [Running Functional Tests](#running-functional-tests)
+    - [Logging](#logging)
   - [Contributing](#contributing)
   - [Reporting Issues](#reporting-issues)
 
@@ -63,14 +64,15 @@ To create the runsettings file, run the following command, replacing instance se
 ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "YOUR_HOST_ADDRESS" -AdminUsername "YOUR_ADMIN_USERNAME" -AdminPassword "YOUR_ADMIN_PASSWORD"
 
 ```
+
 This script will create FunctionalTest.runsettings and put it next to itself. You shall use this file to setup functional testing.
 
 #### Running Functional Tests
 
 Run Tests in Visual Studio:
 
-* Attach your runsettings file to the solution in Visual Studio.
-* Use the built in test runner.
+- Attach your runsettings file to the solution in Visual Studio.
+- Use the built in test runner.
 
 You can also run functional tests from the command line:
 
@@ -78,6 +80,14 @@ You can also run functional tests from the command line:
 dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScripts\FunctionalTest.runsettings
 
 ```
+
+### Logging
+
+EnableApplicationInsights can be set in the RunSettings with the following values to set how much is logged.
+
+- All
+- UsageOnly
+- None
 
 ## Contributing
 

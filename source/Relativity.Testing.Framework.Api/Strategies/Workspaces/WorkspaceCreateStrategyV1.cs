@@ -6,10 +6,12 @@ using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class WorkspaceCreateStrategy : CreateStrategy<Workspace>
+	[VersionRange(">=12.1")]
+	internal class WorkspaceCreateStrategyV1 : CreateStrategy<Workspace>
 	{
 		private const string DefaultTemplateWorkspaceName = "New Case Template";
 
@@ -34,7 +36,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IObjectService _objectService;
 
 #pragma warning disable S107 // Methods should not have too many parameters
-		public WorkspaceCreateStrategy(
+		public WorkspaceCreateStrategyV1(
 			IRestService restService,
 			IGetByNameStrategy<Workspace> getWorkspaceByNameStrategy,
 			IGetByIdStrategy<Workspace> getWorkspaceByIdStrategy,
@@ -73,7 +75,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private int CreateWorkspace(object workspaceToCreate)
 		{
-			var result = _restService.Post<JObject>("Relativity.Workspaces/workspace/", workspaceToCreate, 5);
+			var result = _restService.Post<JObject>("relativity-environment/V1/workspace", workspaceToCreate, 5);
 
 			return int.Parse(result[nameof(Artifact.ArtifactID)].ToString());
 		}
@@ -131,7 +133,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ResourcePool == null)
 			{
-				entity.ResourcePool = _getAllResourcePoolsStrategy.GetAll().First();
+				entity.ResourcePool = _getAllResourcePoolsStrategy.GetAll().Last();
 			}
 
 			if (entity.DefaultCacheLocation == null)
@@ -162,7 +164,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					EnableDataGrid = false,
 					entity.Keywords,
 					entity.Notes,
-					ResourcePool = new Securable<Artifact>(entity.ResourcePool),
+					ResourcePool = new Securable<NamedArtifact>
+					{
+						Secured = false,
+						Value = new NamedArtifact
+						{
+							ArtifactID = entity.ResourcePool.ArtifactID,
+							Name = entity.ResourcePool.Name
+						}
+					},
 					SqlFullTextLanguage = entity.SqlFullTextLanguage == 0 ? 1033 : (int)entity.SqlFullTextLanguage,
 					SqlServer = new Securable<Artifact>(entity.SqlServer),
 					Status = new Artifact(675),

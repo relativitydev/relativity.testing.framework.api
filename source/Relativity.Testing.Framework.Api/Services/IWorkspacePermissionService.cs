@@ -149,7 +149,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// string groupName = "Group Name";
 		///
 		/// GroupPermissions permissions = _workspacePermissionService.GetWorkspaceGroupPermissions(workspaceID, groupName);
-		/// permissions.ObjectPermissions[0].ViewSelected = !permissions.ObjectPermissions[0].ViewSelected;
+		/// permissions.ObjectPermissions[0].ViewSelected = true;
 		///
 		/// _workspacePermissionService.SetWorkspaceGroupPermissions(workspaceID, permissions);
 		/// </code>
@@ -185,9 +185,6 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// string groupName = "Group Name";
 		/// string permissionName = "Object Rule";
 		///
-		/// GroupPermissions permissions = _workspacePermissionService.GetWorkspaceGroupPermissions(workspaceID, groupName);
-		/// permissions.ObjectPermissions[0].ViewSelected = !permissions.ObjectPermissions[0].ViewSelected;
-		///
 		/// _workspacePermissionService.SetWorkspaceGroupPermissions(workspaceID, groupName, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View));
 		/// </code>
 		/// </example>
@@ -206,7 +203,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// string permissionName = "Object Rule";
 		///
 		/// var groupPermissionsChangeset = new GroupPermissionsChangeset();
-		/// groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View)
+		/// groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View);
 		///
 		/// _workspacePermissionService.SetWorkspaceGroupPermissions(workspaceID, groupID, groupPermissionsChangeset);
 		/// </code>
@@ -225,7 +222,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// string groupName = "Group Name";
 		///
 		/// var groupPermissionsChangeset = new GroupPermissionsChangeset();
-		/// groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View)
+		/// groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View);
 		///
 		/// _workspacePermissionService.SetWorkspaceGroupPermissions(workspaceID, groupName, groupPermissionsChangeset);
 		/// </code>

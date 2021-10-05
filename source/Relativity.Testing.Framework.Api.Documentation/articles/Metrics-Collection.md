@@ -35,6 +35,8 @@ In addition to the [default information](https://docs.microsoft.com/en-us/azure/
 | RingSetupVersion | The version of the Relativity.Testing.Framework.RingSetup assembly, if loaded | 0.13.0 |
 | Hostname | The hostname of the Relativity environment that RTF is running against. | P-DV-VM-CUP7WET |
 
+**Metrics Not Trackked during UsageOnly Mode:** Method, Class and Parameters
+
 ### API Error Metrics
 
 | Measurement | Description | Example |
@@ -44,11 +46,13 @@ In addition to the [default information](https://docs.microsoft.com/en-us/azure/
 | Failed method | Contains info about a method where an exception was thrown. | Relativity.Testing.Framework.Api.HttpService.CheckResponseStatus |
 | Call stack | The call stack of an error. **Might potentially contain sensitive information (information about the code being run)**. | System.Net.Http.HttpRequestException: at Relativity.Testing.Framework.Api.HttpService.CheckResponseStatus (Relativity.Testing.Framework.Api, ... |
 
+**Metrics Not Trackked during UsageOnly Mode:** Message and Call Stack
+
 ## Opting out of Metrics Collection
 
 If you wish to opt out of automatic metrics collection, set the _EnableApplicationInsights_ TestRunParameter to UsageOnly or None.
 
-```text
+```xml
 <RunSettings>
   <TestRunParameters>
     <Parameter name="ServerBindingType" value="https" />
@@ -57,7 +61,7 @@ If you wish to opt out of automatic metrics collection, set the _EnableApplicati
     <Parameter name="AdminPassword" value="APassword1234!" />
     <Parameter name="RestServicesHostAddress" value="P-DV-VM-CUP7WET" />
     <Parameter name="WebApiHostAddress" value="P-DV-VM-CUP7WET" />
-    <Parameter name="EnableApplicationInsights" value="All" />
+    <Parameter name="EnableApplicationInsights" value="None" />
   </TestRunParameters>
 </RunSettings>
 ```

@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Extensions
 {
 	/// <summary>
-	/// Provides a set of extension methods for <see cref="FileFieldDTO"/>.
+	/// Provides a set of extension methods for [FileFieldDTO](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FileFieldDTO.html).
 	/// </summary>
 	internal static class FileFieldDTOExtensions
 	{

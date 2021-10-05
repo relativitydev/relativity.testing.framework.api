@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="itemId">The item ID.</param>
 		/// <param name="groupId">The group ID.</param>
-		/// <returns>An instance of <see cref="GroupPermissions"/> or <see langword="null"/>.</returns>
+		/// <returns>An instance of [GroupPermissions](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissions.html) or <see langword="null"/>.</returns>
 		GroupPermissions Get(int workspaceId, int itemId, int groupId);
 	}
 }

@@ -19,8 +19,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to add the new tab,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The <see cref="Tab"/> to create.</param>
-		/// <returns>The created <see cref="Tab"/>.</returns>
+		/// <param name="entity">The [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) to create.</param>
+		/// <returns>The created [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = -1;
@@ -43,15 +43,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified tab.
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new <see cref="Tab"/>.</description></item>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
+		/// <item><description>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html).</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require tab,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The <see cref="Tab"/> to require.</param>
-		/// <returns>The <see cref="Tab"/> required.</returns>
+		/// <param name="entity">The [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) to require.</param>
+		/// <returns>The [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) required.</returns>
 		/// <example>
 		/// In this example, the tab does not exist, so it will be created.
 		/// <code>
@@ -68,11 +68,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		Tab Require(int workspaceId, Tab entity);
 
 		/// <summary>
-		/// Deletes the <see cref="Tab"/> by ID.
+		/// Deletes the [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) by ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to delete the tab,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The artifact ID of the <see cref="Tab"/>.</param>
+		/// <param name="entityId">The artifact ID of the [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html).</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -82,12 +82,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="Tab"/> by the specified ID.
+		/// Gets the [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) by the specified ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the tab,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The artifact ID of the <see cref="Tab"/>.</param>
-		/// <returns>>The <see cref="Tab"/> entity.</returns>
+		/// <param name="entityId">The artifact ID of the [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html).</param>
+		/// <returns>>The [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -97,12 +97,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		Tab Get(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="Tab"/> by the specified name.
+		/// Gets the [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) by the specified name.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the tab,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityName">The name of the tab.</param>
-		/// <returns>>The <see cref="Tab"/> entity.</returns>
+		/// <returns>>The [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -112,11 +112,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		Tab Get(int workspaceId, string entityName);
 
 		/// <summary>
-		/// Updates the specified <see cref="Tab"/>.
+		/// Updates the specified [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to update the tab,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The <see cref="Tab"/> to update.
+		/// <param name="entity">The [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) to update.
 		/// Must include the ArtifactID of the Tab in the model.</param>
 		/// <example>
 		/// <code>
@@ -134,7 +134,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Retrieves a list of all object types in a workspace available for creating or updating a tab.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve available object types for.</param>
-		/// <returns>>List of <see cref="ObjectType"/>.</returns>
+		/// <returns>>List of [ObjectType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ObjectType.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -144,14 +144,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		List<ObjectType> GetAvailableObjectTypes(int workspaceId);
 
 		/// <summary>
-		/// Gets the <see cref="Meta"/> with admin-level metadata about admin and system tabs.
+		/// Gets the [Meta](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Meta.html) with admin-level metadata about admin and system tabs.
 		/// </summary>
 		/// <example>
 		/// <code>
 		/// Meta meta = _tabService.GetAdminLevelMetadata();
 		/// </code>
 		/// </example>
-		/// <returns>The <see cref="Meta"/> entity.</returns>
+		/// <returns>The [Meta](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Meta.html) entity.</returns>
 		Meta GetAdminLevelMetadata();
 
 		/// <summary>
@@ -171,7 +171,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets current order of the tabs in a workspace.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs order for.</param>
-		/// <returns>Ordered list of <see cref="Tab"/>s. Only basic information and Order fields are filled.</returns>
+		/// <returns>Ordered list of [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html)s. Only basic information and Order fields are filled.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -184,7 +184,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Retrieves a list of tabs with information about each tab that the calling user can navigate to in a specific workspace.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that you want to retrieve tabs navigation information for.</param>
-		/// <returns>List of <see cref="Tab"/> entities.</returns>
+		/// <returns>List of [Tab](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Tab.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;

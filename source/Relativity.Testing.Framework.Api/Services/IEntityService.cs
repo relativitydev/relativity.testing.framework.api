@@ -39,7 +39,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the entity.</param>
 		/// <param name="entityId">The Artifact ID of the entity.</param>
-		/// <returns>>The <see cref="Entity"/> entity or <see langword="null"/>.</returns>
+		/// <returns>>The [Entity](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -53,7 +53,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets all entities.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the all entities.</param>
-		/// <returns>The collection of <see cref="Entity"/> entities.</returns>
+		/// <returns>The collection of [Entity](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -103,12 +103,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified entity.
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
-		/// <item><description>If <see cref="Entity.FullName"/> full name property of <paramref name="entity"/> have a value, gets entity by full name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
+		/// <item><description>If [FullName](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html#Relativity_Testing_Framework_Models_Entity_FullName) full name property of <paramref name="entity"/> have a value, gets entity by full name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy&lt;T&gt;"/>.</description></item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="Entity"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Entity](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html) entity or <see langword="null"/>.</returns>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require entity.</param>
 		/// <param name="entity">The entity to require.</param>
 		/// <example>

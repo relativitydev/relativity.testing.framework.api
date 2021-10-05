@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		}
 
 		/// <summary>
-		/// Gets all choice objects of specific type as <see cref="NamedArtifact"/> array.
+		/// Gets all choice objects of specific type as [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html) array.
 		/// </summary>
 		/// <returns>All choice objects of specific type.</returns>
 		protected abstract ArtifactIdNamePair[] GetAll();
@@ -30,7 +30,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// </summary>
 		/// <param name="name">The name.</param>
 		/// <returns>The artifact ID.</returns>
-		/// <exception cref="ObjectNotFoundException">The choice object is not found by name.</exception>
+		/// <exception>[ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)The choice object is not found by name.</exception>
 		public int GetId(string name)
 		{
 			ArtifactIdNamePair[] allChoices = _lazyAllChoices.Value;

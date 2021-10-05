@@ -15,7 +15,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets all resource servers.
 		/// </summary>
-		/// <returns>The collection of <see cref="ResourceServer"/> entities.</returns>
+		/// <returns>The collection of [ResourceServer](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourceServer.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// ResourceServer[] result = _resourceServerService.GetAll();

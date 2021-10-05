@@ -39,9 +39,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified choice.
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> and <see cref="Choice.ObjectType"/> and <see cref="Choice.Field"/> name properties of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</description></item>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</description></item>
+		/// <item><description>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) and ObjectType(https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Choice.html#Relativity_Testing_Framework_Models_Choice_ObjectType) and [Field](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Choice.html#Relativity_Testing_Framework_Models_Choice_Field) name properties of <paramref name="entity"/> have a value, gets entity by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy&lt;T&gt;"/>.</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require choice,
@@ -100,7 +100,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the choice,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityId">The artifact ID of the choice.</param>
-		/// <returns>The <see cref="Choice"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Choice](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Choice.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -116,7 +116,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="objectTypeName">Name of the object type.</param>
 		/// <param name="fieldName">Name of the field.</param>
-		/// <returns>The collection of <see cref="Choice"/> entities.</returns>
+		/// <returns>The collection of [Choice](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Choice.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;

@@ -14,7 +14,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>
 		/// <param name="entity">The BatchSet to create.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>>The <see cref="BatchSet"/> BatchSet.</returns>
+		/// <returns>>The [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) BatchSet.</returns>
 		BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials = null);
 	}
 }

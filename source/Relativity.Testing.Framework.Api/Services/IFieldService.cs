@@ -65,7 +65,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the field,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityId">The artifact ID of the field.</param>
-		/// <returns>The <see cref="Field"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Field](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -82,7 +82,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the field,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityId">The artifact ID of the field.</param>
-		/// <returns>The <see cref="Field"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Field](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -100,7 +100,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the field,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityName">The name of the object type.</param>
-		/// <returns>The <see cref="Field"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Field](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -116,7 +116,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the field,
 		/// or use -1 to indicate the admin-level context.</param>
 		/// <param name="entityName">The name of the field.</param>
-		/// <returns>The <see cref="Field"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Field](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -161,9 +161,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified field.
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/>
 		/// has positive value, gets entity by ID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/>
+		/// <item><description>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/>
 		/// has a value, gets entity by name and updates it if it exists.</description></item>
 		/// <item><description>Otherwise creates a new entity.</description></item>
 		/// </list>

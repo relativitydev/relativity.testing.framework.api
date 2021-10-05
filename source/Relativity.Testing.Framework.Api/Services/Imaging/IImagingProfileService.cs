@@ -19,7 +19,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="dto">A <see cref="CreateBasicImagingProfileDTO"/> object corresponding to the desired Imaging Profile object.</param>
-		/// <returns>Returns an <see cref="ImagingProfile"/> instance.</returns>
+		/// <returns>Returns an [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -47,7 +47,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="dto">A <see cref="CreateNativeImagingProfileDTO"/> object corresponding to the desired Imaging Profile object.</param>
-		/// <returns>Returns an <see cref="ImagingProfile"/> instance.</returns>
+		/// <returns>Returns an [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -118,7 +118,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates an existing Imaging Profile instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="imagingProfile">An <see cref="ImagingProfile"/> object with updated fields, reflecting the desired final state of the Imaging Profile.</param>
+		/// <param name="imagingProfile">An [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) object with updated fields, reflecting the desired final state of the Imaging Profile.</param>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -129,11 +129,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Update(int workspaceId, ImagingProfile imagingProfile);
 
 		/// <summary>
-		/// Retrieves the <see cref="ImagingProfile"/> with the specified Artifact ID.
+		/// Retrieves the [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) with the specified Artifact ID.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="imagingProfileId">The Artifact ID of the <see cref="ImagingProfile"/> instance to read.</param>
-		/// <returns>Returns an <see cref="ImagingProfile"/> instance.</returns>
+		/// <param name="imagingProfileId">The Artifact ID of the [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) instance to read.</param>
+		/// <returns>Returns an [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -147,7 +147,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Deletes an Imaging Profile instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="imagingProfileId">The Artifact ID of the <see cref="ImagingProfile"/> instance to delete.</param>
+		/// <param name="imagingProfileId">The Artifact ID of the [ImagingProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingProfile.html) instance to delete.</param>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;

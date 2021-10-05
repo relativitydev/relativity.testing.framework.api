@@ -44,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <list type="number">
 		/// <item>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and returns it.</item>
 		/// <item>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) and [InstanceSetting.Section](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html#Relativity_Testing_Framework_Models_InstanceSetting_Section) properties of <paramref name="entity"/> have a value, gets entity by name and returns it if it exists.</item>
-		/// <item>Otherwise creates a new entity using [ICreateStrategy&lt;T>](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
+		/// <item>Otherwise creates a new entity using [ICreateStrategy&lt;T&gt;](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The entity to require.</param>

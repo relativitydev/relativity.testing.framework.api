@@ -59,7 +59,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <list type="number">
 		/// <item>If the [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has a positive value, this gets the client by ID and returns it.</item>
 		/// <item>Else if the [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, this gets the client by name and returns it if it exists.</item>
-		/// <item>Otherwise this creates a new client using [ICreateStrategy&lt;T>](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
+		/// <item>Otherwise this creates a new client using [ICreateStrategy&lt;T&gt;](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) to require.</param>

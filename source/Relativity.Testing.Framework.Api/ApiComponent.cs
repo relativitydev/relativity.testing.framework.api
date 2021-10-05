@@ -74,23 +74,17 @@ namespace Relativity.Testing.Framework.Api
 			{
 				DataCollection stateToConfigure;
 				string defaultValue = DataCollection.All.ToString();
-				string configuredValue = configurationService.GetValueOrDefault("EnableApplicationInsights", defaultValue).ToLower();
+				string configuredValue = configurationService.GetValueOrDefault("LoggingLevel", defaultValue).ToLower();
 
 				switch (configuredValue)
 				{
 					case "all":
 						stateToConfigure = DataCollection.All;
 						break;
-					case "true":
-						stateToConfigure = DataCollection.All;
-						break;
 					case "usageonly":
 						stateToConfigure = DataCollection.UsageOnly;
 						break;
 					case "none":
-						stateToConfigure = DataCollection.None;
-						break;
-					case "false":
 						stateToConfigure = DataCollection.None;
 						break;
 					default:

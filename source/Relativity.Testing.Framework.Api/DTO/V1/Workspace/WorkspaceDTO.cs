@@ -44,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.DTO
 
 		public string DownloadHandlerUrl { get; set; }
 
-		public string EnableDataGrid { get; set; }
+		public bool EnableDataGrid { get; set; }
 
 		public string Keywords { get; set; } = string.Empty;
 

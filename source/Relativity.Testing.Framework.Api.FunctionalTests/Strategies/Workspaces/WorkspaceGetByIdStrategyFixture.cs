@@ -18,23 +18,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange("<12.1")]
 		public void Get_Existing_PreOsier()
 		{
 			var result = Sut.Get(DefaultWorkspace.ArtifactID);
 
 			result.Should().BeEquivalentTo(DefaultWorkspace);
-		}
-
-		[Test]
-		[VersionRange(">=12.1")]
-		public void Get_Existing_V1()
-		{
-			var result = Sut.Get(DefaultWorkspace.ArtifactID);
-
-			result.Should().BeEquivalentTo(DefaultWorkspace, o => o
-			   .Excluding(x => x.Client.ArtifactID)
-			   .Excluding(x => x.Matter.ArtifactID));
 		}
 	}
 }

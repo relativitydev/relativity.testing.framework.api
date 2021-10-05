@@ -220,6 +220,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceID = 123456;
 		/// string groupName = "Group Name";
+		/// string permissionName = "Object Rule";
 		///
 		/// var groupPermissionsChangeset = new GroupPermissionsChangeset();
 		/// groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View);

@@ -35,7 +35,7 @@ In addition to the [default information](https://docs.microsoft.com/en-us/azure/
 | RingSetupVersion | The version of the Relativity.Testing.Framework.RingSetup assembly, if loaded | 0.13.0 |
 | Hostname | The hostname of the Relativity environment that RTF is running against. | P-DV-VM-CUP7WET |
 
-**Metrics Not Trackked during UsageOnly Mode:** Method, Class and Parameters
+**Metrics Not Tracked during UsageOnly Mode:** Method, Class and Parameters
 
 ### API Error Metrics
 
@@ -46,7 +46,7 @@ In addition to the [default information](https://docs.microsoft.com/en-us/azure/
 | Failed method | Contains info about a method where an exception was thrown. | Relativity.Testing.Framework.Api.HttpService.CheckResponseStatus |
 | Call stack | The call stack of an error. **Might potentially contain sensitive information (information about the code being run)**. | System.Net.Http.HttpRequestException: at Relativity.Testing.Framework.Api.HttpService.CheckResponseStatus (Relativity.Testing.Framework.Api, ... |
 
-**Metrics Not Trackked during UsageOnly Mode:** Message and Call Stack
+**Metrics Not Tracked during UsageOnly Mode:** Message and Call Stack
 
 ## Opting out of Metrics Collection
 

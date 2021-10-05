@@ -16,7 +16,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
     - [Functional Testing](#functional-testing)
       - [Creating Runsettings](#creating-runsettings)
       - [Running Functional Tests](#running-functional-tests)
-    - [Logging](#logging)
+    - [Usage Metrics](#usage-metrics)
   - [Contributing](#contributing)
   - [Reporting Issues](#reporting-issues)
 
@@ -81,7 +81,7 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ```
 
-### Logging Levels
+### Usage Metrics
 
 EnableApplicationInsights can be set in the RunSettings with the following values to set how much is logged. By default this is set to All and personal information will be sent to Relativity. For more information about the different logging levels, see [Metrics-Collection](https://relativitydev.github.io/relativity.testing.framework.api/articles/Metrics-Collection.html).
 

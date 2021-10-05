@@ -83,7 +83,7 @@ dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScri
 
 ### Usage Metrics
 
-EnableApplicationInsights can be set in the RunSettings with the following values to set how much is logged. By default this is set to All and personal information will be sent to Relativity. For more information about the different logging levels, see [Metrics-Collection](https://relativitydev.github.io/relativity.testing.framework.api/articles/Metrics-Collection.html).
+EnableApplicationInsights can be set in the RunSettings with the following values to set how much is logged. By default this is set to All and information about your code will be sent to Relativity. For more information about the different logging levels, see [Metrics-Collection](https://relativitydev.github.io/relativity.testing.framework.api/articles/Metrics-Collection.html).
 
 - All
 - UsageOnly

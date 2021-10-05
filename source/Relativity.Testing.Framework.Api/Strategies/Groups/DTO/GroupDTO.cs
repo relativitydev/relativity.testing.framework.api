@@ -4,11 +4,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal class GroupDTO
 	{
-		public GroupDTO(int groupId)
+		public GroupDTO(Group group)
 		{
-			Group = new Artifact(groupId);
+			GroupRequest = new GroupRequest(group);
 		}
 
-		public Artifact Group { get; set; }
+		public GroupRequest GroupRequest { get; set; }
 	}
 }

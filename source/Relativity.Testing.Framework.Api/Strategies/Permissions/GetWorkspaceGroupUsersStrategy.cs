@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public List<NamedArtifact> Get(int workspaceId, int groupId)
 		{
-			var dto = new WorkspaceGroupUserDTO(workspaceId, groupId);
+			var dto = new WorkspacePermissionGroupUserDTO(workspaceId, groupId);
 
 			return _restService.Post<List<NamedArtifact>>(
 				"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetWorkspaceGroupUsersAsync",

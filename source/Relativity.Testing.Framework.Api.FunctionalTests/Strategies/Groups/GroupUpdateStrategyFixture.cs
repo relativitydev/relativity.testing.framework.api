@@ -8,24 +8,17 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IUpdateStrategy<Group>))]
-	internal class GroupUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<Group>>
+	[TestOf(typeof(IGroupUpdateStrategy))]
+	internal class GroupUpdateStrategyFixture : ApiServiceTestFixture<IGroupUpdateStrategy>
 	{
-		private IGetByIdStrategy<Group> _getByIdStrategy;
+		private IGroupGetByIdStrategy _getByIdStrategy;
 		private ICreateStrategy<Group> _createStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
-			_getByIdStrategy = Facade.Resolve<IGetByIdStrategy<Group>>();
+			_getByIdStrategy = Facade.Resolve<IGroupGetByIdStrategy>();
 			_createStrategy = Facade.Resolve<ICreateStrategy<Group>>();
-		}
-
-		[Test]
-		public void Update_WithNull()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				Sut.Update(null));
 		}
 
 		[Test]
@@ -38,14 +31,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				existingEntity = _createStrategy.Create(new Group());
 			});
 
-			var toUpdate = existingEntity.Copy();
+			Group toUpdate = existingEntity.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
-			Sut.Update(toUpdate);
+			Group result = Sut.Update(toUpdate);
 
-			var result = _getByIdStrategy.Get(toUpdate.ArtifactID);
-
-			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client).Excluding(x => x.LastModifiedOn).Excluding(x => x.LastModifiedBy));
 			result.Client.Should().BeEquivalentTo(toUpdate.Client, o => o.Excluding(x => x.Number).Excluding(x => x.Status.ArtifactID));
 		}
 	}

@@ -18,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public List<NamedArtifact> Get(int groupId)
 		{
-			var dto = new GroupDTO(groupId);
+			var dto = new PermissionGroupDTO(groupId);
 
 			return _restService.Post<List<NamedArtifact>>(_URL, dto);
 		}

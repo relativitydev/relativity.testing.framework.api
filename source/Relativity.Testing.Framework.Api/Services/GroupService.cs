@@ -13,22 +13,22 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IDeleteByIdStrategy<Group> _deleteByIdStrategy;
 
-		private readonly IGetByIdStrategy<Group> _getByIdStrategy;
+		private readonly IGroupGetByIdStrategy _getByIdStrategy;
 
 		private readonly IGetByNameStrategy<Group> _getByNameStrategy;
 
 		private readonly IGetAllByNamesStrategy<Group> _getAllByNamesStrategy;
 
-		private readonly IUpdateStrategy<Group> _updateStrategy;
+		private readonly IGroupUpdateStrategy _updateStrategy;
 
 		public GroupService(
 			ICreateStrategy<Group> createStrategy,
 			IRequireStrategy<Group> requireStrategy,
 			IDeleteByIdStrategy<Group> deleteByIdStrategy,
-			IGetByIdStrategy<Group> getByIdStrategy,
+			IGroupGetByIdStrategy getByIdStrategy,
 			IGetByNameStrategy<Group> getByNameStrategy,
 			IGetAllByNamesStrategy<Group> getAllByNamesStrategy,
-			IUpdateStrategy<Group> updateStrategy)
+			IGroupUpdateStrategy updateStrategy)
 		{
 			_createStrategy = createStrategy;
 			_requireStrategy = requireStrategy;
@@ -48,8 +48,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void Delete(int id)
 			=> _deleteByIdStrategy.Delete(id);
 
-		public Group Get(int id)
-			=> _getByIdStrategy.Get(id);
+		public Group Get(int id, bool includeMetadata = false, bool includeActions = false)
+			=> _getByIdStrategy.Get(id, includeMetadata, includeActions);
 
 		public Group Get(string name)
 			=> _getByNameStrategy.Get(name);
@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public IEnumerable<Group> GetAll(IEnumerable<string> names)
 			=> _getAllByNamesStrategy.GetAll(names);
 
-		public void Update(Group entity)
+		public Group Update(Group entity)
 			=> _updateStrategy.Update(entity);
 	}
 }

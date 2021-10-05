@@ -86,13 +86,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the group by the specified ID.
 		/// </summary>
 		/// <param name="id">The artifact ID of the group.</param>
+		/// <param name="includeMetadata">Indicates wheter to include group Meta property. Default is false.</param>
+		/// <param name="includeActions">Indicates wheter to include group Actions property. Default is false.</param>
 		/// <returns>The <see cref="Group"/> entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var entity = _groupService.Get(groupArtifactId);
 		/// </code>
 		/// </example>
-		Group Get(int id);
+		Group Get(int id, bool includeMetadata = false, bool includeActions = false);
 
 		/// <summary>
 		/// Gets the group by the specified group name.
@@ -124,6 +126,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates the specified group.
 		/// </summary>
 		/// <param name="entity">The entity to update.</param>
+		/// <returns>Updated <see cref="Group"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var groupId = 1;
@@ -132,9 +135,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// 	Name = "Some Existing Group Name",
 		/// 	Keywords = "Test Edited Keywords"
 		/// }
-		///  _groupService.Update(entity);
+		/// Group updatedGroup = _groupService.Update(entity);
 		/// </code>
 		/// </example>
-		void Update(Group entity);
+		Group Update(Group entity);
 	}
 }

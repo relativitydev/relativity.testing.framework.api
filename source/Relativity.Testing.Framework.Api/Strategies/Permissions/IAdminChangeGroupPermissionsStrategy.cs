@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	/// <summary>
-	/// Represents the strategy of setting the admin permissions for a group using <see cref="GroupPermissionsChangeset"/>.
+	/// Represents the strategy of setting the admin permissions for a group using [GroupPermissionsChangeset](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissionsChangeset.html).
 	/// </summary>
 	internal interface IAdminChangeGroupPermissionsStrategy
 	{

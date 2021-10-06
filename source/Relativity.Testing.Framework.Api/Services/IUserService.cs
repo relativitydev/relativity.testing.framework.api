@@ -13,10 +13,10 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IUserService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="User"/>.
+		/// Creates the specified [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html).
 		/// </summary>
-		/// <param name="user">The <see cref="User"/> to create.</param>
-		/// <returns>The created <see cref="User"/>.</returns>
+		/// <param name="user">The [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) to create.</param>
+		/// <returns>The created [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html).</returns>
 		/// <example>
 		/// <code>
 		/// User user = new User
@@ -34,13 +34,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		User Create(User user);
 
 		/// <summary>
-		/// Requires the specified <see cref="User"/>.
-		/// Returns existing <see cref="User"/> if the <paramref name="user"/> has the properties (ArtifactID, Email) set to be able to get the user;
+		/// Requires the specified [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html).
+		/// Returns existing [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) if the <paramref name="user"/> has the properties (ArtifactID, Email) set to be able to get the user;
 		/// otherwise creates a new user.
 		/// </summary>
-		/// <param name="user">The <see cref="User"/> to require.</param>
+		/// <param name="user">The [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) to require.</param>
 		/// <param name="ensureNew">The boolean value indicating whether we going to delete the same user. By default true.</param>
-		/// <returns>The <see cref="User"/> required.</returns>
+		/// <returns>The [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) required.</returns>
 		/// <example> This shows how to require existing user and get it without recreating it.
 		/// <code>
 		/// User existingUser = new User
@@ -82,7 +82,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		User Require(User user, bool ensureNew = true);
 
 		/// <summary>
-		/// Deletes the <see cref="User"/> by ArtifactID.
+		/// Deletes the [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) by ArtifactID.
 		/// </summary>
 		/// <param name="artifactID">The ArtifactID of the user.</param>
 		/// <example>
@@ -94,10 +94,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int artifactID);
 
 		/// <summary>
-		/// Gets the <see cref="User"/> by ArtifactID.
+		/// Gets the [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) by ArtifactID.
 		/// </summary>
 		/// <param name="artifactID">The ArtifactID of the user.</param>
-		/// <returns>The <see cref="User"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int userID = 23236;
@@ -107,10 +107,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		User Get(int artifactID);
 
 		/// <summary>
-		/// Gets the <see cref="User"/> by the specified email address.
+		/// Gets the [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) by the specified email address.
 		/// </summary>
 		/// <param name="email">The email address of the user.</param>
-		/// <returns>The <see cref="User"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// string userEmail = "some_user@email.com";
@@ -120,7 +120,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		User GetByEmail(string email);
 
 		/// <summary>
-		/// Determines whether the <see cref="User"/> with the specified email address exists.
+		/// Determines whether the [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) with the specified email address exists.
 		/// </summary>
 		/// <param name="email">The email address of the user.</param>
 		/// <returns><see langword="true"/> if a user exists; otherwise, <see langword="false"/>.</returns>
@@ -133,7 +133,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool ExistsByEmail(string email);
 
 		/// <summary>
-		/// Adds the <see cref="User"/> to the group.
+		/// Adds the [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) to the group.
 		/// </summary>
 		/// <param name="userArtifactID">The user ArtifactID.</param>
 		/// <param name="groupArtifactID">The group ArtifactID.</param>
@@ -147,7 +147,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void AddToGroup(int userArtifactID, int groupArtifactID);
 
 		/// <summary>
-		/// Removes the <see cref="User"/> from the group.
+		/// Removes the [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) from the group.
 		/// </summary>
 		/// <param name="userArtifactID">The user ArtifactID.</param>
 		/// <param name="groupArtifactID">The group ArtifactID.</param>
@@ -161,9 +161,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		void RemoveFromGroup(int userArtifactID, int groupArtifactID);
 
 		/// <summary>
-		/// Updates the specified <see cref="User"/>.
+		/// Updates the specified [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html).
 		/// </summary>
-		/// <param name="user">The <see cref="User"/> to update.</param>
+		/// <param name="user">The [User](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html) to update.</param>
 		/// <example>
 		/// <code>
 		/// User existingUser = _userService.GetByEmail("some_existing_user@email.com");

@@ -16,8 +16,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Creates a new Application Field Code instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCode">A <see cref="ApplicationFieldCode"/> object to be created.</param>
-		/// <returns>Returns an <see cref="ApplicationFieldCode"/> instance.</returns>
+		/// <param name="applicationFieldCode">A [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) object to be created.</param>
+		/// <returns>Returns an [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -36,8 +36,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Updates an existing Application Field Code instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCode">An <see cref="ApplicationFieldCode"/> object with updated fields, reflecting the desired final state of the Application Field Code.</param>
-		/// <returns>Returns an <see cref="ApplicationFieldCode"/> instance.</returns>
+		/// <param name="applicationFieldCode">An [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) object with updated fields, reflecting the desired final state of the Application Field Code.</param>
+		/// <returns>Returns an [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -50,11 +50,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		ApplicationFieldCode Update(int workspaceId, ApplicationFieldCode applicationFieldCode);
 
 		/// <summary>
-		/// Retrieves the <see cref="ApplicationFieldCode"/> with the specified Artifact ID.
+		/// Retrieves the [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) with the specified Artifact ID.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCodeId">The Artifact ID of the <see cref="ApplicationFieldCode"/> instance to read.</param>
-		/// <returns>Returns an <see cref="ApplicationFieldCode"/> instance.</returns>
+		/// <param name="applicationFieldCodeId">The Artifact ID of the [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) instance to read.</param>
+		/// <returns>Returns an [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -68,7 +68,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Deletes an Application Field Code instance.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="applicationFieldCodeId">The Artifact ID of the <see cref="ApplicationFieldCode"/> instance to delete.</param>
+		/// <param name="applicationFieldCodeId">The Artifact ID of the [ApplicationFieldCode](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ApplicationFieldCode.html) instance to delete.</param>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;

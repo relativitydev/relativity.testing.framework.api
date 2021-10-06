@@ -38,7 +38,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="documentArtifactId">The Artifact ID of the document that will be imaged.</param>
-		/// <param name="singleDocumentImagingJobRequest">The <see cref="SingleDocumentImagingJobRequest"/> which specifies imaging settings.</param>
+		/// <param name="singleDocumentImagingJobRequest">The [SingleDocumentImagingJobRequest](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.SingleDocumentImagingJobRequest.html) which specifies imaging settings.</param>
 		/// <returns>The Artifact ID for the job.</returns>
 		/// <example>
 		/// <code>
@@ -60,7 +60,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Submit a mass image job.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
-		/// <param name="imagingMassJobRequest">The <see cref="ImagingMassJobRequest"/> which specifies imaging settings and indirectly (via <see cref="ImagingMassJobRequest.MassProcessID"/>) indicating which documents to image.</param>
+		/// <param name="imagingMassJobRequest">The [ImagingMassJobRequest](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingMassJobRequest.html) which specifies imaging settings and indirectly (via [ImagingMassJobRequest.MassProcessID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingMassJobRequest.html#Relativity_Testing_Framework_Models_ImagingMassJobRequest_MassProcessID)) indicating which documents to image.</param>
 		/// <returns>The Artifact ID for the job.</returns>
 		/// <example>
 		/// <code>
@@ -102,8 +102,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="imagingJobId">The Imaging Job ID.</param>
-		/// <param name="cancelImagingJobRequest">The optional <see cref="ImagingJobRequest"/> which specifies parameters for cancellation.</param>
-		/// <returns>A <see cref="ImagingJobActionResponse"/> containing the information about attempt to cancel imaging job.</returns>
+		/// <param name="cancelImagingJobRequest">The optional [ImagingJobRequest](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobRequest.html) which specifies parameters for cancellation.</param>
+		/// <returns>A [ImagingJobActionResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobActionResponse.html) containing the information about attempt to cancel imaging job.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;
@@ -122,7 +122,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="imagingSetId">The Artifact ID of a imaging set.</param>
-		/// <param name="retryErrorsRequest">The optional <see cref="ImagingSetJobRequest"/> which specifies parameters for retry errors operation.</param>
+		/// <param name="retryErrorsRequest">The optional [ImagingSetJobRequest](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSetJobRequest.html) which specifies parameters for retry errors operation.</param>
 		/// <returns>The Artifact ID for the job.</returns>
 		/// <example>
 		/// <code>
@@ -143,8 +143,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace that contains the imaging job.</param>
 		/// <param name="imagingJobId">The Imaging Job ID.</param>
-		/// <param name="updateJobPriorityRequest">The <see cref="ImagingJobPriorityRequest"/> which mainly specifies new Priority.</param>
-		/// <returns>A <see cref="ImagingJobActionResponse"/> containing the information about attempt to update priority of imaging job.</returns>
+		/// <param name="updateJobPriorityRequest">The [ImagingJobPriorityRequest](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobPriorityRequest.html) which mainly specifies new Priority.</param>
+		/// <returns>A [ImagingJobActionResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobActionResponse.html) containing the information about attempt to update priority of imaging job.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1015427;

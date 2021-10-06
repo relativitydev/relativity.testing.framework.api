@@ -16,7 +16,7 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IInstanceSettingsService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="InstanceSetting"/>.
+		/// Creates the specified [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html).
 		/// </summary>
 		/// <param name="entity">The entity to create.</param>
 		/// <returns>The created entity.</returns>
@@ -39,12 +39,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		InstanceSetting Create(InstanceSetting entity);
 
 		/// <summary>
-		/// <para>Creates the specified <see cref="InstanceSetting"/> if it does not exist.</para>
+		/// <para>Creates the specified [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) if it does not exist.</para>
 		/// <para>If it does exist, it will be updated instead.</para>
 		/// <list type="number">
-		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and returns it.</item>
-		/// <item>If <see cref="NamedArtifact.Name"/> and <see cref="InstanceSetting.Section"/> properties of <paramref name="entity"/> have a value, gets entity by name and returns it if it exists.</item>
-		/// <item>Otherwise creates a new entity using <see cref="ICreateStrategy{T}"/>.</item>
+		/// <item>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and returns it.</item>
+		/// <item>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) and [InstanceSetting.Section](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html#Relativity_Testing_Framework_Models_InstanceSetting_Section) properties of <paramref name="entity"/> have a value, gets entity by name and returns it if it exists.</item>
+		/// <item>Otherwise creates a new entity using [ICreateStrategy&lt;T&gt;](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Strategies.ICreateStrategy-1.html).</item>
 		/// </list>
 		/// </summary>
 		/// <param name="entity">The entity to require.</param>
@@ -90,7 +90,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		InstanceSetting Require(InstanceSetting entity);
 
 		/// <summary>
-		/// <para>Creates the specified <see cref="InstanceSetting"/> if it does not exist.</para>
+		/// <para>Creates the specified [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) if it does not exist.</para>
 		/// <para>The instance setting will be looked up by <paramref name="name"/> and <paramref name="section"/>. If it does exist, it will be updated instead.</para>
 		/// </summary>
 		/// <param name="name">The name of the instance setting.</param>
@@ -105,7 +105,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		InstanceSetting Require(string name, string section, string value);
 
 		/// <summary>
-		/// Deletes the <see cref="InstanceSetting"/> by ArtifactId.
+		/// Deletes the [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) by ArtifactId.
 		/// </summary>
 		/// <param name="id">The artifact ID of the instance settings.</param>
 		/// <example>
@@ -119,7 +119,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the instance settings by the specified ID.
 		/// </summary>
 		/// <param name="id">The artifact ID of the instance settings.</param>
-		/// <returns>The <see cref="InstanceSetting"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// InstanceSetting instancesetting = _instanceSettingsService.Get(1234567);
@@ -132,7 +132,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="name">The name of the instance setting.</param>
 		/// <param name="section">The section of the instance setting.</param>
-		/// <returns>The <see cref="InstanceSetting"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// InstanceSetting instancesetting = _instanceSettingsService.Get("MyNewInstanceSetting", "MyNewSection");
@@ -141,7 +141,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		InstanceSetting Get(string name, string section);
 
 		/// <summary>
-		/// <para>Updates the <see cref="InstanceSetting"/> by specified entity.</para>
+		/// <para>Updates the [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) by specified entity.</para>
 		/// <para>If specified, the ArtifactId on the model will be used to locate the InstanceSetting.</para>
 		/// <para>Otherwise, the InstanceSetting will be looked up by Name and Section.</para>
 		/// </summary>
@@ -172,7 +172,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Update(InstanceSetting entity);
 
 		/// <summary>
-		/// Updates value of an existing <see cref="InstanceSetting"/>.
+		/// Updates value of an existing [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html).
 		/// </summary>
 		/// <param name="name">The name of the instance setting.</param>
 		/// <param name="section">The section of theinstance setting.</param>
@@ -185,7 +185,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void UpdateValue(string name, string section, string value);
 
 		/// <summary>
-		/// Adds a value to an existing <see cref="InstanceSetting"/>.
+		/// Adds a value to an existing [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html).
 		/// </summary>
 		/// <param name="name">The name of existing instance setting.</param>
 		/// <param name="section">The section of existing instance setting.</param>
@@ -200,7 +200,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void AddValue(string name, string section, string value, string delimiter);
 
 		/// <summary>
-		/// Ensures that the value exists in the <see cref="InstanceSetting"/> with the passed in name and section.
+		/// Ensures that the value exists in the [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) with the passed in name and section.
 		/// </summary>
 		/// <param name="name">The name of existing instance setting.</param>
 		/// <param name="section">The section of existing instance setting.</param>
@@ -227,7 +227,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void RequireContainsValue(string name, string section, string value, string delimiter);
 
 		/// <summary>
-		/// <para>Ensures that the value does not exist in the <see cref="InstanceSetting"/> with the passed in name and section.</para>
+		/// <para>Ensures that the value does not exist in the [InstanceSetting](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.InstanceSetting.html) with the passed in name and section.</para>
 		/// <para>If the value of the instance setting is an exact match, the entire instance setting will be deleted.</para>
 		/// <para>Otherwise, the value will just be removed from the delimited string.</para>
 		/// </summary>

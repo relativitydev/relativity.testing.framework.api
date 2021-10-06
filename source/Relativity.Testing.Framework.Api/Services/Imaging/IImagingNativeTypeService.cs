@@ -13,11 +13,11 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IImagingNativeTypeService
 	{
 		/// <summary>
-		/// Retrieves the <see cref="NativeType"/> with the specified Artifact ID.
+		/// Retrieves the [NativeType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NativeType.html) with the specified Artifact ID.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <param name="nativeTypeId">The Artifact ID of the <see cref="NativeType"/> instance to read.</param>
-		/// <returns>Returns an <see cref="NativeType"/> instance.</returns>
+		/// <param name="nativeTypeId">The Artifact ID of the [NativeType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NativeType.html) instance to read.</param>
+		/// <returns>Returns an [NativeType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NativeType.html) instance.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;

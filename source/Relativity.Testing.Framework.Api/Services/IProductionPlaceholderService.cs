@@ -44,7 +44,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the production placeholder.</param>
 		/// <param name="entityId">The Artifact ID of the production placeholder.</param>
-		/// <returns>The <see cref="ProductionPlaceholder"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [ProductionPlaceholder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ProductionPlaceholder.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;
@@ -108,7 +108,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Retrieve default field values for a placeholder.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
-		/// <returns>The <see cref="DefaultFieldValue{NamedArtifact}"/>.</returns>
+		/// <returns>The [DefaultFieldValue{NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.DefaultFieldValue-1.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 123456;

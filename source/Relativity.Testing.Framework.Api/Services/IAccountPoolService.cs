@@ -99,10 +99,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		string StandardAccountType { get; set; }
 
 		/// <summary>
-		/// Gets or sets the standard account <see cref="Client"/>.
+		/// Gets or sets the standard account [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html).
 		/// </summary>
 		/// <value>
-		/// A <see cref="Client"/> to use for the pooled users.
+		/// A [Client](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html) to use for the pooled users.
 		/// </value>
 		/// <example>
 		/// <code>
@@ -112,10 +112,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		Client StandardAccountClient { get; set; }
 
 		/// <summary>
-		/// Gets or sets the type of the standard account <see cref="UserDefaultSelectedFileType"/>.
+		/// Gets or sets the type of the standard account [UserDefaultSelectedFileType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDefaultSelectedFileType.html).
 		/// </summary>
 		/// <value>
-		/// A <see cref="UserDefaultSelectedFileType"/> to use for the pooled users.
+		/// A [UserDefaultSelectedFileType](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDefaultSelectedFileType.html) to use for the pooled users.
 		/// </value>
 		/// <example>
 		/// <code>
@@ -125,10 +125,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		UserDefaultSelectedFileType StandardAccountDefaultSelectedFileType { get; set; }
 
 		/// <summary>
-		/// Gets or sets the standard account <see cref="UserDocumentViewer"/>.
+		/// Gets or sets the standard account [UserDocumentViewer](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDocumentViewer.html).
 		/// </summary>
 		/// <value>
-		/// A <see cref="UserDocumentViewer"/> to use for the pooled users.
+		/// A [UserDocumentViewer](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDocumentViewer.html) to use for the pooled users.
 		/// </value>
 		/// <example>
 		/// <code>
@@ -139,7 +139,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		/// <summary>
 		/// Gets or sets the list of groups that the standard accounts are a part of.
-		/// <para>The default groups are <see cref="GroupNames.SystemAdministrators"/>, <see cref="GroupNames.DomainUsers"/>, and <see cref="GroupNames.Everyone"/>.</para>
+		/// <para>The default groups are [GroupNames.SystemAdministrators](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupNames.html#Relativity_Testing_Framework_Models_GroupNames_SystemAdministrators), [GroupNames.DomainUsers](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupNames.html#Relativity_Testing_Framework_Models_GroupNames_DomainUsers), and [GroupNames.Everyone](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupNames.html#Relativity_Testing_Framework_Models_GroupNames_Everyone).</para>
 		/// </summary>
 		/// <value>
 		/// A list of group names for the pooled users to be added to.
@@ -158,7 +158,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <para>Will create a user if there are none left in the account pool.</para>
 		/// <para>Users are created based on the StandardAccount properties that have been set.</para>
 		/// </summary>
-		/// <returns>The <see cref="AccountBaseInfo"/>.</returns>
+		/// <returns>The [AccountBaseInfo](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AccountBaseInfo.html).</returns>
 		/// <example>
 		/// <code>
 		/// AccountBaseInfo user1 = _accountPoolService.AcquireStandardAccount();
@@ -172,7 +172,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <para>Will create a user if there are none left in the account pool.</para>
 		/// <para>This should be used over <see cref="AcquireStandardAccount"/> when the account might already exist, and you do not know what the password for it is.</para>
 		/// </summary>
-		/// <returns>The <see cref="AccountBaseInfo"/>.</returns>
+		/// <returns>The [AccountBaseInfo](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AccountBaseInfo.html).</returns>
 		/// <example>
 		/// <code>
 		/// AccountBaseInfo user1 = _accountPoolService.DeleteAndAcquireStandardAccount();
@@ -185,7 +185,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets a user from the account pool.
 		/// </summary>
 		/// <param name="email">The user email.</param>
-		/// <returns>The <see cref="AccountBaseInfo"/> or <c>null</c> if there are no accounts left in the pool.</returns>
+		/// <returns>The [AccountBaseInfo](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AccountBaseInfo.html) or <c>null</c> if there are no accounts left in the pool.</returns>
 		/// <example>
 		/// <code>
 		/// _accountPoolService.PrepareStandardAccounts(1);

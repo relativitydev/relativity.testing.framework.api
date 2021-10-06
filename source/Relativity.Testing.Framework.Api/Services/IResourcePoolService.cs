@@ -15,10 +15,10 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IResourcePoolService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="ResourcePool"/>.
+		/// Creates the specified [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
-		/// <param name="entity">The <see cref="ResourcePool"/> entity to create.</param>
-		/// <returns>The <see cref="ResourcePool"/> entity or <see langword="null"/>.</returns>
+		/// <param name="entity">The [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) entity to create.</param>
+		/// <returns>The [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Client client = relativityFacade.Resolve&lt;IClientService&gt;().Get("Some Existing Client Name");
@@ -33,9 +33,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePool Create(ResourcePool entity);
 
 		/// <summary>
-		/// Gets all <see cref="ResourcePool"/>s.
+		/// Gets all [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html)s.
 		/// </summary>
-		/// <returns>The collection of <see cref="ResourcePool"/> entities.</returns>
+		/// <returns>The collection of [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// ResourcePool[] resourcePools = _resourcePoolService.GetAll();
@@ -44,10 +44,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePool[] GetAll();
 
 		/// <summary>
-		/// Gets the <see cref="ResourcePool"/> by the specified ArtifactID.
+		/// Gets the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) by the specified ArtifactID.
 		/// </summary>
-		/// <param name="id">The ArtifactID of the <see cref="ResourcePool"/>.</param>
-		/// <returns>The <see cref="ResourcePool"/> entity or <see langword="null"/>.</returns>
+		/// <param name="id">The ArtifactID of the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
+		/// <returns>The [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int existingResourcePoolArtifactID = 10154345;
@@ -57,10 +57,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePool Get(int id);
 
 		/// <summary>
-		/// Gets the <see cref="ResourcePool"/> by the specified name.
+		/// Gets the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) by the specified name.
 		/// </summary>
 		/// <param name="name">The name.</param>
-		/// <returns>The <see cref="ResourcePool"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// string existingResourcePoolName = "Test Resource Pool";
@@ -70,9 +70,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePool Get(string name);
 
 		/// <summary>
-		/// Updates the specified <see cref="ResourcePool"/>.
+		/// Updates the specified [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
-		/// <param name="entity">The <see cref="ResourcePool"/> entity to update.</param>
+		/// <param name="entity">The [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) entity to update.</param>
 		/// <example>
 		/// <code>
 		/// ResourcePool resourcePoolToUpdate = _resourcePoolService.Get("Some Existing Resource Pool");
@@ -84,9 +84,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Update(ResourcePool entity);
 
 		/// <summary>
-		/// Deletes the specified <see cref="ResourcePool"/> by the ArtifactID.
+		/// Deletes the specified [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html) by the ArtifactID.
 		/// </summary>
-		/// <param name="entityId">The ArtifactID of the <see cref="ResourcePool"/>.</param>
+		/// <param name="entityId">The ArtifactID of the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <example>
 		/// <code>
 		/// int existingResourcePoolArtifactID = 10154345;
@@ -96,9 +96,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int entityId);
 
 		/// <summary>
-		/// Gets a query to enumerate resources of a given type that are associated with the <see cref="ResourcePool"/>.
+		/// Gets a query to enumerate resources of a given type that are associated with the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
-		/// <param name="resourcePoolId">The ArtifactID of the <see cref="ResourcePool"/>.</param>
+		/// <param name="resourcePoolId">The ArtifactID of the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <param name="resourceType">A representation of the resource type.
 		/// By default equals 'agent-worker-servers'.</param>
 		/// <returns>The <see cref="ResourcePoolQuery{ResourceServer}"/> object.</returns>
@@ -120,9 +120,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePoolQuery<ResourceServer> QueryResources(int resourcePoolId, ResourceType resourceType = ResourceType.AgentWorkerServers);
 
 		/// <summary>
-		/// Gets a query to enumerate not yet associated resources of a given type that are eligible to be added to a given <see cref="ResourcePool"/>.
+		/// Gets a query to enumerate not yet associated resources of a given type that are eligible to be added to a given [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
-		/// <param name="resourcePoolId">The ArtifactID of the <see cref="ResourcePool"/>.</param>
+		/// <param name="resourcePoolId">The ArtifactID of the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <param name="resourceType">A representation of the resource type.
 		/// By default equals 'agent-worker-servers'.</param>
 		/// <returns>The <see cref="ResourcePoolQuery{ResourceServer}"/> object.</returns>
@@ -135,7 +135,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePoolQuery<ResourceServer> QueryEligibleToAddResources(int resourcePoolId, ResourceType resourceType = ResourceType.AgentWorkerServers);
 
 		/// <summary>
-		/// Gets a query for all clients that may be set as the client for a <see cref="ResourcePool"/>.
+		/// Gets a query for all clients that may be set as the client for a [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
 		/// <returns>The <see cref="ResourcePoolQuery{Client}"/> object.</returns>
 		/// <example>
@@ -146,11 +146,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		ResourcePoolQuery<Client> Query();
 
 		/// <summary>
-		/// Adds a resources of a given type to a given <see cref="ResourcePool"/>.
+		/// Adds a resources of a given type to a given [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
-		/// <param name="resourcePoolId">The ArtifactID of the <see cref="ResourcePool"/>.</param>
+		/// <param name="resourcePoolId">The ArtifactID of the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <param name="resourceType">A representation of the resource type.</param>
-		/// <param name="resources">A list of identifiers for resources to add to the <see cref="ResourcePool"/>.</param>
+		/// <param name="resources">A list of identifiers for resources to add to the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <example> This example shows how to add all eligible Agent Worker Servers to the Resource Pool.
 		/// <code>
 		///  int existingResourcePoolArtifactID = 10154345;
@@ -161,11 +161,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void AddResources(int resourcePoolId, ResourceType resourceType, List<Artifact> resources);
 
 		/// <summary>
-		/// Removes a resources of a given type from a given <see cref="ResourcePool"/>.
+		/// Removes a resources of a given type from a given [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).
 		/// </summary>
-		/// <param name="resourcePoolId">The ArtifactID of the <see cref="ResourcePool"/>.</param>
+		/// <param name="resourcePoolId">The ArtifactID of the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <param name="resourceType">A representation of the resource type.</param>
-		/// <param name="resources">A list of identifiers for resources to remove from the <see cref="ResourcePool"/>.</param>
+		/// <param name="resources">A list of identifiers for resources to remove from the [ResourcePool](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html).</param>
 		/// <example> This example shows how to remove all Agent Worker Servers that have 'Test' in their Name from the Resource Pool.
 		/// <code>
 		///  int existingResourcePoolArtifactID = 10154345;

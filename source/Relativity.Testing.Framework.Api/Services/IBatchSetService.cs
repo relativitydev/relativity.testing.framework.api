@@ -17,8 +17,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Creates the specified batch set.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to add the new batch set.</param>
-		/// <param name="entity">The <see cref="BatchSet"/> entity to create.</param>
-		/// <returns>The created <see cref="BatchSet"/> entity.</returns>
+		/// <param name="entity">The [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity to create.</param>
+		/// <returns>The created [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var fieldService =  relativityFacade.Resolve&lt;IFieldService&gt;();
@@ -51,9 +51,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Creates the specified batch set.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to add the new batch set.</param>
-		/// <param name="entity">The <see cref="BatchSet"/> entity to create.</param>
+		/// <param name="entity">The [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity to create.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>The created <see cref="BatchSet"/> entity.</returns>
+		/// <returns>The created [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var fieldService =  relativityFacade.Resolve&lt;IFieldService&gt;();
@@ -88,11 +88,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials);
 
 		/// <summary>
-		/// Gets the <see cref="BatchSet"/> by the specified ID.
+		/// Gets the [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) by the specified ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the batch set.</param>
 		/// <param name="entityId">The Artifact ID of the batch set.</param>
-		/// <returns>>The <see cref="Production"/> entity or <see langword="null"/>.</returns>
+		/// <returns>>The [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -102,12 +102,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchSet Get(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="BatchSet"/> by the specified ID.
+		/// Gets the [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) by the specified ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get the batch set.</param>
 		/// <param name="entityId">The Artifact ID of the batch set.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>>The <see cref="Production"/> entity or <see langword="null"/>.</returns>
+		/// <returns>>The [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -122,7 +122,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchSet Get(int workspaceId, int entityId, UserCredentials userCredentials);
 
 		/// <summary>
-		/// Determines whether the <see cref="BatchSet"/> with the specified case artifact ID exists.
+		/// Determines whether the [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) with the specified case artifact ID exists.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
 		/// <param name="entityId">The Artifact ID of the batch set.</param>
@@ -136,7 +136,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool Exists(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Determines whether the <see cref="BatchSet"/> with the specified case artifact ID exists.
+		/// Determines whether the [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) with the specified case artifact ID exists.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
 		/// <param name="entityId">The Artifact ID of the batch set.</param>
@@ -156,11 +156,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool Exists(int workspaceId, int entityId, UserCredentials userCredentials);
 
 		/// <summary>
-		/// Updates the specified  <see cref="BatchSet"/>.
+		/// Updates the specified  [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
-		/// <param name="entity">The <see cref="BatchSet"/> entity to update.</param>
-		/// <returns>Updated <see cref="BatchSet"/> entity.</returns>
+		/// <param name="entity">The [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity to update.</param>
+		/// <returns>Updated [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -172,12 +172,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchSet Update(int workspaceId, BatchSet entity);
 
 		/// <summary>
-		/// Updates the specified <see cref="BatchSet"/>.
+		/// Updates the specified [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
-		/// <param name="entity">The <see cref="BatchSet"/> entity to update.</param>
+		/// <param name="entity">The [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity to update.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>Updated <see cref="BatchSet"/> entity.</returns>
+		/// <returns>Updated [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -194,7 +194,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchSet Update(int workspaceId, BatchSet entity, UserCredentials userCredentials);
 
 		/// <summary>
-		/// Deletes the <see cref="BatchSet"/> with the specified ID.
+		/// Deletes the [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) with the specified ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
 		/// <param name="entityId">The Artifact ID of the batch set.</param>
@@ -207,7 +207,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Deletes the <see cref="BatchSet"/> with the specified ID.
+		/// Deletes the [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html) with the specified ID.
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace.</param>
 		/// <param name="entityId">The Artifact ID of the batch set.</param>
@@ -226,11 +226,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceId, int entityId, UserCredentials userCredentials);
 
 		/// <summary>
-		/// Runs create batches operation for a specific <see cref="BatchSet"/>.
+		/// Runs create batches operation for a specific [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>
 		/// <param name="entityId">The Artifact ID of a batch set.</param>
-		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
+		/// <returns>>The [BatchProcessResult](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -240,12 +240,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchProcessResult CreateBatches(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Runs create batches operation for a specific <see cref="BatchSet"/>.
+		/// Runs create batches operation for a specific [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>
 		/// <param name="entityId">The Artifact ID of a batch set.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
+		/// <returns>>The [BatchProcessResult](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -260,11 +260,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchProcessResult CreateBatches(int workspaceId, int entityId, UserCredentials userCredentials);
 
 		/// <summary>
-		/// Runs purge batches operation for a specific <see cref="BatchSet"/>.
+		/// Runs purge batches operation for a specific [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>
 		/// <param name="entityId">The Artifact ID of a batch set.</param>
-		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
+		/// <returns>>The [BatchProcessResult](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;
@@ -274,12 +274,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		BatchProcessResult PurgeBatches(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Runs purge bathces operation for a specific <see cref="BatchSet"/>.
+		/// Runs purge bathces operation for a specific [BatchSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html).
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of a workspace.</param>
 		/// <param name="entityId">The Artifact ID of a batch set.</param>
 		/// <param name="userCredentials">User credentials to be used when perfroming action over Relativity Api.</param>
-		/// <returns>>The <see cref="BatchProcessResult"/> entity.</returns>
+		/// <returns>>The [BatchProcessResult](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// var workspaceId = 1015427;

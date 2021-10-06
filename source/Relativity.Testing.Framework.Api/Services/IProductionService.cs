@@ -13,11 +13,11 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IProductionService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="Production"/>.
+		/// Creates the specified [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the new <see cref="Production"/>.</param>
-		/// <param name="entity">The <see cref="Production"/> entity to create.</param>
-		/// <returns>The created <see cref="Production"/> entity.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the new [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
+		/// <param name="entity">The [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entity to create.</param>
+		/// <returns>The created [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entity.</returns>
 		/// <example> This example shows how to create Production witout setting properties - they will be set to default values.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -57,11 +57,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		Production Create(int workspaceId, Production entity);
 
 		/// <summary>
-		/// Gets the <see cref="Production"/> by the specified ArtifactID.
+		/// Gets the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) by the specified ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the <see cref="Production"/>.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="Production"/>.</param>
-		/// <returns>>The <see cref="Production"/> entity or <see langword="null"/>.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
+		/// <param name="entityId">The ArtifactID of the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
+		/// <returns>>The [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -74,9 +74,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Gets the production by the specified name.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the <see cref="Production"/>.</param>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
 		/// <param name="entityName">The Namwe of the production.</param>
-		/// <returns>>The <see cref="Production"/> entity or <see langword="null"/>.</returns>
+		/// <returns>>The [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -87,10 +87,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		Production Get(int workspaceId, string entityName);
 
 		/// <summary>
-		/// Gets all <see cref="Production"/>s.
+		/// Gets all [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html)s.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the all <see cref="Production"/>s.</param>
-		/// <returns>The collection of <see cref="Production"/> entities.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the all [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html)s.</param>
+		/// <returns>The collection of [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) entities.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -103,7 +103,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Determines whether the production with the specified ArtifactID exists.
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of the workspace.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="Production"/>.</param>
+		/// <param name="entityId">The ArtifactID of the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
 		/// <returns><see langword="true"/> if a production exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
@@ -115,10 +115,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool Exists(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Delete the <see cref="Production"/> by the specified ArtifactID.
+		/// Delete the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html) by the specified ArtifactID.
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of the workspace.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="Production"/>.</param>
+		/// <param name="entityId">The ArtifactID of the [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -129,11 +129,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets status of a specific <see cref="Production"/>.
+		/// Gets status of a specific [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of a workspace.</param>
-		/// <param name="entityId">The ArtifactID of a <see cref="Production"/>.</param>
-		/// <returns>Returns status of a specific <see cref="Production"/>.</returns>
+		/// <param name="entityId">The ArtifactID of a [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
+		/// <returns>Returns status of a specific [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -144,10 +144,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		ProductionStatus GetStatus(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Stages a specific <see cref="Production"/>.
+		/// Stages a specific [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of a workspace.</param>
-		/// <param name="entityId">The ArtifactID of a <see cref="Production"/>.</param>
+		/// <param name="entityId">The ArtifactID of a [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
 		/// <param name="seconds">Time in seconds to wait for "Staged" status. Default is 60.</param>
 		/// <example>
 		/// <code>
@@ -159,10 +159,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Stage(int workspaceId, int entityId, int seconds = 60);
 
 		/// <summary>
-		/// Runs a specific <see cref="Production"/>.
+		/// Runs a specific [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of a workspace.</param>
-		/// <param name="entityId">The ArtifactID of a <see cref="Production"/>.</param>
+		/// <param name="entityId">The ArtifactID of a [Production](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html).</param>
 		/// <param name="timeout">Time in seconds to wait for "Produced" status. Default is 120.</param>
 		/// <example>
 		/// <code>

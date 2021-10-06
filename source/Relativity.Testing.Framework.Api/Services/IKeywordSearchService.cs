@@ -14,11 +14,11 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IKeywordSearchService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="KeywordSearch"/>.
+		/// Creates the specified [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the new <see cref="KeywordSearch"/>.</param>
-		/// <param name="entity">The <see cref="KeywordSearch"/> to create.</param>
-		/// <returns>The created <see cref="KeywordSearch"/>.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the new [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <param name="entity">The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) to create.</param>
+		/// <returns>The created [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</returns>
 		/// <example> This shows how to create new keyword search using the control number to search for entities that contain "EXAMPLE_CONTROL_NUMBER", which returns Control Number fields and sorts results in descending order.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -45,10 +45,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		KeywordSearch Create(int workspaceId, KeywordSearch entity);
 
 		/// <summary>
-		/// Deletes <see cref="KeywordSearch"/> by ArtifactID.
+		/// Deletes [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to delete the <see cref="KeywordSearch"/>.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="KeywordSearch"/>.</param>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to delete the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <param name="entityId">The ArtifactID of the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -59,11 +59,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="KeywordSearch"/> by the specified ArtifactID.
+		/// Gets the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by the specified ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get <see cref="KeywordSearch"/>.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="KeywordSearch"/>.</param>
-		/// <returns>The <see cref="KeywordSearch"/> entity or <see langword="null"/>.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <param name="entityId">The ArtifactID of the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <returns>The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -74,11 +74,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		KeywordSearch Get(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="KeywordSearch"/> by the specified name.
+		/// Gets the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by the specified name.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get <see cref="KeywordSearch"/>.</param>
-		/// <param name="entityName">The name of the <see cref="KeywordSearch"/>.</param>
-		/// <returns>The <see cref="KeywordSearch"/> entity or <see langword="null"/>.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <param name="entityName">The name of the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <returns>The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -89,11 +89,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		KeywordSearch Get(int workspaceId, string entityName);
 
 		/// <summary>
-		/// Query the <see cref="KeywordSearch"/>es by specified condition.
+		/// Query the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html)es by specified condition.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get <see cref="KeywordSearch"/>.</param>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
 		/// <param name="condition">The condition.</param>
-		/// <returns>The array of <see cref="KeywordSearch"/>es.</returns>
+		/// <returns>The array of [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html)es.</returns>
 		/// <example> This example shows how to query for all keyword searches that has ArtifactID greater than or equal to 1016786.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -104,10 +104,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		KeywordSearch[] Query(int workspaceId, string condition);
 
 		/// <summary>
-		/// Updates the specified <see cref="KeywordSearch"/>.
+		/// Updates the specified [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the <see cref="KeywordSearch"/>.</param>
-		/// <param name="entity">The <see cref="KeywordSearch"/> to update.</param>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <param name="entity">The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) to update.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -121,16 +121,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Update(int workspaceId, KeywordSearch entity);
 
 		/// <summary>
-		/// Requires the specified <see cref="KeywordSearch"/>.
+		/// Requires the specified [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets <see cref="KeywordSearch"/> by ArtifactID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, gets <see cref="KeywordSearch"/> by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new <see cref="KeywordSearch"/> entity.</description></item>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by ArtifactID and updates it.</description></item>
+		/// <item><description>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, gets [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity.</description></item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="KeywordSearch"/> entity>.</returns>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to require <see cref="KeywordSearch"/>.</param>
-		/// <param name="entity">The <see cref="KeywordSearch"/> to require.</param>
+		/// <returns>The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity>.</returns>
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to require [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html).</param>
+		/// <param name="entity">The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) to require.</param>
 		/// <example> This shows how to update and get keyword search by Require method with Keyword Search entity that has ArtifactID filled.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;

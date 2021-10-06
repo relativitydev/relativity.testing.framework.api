@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <param name="actionQueryRequest">The query to execute. By default takes all fields without condition.</param>
 		/// <param name="start">The result cursor. Default value is zero.</param>
 		/// <param name="length">The maximum length of results to return. Default value is 100.</param>
-		/// <returns>The action query's result in the form of an <see cref="ActionResultsQueryResponse"/>.</returns>
+		/// <returns>The action query's result in the form of an [ActionResultsQueryResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ActionResultsQueryResponse.html).</returns>
 		ActionResultsQueryResponse QueryActionJobResults(int workspaceId, Guid runJobId, int actionIndex, ActionQueryRequest actionQueryRequest = null, int start = 0, int length = 100);
 	}
 }

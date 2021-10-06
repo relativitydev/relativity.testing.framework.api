@@ -14,7 +14,7 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IMatterService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="Matter"/>.
+		/// Creates the specified [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html).
 		/// </summary>
 		/// <param name="entity">The matter to create.</param>
 		/// <returns>The created matter.</returns>
@@ -46,8 +46,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified matter.
 		/// <list type="number">
-		/// <item>If the <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has a positive value, this gets the matter by ID and updates it.</item>
-		/// <item>Else if the <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> have a value, this gets the matter by name and client ID and updates it, if it exists.</item>
+		/// <item>If the [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has a positive value, this gets the matter by ID and updates it.</item>
+		/// <item>Else if the [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> have a value, this gets the matter by name and client ID and updates it, if it exists.</item>
 		/// <item>Otherwise this creates a new matter using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</item>
 		/// </list>
 		/// </summary>
@@ -91,7 +91,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Matter Require(Matter entity);
 
 		/// <summary>
-		/// Deletes the <see cref="Matter"/> by ArtifactID.
+		/// Deletes the [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html) by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the matter.</param>
 		/// <example>
@@ -102,11 +102,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int id);
 
 		/// <summary>
-		/// Gets the <see cref="Matter"/> by the ArtifactID.
+		/// Gets the [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html) by the ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the matter.</param>
 		/// <param name="withExtendedMetadata">If set to true Meta field will be populated on get. Default is false.</param>
-		/// <returns>The <see cref="Matter"/> if it exists, otherwise <see langword="null"/>.</returns>
+		/// <returns>The [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html) if it exists, otherwise <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Matter matter = _matterService.Get(1234567);
@@ -115,11 +115,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		Matter Get(int id, bool withExtendedMetadata = false);
 
 		/// <summary>
-		/// Gets the <see cref="Matter"/> by the matter name, and Client ArtifactID.
+		/// Gets the [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html) by the matter name, and Client ArtifactID.
 		/// </summary>
 		/// <param name="name">The name of the matter.</param>
 		/// <param name="clientId">The ArtifactID of the client.</param>
-		/// <returns>The <see cref="Matter"/> if it exists, otherwise <see langword="null"/>.</returns>
+		/// <returns>The [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html) if it exists, otherwise <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// Matter matter = _matterService.Get("AnotherMatter", 2345678);
@@ -128,7 +128,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		Matter Get(string name, int clientId);
 
 		/// <summary>
-		/// Updates the specified <see cref="Matter"/>.
+		/// Updates the specified [Matter](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html).
 		/// </summary>
 		/// <param name="entity">The matter to update.</param>
 		/// <param name="restrictedUpdate">If set to true the LastModifiedOn date will be added to API request and its value must match the LastModifiedOn date for the matter stored in Relativity. Otherwise, you receive a 409 error, indicating that the object has been modified. Default set to false.</param>

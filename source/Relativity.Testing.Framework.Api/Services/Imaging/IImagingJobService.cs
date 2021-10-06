@@ -46,10 +46,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int documentArtifactId = 2;
 		/// var singleDocumentImagingJobRequest = new SingleDocumentImagingJobRequest
 		/// {
-		/// 	OriginationID = Guid.NewGuid(),
-		/// 	ProfileID = imagingProfile.ArtifactID,
-		/// 	AlternateNativeLocation = null,
-		/// 	RemoveAlternateNativeAfterImaging = false
+		///     OriginationID = Guid.NewGuid(),
+		///     ProfileID = imagingProfile.ArtifactID,
+		///     AlternateNativeLocation = null,
+		///     RemoveAlternateNativeAfterImaging = false
 		/// };
 		/// long imagingJobId = _imagingJobService.SubmitSingleDocument(workspaceId, documentArtifactId, singleDocumentImagingJobRequest);
 		/// </code>
@@ -71,26 +71,26 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var joinedArtifactIds = string.Join(",", documents.Select(x => x.ArtifactID));
 		/// var createMassProcessTablesRequest = new
 		/// {
-		/// 	request = new
-		/// 	{
-		/// 		artifactTypeId = documentArtifactTypeId,
-		/// 		databaseTokenRequired = true,
-		/// 		query = new
-		/// 		{
-		/// 			condition = $"(('Artifact ID' IN [{joinedArtifactIds}]))"
-		/// 		}
-		/// 	}
+		///     request = new
+		///     {
+		///         artifactTypeId = documentArtifactTypeId,
+		///         databaseTokenRequired = true,
+		///         query = new
+		///         {
+		///             condition = $"(('Artifact ID' IN [{joinedArtifactIds}]))"
+		///         }
+		///     }
 		/// };
 		///
 		/// var createMassProcessTablesResult = Facade.Resolve&lt;IRestService&gt;()
-		/// 											.Post&lt;JObject&gt;($"MassOperation/v1/MassOperationManager/workspace/{workspaceId}/CreateMassProcessTables", createMassProcessTablesRequest);
+		///     .Post&lt;JObject&gt;($"MassOperation/v1/MassOperationManager/workspace/{workspaceId}/CreateMassProcessTables", createMassProcessTablesRequest);
 		/// var massProcessId =  (int)createMassProcessTablesResult["ProcessID"];
 		///
 		/// var imagingMassJobRequest = new ImagingMassJobRequest
 		/// {
-		/// 	ProfileID = imagingProfile.ArtifactID,
-		/// 	MassProcessID = massProcessId.ToString(),
-		/// 	SourceType = ImagingSourceType.Native
+		///     ProfileID = imagingProfile.ArtifactID,
+		///     MassProcessID = massProcessId.ToString(),
+		///     SourceType = ImagingSourceType.Native
 		/// };
 		/// long imagingJobId = _imagingJobService.SubmitMassDocument(workspaceId, imagingMassJobRequest);
 		/// </code>
@@ -110,7 +110,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// long imagingJobId = 10;
 		/// var cancellationRequest = new ImagingJobRequest
 		/// {
-		/// 	OriginationID = Guid.NewGuid()
+		///     OriginationID = Guid.NewGuid()
 		/// };
 		/// ImagingJobActionResponse cancellationResult = _imagingJobService.Cancel(workspaceId, imagingJobId, cancellationRequest);
 		/// </code>
@@ -130,8 +130,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int imagingSetId = 1000;
 		/// var retryErrorsRequest = new ImagingSetJobRequest
 		/// {
-		/// 	OriginationID = Guid.NewGuid(),
-		/// 	QcEnabled = false
+		///     OriginationID = Guid.NewGuid(),
+		///     QcEnabled = false
 		/// };
 		/// long imagingJobId = _imagingJobService.RetryErrors(workspaceId, imagingSetId, retryErrorsRequest);
 		/// </code>
@@ -151,8 +151,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// long imagingJobId = 1000;
 		/// var updatePriorityRequest = new ImagingJobPriorityRequest
 		/// {
-		/// 	OriginationID = Guid.NewGuid(),
-		/// 	Priority = 99
+		///     OriginationID = Guid.NewGuid(),
+		///     Priority = 99
 		/// };
 		/// ImagingJobActionResponse updatePriorityResult = _imagingJobService.UpdatePriority(workspaceId, imagingJobId, updatePriorityRequest);
 		/// </code>

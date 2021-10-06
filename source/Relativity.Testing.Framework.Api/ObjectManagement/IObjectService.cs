@@ -27,14 +27,14 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// [ObjectTypeName("Dashboard)]
 		/// internal class TestModel : NamedArtifact
 		/// {
-		/// 	public string TestProperty { get; set; }
+		///     public string TestProperty { get; set; }
 		/// }
 		/// ...
 		/// int workspaceArtifactID = 1015427;
 		/// TestModel objectToCreate = new TestModel
 		/// {
-		/// 	Name = "Test Model Name",
-		/// 	TestProperty = "Test Property Value"
+		///     Name = "Test Model Name",
+		///     TestProperty = "Test Property Value"
 		/// };
 		/// TestModel createdObject = _objectService.Create(workspaceArtifactID, objectToCreate);
 		/// </code>
@@ -54,22 +54,22 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// [ObjectTypeName("Dashboard)]
 		/// internal class TestModel : NamedArtifact
 		/// {
-		/// 	public string TestProperty { get; set; }
+		///     public string TestProperty { get; set; }
 		/// }
 		/// ...
 		/// int workspaceArtifactID = 1015427;
 		/// List&lt;TestModel&gt; objectsToCreate = new List&lt;TestModel&gt;
 		/// {
-		/// 	new TestModel
-		/// 	{
-		/// 		Name = "Test Model Name",
-		/// 		TestProperty = "Test Property Value"
-		/// 	},
-		/// 	new TestModel
-		/// 	{
-		/// 		Name = "Other Test Model Name"
-		/// 		TestProperty = "Other Test Property Value",
-		/// 	},
+		///     new TestModel
+		///     {
+		///         Name = "Test Model Name",
+		///         TestProperty = "Test Property Value"
+		///     },
+		///     new TestModel
+		///     {
+		///         Name = "Other Test Model Name"
+		///         TestProperty = "Other Test Property Value",
+		///     },
 		/// };
 		/// List&lt;TestModel&gt; createdObjects = _objectService.Create(workspaceArtifactID, objectsToCreate);
 		/// </code>
@@ -92,20 +92,20 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// string extractedTextValueToUpdate = "Updated Extracted Text Value";
 		/// List&lt;FieldRefValuePair&gt; fieldValues = new List&lt;FieldRefValuePair&gt;
 		/// {
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			Name = "Extracted Text"
-		/// 		},
-		/// 		Value = extractedTextValueToUpdate
-		/// 	}
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             Name = "Extracted Text"
+		///         },
+		///         Value = extractedTextValueToUpdate
+		///     }
 		/// };
 		/// Document[] documentsToUpdate = relativityFacade.Resolve&lt;IDocumentService&gt;().GetAll().Take(2);
 		/// MassUpdateByObjectIdentifiersRequest massRequestByObjectIdentifiers = new MassUpdateByObjectIdentifiersRequest
 		/// {
-		/// 	Objects = documentsToUpdate,
-		/// 	FieldValues = fieldValues
+		///     Objects = documentsToUpdate,
+		///     FieldValues = fieldValues
 		/// };
 		/// _objectService.Update(workspaceArtifactID, massRequestByObjectIdentifiers);
 		/// </code>
@@ -123,7 +123,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// [ObjectTypeName("Document")]
 		/// internal class DocumentWithSingleChoice : Document
 		/// {
-		/// 	public Artifact ConfidentialDesignation { get; set; }
+		///     public Artifact ConfidentialDesignation { get; set; }
 		/// }
 		/// ...
 		/// int workspaceArtifactID = 1017850;
@@ -156,33 +156,33 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// int existingConfidentialDesignationChoiceArtifactID = 1038092;
 		/// var fieldsToUpdate = new List&lt;FieldRefValuePair&gt;
 		/// {
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			Name = "Group Identifier"
-		/// 		},
-		/// 		Value = "Updated Group Identifier"
-		/// 	},
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			Name = "Extracted Text"
-		/// 		},
-		/// 		Value = "Updated Extracted Text"
-		/// 	},
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			Name = "Confidential Designation"
-		/// 		},
-		/// 		Value = new NamedArtifact
-		/// 		{
-		/// 			ArtifactID = existingConfidentialDesignationChoiceArtifactID
-		/// 		}
-		/// 	}
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             Name = "Group Identifier"
+		///         },
+		///         Value = "Updated Group Identifier"
+		///     },
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             Name = "Extracted Text"
+		///         },
+		///         Value = "Updated Extracted Text"
+		///     },
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             Name = "Confidential Designation"
+		///         },
+		///         Value = new NamedArtifact
+		///         {
+		///             ArtifactID = existingConfidentialDesignationChoiceArtifactID
+		///         }
+		///     }
 		/// };
 		/// _objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);
 		/// </code>
@@ -197,33 +197,33 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// int existingDocumentSingleChoiceChoiceArtifactID = 1038092; // ArtifactID of the Choice 'Attorneys' Eyes Only' for 'Confidential Designation' Field
 		/// var fieldsToUpdate = new List&lt;FieldRefValuePair&gt;
 		/// {
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			ArtifactID = existingDocumentStringFieldArtifactID
-		/// 		},
-		/// 		Value = "Some updated value of text field"
-		/// 	},
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			ArtifactID = existingDocumentBoolFieldArtifactID
-		/// 		},
-		/// 		Value = bool
-		/// 	},
-		/// 	new FieldRefValuePair
-		/// 	{
-		/// 		Field = new FieldRef
-		/// 		{
-		/// 			ArtifactID = existingDocumentSingleChoiceFieldArtifactID
-		/// 		},
-		/// 		Value = new NamedArtifact
-		/// 		{
-		/// 			ArtifactID = existingDocumentSingleChoiceChoiceArtifactID
-		/// 		}
-		/// 	},
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             ArtifactID = existingDocumentStringFieldArtifactID
+		///         },
+		///         Value = "Some updated value of text field"
+		///     },
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             ArtifactID = existingDocumentBoolFieldArtifactID
+		///         },
+		///         Value = bool
+		///     },
+		///     new FieldRefValuePair
+		///     {
+		///         Field = new FieldRef
+		///         {
+		///             ArtifactID = existingDocumentSingleChoiceFieldArtifactID
+		///         },
+		///         Value = new NamedArtifact
+		///         {
+		///             ArtifactID = existingDocumentSingleChoiceChoiceArtifactID
+		///         }
+		///     },
 		/// };
 		/// _objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);
 		/// </code>
@@ -268,8 +268,8 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// [ObjectTypeName("Group")]
 		/// internal class GroupObject
 		/// {
-		/// 	public int ArtifactID { get; set; }
-		/// 	public string Name { get; set; }
+		///     public int ArtifactID { get; set; }
+		///     public string Name { get; set; }
 		/// }
 		/// GroupObject[] groups = _objectService.GetAll&lt;GroupObject&gt;();
 		/// </code>
@@ -288,8 +288,8 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		/// [ObjectTypeName("Group")]
 		/// internal class GroupObject
 		/// {
-		/// 	public int ArtifactID { get; set; }
-		/// 	public string Name { get; set; }
+		///     public int ArtifactID { get; set; }
+		///     public string Name { get; set; }
 		/// }
 		/// GroupObject[] groups = _objectService.GetAll&lt;GroupObject&gt;(group => group.Name, "System Administrators");
 		/// </code>

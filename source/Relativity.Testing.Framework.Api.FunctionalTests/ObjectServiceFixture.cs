@@ -320,7 +320,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 			public Lists FillRequiredProperties()
 			{
 				if (string.IsNullOrWhiteSpace(Name))
+				{
 					Name = Randomizer.GetString("AT_");
+				}
 
 				return this;
 			}

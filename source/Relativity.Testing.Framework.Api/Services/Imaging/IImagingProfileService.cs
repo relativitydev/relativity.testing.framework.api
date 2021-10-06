@@ -25,17 +25,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var dto = new CreateBasicImagingProfileDTO
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	Notes = string.Empty,
-		/// 	Keywords = string.Empty,
-		/// 	BasicOptions = new BasicImagingEngineOptions
-		/// 	{
-		/// 		ImageOutputDpi = 300,
-		/// 		BasicImageFormat = ImageFormatType.Jpeg,
-		/// 		ImageSize = ImageSizeType.Custom,
-		/// 		MaximumImageHeight = 6.0m,
-		/// 		MaximumImageWidth = 6.0m
-		/// 	}
+		///     Name = Randomizer.GetString(),
+		///     Notes = string.Empty,
+		///     Keywords = string.Empty,
+		///     BasicOptions = new BasicImagingEngineOptions
+		///     {
+		///         ImageOutputDpi = 300,
+		///         BasicImageFormat = ImageFormatType.Jpeg,
+		///         ImageSize = ImageSizeType.Custom,
+		///         MaximumImageHeight = 6.0m,
+		///         MaximumImageWidth = 6.0m
+		///     }
 		/// };
 		/// var imagingProfile = _imagingService.CreateBasic(workspaceId, dto);
 		/// </code>
@@ -53,61 +53,61 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var dto = new CreateNativeImagingProfileDTO
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	Notes = string.Empty,
-		/// 	Keywords = string.Empty,
-		/// 	BasicOptions = new BasicImagingEngineOptions
-		/// 	{
-		/// 		ImageOutputDpi = 300,
-		/// 		BasicImageFormat = ImageFormatType.Jpeg,
-		/// 		ImageSize = ImageSizeType.Custom,
-		/// 		MaximumImageHeight = 6.0m,
-		/// 		MaximumImageWidth = 6.0m
-		/// 	},
-		/// 	NativeOptions = new NativeImagingEngineOptions
-		/// 	{
-		/// 		NativeImageFormat = ImageFormatType.Tiff,
-		/// 	},
-		/// 	HtmlOptions = new ImagingHtmlOptions
-		/// 	{
-		/// 		RemoveNonBreakingSpaceCodes = true
-		/// 	},
-		/// 	PresentationOptions = new ImagingPresentationOptions
-		/// 	{
-		/// 		ShowSpeakerNotes = true,
-		/// 		SlideOrientation = ImagingElementOrientation.OriginalSetting
-		/// 	},
-		/// 	SpreadsheetOptions = new ImagingSpreadsheetOptions
-		/// 	{
-		/// 		HideAndPageBreakAfterConsecutiveBlankRowCol = 10,
-		/// 		IncludeBorders = true,
-		/// 		IncludeComments = true,
-		/// 		IncludeGridlines = ImagingIncludeElement.OriginalSetting,
-		/// 		IncludeHeadersAndFooters = ImagingIncludeElement.OriginalSetting,
-		/// 		IncludeRowAndColumnHeadings = ImagingIncludeElement.OriginalSetting,
-		/// 		PageOrder = ImagingSpreadsheetPageOrder.OriginalSetting,
-		/// 		PaperSizeOrientation = ImagingSpreadsheetPaperSizeOrientation.OriginalSetting,
-		/// 		PrintArea = ImagingSpreadsheetPrintArea.OriginalSetting,
-		/// 		ShowTrackChanges = true,
-		/// 		UnhideHiddenWorksheets = true
-		/// 	},
-		/// 	WordProcessingOptions = new ImagingWordOptions
-		/// 	{
-		/// 		PageOrientation = ImagingElementOrientation.OriginalSetting,
-		/// 		ShowTrackChanges = true
-		/// 	},
-		/// 	EmailOptions = new ImagingEmailOptions
-		/// 	{
-		/// 		ClearIndentations = true,
-		/// 		DetectCharacterEncoding = true,
-		/// 		DisplaySmtpAddresses = true,
-		/// 		DownloadImagesFromInternet = true,
-		/// 		Orientation = ImagingEmailOrientation.Landscape,
-		/// 		ResizeImagesToFitPage = true,
-		/// 		ResizeTablesToFitPage = true,
-		/// 		ShowMessageTypeInHeader = true,
-		/// 		SplitTablesToFitPageWidth = true
-		/// 	}
+		///     Name = Randomizer.GetString(),
+		///     Notes = string.Empty,
+		///     Keywords = string.Empty,
+		///     BasicOptions = new BasicImagingEngineOptions
+		///     {
+		///         ImageOutputDpi = 300,
+		///         BasicImageFormat = ImageFormatType.Jpeg,
+		///         ImageSize = ImageSizeType.Custom,
+		///         MaximumImageHeight = 6.0m,
+		///         MaximumImageWidth = 6.0m
+		///     },
+		///     NativeOptions = new NativeImagingEngineOptions
+		///     {
+		///         NativeImageFormat = ImageFormatType.Tiff,
+		///     },
+		///     HtmlOptions = new ImagingHtmlOptions
+		///     {
+		///         RemoveNonBreakingSpaceCodes = true
+		///     },
+		///     PresentationOptions = new ImagingPresentationOptions
+		///     {
+		///         ShowSpeakerNotes = true,
+		///         SlideOrientation = ImagingElementOrientation.OriginalSetting
+		///     },
+		///     SpreadsheetOptions = new ImagingSpreadsheetOptions
+		///     {
+		///         HideAndPageBreakAfterConsecutiveBlankRowCol = 10,
+		///         IncludeBorders = true,
+		///         IncludeComments = true,
+		///         IncludeGridlines = ImagingIncludeElement.OriginalSetting,
+		///         IncludeHeadersAndFooters = ImagingIncludeElement.OriginalSetting,
+		///         IncludeRowAndColumnHeadings = ImagingIncludeElement.OriginalSetting,
+		///         PageOrder = ImagingSpreadsheetPageOrder.OriginalSetting,
+		///         PaperSizeOrientation = ImagingSpreadsheetPaperSizeOrientation.OriginalSetting,
+		///         PrintArea = ImagingSpreadsheetPrintArea.OriginalSetting,
+		///         ShowTrackChanges = true,
+		///         UnhideHiddenWorksheets = true
+		///     },
+		///     WordProcessingOptions = new ImagingWordOptions
+		///     {
+		///         PageOrientation = ImagingElementOrientation.OriginalSetting,
+		///         ShowTrackChanges = true
+		///     },
+		///     EmailOptions = new ImagingEmailOptions
+		///     {
+		///         ClearIndentations = true,
+		///         DetectCharacterEncoding = true,
+		///         DisplaySmtpAddresses = true,
+		///         DownloadImagesFromInternet = true,
+		///         Orientation = ImagingEmailOrientation.Landscape,
+		///         ResizeImagesToFitPage = true,
+		///         ResizeTablesToFitPage = true,
+		///         ShowMessageTypeInHeader = true,
+		///         SplitTablesToFitPageWidth = true
+		///     }
 		/// };
 		/// var imagingProfile = _imagingProfileService.CreateNative(workspaceId, dto);
 		/// </code>

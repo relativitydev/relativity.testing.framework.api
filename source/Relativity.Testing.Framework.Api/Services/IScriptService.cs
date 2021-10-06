@@ -28,10 +28,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// var script = new Script
 		/// {
-		/// 	Name = "My script Name",
-		/// 	Description = "About my script",
-		/// 	Category = "My category",
-		/// 	ScriptBody = $"&lt;script&gt;{action}&lt;/script&gt;"
+		///     Name = "My script Name",
+		///     Description = "About my script",
+		///     Category = "My category",
+		///     ScriptBody = $"&lt;script&gt;{action}&lt;/script&gt;"
 		/// };
 		///
 		/// Script result = _scriptService.Create(workspaceID, script);
@@ -105,8 +105,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// scriptInputs.Add(new ScriptInput()
 		/// {
-		/// 	ID = "workspaceArtifactId",
-		/// 	Value = workspaceID
+		///     ID = "workspaceArtifactId",
+		///     Value = workspaceID
 		/// });
 		///
 		/// string sqlStatment = _scriptService.Preview(workspaceID, scriptID, scriptInputs);
@@ -130,8 +130,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// scriptInputs.Add(new ScriptInput()
 		/// {
-		/// 	ID = "workspaceArtifactId",
-		/// 	Value = workspaceID
+		///     ID = "workspaceArtifactId",
+		///     Value = workspaceID
 		/// });
 		///
 		/// EnqueueRunJobResponse response = _scriptService.EnqueueRunJob(workspaceID, scriptID, scriptInputs);
@@ -180,9 +180,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// var queryRequest = new ActionQueryRequest()
 		/// {
-		/// 	Condition = "'IsAlive' == false",
-		/// 	ColumnNames = new List&lt;string&gt;() { "*" },
-		/// 	Sorts = new List&lt;ActionColumnSort&gt;(),
+		///     Condition = "'IsAlive' == false",
+		///     ColumnNames = new List&lt;string&gt;() { "*" },
+		///     Sorts = new List&lt;ActionColumnSort&gt;(),
 		/// }
 		///
 		/// ActionResultsQueryResponse queryResponce = _scriptService.QueryActionJobResults(workspaceID, enqueueRunJobResponse.RunJobID, actionIndex, queryRequest);
@@ -205,8 +205,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// scriptInputs.Add(new ScriptInput()
 		/// {
-		/// 	ID = "workspaceArtifactId",
-		/// 	Value = workspaceID
+		///     ID = "workspaceArtifactId",
+		///     Value = workspaceID
 		/// });
 		///
 		/// int result = _scriptService.RunStatusAction(workspaceID, scriptID, scriptInputs);
@@ -230,15 +230,15 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// scriptInputs.Add(new ScriptInput()
 		/// {
-		/// 	ID = "workspaceArtifactId",
-		/// 	Value = workspaceID
+		///     ID = "workspaceArtifactId",
+		///     Value = workspaceID
 		/// });
 		///
 		/// var queryRequest = new ActionQueryRequest()
 		/// {
-		/// 	Condition = "'IsAlive' == false",
-		/// 	ColumnNames = new List&lt;string&gt;() { "*" },
-		/// 	Sorts = new List&lt;ActionColumnSort&gt;(),
+		///     Condition = "'IsAlive' == false",
+		///     ColumnNames = new List&lt;string&gt;() { "*" },
+		///     Sorts = new List&lt;ActionColumnSort&gt;(),
 		/// }
 		///
 		/// DataTable result = _scriptService.RunTableAction(workspaceID, scriptID, scriptInputs, queryRequest);

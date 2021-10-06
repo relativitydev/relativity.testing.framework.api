@@ -30,26 +30,26 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// string fieldName = "Control Number";
 		/// var productionToCreate = new Production
 		/// {
-		/// 	Name = "Test Production Name",
-		/// 	Numbering = new ProductionNumbering
-		/// 	{
-		/// 		NumberingType = NumberingType.PageLevel,
-		/// 		BatesPrefix = "Prefix",
-		/// 		BatesSuffix = "Suffix",
-		/// 		BatesStartNumber = 1,
-		/// 		NumberOfDigitsForDocumentNumbering = 7,
-		/// 		AttachmentRelationalField = new NamedArtifact { Name = string.Empty}
-		/// 	}
-		/// 	Headers = new ProductionHeaders
-		/// 	{
-		/// 		CenterHeader = new HeaderFooter { Type = HeaderFooterType.OriginalImageNumber }
-		/// 	},
-		/// 	Footers = new ProductionFooters
-		/// 	{
-		/// 		LeftFooter = new HeaderFooter { Type = HeaderFooterType.Field, Field = new NamedArtifact { Name = fieldName } },
-		/// 		CenterFooter = new HeaderFooter { Type = HeaderFooterType.FreeText, FreeText = Randomizer.GetString() },
-		/// 		RightFooter = new HeaderFooter { Type = HeaderFooterType.AdvancedFormatting, AdvancedFormatting = fieldName }
-		/// 	}
+		///     Name = "Test Production Name",
+		///     Numbering = new ProductionNumbering
+		///     {
+		///         NumberingType = NumberingType.PageLevel,
+		///         BatesPrefix = "Prefix",
+		///         BatesSuffix = "Suffix",
+		///         BatesStartNumber = 1,
+		///         NumberOfDigitsForDocumentNumbering = 7,
+		///         AttachmentRelationalField = new NamedArtifact { Name = string.Empty}
+		///     }
+		///     Headers = new ProductionHeaders
+		///     {
+		///         CenterHeader = new HeaderFooter { Type = HeaderFooterType.OriginalImageNumber }
+		///     },
+		///     Footers = new ProductionFooters
+		///     {
+		///         LeftFooter = new HeaderFooter { Type = HeaderFooterType.Field, Field = new NamedArtifact { Name = fieldName } },
+		///         CenterFooter = new HeaderFooter { Type = HeaderFooterType.FreeText, FreeText = Randomizer.GetString() },
+		///         RightFooter = new HeaderFooter { Type = HeaderFooterType.AdvancedFormatting, AdvancedFormatting = fieldName }
+		///     }
 		/// };
 		/// Production createdProduction = _productionService.Create(workspaceArtifactID, productionToCreate);
 		/// </code>

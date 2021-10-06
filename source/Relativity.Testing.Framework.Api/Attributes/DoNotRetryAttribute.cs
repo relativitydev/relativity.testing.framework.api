@@ -8,5 +8,5 @@ namespace Relativity.Testing.Framework.Api.Attributes
 	[AttributeUsage(AttributeTargets.Class)]
 	internal class DoNotRetryAttribute : Attribute
 	{
-    }
+	}
 }

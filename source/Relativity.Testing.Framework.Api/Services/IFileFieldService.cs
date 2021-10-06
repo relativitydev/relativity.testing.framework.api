@@ -26,24 +26,24 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var workspaceId = -1;
 		/// var objectRef = relativityFacade.Resolve&lt;IObjectService&gt;()
-		/// 	.Query&lt;SomeObjectType&gt;()
-		/// 	.Where(x => x.Name, "SomeObjectName");
+		///     .Query&lt;SomeObjectType&gt;()
+		///     .Where(x => x.Name, "SomeObjectName");
 		/// var fileField = new FileField // This field should exist and have object of the objectRef above (Some Object Type)
 		/// {
-		/// 	Name = "Some File Field Name" // Can also have ArtifactId filled instead of Name
+		///     Name = "Some File Field Name" // Can also have ArtifactId filled instead of Name
 		/// };
 		/// var fileField = new FileField
 		/// {
-		/// 	Field = fileField,
-		/// 	ObjectRef = objectRef,
-		/// 	FileStream = new MemoryStream();
+		///     Field = fileField,
+		///     ObjectRef = objectRef,
+		///     FileStream = new MemoryStream();
 		/// };
 		///
 		/// var result = _sut.DownloadFile(workspaceId, fileFieldDto);
 		///
 		/// using (result.FileStream)
 		/// {
-		/// 	Assert.That(result.FileStream.Length > 0);
+		///     Assert.That(result.FileStream.Length > 0);
 		/// }
 		/// </code>
 		/// </example>
@@ -63,23 +63,23 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var someExstingFileFieldArtifactId = 1;
 		/// var = new FileField // This field should exist and have object of the objectRef below (Some Object Type)
 		/// {
-		/// 	ArtifactId = someExstingFileFieldArtifactId // Can also have Name filled instead of ArtifactId
+		///     ArtifactId = someExstingFileFieldArtifactId // Can also have Name filled instead of ArtifactId
 		/// };
 		/// var objectRef = relativityFacade.Resolve&lt;IObjectService&gt;()
-		/// 	.Query&lt;SomeObjectType&gt;()
-		/// 	.Where(x => x.Name, "SomeObjectName");
+		///     .Query&lt;SomeObjectType&gt;()
+		///     .Where(x => x.Name, "SomeObjectName");
 		/// var fileFieldDto = new FileFieldDTO
 		/// {
-		/// 	Field = fileField,
-		/// 	ObjectRef = objectRef,
-		/// 	FileName = "Some File Name",
+		///     Field = fileField,
+		///     ObjectRef = objectRef,
+		///     FileName = "Some File Name",
 		/// };
 		///
 		/// using (FileStream fileStream = File.OpenRead("C:\sample\path\to\SomeFile"))
 		/// {
-		/// 	fileFieldDto.FileStream = fileStream;
+		///     fileFieldDto.FileStream = fileStream;
 		///
-		/// 	fileFieldDto = _sut.UploadFile(workspaceId, fileFieldDto);
+		///     fileFieldDto = _sut.UploadFile(workspaceId, fileFieldDto);
 		/// }
 		/// </code>
 		/// </example>

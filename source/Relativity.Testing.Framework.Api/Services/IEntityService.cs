@@ -24,10 +24,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var entity = new Entity
 		/// {
-		/// 	FullName = Randomizer.GetString(),
-		/// 	Type = new NamedArtifact { Name = "Other" },
-		/// 	DocumentNumberingPrefix = Randomizer.GetString(),
-		/// 	Classification = new List&lt;NamedArtifact&gt; { new NamedArtifact { Name = "Custodian – Processing" } }
+		///     FullName = Randomizer.GetString(),
+		///     Type = new NamedArtifact { Name = "Other" },
+		///     DocumentNumberingPrefix = Randomizer.GetString(),
+		///     Classification = new List&lt;NamedArtifact&gt; { new NamedArtifact { Name = "Custodian – Processing" } }
 		/// };
 		/// var createdEntity = _entityService.Create(workspaceId, entity);
 		/// </code>
@@ -89,11 +89,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var someExistingTypeArtifactId = 2;
 		/// var entityToUpdate = new Entity
 		/// {
-		/// 	ArtifactId = someExistingEntityArtifactId,
-		/// 	FirstName = "Updated First Name",
-		/// 	LastName = "Updated Last Name",
-		/// 	DocumentNumberingPrefix = Randomizer.GetString(),
-		/// 	Type = new NamedArtifact { Name = "Person", ArtifactID = someExistingTypeArtifactId }
+		///     ArtifactId = someExistingEntityArtifactId,
+		///     FirstName = "Updated First Name",
+		///     LastName = "Updated Last Name",
+		///     DocumentNumberingPrefix = Randomizer.GetString(),
+		///     Type = new NamedArtifact { Name = "Person", ArtifactID = someExistingTypeArtifactId }
 		/// };
 		/// _entityService.Update(workspaceId, entityToUpdate);
 		/// </code>
@@ -126,9 +126,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var entityToUpdate = new Entity
 		/// {
-		/// 	FullName = "Some Existing Entity Full Name",
-		/// 	DocumentNumberingPrefix = Randomizer.GetString(),
-		/// 	Type = new NamedArtifact { Name = "Person", ArtifactID = someExistingTypeArtifactId }
+		///     FullName = "Some Existing Entity Full Name",
+		///     DocumentNumberingPrefix = Randomizer.GetString(),
+		///     Type = new NamedArtifact { Name = "Person", ArtifactID = someExistingTypeArtifactId }
 		/// }
 		/// var updatedEntity = _entityService.Require(workspaceId, entityToUpdate); // Will get the entity by Full Name, update it and return updated entity
 		/// </code>
@@ -138,10 +138,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var entity = new Entity
 		/// {
-		/// 	FullName = Randomizer.GetString(),
-		/// 	Type = new NamedArtifact { Name = "Other" },
-		/// 	DocumentNumberingPrefix = Randomizer.GetString(),
-		/// 	Classification = new List&lt;NamedArtifact&gt; { new NamedArtifact { Name = "Custodian – Processing" } }
+		///     FullName = Randomizer.GetString(),
+		///     Type = new NamedArtifact { Name = "Other" },
+		///     DocumentNumberingPrefix = Randomizer.GetString(),
+		///     Classification = new List&lt;NamedArtifact&gt; { new NamedArtifact { Name = "Custodian – Processing" } }
 		/// };
 		/// var createdEntity = _entityService.Require(workspaceId, entity); // Will create new entity
 		/// </code>

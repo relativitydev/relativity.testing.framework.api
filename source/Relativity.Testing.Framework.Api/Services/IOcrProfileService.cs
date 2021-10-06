@@ -24,8 +24,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1015427;
 		/// var ocrProfileToCreate = new OcrProfile
 		/// {
-		/// 	Name = "My script Name",
-		/// 	ImageTimeout = 120
+		///     Name = "My script Name",
+		///     ImageTimeout = 120
 		/// };
 		/// OcrProfile ocrProfile = _ocrProfileService.Create(workspaceArtifactID, ocrProfileToCreate);
 		/// </code>

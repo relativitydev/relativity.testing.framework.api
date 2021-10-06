@@ -34,9 +34,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// MessageOfTheDay currentMotd = _messageOfTheDayService.Get();
 		/// var toUpdate = new MessageOfTheDay
 		/// {
-		/// 	Enabled = !currentMotd.Enabled,
-		/// 	Message = Randomizer.GetString(),
-		/// 	AllowDismiss = !currentMotd.AllowDismiss
+		///     Enabled = !currentMotd.Enabled,
+		///     Message = Randomizer.GetString(),
+		///     AllowDismiss = !currentMotd.AllowDismiss
 		/// };
 		/// MessageOfTheDay updatedMotd = _messageOfTheDayService.Update(toUpdate);
 		/// </code>

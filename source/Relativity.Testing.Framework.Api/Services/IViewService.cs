@@ -26,8 +26,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewtoCreate = new View
 		/// {
-		/// 	Name = "Test View Name",
-		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		///     Name = "Test View Name",
+		///     Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
 		/// }
 		/// View createdView = _viewService.Create(workspaceArtifactID, viewtoCreate);
 		/// </code>
@@ -100,10 +100,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewToUpdate = new View
 		/// {
-		/// 	ArtifactID = existingViewArtifactID,
-		/// 	Name = "Test Existing View Name",
-		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
-		/// 	Order = updatedOrder
+		///     ArtifactID = existingViewArtifactID,
+		///     Name = "Test Existing View Name",
+		///     Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		///     Order = updatedOrder
 		/// }
 		/// View updatedView = _viewService.Require(workspaceArtifactID, viewToUpdate);
 		/// </code>
@@ -116,9 +116,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewToUpdate = new View
 		/// {
-		/// 	Name = existingViewName
-		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
-		/// 	Order = updatedOrder
+		///     Name = existingViewName
+		///     Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		///     Order = updatedOrder
 		/// }
 		/// View updatedView = _viewService.Require(workspaceArtifactID, viewToUpdate);
 		/// </code>
@@ -129,8 +129,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;FixedLengthTextField&gt;(workspaceArtifactID, "Control Number");
 		/// View viewtoCreate = new View
 		/// {
-		/// 	Name = "Test Not Existing View Name",
-		/// 	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+		///     Name = "Test Not Existing View Name",
+		///     Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
 		/// }
 		/// View createdView = _viewService.Require(workspaceArtifactID, viewtoCreate);
 		/// </code>

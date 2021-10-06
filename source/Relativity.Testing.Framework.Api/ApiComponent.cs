@@ -263,22 +263,32 @@ namespace Relativity.Testing.Framework.Api
 			var instanceConfiguration = configurationService.RelativityInstance;
 
 			if (string.IsNullOrEmpty(instanceConfiguration.AdminUsername))
+			{
 				throw new ConfigurationKeyNotFoundException(nameof(RelativityInstanceConfiguration.AdminUsername));
+			}
 
 			if (string.IsNullOrEmpty(instanceConfiguration.AdminPassword))
+			{
 				throw new ConfigurationKeyNotFoundException(nameof(RelativityInstanceConfiguration.AdminPassword));
+			}
 
 			if (string.IsNullOrEmpty(instanceConfiguration.ServerBindingType))
+			{
 				throw new ConfigurationKeyNotFoundException(nameof(RelativityInstanceConfiguration.ServerBindingType));
+			}
 
 			if (string.IsNullOrEmpty(instanceConfiguration.RestServicesHostAddress))
+			{
 				throw new ConfigurationKeyNotFoundException(nameof(RelativityInstanceConfiguration.RestServicesHostAddress));
+			}
 
 			var relativityVersion = container.Resolve<IRelativityFacade>().RelativityInstanceVersion;
 			var versionRangeMatchService = container.Resolve<IVersionRangeMatchService>();
 
 			if (versionRangeMatchService.IsVersionInRange(relativityVersion, "<11.3") && string.IsNullOrEmpty(instanceConfiguration.RsapiServicesHostAddress))
+			{
 				throw new ConfigurationKeyNotFoundException(nameof(RelativityInstanceConfiguration.RsapiServicesHostAddress));
+			}
 		}
 
 		private void EnsureRestServicesHost(IRestService restService)

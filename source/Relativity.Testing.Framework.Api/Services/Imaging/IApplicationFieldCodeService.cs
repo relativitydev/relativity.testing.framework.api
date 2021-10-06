@@ -23,9 +23,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var applicationFieldCode = new ApplicationFieldCode()
 		/// {
-		/// 	Application = ApplicationType.MicrosoftExcel,
-		/// 	FieldCode = "Author",
-		/// 	Option = ApplicationFieldCodeOption.DocumentDefault
+		///     Application = ApplicationType.MicrosoftExcel,
+		///     FieldCode = "Author",
+		///     Option = ApplicationFieldCodeOption.DocumentDefault
 		/// };
 		/// var createdApplicationFieldCode = _applicationFieldCodeService.Create(workspaceId, applicationFieldCode);
 		/// </code>

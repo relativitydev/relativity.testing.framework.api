@@ -21,7 +21,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public ViewAccessStatus Get(int workspaceId, int entityId)
 		{
 			if (!_existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId))
+			{
 				return null;
+			}
 
 			var dto = new
 			{

@@ -20,7 +20,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected override void DoDelete(int id)
 		{
 			if (!_existsByIdStrategy.Exists(id))
+			{
 				throw new ObjectNotFoundException();
+			}
 
 			_restService.Delete($"relativity.resourcepools/workspace/-1/resource-pools/{id}");
 		}

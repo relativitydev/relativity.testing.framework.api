@@ -24,8 +24,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var client = relativityFacade.Resolve&lt;IClientService&gt;().Get(clientArtifactId);
 		/// var entity = new Group
 		/// {
-		/// 	Name = Randomizer.GetString("AT_"),
-		/// 	Client = client
+		///     Name = Randomizer.GetString("AT_"),
+		///     Client = client
 		/// };
 		/// var group = _groupService.Create(entity);
 		/// </code>
@@ -63,8 +63,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var client = relativityFacade.Resolve&lt;IClientService&gt;().Get(clientArtifactId);
 		/// var entity = new Group
 		/// {
-		/// 	Name = Randomizer.GetString("AT_"),
-		/// 	Client = client
+		///     Name = Randomizer.GetString("AT_"),
+		///     Client = client
 		/// };
 		/// var group = _groupService.Require(entity); //Will create new group
 		/// </code>
@@ -132,8 +132,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var groupId = 1;
 		/// var entity = new Group
 		/// {
-		/// 	Name = "Some Existing Group Name",
-		/// 	Keywords = "Test Edited Keywords"
+		///     Name = "Some Existing Group Name",
+		///     Keywords = "Test Edited Keywords"
 		/// }
 		/// Group updatedGroup = _groupService.Update(entity);
 		/// </code>

@@ -27,7 +27,9 @@
 		public void EnsureExists(int id)
 		{
 			if (!_existsByIdStrategy.Exists(id))
+			{
 				throw ObjectNotFoundException.CreateForNotFoundById<T>(id);
+			}
 		}
 	}
 }

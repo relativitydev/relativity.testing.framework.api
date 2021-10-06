@@ -25,19 +25,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// const string controlNumber = "Control Number";
 		/// var keywordSearchToCreate = new KeywordSearch
 		/// {
-		/// 	Name = "Keyword Search Name",
-		/// 	SearchCriteria =  new CriteriaCollection
-		/// 	{
-		/// 		Conditions = new List&lt;BaseCriteria&gt;
-		/// 		{
-		/// 			new Criteria
-		/// 			{
-		/// 				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
-		/// 			}
-		/// 		}
-		/// 	},
-		/// 	Fields = new[] { new NamedArtifact { Name = controlNumber } },
-		/// 	Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } }
+		///     Name = "Keyword Search Name",
+		///     SearchCriteria =  new CriteriaCollection
+		///     {
+		///         Conditions = new List&lt;BaseCriteria&gt;
+		///         {
+		///             new Criteria
+		///             {
+		///                 Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
+		///             }
+		///         }
+		///     },
+		///     Fields = new[] { new NamedArtifact { Name = controlNumber } },
+		///     Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } }
 		/// };
 		/// KeywordSearch createdKeywordSearch = _keywordSearchService.Create(workspaceArtifactID, keywordSearchToCreate);
 		/// </code>
@@ -138,20 +138,20 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// const string controlNumber = "Control Number";
 		/// var keywordSearchToUpdate = new KeywordSearch
 		/// {
-		/// 	ArtifactID = 1016786,
-		/// 	Name = "Updated Keyword Search Name",
-		/// 	SearchCriteria =  new CriteriaCollection
-		/// 	{
-		/// 		Conditions = new List&lt;BaseCriteria&gt;
-		/// 		{
-		/// 			new Criteria
-		/// 			{
-		/// 				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
-		/// 			}
-		/// 		}
-		/// 	},
-		/// 	Fields = new[] { new NamedArtifact { Name = controlNumber } },
-		/// 	Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } }
+		///     ArtifactID = 1016786,
+		///     Name = "Updated Keyword Search Name",
+		///     SearchCriteria =  new CriteriaCollection
+		///     {
+		///         Conditions = new List&lt;BaseCriteria&gt;
+		///         {
+		///             new Criteria
+		///             {
+		///                 Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
+		///             }
+		///         }
+		///     },
+		///     Fields = new[] { new NamedArtifact { Name = controlNumber } },
+		///     Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } }
 		/// };
 		/// KeywordSearch updatedKeywordSearch = _keywordSearchService.Require(workspaceArtifactID, keywordSearchToUpdate);
 		/// </code>
@@ -162,21 +162,21 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// const string controlNumber = "Control Number";
 		/// var keywordSearchToUpdate = new KeywordSearch
 		/// {
-		/// 	Name = "Existing Keyword Search Name",
-		/// 	SearchCriteria =  new CriteriaCollection
-		/// 	{
-		/// 		Conditions = new List&lt;BaseCriteria&gt;
-		/// 		{
-		/// 			new Criteria
-		/// 			{
-		/// 				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
-		/// 			}
-		/// 		}
-		/// 	},
-		/// 	Fields = new[] { new NamedArtifact { Name = controlNumber } },
-		/// 	Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } },
-		/// 	SortByRank = true,
-		/// 	Notes = "Updated Keyword Search Notes"
+		///     Name = "Existing Keyword Search Name",
+		///     SearchCriteria =  new CriteriaCollection
+		///     {
+		///         Conditions = new List&lt;BaseCriteria&gt;
+		///         {
+		///             new Criteria
+		///             {
+		///                 Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
+		///             }
+		///         }
+		///     },
+		///     Fields = new[] { new NamedArtifact { Name = controlNumber } },
+		///     Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } },
+		///     SortByRank = true,
+		///     Notes = "Updated Keyword Search Notes"
 		/// };
 		/// KeywordSearch updatedKeywordSearch = _keywordSearchService.Require(workspaceArtifactID, keywordSearchToUpdate);
 		/// </code>
@@ -187,21 +187,21 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// const string controlNumber = "Control Number";
 		/// var keywordSearchToCreate= new KeywordSearch
 		/// {
-		/// 	Name = "New Keyword Search Name",
-		/// 	SearchCriteria =  new CriteriaCollection
-		/// 	{
-		/// 		Conditions = new List&lt;BaseCriteria&gt;
-		/// 		{
-		/// 			new Criteria
-		/// 			{
-		/// 				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
-		/// 			}
-		/// 		}
-		/// 	},
-		/// 	Fields = new[] { new NamedArtifact { Name = controlNumber } },
-		/// 	Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } },
-		/// 	SortByRank = true,
-		/// 	Notes = "Keyword Search Notes"
+		///     Name = "New Keyword Search Name",
+		///     SearchCriteria =  new CriteriaCollection
+		///     {
+		///         Conditions = new List&lt;BaseCriteria&gt;
+		///         {
+		///             new Criteria
+		///             {
+		///                 Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, "EXAMPLE_CONTROL_NUMBER"),
+		///             }
+		///         }
+		///     },
+		///     Fields = new[] { new NamedArtifact { Name = controlNumber } },
+		///     Sorts = new List&lt;Sort&gt; { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } },
+		///     SortByRank = true,
+		///     Notes = "Keyword Search Notes"
 		/// };
 		/// KeywordSearch createdKeywordSearch = _keywordSearchService.Require(workspaceArtifactID, keywordSearchToCreate);
 		/// </code>

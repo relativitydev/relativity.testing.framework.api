@@ -62,8 +62,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Services
 			_mockUserGetByEmailStrategy.Setup(x => x.Get(It.IsAny<string>())).Returns(new User());
 
 			Assert.That(
-			    () => _sut.WaitDeleteStandardAccount("a"),
-			    Throws.TypeOf<InvalidOperationException>()
+				() => _sut.WaitDeleteStandardAccount("a"),
+				Throws.TypeOf<InvalidOperationException>()
 				.With.Message.Contains("The request to delete the "));
 		}
 	}

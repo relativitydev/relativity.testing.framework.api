@@ -28,10 +28,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// var productionPlaceholder = new ProductionPlaceholder
 		/// {
-		/// 	Name = "Placeholder name",
-		/// 	PlaceholderType = PlaceholderType.Image,
-		/// 	FileName = fileName,
-		/// 	FileData = fileContent
+		///     Name = "Placeholder name",
+		///     PlaceholderType = PlaceholderType.Image,
+		///     FileName = fileName,
+		///     FileData = fileContent
 		/// };
 		///
 		/// ProductionPlaceholder result = _productionPlaceholderService.Create(workspaceID, productionPlaceholder);

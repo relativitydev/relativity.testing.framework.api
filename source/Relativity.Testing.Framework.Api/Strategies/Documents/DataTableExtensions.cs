@@ -35,7 +35,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				string[] columns = SplitCsvString(lineBuilder.ToString());
 
 				foreach (string column in columns)
+				{
 					dt.Columns.Add(column);
+				}
 
 				while (!reader.EndOfStream)
 				{

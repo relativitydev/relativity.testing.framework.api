@@ -20,7 +20,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected override void DoDelete(int workspaceId, int entityId)
 		{
 			if (!_existsWorkspaceEntityByIdStrategy.Exists(workspaceId, entityId))
+			{
 				throw new ObjectNotFoundException();
+			}
 
 			_objectService.Delete(workspaceId, entityId);
 		}

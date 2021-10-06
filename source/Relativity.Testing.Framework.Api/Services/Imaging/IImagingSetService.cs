@@ -22,29 +22,29 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// int workspaceId = 1015427;
 		/// KeywordSearch keywordSearch = Facade.Resolve&lt;ICreateWorkspaceEntityStrategy&lt;KeywordSearch&gt;&gt;()
-		/// 	.Create(workspaceId, new KeywordSearch());
+		///     .Create(workspaceId, new KeywordSearch());
 		/// var imagingProfileDto = new CreateBasicImagingProfileDTO
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	Notes = string.Empty,
-		/// 	Keywords = string.Empty,
-		/// 	BasicOptions = new BasicImagingEngineOptions
-		/// 	{
-		/// 		ImageOutputDpi = 300,
-		/// 		BasicImageFormat = ImageFormatType.Jpeg,
-		/// 		ImageSize = ImageSizeType.Custom,
-		/// 		MaximumImageHeight = 6.0m,
-		/// 		MaximumImageWidth = 6.0m
-		/// 	}
+		///     Name = Randomizer.GetString(),
+		///     Notes = string.Empty,
+		///     Keywords = string.Empty,
+		///     BasicOptions = new BasicImagingEngineOptions
+		///     {
+		///         ImageOutputDpi = 300,
+		///         BasicImageFormat = ImageFormatType.Jpeg,
+		///         ImageSize = ImageSizeType.Custom,
+		///         MaximumImageHeight = 6.0m,
+		///         MaximumImageWidth = 6.0m
+		///     }
 		/// };
 		/// ImagingProfile imagingProfile = Facade.Resolve&lt;IImagingProfileCreateBasicStrategy&gt;()
-		/// 	.Create(workspaceId, imagingProfileDto);
+		///     .Create(workspaceId, imagingProfileDto);
 		///
 		/// var imagingSetCreateRequest = new ImagingSetRequest
 		/// {
-		/// 	DataSourceID = keywordSearch.ArtifactID,
-		/// 	ImagingProfileID = imagingProfile.ArtifactID,
-		/// 	Name = "Test Imaging Set"
+		///     DataSourceID = keywordSearch.ArtifactID,
+		///     ImagingProfileID = imagingProfile.ArtifactID,
+		///     Name = "Test Imaging Set"
 		/// };
 		/// ImagingSet createdImagingSet = _imagingSetService.Create(workspaceId, imagingSetCreateRequest);
 		/// </code>
@@ -82,9 +82,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int existingImagingProfileID = 4;
 		/// var imagingSetUpdateRequest = new ImagingSetRequest
 		/// {
-		/// 	DataSourceID = existingDatSourceId,
-		/// 	ImagingProfileID = existingImagingProfileID,
-		/// 	Name = "Updated Name"
+		///     DataSourceID = existingDatSourceId,
+		///     ImagingProfileID = existingImagingProfileID,
+		///     Name = "Updated Name"
 		/// };
 		/// int updatedImagingSetId = _imagingSetService.Update(workspaceId, existingImagingSetId, imagingSetUpdateRequest);
 		/// </code>
@@ -96,9 +96,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// ImagingSet existingImagingSet = _imagingSetService.Get(workspaceId, existingImagingSetId);
 		/// var imagingSetUpdateRequest = new ImagingSetRequest
 		/// {
-		/// 	DataSourceID = existingImagingSet.DataSourceId,
-		/// 	ImagingProfileID = existingImagingSet.ImagingProfile.ArtifactID,
-		/// 	Name = "Updated Name"
+		///     DataSourceID = existingImagingSet.DataSourceId,
+		///     ImagingProfileID = existingImagingSet.ImagingProfile.ArtifactID,
+		///     Name = "Updated Name"
 		/// };
 		/// int updatedImagingSetId = _imagingSetService.Update(workspaceId, existingImagingSetId, imagingSetUpdateRequest);
 		/// </code>

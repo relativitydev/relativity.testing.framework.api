@@ -16,7 +16,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public void Set(int workspaceId, int itemId, GroupPermissions groupPermissions)
 		{
 			if (groupPermissions is null)
+			{
 				throw new ArgumentNullException(nameof(groupPermissions));
+			}
 
 			var dto = new
 			{

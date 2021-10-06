@@ -29,18 +29,18 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// reviewedField = fieldService.Get(workspaceId, "Classification Index");
 		/// var batchSet = new BatchSet
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	BatchSize = 1500,
-		/// 	BatchPrefix = Randomizer.GetString("BS", 3),
-		/// 	DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID},
-		/// 	BatchUnitField = new NamedArtifact { ArtifactID = batchUnitField.ArtifactID},
-		/// 	FamilyField = new NamedArtifact { ArtifactID = familyField.ArtifactID },
-		/// 	ReviewedField = new NamedArtifact { ArtifactID = reviewedField.ArtifactID },
-		/// 	AutoBatchSettings = new AutoBatchSettings
-		/// 	{
-		/// 		AutoCreateRateInMinutes = 10,
-		/// 		MinimumBatchSize = 10
-		/// 	}
+		///     Name = Randomizer.GetString(),
+		///     BatchSize = 1500,
+		///     BatchPrefix = Randomizer.GetString("BS", 3),
+		///     DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID},
+		///     BatchUnitField = new NamedArtifact { ArtifactID = batchUnitField.ArtifactID},
+		///     FamilyField = new NamedArtifact { ArtifactID = familyField.ArtifactID },
+		///     ReviewedField = new NamedArtifact { ArtifactID = reviewedField.ArtifactID },
+		///     AutoBatchSettings = new AutoBatchSettings
+		///     {
+		///         AutoCreateRateInMinutes = 10,
+		///         MinimumBatchSize = 10
+		///     }
 		/// };
 		/// BatchSet batchSet = _batchSetService.Create(workspaceId, batchSet);
 		/// </code>
@@ -64,23 +64,23 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// reviewedField = fieldService.Get(workspaceId, "Classification Index");
 		/// var batchSet = new BatchSet
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	BatchSize = 1500,
-		/// 	BatchPrefix = Randomizer.GetString("BS", 3),
-		/// 	DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID},
-		/// 	BatchUnitField = new NamedArtifact { ArtifactID = batchUnitField.ArtifactID},
-		/// 	FamilyField = new NamedArtifact { ArtifactID = familyField.ArtifactID },
-		/// 	ReviewedField = new NamedArtifact { ArtifactID = reviewedField.ArtifactID },
-		/// 	AutoBatchSettings = new AutoBatchSettings
-		/// 	{
-		/// 		AutoCreateRateInMinutes = 10,
-		/// 		MinimumBatchSize = 10
-		/// 	}
+		///     Name = Randomizer.GetString(),
+		///     BatchSize = 1500,
+		///     BatchPrefix = Randomizer.GetString("BS", 3),
+		///     DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID},
+		///     BatchUnitField = new NamedArtifact { ArtifactID = batchUnitField.ArtifactID},
+		///     FamilyField = new NamedArtifact { ArtifactID = familyField.ArtifactID },
+		///     ReviewedField = new NamedArtifact { ArtifactID = reviewedField.ArtifactID },
+		///     AutoBatchSettings = new AutoBatchSettings
+		///     {
+		///         AutoCreateRateInMinutes = 10,
+		///         MinimumBatchSize = 10
+		///     }
 		/// };
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchSet batchSet = _batchSetService.Create(workspaceId, batchSet, userCredentials);
 		/// </code>
@@ -113,8 +113,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchSet batchSet = _batchSetService.Get(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
@@ -147,8 +147,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchSet batchSet = _batchSetService.Exists(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
@@ -185,8 +185,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// batchSetToUpdate.BatchSize = 30;
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchSet updatedBatchSet = _batchSetService.Update(workspaceId, batchSetToUpdate, userCredentials);
 		/// </code>
@@ -217,8 +217,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchSet updatedBatchSet = _batchSetService.Delete(workspaceId, batchSetId, userCredentials);
 		/// </code>
@@ -251,8 +251,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchProcessResult result = _batchSetService.CreateBatches(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>
@@ -285,8 +285,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var userCredentials = new UserCredentials
 		/// {
-		/// 	Username = "SomeUsername",
-		/// 	Password = "SomePassword"
+		///     Username = "SomeUsername",
+		///     Password = "SomePassword"
 		/// };
 		/// BatchProcessResult result = _batchSetService.PurgeBatches(workspaceId, batchSetArtifactId, userCredentials);
 		/// </code>

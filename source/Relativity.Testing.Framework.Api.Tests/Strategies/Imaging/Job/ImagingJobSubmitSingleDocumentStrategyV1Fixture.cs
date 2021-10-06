@@ -32,7 +32,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.Imaging.Job
 
 			_mockRestService
 				.Setup(restService => restService.Post<JObject>(It.IsAny<string>(), It.IsAny<object>(), 2, null))
-				.Returns(new JObject {	{ "ImagingJobID", "2" } });
+				.Returns(new JObject { { "ImagingJobID", "2" } });
 
 			_sut = new ImagingJobSubmitSingleDocumentStrategyV1(_mockRestService.Object, _mockArtifactIdValidator.Object, _mockWorkspaceIdValidator.Object);
 		}

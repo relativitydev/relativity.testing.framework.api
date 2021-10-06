@@ -55,7 +55,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var jobject = JObject.Parse(dtoAsString);
 
 			if (jobject == null)
-				throw new System.Exception();
+			{
+				throw new Exception();
+			}
 
 			var viewableItems = jobject["fieldRequest"]["PropagateTo"]["ViewableItems"];
 
@@ -69,7 +71,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			var jobject = JObject.Parse(dtoAsString);
 
 			if (jobject == null)
-				throw new System.Exception();
+			{
+				throw new Exception();
+			}
 
 			jobject["fieldRequest"]["ArtifactID"] = null;
 

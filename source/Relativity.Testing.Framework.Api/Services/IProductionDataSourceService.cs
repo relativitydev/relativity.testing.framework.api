@@ -24,17 +24,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceID = 123456;
 		///
 		/// Production _production = Facade.Resolve&lt;ICreateWorkspaceEntityStrategy&lt;Production&gt;&gt;()
-		/// 	.Create(workspaceID, new Production());
+		///     .Create(workspaceID, new Production());
 		/// KeywordSearch _keywordSearch = Facade.Resolve&lt;ICreateWorkspaceEntityStrategy&lt;KeywordSearch&gt;&gt;()
-		/// 	.Create(workspaceID, new KeywordSearch());
+		///     .Create(workspaceID, new KeywordSearch());
 		///
 		/// ProductionDataSource toCreate = new ProductionDataSource
 		/// {
-		/// 	Name = "Some name",
-		/// 	ProductionId = _production.ArtifactID,
-		/// 	ProductionType = ProductionType.NativesOnly,
-		/// 	SavedSearch = new NamedArtifact { ArtifactID = _keywordSearch.ArtifactID },
-		/// 	UseImagePlaceholder = UseImagePlaceholderOption.NeverUseImagePlaceholder
+		///     Name = "Some name",
+		///     ProductionId = _production.ArtifactID,
+		///     ProductionType = ProductionType.NativesOnly,
+		///     SavedSearch = new NamedArtifact { ArtifactID = _keywordSearch.ArtifactID },
+		///     UseImagePlaceholder = UseImagePlaceholderOption.NeverUseImagePlaceholder
 		/// };
 		///
 		/// ProductionDataSource result = _productionDataSourceService.Create(workspaceID, _production.ArtifactID, toCreate);

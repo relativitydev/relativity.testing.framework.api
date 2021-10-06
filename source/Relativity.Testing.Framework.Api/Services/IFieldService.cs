@@ -26,16 +26,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var fieldForPropagation = _fieldService.Get(workspaceId, "MD5 Hash");
 		/// WholeNumberField fieldToCreate = new WholeNumberField
 		/// {
-		/// 	PropagateTo = new FieldPropagate
-		/// 	{
-		/// 		ViewableItems = new List&lt;Artifact&gt;
-		/// 		{
-		/// 			new Artifact
-		/// 			{
-		/// 				ArtifactID = fieldForPropagation.ArtifactID
-		/// 			}
-		/// 		}
-		/// 	}
+		///     PropagateTo = new FieldPropagate
+		///     {
+		///         ViewableItems = new List&lt;Artifact&gt;
+		///         {
+		///             new Artifact
+		///             {
+		///                 ArtifactID = fieldForPropagation.ArtifactID
+		///             }
+		///         }
+		///     }
 		/// };
 		/// var createdField = _fieldService.Create(workspaceId, fieldToCreate);
 		/// </code>
@@ -139,18 +139,18 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var fieldForPropagationArtifactId = 2;
 		/// var userFieldToUpdate = new UserField
 		/// {
-		/// 	PropagateTo = new FieldPropagate
-		/// 	{
-		/// 		ViewableItems = new List&lt;Artifact&gt;
-		/// 		{
-		/// 			new Artifact
-		/// 			{
-		/// 				ArtifactID = fieldForPropagationArtifactId
-		/// 			}
-		/// 		}
-		/// 	},
-		/// 	OpenToAssociations = true,
-		/// 	Name = "Updated Name"
+		///     PropagateTo = new FieldPropagate
+		///     {
+		///         ViewableItems = new List&lt;Artifact&gt;
+		///         {
+		///             new Artifact
+		///             {
+		///                 ArtifactID = fieldForPropagationArtifactId
+		///             }
+		///         }
+		///     },
+		///     OpenToAssociations = true,
+		///     Name = "Updated Name"
 		/// };
 		/// _fieldService.Update(workspaceId, userFieldToUpdate);
 		/// </code>
@@ -181,16 +181,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var existingObjectType = relativityFacade.Resolve&lt;IObjectTypeService&gt;().Get(workspaceId, "Document");
 		/// var fieldToUpdate = new SingleChoiceField
 		/// {
-		/// 	PropagateTo = new FieldPropagate
-		/// 	{
-		/// 		ViewableItems = new List&lt;Artifact&gt;
-		/// 		{
-		/// 			new Artifact(fieldForPropagation.ArtifactID)
-		/// 		},
-		/// 	},
-		/// 	Name = "Some Updated Name",
-		/// 	ArtifactID = existingFieldArtifactId,
-		/// 	ObjectType = existingObjectType
+		///     PropagateTo = new FieldPropagate
+		///     {
+		///         ViewableItems = new List&lt;Artifact&gt;
+		///         {
+		///             new Artifact(fieldForPropagation.ArtifactID)
+		///         },
+		///     },
+		///     Name = "Some Updated Name",
+		///     ArtifactID = existingFieldArtifactId,
+		///     ObjectType = existingObjectType
 		/// };
 		/// var updatedField = _fieldService.Require(workspaceId, fieldToUpdate); // Will get field by ArtifactId, update it and return updated
 		/// </code>
@@ -202,14 +202,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var existingObjectType = relativityFacade.Resolve&lt;IObjectTypeService&gt;().Get(workspaceId, "Document");
 		/// var fieldToUpdate = new MultipleChoiceField
 		/// {
-		/// 	PropagateTo = new FieldPropagate
-		/// 	{
-		/// 		ViewableItems = new List&lt;Artifact&gt;
-		/// 		{
-		/// 			new Artifact(fieldForPropagation.ArtifactID)
-		/// 		},
-		/// 		Name = "Some Existing Field Name",
-		/// 		ObjectType = existingObjectType
+		///     PropagateTo = new FieldPropagate
+		///     {
+		///         ViewableItems = new List&lt;Artifact&gt;
+		///         {
+		///             new Artifact(fieldForPropagation.ArtifactID)
+		///         },
+		///         Name = "Some Existing Field Name",
+		///         ObjectType = existingObjectType
 		/// };
 		/// var updatedField = _fieldService.Require(workspaceId, fieldToUpdate); // Will get field by Name, update it and return updated
 		/// </code>
@@ -220,14 +220,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var fieldForPropagation = _fieldService.Get(workspaceId, "MD5 Hash");
 		/// FixedLengthTextField fieldToCreate = new FixedLengthTextField
 		/// {
-		/// 	PropagateTo = new FieldPropagate
-		/// 	{
-		/// 		ViewableItems = new List&lt;Artifact&gt;
-		/// 		{
-		/// 			new Artifact(fieldForPropagation.ArtifactID)
-		/// 		}
-		/// 	},
-		/// 	Unicode = true
+		///     PropagateTo = new FieldPropagate
+		///     {
+		///         ViewableItems = new List&lt;Artifact&gt;
+		///         {
+		///             new Artifact(fieldForPropagation.ArtifactID)
+		///         }
+		///     },
+		///     Unicode = true
 		/// };
 		/// var createdField = _fieldService.Require(workspaceId, fieldToCreate); // Will create new FixedLengthTextField
 		/// </code>

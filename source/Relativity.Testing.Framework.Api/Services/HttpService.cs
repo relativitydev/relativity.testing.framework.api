@@ -20,13 +20,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		public HttpService(string baseUrlAddress, string username, string password)
 		{
 			if (baseUrlAddress is null)
+			{
 				throw new ArgumentNullException(nameof(baseUrlAddress));
+			}
 
 			if (username is null)
+			{
 				throw new ArgumentNullException(nameof(username));
+			}
 
 			if (password is null)
+			{
 				throw new ArgumentNullException(nameof(password));
+			}
 
 			BaseUrl = baseUrlAddress;
 			Username = username;
@@ -111,10 +117,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		private static void ValidateArguments(HttpMethod method, string relativeUri)
 		{
 			if (method is null)
+			{
 				throw new ArgumentNullException(nameof(method));
+			}
 
 			if (relativeUri is null)
+			{
 				throw new ArgumentNullException(nameof(relativeUri));
+			}
 		}
 
 		private static HttpContent GetHttpContent(object content)
@@ -167,7 +177,9 @@ namespace Relativity.Testing.Framework.Api.Services
 			string contentText = ExtractContentTextSafely(response);
 
 			if (!string.IsNullOrWhiteSpace(contentText))
+			{
 				builder.AppendLine().AppendLine().Append($"Content text: {contentText}");
+			}
 
 			return builder.ToString();
 		}
@@ -198,7 +210,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		private static string SerializeToJsonString(object content)
 		{
 			if (content is string stringContent)
+			{
 				return stringContent;
+			}
 
 			return JsonConvert.SerializeObject(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 		}
@@ -206,7 +220,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		private static TResult DeserializeFromJsonString<TResult>(string jsonString)
 		{
 			if (typeof(TResult) == typeof(string))
+			{
 				return (TResult)(object)jsonString;
+			}
 
 			return JsonConvert.DeserializeObject<TResult>(jsonString);
 		}

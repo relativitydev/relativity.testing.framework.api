@@ -28,7 +28,9 @@
 		public void EnsureExists(int workspaceId, int entityId)
 		{
 			if (!_existsByIdStrategy.Exists(workspaceId, entityId))
+			{
 				throw ObjectNotFoundException.CreateForNotFoundById<T>(entityId);
+			}
 		}
 	}
 }

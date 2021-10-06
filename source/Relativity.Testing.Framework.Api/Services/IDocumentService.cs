@@ -83,10 +83,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// table.Columns.Add("File", typeof(string));
 		/// ImageImportOptions imageImportOptions = new ImageImportOptions()
 		/// {
-		/// 	DocumentIdentifierField = "Doc",
-		/// 	BatesNumberField = "Bates",
-		/// 	FileLocationField = "File",
-		/// 	OverwriteMode = DocumentOverwriteMode.Append
+		///     DocumentIdentifierField = "Doc",
+		///     BatesNumberField = "Bates",
+		///     FileLocationField = "File",
+		///     OverwriteMode = DocumentOverwriteMode.Append
 		/// };
 		/// documentService.ImportImages(workspaceArtifactId, table, imageImportOptions);
 		/// </code>
@@ -110,10 +110,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		///
 		/// NativeImportOptions nativeImportOptions = new NativeImportOptions()
 		/// {
-		/// 	DocumentIdentifierField = "Control Number",
-		/// 	NativeFilePathColumnName = "Native File",
-		/// 	NativeFileCopyMode = NativeFileCopyMode.CopyFiles,
-		/// 	OverwriteMode = DocumentOverwriteMode.Append
+		///     DocumentIdentifierField = "Control Number",
+		///     NativeFilePathColumnName = "Native File",
+		///     NativeFileCopyMode = NativeFileCopyMode.CopyFiles,
+		///     OverwriteMode = DocumentOverwriteMode.Append
 		/// };
 		/// documentService.ImportNatives(workspaceArtifactId, table, nativeImportOptions);
 		/// </code>
@@ -124,10 +124,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var dataTable = new DataTable("Documents");
 		/// var options = new NativeImportOptions()
 		/// {
-		/// 	NativeFileCopyMode = NativeFileCopyMode.DoNotImportNativeFiles,
-		/// 	NativeFilePathColumnName = null,
-		/// 	ExtractedTextFieldContainsFilePath = false,
-		/// 	OverwriteMode = DocumentOverwriteMode.AppendOverlay
+		///     NativeFileCopyMode = NativeFileCopyMode.DoNotImportNativeFiles,
+		///     NativeFilePathColumnName = null,
+		///     ExtractedTextFieldContainsFilePath = false,
+		///     OverwriteMode = DocumentOverwriteMode.AppendOverlay
 		/// };
 		/// string controlNumberField = options.DocumentIdentifierField;
 		///
@@ -156,10 +156,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// table.Columns.Add("File", typeof(string));
 		/// ImageImportOptions imageImportOptions = new ImageImportOptions()
 		/// {
-		/// 	DocumentIdentifierField = "Doc",
-		/// 	BatesNumberField = "Bates",
-		/// 	FileLocationField = "File",
-		/// 	OverwriteMode = DocumentOverwriteMode.Append
+		///     DocumentIdentifierField = "Doc",
+		///     BatesNumberField = "Bates",
+		///     FileLocationField = "File",
+		///     OverwriteMode = DocumentOverwriteMode.Append
 		/// };
 		/// documentService.ImportProducedImages(workspaceArtifactId, productionId, table, imageImportOptions);
 		/// </code>

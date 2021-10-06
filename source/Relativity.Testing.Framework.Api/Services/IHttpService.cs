@@ -59,13 +59,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var dto = new
 		/// {
-		/// 	Request = new
-		/// 	{
-		/// 		Object = new
-		/// 		{
-		/// 			ArtifactID = 12345
-		/// 		}
-		/// 	}
+		///     Request = new
+		///     {
+		///         Object = new
+		///         {
+		///             ArtifactID = 12345
+		///         }
+		///     }
 		/// };
 		///
 		/// _restService.Post&lt;string&gt;($"Relativity.Objects/workspace/{workspaceId}/object/delete", dto);
@@ -75,12 +75,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var dto = new
 		/// {
-		/// 	batchSet = new
-		/// 	{
-		/// 		Name = "Test Batch Set",
-		/// 		BatchPrefix = "TEST1",
-		/// 		BatchSize = 10,
-		/// 	}
+		///     batchSet = new
+		///     {
+		///         Name = "Test Batch Set",
+		///         BatchPrefix = "TEST1",
+		///         BatchSize = 10,
+		///     }
 		/// };
 		///
 		/// BatchSet result =  _restService.Post&lt;BatchSet&gt;($"Relativity.Services.Review.Batching.IBatchingModule/workspaces/{workspaceId}/batching/CreateBatchSet", dto, new UserCredentials { Username = "FakeAccount", Password = "FakePassword" });
@@ -102,8 +102,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// var dto = new
 		/// {
-		/// 	workspaceArtifactID = 54321,
-		/// 	searchArtifactID = 12345
+		///     workspaceArtifactID = 54321,
+		///     searchArtifactID = 12345
 		/// };
 		///
 		/// _restService.Post("Relativity.Services.Search.ISearchModule/Keyword%20Search%20Manager/DeleteSingleAsync", dto);
@@ -130,14 +130,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// using (var form = new MultipartFormDataContent())
 		/// using (var memory = new StreamContent(new MemoryStream(bytes)))
 		/// {
-		/// 	var optionsString = JsonConvert.SerializeObject(dto, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-		/// 	using (var optionsContent = new StringContent(optionsString, Encoding.UTF8, "application/json"))
-		/// 	{
-		/// 		form.Add(optionsContent, "request");
-		/// 		form.Add(memory, "rapStream");
+		///     var optionsString = JsonConvert.SerializeObject(dto, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+		///     using (var optionsContent = new StringContent(optionsString, Encoding.UTF8, "application/json"))
+		///     {
+		///         form.Add(optionsContent, "request");
+		///         form.Add(memory, "rapStream");
 		///
-		/// 		response = _restService.Put&lt;LibraryApplicationInstallStatusResponse&gt;("Relativity.LibraryApplications/workspace/-1/libraryapplications", form);
-		/// 	}
+		///         response = _restService.Put&lt;LibraryApplicationInstallStatusResponse&gt;("Relativity.LibraryApplications/workspace/-1/libraryapplications", form);
+		///     }
 		/// }
 		/// </code>
 		/// </example>
@@ -158,17 +158,17 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int artifactId = 123453;
 		/// var dto = new
 		/// {
-		/// 	groupRequest = new
-		/// 	{
-		/// 		Client = new
-		/// 		{
-		/// 			Secured = false,
-		/// 			Value = new
-		/// 			{
-		/// 				12345
-		/// 			}
-		/// 		},
-		/// 	}
+		///     groupRequest = new
+		///     {
+		///         Client = new
+		///         {
+		///             Secured = false,
+		///             Value = new
+		///             {
+		///                 12345
+		///             }
+		///         },
+		///     }
 		/// };
 		///
 		/// _restService.Put($"relativity.groups/workspace/-1/groups/artifactId", dto);
@@ -214,7 +214,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int agentId = 1234;
 		/// var dto = new
 		/// {
-		/// 	force = true
+		///     force = true
 		/// };
 		///
 		/// _restService.Delete($"relativity.agents/workspace/-1/agents/{agentId}", dto);

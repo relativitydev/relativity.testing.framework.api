@@ -34,14 +34,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// ObjectType template = relativityFacade.Resolve&lt;IGetWorkspaceEntityByNameStrategy&lt;ObjectType&gt;&gt;().Get(workspaceArtifactID, "Document");
 		/// var objectTypeToCreate = new ObjectType
 		/// {
-		/// 	ParentObjectType = new ObjectType.WrappedObjectType { Value = template },
-		/// 	Name = "Object Type Name",
-		/// 	CopyInstancesOnParentCopy = true,
-		/// 	CopyInstancesOnCaseCreation = true,
-		/// 	EnableSnapshotAuditingOnDelete = true,
-		/// 	PersistentListsEnabled = true,
-		/// 	PivotEnabled = true,
-		/// 	SamplingEnabled = true
+		///     ParentObjectType = new ObjectType.WrappedObjectType { Value = template },
+		///     Name = "Object Type Name",
+		///     CopyInstancesOnParentCopy = true,
+		///     CopyInstancesOnCaseCreation = true,
+		///     EnableSnapshotAuditingOnDelete = true,
+		///     PersistentListsEnabled = true,
+		///     PivotEnabled = true,
+		///     SamplingEnabled = true
 		/// }
 		/// ObjectType createdObjectType = _objectTypeService.Create(workspaceArtifactID, objectTypeToCreate);
 		/// </code>
@@ -73,9 +73,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int existingObjectTypeArtifactID = 1016786;
 		/// var objectTypeToUpdate = new ObjectType
 		/// {
-		/// 	ArtifactID = existingObjectTypeArtifactID,
-		/// 	Name = "Updated Object Type Name",
-		/// 	SamplingEnabled = false
+		///     ArtifactID = existingObjectTypeArtifactID,
+		///     Name = "Updated Object Type Name",
+		///     SamplingEnabled = false
 		/// }
 		/// ObjectType updatedObjectType = _objectTypeService.Require(workspaceArtifactID, objectTypeToUpdate);
 		/// </code>
@@ -85,10 +85,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1015427;
 		/// var objectTypeToUpdate = new ObjectType
 		/// {
-		/// 	Name = "Existing Object Type Name",
-		/// 	SamplingEnabled = false,
-		/// 	PersistentListsEnabled = true,
-		/// 	CopyInstancesOnParentCopy = true
+		///     Name = "Existing Object Type Name",
+		///     SamplingEnabled = false,
+		///     PersistentListsEnabled = true,
+		///     CopyInstancesOnParentCopy = true
 		/// }
 		/// ObjectType updatedObjectType = _objectTypeService.Require(workspaceArtifactID, objectTypeToUpdate);
 		/// </code>

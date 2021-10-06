@@ -24,8 +24,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var includeOptions = new KeyboardShortcutsIncludeOptions
 		/// {
-		/// 	IncludeSystemShortcuts = false,
-		/// 	IncludeFieldShortcuts = false
+		///     IncludeSystemShortcuts = false,
+		///     IncludeFieldShortcuts = false
 		/// };
 		/// var keyboardShortcuts = _keyboardShortcutsService.Get(workspaceId, includeOptions);
 		/// </code>

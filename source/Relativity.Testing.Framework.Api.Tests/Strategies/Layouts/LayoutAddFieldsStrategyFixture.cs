@@ -280,7 +280,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			{
 				new CategoryField
 				{
-					FieldArtifactID	= 1,
+					FieldArtifactID = 1,
 					DisplayName = "ASuperCoolField",
 					FieldDisplayType = FieldDisplayType.Text,
 					FieldTypeID = FieldType.FixedLengthText,
@@ -292,10 +292,10 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			_mockRestService
 				.Setup(e => e.Post<SaveFieldsAndCustomTextResponse>(
-				    "Relativity.Services.Layout.Interfaces.ILayoutModule/LayoutBuilderService/SaveFieldsAndCustomText",
-				    It.IsAny<SaveFieldsAndCustomTextRequest>(),
-				    2,
-				    null))
+					"Relativity.Services.Layout.Interfaces.ILayoutModule/LayoutBuilderService/SaveFieldsAndCustomText",
+					It.IsAny<SaveFieldsAndCustomTextRequest>(),
+					2,
+					null))
 				.Returns(new SaveFieldsAndCustomTextResponse
 				{
 					Success = true

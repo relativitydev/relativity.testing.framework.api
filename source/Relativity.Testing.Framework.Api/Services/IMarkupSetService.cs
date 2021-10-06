@@ -25,9 +25,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1234567;
 		/// var markupSet = new MarkupSet
 		/// {
-		/// 	Name = "Markup Set Name",
-		/// 	Order = 1,
-		/// 	RedactionText = "Redaction Text"
+		///     Name = "Markup Set Name",
+		///     Order = 1,
+		///     RedactionText = "Redaction Text"
 		/// };
 		/// MarkupSet createdMarkupSet = _markupSetService.Create(workspaceArtifactID, markupSet);
 		/// </code>
@@ -83,10 +83,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int existingMarkupSetArtifactID = 1235876;
 		/// var markupSetToUpdate = new MarkupSet
 		/// {
-		/// 	ArtifactID = existingMarkupSetArtifactID,
-		/// 	Name = "Updated Markup Set Name",
-		/// 	Order = 1,
-		/// 	RedactionText = "Updated Redaction Text"
+		///     ArtifactID = existingMarkupSetArtifactID,
+		///     Name = "Updated Markup Set Name",
+		///     Order = 1,
+		///     RedactionText = "Updated Redaction Text"
 		/// };
 		/// MarkupSet updatedMarkupSet = _markupSetService.Require(workspaceArtifactID, markupSetToUpdate);
 		/// </code>
@@ -96,9 +96,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1234567;
 		/// var markupSetToUpdate = new MarkupSet
 		/// {
-		/// 	Name = "Existing Markup Set Name",
-		/// 	Order = 20,
-		/// 	RedactionText = "Updated Redaction Text"
+		///     Name = "Existing Markup Set Name",
+		///     Order = 20,
+		///     RedactionText = "Updated Redaction Text"
 		/// };
 		/// MarkupSet updatedMarkupSet = _markupSetService.Require(workspaceArtifactID, markupSetToUpdate);
 		/// </code>
@@ -108,9 +108,9 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceArtifactID = 1234567;
 		/// var markupSetToCreate = new MarkupSet
 		/// {
-		/// 	Name = "Not Existing Markup Set Name",
-		/// 	Order = 34,
-		/// 	RedactionText = "Redaction Text"
+		///     Name = "Not Existing Markup Set Name",
+		///     Order = 34,
+		///     RedactionText = "Redaction Text"
 		/// };
 		/// MarkupSet createdMarkupSet = _markupSetService.Require(workspaceArtifactID, markupSetToCreate);
 		/// </code>

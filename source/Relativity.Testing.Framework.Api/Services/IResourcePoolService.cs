@@ -24,8 +24,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Client client = relativityFacade.Resolve&lt;IClientService&gt;().Get("Some Existing Client Name");
 		/// var resourcePoolToCreate = new ResourcePool
 		/// {
-		/// 	Name = "Test Resource Pool",
-		/// 	Client = client
+		///     Name = "Test Resource Pool",
+		///     Client = client
 		/// };
 		/// ResourcePool createdResourcePool = _resourcePoolService.Create(resourcePoolToCreate);
 		/// </code>
@@ -107,8 +107,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int existingResourcePoolArtifactID = 10154345;
 		/// int existingAgentArtifactID = 1017895;
 		/// ResourceServer agent = _resourcePoolService.QueryResources(existingResourcePoolArtifactID)
-		/// 	.Where(agent => agent.ArtifactID, existingAgentArtifactID)
-		/// 	.FirstOrDefault();
+		///     .Where(agent => agent.ArtifactID, existingAgentArtifactID)
+		///     .FirstOrDefault();
 		/// </code>
 		/// </example>
 		/// <example> This example shows how to query for all SqlServers resources for given Resource Pool.
@@ -170,8 +170,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		///  int existingResourcePoolArtifactID = 10154345;
 		/// List&lt;Artifact&gt; agentsToRemove = _resourcePoolService.QueryResources(existingResourcePoolArtifactID)
-		/// 	.Where(agent => agent.Name.Contains("Test"))
-		/// 	.Cast&lt;Artifact&gt;().ToList();
+		///     .Where(agent => agent.Name.Contains("Test"))
+		///     .Cast&lt;Artifact&gt;().ToList();
 		/// _resourcePoolService.RemoveResources(existingResourcePoolArtifactID, ResourceType.AgentWorkerServers, agentsToRemove);
 		/// </code>
 		/// </example>

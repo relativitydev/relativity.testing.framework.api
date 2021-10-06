@@ -9,13 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Relativity.Testing.Framewor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C7DEE7A-5B76-4CBE-8CF5-31D200117F9D}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		..\CHANGELOG.md = ..\CHANGELOG.md
 		General.ruleset = General.ruleset
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Relativity.Testing.Framework.Api.Tests", "Relativity.Testing.Framework.Api.Tests\Relativity.Testing.Framework.Api.Tests.csproj", "{8B093B69-B265-4289-84A0-005290B80B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Relativity.Testing.Framework.Api.Documentation", "Relativity.Testing.Framework.Api.Documentation\Relativity.Testing.Framework.Api.Documentation.csproj", "{AB3031AF-A11E-4DBD-AB08-E320B6648A14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Relativity.Testing.Framework.Api.Documentation", "Relativity.Testing.Framework.Api.Documentation\Relativity.Testing.Framework.Api.Documentation.csproj", "{AB3031AF-A11E-4DBD-AB08-E320B6648A14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

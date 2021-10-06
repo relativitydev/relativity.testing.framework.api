@@ -22,13 +22,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var agentType =  relativityFacade.Resolve&#60;IGetByNameStrategy&#60;AgentType&#62;&#62;()
-		/// 		.Get("Some Agent Type");
+		///     .Get("Some Agent Type");
 		/// var agentServer = relativityFacade.Resolve&#60;IAgentServerGetAvailableStrategy&#62;().GetAvailable(_agentType.Name)[0];
 		/// var entity = new Agent
 		/// {
-		/// 	AgentType = agentType,
-		/// 	AgentServer = agentServer,
-		/// 	RunInterval = 25
+		///     AgentType = agentType,
+		///     AgentServer = agentServer,
+		///     RunInterval = 25
 		/// }
 		/// var createdAgent = _agentService.Create(entity);
 		/// </code>
@@ -56,13 +56,13 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// var agentType =  relativityFacade.Resolve&#60;IGetByNameStrategy&#60;AgentType&#62;&#62;()
-		/// 		.Get("Some Agent Type");
+		///     .Get("Some Agent Type");
 		/// var agentServer = relativityFacade.Resolve&#60;IAgentServerGetAvailableStrategy&#62;().GetAvailable(_agentType.Name)[0];
 		/// var agentToCreate = new Agent
 		/// {
-		/// 	AgentType = agentType,
-		/// 	AgentServer = agentServer,
-		/// 	RunInterval = 25
+		///     AgentType = agentType,
+		///     AgentServer = agentServer,
+		///     RunInterval = 25
 		/// }
 		///
 		/// var createdAgent = _agentService.Require(agentToCreate); // Creates new agent and returns it

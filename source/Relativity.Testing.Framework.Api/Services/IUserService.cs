@@ -21,12 +21,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// User user = new User
 		/// {
-		/// 	FirstName = "User First Name",
-		/// 	LastName = "User Last Name",
-		/// 	EmailAddress = "test@email.com",
-		/// 	Type = "External",
-		/// 	Password = "TestPassword2345!",
-		/// 	DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
+		///     FirstName = "User First Name",
+		///     LastName = "User Last Name",
+		///     EmailAddress = "test@email.com",
+		///     Type = "External",
+		///     Password = "TestPassword2345!",
+		///     DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
 		/// }
 		/// User createdUser = _userService.Create(user);
 		/// </code>
@@ -45,10 +45,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// User existingUser = new User
 		/// {
-		/// 	FirstName = "Existing User First Name",
-		/// 	LastName = "Existing User Last Name",
-		/// 	EmailAddress = "existing_user@email.com",
-		/// 	ArtifactID = 1
+		///     FirstName = "Existing User First Name",
+		///     LastName = "Existing User Last Name",
+		///     EmailAddress = "existing_user@email.com",
+		///     ArtifactID = 1
 		/// }
 		/// User requiredUser = _userService.Require(user, false);
 		/// </code>
@@ -57,12 +57,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// User userToCreate = new User
 		/// {
-		/// 	FirstName = "User First Name",
-		/// 	LastName = "User Last Name",
-		/// 	EmailAddress = "not_existing_user@email.com",
-		/// 	Type = "External",
-		/// 	Password = "TestPassword2345!",
-		/// 	DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
+		///     FirstName = "User First Name",
+		///     LastName = "User Last Name",
+		///     EmailAddress = "not_existing_user@email.com",
+		///     Type = "External",
+		///     Password = "TestPassword2345!",
+		///     DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
 		/// }
 		/// User createdUser = _userService.Require(user);
 		/// </code>
@@ -71,10 +71,10 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <code>
 		/// User existingUser = new User
 		/// {
-		/// 	FirstName = "Existing User First Name",
-		/// 	LastName = "Existing User Last Name",
-		/// 	EmailAddress = "existing_user@email.com",
-		/// 	ArtifactID = 1
+		///     FirstName = "Existing User First Name",
+		///     LastName = "Existing User Last Name",
+		///     EmailAddress = "existing_user@email.com",
+		///     ArtifactID = 1
 		/// }
 		/// User recreatedUser = _userService.Require(user);
 		/// </code>

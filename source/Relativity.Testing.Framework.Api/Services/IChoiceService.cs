@@ -28,8 +28,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var existingField = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;MultipleChoiceField&gt;(workspaceId, fieldName);
 		/// var entity = new Choice
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	Field = existingField
+		///     Name = Randomizer.GetString(),
+		///     Field = existingField
 		/// };
 		/// var createdChoice = _choiceService.Create(workspaceId, entity);
 		/// </code>
@@ -56,23 +56,23 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var existingField = relativityFacade.Resolve&lt;IFieldService&gt;().Get&lt;MultipleChoiceField&gt;(workspaceId, fieldName);
 		/// var entityToUpdateByArtifactId = new Choice
 		/// {
-		/// 	ArtifactId = existingChoiceArtifactId,
-		/// 	Field = existingField,
-		/// 	Name = "Some Updated Choice Name"
+		///     ArtifactId = existingChoiceArtifactId,
+		///     Field = existingField,
+		///     Name = "Some Updated Choice Name"
 		/// };
 		/// var updatedByArtifactIdChoice = _choiceService.Require(workspaceId, entityToUpdateByArtifactId); // Will get the choice field by ArtifactId, update it and return updated choice.
 		/// var entityToUpdateByNameObjectTypeAndField = new Choice
 		/// {
-		/// 	Field = existingField,
-		/// 	Name = "Some Existing Choice Name",
-		/// 	ObjectType = new NamedArtifact { Name = "Some Object Type Name },
-		/// 	Color = ChoiceColor.Blue
+		///     Field = existingField,
+		///     Name = "Some Existing Choice Name",
+		///     ObjectType = new NamedArtifact { Name = "Some Object Type Name },
+		///     Color = ChoiceColor.Blue
 		/// };
 		/// var updatedByNameObjectTypeAndField = _choiceService.Require(workspaceId, entityToUpdateByNameObjectTypeAndField); // Will get the choice field by Name, update it and return updated choice.
 		/// var entityToCreate = new Choice
 		/// {
-		/// 	Name = Randomizer.GetString(),
-		/// 	Field = existingField
+		///     Name = Randomizer.GetString(),
+		///     Field = existingField
 		/// };
 		/// var createdEntity =_choiceService.Require(workspaceId, entityToCreate); // Will create new choice entity and return it.
 		/// </code>

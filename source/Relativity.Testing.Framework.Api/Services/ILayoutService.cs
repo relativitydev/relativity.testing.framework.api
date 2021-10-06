@@ -26,11 +26,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var workspaceId = 1015427;
 		/// var existingObjectTypeId = 1;
 		/// ObjectType objectType =  relatvityFacade.Resolve&lt;IObjectTypeService&gt;()
-		/// 	.Resolve(workspaceId, existingObjectTypeId);
+		///     .Resolve(workspaceId, existingObjectTypeId);
 		/// var entity = new Layout
 		/// {
-		/// 	Name = "Sample Layout Name",
-		/// 	ObjectType = objectType
+		///     Name = "Sample Layout Name",
+		///     ObjectType = objectType
 		/// };
 		/// Layout createdLayout = _layoutService.Create(workspaceId, entity);
 		/// </code>
@@ -56,25 +56,25 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// var existingObjectTypeId = 1;
 		/// var existigLayoutId = 2;
 		/// ObjectType objectType =  relatvityFacade.Resolve&lt;IObjectTypeService&gt;()
-		/// 	.Resolve(workspaceId, existingObjectTypeId);
+		///     .Resolve(workspaceId, existingObjectTypeId);
 		/// var entityToUpdateById = new Layout
 		/// {
-		/// 	Name = "Sample Updated Layout Name",
-		/// 	ObjectType = objectType,
-		/// 	ArtifactID = existigLayoutId
+		///     Name = "Sample Updated Layout Name",
+		///     ObjectType = objectType,
+		///     ArtifactID = existigLayoutId
 		/// };
 		/// Layout layoutUpdatedById = _layoutService.Require(workspaceId, entityToUpdateById);
 		/// var entityToUpdateByName = new Layout
 		/// {
-		/// 	Name = "Sample Existing Layout Name",
-		/// 	ObjectType = objectType,
-		/// 	AllowCopyFromPrevious = true
+		///     Name = "Sample Existing Layout Name",
+		///     ObjectType = objectType,
+		///     AllowCopyFromPrevious = true
 		/// };
 		/// Layout layoutUpdatedByName = _layoutService.Require(workspaceId, entityToUpdateByName);
 		/// var entityToCreate = new Layout
 		/// {
-		/// 	Name = "Sample Not Existing Layout Name",
-		/// 	ObjectType = objectType,
+		///     Name = "Sample Not Existing Layout Name",
+		///     ObjectType = objectType,
 		/// };
 		/// Layout createdLayout = _layoutService.Require(workspaceId, entityToCreate);
 		/// </code>
@@ -158,14 +158,14 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Layout layout = _layoutService.Get(workspaceId, existingLayoutId);
 		/// var fieldsToAdd = new List&lt;CategoryField&gt;
 		/// {
-		/// 	new CategoryField
-		/// 	{
-		/// 		DisplayName = "Some Field Name",
-		/// 		FieldArtifactID = existingFieldId,
-		/// 		FieldDisplayType = FieldDisplayType.Decimal,
-		/// 		FieldTypeID = existingFieldTypeId,
-		/// 		IsRequired = true
-		/// 	}
+		///     new CategoryField
+		///     {
+		///         DisplayName = "Some Field Name",
+		///         FieldArtifactID = existingFieldId,
+		///         FieldDisplayType = FieldDisplayType.Decimal,
+		///         FieldTypeID = existingFieldTypeId,
+		///         IsRequired = true
+		///     }
 		/// };
 		/// _layoutService.AddFields(workspaceId, layout, fieldsToAdd);
 		/// </code>

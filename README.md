@@ -16,6 +16,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
     - [Functional Testing](#functional-testing)
       - [Creating Runsettings](#creating-runsettings)
       - [Running Functional Tests](#running-functional-tests)
+    - [Usage Metrics](#usage-metrics)
   - [Contributing](#contributing)
   - [Reporting Issues](#reporting-issues)
 
@@ -63,14 +64,15 @@ To create the runsettings file, run the following command, replacing instance se
 ./DevelopmentScripts/New-TestSettings.ps1 -ServerBindingType "https" -RelativityHostAddress "YOUR_HOST_ADDRESS" -AdminUsername "YOUR_ADMIN_USERNAME" -AdminPassword "YOUR_ADMIN_PASSWORD"
 
 ```
+
 This script will create FunctionalTest.runsettings and put it next to itself. You shall use this file to setup functional testing.
 
 #### Running Functional Tests
 
 Run Tests in Visual Studio:
 
-* Attach your runsettings file to the solution in Visual Studio.
-* Use the built in test runner.
+- Attach your runsettings file to the solution in Visual Studio.
+- Use the built in test runner.
 
 You can also run functional tests from the command line:
 
@@ -78,6 +80,14 @@ You can also run functional tests from the command line:
 dotnet test ./Source/ --filter TestCategory=FunctionalTests -s .\DevelopmentScripts\FunctionalTest.runsettings
 
 ```
+
+### Usage Metrics
+
+EnableApplicationInsights can be set in the RunSettings with the following values to set how much is logged. By default this is set to All and information about your code will be sent to Relativity. For more information about the different logging levels, see [Metrics-Collection](https://relativitydev.github.io/relativity.testing.framework.api/articles/Metrics-Collection.html).
+
+- All
+- UsageOnly
+- None
 
 ## Contributing
 

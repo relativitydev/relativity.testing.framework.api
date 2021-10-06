@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Models;
+﻿#pragma warning disable SA1027
+using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -143,3 +144,4 @@ namespace Relativity.Testing.Framework.Api.Services
 		void SetItemLevelSecurity(int workspaceId, int itemId, bool isEnabled);
 	}
 }
+#pragma warning restore SA1027

@@ -1,8 +1,8 @@
 ﻿namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class WorkspaceGroupUserDTO : GroupDTO
+	internal class WorkspacePermissionGroupUserDTO : PermissionGroupDTO
 	{
-		public WorkspaceGroupUserDTO(int workspaceId, int groupId)
+		public WorkspacePermissionGroupUserDTO(int workspaceId, int groupId)
 			: base(groupId)
 		{
 			WorkspaceArtifactId = workspaceId;

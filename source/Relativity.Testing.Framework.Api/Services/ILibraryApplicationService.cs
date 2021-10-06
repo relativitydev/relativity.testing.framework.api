@@ -60,7 +60,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// Gets the library application by the specified name.
 		/// </summary>
 		/// <param name="name">The name.</param>
-		/// <returns>The <see cref="LibraryApplication"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [LibraryApplication](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.LibraryApplication.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// string applicationName = "CuttingEdgeAppName";

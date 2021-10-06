@@ -59,7 +59,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get script.</param>
 		/// <param name="entityId">The artifact ID of the script.</param>
-		/// <returns>The <see cref="Script"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [Script](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Script.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;
@@ -121,7 +121,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="scriptId">The ArtifactID of the script to execute.</param>
 		/// <param name="inputs">Inputs and their values for the script, empty by default.</param>
 		/// <param name="timeZoneOffset">The time zone offset for the script, zero by default.</param>
-		/// <returns>An <see cref="EnqueueRunJobResponse"/> describing the queued job.</returns>
+		/// <returns>An [EnqueueRunJobResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.EnqueueRunJobResponse.html) describing the queued job.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;
@@ -144,7 +144,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of the workspace where the script exists and was executed.</param>
 		/// <param name="runJobId">The ID of the script run job.</param>
-		/// <returns>A <see cref="RunJob"/> describing the script run job.</returns>
+		/// <returns>A [RunJob](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.RunJob.html) describing the script run job.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;
@@ -165,7 +165,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <param name="actionQueryRequest">The query to execute. By default takes all fields without condition.</param>
 		/// <param name="start">The result cursor. Default value is zero.</param>
 		/// <param name="length">The maximum length of results to return. Default value is 100.</param>
-		/// <returns>The action query's result in the form of an <see cref="ActionResultsQueryResponse"/>.</returns>
+		/// <returns>The action query's result in the form of an [ActionResultsQueryResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ActionResultsQueryResponse.html).</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;

@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api
 {
 	/// <summary>
 	/// Represents the API component of Relativity Testing Framework.
-	/// <see cref="ApiComponent"/> should be registered in <see cref="RelativityFacade"/> thru <see cref="IRelativityFacade.RelyOn{T}()"/> method after <see cref="CoreComponent"/>.
+	/// <see cref="ApiComponent"/> should be registered in [RelativityFacade](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.RelativityFacade.html) thru [IRelativityFacade.RelyOn&lt;T&gt;()](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.IRelativityFacade.html#Relativity_Testing_Framework_IRelativityFacade_RelyOn__1) method after [CoreComponent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html).
 	/// </summary>
 	public class ApiComponent : IRelativityComponent, IWindsorInstaller
 	{
@@ -73,7 +73,7 @@ namespace Relativity.Testing.Framework.Api
 			if (configurationService != null)
 			{
 				DataCollection stateToConfigure;
-				string defaultValue = DataCollection.UsageOnly.ToString();
+				string defaultValue = DataCollection.All.ToString();
 				string configuredValue = configurationService.GetValueOrDefault("EnableApplicationInsights", defaultValue).ToLower();
 
 				switch (configuredValue)
@@ -94,7 +94,7 @@ namespace Relativity.Testing.Framework.Api
 						stateToConfigure = DataCollection.None;
 						break;
 					default:
-						stateToConfigure = DataCollection.None;
+						stateToConfigure = DataCollection.All;
 						break;
 				}
 

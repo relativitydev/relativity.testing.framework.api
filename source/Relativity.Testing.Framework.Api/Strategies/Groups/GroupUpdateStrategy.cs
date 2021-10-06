@@ -1,69 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class GroupUpdateStrategy : IUpdateStrategy<Group>
+	internal abstract class GroupUpdateStrategy : IGroupUpdateStrategy
 	{
-		private readonly IRestService _restService;
-		private readonly IGetAllByNamesStrategy<Group> _getAllByNamesStrategy;
+		private readonly IGetByNameStrategy<Group> _getByNameStrategy;
 
-		public GroupUpdateStrategy(IRestService restService, IGetAllByNamesStrategy<Group> getAllByNamesStrategy)
+		protected GroupUpdateStrategy(IGetByNameStrategy<Group> getByNameStrategy)
 		{
-			_restService = restService;
-			_getAllByNamesStrategy = getAllByNamesStrategy;
+			_getByNameStrategy = getByNameStrategy;
 		}
 
-		public void Update(Group entity)
+		public Group Update(Group group)
 		{
-			if (entity is null)
+			if (group is null)
 			{
-				throw new ArgumentNullException(nameof(entity));
+				throw new ArgumentNullException(nameof(group));
 			}
 
-			if (entity.ArtifactID == 0)
+			if (group.ArtifactID < 1)
 			{
-				if (entity.Name != null)
+				if (group.Name != null)
 				{
-					var entityByName = _getAllByNamesStrategy.GetAll(new List<string> { entity.Name }).FirstOrDefault();
-
-					if (entityByName == null)
-					{
-						throw new ArgumentException("Can't find the entity.", nameof(entity));
-					}
-					else
-					{
-						entity.ArtifactID = entityByName.ArtifactID;
-					}
+					group.ArtifactID = GetGroupArtifactIDByGroupName(group);
 				}
 				else
 				{
-					throw new ArgumentException("This entity should have an artifact ID or name as an identifier.", nameof(entity));
+					throw new ArgumentException("This entity should have an artifact ID or name as an identifier.", nameof(group));
 				}
 			}
 
-			var dto = new
-			{
-				groupRequest = new
-				{
-					Client = new
-					{
-						Secured = false,
-						Value = new
-						{
-							entity.Client.ArtifactID
-						}
-					},
-					entity.Name,
-					entity.Keywords,
-					entity.Notes
-				}
-			};
+			return DoUpdate(group);
+		}
 
-			_restService.Put($"relativity.groups/workspace/-1/groups/{entity.ArtifactID}", dto);
+		protected abstract Group DoUpdate(Group group);
+
+		private int GetGroupArtifactIDByGroupName(Group group)
+		{
+			Group entityByName = _getByNameStrategy.Get(group.Name);
+
+			if (entityByName == null)
+			{
+				throw ObjectNotFoundException.CreateForNotFoundByName<Group>(group.Name);
+			}
+
+			return entityByName.ArtifactID;
 		}
 	}
 }

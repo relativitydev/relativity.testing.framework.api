@@ -15,7 +15,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// <param name="scriptId">The ArtifactID of the script to execute.</param>
 		/// <param name="inputs">Inputs and their values for the script, empty by default.</param>
 		/// <param name="timeZoneOffset">The time zone offset for the script, zero by default.</param>
-		/// <returns>An <see cref="EnqueueRunJobResponse"/> describing the queued job.</returns>
+		/// <returns>An [EnqueueRunJobResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.EnqueueRunJobResponse.html) describing the queued job.</returns>
 		EnqueueRunJobResponse EnqueueRunJob(int workspaceId, int scriptId, List<ScriptInput> inputs = null, double timeZoneOffset = 0);
 	}
 }

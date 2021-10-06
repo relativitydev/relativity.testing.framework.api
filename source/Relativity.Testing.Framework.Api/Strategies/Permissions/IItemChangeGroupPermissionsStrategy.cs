@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	/// <summary>
-	/// Represents the strategy of setting the item group permissionsusing <see cref="GroupPermissionsChangeset"/>.
+	/// Represents the strategy of setting the item group permissionsusing [GroupPermissionsChangeset](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissionsChangeset.html).
 	/// </summary>
 	internal interface IItemChangeGroupPermissionsStrategy
 	{

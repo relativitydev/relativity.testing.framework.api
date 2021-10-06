@@ -53,7 +53,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get search provider.</param>
 		/// <param name="entityId">The artifact ID of the search provider.</param>
-		/// <returns>The <see cref="KeywordSearch"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;
@@ -69,7 +69,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </summary>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to get search provider.</param>
 		/// <param name="entityName">The name of the search provider.</param>
-		/// <returns>The <see cref="SearchProvider"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [SearchProvider](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.SearchProvider.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceID = 1234567;
@@ -102,12 +102,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Requires the specified search provider.
 		/// <list type="number">
-		/// <item>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</item>
-		/// <item>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, gets entity by name and updates it if it exists.</item>
+		/// <item>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets entity by ID and updates it.</item>
+		/// <item>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, gets entity by name and updates it if it exists.</item>
 		/// <item>Otherwise creates a new entity using <see cref="ICreateWorkspaceEntityStrategy{T}"/>.</item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="SearchProvider"/> entity or <see langword="null"/>.</returns>
+		/// <returns>The [SearchProvider](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.SearchProvider.html) entity or <see langword="null"/>.</returns>
 		/// <param name="workspaceId">The Artifact ID of the workspace where you want to require search provider.</param>
 		/// <param name="entity">The entity to require.</param>
 		/// <example>

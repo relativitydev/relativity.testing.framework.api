@@ -13,7 +13,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// Gets the list of of object types in a specific workspace.
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
-		/// <returns>The list of <see cref="NamedArtifact"/> objects.</returns>
+		/// <returns>The list of [NamedArtifact](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html) objects.</returns>
 		List<NamedArtifact> GetEligibleObjectTypes(int workspaceId);
 	}
 }

@@ -14,7 +14,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Arrangement
 {
 	/// <summary>
-	/// Represents the base fixture that manages <see cref="Relativity.Testing.Framework.Session.TestSession"/> for fixture and test levels.
+	/// Represents the base fixture that manages [TestSession](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Session.TestSession.html) for fixture and test levels.
 	/// </summary>
 	[TestFixture]
 	public abstract class SessionBasedFixture
@@ -31,12 +31,12 @@ namespace Relativity.Testing.Framework.Api.Arrangement
 		protected static TestSession Session => TestSession.Current;
 
 		/// <summary>
-		/// Gets the current <see cref="IRelativityFacade"/> instance.
+		/// Gets the current [IRelativityFacade](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.IRelativityFacade.html) instance.
 		/// </summary>
 		protected virtual IRelativityFacade Facade => RelativityFacade.Instance;
 
 		/// <summary>
-		/// Gets the <see cref="ILogService"/>.
+		/// Gets the [ILogService](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Logging.ILogService.html).
 		/// </summary>
 		protected ILogService Log => Facade?.Log;
 

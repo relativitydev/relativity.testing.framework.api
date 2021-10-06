@@ -13,12 +13,12 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IOcrProfileService
 	{
 		/// <summary>
-		/// Creates the specified <see cref="OcrProfile"/>.
+		/// Creates the specified [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html).
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the <see cref="OcrProfile"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to add the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The <see cref="OcrProfile"/>entity to create.</param>
-		/// <returns>The created <see cref="OcrProfile"/> entity.</returns>
+		/// <param name="entity">The [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html)entity to create.</param>
+		/// <returns>The created [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html) entity.</returns>
 		/// <example> This example shows how to create OCR Profile with some properties set.
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -39,11 +39,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		OcrProfile Create(int workspaceId, OcrProfile entity);
 
 		/// <summary>
-		/// Deletes the <see cref="OcrProfile"/> by ArtifactID.
+		/// Deletes the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html) by ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to delete the <see cref="OcrProfile"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to delete the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="OcrProfile"/>.</param>
+		/// <param name="entityId">The ArtifactID of the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html).</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;
@@ -54,12 +54,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Delete(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="OcrProfile"/> by the specified ArtifactID.
+		/// Gets the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html) by the specified ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the <see cref="OcrProfile"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="OcrProfile"/>.</param>
-		/// <returns>>The <see cref="OcrProfile"/> entity or <see langword="null"/>.</returns>
+		/// <param name="entityId">The ArtifactID of the [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html).</param>
+		/// <returns>>The [OcrProfile](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.OcrProfile.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1015427;

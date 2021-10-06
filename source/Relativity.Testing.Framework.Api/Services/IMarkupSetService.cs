@@ -14,12 +14,12 @@ namespace Relativity.Testing.Framework.Api.Services
 	public interface IMarkupSetService
 	{
 		/// <summary>
-		///  Creates the specified <see cref="MarkupSet"/>.
+		///  Creates the specified [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to create the <see cref="MarkupSet"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to create the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The <see cref="MarkupSet"/> to create.</param>
-		/// <returns>The <see cref="MarkupSet"/> entity.</returns>
+		/// <param name="entity">The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) to create.</param>
+		/// <returns>The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) entity.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -35,12 +35,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		MarkupSet Create(int workspaceId, MarkupSet entity);
 
 		/// <summary>
-		/// Gets the <see cref="MarkupSet"/> by the specified ArtifactID.
+		/// Gets the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) by the specified ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the <see cref="MarkupSet"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="MarkupSet"/>.</param>
-		/// <returns>The <see cref="MarkupSet"/> entity or <see langword="null"/>.</returns>
+		/// <param name="entityId">The ArtifactID of the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).</param>
+		/// <returns>The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -51,12 +51,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		MarkupSet Get(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Gets the <see cref="MarkupSet"/> by the specified name.
+		/// Gets the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) by the specified name.
 		/// </summary>
 		/// <param name="workspaceId">The ArtifactID of the workspace where you want to get the markup set,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityName">The name of the <see cref="MarkupSet"/>.</param>
-		/// <returns>The <see cref="MarkupSet"/> entity or <see langword="null"/>.</returns>
+		/// <param name="entityName">The name of the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).</param>
+		/// <returns>The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) entity or <see langword="null"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -67,16 +67,16 @@ namespace Relativity.Testing.Framework.Api.Services
 		MarkupSet Get(int workspaceId, string entityName);
 
 		/// <summary>
-		/// Requires the specified <see cref="MarkupSet"/>.
+		/// Requires the specified [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).
 		/// <list type="number">
-		/// <item><description>If <see cref="Artifact.ArtifactID"/> property of <paramref name="entity"/> has positive value, gets <see cref="MarkupSet"/> by ArtifactID and updates it.</description></item>
-		/// <item><description>If <see cref="NamedArtifact.Name"/> property of <paramref name="entity"/> has a value, gets <see cref="MarkupSet"/> by name and updates it if it exists.</description></item>
-		/// <item><description>Otherwise creates a new <see cref="MarkupSet"/>.</description></item>
+		/// <item><description>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <paramref name="entity"/> has positive value, gets [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) by ArtifactID and updates it.</description></item>
+		/// <item><description>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <paramref name="entity"/> has a value, gets [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) by name and updates it if it exists.</description></item>
+		/// <item><description>Otherwise creates a new [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).</description></item>
 		/// </list>
 		/// </summary>
-		/// <returns>The <see cref="MarkupSet"/> entity.</returns>
+		/// <returns>The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) entity.</returns>
 		/// <param name="workspaceId">The ArtifactID of the workspace where you want to require markup set.</param>
-		/// <param name="entity">The <see cref="MarkupSet"/> to require.</param>
+		/// <param name="entity">The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) to require.</param>
 		/// <example> This example shows how to update and get updated Markup Set by Require method with MarkupSet entity that has ArtifactID filled.
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -118,12 +118,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		MarkupSet Require(int workspaceId, MarkupSet entity);
 
 		/// <summary>
-		/// Determines whether the <see cref="MarkupSet"/> with the specified ArtifactID exists.
+		/// Determines whether the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) with the specified ArtifactID exists.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to check if the <see cref="MarkupSet"/> exists,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to check if the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) exists,
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="MarkupSet"/>.</param>
-		/// <returns><see langword="true"/> if a <see cref="MarkupSet"/> exists; otherwise, <see langword="false"/>.</returns>
+		/// <param name="entityId">The ArtifactID of the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).</param>
+		/// <returns><see langword="true"/> if a [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) exists; otherwise, <see langword="false"/>.</returns>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -134,11 +134,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		bool Exists(int workspaceId, int entityId);
 
 		/// <summary>
-		/// Updates the specified <see cref="MarkupSet"/>.
+		/// Updates the specified [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the <see cref="MarkupSet"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to update the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entity">The <see cref="MarkupSet"/> to update.</param>
+		/// <param name="entity">The [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) to update.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;
@@ -153,11 +153,11 @@ namespace Relativity.Testing.Framework.Api.Services
 		void Update(int workspaceId, MarkupSet entity);
 
 		/// <summary>
-		/// Deletes the <see cref="MarkupSet"/> by the specified ArtifactID.
+		/// Deletes the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html) by the specified ArtifactID.
 		/// </summary>
-		/// <param name="workspaceId">The ArtifactID of the workspace where you want to delete the <see cref="MarkupSet"/>,
+		/// <param name="workspaceId">The ArtifactID of the workspace where you want to delete the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html),
 		/// or use -1 to indicate the admin-level context.</param>
-		/// <param name="entityId">The ArtifactID of the <see cref="MarkupSet"/>.</param>
+		/// <param name="entityId">The ArtifactID of the [MarkupSet](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.MarkupSet.html).</param>
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactID = 1234567;

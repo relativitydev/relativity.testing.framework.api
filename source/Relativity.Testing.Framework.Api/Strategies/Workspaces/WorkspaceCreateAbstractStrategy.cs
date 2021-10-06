@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Relativity.Testing.Framework.Api.DTO;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
@@ -40,7 +39,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			IGetAllStrategy<ResourceServer> resourceServerGetAllStrategy,
 			IGetAllStrategy<ResourcePool> getAllResourcePoolsStrategy,
 			IObjectService objectService)
-#pragma warning restore S107 // Methods should not have too many parameters
 		{
 			_getWorkspaceByNameStrategy = getWorkspaceByNameStrategy;
 			_getWorkspaceByIdStrategy = getWorkspaceByIdStrategy;

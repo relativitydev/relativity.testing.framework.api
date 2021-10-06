@@ -13,16 +13,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public WorkspaceCreateStrategyV1(
 			IRestService restService,
-			IGetByNameStrategy<Workspace> getWorkspaceByNameStrategy,
 			IGetByIdStrategy<Workspace> getWorkspaceByIdStrategy,
-			IGetAllStrategy<Workspace> getAllWorkspacesStrategy,
-			IGetAllByNamesStrategy<Group> getGroupsByNameStrategy,
-			IGetByNameStrategy<Client> getClientByNameStrategy,
-			IMatterGetByNameAndClientIdStrategy matterGetByNameAndClientIdStrategy,
-			IGetAllStrategy<ResourceServer> resourceServerGetAllStrategy,
-			IGetAllStrategy<ResourcePool> getAllResourcePoolsStrategy,
-			IObjectService objectService)
-			: base(getWorkspaceByNameStrategy, getWorkspaceByIdStrategy, getAllWorkspacesStrategy, getGroupsByNameStrategy, getClientByNameStrategy, matterGetByNameAndClientIdStrategy, resourceServerGetAllStrategy, getAllResourcePoolsStrategy, objectService)
+			IWorkspaceFillRequiredPropertiesStrategy workspaceFillRequiredPropertiesStrategy)
+				: base(getWorkspaceByIdStrategy, workspaceFillRequiredPropertiesStrategy)
 		{
 			_restService = restService;
 		}

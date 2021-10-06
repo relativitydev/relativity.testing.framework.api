@@ -6,17 +6,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal abstract class WorkspaceCreateAbstractStrategy : CreateStrategy<Workspace>
 	{
-		private readonly IRestService _restService;
-
 		private readonly IGetByIdStrategy<Workspace> _getWorkspaceByIdStrategy;
 		private readonly IWorkspaceFillRequiredPropertiesStrategy _workspaceFillRequiredPropertiesStrategy;
 
 		protected WorkspaceCreateAbstractStrategy(
-			IRestService restService,
 			IGetByIdStrategy<Workspace> getWorkspaceByIdStrategy,
 			IWorkspaceFillRequiredPropertiesStrategy workspaceFillRequiredPropertiesStrategy)
 		{
-			_restService = restService;
 			_getWorkspaceByIdStrategy = getWorkspaceByIdStrategy;
 			_workspaceFillRequiredPropertiesStrategy = workspaceFillRequiredPropertiesStrategy;
 		}

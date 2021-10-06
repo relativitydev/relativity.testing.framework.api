@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using Newtonsoft.Json.Linq;
-using Relativity.Testing.Framework.Api.Services;
+﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
@@ -14,7 +11,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IGetByIdStrategy<Workspace> _getWorkspaceByIdStrategy;
 		private readonly IWorkspaceFillRequiredPropertiesStrategy _workspaceFillRequiredPropertiesStrategy;
 
-		public WorkspaceCreateStrategy(
+		protected WorkspaceCreateAbstractStrategy(
 			IRestService restService,
 			IGetByIdStrategy<Workspace> getWorkspaceByIdStrategy,
 			IWorkspaceFillRequiredPropertiesStrategy workspaceFillRequiredPropertiesStrategy)
@@ -28,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			entity = _workspaceFillRequiredPropertiesStrategy.FillRequiredProperties(entity);
 
-			object workspaceToCreate = ConvertToDto(entity);
+			object workspaceToCreate = BuildRequest(entity);
 
 			int workspaceId = CreateWorkspace(workspaceToCreate);
 
@@ -38,10 +35,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected abstract int CreateWorkspace(object workspaceToCreate);
 
-			return int.Parse(result[nameof(Artifact.ArtifactID)].ToString());
-		}
-
-		private object ConvertToDto(Workspace entity)
+		private object BuildRequest(Workspace entity)
 		{
 			return new
 			{
@@ -56,7 +50,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					entity.Keywords,
 					entity.Notes,
 					ResourcePool = new Securable<Artifact>(entity.ResourcePool),
-					SqlFullTextLanguage = entity.SqlFullTextLanguage.ArtifactID,
+					SqlFullTextLanguage = (int)entity.SqlFullTextLanguage,
 					SqlServer = new Securable<Artifact>(entity.SqlServer),
 					Status = new Artifact(675),
 					Template = new Securable<Artifact>(new Artifact(entity.TemplateWorkspace.ArtifactID)),

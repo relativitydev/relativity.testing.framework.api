@@ -28,7 +28,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Matter.Name.Should().NotBeNull();
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
-			result.DatabaseLocation.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
 		}
 
@@ -61,7 +60,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Client.Name.Should().Be(entity.Client.Name);
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
-			result.DatabaseLocation.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
 			result.WorkspaceAdminGroup.Name.Should().Be(entity.WorkspaceAdminGroup.Name);
 		}
@@ -91,7 +89,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Client.Name.Should().Be(entity.Client.Name);
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
-			result.DatabaseLocation.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
 		}
 	}

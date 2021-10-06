@@ -31,7 +31,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		private readonly IGetAllStrategy<ResourceServer> _resourceServerGetAllStrategy;
 
-		private readonly IResourcePoolGetEligibleStrategy _getAllResourcePoolsStrategy;
+		private readonly IGetAllStrategy<ResourcePool> _getAllResourcePoolsStrategy;
 
 		private readonly IObjectService _objectService;
 
@@ -45,7 +45,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			IGetByNameStrategy<Client> getClientByNameStrategy,
 			IMatterGetByNameAndClientIdStrategy matterGetByNameAndClientIdStrategy,
 			IGetAllStrategy<ResourceServer> resourceServerGetAllStrategy,
-			IResourcePoolGetEligibleStrategy getAllResourcePoolsStrategy,
+			IGetAllStrategy<ResourcePool> getAllResourcePoolsStrategy,
 			IObjectService objectService)
 #pragma warning restore S107 // Methods should not have too many parameters
 		{
@@ -133,7 +133,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.ResourcePool == null)
 			{
-				entity.ResourcePool = _getAllResourcePoolsStrategy.GetEligibleResourcePools().FirstOrDefault();
+				entity.ResourcePool = _getAllResourcePoolsStrategy.GetAll().FirstOrDefault();
 			}
 
 			if (entity.DefaultCacheLocation == null)
@@ -170,7 +170,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 						Value = new NamedArtifact
 						{
 							ArtifactID = entity.ResourcePool.ArtifactID,
-							Name = "Default"
+							Name = entity.ResourcePool.Name
 						}
 					},
 					SqlFullTextLanguage = entity.SqlFullTextLanguage == 0 ? 1033 : (int)entity.SqlFullTextLanguage,

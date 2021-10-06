@@ -29,6 +29,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
+
+			if (IsVersionComparable("<12.1"))
+			{
+				result.DatabaseLocation.Name.Should().NotBeNull();
+			}
 		}
 
 		[Test]
@@ -62,6 +67,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.DefaultFileRepository.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
 			result.WorkspaceAdminGroup.Name.Should().Be(entity.WorkspaceAdminGroup.Name);
+
+			if (IsVersionComparable("<12.1"))
+			{
+				result.DatabaseLocation.Name.Should().NotBeNull();
+			}
 		}
 
 		[Test]
@@ -90,6 +100,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
+
+			if (IsVersionComparable("<12.1"))
+			{
+				result.DatabaseLocation.Name.Should().NotBeNull();
+			}
 		}
 	}
 }

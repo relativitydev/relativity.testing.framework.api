@@ -9,6 +9,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	[VersionRange(">=12.1")]
 	internal class WorkspaceCreateStrategyV1 : WorkspaceCreateAbstractStrategy
 	{
+		private readonly int _timeout = 5;
 		private readonly IRestService _restService;
 
 		public WorkspaceCreateStrategyV1(
@@ -22,7 +23,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		protected override int CreateWorkspace(object workspaceToCreate)
 		{
-			var result = _restService.Post<JObject>("relativity-environment/V1/workspace", workspaceToCreate, 5);
+			var result = _restService.Post<JObject>("relativity-environment/V1/workspace", workspaceToCreate, _timeout);
 
 			return int.Parse(result[nameof(Artifact.ArtifactID)].ToString());
 		}

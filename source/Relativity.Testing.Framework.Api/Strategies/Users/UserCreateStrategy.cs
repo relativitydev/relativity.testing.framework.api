@@ -1,92 +1,47 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class UserCreateStrategy : CreateStrategy<User>
+	internal abstract class UserCreateStrategy : CreateStrategy<User>
 	{
-		private readonly IRestService _restService;
-
-		private readonly IRequireStrategy<Client> _clientRequireStrategy;
-
-		private readonly IChoiceResolveByObjectFieldAndNameStrategy _choiceResolveByObjectFieldAndNameStrategy;
-
-		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
-
-		private readonly IUserAddToGroupStrategy _userAddToGroupStrategy;
-
-		public UserCreateStrategy(
+		protected UserCreateStrategy(
 			IRestService restService,
 			IRequireStrategy<Client> clientRequireStrategy,
 			IChoiceResolveByObjectFieldAndNameStrategy choiceResolveByObjectFieldAndNameStrategy,
-			IUserGetByEmailStrategy userGetByEmailStrategy,
 			IUserAddToGroupStrategy userAddToGroupStrategy)
 		{
-			_restService = restService;
-			_clientRequireStrategy = clientRequireStrategy;
-			_choiceResolveByObjectFieldAndNameStrategy = choiceResolveByObjectFieldAndNameStrategy;
-			_userGetByEmailStrategy = userGetByEmailStrategy;
-			_userAddToGroupStrategy = userAddToGroupStrategy;
+			RestService = restService;
+			ClientRequireStrategy = clientRequireStrategy;
+			ChoiceResolveByObjectFieldAndNameStrategy = choiceResolveByObjectFieldAndNameStrategy;
+			UserAddToGroupStrategy = userAddToGroupStrategy;
 		}
+
+		protected IRestService RestService { get; }
+
+		protected IRequireStrategy<Client> ClientRequireStrategy { get; }
+
+		protected IChoiceResolveByObjectFieldAndNameStrategy ChoiceResolveByObjectFieldAndNameStrategy { get; }
+
+		protected IUserAddToGroupStrategy UserAddToGroupStrategy { get; }
+
+		protected abstract int CreateUser(User entity);
 
 		protected override User DoCreate(User entity)
 		{
-			entity.Client = _clientRequireStrategy.Require(entity.Client);
+			entity.Client = ClientRequireStrategy.Require(entity.Client);
 
-			var dto = new
-			{
-				UserRequest = new
-				{
-					entity.FirstName,
-					entity.LastName,
-					entity.EmailAddress,
-					Type = new { _choiceResolveByObjectFieldAndNameStrategy.ResolveReference("User", "User Type", entity.Type).ArtifactID },
-					entity.ItemListPageLength,
-					AllowSettingsChange = entity.ChangeSettings,
-					DefaultFilterVisibility = entity.ShowFilters,
-					Client = new
-					{
-						Secured = false,
-						Value = new
-						{
-							entity.Client.ArtifactID,
-						},
-					},
-					DocumentViewerProperties = new
-					{
-						AllowDocumentViewerChange = entity.CanChangeDocumentViewer,
-						AllowKeyboardShortcuts = entity.KeyboardShortcuts,
-						AllowDocumentSkipPreferenceChange = entity.DocumentSkip,
-						entity.DefaultSelectedFileType,
-						entity.DocumentViewer,
-						entity.SkipDefaultPreference,
-					},
-					entity.DisableOnDate,
-					entity.TrustedIPs,
-					entity.RelativityAccess,
-					entity.EmailPreference
-				}
-			};
+			var userArtifactID = CreateUser(entity);
 
-			_restService.Post("Relativity.Users/workspace/-1/Users", dto);
+			AddPasswordProvider(userArtifactID);
 
-			var createdUser = _userGetByEmailStrategy.Get(entity.EmailAddress);
+			SetPassword(userArtifactID, entity.Password);
 
-			AddPasswordProvider(createdUser.ArtifactID);
+			AddToGroups(userArtifactID, entity.Groups);
 
-			SetPassword(createdUser.ArtifactID, entity.Password);
-
-			if (entity.Groups.Any())
-			{
-				foreach (var group in entity.Groups)
-				{
-					_userAddToGroupStrategy.AddToGroup(createdUser.ArtifactID, group.ArtifactID);
-				}
-			}
-
-			entity.ArtifactID = createdUser.ArtifactID;
+			entity.ArtifactID = userArtifactID;
 
 			return entity;
 		}
@@ -106,7 +61,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				}
 			};
 
-			_restService.Post("Relativity.Services.Security.ISecurityModule/Login Profile Manager/SaveLoginProfileAsync", passwordProviderProfile);
+			RestService.Post("Relativity.Services.Security.ISecurityModule/Login Profile Manager/SaveLoginProfileAsync", passwordProviderProfile);
 		}
 
 		private void SetPassword(int userArtifactId, string passwordToSet)
@@ -117,7 +72,18 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Password = passwordToSet
 			};
 
-			_restService.Post("Relativity.Services.Security.ISecurityModule/Login Profile Manager/SetPasswordAsync", password);
+			RestService.Post("Relativity.Services.Security.ISecurityModule/Login Profile Manager/SetPasswordAsync", password);
+		}
+
+		private void AddToGroups(int userArtifactId, IList<Artifact> groups)
+		{
+			if (groups != null)
+			{
+				foreach (var group in groups)
+				{
+					UserAddToGroupStrategy.AddToGroup(userArtifactId, group.ArtifactID);
+				}
+			}
 		}
 	}
 }

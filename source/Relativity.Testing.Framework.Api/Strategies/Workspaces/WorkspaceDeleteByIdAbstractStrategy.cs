@@ -4,18 +4,15 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class WorkspaceDeleteByIdStrategy : DeleteByIdStrategy<Workspace>
+	internal abstract class WorkspaceDeleteByIdAbstractStrategy : DeleteByIdStrategy<Workspace>
 	{
-		private readonly IRestService _restService;
 		private readonly IEnsureExistsByIdStrategy<Workspace> _ensureExistsByIdStrategy;
 		private readonly IWaitDeleteWorkspaceStrategy _waitDeleteWorkspaceStrategy;
 
-		public WorkspaceDeleteByIdStrategy(
-			IRestService restService,
+		protected WorkspaceDeleteByIdAbstractStrategy(
 			IEnsureExistsByIdStrategy<Workspace> ensureExistsByIdStrategy,
 			IWaitDeleteWorkspaceStrategy waitDeleteWorkspaceStrategy)
 		{
-			_restService = restService;
 			_ensureExistsByIdStrategy = ensureExistsByIdStrategy;
 			_waitDeleteWorkspaceStrategy = waitDeleteWorkspaceStrategy;
 		}
@@ -24,19 +21,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			_ensureExistsByIdStrategy.EnsureExists(id);
 
-			var dto = new
-			{
-				workspace = new
-				{
-					ArtifactID = id
-				}
-			};
-
-			_restService.Post(
-				"Relativity.Services.Workspace.IWorkspaceModule/Workspace Manager Service/DeleteAsync",
-				dto);
+			DeleteWorkspace(id);
 
 			_waitDeleteWorkspaceStrategy.Wait(id);
 		}
+
+		protected abstract void DeleteWorkspace(int id);
 	}
 }

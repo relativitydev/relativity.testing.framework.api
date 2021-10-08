@@ -117,25 +117,5 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			result.Should().BeEquivalentTo(expectedFolderPermission);
 		}
-
-		[Test]
-		public void DoMappingToFolderAccessStatus_MapsAllFolderAccessStatusProperties()
-		{
-			var dto = new FolderAccessStatusDto
-			{
-				CanView = true,
-				Exists = true
-			};
-
-			var expectedFolderStatus = new FolderAccessStatus
-			{
-				CanView = dto.CanView,
-				Exists = dto.Exists
-			};
-
-			FolderAccessStatus result = dto.DoMappingToFolderAccessStatus();
-
-			result.Should().BeEquivalentTo(expectedFolderStatus);
-		}
 	}
 }

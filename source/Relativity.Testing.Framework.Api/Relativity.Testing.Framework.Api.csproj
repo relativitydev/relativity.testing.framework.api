@@ -27,7 +27,7 @@
     <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.10.10">
       <PrivateAssets>analyzers</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Relativity.Testing.Framework" Version="7.0.0" />
+    <PackageReference Include="Relativity.Testing.Framework" Version="7.1.0" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.0.0.9566">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

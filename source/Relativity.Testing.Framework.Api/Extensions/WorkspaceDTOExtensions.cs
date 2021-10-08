@@ -21,28 +21,12 @@ namespace Relativity.Testing.Framework.Api.Extensions
 				DownloadHandlerUrl = dto.DownloadHandlerUrl,
 				SqlFullTextLanguage = (SqlFullTextLanguage)dto.SqlFullTextLanguage.ID,
 				Keywords = dto.Keywords,
-				Notes = dto.Notes
+				Notes = dto.Notes,
+				TemplateWorkspace = dto.Template?.Value,
+				ProductionRestrictions = dto.ProductionRestrictions?.Value,
+				DataGridFileRepository = dto.DataGridFileRepository?.Value,
+				WorkspaceAdminGroup = dto.WorkspaceAdminGroup?.Value
 			};
-
-			if (dto.Template != null)
-			{
-				result.TemplateWorkspace = dto.Template.Value;
-			}
-
-			if (dto.ProductionRestrictions != null)
-			{
-				result.ProductionRestrictions = dto.ProductionRestrictions.Value;
-			}
-
-			if (dto.DataGridFileRepository != null)
-			{
-				result.DataGridFileRepository = dto.DataGridFileRepository.Value;
-			}
-
-			if (dto.WorkspaceAdminGroup != null)
-			{
-				result.WorkspaceAdminGroup = dto.WorkspaceAdminGroup.Value;
-			}
 
 			return result;
 		}

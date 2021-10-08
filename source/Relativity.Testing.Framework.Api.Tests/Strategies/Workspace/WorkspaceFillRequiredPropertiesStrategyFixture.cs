@@ -133,8 +133,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			_workspaceFillRequiredPropertiesStrategy.FillRequiredProperties(workspace);
 
-			workspace.SqlFullTextLanguage.Should().NotBeNull();
-			workspace.SqlFullTextLanguage.Should().Be(1033);
+			workspace.SqlFullTextLanguage.Should().Be(SqlFullTextLanguage.English);
 		}
 
 		[Test]

@@ -10,18 +10,16 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[DoNotRetry]
-	[VersionRange(">=12.1")]
-	internal class LibraryApplicationInstallRapStrategyV1 : ILibraryApplicationInstallRapStrategy
+	[VersionRange("<12.1")]
+	internal class LibraryApplicationInstallRapStrategyPreOsier : ILibraryApplicationInstallRapStrategy
 	{
 		private readonly IRestService _restService;
-		private readonly ILibraryApplicationWaitUntilInstallFinishedByIdStrategy _libraryApplicationWaitUntilInstallFinishedByGuidStrategy;
+		private readonly ILibraryApplicationWaitUntilInstallFinishedStrategy _relativityApplicationWaitUntilInstallFinishedStrategy;
 
-		public LibraryApplicationInstallRapStrategyV1(
-			IRestService restService,
-			ILibraryApplicationWaitUntilInstallFinishedByIdStrategy libraryApplicationWaitUntilInstallFinishedByGuidStrategy)
+		public LibraryApplicationInstallRapStrategyPreOsier(IRestService restService, ILibraryApplicationWaitUntilInstallFinishedStrategy relativityApplicationWaitUntilInstallFinishedStrategy)
 		{
 			_restService = restService;
-			_libraryApplicationWaitUntilInstallFinishedByGuidStrategy = libraryApplicationWaitUntilInstallFinishedByGuidStrategy;
+			_relativityApplicationWaitUntilInstallFinishedStrategy = relativityApplicationWaitUntilInstallFinishedStrategy;
 		}
 
 		public int InstallToLibrary(string pathToRap, LibraryApplicationInstallOptions options = null)
@@ -43,7 +41,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				request = options
 			};
 
-			LibraryApplicationInstallStatusResponse response;
+			LibraryApplicationInstallStatusDto response;
 
 			using (var form = new MultipartFormDataContent())
 			using (var memory = new StreamContent(new MemoryStream(bytes)))
@@ -54,13 +52,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					form.Add(optionsContent, "request");
 					form.Add(memory, "rapStream");
 
-					response = _restService.Put<LibraryApplicationInstallStatusResponse>("relativity-environment/v1/workspace/-1/libraryapplications", form);
+					response = _restService.Put<LibraryApplicationInstallStatusDto>("Relativity.LibraryApplications/workspace/-1/libraryapplications", form);
 				}
 			}
 
 			if (response.InstallStatus.Code != RelativityApplicationInstallStatusCode.Completed)
 			{
-				_libraryApplicationWaitUntilInstallFinishedByGuidStrategy.WaitUntilInstallFinished(response.ApplicationIdentifier.ArtifactID);
+				_relativityApplicationWaitUntilInstallFinishedStrategy.WaitUntilInstallFinished(response.ApplicationIdentifier.ArtifactID, response.ApplicationInstallID);
 			}
 
 			return response.ApplicationIdentifier.ArtifactID;

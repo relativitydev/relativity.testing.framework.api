@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Models;
+﻿using System;
+using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -68,6 +69,32 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		LibraryApplication Get(string name);
+
+		/// <summary>
+		/// Gets the library application by the specified ID.
+		/// </summary>
+		/// <param name="applicationId">The ArtifactID of the application.</param>
+		/// <returns>The [LibraryApplication](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.LibraryApplication.html) entity or <see langword="null"/>.</returns>
+		/// <example>
+		/// <code>
+		/// int applicationID = 1015427;
+		/// LibraryApplication application = _libraryApplicationService.Get(applicationID);
+		/// </code>
+		/// </example>
+		LibraryApplication Get(int applicationId);
+
+		/// <summary>
+		/// Gets the library application by the specified GUID.
+		/// </summary>
+		/// <param name="identifier">The Library application GUID identifier.</param>
+		/// <returns>The [LibraryApplication](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.LibraryApplication.html) entity or <see langword="null"/>.</returns>
+		/// <example>
+		/// <code>
+		/// Guid identifier = Guid.Parse("4c8836a0-5138-4fe4-a1fd-04b04e6730a7");
+		/// LibraryApplication application = _libraryApplicationService.Get(identifier);
+		/// </code>
+		/// </example>
+		LibraryApplication Get(Guid identifier);
 
 		/// <summary>
 		/// Delete the application from the library.

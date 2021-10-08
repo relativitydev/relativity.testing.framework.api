@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Relativity.Testing.Framework.Api.ObjectManagement;
-using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -10,18 +9,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	[VersionRange(">=12.1")]
 	internal class LibraryApplicationGetByNameStrategyV1 : IGetByNameStrategy<LibraryApplication>
 	{
-		private readonly IRestService _restService;
-
 		private readonly IObjectService _objectService;
 
 		private readonly IGetByIdStrategy<LibraryApplication> _getByIdStrategy;
 
 		public LibraryApplicationGetByNameStrategyV1(
-			IRestService restService,
 			IObjectService objectService,
 			IGetByIdStrategy<LibraryApplication> getByIdStrategy)
 		{
-			_restService = restService;
 			_objectService = objectService;
 			_getByIdStrategy = getByIdStrategy;
 		}

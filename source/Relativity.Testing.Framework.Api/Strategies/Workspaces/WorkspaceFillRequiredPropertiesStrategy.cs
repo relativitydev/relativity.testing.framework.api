@@ -40,12 +40,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				entity.Name = Randomizer.GetString("AT_");
 			}
 
-			if (entity.SqlFullTextLanguage == null)
+			if (entity.SqlFullTextLanguage == 0)
 			{
-				entity.SqlFullTextLanguage = new NamedArtifact
-				{
-					ArtifactID = 1033 // English
-				};
+				entity.SqlFullTextLanguage = SqlFullTextLanguage.English;
 			}
 
 			if (entity.DownloadHandlerUrl == null)

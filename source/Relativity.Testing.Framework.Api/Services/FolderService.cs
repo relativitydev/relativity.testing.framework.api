@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_getWorkspaceRootFolderStrategy = getWorkspaceRootFolderStrategy;
 		}
 
-		public Folder Get(int workspaceArtifactID)
+		public Folder GetWorkspaceRootFolder(int workspaceArtifactID)
 			=> _getWorkspaceRootFolderStrategy.Get(workspaceArtifactID);
 	}
 }

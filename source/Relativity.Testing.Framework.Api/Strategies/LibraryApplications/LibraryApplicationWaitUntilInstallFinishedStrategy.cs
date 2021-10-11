@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			Stopwatch watch = new Stopwatch();
 			bool keepPolling = true;
 			watch.Start();
-			LibraryApplicationInstallStatusResponse statusCodeRespose = null;
+			LibraryApplicationInstallStatusDto statusCodeRespose = null;
 
 			while (keepPolling)
 			{
@@ -62,9 +62,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 		}
 
-		private LibraryApplicationInstallStatusResponse GetStatus(int applicationId, int applicationInstallId)
+		private LibraryApplicationInstallStatusDto GetStatus(int applicationId, int applicationInstallId)
 		{
-			return _restService.Get<LibraryApplicationInstallStatusResponse>($"Relativity.LibraryApplications/workspace/-1/libraryapplications/{applicationId}/install/{applicationInstallId}");
+			return _restService.Get<LibraryApplicationInstallStatusDto>($"Relativity.LibraryApplications/workspace/-1/libraryapplications/{applicationId}/install/{applicationInstallId}");
 		}
 	}
 }

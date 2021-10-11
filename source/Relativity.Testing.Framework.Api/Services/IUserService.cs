@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Models;
+﻿using System.Collections.Generic;
+using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
@@ -174,5 +175,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		void Update(User user);
+
+		/// <summary>
+		/// Gets the list of Groups as <see cref="NamedArtifact"/> assigned to the specified User.
+		/// </summary>
+		/// <param name="userArtifactID">The user ArtifactID.</param>
+		/// <returns>The list of Groups asigned to the User.</returns>
+		/// <example>
+		/// <code>
+		/// int userArtifactID = 324546;
+		///
+		/// IList&lt;NamedArtifact&gt; groups = _userService.GetGroups(userArtifactID);
+		/// </code>
+		/// </example>
+		IList<NamedArtifact> GetGroups(int userArtifactID);
 	}
 }

@@ -9,13 +9,13 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class LibraryApplicationGetByNameStrategyV2 : IGetByNameStrategy<LibraryApplication>
+	internal class LibraryApplicationGetByGuidStrategyPreOsier : IGetByGuidStrategy<LibraryApplication>
 	{
 		private readonly IRestService _restService;
 
 		private readonly IJsonObjectMappingService _jsonObjectMappingService;
 
-		public LibraryApplicationGetByNameStrategyV2(
+		public LibraryApplicationGetByGuidStrategyPreOsier(
 			IRestService restService,
 			IJsonObjectMappingService jsonObjectMappingService)
 		{
@@ -23,18 +23,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_jsonObjectMappingService = jsonObjectMappingService;
 		}
 
-		public LibraryApplication Get(string name)
+		public LibraryApplication Get(Guid identifier)
 		{
-			if (name == null)
-			{
-				throw new ArgumentNullException(nameof(name));
-			}
-
 			var responseObjects = _restService.Get<JObject[]>("Relativity.LibraryApplications/workspace/-1/libraryapplications");
 
 			var applications = _jsonObjectMappingService.MapTo<LibraryApplication>(responseObjects);
 
-			return applications.FirstOrDefault(x => x.Name == name);
+			return applications.FirstOrDefault(x => x.Guids.Contains(identifier));
 		}
 	}
 }

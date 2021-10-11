@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Models;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
-using static Relativity.Testing.Framework.Api.Strategies.LibraryApplicationInstallStatusResponse;
 
 namespace Relativity.Testing.Framework.Api.Tests.Strategies.LibraryApplications
 {
@@ -31,16 +29,16 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.LibraryApplications
 		{
 			List<string> testMessages = actuallyNull ? null : new List<string>();
 
-			var noMessagesResponse = new LibraryApplicationInstallStatusResponse
+			var noMessagesResponse = new LibraryApplicationInstallStatusDto
 			{
-				InstallStatus = new InstallStatusModel
+				InstallStatus = new InstallStatusModelDto
 				{
 					Code = RelativityApplicationInstallStatusCode.Failed
 				},
 				ValidationMessages = testMessages
 			};
 			_mockRestService.Setup(
-				x => x.Get<LibraryApplicationInstallStatusResponse>(It.IsAny<string>(), null))
+				x => x.Get<LibraryApplicationInstallStatusDto>(It.IsAny<string>(), null))
 					.Returns(noMessagesResponse);
 
 			var exceptionMessage = Assert.Throws<Exception>(() => _unit.WaitUntilInstallFinished(-1, -1)).Message;
@@ -55,16 +53,16 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies.LibraryApplications
 			string shouldAppearInUserException2 = "bar";
 			var testMessages = new List<string> { shouldAppearInUserException1, shouldAppearInUserException2 };
 
-			var messagesResponse = new LibraryApplicationInstallStatusResponse
+			var messagesResponse = new LibraryApplicationInstallStatusDto
 			{
-				InstallStatus = new InstallStatusModel
+				InstallStatus = new InstallStatusModelDto
 				{
 					Code = RelativityApplicationInstallStatusCode.Failed
 				},
 				ValidationMessages = testMessages
 			};
 			_mockRestService.Setup(
-				x => x.Get<LibraryApplicationInstallStatusResponse>(It.IsAny<string>(), null))
+				x => x.Get<LibraryApplicationInstallStatusDto>(It.IsAny<string>(), null))
 					.Returns(messagesResponse);
 
 			var exceptionMessage = Assert.Throws<Exception>(() => _unit.WaitUntilInstallFinished(-1, -1)).Message;

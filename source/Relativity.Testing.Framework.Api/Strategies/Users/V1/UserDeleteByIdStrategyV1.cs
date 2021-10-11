@@ -1,16 +1,18 @@
 ﻿using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class UserDeleteByIdStrategy : DeleteByIdStrategy<User>
+	[VersionRange(">=12.1")]
+	internal class UserDeleteByIdStrategyV1 : DeleteByIdStrategy<User>
 	{
 		private readonly IRestService _restService;
 
 		private readonly IEnsureExistsByIdStrategy<User> _ensureExistsByIdStrategy;
 
-		public UserDeleteByIdStrategy(IRestService restService, IEnsureExistsByIdStrategy<User> ensureExistsByIdStrategy)
+		public UserDeleteByIdStrategyV1(IRestService restService, IEnsureExistsByIdStrategy<User> ensureExistsByIdStrategy)
 		{
 			_restService = restService;
 			_ensureExistsByIdStrategy = ensureExistsByIdStrategy;
@@ -20,7 +22,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			_ensureExistsByIdStrategy.EnsureExists(id);
 
-			_restService.Delete($"Relativity.Users/workspace/-1/Users/{id}");
+			_restService.Delete($"Relativity-Identity/v1/users/{id}");
 		}
 	}
 }

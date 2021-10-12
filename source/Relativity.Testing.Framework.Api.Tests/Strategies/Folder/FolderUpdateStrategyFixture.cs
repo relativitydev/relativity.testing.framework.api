@@ -84,7 +84,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void Update_WithValidParametersAndFolderWithParentFolderSet_CallsGetFolderByIdStrastegyWithExpectedParameters()
+		public void Update_WithValidParametersWithParentFolder_CallsGetFolderByIdStrastegyWithExpectedParameters()
 		{
 			_sut.Update(_VALID_WORKSPACE_ARTIFACT_ID, _folderWithParent);
 
@@ -92,7 +92,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void Update_WithValidParametersAndFolderWithoutParentFolderSet_CallsGetFolderByIdStrastegyWithExpectedParameters()
+		public void Update_WithValidParametersWithoutParentFolder_CallsGetFolderByIdStrastegyWithExpectedParameters()
 		{
 			_sut.Update(_VALID_WORKSPACE_ARTIFACT_ID, _folderWithoutParent);
 

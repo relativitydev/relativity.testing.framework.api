@@ -42,9 +42,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					ResourcePool = new Securable<Artifact>(entity.ResourcePool),
 					SqlFullTextLanguage = entity.SqlFullTextLanguage,
 					SqlServer = new Securable<Artifact>(entity.SqlServer),
-					Status = entity.Status,
+					Status = new Artifact(675),
 					WorkspaceAdminGroup = entity.WorkspaceAdminGroup == null ? null : new Securable<Artifact>(entity.WorkspaceAdminGroup)
-				}
+				} // Template has to be left as null due to API requirements (https://platform.relativity.com/RelativityOne/Content/BD_Environment/Workspace_Manager_service.htm#_Update_a_workspace).
 			};
 		}
 	}

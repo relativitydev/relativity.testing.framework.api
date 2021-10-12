@@ -71,6 +71,19 @@ namespace Relativity.Testing.Framework.Api.Services
 		Folder Get(int workspaceArtifactID, int folderArtifactID, int? parentFolderArtifactID = null);
 
 		/// <summary>
+		/// Deletes unused (empty) folders from the workspace.
+		/// </summary>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <returns>[QueryResult](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.QueryResult-1.html) that lists the deleted folders.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// QueryResult&lt;Artifact&gt; result = _folderService.DeleteUnused(workspaceArtifactId);
+		/// </code>
+		/// </example>
+		QueryResult<Artifact> DeleteUnused(int workspaceArtifactID);
+
+		/// <summary>
 		/// Queries for unstructured list of [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html)s.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>

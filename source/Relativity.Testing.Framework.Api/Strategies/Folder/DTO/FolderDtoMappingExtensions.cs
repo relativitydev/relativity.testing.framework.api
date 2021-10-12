@@ -31,5 +31,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Secure = dto.Secure
 			};
 		}
+
+		internal static FolderAccessStatus DoMappingToFolderAccessStatus(this FolderAccessStatusDto dto)
+		{
+			return new FolderAccessStatus
+			{
+				CanView = dto.CanView,
+				Exists = dto.Exists
+			};
+		}
 	}
 }

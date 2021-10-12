@@ -42,8 +42,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					ResourcePool = new Securable<Artifact>(entity.ResourcePool),
 					SqlFullTextLanguage = entity.SqlFullTextLanguage,
 					SqlServer = new Securable<Artifact>(entity.SqlServer),
-					Status = new Artifact(675),
-					Template = entity.TemplateWorkspace == null ? null : new Securable<Artifact>(new Artifact(entity.TemplateWorkspace.ArtifactID)),
+					Status = entity.Status,
 					WorkspaceAdminGroup = entity.WorkspaceAdminGroup == null ? null : new Securable<Artifact>(entity.WorkspaceAdminGroup)
 				}
 			};

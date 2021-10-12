@@ -114,7 +114,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Updates the specified [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).
 		/// </summary>
-		/// <param name="entity">The entity to update.</param>
+		/// <param name="entity">The workspace to update.</param>
 		/// <example>
 		/// <code>
 		/// int workspaceId = 1234;

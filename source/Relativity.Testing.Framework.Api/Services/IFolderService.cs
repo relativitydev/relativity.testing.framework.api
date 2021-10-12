@@ -20,11 +20,12 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <example>
 		/// <code>
 		/// int workspaceArtifactId = 1015427;
-		/// QueryResult&lt;Artifact&gt; = _folderService.DeleteUnused(workspaceArtifactId);
+		/// QueryResult&lt;Artifact&gt; result = _folderService.DeleteUnused(workspaceArtifactId);
 		/// </code>
 		/// </example>
 		QueryResult<Artifact> DeleteUnused(int workspaceArtifactID);
-    
+
+		/// <summary>
 		/// Queries for unstructured list of [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html)s.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>

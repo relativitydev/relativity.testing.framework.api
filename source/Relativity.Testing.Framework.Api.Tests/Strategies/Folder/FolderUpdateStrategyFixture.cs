@@ -35,7 +35,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		};
 
 		private Mock<IRestService> _mockRestService;
-		private Mock<IFolderGetByIdStrategy> _mockFolderGetByIdStrategy;
+		private Mock<IFolderGetByIdStrategy> _mockGetByIdStrategy;
 		private Mock<IWorkspaceIdValidator> _mockWorkspaceIdValidator;
 		private Mock<IArtifactIdValidator> _mockArtifactIdValidator;
 		private IFolderUpdateStrategy _sut;
@@ -44,11 +44,11 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		public void SetUp()
 		{
 			_mockRestService = new Mock<IRestService>();
-			_mockFolderGetByIdStrategy = new Mock<IFolderGetByIdStrategy>();
+			_mockGetByIdStrategy = new Mock<IFolderGetByIdStrategy>();
 			_mockWorkspaceIdValidator = new Mock<IWorkspaceIdValidator>();
 			_mockArtifactIdValidator = new Mock<IArtifactIdValidator>();
 
-			_sut = new FolderUpdateStrategy(_mockRestService.Object, _mockFolderGetByIdStrategy.Object, _mockWorkspaceIdValidator.Object, _mockArtifactIdValidator.Object);
+			_sut = new FolderUpdateStrategy(_mockRestService.Object, _mockGetByIdStrategy.Object, _mockWorkspaceIdValidator.Object, _mockArtifactIdValidator.Object);
 		}
 
 		[Test]
@@ -56,7 +56,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			Folder folder = null;
 
-			Assert.Throws<ArgumentNullException>(() => _sut.Update(_VALID_WORKSPACE_ARTIFACT_ID, folder);
+			Assert.Throws<ArgumentNullException>(() => _sut.Update(_VALID_WORKSPACE_ARTIFACT_ID, folder));
 		}
 
 		[Test]
@@ -80,7 +80,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_sut.Update(_VALID_WORKSPACE_ARTIFACT_ID, _folderWithParent);
 
-			_mockRestService.Verify(restService => restService.Post<int>(_UPDATE_URL, It.Is<FolderRequest>(request => request.WorkspaceArtifactID == _VALID_WORKSPACE_ARTIFACT_ID && request.Model.Name == _folderWithParent.Model.Name && request.Model.ParentFolder.ArtifactID == _folderWithParent.ParentFolder.ArtifactID), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<int>(_UPDATE_URL, It.Is<FolderRequest>(request => request.WorkspaceArtifactID == _VALID_WORKSPACE_ARTIFACT_ID && request.Model.Name == _folderWithParent.Name && request.Model.ParentFolder.ArtifactID == _folderWithParent.ParentFolder.ArtifactID), 2, null), Times.Once);
 		}
 
 		[Test]

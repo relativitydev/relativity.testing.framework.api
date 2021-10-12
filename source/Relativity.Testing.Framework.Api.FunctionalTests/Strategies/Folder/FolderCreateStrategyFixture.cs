@@ -6,7 +6,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IFolderCreateStrategy))]
-	internal class FolderCreateStrategyFixture : ApiServiceTestFixture<IFolderGetByIdStrategy>
+	internal class FolderCreateStrategyFixture : ApiServiceTestFixture<IFolderCreateStrategy>
 	{
 		private IFolderCreateStrategy _sut;
 
@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Create_WithParentArtifactIDFilled_ReturnsExpectedFolder()
+		public void Create_WithParent_ReturnsExpectedFolder()
 		{
 			Folder parentFolder = null;
 			Arrange(() =>
@@ -43,7 +43,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Create_WithoutParentArtifactIDFilled_ReturnsExpectedFolder()
+		public void Create_WithoutParent_ReturnsExpectedFolder()
 		{
 			var toCreate = new Folder
 			{

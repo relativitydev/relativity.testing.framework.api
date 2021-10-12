@@ -77,7 +77,8 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <returns>The root [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) of the workspace.</returns>
 		/// <example>
 		/// <code>
-		/// Folder rootFolder = _folderService.Get()
+		/// int workspaceArtifactId = 1015427;
+		/// Folder rootFolder = _folderService.GetWorkspaceRootFolder(workspaceArtifactId);
 		/// </code>
 		/// </example>
 		Folder GetWorkspaceRootFolder(int workspaceArtifactID);

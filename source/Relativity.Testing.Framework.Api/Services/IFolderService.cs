@@ -112,7 +112,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// <summary>
 		/// Updates [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html).
 		/// </summary>
-		/// <remarks>If the requests contains an Artifact ID that differs from ID for the original parent folder,
+		/// <remarks>If the request contains an Artifact ID that differs from ID for the original parent folder,
 		/// the folder is moved to the parent folder specified in the request.
 		/// If a parent folder isn't specified, the folder is moved to the root folder of the workspace.</remarks>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>

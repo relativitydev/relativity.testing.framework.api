@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Models;
+﻿using System.Linq;
+using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
@@ -14,8 +15,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				AccessControlListIsInherited = dto.AccessControlListIsInherited,
 				HasChildren = dto.HasChildren,
 				Selected = dto.Selected,
-				Permissions = dto.Permissions.DoMappingToFolderPermission(),
-				Children = dto.Children,
+				Permissions = dto.Permissions?.DoMappingToFolderPermission(),
+				Children = dto.Children?.Select(childDto => childDto.DoMappingToFolder()).ToList(),
 				SystemCreatedOn = dto.SystemCreatedOn,
 				SystemLastModifiedOn = dto.SystemLastModifiedOn
 			};

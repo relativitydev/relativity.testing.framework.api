@@ -40,9 +40,9 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 					Edit = false,
 					Secure = false
 				},
-				Children = new List<Folder>
+				Children = new List<FolderDto>
 				{
-					new Folder
+					new FolderDto
 					{
 						Name = "Subfolder Name",
 						ArtifactID = subfolderArtifactID,

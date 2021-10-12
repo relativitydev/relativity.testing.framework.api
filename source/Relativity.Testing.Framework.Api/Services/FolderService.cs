@@ -18,13 +18,16 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IFolderGetSubfoldersStrategy _getSubfoldersStrategy;
 
+		private readonly IFolderGetExpandedNodesStrategy _getExpandedNodesStrategy;
+
 		public FolderService(
 			IFolderCreateStrategy createStrategy,
 			IFolderGetByIdStrategy getByIdStrategy,
 			IFolderDeleteUnusedStrategy deleteUnusedStrategy,
 			IFolderQueryStrategy queryStrategy,
 			IFolderGetWorkspaceRootFolderStrategy getWorkspaceRootFolderStrategy,
-			IFolderGetSubfoldersStrategy getSubfoldersStrategy)
+			IFolderGetSubfoldersStrategy getSubfoldersStrategy,
+			IFolderGetExpandedNodesStrategy getExpandedNodesStrategy)
 		{
 			_createStrategy = createStrategy;
 			_getByIdStrategy = getByIdStrategy;
@@ -32,6 +35,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_queryStrategy = queryStrategy;
 			_getWorkspaceRootFolderStrategy = getWorkspaceRootFolderStrategy;
 			_getSubfoldersStrategy = getSubfoldersStrategy;
+			_getExpandedNodesStrategy = getExpandedNodesStrategy;
 		}
 
 		public Folder Create(int workspaceArtifactID, Folder folder)
@@ -51,5 +55,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public List<Folder> GetSubfolders(int workspaceArtifactID, int parentFolderArtifactID)
 			=> _getSubfoldersStrategy.Get(workspaceArtifactID, parentFolderArtifactID);
+
+		public List<Folder> GetExpandedNodes(int workspaceArtifactID, List<int> expandedNodesArtifactIDs, int selectedFolderArtifactID = 0)
+			=> _getExpandedNodesStrategy.Get(workspaceArtifactID, expandedNodesArtifactIDs, selectedFolderArtifactID);
 	}
 }

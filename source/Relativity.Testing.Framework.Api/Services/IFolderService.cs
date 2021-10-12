@@ -136,5 +136,39 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		List<Folder> GetSubfolders(int workspaceArtifactID, int parentFolderArtifactID);
+
+		/// <summary>
+		/// Gets a folder structure that contains expanded [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) nodes,
+		/// or retrievs a folder structure that contains expanded [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) nodes, and Artifact ID of the folder currently selected by a user.
+		/// </summary>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <param name="expandedNodesArtifactIDs">List of Artifact IDs of specified folders that you want to retrieve information about.</param>
+		/// <param name="selectedFolderArtifactID">An optional field with ArtifactID of the folder that will be marked as selected.</param>
+		/// <returns>A list of children [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) for all expanded folders.</returns>
+		/// <example> This examples shows how to get folder structure with expanded folder with known ArtifactIDs and select one of them.
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 1015657;
+		/// int existingFolderToSelectArtifactID = 1015652;
+		/// List&lt;int&gt; expandedNodesArtifactIDs = new List&lt;int&gt;
+		/// {
+		/// 	1015657,
+		/// 	existingFolderToSelectArtifactID
+		/// }
+		/// List&lt;Folder&gt; expandedNodes = _folderService.GetExpandedNodes(workspaceArtifactId, expandedNodesArtifactIDs, existingFolderToSelectArtifactID);
+		/// </code>
+		/// </example>
+		/// <example> This examples shows how to get folder structure with expanded folder with known ArtifactIDs.
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// List&lt;int&gt; expandedNodesArtifactIDs = new List&lt;int&gt;
+		/// {
+		/// 	1015657,
+		/// 	1015623
+		/// }
+		/// List&lt;Folder&gt; expandedNodes = _folderService.GetExpandedNodes(workspaceArtifactId, expandedNodesArtifactIDs);
+		/// </code>
+		/// </example>
+		List<Folder> GetExpandedNodes(int workspaceArtifactID, List<int> expandedNodesArtifactIDs, int selectedFolderArtifactID = 0);
 	}
 }

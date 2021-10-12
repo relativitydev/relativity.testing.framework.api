@@ -80,7 +80,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_sut.Update(_VALID_WORKSPACE_ARTIFACT_ID, _folderWithParent);
 
-			_mockRestService.Verify(restService => restService.Post<int>(_UPDATE_URL, It.Is<FolderRequest>(request => request.WorkspaceArtifactID == _VALID_WORKSPACE_ARTIFACT_ID && request.Model.Name == _folderWithParent.Name && request.Model.ParentFolder.ArtifactID == _folderWithParent.ParentFolder.ArtifactID), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post(_UPDATE_URL, It.Is<FolderRequest>(request => request.WorkspaceArtifactID == _VALID_WORKSPACE_ARTIFACT_ID && request.Model.Name == _folderWithParent.Name && request.Model.ParentFolder.ArtifactID == _folderWithParent.ParentFolder.ArtifactID), null), Times.Once);
 		}
 
 		[Test]

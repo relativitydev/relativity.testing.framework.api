@@ -40,5 +40,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				Exists = dto.Exists
 			};
 		}
+
+		internal static FolderMoveResponse DoMappingToFolderMoveResponse(this FolderMoveResponseDto dto)
+		{
+			return new FolderMoveResponse
+			{
+				ProcessState = dto.ProcessState,
+				TotalOperations = dto.TotalOperations,
+				OperationsCompleted = dto.OperationsCompleted
+			};
+		}
 	}
 }

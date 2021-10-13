@@ -160,6 +160,23 @@ namespace Relativity.Testing.Framework.Api.Services
 		Folder Update(int workspaceArtifactID, Folder folder);
 
 		/// <summary>
+		///  Moves a [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) and its children, including subfolders and documents.
+		/// </summary>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <param name="folderArtifactID">The ArtifactID of the folder to move.</param>
+		/// <param name="destinationFolderArtifactID">The ArtifactID of the destination folder.</param>
+		/// <returns>[FolderMoveResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FolderMoveResponse.html) including information about the result of the move operation.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 10154324;
+		/// int existingDestinationFolderArtifactID = 101543223;
+		/// Folder updatedFolder = _folderService.Move(workspaceArtifactId, existingFolderArtifactID, existingDestinationFolderArtifactID);
+		/// </code>
+		/// </example>
+		FolderMoveResponse Move(int workspaceArtifactID, int folderArtifactID, int destinationFolderArtifactID);
+
+		/// <summary>
 		/// Gets the root [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) of the workspace.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>

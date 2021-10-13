@@ -9,7 +9,7 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IDeleteWorkspaceEntityByIdStrategy<Layout>))]
-	[VersionRange(">=12.0 <12.1")]
+	[VersionRange(">=12.0")]
 	internal class LayoutDeleteByIdStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<Layout>>
 	{
 		[Test]

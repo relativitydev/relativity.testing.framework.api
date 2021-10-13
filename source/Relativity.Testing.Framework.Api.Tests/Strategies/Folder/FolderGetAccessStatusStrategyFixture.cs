@@ -15,7 +15,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private const int _VALID_WORKSPACE_ARTIFACT_ID = 1;
 		private const int _VALID_FOLDER_ARTIFACT_ID = 2;
 
-		private const string _GET_URL = "Relativity.Services.Folder.IFolderModule/Folder%20Manager/DeleteUnusedFoldersAsync";
+		private const string _GET_URL = "Relativity.Services.Folder.IFolderModule/Folder%20Manager/GetAccessStatusAsync";
 
 		private FolderAccessStatus _expectedAccessStatus;
 
@@ -71,11 +71,11 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			_sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _VALID_FOLDER_ARTIFACT_ID);
 
-			_mockRestService.Verify(restService => restService.Post<QueryResult<Artifact>>(_GET_URL, It.IsAny<object>(), 2, null), Times.Once);
+			_mockRestService.Verify(restService => restService.Post<FolderAccessStatusDto>(_GET_URL, It.IsAny<object>(), 2, null), Times.Once);
 		}
 
 		[Test]
-		public void Delete_WithValidWorkspaceArtifactID_ReturnsExpectedResponse()
+		public void Get_WithValidWorkspaceArtifactID_ReturnsExpectedResponse()
 		{
 			FolderAccessStatus response = _sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _VALID_FOLDER_ARTIFACT_ID);
 

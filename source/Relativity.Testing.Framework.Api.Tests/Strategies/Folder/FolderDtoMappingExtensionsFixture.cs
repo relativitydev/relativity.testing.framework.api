@@ -117,5 +117,27 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			result.Should().BeEquivalentTo(expectedFolderPermission);
 		}
+
+		[Test]
+		public void DoMappingToFolderMoveResponse_MapsAllFolderMoveResponseProperties()
+		{
+			var dto = new FolderMoveResponseDto
+			{
+				ProcessState = "Test Process State",
+				TotalOperations = 666,
+				OperationsCompleted = 660
+			};
+
+			var expectedFolderStatus = new FolderMoveResponse
+			{
+				ProcessState = dto.ProcessState,
+				TotalOperations = dto.TotalOperations,
+				OperationsCompleted = dto.OperationsCompleted
+			};
+
+			FolderMoveResponse result = dto.DoMappingToFolderMoveResponse();
+
+			result.Should().BeEquivalentTo(expectedFolderStatus);
+		}
 	}
 }

@@ -110,6 +110,73 @@ namespace Relativity.Testing.Framework.Api.Services
 		QueryResult<NamedArtifact> Query(int workspaceArtifactID, Query query, int length = 0);
 
 		/// <summary>
+		/// Updates [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html).
+		/// </summary>
+		/// <remarks>If the request contains an Artifact ID that differs from ID for the original parent folder,
+		/// the folder is moved to the parent folder specified in the request.
+		/// If a parent folder isn't specified, the folder is moved to the root folder of the workspace.</remarks>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <param name="folder">[Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) to update.</param>
+		/// <returns>Updated [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html).</returns>
+		/// <example> This example shows how to update Name of the Folder.
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int folderArtifactID = 10154324;
+		/// int parentFolderArtifactID = 10154321;
+		/// Folder folderToUpdate = _folderService.Get(workspaceArtifactId, folderArtifactID, parentFolderArtifactID);
+		/// folderToUpdate.Name = "New Folder Name";
+		/// Folder updatedFolder = _folderService.Update(workspaceArtifactId, folderToUpdate);
+		/// </code>
+		/// </example>
+		/// <example> This example shows how to move folder to workspace root folder using Update method.
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 10154324;
+		/// Folder folderToUpdate = new Folder
+		/// {
+		/// 	Name = "Some Existing Folder Name",
+		/// 	ArtifactID = existingFolderArtifactID
+		/// };
+		/// Folder updatedFolder = _folderService.Update(workspaceArtifactId, folderToUpdate);
+		/// </code>
+		/// </example>
+		/// <example> This example shows how to move folder to some existing folder.
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 10154324;
+		/// int newParentFolderArtifactID = 101543223;
+		/// Folder folderToUpdate = new Folder
+		/// {
+		/// 	Name = "Some Existing Folder Name",
+		/// 	ArtifactID = existingFolderArtifactID,
+		/// 	ParentFolder = new NamedArtifact
+		/// 	{
+		/// 		ArtifactID = newParentFolderArtifactID,
+		/// 	}
+		/// };
+		/// Folder updatedFolder = _folderService.Update(workspaceArtifactId, folderToUpdate);
+		/// </code>
+		/// </example>
+		Folder Update(int workspaceArtifactID, Folder folder);
+
+		/// <summary>
+		///  Moves a [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) and its children, including subfolders and documents.
+		/// </summary>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <param name="folderArtifactID">The ArtifactID of the folder to move.</param>
+		/// <param name="destinationFolderArtifactID">The ArtifactID of the destination folder.</param>
+		/// <returns>[FolderMoveResponse](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FolderMoveResponse.html) including information about the result of the move operation.</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 10154324;
+		/// int existingDestinationFolderArtifactID = 101543223;
+		/// Folder updatedFolder = _folderService.Move(workspaceArtifactId, existingFolderArtifactID, existingDestinationFolderArtifactID);
+		/// </code>
+		/// </example>
+		FolderMoveResponse Move(int workspaceArtifactID, int folderArtifactID, int destinationFolderArtifactID);
+
+		/// <summary>
 		/// Gets the root [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) of the workspace.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
@@ -136,6 +203,21 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		List<Folder> GetSubfolders(int workspaceArtifactID, int parentFolderArtifactID);
+
+		/// <summary>
+		/// Gets information about the user‘s ability to access the folder.
+		/// </summary>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <param name="folderArtifactID">The ArtifactID of the Folder.</param>
+		/// <returns>The [FolderAccessStatus](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FolderAccessStatus.html).</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 1015657;
+		/// FolderAccessStatus folderAccessStatus = _folderService.GetAccessStatus(workspaceArtifactId, existingFolderArtifactID);
+		/// </code>
+		/// </example>
+		FolderAccessStatus GetAccessStatus(int workspaceArtifactID, int folderArtifactID);
 
 		/// <summary>
 		/// Gets a folder structure that contains expanded [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) nodes,

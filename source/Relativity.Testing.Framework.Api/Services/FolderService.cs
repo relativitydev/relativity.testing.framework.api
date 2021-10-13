@@ -14,6 +14,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IFolderQueryStrategy _queryStrategy;
 
+		private readonly IFolderUpdateStrategy _updateStrategy;
+
 		private readonly IFolderGetWorkspaceRootFolderStrategy _getWorkspaceRootFolderStrategy;
 
 		private readonly IFolderGetSubfoldersStrategy _getSubfoldersStrategy;
@@ -22,6 +24,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			IFolderCreateStrategy createStrategy,
 			IFolderGetByIdStrategy getByIdStrategy,
 			IFolderDeleteUnusedStrategy deleteUnusedStrategy,
+			IFolderUpdateStrategy updateStrategy,
 			IFolderQueryStrategy queryStrategy,
 			IFolderGetWorkspaceRootFolderStrategy getWorkspaceRootFolderStrategy,
 			IFolderGetSubfoldersStrategy getSubfoldersStrategy)
@@ -29,6 +32,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_createStrategy = createStrategy;
 			_getByIdStrategy = getByIdStrategy;
 			_deleteUnusedStrategy = deleteUnusedStrategy;
+			_updateStrategy = updateStrategy;
 			_queryStrategy = queryStrategy;
 			_getWorkspaceRootFolderStrategy = getWorkspaceRootFolderStrategy;
 			_getSubfoldersStrategy = getSubfoldersStrategy;
@@ -42,6 +46,9 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public QueryResult<Artifact> DeleteUnused(int workspaceArtifactID)
 			=> _deleteUnusedStrategy.Delete(workspaceArtifactID);
+
+		public Folder Update(int workspaceArtifactID, Folder folder)
+			=> _updateStrategy.Update(workspaceArtifactID, folder);
 
 		public QueryResult<NamedArtifact> Query(int workspaceArtifactID, Query query, int length = 0)
 			=> _queryStrategy.Query(workspaceArtifactID, query, length);

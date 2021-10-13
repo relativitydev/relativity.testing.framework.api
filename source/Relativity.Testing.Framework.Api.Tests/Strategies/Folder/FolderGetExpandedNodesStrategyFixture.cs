@@ -22,7 +22,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		private const int _VALID_FOLDER_ARTIFACT_ID = 2;
 		private const int _VALID_SELECTED_FOLDER_ARTIFACT_ID = 3;
 
-		private readonly List<int> _valid_folder_artifact_ids = new List<int>
+		private readonly List<int> _validFolderArtifactIDs = new List<int>
 		{
 			_VALID_FOLDER_ARTIFACT_ID,
 			_VALID_SELECTED_FOLDER_ARTIFACT_ID
@@ -86,9 +86,9 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		}
 
 		[Test]
-		public void Get_WithAnyParameters_CallsWorkspaceIdValidator()
+		public void Get_WithAnyParameters_CallsWorkspaceIDValidator()
 		{
-			_sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _valid_folder_artifact_ids, _VALID_FOLDER_ARTIFACT_ID);
+			_sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _validFolderArtifactIDs, _VALID_FOLDER_ARTIFACT_ID);
 
 			_mockWorkspaceIdValidator.Verify(validator => validator.Validate(_VALID_WORKSPACE_ARTIFACT_ID), Times.Once);
 		}
@@ -96,7 +96,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void Get_WithValidParameters_CallsRestService()
 		{
-			_sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _valid_folder_artifact_ids, _VALID_FOLDER_ARTIFACT_ID);
+			_sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _validFolderArtifactIDs, _VALID_FOLDER_ARTIFACT_ID);
 
 			_mockRestService.Verify(restService => restService.Post<List<FolderDto>>(_GET_URL, It.IsAny<object>(), 2, null), Times.Once);
 		}
@@ -106,7 +106,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			List<Folder> expectedFolders = GetExpectedFolders();
 
-			List<Folder> folders = _sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _valid_folder_artifact_ids, _VALID_FOLDER_ARTIFACT_ID);
+			List<Folder> folders = _sut.Get(_VALID_WORKSPACE_ARTIFACT_ID, _validFolderArtifactIDs, _VALID_FOLDER_ARTIFACT_ID);
 
 			folders.Should().NotBeNullOrEmpty();
 			folders.Should().BeEquivalentTo(expectedFolders);

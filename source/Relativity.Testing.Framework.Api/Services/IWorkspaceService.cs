@@ -120,7 +120,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// int workspaceId = 1234;
 		/// Workspace workspace = _workspaceService.Get(workspaceId);
 		/// workspace.Name = "updatedName";
-		/// _workspaceService.update(workspace);
+		/// _workspaceService.Update(workspace);
 		/// </code>
 		/// </example>
 		void Update(Workspace entity);

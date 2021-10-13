@@ -22,6 +22,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		private readonly IFolderGetSubfoldersStrategy _getSubfoldersStrategy;
 
+		private readonly IFolderGetAccessStatusStrategy _getAccessStatusStrategy;
+
 		public FolderService(
 			IFolderCreateStrategy createStrategy,
 			IFolderGetByIdStrategy getByIdStrategy,
@@ -30,7 +32,8 @@ namespace Relativity.Testing.Framework.Api.Services
 			IFolderMoveStrategy moveStrategy,
 			IFolderQueryStrategy queryStrategy,
 			IFolderGetWorkspaceRootFolderStrategy getWorkspaceRootFolderStrategy,
-			IFolderGetSubfoldersStrategy getSubfoldersStrategy)
+			IFolderGetSubfoldersStrategy getSubfoldersStrategy,
+			IFolderGetAccessStatusStrategy getAccessStatusStrategy)
 		{
 			_createStrategy = createStrategy;
 			_getByIdStrategy = getByIdStrategy;
@@ -40,6 +43,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_queryStrategy = queryStrategy;
 			_getWorkspaceRootFolderStrategy = getWorkspaceRootFolderStrategy;
 			_getSubfoldersStrategy = getSubfoldersStrategy;
+			_getAccessStatusStrategy = getAccessStatusStrategy;
 		}
 
 		public Folder Create(int workspaceArtifactID, Folder folder)
@@ -65,5 +69,8 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public List<Folder> GetSubfolders(int workspaceArtifactID, int parentFolderArtifactID)
 			=> _getSubfoldersStrategy.Get(workspaceArtifactID, parentFolderArtifactID);
+
+		public FolderAccessStatus GetAccessStatus(int workspaceArtifactID, int folderArtifactID)
+			=> _getAccessStatusStrategy.Get(workspaceArtifactID, folderArtifactID);
 	}
 }

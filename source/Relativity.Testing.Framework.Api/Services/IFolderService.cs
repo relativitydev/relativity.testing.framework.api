@@ -203,5 +203,20 @@ namespace Relativity.Testing.Framework.Api.Services
 		/// </code>
 		/// </example>
 		List<Folder> GetSubfolders(int workspaceArtifactID, int parentFolderArtifactID);
+
+		/// <summary>
+		/// Gets information about the user‘s ability to access the folder.
+		/// </summary>
+		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
+		/// <param name="folderArtifactID">The ArtifactID of the Folder.</param>
+		/// <returns>The [FolderAccessStatus](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FolderAccessStatus.html).</returns>
+		/// <example>
+		/// <code>
+		/// int workspaceArtifactId = 1015427;
+		/// int existingFolderArtifactID = 1015657;
+		/// FolderAccessStatus folderAccessStatus = _folderService.GetAccessStatus(workspaceArtifactId, existingFolderArtifactID);
+		/// </code>
+		/// </example>
+		FolderAccessStatus GetAccessStatus(int workspaceArtifactID, int folderArtifactID);
 	}
 }

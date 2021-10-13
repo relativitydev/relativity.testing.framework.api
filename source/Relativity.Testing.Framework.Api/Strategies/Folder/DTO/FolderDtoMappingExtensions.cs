@@ -32,6 +32,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			};
 		}
 
+		internal static FolderAccessStatus DoMappingToFolderAccessStatus(this FolderAccessStatusDto dto)
+		{
+			return new FolderAccessStatus
+			{
+				CanView = dto.CanView,
+				Exists = dto.Exists
+			};
+		}
+
 		internal static FolderMoveResponse DoMappingToFolderMoveResponse(this FolderMoveResponseDto dto)
 		{
 			return new FolderMoveResponse

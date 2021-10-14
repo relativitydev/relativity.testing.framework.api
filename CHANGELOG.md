@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- RTF library version. 
+- RTF library version updated to v7.0.0. 
 
 ### Added
 

@@ -220,8 +220,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		FolderAccessStatus GetAccessStatus(int workspaceArtifactID, int folderArtifactID);
 
 		/// <summary>
-		/// Gets a folder structure that contains expanded [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) nodes,
-		/// or gets a folder structure that contains expanded [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) nodes, and Artifact ID of the folder currently selected by a user.
+		/// Gets a folder structure that contains expanded [Folder](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html) nodes and can select folder by Artifact ID.
 		/// </summary>
 		/// <param name="workspaceArtifactID">The ArtifactID of the workspace.</param>
 		/// <param name="expandedNodesArtifactIDs">List of Artifact IDs of specified folders that you want to retrieve information about.</param>

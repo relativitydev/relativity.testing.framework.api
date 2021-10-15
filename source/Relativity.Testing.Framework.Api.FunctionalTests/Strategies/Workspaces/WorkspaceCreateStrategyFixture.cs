@@ -29,6 +29,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
+			result.SqlFullTextLanguage.Should().NotBeNull();
 
 			if (IsVersionComparable("<12.1"))
 			{

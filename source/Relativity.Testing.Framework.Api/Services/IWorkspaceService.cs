@@ -112,6 +112,20 @@ namespace Relativity.Testing.Framework.Api.Services
 		Workspace CreateWithDocs(Workspace entity, int numberOfDocuments = 10);
 
 		/// <summary>
+		/// Updates the specified [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html).
+		/// </summary>
+		/// <param name="entity">The workspace to update.</param>
+		/// <example>
+		/// <code>
+		/// int workspaceId = 1234;
+		/// Workspace workspace = _workspaceService.Get(workspaceId);
+		/// workspace.Name = "updatedName";
+		/// _workspaceService.Update(workspace);
+		/// </code>
+		/// </example>
+		void Update(Workspace entity);
+
+		/// <summary>
 		/// Delete the [Workspace](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html) by ArtifactID.
 		/// </summary>
 		/// <param name="id">The ArtifactID of the workspace to delete.</param>

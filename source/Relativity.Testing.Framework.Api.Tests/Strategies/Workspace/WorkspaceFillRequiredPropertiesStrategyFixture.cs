@@ -133,8 +133,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			_workspaceFillRequiredPropertiesStrategy.FillRequiredProperties(workspace);
 
-			workspace.SqlFullTextLanguage.Should().NotBeNull();
-			workspace.SqlFullTextLanguage.ArtifactID.Should().Be(1033);
+			workspace.SqlFullTextLanguage.Should().Be(SqlFullTextLanguage.English);
 		}
 
 		[Test]
@@ -142,16 +141,13 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			Workspace workspace = new Workspace
 			{
-				SqlFullTextLanguage = new NamedArtifact
-				{
-					ArtifactID = 1045
-				}
+				SqlFullTextLanguage = SqlFullTextLanguage.Polish
 			};
 
 			_workspaceFillRequiredPropertiesStrategy.FillRequiredProperties(workspace);
 
 			workspace.SqlFullTextLanguage.Should().NotBeNull();
-			workspace.SqlFullTextLanguage.ArtifactID.Should().Be(1045);
+			workspace.SqlFullTextLanguage.Should().Be(SqlFullTextLanguage.Polish);
 		}
 
 		[Test]

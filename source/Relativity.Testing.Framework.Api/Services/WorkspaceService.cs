@@ -10,6 +10,8 @@ namespace Relativity.Testing.Framework.Api.Services
 	{
 		private readonly ICreateStrategy<Workspace> _createStrategy;
 
+		private readonly IUpdateStrategy<Workspace> _updateStrategy;
+
 		private readonly IDeleteByIdStrategy<Workspace> _deleteByIdStrategy;
 
 		private readonly IGetByIdStrategy<Workspace> _getByIdStrategy;
@@ -26,6 +28,7 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public WorkspaceService(
 			ICreateStrategy<Workspace> createStrategy,
+			IUpdateStrategy<Workspace> updateStrategy,
 			IDeleteByIdStrategy<Workspace> deleteByIdStrategy,
 			IGetByIdStrategy<Workspace> getByIdStrategy,
 			IGetByNameStrategy<Workspace> getByNameStrategy,
@@ -35,6 +38,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			IDocumentsImportGeneratedStrategy documentsImportGeneratedStrategy)
 		{
 			_createStrategy = createStrategy;
+			_updateStrategy = updateStrategy;
 			_deleteByIdStrategy = deleteByIdStrategy;
 			_getByIdStrategy = getByIdStrategy;
 			_getByNameStrategy = getByNameStrategy;
@@ -46,6 +50,9 @@ namespace Relativity.Testing.Framework.Api.Services
 
 		public Workspace Create(Workspace entity)
 			=> _createStrategy.Create(entity);
+
+		public void Update(Workspace entity)
+			=> _updateStrategy.Update(entity);
 
 		public Workspace CreateWithDocs(Workspace entity, int numberOfDocuments = 10)
 		{

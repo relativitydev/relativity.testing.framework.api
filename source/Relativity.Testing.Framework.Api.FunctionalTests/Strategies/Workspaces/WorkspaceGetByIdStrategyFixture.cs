@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(WorkspaceGetByNameStrategy))]
+	[TestOf(typeof(IGetByIdStrategy<Workspace>))]
 	internal class WorkspaceGetByIdStrategyFixture : ApiServiceTestFixture<IGetByIdStrategy<Workspace>>
 	{
 		[Test]

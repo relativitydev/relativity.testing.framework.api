@@ -1,6 +1,6 @@
 ﻿namespace Relativity.Testing.Framework.Api.Strategies
 {
-	internal class ArrayResponse<TResult>
+	internal class ArrayResponseDto<TResult>
 	where TResult : class
 	{
 		public int TotalResultCount { get; set; }

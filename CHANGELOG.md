@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.10.0] - 2021-10-15
+
+### Changed
+
+- RTF library version updated to v7.0.0.
+
+### Added
+
+- Support for Workspace Manager V1 API methods: Create, Get, Update, Delete.
+
+## [5.9.0] - 2021-10-08
+
+### Added
+
+- ILibraryApplicationService.Get by Guid method for receiving LibraryApplication. 
+- ILibraryApplicationService.Get by ArtifactID method for receiving LibraryApplication.
+
+## [5.8.0] - 2021-10-05
+
+### Added
+
+- Support for User Manager V1 API methods: Create, Get, Update, Delete.
+- IUserService.GetGroups method for receiving Groups assigned to the specified User. 
+
 ## [5.7.0] - 2021-10-01
 
 ### Added

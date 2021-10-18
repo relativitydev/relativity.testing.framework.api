@@ -8,13 +8,13 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	[VersionRange("<12.1")]
-	internal class LibraryApplicationGetAllStrategyV2 : IGetAllStrategy<LibraryApplication>
+	internal class LibraryApplicationGetByIdStrategyPreOsier : IGetByIdStrategy<LibraryApplication>
 	{
 		private readonly IRestService _restService;
 
 		private readonly IJsonObjectMappingService _jsonObjectMappingService;
 
-		public LibraryApplicationGetAllStrategyV2(
+		public LibraryApplicationGetByIdStrategyPreOsier(
 			IRestService restService,
 			IJsonObjectMappingService jsonObjectMappingService)
 		{
@@ -22,13 +22,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_jsonObjectMappingService = jsonObjectMappingService;
 		}
 
-		public LibraryApplication[] GetAll()
+		public LibraryApplication Get(int id)
 		{
-			var responseObjects = _restService.Get<JObject[]>($"Relativity.LibraryApplications/workspace/-1/libraryapplications");
+			var responseObjects = _restService.Get<JObject[]>("Relativity.LibraryApplications/workspace/-1/libraryapplications");
 
 			var applications = _jsonObjectMappingService.MapTo<LibraryApplication>(responseObjects);
 
-			return applications.ToArray();
+			return applications.FirstOrDefault(x => x.ArtifactID == id);
 		}
 	}
 }

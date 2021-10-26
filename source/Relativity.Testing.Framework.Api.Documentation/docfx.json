@@ -39,7 +39,8 @@
     "noLangKeyword": false,
     "postProcessors": [],
     "template": [
-      "default"
+      "default",
+	  "templates/relativity"
     ],
     "xref": [
       "https://relativitydev.github.io/relativity.testing.framework/xrefmap.yml"

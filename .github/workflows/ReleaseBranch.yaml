@@ -172,7 +172,7 @@ jobs:
       if: success() || failure()
       with:
         name: Sundrop Functional Tests
-        path: 'Artifacts/Logs/*.TestResults.trx'
+        path: 'Artifacts/Logs/aio-sundrop-ea/*.TestResults.trx'
         reporter: dotnet-trx
 
     - name: Upload Logs
@@ -227,7 +227,7 @@ jobs:
       if: success() || failure()
       with:
         name: ParirieSmoke Functional Tests
-        path: 'Artifacts/Logs/*.TestResults.trx'
+        path: 'Artifacts/Logs/aio-prairiesmoke-1/*.TestResults.trx'
         reporter: dotnet-trx
 
     - name: Upload Logs
@@ -282,7 +282,7 @@ jobs:
       if: success() || failure()
       with:
         name: Osier Functional Tests
-        path: 'Artifacts/Logs/*.TestResults.trx'
+        path: 'Artifacts/Logs/aio-osier-2/*.TestResults.trx'
         reporter: dotnet-trx
 
     - name: Upload Logs

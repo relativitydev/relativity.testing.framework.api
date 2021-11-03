@@ -65,6 +65,7 @@ dotnet test ..\Tests\Relativity.Testing.Framework.Api.FunctionalTests.dll `
   --nologo `
   --ResultsDirectory $ResultsPath `
   "--logger:nunit;LogFilePath=$LogFilePath" `
+  '--logger:trx;LogFileName="Relativity.Testing.Framework.Api.Tests.NETFramework462.TestResults.trx"' `
   -s $TestSettings
 
 Remove-Instance -ApiUrl "$HopperAPIURL" `

@@ -46,7 +46,15 @@ jobs:
       run: dotnet build "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo
 
     - name: Test
-      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
+      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"' '--logger:trx;LogFileName="Relativity.Testing.Framework.Api.Tests.NETFramework462.TestResults.trx"'
+
+    - name: UnitTest Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: Unit Tests
+        path: 'Artifacts/Logs/*.TestResults.trx'
+        reporter: dotnet-trx
 
     - name: Upload UnitTest Logs
       uses: actions/upload-artifact@v2
@@ -118,6 +126,14 @@ jobs:
           -ProductName ${{ github.event.repository.name }} `
           -SUTVersion aio-sundrop-ea
 
+    - name: Sundrop Test Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: Sundrop Functional Tests
+        path: 'Artifacts/Logs/*.TestResults.trx'
+        reporter: dotnet-trx
+
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: failure()
@@ -165,6 +181,14 @@ jobs:
           -ProductName ${{ github.event.repository.name }} `
           -SUTVersion aio-prairiesmoke-1
 
+    - name: ParirieSmoke Test Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: ParirieSmoke Functional Tests
+        path: 'Artifacts/Logs/*.TestResults.trx'
+        reporter: dotnet-trx
+
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: failure()
@@ -211,6 +235,14 @@ jobs:
           -BuildOwner ${{ github.actor }} `
           -ProductName ${{ github.event.repository.name }} `
           -SUTVersion aio-osier-2
+
+    - name: Osier Test Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: Osier Functional Tests
+        path: 'Artifacts/Logs/*.TestResults.trx'
+        reporter: dotnet-trx
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2

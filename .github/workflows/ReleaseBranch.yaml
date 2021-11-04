@@ -50,7 +50,7 @@ jobs:
       run: dotnet build "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo
 
     - name: Test
-      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"'
+      run: dotnet test "${{ env.Solution }}" --filter "TestCategory!=FunctionalTests" --configuration "${{ env.Configuration }}" --nologo --no-build /p:collectcoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Artifacts/Logs/coverage '--logger:nunit;LogFilePath="../../Artifacts/Logs/{assembly}.{framework}.TestResults.xml"' '--logger:trx;LogFileName="Relativity.Testing.Framework.Api.Tests.NETFramework462.TestResults.trx"'
 
     - name: Sign
       env:
@@ -92,6 +92,14 @@ jobs:
     - name: Package
       run: dotnet pack "${{ env.Solution }}" --configuration "${{ env.Configuration }}" --nologo --no-build
 
+    - name: UnitTest Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: Unit Tests
+        path: 'Artifacts/Logs/*.TestResults.trx'
+        reporter: dotnet-trx
+
     - name: Upload UnitTest Logs
       uses: actions/upload-artifact@v2
       if: failure()
@@ -124,6 +132,9 @@ jobs:
     needs: Build
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -159,6 +170,14 @@ jobs:
           -ProductName ${{ github.event.repository.name }} `
           -SUTVersion aio-sundrop-ea
 
+    - name: ParirieSmoke Test Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: ParirieSmoke Test Report
+        path: 'Artifacts/Logs/aio-sundrop-ea/*.TestResults.trx'
+        reporter: dotnet-trx
+
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: failure()
@@ -171,6 +190,9 @@ jobs:
     needs: Build
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -206,6 +228,14 @@ jobs:
           -ProductName ${{ github.event.repository.name }} `
           -SUTVersion aio-prairiesmoke-1
 
+    - name: ParirieSmoke Test Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: ParirieSmoke Test Report
+        path: 'Artifacts/Logs/aio-prairiesmoke-1/*.TestResults.trx'
+        reporter: dotnet-trx
+
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: failure()
@@ -218,6 +248,9 @@ jobs:
     needs: Build
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -252,6 +285,14 @@ jobs:
           -BuildOwner ${{ github.actor }} `
           -ProductName ${{ github.event.repository.name }} `
           -SUTVersion aio-osier-2
+
+    - name: Osier Test Report
+      uses: dorny/test-reporter@v1.5.0
+      if: success() || failure()
+      with:
+        name: Osier Test Report
+        path: 'Artifacts/Logs/aio-osier-2/*.TestResults.trx'
+        reporter: dotnet-trx
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2

@@ -22,11 +22,11 @@ jobs:
         name: Sundrop Test Report
         path: 'Artifacts/Logs/aio-sundrop-ea/*.TestResults.trx'
         reporter: dotnet-trx
-    - name: ParirieSmoke Test Report
+    - name: PrairieSmoke Test Report
       uses: dorny/test-reporter@v1.5.0
       with:
-        artifact: ParirieSmokeLogs
-        name: ParirieSmoke Test Report
+        artifact: PrairieSmokeLogs
+        name: PrairieSmoke Test Report
         path: 'Artifacts/Logs/aio-prairiesmoke-1/*.TestResults.trx'
         reporter: dotnet-trx
     - name: Osier Test Report

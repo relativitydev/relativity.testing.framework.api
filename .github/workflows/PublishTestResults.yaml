@@ -20,19 +20,19 @@ jobs:
       with:
         artifact: SundropLogs
         name: Sundrop Test Report
-        path: 'Artifacts/Logs/aio-sundrop-ea/*.TestResults.trx'
+        path: 'aio-sundrop-ea/*.TestResults.trx'
         reporter: dotnet-trx
     - name: PrairieSmoke Test Report
       uses: dorny/test-reporter@v1.5.0
       with:
         artifact: PrairieSmokeLogs
         name: PrairieSmoke Test Report
-        path: 'Artifacts/Logs/aio-prairiesmoke-1/*.TestResults.trx'
+        path: 'aio-prairiesmoke-1/*.TestResults.trx'
         reporter: dotnet-trx
     - name: Osier Test Report
       uses: dorny/test-reporter@v1.5.0
       with:
         artifact: OsierLogs
         name: Osier Test Report
-        path: 'Artifacts/Logs/aio-osier-2/*.TestResults.trx'
+        path: 'aio-osier-2/*.TestResults.trx'
         reporter: dotnet-trx

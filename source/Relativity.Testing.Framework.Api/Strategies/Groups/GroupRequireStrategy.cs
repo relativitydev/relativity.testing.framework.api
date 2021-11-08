@@ -39,10 +39,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					entity.ArtifactID = existedEntity.ArtifactID;
 					entity = _updateStrategy.Update(entity);
 				}
-				else
-				{
-					entity = _createStrategy.Create(entity);
-				}
+			}
+
+			if (entity.ArtifactID == 0)
+			{
+				entity = _createStrategy.Create(entity);
 			}
 
 			return entity;

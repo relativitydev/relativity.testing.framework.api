@@ -19,13 +19,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Require_WithNull()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				Sut.Require(null));
-		}
-
-		[Test]
 		public void Require_Existing()
 		{
 			Group existingGroup = null;

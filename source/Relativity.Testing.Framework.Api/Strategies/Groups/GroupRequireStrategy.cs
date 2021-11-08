@@ -28,7 +28,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 			else if (entity.ArtifactID != 0)
 			{
-				return _updateStrategy.Update(entity);
+				entity = _updateStrategy.Update(entity);
 			}
 			else if (entity.Name != null)
 			{
@@ -37,12 +37,15 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				if (existedEntity != null)
 				{
 					entity.ArtifactID = existedEntity.ArtifactID;
-
-					return _updateStrategy.Update(entity);
+					entity = _updateStrategy.Update(entity);
+				}
+				else
+				{
+					entity = _createStrategy.Create(entity);
 				}
 			}
 
-			return _createStrategy.Create(entity);
+			return entity;
 		}
 	}
 }

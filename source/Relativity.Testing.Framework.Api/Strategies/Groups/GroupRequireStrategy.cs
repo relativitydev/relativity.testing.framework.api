@@ -26,28 +26,23 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			{
 				throw new ArgumentNullException(nameof(entity));
 			}
-
-			if (entity.ArtifactID != 0)
+			else if (entity.ArtifactID != 0)
 			{
 				return _updateStrategy.Update(entity);
 			}
-
-			if (entity.Name != null)
+			else if (entity.Name != null)
 			{
-				UpdateByName(entity);
+				Group existedEntity = _getByNameStrategy.Get(entity.Name);
+
+				if (existedEntity != null)
+				{
+					entity.ArtifactID = existedEntity.ArtifactID;
+
+					return _updateStrategy.Update(entity);
+				}
 			}
 
 			return _createStrategy.Create(entity);
-		}
-
-		private void UpdateByName(Group entity)
-		{
-			Group existedEntity = _getByNameStrategy.Get(entity.Name);
-			if (existedEntity != null)
-			{
-				entity.ArtifactID = existedEntity.ArtifactID;
-				_updateStrategy.Update(entity);
-			}
 		}
 	}
 }

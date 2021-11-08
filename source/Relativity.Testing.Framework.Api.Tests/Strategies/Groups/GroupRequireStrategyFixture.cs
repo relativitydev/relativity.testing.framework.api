@@ -41,6 +41,8 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		[Test]
 		public void Require_FoundByArtifactID_OnlyCallsUpdateStrategy()
 		{
+			_mockGroupUpdateStrategy.Setup(groupUpdateService => groupUpdateService.Update(It.IsAny<Group>())).Returns(_groupWithArtifactID);
+
 			_sut.Require(_groupWithArtifactID);
 
 			_mockGroupUpdateStrategy.Verify(groupUpdateService => groupUpdateService.Update(It.IsAny<Group>()), Times.Once);
@@ -57,6 +59,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 			};
 
 			_mockGetByNameStrategy.Setup(groupGetStrategy => groupGetStrategy.Get(It.IsAny<string>())).Returns(_groupWithArtifactID);
+			_mockGroupUpdateStrategy.Setup(groupUpdateService => groupUpdateService.Update(It.IsAny<Group>())).Returns(_groupWithArtifactID);
 
 			_sut.Require(groupWithNoArtifactID);
 

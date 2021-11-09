@@ -9,6 +9,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IRequireWorkspaceEntityStrategy<Layout>))]
 	[VersionRange(">=12.0")]
+	[Ignore("https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutRequireStrategyFixture : ApiServiceTestFixture<IRequireWorkspaceEntityStrategy<Layout>>
 	{
 		[Test]

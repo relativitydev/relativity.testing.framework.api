@@ -11,6 +11,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ILayoutAddFieldsStrategy))]
 	[VersionRange(">=12.0")]
+	[Ignore("https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutAddFieldsStrategy : ApiServiceTestFixture<ILayoutAddFieldsStrategy>
 	{
 		private ILayoutGetCategoriesStrategy _layoutGetCategoriesStrategy;

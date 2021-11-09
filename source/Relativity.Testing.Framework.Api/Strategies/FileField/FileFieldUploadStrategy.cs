@@ -5,7 +5,6 @@ using Relativity.Testing.Framework.Api.Attributes;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
-using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
@@ -13,12 +12,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class FileFieldUploadStrategy : IFileFieldUploadStrategy
 	{
 		private readonly IRestService _restService;
-		private readonly IObjectService _objectService;
 
-		public FileFieldUploadStrategy(IRestService restService, IObjectService objectService)
+		public FileFieldUploadStrategy(IRestService restService)
 		{
 			_restService = restService;
-			_objectService = objectService;
 		}
 
 		public FileFieldDTO UploadFile(int workspaceId, FileFieldDTO fileFieldDto)
@@ -36,14 +33,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					fileFieldDto.UploadedFileGuid = response.UploadedFileGuid;
 					fileFieldDto.FileName = response.FileName;
 
-					UpdateObjectWithFileField(fileFieldDto);
+					UpdateObjectWithFileField(workspaceId, fileFieldDto);
 
 					return fileFieldDto;
 				}
 			}
 		}
 
-		private void UpdateObjectWithFileField(FileFieldDTO fileFieldDto)
+		private void UpdateObjectWithFileField(int workspaceId, FileFieldDTO fileFieldDto)
 		{
 			var saveDto = new
 			{
@@ -61,7 +58,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				}
 			};
 
-			_restService.Post<NamedArtifact>($"Relativity.Objects/workspace/-1/object/update", saveDto);
+			_restService.Post<NamedArtifact>($"Relativity.Objects/workspace/{workspaceId}/object/update", saveDto);
 		}
 	}
 }

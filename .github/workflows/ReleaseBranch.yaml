@@ -262,7 +262,7 @@ jobs:
 
   Publish:
     runs-on: windows-latest
-    needs: [Build, FunctionalTestSundrop, FunctionalTestPrairieSmoke, FunctionalTestOsier]
+    needs: [Build, FunctionalTestSundrop, FunctionalTestTigerLily, FunctionalTestOsier]
 
     steps:
     - name: Checkout

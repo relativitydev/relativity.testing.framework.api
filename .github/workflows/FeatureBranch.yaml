@@ -116,7 +116,7 @@ jobs:
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
           -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-sundrop-ea
+          -SUTVersion aio-sundrop-1
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2
@@ -125,7 +125,7 @@ jobs:
         name: SundropLogs
         path: Artifacts/Logs/
 
-  FunctionalTestPrairieSmoke:
+  FunctionalTestTigerLily:
     runs-on: windows-latest
     needs: Build
 
@@ -147,7 +147,7 @@ jobs:
         name: Tests
         path: Tests
 
-    - name: Functional Test PrairieSmoke
+    - name: Functional Test TigerLily
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
@@ -163,13 +163,13 @@ jobs:
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
           -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-prairiesmoke-1
+          -SUTVersion aio-tigerlily-ea
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
-        name: PrairieSmokeLogs
+        name: TigerLilyLogs
         path: Artifacts/Logs/
 
   FunctionalTestOsier:

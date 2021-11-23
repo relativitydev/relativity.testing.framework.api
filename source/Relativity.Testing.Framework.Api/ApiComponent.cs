@@ -250,7 +250,7 @@ namespace Relativity.Testing.Framework.Api
 			IVersionRangeMatchService versionRangeMatchService = container.Resolve<IVersionRangeMatchService>();
 
 			bool performRelativityVersionCheck = container.Resolve<IConfigurationService>().
-				GetValueOrDefault(PerformRelativityVersionCheckConfigurationKey, true);
+				GetValueOrDefault(PerformRelativityVersionCheckConfigurationKey, false);
 
 			if (performRelativityVersionCheck)
 			{

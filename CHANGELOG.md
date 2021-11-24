@@ -5,11 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0] - 2021-11-18
+## [6.0.0] - 2021-11-24
 
 ### Changed
 
-- Relativity.DataExchange.Client.SDK updated to v1.15.27.
+- Relativity.DataExchange.Client.SDK updated to v1.15.29.
 
 ## [5.11.2] - 2021-11-09
 

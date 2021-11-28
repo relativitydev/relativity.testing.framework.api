@@ -23,7 +23,7 @@
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="3.0.107" />
-    <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.10.10" />
+    <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.15.30" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.0.0.9566">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

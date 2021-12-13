@@ -3,6 +3,7 @@ using System.Linq;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Castle.Windsor.Proxy;
 using Polly;
 using Polly.Retry;
 using Relativity.Testing.Framework.Api.Attributes;
@@ -60,6 +61,8 @@ namespace Relativity.Testing.Framework.Api
 
 		void IWindsorInstaller.Install(IWindsorContainer container, IConfigurationStore store)
 		{
+			container.Kernel.ProxyFactory = new DefaultProxyFactory(disableSignedModule: true);
+
 			container.Register(
 				Component.For<ApplicationInsightsEventInterceptor>().
 				LifestyleSingleton());

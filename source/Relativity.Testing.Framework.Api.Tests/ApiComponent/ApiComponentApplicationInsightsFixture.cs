@@ -1,4 +1,5 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Moq;
@@ -28,12 +29,14 @@ namespace Relativity.Testing.Framework.Api.Tests
 		private Mock<IRelativityFacade> _mockFacade;
 		private Mock<IConfigurationStore> _mockConfigurationStore;
 		private Mock<IApplicationInsightsTelemetryClient> _mockApplicationInsightsClient;
+		private Mock<IKernel> _mockKernel;
 
 		[SetUp]
 		public void SetUp()
 		{
 			_mockFacade = new Mock<IRelativityFacade>();
 			_mockContainer = new Mock<IWindsorContainer>();
+			_mockKernel = new Mock<IKernel>();
 			_mockConfigurationStore = new Mock<IConfigurationStore>();
 			_mockConfigurationService = new Mock<IConfigurationService>();
 			_mockApplicationInsightsClient = new Mock<IApplicationInsightsTelemetryClient>();
@@ -44,6 +47,10 @@ namespace Relativity.Testing.Framework.Api.Tests
 			_mockFacade
 				.Setup(x => x.Resolve<IApplicationInsightsTelemetryClient>())
 				.Returns(_mockApplicationInsightsClient.Object);
+
+			_mockContainer
+				.Setup(x => x.Kernel)
+				.Returns(_mockKernel.Object);
 
 			_mockContainer
 				.Setup(x => x.ResolveAll<IConfigurationService>())

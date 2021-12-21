@@ -91,20 +91,19 @@ jobs:
         $Duration = (New-TimeSpan -Start $Merge -End $Now).Seconds
         Write-Output $Merge $Now $Duration
 
-        $BuildEventPayload = 'matt'
-        # $BuildEventPayload = '{
-        #     "event": true,
-        #     "name": "buildtest",
-        #     "r1.team.id": "PTCI-1599",
-        #     "job.id": ${{ github.run_id }},
-        #     "job.sub_id": ${{ github.run_attempt }},
-        #     "job.result": ${{ job.status }},
-        #     "job.duration": $Duration,
-        #     "job.name": ${{ github.context.payload.repository.full_name }},
-        #     "job.url": "${{ github.context.payload.repository.svn_url }}/runs/${{ github.context.runId }}/attempts/${{ github.context.runNumber }}",
-        #     "application.name": ${{ github.context.payload.repository.name }},
-        #     "type": "devops_metrics"
-        # }'
+        $BuildEventPayload = '{
+            "event": true,
+            "name": "buildtest",
+            "r1.team.id": "PTCI-1599",
+            "job.id": ${{ github.run_id }},
+            "job.sub_id": ${{ github.run_attempt }},
+            "job.result": ${{ job.status }},
+            "job.duration": $Duration,
+            "job.name": ${{ github.context.payload.repository.full_name }},
+            "job.url": "${{ github.context.payload.repository.svn_url }}/runs/${{ github.context.runId }}/attempts/${{ github.context.runNumber }}",
+            "application.name": ${{ github.context.payload.repository.name }},
+            "type": "devops_metrics"
+        }'
 
         Invoke-RestMethod -Method POST `
             -Uri "https://services.ctus.reg.k8s.r1.kcura.com/maas/webhook/generic/v1?token=$OtelToken" `

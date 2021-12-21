@@ -353,7 +353,7 @@ jobs:
 
         $BuildEventPayload = "{
             `"event`": true,
-            `"name`": `"buildtest`",
+            `"name`": `"build`",
             `"r1.team.id`": `"PTCI-1599`",
             `"job.id`": `"${{ github.run_id }}`",
             `"job.sub_id`": `"${{ github.run_attempt }}`",

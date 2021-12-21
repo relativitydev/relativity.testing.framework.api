@@ -64,53 +64,6 @@ jobs:
         name: NuGetPackages
         path: Artifacts/NuGet/
 
-    - name: Get OTEL Token
-      id: GetOtelToken
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      run: |
-        $Body = @{
-          grant_type = "client_credentials"
-          client_id = "${{ env.ClientId }}"
-          client_secret = "${{ env.CLIENTSECRET }}"
-          scope = "https://vault.azure.net/.default"
-        }
-
-        $AccessToken = (Invoke-RestMethod -Method POST `
-          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
-          -Body $Body).access_token
-
-        $OtelToken = (Invoke-RestMethod -Method GET `
-          -Uri "https://testengineering-github.vault.azure.net/secrets/OtelWebhookTokenForTestEngineering?api-version=7.1" `
-          -Headers @{ Authorization="Bearer $AccessToken" }).value
-
-        $Merge = git show -s --format=%ci "${{ github.sha }}"
-        $Now = Get-Date
-        $Duration = (New-TimeSpan -Start $Merge -End $Now).Seconds
-
-        # Of 'myorg/reponame' take reponame
-        $ProductName = ("${{ github.repository }}").split("/")[1]
-
-        $BuildEventPayload = "{
-            `"event`": true,
-            `"name`": `"buildtest`",
-            `"r1.team.id`": `"PTCI-1599`",
-            `"job.id`": `"${{ github.run_id }}`",
-            `"job.sub_id`": `"${{ github.run_attempt }}`",
-            `"job.result`": `"${{ job.status }}`",
-            `"job.duration`": $Duration,
-            `"job.name`": `"${{ github.repository }}`",
-            `"job.url`": `"${{ github.server_url }}/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}`",
-            `"application.name`": `"$ProductName`",
-            `"type`": `"devops_metrics`"
-        }"
-
-        Invoke-RestMethod -Method POST `
-            -Uri "https://services.ctus.reg.k8s.r1.kcura.com/maas/webhook/generic/v1?token=$OtelToken" `
-            -Body $BuildEventPayload
-
     - name: Upload Tests
       uses: actions/upload-artifact@v2
       with:

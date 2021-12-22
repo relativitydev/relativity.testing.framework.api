@@ -360,7 +360,7 @@ jobs:
             `"job.result`": `"${{ job.status }}`",
             `"job.duration`": $Duration,
             `"job.name`": `"${{ github.repository }}`",
-            `"job.url`": `"${{ github.server_url }}/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}`",
+            `"job.url`": `"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}`",
             `"application.name`": `"$ProductName`",
             `"type`": `"devops_metrics`"
         }"

@@ -28,11 +28,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var dto = new
 			{
-				userIds = new[] { userId },
-				groupId
+				users = new[] { new { ArtifactID = userId } }
 			};
 
-			_restService.Post("Relativity.Services.GroupUserManager.IGroupUserModule/Group User Manager/RemoveUsersFromGroupAsync", dto);
+			_restService.Delete(string.Format("Relativity-Identity/v1/groups/{0}/members", groupId), dto);
 		}
 	}
 }

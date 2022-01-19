@@ -32,11 +32,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			var dto = new
 			{
-				userIds = new[] { userId },
-				groupId
+				users = new[] { new { ArtifactID = userId } }
 			};
 
-			_restService.Post("Relativity.Services.GroupUserManager.IGroupUserModule/Group User Manager/AddUsersToGroupAsync", dto);
+			_restService.Post(string.Format("Relativity-Identity/v1/groups/{0}/members", groupId), dto);
 
 			_waitUserAddedToGroupStrategy.Wait(-1, groupId, userId);
 		}

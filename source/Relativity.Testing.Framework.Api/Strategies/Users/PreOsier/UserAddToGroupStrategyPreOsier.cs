@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies.Users.PreOsier
 {
-	[ApplicationVersionRange("A0B32359-6540-425C-934C-12C0FD684809", "<15.4.2")]
+	[ApplicationVersionRange("A0B32359-6540-425C-934C-12C0FD684809", "<14.0.0")]
 	internal class UserAddToGroupStrategyPreOsier : UserAddToGroupStrategy
 	{
 		private const string _endpoint = "Relativity.Services.GroupUserManager.IGroupUserModule/Group User Manager/AddUsersToGroupAsync";

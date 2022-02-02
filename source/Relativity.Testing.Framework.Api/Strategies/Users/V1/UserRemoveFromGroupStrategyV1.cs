@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	[ApplicationVersionRange("A0B32359-6540-425C-934C-12C0FD684809", ">=13.3.0")]
+	[ApplicationVersionRange("A0B32359-6540-425C-934C-12C0FD684809", ">=15.6.0")]
 	internal class UserRemoveFromGroupStrategyV1 : UserRemoveFromGroupStrategy
 	{
 		private const string _endpoint = "Relativity-Identity/v1/groups/{0}/members";

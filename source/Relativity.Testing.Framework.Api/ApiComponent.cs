@@ -130,7 +130,7 @@ namespace Relativity.Testing.Framework.Api
 
 		private void RegisterServicesAndNonGenericStrategies(IWindsorContainer container)
 		{
-			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService) || type.Name == nameof(ApiRelativityInstanceVersionResolveService), typeof(LoggingInterceptor));
+			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService) || type.Name == nameof(ApiRelativityInstanceVersionResolveService) || type.Name == nameof(RelativityApplicationVersionResolveService), typeof(LoggingInterceptor));
 
 			var commonInterceptorsWithoutRetry = _commonInterceptors.Where(interceptor => interceptor != typeof(RetryInterceptor)).ToArray();
 

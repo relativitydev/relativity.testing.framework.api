@@ -232,7 +232,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			ResourcePool pool;
 			if (resourcePool == null)
 			{
-				pool = _objectService.Query<ResourcePool>().First();
+				ObjectQuery<ResourcePool> queryResults = _objectService.Query<ResourcePool>();
+				pool = queryResults.FirstOrDefault(x => x.Name == "RelativityOne Pool");
+				if (pool == null)
+				{
+					pool = queryResults.First();
+				}
 			}
 			else if (resourcePool.ArtifactID > 0)
 			{

@@ -18,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		{
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_userGetByIdStrategy = getByIdStrategy;
-			_deletionTimeout = timeSpan == default ? TimeSpan.FromSeconds(30) : timeSpan;
+			_deletionTimeout = timeSpan == default ? TimeSpan.FromSeconds(300) : timeSpan;
 		}
 
 		public void Wait(int artifactId)

@@ -30,6 +30,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			UserEnsureExistsByIdStrategy.EnsureExists(userId);
 			GroupEnsureExistsByIdStrategy.EnsureExists(groupId);
 			DoAddToGroup(userId, groupId);
+			WaitUserAddedToGroupStrategy.Wait(-1, groupId, userId);
 		}
 
 		protected abstract void DoAddToGroup(int userId, int groupId);

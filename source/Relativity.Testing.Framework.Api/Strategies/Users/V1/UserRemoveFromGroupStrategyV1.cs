@@ -1,4 +1,5 @@
-﻿using Relativity.Testing.Framework.Api.Services;
+﻿using System.Threading;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Versioning;
 
@@ -12,8 +13,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		public UserRemoveFromGroupStrategyV1(
 			IRestService restService,
 			IEnsureExistsByIdStrategy<User> userEnsureExistsByIdStrategy,
-			IEnsureExistsByIdStrategy<Group> groupEnsureExistsByIdStrategy)
-			: base(restService, userEnsureExistsByIdStrategy, groupEnsureExistsByIdStrategy)
+			IEnsureExistsByIdStrategy<Group> groupEnsureExistsByIdStrategy,
+			IWaitUserRemoveFromGroupStrategy waitUserRemoveFromGroup)
+			: base(restService, userEnsureExistsByIdStrategy, groupEnsureExistsByIdStrategy, waitUserRemoveFromGroup)
 		{
 		}
 

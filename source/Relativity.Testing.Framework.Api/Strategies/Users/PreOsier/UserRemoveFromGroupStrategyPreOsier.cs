@@ -12,8 +12,9 @@ namespace Relativity.Testing.Framework.Api.Strategies.Users.PreOsier
 		public UserRemoveFromGroupStrategyPreOsier(
 			IRestService restService,
 			IEnsureExistsByIdStrategy<User> userEnsureExistsByIdStrategy,
-			IEnsureExistsByIdStrategy<Group> groupEnsureExistsByIdStrategy)
-			: base(restService, userEnsureExistsByIdStrategy, groupEnsureExistsByIdStrategy)
+			IEnsureExistsByIdStrategy<Group> groupEnsureExistsByIdStrategy,
+			IWaitUserRemoveFromGroupStrategy waitUserRemoveFromGroup)
+			: base(restService, userEnsureExistsByIdStrategy, groupEnsureExistsByIdStrategy, waitUserRemoveFromGroup)
 		{
 		}
 

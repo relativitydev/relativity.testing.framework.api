@@ -1,4 +1,7 @@
-﻿using System.Threading;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
 using Castle.Core;
 using Relativity.Testing.Framework.Api.Interceptors;
 
@@ -8,11 +11,18 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class WaitUserAddedToGroupStrategy : IWaitUserAddedToGroupStrategy
 	{
 		private readonly IInstanceSettingGetByNameAndSectionStrategy _instanceSettingGetByNameAndSectionStrategy;
+		private readonly IUserGetGroupsStrategy _userGetGroupsStrategy;
+		private readonly TimeSpan _waitTimeout;
+		private readonly TimeSpan _pollingDelay;
 
 		public WaitUserAddedToGroupStrategy(
-			IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy)
+			IInstanceSettingGetByNameAndSectionStrategy instanceSettingGetByNameAndSectionStrategy,
+			IUserGetGroupsStrategy userGetGroupsStrategy)
 		{
 			_instanceSettingGetByNameAndSectionStrategy = instanceSettingGetByNameAndSectionStrategy;
+			_userGetGroupsStrategy = userGetGroupsStrategy;
+			_waitTimeout = TimeSpan.FromSeconds(300);
+			_pollingDelay = TimeSpan.FromSeconds(5);
 		}
 
 		public void Wait(int workspaceId, int groupId, int userArtifactId)
@@ -21,6 +31,21 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			if (lockboxEnabled)
 			{
 				Thread.Sleep(30000);
+			}
+
+			var watch = new Stopwatch();
+			bool keepPolling = true;
+			while (keepPolling && watch.Elapsed < _waitTimeout)
+			{
+				var groups = _userGetGroupsStrategy.GetGroups(userArtifactId);
+				if (groups.Any(g => g.ArtifactID == groupId))
+				{
+					keepPolling = false;
+				}
+				else
+				{
+					Thread.Sleep(_pollingDelay);
+				}
 			}
 		}
 	}

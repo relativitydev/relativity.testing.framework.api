@@ -27,8 +27,6 @@ namespace Relativity.Testing.Framework.Api.Strategies.Users.PreOsier
 			};
 
 			RestService.Post(_endpoint, dto);
-
-			WaitUserAddedToGroupStrategy.Wait(-1, groupId, userId);
 		}
 	}
 }

@@ -10,16 +10,16 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 	[TestOf(typeof(IWaitUserDeletedStrategy))]
 	public class WaitUserDeletedStrategyFixture
 	{
-		private Mock<IUserGetByEmailStrategy> _mockUserGetByEmailStrategy;
-		private Mock<IGetByIdStrategy<User>> _mockGetByIdStrategy;
+		private Mock<IExistsByIdStrategy<User>> _mockExistsByIdStrategy;
+		private Mock<IUserExistsByEmailStrategy> _mockExistsByEmailStrategy;
 		private IWaitUserDeletedStrategy _waitUserDeleted;
 
 		[OneTimeSetUp]
 		public void SetUp()
 		{
-			_mockUserGetByEmailStrategy = new Mock<IUserGetByEmailStrategy>();
-			_mockGetByIdStrategy = new Mock<IGetByIdStrategy<User>>();
-			_waitUserDeleted = new WaitUserDeletedStrategy(_mockUserGetByEmailStrategy.Object, _mockGetByIdStrategy.Object, TimeSpan.FromSeconds(1));
+			_mockExistsByIdStrategy = new Mock<IExistsByIdStrategy<User>>();
+			_mockExistsByEmailStrategy = new Mock<IUserExistsByEmailStrategy>();
+			_waitUserDeleted = new WaitUserDeletedStrategy(_mockExistsByIdStrategy.Object, _mockExistsByEmailStrategy.Object, TimeSpan.FromSeconds(1));
 		}
 
 		[Test]
@@ -27,12 +27,12 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			int userID = 12345;
 
-			_mockGetByIdStrategy.SetupSequence(x => x.Get(userID))
-				.Returns(new User())
-				.Returns(null);
+			_mockExistsByIdStrategy.SetupSequence(x => x.Exists(userID))
+				.Returns(true)
+				.Returns(false);
 
 			_waitUserDeleted.Wait(userID);
-			_mockGetByIdStrategy.Verify(mock => mock.Get(userID), Times.Exactly(2));
+			_mockExistsByIdStrategy.Verify(mock => mock.Exists(userID), Times.Exactly(2));
 		}
 
 		[Test]
@@ -40,25 +40,25 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 		{
 			string email = "AUser@test.com";
 
-			_mockUserGetByEmailStrategy.SetupSequence(x => x.Get(email))
-				.Returns(new User())
-				.Returns(null);
+			_mockExistsByEmailStrategy.SetupSequence(x => x.Exists(email))
+				.Returns(true)
+				.Returns(false);
 
 			_waitUserDeleted.Wait(email);
-			_mockUserGetByEmailStrategy.Verify(mock => mock.Get(email), Times.Exactly(2));
+			_mockExistsByEmailStrategy.Verify(mock => mock.Exists(email), Times.Exactly(2));
 		}
 
 		[Test]
 		public void Wait_ByArtifactID_IfTakesTooLong_ShouldTimeoutAndThrowException()
 		{
-			_mockGetByIdStrategy.Setup(x => x.Get(It.IsAny<int>())).Returns(new User());
+			_mockExistsByIdStrategy.Setup(x => x.Exists(It.IsAny<int>())).Returns(true);
 			Assert.Throws<InvalidOperationException>(() => _waitUserDeleted.Wait(1));
 		}
 
 		[Test]
 		public void Wait_ByEmail_IfTakesTooLong_ShouldTimeoutAndThrowException()
 		{
-			_mockUserGetByEmailStrategy.Setup(x => x.Get(It.IsAny<string>())).Returns(new User());
+			_mockExistsByEmailStrategy.Setup(x => x.Exists(It.IsAny<string>())).Returns(true);
 			Assert.Throws<InvalidOperationException>(() => _waitUserDeleted.Wait("a"));
 		}
 	}

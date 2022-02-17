@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using Castle.Core;
 using Relativity.Testing.Framework.Api.Interceptors;
+using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -10,14 +11,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	[Interceptor(typeof(ApplicationInsightsMetricInterceptor))]
 	internal class WaitUserDeletedStrategy : IWaitUserDeletedStrategy
 	{
-		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
-		private readonly IGetByIdStrategy<User> _userGetByIdStrategy;
+		private readonly IExistsByIdStrategy<User> _existsByIdStrategy;
+		private readonly IUserExistsByEmailStrategy _existsByEmailStrategy;
 		private readonly TimeSpan _deletionTimeout;
 
-		public WaitUserDeletedStrategy(IUserGetByEmailStrategy userGetByEmailStrategy, IGetByIdStrategy<User> getByIdStrategy, TimeSpan timeSpan = default)
+		public WaitUserDeletedStrategy(IExistsByIdStrategy<User> existsByIdStrategy, IUserExistsByEmailStrategy existsByEmailStrategy, TimeSpan timeSpan = default)
 		{
-			_userGetByEmailStrategy = userGetByEmailStrategy;
-			_userGetByIdStrategy = getByIdStrategy;
+			_existsByIdStrategy = existsByIdStrategy;
+			_existsByEmailStrategy = existsByEmailStrategy;
 			_deletionTimeout = timeSpan == default ? TimeSpan.FromSeconds(300) : timeSpan;
 		}
 
@@ -28,7 +29,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			do
 			{
-				keepPolling = _userGetByIdStrategy.Get(artifactId) != null;
+				keepPolling = _existsByIdStrategy.Exists(artifactId);
 
 				if (keepPolling)
 				{
@@ -52,7 +53,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			do
 			{
-				keepPolling = _userGetByEmailStrategy.Get(email) != null;
+				keepPolling = _existsByEmailStrategy.Exists(email);
 
 				if (keepPolling)
 				{

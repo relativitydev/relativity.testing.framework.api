@@ -27,12 +27,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public void Wait(int workspaceId, int groupId, int userArtifactId)
 		{
-			var lockboxEnabled = _instanceSettingGetByNameAndSectionStrategy.Get("EnableCustomerLockbox", "Relativity.Core").Value.Equals("True");
-			if (lockboxEnabled)
-			{
-				Thread.Sleep(30000);
-			}
-
 			var watch = new Stopwatch();
 			bool keepPolling = true;
 			while (keepPolling && watch.Elapsed < _waitTimeout)
@@ -47,6 +41,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					Thread.Sleep(_pollingDelay);
 				}
 			}
+
+			var lockboxEnabled = _instanceSettingGetByNameAndSectionStrategy.Get("EnableCustomerLockbox", "Relativity.Core").Value.Equals("True");
+			if (lockboxEnabled)
+			{
+				Thread.Sleep(30000);
+			}
+
 		}
 	}
 }

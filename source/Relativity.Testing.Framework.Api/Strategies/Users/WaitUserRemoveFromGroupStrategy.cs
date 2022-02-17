@@ -21,14 +21,14 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			_pollingDelay = TimeSpan.FromSeconds(5);
 		}
 
-		public void Wait(int groupId, int userArtifactId)
+		public void Wait(int groupID, int userArtifactID)
 		{
 			var watch = new Stopwatch();
 			bool keepPolling = true;
 			while (keepPolling && watch.Elapsed < _waitTimeout)
 			{
-				var groups = _userGetGroupsStrategy.GetGroups(userArtifactId);
-				if (groups.FirstOrDefault(g => g.ArtifactID == groupId) == null)
+				var groups = _userGetGroupsStrategy.GetGroups(userArtifactID);
+				if (groups.FirstOrDefault(g => g.ArtifactID == groupID) == null)
 				{
 					keepPolling = false;
 				}

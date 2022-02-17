@@ -47,7 +47,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			{
 				Thread.Sleep(30000);
 			}
-
 		}
 	}
 }

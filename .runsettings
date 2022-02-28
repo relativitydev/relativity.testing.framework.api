@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>
+        <Parameter name="ServerBindingType" value="https" />
+        <Parameter name="SqlServer" value="p-dv-vm-bob3map\EDDSINSTANCE001" />
+        <Parameter name="SqlUsername" value="eddsdbo" />
+        <Parameter name="SqlPassword" value="eddsdboPassword123" />
+        <Parameter name="RelativityHostAddress" value="p-dv-vm-bob3map" />
+        <Parameter name="AdminUsername" value="relativity.admin@kcura.com" />
+        <Parameter name="AdminPassword" value="Test1234!" />
+        <Parameter name="RestServicesHostAddress" value="p-dv-vm-bob3map" />
+        <Parameter name="RsapiServicesHostAddress" value="p-dv-vm-bob3map" />
+        <Parameter name="WebApiHostAddress" value="p-dv-vm-bob3map" />
+        <Parameter name="PerformRelativityVersionCheck" value="false" />
+    </TestRunParameters>
+</RunSettings>

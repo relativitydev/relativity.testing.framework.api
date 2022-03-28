@@ -7,6 +7,8 @@ env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   HOPPER_API_URL: "https://api.hopper.relativity.com/"
   HOPPER_USER: "testengineering@relativity.com"
+  ENG_INS_SUBSCRIPTION_ID: 4e132d5c-b463-498b-a459-e8b5be5c5c63
+  TENANT_ID: 8afe73f9-0d93-4821-a898-c5c2dc320953
 
 on:
   push:
@@ -79,7 +81,7 @@ jobs:
         $CodeSigningCertificate = [System.Convert]::FromBase64String($CodeSigningCertificateBase64String)
 
         $Certificate = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CodeSigningCertificate, $CodeSigningCertificatePassword, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::EphemeralKeySet)
-        
+
         $Signature = Get-ChildItem .\source\Relativity.Testing.Framework.Api\bin\ -recurse -Include Relativity.Testing.Framework.Api.dll | `
           Set-AuthenticodeSignature -Certificate $Certificate -TimestampServer "http://timestamp.digicert.com"
 
@@ -320,60 +322,51 @@ jobs:
         $Package = (get-childitem ./Packages).FullName
         dotnet nuget push $Package -s "https://api.nuget.org/v3/index.json" -k $NuGetApiKey -n true --skip-duplicate
 
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: '{"clientId":"${{ secrets.CLIENTID }}","clientSecret":"${{ secrets.CLIENTSECRET }}","subscriptionId":"${{ env.ENG_INS_SUBSCRIPTION_ID }}","tenantId":"${{ env.TENANT_ID }}"}'
+
+    - name: Get Secrets from DevOpsMetricsKeyVault
+      uses: Azure/get-keyvault-secrets@v1
+      with:
+        keyvault: "DevOpsMetricsKeyVault"
+        secrets: "github-access-token"
+      id: getSecretAction
+
+    - name: Checkout GitHub Action Repo
+      uses: actions/checkout@v2.3.4
+      with:
+        repository: relativityone/SendBuildEvent
+        token: ${{ steps.getSecretAction.outputs.github-access-token }}
+        path: .github/actions/private-actions
+
+    - name: Get Secrets from TestEngineering-GitHub
+      uses: Azure/get-keyvault-secrets@v1
+      with:
+        keyvault: "TestEngineering-GitHub"
+        secrets: "OtelWebhookTokenForTestEngineering"
+      id: getSecretAction2
+
+    - name: Get Commit Time Stamp
+      uses: actions/github-script@0.3.0
+      id: getCommitTimeStamp
+      with:
+        github-token: ${{ steps.getSecretAction.outputs.github-access-token }}
+        script: |
+          const commit_details = await github.git.getCommit({owner: "${{ github.repository_owner }}", repo: "${{ github.event.repository.name }}", commit_sha: "${{ github.sha }}" });
+          return commit_details.data.author.date
+
     - name: SendBuildEvent
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      run: |
-        $Body = @{
-          grant_type = "client_credentials"
-          client_id = "${{ env.ClientId }}"
-          client_secret = "${{ env.CLIENTSECRET }}"
-          scope = "https://vault.azure.net/.default"
-        }
-
-        $AccessToken = (Invoke-RestMethod -Method POST `
-          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
-          -Body $Body).access_token
-
-        $OtelToken = (Invoke-RestMethod -Method GET `
-          -Uri "https://testengineering-github.vault.azure.net/secrets/OtelWebhookTokenForTestEngineering?api-version=7.1" `
-          -Headers @{ Authorization="Bearer $AccessToken" }).value
-
-        $eventBlob = ${{ github.event.payload }}
-        Write-Output ($eventBlob | Format-List | Out-String)
-
-        $Merge = git show -s --format=%ci "${{ github.sha }}"
-        $Now = Get-Date
-        $Duration = (New-TimeSpan -Start $Merge -End $Now).Seconds
-
-        # Of 'myorg/reponame' take reponame
-        $ProductName = ("${{ github.repository }}").split("/")[1]
-
-        $BuildEventPayload = "{
-            `"event`": true,
-            `"name`": `"build`",
-            `"r1.team.id`": `"PTCI-1599`",
-            `"job.id`": `"${{ github.run_id }}`",
-            `"job.sub_id`": `"${{ github.run_attempt }}`",
-            `"job.result`": `"${{ job.status }}`",
-            `"job.duration`": $Duration,
-            `"job.name`": `"${{ github.repository }}`",
-            `"job.url`": `"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}`",
-            `"repository.branch`": `"${{ github.head_ref }}`",
-            `"application.name`": `"$ProductName`",
-            `"type`": `"devops_metrics`",
-            `"repository.name`": `"${{ github.repository }}`",
-            `"repository.commit`": `"${{ github.sha }}`",
-            `"service.name`": `"relativity-testing-framework`",
-            `"service.version`": `"${{ steps.SetVersion.outputs.VERSION }}`"
-        }"
-
-        Write-Output $BuildEventPayload
-        Invoke-RestMethod -Method POST `
-            -Uri "https://services.ctus.reg.k8s.r1.kcura.com/maas/webhook/generic/v1?token=$OtelToken" `
-            -Body $BuildEventPayload
+      uses: ./.github/actions/private-actions
+      with:
+        otel-token: ${{ steps.getSecretAction2.outputs.OtelWebhookTokenForTestEngineering }}
+        build-status: ${{ job.status }}
+        service-name: "devops-metrics-collector-repo"
+        branch-name: ${{ github.ref_name }}
+        commit-hash: ${{ github.sha }}
+        commit-timestamp: ${{ steps.getCommitTimeStamp.outputs.result }}
+        application-version: ${{ steps.SetVersion.outputs.VERSION }}
 
     - name: Create tag
       uses: actions/github-script@v4

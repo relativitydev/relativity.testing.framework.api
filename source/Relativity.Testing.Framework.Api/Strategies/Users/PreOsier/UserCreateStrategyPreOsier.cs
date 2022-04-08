@@ -14,8 +14,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			IRequireStrategy<Client> clientRequireStrategy,
 			IChoiceResolveByObjectFieldAndNameStrategy choiceResolveByObjectFieldAndNameStrategy,
 			IUserAddToGroupStrategy userAddToGroupStrategy,
+			IUserSetPasswordStrategy userSetPasswordStrategy,
 			IUserGetByEmailStrategy userGetByEmailStrategy)
-			: base(restService, clientRequireStrategy, choiceResolveByObjectFieldAndNameStrategy, userAddToGroupStrategy)
+			: base(restService, clientRequireStrategy, choiceResolveByObjectFieldAndNameStrategy, userAddToGroupStrategy, userSetPasswordStrategy)
 		{
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 		}

@@ -19,6 +19,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly IWaitUserDeletedStrategy _waitUserDeletedStrategy;
 		private readonly IDeleteByIdStrategy<User> _userDeleteByIdStrategy;
 		private readonly IGetAllByNamesStrategy<Group> _groupGetAllByNamesStrategy;
+		private readonly IUserSetPasswordStrategy _userSetPasswordStrategy;
 		private readonly IObjectService _objectService;
 		private static readonly List<AccountEntry> _standardAccountEntries = new List<AccountEntry>();
 		private static readonly object _acquireLock = new object();
@@ -31,6 +32,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			IWaitUserDeletedStrategy waitUserDeletedStrategy,
 			IDeleteByIdStrategy<User> userDeleteByIdStrategy,
 			IGetAllByNamesStrategy<Group> groupGetAllByNamesStrategy,
+			IUserSetPasswordStrategy userSetPasswordStrategy,
 			IObjectService objectService)
 		{
 			_logService = logService;
@@ -40,6 +42,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_userDeleteByIdStrategy = userDeleteByIdStrategy;
 			_groupGetAllByNamesStrategy = groupGetAllByNamesStrategy;
+			_userSetPasswordStrategy = userSetPasswordStrategy;
 			_objectService = objectService;
 		}
 
@@ -149,11 +152,16 @@ Also check for any errors in Relativity that might be relevant.", ex);
 
 			_logService.Trace($"Starting: Check {accountInfo.Email} user exists");
 
-			bool existsUser = _userExistsByEmailStrategy.Exists(accountInfo.Email);
+			User existingUser = _userGetByEmailStrategy.Get(accountInfo.Email);
 
-			_logService.Trace($"Finished: Check {accountInfo.Email} user exists: {existsUser}");
+			_logService.Trace($"Finished: Check {accountInfo.Email} user exists: {existingUser?.ArtifactID}");
 
-			if (!existsUser)
+			if (existingUser != null)
+			{
+				ResetPassword(existingUser.ArtifactID, accountInfo);
+				_logService.Trace($"Reset password for existing user {accountInfo.Email}");
+			}
+			else
 			{
 				CreateNewUser(accountInfo);
 			}
@@ -208,6 +216,11 @@ Also check for any errors in Relativity that might be relevant.", ex);
 			}
 
 			_logService.Trace($"Finished: Create {accountInfo.Email} user");
+		}
+
+		private void ResetPassword(int userArtifactID, AccountBaseInfo accountInfo)
+		{
+			_userSetPasswordStrategy.SetPassword(userArtifactID, accountInfo.Password);
 		}
 
 		public void ReleaseAccount(string email)

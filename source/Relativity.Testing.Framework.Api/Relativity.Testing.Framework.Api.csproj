@@ -24,7 +24,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="Polly" Version="5.7.0" />
-    <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.17.7">
+    <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.17.2">
       <PrivateAssets>analyzers</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Relativity.Testing.Framework" Version="7.2.1" />

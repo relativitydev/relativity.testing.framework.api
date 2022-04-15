@@ -8,7 +8,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class WaitDeleteWorkspaceStrategy : IWaitDeleteWorkspaceStrategy
 	{
 		private readonly IRelativityFacade _relativityFacade;
-		private readonly TimeSpan _deletionTimeout = TimeSpan.FromSeconds(15);
+		private readonly TimeSpan _deletionTimeout = TimeSpan.FromMinutes(3);
 
 		public WaitDeleteWorkspaceStrategy(IRelativityFacade relativityFacade)
 		{

@@ -11,11 +11,13 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected UserUpdateStrategy(
 			IRestService restService,
 			IChoiceResolveByObjectFieldAndNameStrategy choiceResolveByObjectFieldAndNameStrategy,
-			IUserAddToGroupStrategy userAddToGroupStrategy)
+			IUserAddToGroupStrategy userAddToGroupStrategy,
+			IUserSetPasswordStrategy userSetPasswordStrategy)
 		{
 			RestService = restService;
 			ChoiceResolveByObjectFieldAndNameStrategy = choiceResolveByObjectFieldAndNameStrategy;
 			UserAddToGroupStrategy = userAddToGroupStrategy;
+			UserSetPasswordStrategy = userSetPasswordStrategy;
 		}
 
 		protected IRestService RestService { get; }
@@ -23,6 +25,8 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		protected IChoiceResolveByObjectFieldAndNameStrategy ChoiceResolveByObjectFieldAndNameStrategy { get; }
 
 		protected IUserAddToGroupStrategy UserAddToGroupStrategy { get; }
+
+		protected IUserSetPasswordStrategy UserSetPasswordStrategy { get; }
 
 		protected abstract User UpdateUser(User entity);
 
@@ -37,9 +41,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 			if (entity.Password != null)
 			{
-				AddPasswordProvider(createdUser.ArtifactID);
-
-				SetPassword(createdUser.ArtifactID, entity.Password);
+				UserSetPasswordStrategy.SetPassword(createdUser.ArtifactID, entity.Password);
 			}
 
 			entity.Groups.RemoveAll(x => createdUser.Groups.Any(y => y.ArtifactID == x.ArtifactID));
@@ -51,35 +53,6 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					UserAddToGroupStrategy.AddToGroup(createdUser.ArtifactID, group.ArtifactID);
 				}
 			}
-		}
-
-		private void AddPasswordProvider(int userArtifactId)
-		{
-			var passwordProviderProfile = new
-			{
-				Profile = new
-				{
-					userId = userArtifactId,
-					Password = new
-					{
-						IsEnabled = true,
-						MustResetPasswordOnNextLogin = false
-					}
-				}
-			};
-
-			RestService.Post("Relativity.Services.Security.ISecurityModule/Login Profile Manager/SaveLoginProfileAsync", passwordProviderProfile);
-		}
-
-		private void SetPassword(int userArtifactId, string passwordToSet)
-		{
-			var password = new
-			{
-				UserId = userArtifactId,
-				Password = passwordToSet
-			};
-
-			RestService.Post("Relativity.Services.Security.ISecurityModule/Login Profile Manager/SetPasswordAsync", password);
 		}
 	}
 }

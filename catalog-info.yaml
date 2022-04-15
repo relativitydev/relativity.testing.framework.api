@@ -4,7 +4,7 @@ metadata:
   name: relativity-testing-framework-api-repo
   description: Relativity.Testing.Framework.Api handles the interactions with the Relativity APIs.
   annotations:
-    github.com/project-slug: relativityone/relativity.testing.framework.api
+    github.com/project-slug: relativitydev/relativity.testing.framework.api
 spec:
   type: repository
   lifecycle: production

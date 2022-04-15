@@ -19,6 +19,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Services
 		private readonly Mock<IUserGetByEmailStrategy> _mockUserGetByEmailStrategy = new Mock<IUserGetByEmailStrategy>();
 		private readonly Mock<IDeleteByIdStrategy<User>> _mockUserDeleteByIdStrategy = new Mock<IDeleteByIdStrategy<User>>();
 		private readonly Mock<IGetAllByNamesStrategy<Group>> _mockGroupGetAllByNamesStrategy = new Mock<IGetAllByNamesStrategy<Group>>();
+		private readonly Mock<IUserSetPasswordStrategy> _mockUserSetPasswordStrategy = new Mock<IUserSetPasswordStrategy>();
 		private readonly Mock<IObjectService> _mockObjectService = new Mock<IObjectService>();
 		private readonly Mock<IExistsByIdStrategy<User>> _mockExistsByIdStrategy = new Mock<IExistsByIdStrategy<User>>();
 
@@ -41,6 +42,7 @@ namespace Relativity.Testing.Framework.Api.Tests.Services
 				_waitUserDeletedStrategy,
 				_mockUserDeleteByIdStrategy.Object,
 				_mockGroupGetAllByNamesStrategy.Object,
+				_mockUserSetPasswordStrategy.Object,
 				_mockObjectService.Object);
 		}
 

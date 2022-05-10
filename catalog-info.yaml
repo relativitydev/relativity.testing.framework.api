@@ -19,7 +19,7 @@ metadata:
   name: relativity-testing-framework-api-nuget-package
   description: Relativity.Testing.Framework.Api NuGet package is consumed by projects to simplify writing functional tests that require a Relativity Instance. 
   annotations:
-    github.com/project-slug: relativitydev/relativity.testing.framework
+    github.com/project-slug: relativitydev/relativity.testing.framework.api
   links:
     - url: https://relativity.jfrog.io/ui/packages/nuget:%2F%2FRelativity.Testing.Framework.Api?name=relativity.testing.framework.api&type=packages
       title: Artifactory

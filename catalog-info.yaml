@@ -17,6 +17,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: relativity-testing-framework-api-nuget-package
+  title: Relativity.Testing.Framework.Api
   description: Relativity.Testing.Framework.Api NuGet package is consumed by projects to simplify writing functional tests that require a Relativity Instance. 
   annotations:
     github.com/project-slug: relativitydev/relativity.testing.framework.api

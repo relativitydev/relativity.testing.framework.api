@@ -26,5 +26,23 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			Assert.That(() => httpService.Get<string>("/relativity.rest/api/Relativity.Services.InstanceDetails.IInstanceDetailsModule/InstanceDetailsService/GetKeplerStatusAsync"), Throws.Nothing);
 		}
+
+		[Test]
+		public void SetPassword_ToSameValue_DoesNotThrow()
+		{
+			User existingEntity = null;
+			const string password = "Test1234!";
+
+			Arrange(x => x.Create(new User { Password = password }).Pick(out existingEntity));
+
+			Assert.That(() => Sut.SetPassword(existingEntity.ArtifactID, password), Throws.Nothing);
+
+			var httpService = new HttpService(
+				$"{RelativityInstanceConfiguration.ServerBindingType}://{RelativityInstanceConfiguration.RestServicesHostAddress}",
+				existingEntity.EmailAddress,
+				password);
+
+			Assert.That(() => httpService.Get<string>("/relativity.rest/api/Relativity.Services.InstanceDetails.IInstanceDetailsModule/InstanceDetailsService/GetKeplerStatusAsync"), Throws.Nothing);
+		}
 	}
 }

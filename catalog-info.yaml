@@ -10,6 +10,8 @@ spec:
   lifecycle: production
   owner: ptci-1599
   system: relativity-testing-framework
+  dependsOn:
+    - relativity-testing-framework-repo
 
 ---
 

@@ -22,7 +22,7 @@ metadata:
   annotations:
     github.com/project-slug: relativitydev/relativity.testing.framework.api
   tags:
-   - nuget
+    - nuget
   links:
     - url: https://relativity.jfrog.io/ui/packages/nuget:%2F%2FRelativity.Testing.Framework.Api?name=relativity.testing.framework.api&type=packages
       title: Artifactory

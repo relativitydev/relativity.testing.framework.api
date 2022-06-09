@@ -1,0 +1,701 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IViewService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IViewService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IViewService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IViewService" data-uid="Relativity.Testing.Framework.Api.Services.IViewService" class="text-break">Interface IViewService
+  </h1>
+  <div class="markdown level0 summary"><p>Represent the API view service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IViewService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_examples"><strong>Examples</strong></h5>
+  <pre><code>IViewService _viewService = relativityFacade.Resolve&lt;IViewService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_Create_System_Int32_View_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.Create(System.Int32%2CView)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L35">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_Create_System_Int32_View_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Create(System.Int32,View)">Create(Int32, View)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">View Create(int workspaceArtifactID, View view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to create the view,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><span class="parametername">view</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_Create_System_Int32_View__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService>().Get&lt;FixedLengthTextField>(workspaceArtifactID, &quot;Control Number&quot;);
+View viewtoCreate = new View
+{
+	Name = &quot;Test View Name&quot;,
+	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+}
+View createdView = _viewService.Create(workspaceArtifactID, viewtoCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_Exists_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.Exists(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L154">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_Exists_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Exists*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_Exists_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Exists(System.Int32,System.Int32)">Exists(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> with the specified ArtifactID exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Exists(int workspaceArtifactID, int viewArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to check if a view exists,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">viewArtifactID</span></td>
+        <td><p>The ArtifactID of the view.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if a view exists; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_Exists_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int viewArtifactID = 1024345;
+bool viewExists = _viewService.Exists(workspaceArtifactID, viewArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L66">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> by the specified ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">View Get(int workspaceArtifactID, int viewArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to get the view,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">viewArtifactID</span></td>
+        <td><p>The ArtifactID of the view.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int viewArtifactID = 1024345;
+View view = _viewService.Get(workspaceArtifactID, viewArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_Get_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.Get(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L82">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_Get_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Get(System.Int32,System.String)">Get(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> by the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">View Get(int workspaceArtifactID, string viewName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to get the view,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewName</span></td>
+        <td><p>The name of the view.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_Get_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int viewName = &quot;Test View Name&quot;;
+View view = _viewService.Get(workspaceArtifactID, viewName);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_GetAll_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.GetAll(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L50">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_GetAll_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.GetAll(System.Int32)">GetAll(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets all <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a>s in workspace.
+Returns not all fields for faster response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">View[] GetAll(int workspaceArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to get the view,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">View</span>[]</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_GetAll_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+View[] views = _viewService.GetAll(workspaceArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_GetEligibleObjectTypes_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.GetEligibleObjectTypes(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L188">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_GetEligibleObjectTypes_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.GetEligibleObjectTypes*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_GetEligibleObjectTypes_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.GetEligibleObjectTypes(System.Int32)">GetEligibleObjectTypes(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the list of of object types in a specific workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;NamedArtifact&gt; GetEligibleObjectTypes(int workspaceId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">NamedArtifact</span>&gt;</td>
+        <td><p>The list of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html">NamedArtifact</a> objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_GetEligibleObjectTypes_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int existingViewArtifactID = 1024345;
+var eligibleObjectTypes = _viewService.GetEligibleObjectTypes(workspaceArtifactID);
+View view = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
+view.ObjectType = eligibleObjectTypes[0];
+_viewService.Update(workspaceArtifactID, view);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_GetViewOwners_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.GetViewOwners(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L206">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_GetViewOwners_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.GetViewOwners*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_GetViewOwners_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.GetViewOwners(System.Int32)">GetViewOwners(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of users eligible to be view owners in a specific workspace.
+You can then use this list to assign owners to a view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NamedArtifact[] GetViewOwners(int workspaceId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">NamedArtifact</span>[]</td>
+        <td><p>An array of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html">NamedArtifact</a> objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_GetViewOwners_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int existingViewArtifactID = 1024345;
+var owners = _viewService.GetViewOwners(workspaceArtifactID);
+View view = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
+view.Owner = owners[0];
+_viewService.Update(workspaceArtifactID, view);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_Require_System_Int32_View_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.Require(System.Int32%2CView)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L138">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_Require_System_Int32_View_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Require(System.Int32,View)">Require(Int32, View)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a>.</p>
+<ol><li>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <code data-dev-comment-type="paramref" class="paramref">view</code> has positive value, gets view by ArtifactID and updates it.</li><li>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <code data-dev-comment-type="paramref" class="paramref">view</code> has a value, gets view by name and updates it if it exists.</li><li>Otherwise creates a new [View](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html).</li></ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">View Require(int workspaceArtifactID, View view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to require view.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><span class="parametername">view</span></td>
+        <td><p>The view to require.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_Require_System_Int32_View__examples">Examples</h5>
+  <p>This shows how to update view by using Require method with View entity that hase ArtifactID field filled.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+int existingViewArtifactID = 1024345;
+int updatedOrder = 5;
+FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService>().Get&lt;FixedLengthTextField>(workspaceArtifactID, &quot;Control Number&quot;);
+View viewToUpdate = new View
+{
+	ArtifactID = existingViewArtifactID,
+	Name = &quot;Test Existing View Name&quot;,
+	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+	Order = updatedOrder
+}
+View updatedView = _viewService.Require(workspaceArtifactID, viewToUpdate);</code></pre>
+
+  <p>This shows how to update view by using Require method with View entity that hase Name field filled.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+int existingViewName = &quot;Test Existing View Name&quot;,
+int updatedOrder = 5;
+FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService>().Get&lt;FixedLengthTextField>(workspaceArtifactID, &quot;Control Number&quot;);
+View viewToUpdate = new View
+{
+	Name = existingViewName
+	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+	Order = updatedOrder
+}
+View updatedView = _viewService.Require(workspaceArtifactID, viewToUpdate);</code></pre>
+
+  <p>This shows how to create new view by using Require method with View entity that doesn't have ArtifactID field filled and Name that doesn't match any existing View.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+FixedLengthTextField field = relativityFacade.Resolve&lt;IFieldService>().Get&lt;FixedLengthTextField>(workspaceArtifactID, &quot;Control Number&quot;);
+View viewtoCreate = new View
+{
+	Name = &quot;Test Not Existing View Name&quot;,
+	Fields = new[] { new NamedArtifact { Name = field.Name, ArtifactID = field.ArtifactID } },
+}
+View createdView = _viewService.Require(workspaceArtifactID, viewtoCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService_Update_System_Int32_View_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService.Update(System.Int32%2CView)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L171">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IViewService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IViewService_Update_System_Int32_View_" data-uid="Relativity.Testing.Framework.Api.Services.IViewService.Update(System.Int32,View)">Update(Int32, View)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(int workspaceArtifactID, View view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace where you want to update the view.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">View</span></td>
+        <td><span class="parametername">view</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.View.html">View</a> to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IViewService_Update_System_Int32_View__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int existingViewArtifactID = 1024345;
+View viewToUpdate = _viewService.Get(workspaceArtifactID, existingViewArtifactID);
+viewToUpdate.Name = &quot;Updated View Name&quot;;
+viewToUpdate.Order = 345;
+_viewService.Update(workspaceArtifactID, view);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IViewService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IViewService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IViewService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

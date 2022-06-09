@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IAgentService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IAgentService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IAgentService" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService" class="text-break">Interface IAgentService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IAgentService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_examples"><strong>Examples</strong></h5>
+  <pre><code>_agentService = relativityFacade.Resolve&lt;IAgentService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_Create_Agent_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.Create(Agent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L36">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_Create_Agent_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Create(Agent)">Create(Agent)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified agent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Agent Create(Agent entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Agent</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Agent</span></td>
+        <td><p>The created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_Create_Agent__examples">Examples</h5>
+  <pre><code>var agentType =  relativityFacade.Resolve&lt;IGetByNameStrategy&lt;AgentType>>()
+		.Get(&quot;Some Agent Type&quot;);
+var agentServer = relativityFacade.Resolve&lt;IAgentServerGetAvailableStrategy>().GetAvailable(_agentType.Name)[0];
+var entity = new Agent
+{
+	AgentType = agentType,
+	AgentServer = agentServer,
+	RunInterval = 25
+}
+var createdAgent = _agentService.Create(entity);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_Delete_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.Delete(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L82">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_Delete_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Delete(System.Int32)">Delete(Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the agent by ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The artifact ID of the agent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_Delete_System_Int32__examples">Examples</h5>
+  <pre><code>_agentService.Delete(agentToDeleteArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_Get_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.Get(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L117">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_Get_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Get(System.Int32)">Get(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the agent by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Agent Get(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The artifact ID of the agent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Agent</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_Get_System_Int32__examples">Examples</h5>
+  <pre><code>Agent agent = _agentService.Get(someAgentArtifatId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_GetAgentType_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.GetAgentType(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L152">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAgentType_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAgentType*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAgentType_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAgentType(System.String)">GetAgentType(String)</h4>
+  <div class="markdown level1 summary"><p>Gets agent type by specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AgentType GetAgentType(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The agent type name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AgentType</span></td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AgentType.html">AgentType</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAgentType_System_String__examples">Examples</h5>
+  <pre><code>AgentType sampleAgentType = _agentService.GetAgentType(&quot;Sample Agent Type Name&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgents.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L128">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgents_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgents*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgents" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgents">GetAllAgents()</h4>
+  <div class="markdown level1 summary"><p>Gets all agents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;Agent&gt; GetAllAgents()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">Agent</span>&gt;</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgents_examples">Examples</h5>
+  <pre><code>IEnumerable&lt;Agent> allAgents = _agentService.GetAllAgents();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentsForAgentType_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgentsForAgentType(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L140">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentsForAgentType_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgentsForAgentType*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentsForAgentType_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgentsForAgentType(System.String)">GetAllAgentsForAgentType(String)</h4>
+  <div class="markdown level1 summary"><p>Gets all agents by specified agent type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;Agent&gt; GetAllAgentsForAgentType(string agentTypeName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">agentTypeName</span></td>
+        <td><p>The agent type name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">Agent</span>&gt;</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentsForAgentType_System_String__examples">Examples</h5>
+  <pre><code>IEnumerable&lt;Agent> = _agentService.GetAllAgentsForAgentType(&quot;Sample Agent Type Name&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentTypes.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgentTypes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L93">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentTypes_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgentTypes*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentTypes" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAllAgentTypes">GetAllAgentTypes()</h4>
+  <div class="markdown level1 summary"><p>Gets all agent types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;AgentType&gt; GetAllAgentTypes()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">AgentType</span>&gt;</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AgentType.html">AgentType</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAllAgentTypes_examples">Examples</h5>
+  <pre><code>IEnumerable&lt;AgentType> allAgentTypes = _agentService.GetAllAgentTypes();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_GetAvailableAgentServers_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.GetAvailableAgentServers(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L105">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAvailableAgentServers_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAvailableAgentServers*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAvailableAgentServers_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.GetAvailableAgentServers(System.String)">GetAvailableAgentServers(String)</h4>
+  <div class="markdown level1 summary"><p>Gets available agent servers for specified agent type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;AgentServer&gt; GetAvailableAgentServers(string agentTypeName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">agentTypeName</span></td>
+        <td><p>The agent type name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">AgentServer</span>&gt;</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AgentServer.html">AgentServer</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_GetAvailableAgentServers_System_String__examples">Examples</h5>
+  <pre><code>IEnumerable&lt;AgentServer> availableAgentServes = _agentService.GetAvailableAgentServers(someAgent.AgentType.Name);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_Require_Agent_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.Require(Agent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L71">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_Require_Agent_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Require(Agent)">Require(Agent)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified Agent(s).</p>
+<ol><li>If Artifact.ArtifactID property of <code data-dev-comment-type="paramref" class="paramref">entity</code> has positive value, gets entity by id and updates it.</li><li>If Agent.AgentType property of <code data-dev-comment-type="paramref" class="paramref">entity</code> exists, gets entity by type and updates it.</li><li>Otherwise creates a new entity using ICreateStrategy&lt;T>.</li></ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Agent Require(Agent entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Agent</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Agent.html">Agent</a> entity to require.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Agent</span></td>
+        <td><p>The required entity .</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_Require_Agent__examples">Examples</h5>
+  <pre><code>var agentToUpdate = _agentService.Get(agentArtifactId);
+agentToUpdate.LoggingLevel = AgentLoggingLevelType.Critical;
+
+var updatedAgent = _agentService.Require(agentToUpdate); // Finds agent by id, updates LoggingLevel property and returns it</code></pre>
+
+  <pre><code>var agentType =  relativityFacade.Resolve&lt;IGetByNameStrategy&lt;AgentType>>()
+		.Get(&quot;Some Agent Type&quot;);
+var agentServer = relativityFacade.Resolve&lt;IAgentServerGetAvailableStrategy>().GetAvailable(_agentType.Name)[0];
+var agentToCreate = new Agent
+{
+	AgentType = agentType,
+	AgentServer = agentServer,
+	RunInterval = 25
+}
+
+var createdAgent = _agentService.Require(agentToCreate); // Creates new agent and returns it</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService_Update_Agent_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService.Update(Agent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L165">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAgentService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAgentService_Update_Agent_" data-uid="Relativity.Testing.Framework.Api.Services.IAgentService.Update(Agent)">Update(Agent)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified Agent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(Agent entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Agent</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAgentService_Update_Agent__examples">Examples</h5>
+  <pre><code>var agentToUpdate = _agentService.Get(agentArtifactId);
+agentToUpdate.Enabled = false;
+_agentService.Update(agentToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAgentService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAgentService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAgentService.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

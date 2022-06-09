@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Create Object Manager Service </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Create Object Manager Service ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="create-object-manager-service">Create Object Manager Service</h1>
+
+<p>Before you can use the <a href="/api/Relativity.Testing.Framework.Api.ApiComponent.html">ApiComponent</a>, remember to <a href="Getting-Started.html">configure and rely on ApiComponent</a>.</p>
+<p>After that, we can resolve <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">object manager service</a>:</p>
+<pre><code>[Test]
+public void ObjectManager_Resolve()
+{
+    RelativityFacade.Instance.Resolve&lt;IObjectService&gt;();
+}
+</code></pre>
+<h1 id="create-your-own-model">Create your own model</h1>
+<p><a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">Object manager service</a> can receive any model, and if all names will mapping correct then all methods will work fine. For example you can have model like this and all will work correct:</p>
+<pre><code>
+public class Client : Artifact
+{
+    public string Name { get; internal set; }
+}
+</code></pre>
+<p>This will work fine because the object type of this model really named 'Client' and this artifact has field 'Name'.</p>
+<p>A model like this will fail if an object named &quot;Short Client&quot; with field &quot;Client Name&quot; does not exist in Relativity:</p>
+<pre><code>public class ShortClient : Artifact
+{
+    public string ClientName { get; internal set; }
+}
+</code></pre>
+<hr>
+<p><strong>NOTE</strong></p>
+<p>Note the space! By convention, the framework assumes a class &quot;NamedLikeThis&quot; refers to an artifact in Relativity &quot;Named Like This&quot;.</p>
+<hr>
+<p>If this does not work for you there are two options:</p>
+<ol>
+<li>Using our <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.html">attributes</a>, <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.ObjectTypeNameAttribute.html">'ObjectTypeName'</a> for the class name and <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.FieldNameAttribute.html">'FieldName'</a> for the property name.</li>
+<li>Renaming class and properties. This way will work fine but not always it is possible.</li>
+</ol>
+<p>An example of overriding the conventional approach using attributes:</p>
+<pre><code>[ObjectTypeName(&quot;Client&quot;)]
+public class ShortClient : Artifact
+{
+    [FieldName(&quot;Name&quot;)]
+    public string ClientName { get; internal set; }
+}
+</code></pre>
+<p>But if don't need to parse some property then you can mark it like <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.NonFieldAttribute.html">NonField</a> and we will not deserialize that property.</p>
+<pre><code>[ObjectTypeName(&quot;Client&quot;)]
+public class ShortClient : Artifact
+{
+    [NonField]
+    public string ClientName { get; internal set; }
+}
+</code></pre>
+<p>As of version 0.27.0, you can also specify <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.ObjectTypeGuidAttribute.html">object type</a> and <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Attributes.FieldGuidAttribute.html">fields</a> by Guids.</p>
+<pre><code>[ObjectTypeGuid(TheGuidForClient)]
+public class AClientButWithADifferentNameForSomeReason : Artifact
+{
+    [FieldGuid(TheGuidForTheNameFieldOnClients)]
+    public string NameButWithADifferentPropertyNameForSomeReason { get; internal set; }
+}
+</code></pre>
+<h1 id="delete-entity">Delete entity</h1>
+<p>RTF <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">object manager service</a> supports the deletion of an entity by using its artifact ID. Mainly object manager deletion the same as in all other services.</p>
+<pre><code>[Test]
+public void ObjectService_Delete()
+{
+    var objectManagerService = Facade.Resolve&lt;IObjectService&gt;();
+    MarkupSet toDelete = null;
+ 
+    ArrangeWorkingWorkspace(x =&gt; x.Create(new MarkupSet()).Pick(out toDelete ));
+ 
+    _objectService.Delete(DefaultWorkspace.ArtifactID, toDelete.ArtifactId);
+ 
+    Facade.Resolve&lt;IGetWorkspaceEntityByIdStrategy&lt;MarkupSet&gt;&gt;().Get(DefaultWorkspace.ArtifactID, toDelete.ArtifactID).
+        Should().BeNull();
+}
+</code></pre>
+<h1 id="create-entity">Create entity</h1>
+<p>RTF <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">object manager service</a> supports the creation of an entity through the model. All that you need to do it is create a correctly model. Mainly object manager creation the same as in all other services.</p>
+<pre><code>[Test]
+public void ObjectService_Create()
+{
+    var objectManagerService = Facade.Resolve&lt;IObjectService&gt;();
+    var entity = new MarkupSet();
+    entity.FillRequiredProperties();
+ 
+    var result = _objectService.Create(DefaultWorkspace.ArtifactID, entity);
+ 
+    result.ArtifactID.Should().BePositive();
+    result.Name.Should().NotBeNullOrEmpty();
+    result.RedactionText.Should().NotBeNullOrEmpty();
+}
+</code></pre>
+<p>That's all. But you should be sure that all the properties mapping correct, if you don't know how to do it read 'Create your own model' section.</p>
+<h1 id="receive-entities">Receive entities</h1>
+<h2 id="get-all-artifacts-using-object-manager">Get all artifacts using object manager</h2>
+<p>For getting all elements using <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">object manager service</a> all you need to specify is the model of artifact. The example represents bellow:</p>
+<pre><code>[Test]
+public void Client_GetAll()
+{
+    var objectManagerService = Facade.Resolve&lt;IObjectService&gt;();
+ 
+    var clients = objectManagerService.GetAll&lt;Client&gt;();
+ 
+    clients.Should().NotBeNullOrEmpty();
+}
+</code></pre>
+<p>For now, method <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html#Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1">GetAll</a> does not support workspace level search, so if you need to do it please use the <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html#Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Query__1">Query</a> method.</p>
+<hr>
+<p><strong>NOTE</strong></p>
+<p>You should understand that <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">object manager service</a> does not support all of the Relativity artifacts, please check the list of supported artifacts <a href="https://platform.relativity.com/RelativityOne/Content/RSAPI/Searching_Relativity/Searching_Relativity.htm#SystemTypes">here</a>.</p>
+<hr>
+<h2 id="query-artifacts-using-object-manager">Query artifacts using object manager</h2>
+<p>The basic method of querying artifact look like:</p>
+<pre><code>[Test]
+public void Client_Query()
+{
+    var objectManagerService = Facade.Resolve&lt;IObjectService&gt;();
+ 
+    var clients = objectManagerService.Query&lt;Choice&gt;().ToArray();
+ 
+    clients.Should().NotBeNullOrEmpty();
+}
+</code></pre>
+<h3 id="how-to-use-fields-to-return-specific-artifacts">How to use fields to return specific artifacts</h3>
+<p>This example returns the same result us method <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html#Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1">GetAll</a>. But very often we need to specify some field and you can do it with method where.
+Method 'where' use predicate, so you can write any boolean operation for getting artifacts.</p>
+<pre><code>[Test]
+public void Client_QueryUsingModelProperty()
+{
+    var clients = Facade.Resolve&lt;IObjectService&gt;().Query&lt;Choice&gt;().Where(x =&gt; x.Name == &quot;Name&quot;).ToArray();
+ 
+    clients.Should().NotBeNullOrEmpty();
+}
+</code></pre>
+<h3 id="how-to-fetch-specific-fields">How to fetch specific fields</h3>
+<p>Some times we need only some specific fields. And method <a href="/api/Relativity.Testing.Framework.Api.Querying.Query-2.html#Relativity_Testing_Framework_Api_Querying_Query_2_Fetch_System_String___">'Fetch'</a> can help you with it:</p>
+<pre><code>
+[Test]
+public void Client_Query()
+{
+    var clientFields = Facade.Resolve&lt;IObjectService&gt;().Query&lt;Choice&gt;()
+        .Fetch(nameof(Choice.Field)).Select(x =&gt; x.Field).ToArray();
+ 
+    clientFields.Should().NotBeNullOrEmpty();
+}
+</code></pre>
+<h3 id="how-to-query-workspace-artifacts">How to query workspace artifacts</h3>
+<p>For querying workspace artifacts you need to specify workspace id. You should use method <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.ObjectQuery-1.html#Relativity_Testing_Framework_Api_ObjectManagement_ObjectQuery_1_For_System_Int32_">'For'</a> for it:</p>
+<pre><code>[Test]
+public void Client_Query()
+{
+    var clients = Facade.Resolve&lt;IObjectService&gt;().Query&lt;Choice&gt;()
+        .For(DefaultWorkspace.ArtifactID).ToArray();
+ 
+    clients.Should().NotBeNullOrEmpty();
+}
+</code></pre>
+<h1 id="update-entity">Update entity</h1>
+<p>RTF <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">object manager service</a> supports the update of an entity through the model. All that you need to do it is create a correct model. Mainly object manager creation the same as in all other services.</p>
+<pre><code>[Test]
+public void ObjectService_Update()
+{
+    var objectManagerService = Facade.Resolve&lt;IObjectService&gt;();
+    MarkupSet toUpdate = null;
+ 
+ 
+    ArrangeWorkingWorkspace(x =&gt; x.Create(new MarkupSet()).Pick(out toUpdate));
+ 
+ 
+    toUpdate.Name = Randomizer.GetString();
+    toUpdate.Order = Randomizer.GetInt(500);
+    toUpdate.RedactionText = Randomizer.GetString();
+ 
+    _objectService.Update(DefaultWorkspace.ArtifactID, toUpdate);
+ 
+    var result = Facade.Resolve&lt;IGetWorkspaceEntityByIdStrategy&lt;MarkupSet&gt;&gt;()
+        .Get(DefaultWorkspace.ArtifactID, toUpdate.ArtifactID);
+ 
+    result.Should().BeEquivalentTo(toUpdate);
+}
+</code></pre>
+<p>That's all. But you should be sure that all the properties mapping correct, if you don't know how to do it read 'Create your own model' section.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Using-ObjectManagerService.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

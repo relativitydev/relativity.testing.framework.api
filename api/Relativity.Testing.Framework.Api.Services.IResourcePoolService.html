@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IResourcePoolService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IResourcePoolService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService" class="text-break">Interface IResourcePoolService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the resource pool API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IResourcePoolService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_examples"><strong>Examples</strong></h5>
+  <pre><code>IResourcePoolService _resourcePoolService = relativityFacade.Resolve&lt;IResourcePoolService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_AddResources_System_Int32_ResourceType_System_Collections_Generic_List_Artifact__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.AddResources(System.Int32%2CResourceType%2CSystem.Collections.Generic.List%7BArtifact%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L161">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_AddResources_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.AddResources*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_AddResources_System_Int32_ResourceType_System_Collections_Generic_List_Artifact__" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.AddResources(System.Int32,ResourceType,System.Collections.Generic.List{Artifact})">AddResources(Int32, ResourceType, List&lt;Artifact&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a resources of a given type to a given <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddResources(int resourcePoolId, ResourceType resourceType, List&lt;Artifact&gt; resources)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resourcePoolId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ResourceType</span></td>
+        <td><span class="parametername">resourceType</span></td>
+        <td><p>A representation of the resource type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Artifact</span>&gt;</td>
+        <td><span class="parametername">resources</span></td>
+        <td><p>A list of identifiers for resources to add to the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_AddResources_System_Int32_ResourceType_System_Collections_Generic_List_Artifact___examples">Examples</h5>
+  <p>This example shows how to add all eligible Agent Worker Servers to the Resource Pool.</p>
+<pre><code> int existingResourcePoolArtifactID = 10154345;
+List&lt;Artifact> agentsToAdd = _resourcePoolService.QueryEligibleToAddResources(existingResourcePoolArtifactID).Cast&lt;Artifact>().ToList();
+_resourcePoolService.AddResources(existingResourcePoolArtifactID, ResourceType.AgentWorkerServers, agentsToAdd);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_Create_ResourcePool_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.Create(ResourcePool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L33">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Create_ResourcePool_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Create(ResourcePool)">Create(ResourcePool)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePool Create(ResourcePool entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ResourcePool</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ResourcePool</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Create_ResourcePool__examples">Examples</h5>
+  <pre><code>Client client = relativityFacade.Resolve&lt;IClientService>().Get(&quot;Some Existing Client Name&quot;);
+var resourcePoolToCreate = new ResourcePool
+{
+	Name = &quot;Test Resource Pool&quot;,
+	Client = client
+};
+ResourcePool createdResourcePool = _resourcePoolService.Create(resourcePoolToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_Delete_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.Delete(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L96">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Delete_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Delete(System.Int32)">Delete(Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> by the ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Delete_System_Int32__examples">Examples</h5>
+  <pre><code>int existingResourcePoolArtifactID = 10154345;
+_resourcePoolService.Delete(existingResourcePoolArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.Get(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L57">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Get(System.Int32)">Get(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> by the specified ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePool Get(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ResourcePool</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_System_Int32__examples">Examples</h5>
+  <pre><code>int existingResourcePoolArtifactID = 10154345;
+ResourcePool resourcePool = _resourcePoolService.Get(existingResourcePoolArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.Get(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L70">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Get(System.String)">Get(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> by the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePool Get(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ResourcePool</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Get_System_String__examples">Examples</h5>
+  <pre><code>string existingResourcePoolName = &quot;Test Resource Pool&quot;;
+ResourcePool resourcePool = _resourcePoolService.Get(existingResourcePoolName);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_GetAll.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.GetAll%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L44">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_GetAll" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.GetAll">GetAll()</h4>
+  <div class="markdown level1 summary"><p>Gets all <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePool[] GetAll()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ResourcePool</span>[]</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_GetAll_examples">Examples</h5>
+  <pre><code>ResourcePool[] resourcePools = _resourcePoolService.GetAll();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_Query.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.Query%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L146">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Query_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Query*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Query" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Query">Query()</h4>
+  <div class="markdown level1 summary"><p>Gets a query for all clients that may be set as the client for a <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePoolQuery&lt;Client&gt; Query()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Strategies.ResourcePoolQuery-1.html">ResourcePoolQuery</a>&lt;<span class="xref">Client</span>&gt;</td>
+        <td><p>The <a class="xref" href="Relativity.Testing.Framework.Api.Strategies.ResourcePoolQuery-1.html">ResourcePoolQuery&lt;TObject&gt;</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Query_examples">Examples</h5>
+  <pre><code>List&lt;Client> eligibleClients = _resourcePoolService.Query().ToList();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryEligibleToAddResources_System_Int32_ResourceType_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.QueryEligibleToAddResources(System.Int32%2CResourceType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L135">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryEligibleToAddResources_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.QueryEligibleToAddResources*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryEligibleToAddResources_System_Int32_ResourceType_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.QueryEligibleToAddResources(System.Int32,ResourceType)">QueryEligibleToAddResources(Int32, ResourceType)</h4>
+  <div class="markdown level1 summary"><p>Gets a query to enumerate not yet associated resources of a given type that are eligible to be added to a given <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePoolQuery&lt;ResourceServer&gt; QueryEligibleToAddResources(int resourcePoolId, ResourceType resourceType = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resourcePoolId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ResourceType</span></td>
+        <td><span class="parametername">resourceType</span></td>
+        <td><p>A representation of the resource type.
+By default equals 'agent-worker-servers'.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Strategies.ResourcePoolQuery-1.html">ResourcePoolQuery</a>&lt;<span class="xref">ResourceServer</span>&gt;</td>
+        <td><p>The <a class="xref" href="Relativity.Testing.Framework.Api.Strategies.ResourcePoolQuery-1.html">ResourcePoolQuery&lt;TObject&gt;</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryEligibleToAddResources_System_Int32_ResourceType__examples">Examples</h5>
+  <p>This example shows how to query for all eligible AnalyticsServers resources for given Resource Pool.</p>
+<pre><code>int existingResourcePoolArtifactID = 10154345;
+ResourcePoolQuery&lt;ResourceServer> eligibleAnalyticsServers = _resourcePoolService.QueryEligibleToAddResources(existingResourcePoolArtifactID, ResourceType.AnalyticsServers);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryResources_System_Int32_ResourceType_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.QueryResources(System.Int32%2CResourceType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L120">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryResources_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.QueryResources*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryResources_System_Int32_ResourceType_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.QueryResources(System.Int32,ResourceType)">QueryResources(Int32, ResourceType)</h4>
+  <div class="markdown level1 summary"><p>Gets a query to enumerate resources of a given type that are associated with the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ResourcePoolQuery&lt;ResourceServer&gt; QueryResources(int resourcePoolId, ResourceType resourceType = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resourcePoolId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ResourceType</span></td>
+        <td><span class="parametername">resourceType</span></td>
+        <td><p>A representation of the resource type.
+By default equals 'agent-worker-servers'.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Strategies.ResourcePoolQuery-1.html">ResourcePoolQuery</a>&lt;<span class="xref">ResourceServer</span>&gt;</td>
+        <td><p>The <a class="xref" href="Relativity.Testing.Framework.Api.Strategies.ResourcePoolQuery-1.html">ResourcePoolQuery&lt;TObject&gt;</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_QueryResources_System_Int32_ResourceType__examples">Examples</h5>
+  <p>This example shows how to query AgentWorkerServers resources in order to one with the specified ArtifactID.</p>
+<pre><code>int existingResourcePoolArtifactID = 10154345;
+int existingAgentArtifactID = 1017895;
+ResourceServer agent = _resourcePoolService.QueryResources(existingResourcePoolArtifactID)
+	.Where(agent => agent.ArtifactID, existingAgentArtifactID)
+	.FirstOrDefault();</code></pre>
+
+  <p>This example shows how to query for all SqlServers resources for given Resource Pool.</p>
+<pre><code>int existingResourcePoolArtifactID = 10154345;
+ResourcePoolQuery&lt;ResourceServer> sqlServers = _resourcePoolService.QueryResources(existingResourcePoolArtifactID, ResourceType.SqlServers);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_RemoveResources_System_Int32_ResourceType_System_Collections_Generic_List_Artifact__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.RemoveResources(System.Int32%2CResourceType%2CSystem.Collections.Generic.List%7BArtifact%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L178">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_RemoveResources_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.RemoveResources*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_RemoveResources_System_Int32_ResourceType_System_Collections_Generic_List_Artifact__" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.RemoveResources(System.Int32,ResourceType,System.Collections.Generic.List{Artifact})">RemoveResources(Int32, ResourceType, List&lt;Artifact&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes a resources of a given type from a given <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveResources(int resourcePoolId, ResourceType resourceType, List&lt;Artifact&gt; resources)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resourcePoolId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ResourceType</span></td>
+        <td><span class="parametername">resourceType</span></td>
+        <td><p>A representation of the resource type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Artifact</span>&gt;</td>
+        <td><span class="parametername">resources</span></td>
+        <td><p>A list of identifiers for resources to remove from the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_RemoveResources_System_Int32_ResourceType_System_Collections_Generic_List_Artifact___examples">Examples</h5>
+  <p>This example shows how to remove all Agent Worker Servers that have 'Test' in their Name from the Resource Pool.</p>
+<pre><code> int existingResourcePoolArtifactID = 10154345;
+List&lt;Artifact> agentsToRemove = _resourcePoolService.QueryResources(existingResourcePoolArtifactID)
+	.Where(agent => agent.Name.Contains(&quot;Test&quot;))
+	.Cast&lt;Artifact>().ToList();
+_resourcePoolService.RemoveResources(existingResourcePoolArtifactID, ResourceType.AgentWorkerServers, agentsToRemove);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService_Update_ResourcePool_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService.Update(ResourcePool)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L84">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Update_ResourcePool_" data-uid="Relativity.Testing.Framework.Api.Services.IResourcePoolService.Update(ResourcePool)">Update(ResourcePool)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(ResourcePool entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ResourcePool</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ResourcePool.html">ResourcePool</a> entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IResourcePoolService_Update_ResourcePool__examples">Examples</h5>
+  <pre><code>ResourcePool resourcePoolToUpdate = _resourcePoolService.Get(&quot;Some Existing Resource Pool&quot;);
+resourcePoolToUpdate.Name = &quot;Updated Resource Pool Name&quot;;
+resourcePoolToUpdate.Notes = &quot;Some Note&quot;;
+_resourcePoolService.Update(resourcePoolToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IResourcePoolService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IResourcePoolService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IResourcePoolService.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,871 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IObjectService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IObjectService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService" class="text-break">Interface IObjectService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the service that interacts with object manager API.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.ObjectManagement.html">Relativity.Testing.Framework.Api.ObjectManagement</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IObjectService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_examples"><strong>Examples</strong></h5>
+  <pre><code>IObjectService _objectService = relativityFacade.Resolve&lt;IObjectService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create__1_System_Int32___0_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Create%60%601(System.Int32%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L42">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create__1_System_Int32___0_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Create``1(System.Int32,``0)">Create&lt;TObject&gt;(Int32, TObject)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified entity of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TObject Create&lt;TObject&gt;(int workspaceId, TObject entity)
+
+    where TObject : Artifact</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to create the object, use -1 for administrator level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TObject</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TObject</span></td>
+        <td><p>Returns the created <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObject</span></td>
+        <td><p>The type of the object to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create__1_System_Int32___0__examples">Examples</h5>
+  <p>This example shows how to create object using a data model with ObjectTypeName attribute and existing object type name.</p>
+<pre><code>[ObjectTypeName(&quot;Dashboard)]
+internal class TestModel : NamedArtifact
+{
+	public string TestProperty { get; set; }
+}
+...
+int workspaceArtifactID = 1015427;
+TestModel objectToCreate = new TestModel
+{
+	Name = &quot;Test Model Name&quot;,
+	TestProperty = &quot;Test Property Value&quot;
+};
+TestModel createdObject = _objectService.Create(workspaceArtifactID, objectToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create__1_System_Int32_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Create%60%601(System.Int32%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L77">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create__1_System_Int32_System_Collections_Generic_IEnumerable___0__" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Create``1(System.Int32,System.Collections.Generic.IEnumerable{``0})">Create&lt;TObject&gt;(Int32, IEnumerable&lt;TObject&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified workspace entities of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;int&gt; Create&lt;TObject&gt;(int workspaceId, IEnumerable&lt;TObject&gt; entities)
+
+    where TObject : Artifact</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to create the object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TObject&gt;</td>
+        <td><span class="parametername">entities</span></td>
+        <td><p>The array of entities to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>Returns the list with ArtifactIDs of created entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObject</span></td>
+        <td><p>The type of the objects to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Create__1_System_Int32_System_Collections_Generic_IEnumerable___0___examples">Examples</h5>
+  <p>This example shows how to mass create objects using a data model with ObjectTypeName attribute and existing object type name.</p>
+<pre><code>[ObjectTypeName(&quot;Dashboard)]
+internal class TestModel : NamedArtifact
+{
+	public string TestProperty { get; set; }
+}
+...
+int workspaceArtifactID = 1015427;
+List&lt;TestModel> objectsToCreate = new List&lt;TestModel>
+{
+	new TestModel
+	{
+		Name = &quot;Test Model Name&quot;,
+		TestProperty = &quot;Test Property Value&quot;
+	},
+	new TestModel
+	{
+		Name = &quot;Other Test Model Name&quot;
+		TestProperty = &quot;Other Test Property Value&quot;,
+	},
+};
+List&lt;TestModel> createdObjects = _objectService.Create(workspaceArtifactID, objectsToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Delete(System.Int32%2CSystem.Collections.Generic.IEnumerable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L259">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Delete(System.Int32,System.Collections.Generic.IEnumerable{System.Int32})">Delete(Int32, IEnumerable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Deletes the workspace entities by the specified ArtifactIDs of workspace and entities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, IEnumerable&lt;int&gt; entityIds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ArtifactID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">entityIds</span></td>
+        <td><p>The entity ArtifactIDs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_System_Int32_System_Collections_Generic_IEnumerable_System_Int32___examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1017850;
+var existingEntitiesArtifactIDs = new List&lt;int> { 1039664, 1039689 };
+_objectService.Delete(workspaceArtifactID, existingEntitiesArtifactIDs);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L245">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the workspace entity by the specified IDs of workspace and entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ArtifactID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The entity ArtifactID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1017850;
+int existingEntityArtifactID = 1039664;
+_objectService.Delete(workspaceArtifactID, existingEntityArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.GetAll%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L277">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.GetAll``1">GetAll&lt;TObject&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets all objects of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TObject[] GetAll&lt;TObject&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TObject[]</td>
+        <td><p>The collection of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObject</span></td>
+        <td><p>The type of the object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1_examples">Examples</h5>
+  <p>This example shows how to get all entities of GroupObjectType with Object Type Name &quot;Group&quot;.</p>
+<pre><code>[ObjectTypeName(&quot;Group&quot;)]
+internal class GroupObject
+{
+	public int ArtifactID { get; set; }
+	public string Name { get; set; }
+}
+GroupObject[] groups = _objectService.GetAll&lt;GroupObject>();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1_System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Object_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.GetAll%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L297">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1_System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Object_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.GetAll``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">GetAll&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, Object)</h4>
+  <div class="markdown level1 summary"><p>Gets all objects of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> type matching specified property filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TObject[] GetAll&lt;TObject&gt;(Expression&lt;Func&lt;TObject, object&gt;&gt; wherePropertySelector, object whereValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="parametername">wherePropertySelector</span></td>
+        <td><p>The filter property selector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">whereValue</span></td>
+        <td><p>The filter property value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TObject[]</td>
+        <td><p>The collection of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObject</span></td>
+        <td><p>The type of the object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_GetAll__1_System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Object__examples">Examples</h5>
+  <p>This example shows how to get all entities of GroupObjectType with Object Type Name &quot;Group&quot; which have &quot;System Administrators&quot; name.</p>
+<pre><code>[ObjectTypeName(&quot;Group&quot;)]
+internal class GroupObject
+{
+	public int ArtifactID { get; set; }
+	public string Name { get; set; }
+}
+GroupObject[] groups = _objectService.GetAll&lt;GroupObject>(group => group.Name, &quot;System Administrators&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Query__1.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Query%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L310">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Query_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Query*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Query__1" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Query``1">Query&lt;TObject&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets a query to enumerate <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ObjectQuery&lt;TObject&gt; Query&lt;TObject&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.ObjectManagement.ObjectQuery-1.html">ObjectQuery</a>&lt;TObject&gt;</td>
+        <td><p>The <a class="xref" href="Relativity.Testing.Framework.Api.ObjectManagement.ObjectQuery-1.html">ObjectQuery&lt;TObject&gt;</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObject</span></td>
+        <td><p>The type of the object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Query__1_examples">Examples</h5>
+  <p>This example shows how to query for entities of Field type for workspace with specified ArtifactID.</p>
+<pre><code>int workspaceArtifactID = 1017850;
+List&lt;Field> fields = _objectService.Query&lt;Field>().For(workspaceArtifactID).ToList();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_Relativity_Testing_Framework_Api_ObjectManagement_MassUpdateByObjectIdentifiersRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update(System.Int32%2CRelativity.Testing.Framework.Api.ObjectManagement.MassUpdateByObjectIdentifiersRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L113">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_Relativity_Testing_Framework_Api_ObjectManagement_MassUpdateByObjectIdentifiersRequest_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update(System.Int32,Relativity.Testing.Framework.Api.ObjectManagement.MassUpdateByObjectIdentifiersRequest)">Update(Int32, MassUpdateByObjectIdentifiersRequest)</h4>
+  <div class="markdown level1 summary"><p>Updates specified fields on a list of Documents or Relativity Dynamic Objects (RDOs) that match a set of identifiers by setting the fields to the same value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(int workspaceId, MassUpdateByObjectIdentifiersRequest massRequestByObjectIdentifiers)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to update the object, use -1 for administrator level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.ObjectManagement.MassUpdateByObjectIdentifiersRequest.html">MassUpdateByObjectIdentifiersRequest</a></td>
+        <td><span class="parametername">massRequestByObjectIdentifiers</span></td>
+        <td><p>A request to update multiple Documents or Relativity Dynamic Objects (RDOs) that have the specified identifiers.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_Relativity_Testing_Framework_Api_ObjectManagement_MassUpdateByObjectIdentifiersRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A <a class="xref" href="Relativity.Testing.Framework.Api.ObjectManagement.MassUpdateByObjectIdentifiersRequest.html">MassUpdateByObjectIdentifiersRequest</a> object specifies the identifiers used to select a list of objects with the same type for updating. It also includes the same
+values for all object fields that are to be updated. In the Relativity UI, this update operation is equivalent to the user selecting the Checked or These option in
+the mass operations bar on a list page.
+Process halts at first failure with no rollback.</p>
+</div>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_Relativity_Testing_Framework_Api_ObjectManagement_MassUpdateByObjectIdentifiersRequest__examples">Examples</h5>
+  <p>This shows how to mass update the value of the field 'Extracted Text' on the Documents.</p>
+<pre><code>int workspaceArtifactID = 1017850;
+string extractedTextValueToUpdate = &quot;Updated Extracted Text Value&quot;;
+List&lt;FieldRefValuePair> fieldValues = new List&lt;FieldRefValuePair>
+{
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			Name = &quot;Extracted Text&quot;
+		},
+		Value = extractedTextValueToUpdate
+	}
+};
+Document[] documentsToUpdate = relativityFacade.Resolve&lt;IDocumentService>().GetAll().Take(2);
+MassUpdateByObjectIdentifiersRequest massRequestByObjectIdentifiers = new MassUpdateByObjectIdentifiersRequest
+{
+	Objects = documentsToUpdate,
+	FieldValues = fieldValues
+};
+_objectService.Update(workspaceArtifactID, massRequestByObjectIdentifiers);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_System_Int32_System_Collections_Generic_IList_Relativity_Testing_Framework_Api_ObjectManagement_FieldRefValuePair__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update(System.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IList%7BRelativity.Testing.Framework.Api.ObjectManagement.FieldRefValuePair%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L231">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_System_Int32_System_Collections_Generic_IList_Relativity_Testing_Framework_Api_ObjectManagement_FieldRefValuePair__" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update(System.Int32,System.Int32,System.Collections.Generic.IList{Relativity.Testing.Framework.Api.ObjectManagement.FieldRefValuePair})">Update(Int32, Int32, IList&lt;FieldRefValuePair&gt;)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified workspace entity fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(int workspaceId, int entityId, IList&lt;FieldRefValuePair&gt; fieldValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The ArtifactID of the entity to update.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="Relativity.Testing.Framework.Api.ObjectManagement.FieldRefValuePair.html">FieldRefValuePair</a>&gt;</td>
+        <td><span class="parametername">fieldValues</span></td>
+        <td><p>List of Field Reference and Value for updating entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_System_Int32_System_Int32_System_Collections_Generic_IList_Relativity_Testing_Framework_Api_ObjectManagement_FieldRefValuePair___examples">Examples</h5>
+  <p>This shows how to update the values of the 'Extracted Text','Group Identifier' and 'Confidential Designation' fields on the Document.</p>
+<pre><code>int workspaceArtifactID = 1017850;
+int existingDocumentToUpdateArtifactID = 1039664;
+int existingConfidentialDesignationChoiceArtifactID = 1038092;
+var fieldsToUpdate = new List&lt;FieldRefValuePair>
+{
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			Name = &quot;Group Identifier&quot;
+		},
+		Value = &quot;Updated Group Identifier&quot;
+	},
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			Name = &quot;Extracted Text&quot;
+		},
+		Value = &quot;Updated Extracted Text&quot;
+	},
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			Name = &quot;Confidential Designation&quot;
+		},
+		Value = new NamedArtifact
+		{
+			ArtifactID = existingConfidentialDesignationChoiceArtifactID
+		}
+	}
+};
+_objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);</code></pre>
+
+  <p>This shows how to update the values of the fields with known ArtifactIDs on the Document.</p>
+<pre><code>int workspaceArtifactID = 1017850;
+int existingDocumentToUpdateArtifactID = 1039664;
+int existingDocumentStringFieldArtifactID  = 5345435;
+int existingDocumentBoolFieldArtifactID = 478324;
+int existingDocumentSingleChoiceFieldArtifactID = 1038055; // ArtifactID of the &apos;Confidential Designation&apos; Single Choice Field
+int existingDocumentSingleChoiceChoiceArtifactID = 1038092; // ArtifactID of the Choice &apos;Attorneys&apos; Eyes Only&apos; for &apos;Confidential Designation&apos; Field
+var fieldsToUpdate = new List&lt;FieldRefValuePair>
+{
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			ArtifactID = existingDocumentStringFieldArtifactID
+		},
+		Value = &quot;Some updated value of text field&quot;
+	},
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			ArtifactID = existingDocumentBoolFieldArtifactID
+		},
+		Value = bool
+	},
+	new FieldRefValuePair
+	{
+		Field = new FieldRef
+		{
+			ArtifactID = existingDocumentSingleChoiceFieldArtifactID
+		},
+		Value = new NamedArtifact
+		{
+			ArtifactID = existingDocumentSingleChoiceChoiceArtifactID
+		}
+	},
+};
+_objectService.Update(workspaceArtifactID, existingDocumentToUpdateArtifactID, fieldsToUpdate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update__1_System_Int32___0_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update%60%601(System.Int32%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L143">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update__1_System_Int32___0_" data-uid="Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.Update``1(System.Int32,``0)">Update&lt;TObject&gt;(Int32, TObject)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified workspace entity of <code data-dev-comment-type="typeparamref" class="typeparamref">TObject</code> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update&lt;TObject&gt;(int workspaceId, TObject entity)
+
+    where TObject : Artifact</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ArtifactID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TObject</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObject</span></td>
+        <td><p>The type of the object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_ObjectManagement_IObjectService_Update__1_System_Int32___0__examples">Examples</h5>
+  <p>This shows how to update the value of the SingleChoiceField 'Confidential Designation' on the Document.</p>
+<pre><code>[ObjectTypeName(&quot;Document&quot;)]
+internal class DocumentWithSingleChoice : Document
+{
+	public Artifact ConfidentialDesignation { get; set; }
+}
+...
+int workspaceArtifactID = 1017850;
+int existingDocumentArtifactID = 1039664;
+DocumentWithSingleChoice documentToUpdate = _objectService.GetAll&lt;DocumentWithSingleChoice>(d => d.ArtifactID, documentArtifactID).FirstOrDefault();
+_objectService.Update(workspaceArtifactID, documentToUpdate);</code></pre>
+
+  <p>This shows how to update the value of the field for which DTO model exists in RTF (Document).</p>
+<pre><code>int workspaceArtifactID = 1017850;
+string existingDocumentName = &quot;Some Existing Document Name&quot;;
+Document documentToUpdate = relativityFacade.Resolve&lt;IDocumentService>().Get(workspaceArtifactID, existingDocumentName);
+_objectService.Update(workspaceArtifactID, documentToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_ObjectManagement_IObjectService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.ObjectManagement.IObjectService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/ObjectManagement/IObjectService.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

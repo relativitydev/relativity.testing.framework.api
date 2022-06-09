@@ -1,0 +1,855 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IHttpService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IHttpService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IHttpService" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService" class="text-break">Interface IHttpService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the HTTP service that provides a set of methods to communicate with Relativity REST API.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IHttpService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_examples"><strong>Examples</strong></h5>
+  <pre><code>_httpService = relativityFacade.Resolve&lt;IHttpService>();</code></pre>
+
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_BaseUrl.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.BaseUrl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L19">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_BaseUrl_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.BaseUrl*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_BaseUrl" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.BaseUrl">BaseUrl</h4>
+  <div class="markdown level1 summary"><p>Gets the base URL address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string BaseUrl { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Username.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Username%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L24">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Username_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Username*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Username" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Username">Username</h4>
+  <div class="markdown level1 summary"><p>Gets the username.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Username { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Delete_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Delete(System.String%2CSystem.Object%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L223">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Delete_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Delete(System.String,System.Object,Relativity.Testing.Framework.Api.Models.UserCredentials)">Delete(String, Object, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a DELETE HTTP request without response to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>
+with optionally <code data-dev-comment-type="paramref" class="paramref">content</code> serialized to JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(string relativeUri, object content = null, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The content object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Delete_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>int agentId = 1234;
+var dto = new
+{
+	force = true
+};
+
+_restService.Delete($&quot;relativity.agents/workspace/-1/agents/{agentId}&quot;, dto);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Delete__1_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Delete%60%601(System.String%2CSystem.Object%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L200">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Delete__1_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Delete``1(System.String,System.Object,Relativity.Testing.Framework.Api.Models.UserCredentials)">Delete&lt;TResult&gt;(String, Object, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a DELETE HTTP request to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>
+with optionally <code data-dev-comment-type="paramref" class="paramref">content</code> serialized to JSON,
+then deserializes the response content to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code> and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TResult Delete&lt;TResult&gt;(string relativeUri, object content = null, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The content object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td><p>The response content deserialized to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td><p>The type of the result to deserialize response content to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Delete__1_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>int workspaceId = 12345;
+int applicationFieldCodeId = 345;
+string url = $&quot;relativity-imaging/v1/workspaces/{workspaceId}/application-field-codes/{applicationFieldCodeId}&quot;;
+_restService.Delete&lt;bool>(url);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Get__1_System_String_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Get%60%601(System.String%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L42">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Get__1_System_String_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Get``1(System.String,Relativity.Testing.Framework.Api.Models.UserCredentials)">Get&lt;TResult&gt;(String, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a GET HTTP request to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>,
+then deserializes the response content to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code> and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TResult Get&lt;TResult&gt;(string relativeUri, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td><p>The response content deserialized to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td><p>The type of the result to deserialize response content to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Get__1_System_String_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>JObject result = _restService.Get&lt;JObject>($&quot;relativity.agents/workspace/-1/agents/{id}&quot;);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Post_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Post(System.String%2CSystem.Object%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L112">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Post_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Post*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Post_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Post(System.String,System.Object,Relativity.Testing.Framework.Api.Models.UserCredentials)">Post(String, Object, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a POST HTTP request without response to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>
+with optionally <code data-dev-comment-type="paramref" class="paramref">content</code> serialized to JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Post(string relativeUri, object content = null, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The content object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Post_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var dto = new
+{
+	workspaceArtifactID = 54321,
+	searchArtifactID = 12345
+};
+
+_restService.Post(&quot;Relativity.Services.Search.ISearchModule/Keyword%20Search%20Manager/DeleteSingleAsync&quot;, dto);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Post__1_System_String_System_Object_System_Double_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Post%60%601(System.String%2CSystem.Object%2CSystem.Double%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L89">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Post_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Post*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Post__1_System_String_System_Object_System_Double_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Post``1(System.String,System.Object,System.Double,Relativity.Testing.Framework.Api.Models.UserCredentials)">Post&lt;TResult&gt;(String, Object, Double, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a POST HTTP request to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>
+with optionally <code data-dev-comment-type="paramref" class="paramref">content</code> serialized to JSON,
+then deserializes the response content to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code> and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TResult Post&lt;TResult&gt;(string relativeUri, object content = null, double timeout = 2, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The content object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>Number of minutes to wait before timeing out. Default is 2.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td><p>The response content deserialized to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td><p>The type of the result to deserialize response content to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Post__1_System_String_System_Object_System_Double_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var dto = new
+{
+	Request = new
+	{
+		Object = new
+		{
+			ArtifactID = 12345
+		}
+	}
+};
+
+_restService.Post&lt;string>($&quot;Relativity.Objects/workspace/{workspaceId}/object/delete&quot;, dto);</code></pre>
+
+  <pre><code>var dto = new
+{
+	batchSet = new
+	{
+		Name = &quot;Test Batch Set&quot;,
+		BatchPrefix = &quot;TEST1&quot;,
+		BatchSize = 10,
+	}
+};
+
+BatchSet result =  _restService.Post&lt;BatchSet>($&quot;Relativity.Services.Review.Batching.IBatchingModule/workspaces/{workspaceId}/batching/CreateBatchSet&quot;, dto, new UserCredentials { Username = &quot;FakeAccount&quot;, Password = &quot;FakePassword&quot; });</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Put_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Put(System.String%2CSystem.Object%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L177">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Put_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Put*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Put_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Put(System.String,System.Object,Relativity.Testing.Framework.Api.Models.UserCredentials)">Put(String, Object, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a PUT HTTP request without response to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>
+with optionally <code data-dev-comment-type="paramref" class="paramref">content</code> serialized to JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Put(string relativeUri, object content = null, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The content object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Put_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>int artifactId = 123453;
+var dto = new
+{
+	groupRequest = new
+	{
+		Client = new
+		{
+			Secured = false,
+			Value = new
+			{
+				12345
+			}
+		},
+	}
+};
+
+_restService.Put($&quot;relativity.groups/workspace/-1/groups/artifactId&quot;, dto);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService_Put__1_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService.Put%60%601(System.String%2CSystem.Object%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L144">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IHttpService_Put_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Put*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IHttpService_Put__1_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IHttpService.Put``1(System.String,System.Object,Relativity.Testing.Framework.Api.Models.UserCredentials)">Put&lt;TResult&gt;(String, Object, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Executes a PUT HTTP request to the specified <code data-dev-comment-type="paramref" class="paramref">relativeUri</code>
+with optionally <code data-dev-comment-type="paramref" class="paramref">content</code> serialized to JSON,
+then deserializes the response content to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code> and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TResult Put&lt;TResult&gt;(string relativeUri, object content = null, UserCredentials userCredentials = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relativeUri</span></td>
+        <td><p>The endpoint relative URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The content object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td><p>The response content deserialized to <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td><p>The type of the result to deserialize response content to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IHttpService_Put__1_System_String_System_Object_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>LibraryApplicationInstallStatusResponse response;
+using (var form = new MultipartFormDataContent())
+using (var memory = new StreamContent(new MemoryStream(bytes)))
+{
+	var optionsString = JsonConvert.SerializeObject(dto, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+	using (var optionsContent = new StringContent(optionsString, Encoding.UTF8, &quot;application/json&quot;))
+	{
+		form.Add(optionsContent, &quot;request&quot;);
+		form.Add(memory, &quot;rapStream&quot;);
+
+		response = _restService.Put&lt;LibraryApplicationInstallStatusResponse>(&quot;Relativity.LibraryApplications/workspace/-1/libraryapplications&quot;, form);
+	}
+}</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestException</span></td>
+        <td><p>The response has <span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span> equal to <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IHttpService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IHttpService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IHttpService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

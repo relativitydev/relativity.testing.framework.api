@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IUserService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IUserService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IUserService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IUserService" data-uid="Relativity.Testing.Framework.Api.Services.IUserService" class="text-break">Interface IUserService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the user API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IUserService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_examples"><strong>Examples</strong></h5>
+  <pre><code>_userService = relativityFacade.Resolve&lt;IUserService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_AddToGroup_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.AddToGroup(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L148">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_AddToGroup_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.AddToGroup*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_AddToGroup_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.AddToGroup(System.Int32,System.Int32)">AddToGroup(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> to the group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddToGroup(int userArtifactID, int groupArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">userArtifactID</span></td>
+        <td><p>The user ArtifactID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">groupArtifactID</span></td>
+        <td><p>The group ArtifactID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_AddToGroup_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int userID = 324546;
+int groupID = 78943;
+_userService.AddToGroup(userID, groupID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_Create_User_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.Create(User)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L35">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_Create_User_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Create(User)">Create(User)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">User Create(User user)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><p>The created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_Create_User__examples">Examples</h5>
+  <pre><code>User user = new User
+{
+	FirstName = &quot;User First Name&quot;,
+	LastName = &quot;User Last Name&quot;,
+	EmailAddress = &quot;test@email.com&quot;,
+	Type = &quot;External&quot;,
+	Password = &quot;TestPassword2345!&quot;,
+	DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
+}
+User createdUser = _userService.Create(user);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_Delete_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.Delete(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L95">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_Delete_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Delete(System.Int32)">Delete(Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> by ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int artifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">artifactID</span></td>
+        <td><p>The ArtifactID of the user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_Delete_System_Int32__examples">Examples</h5>
+  <pre><code>int userID = 23236;
+_userService.Delete(userID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_ExistsByEmail_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.ExistsByEmail(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L134">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_ExistsByEmail_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.ExistsByEmail*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_ExistsByEmail_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.ExistsByEmail(System.String)">ExistsByEmail(String)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> with the specified email address exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ExistsByEmail(string email)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">email</span></td>
+        <td><p>The email address of the user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if a user exists; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_ExistsByEmail_System_String__examples">Examples</h5>
+  <pre><code>string userEmail = &quot;some_user@email.com&quot;;
+bool userExists =_userService.ExistsByEmail(userEmail);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_Get_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.Get(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L108">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_Get_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Get(System.Int32)">Get(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> by ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">User Get(int artifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">artifactID</span></td>
+        <td><p>The ArtifactID of the user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_Get_System_Int32__examples">Examples</h5>
+  <pre><code>int userID = 23236;
+User user =_userService.Get(userID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_GetByEmail_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.GetByEmail(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L121">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_GetByEmail_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.GetByEmail*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_GetByEmail_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.GetByEmail(System.String)">GetByEmail(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> by the specified email address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">User GetByEmail(string email)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">email</span></td>
+        <td><p>The email address of the user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_GetByEmail_System_String__examples">Examples</h5>
+  <pre><code>string userEmail = &quot;some_user@email.com&quot;;
+User user =_userService.GetByEmail(userEmail);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_GetGroups_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.GetGroups(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L191">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_GetGroups_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.GetGroups*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_GetGroups_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.GetGroups(System.Int32)">GetGroups(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the list of Groups as <see cref="!:NamedArtifact"></see> assigned to the specified User.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;NamedArtifact&gt; GetGroups(int userArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">userArtifactID</span></td>
+        <td><p>The user ArtifactID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">NamedArtifact</span>&gt;</td>
+        <td><p>The list of Groups asigned to the User.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_GetGroups_System_Int32__examples">Examples</h5>
+  <pre><code>int userArtifactID = 324546;
+
+IList&lt;NamedArtifact> groups = _userService.GetGroups(userArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_RemoveFromGroup_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.RemoveFromGroup(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L162">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_RemoveFromGroup_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.RemoveFromGroup*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_RemoveFromGroup_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.RemoveFromGroup(System.Int32,System.Int32)">RemoveFromGroup(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> from the group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveFromGroup(int userArtifactID, int groupArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">userArtifactID</span></td>
+        <td><p>The user ArtifactID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">groupArtifactID</span></td>
+        <td><p>The group ArtifactID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_RemoveFromGroup_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int userID = 324546;
+int groupID = 78943;
+_userService.RemoveFromGroup(userID, groupID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_Require_User_System_Boolean_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.Require(User%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L83">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_Require_User_System_Boolean_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Require(User,System.Boolean)">Require(User, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a>.
+Returns existing <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> if the <code data-dev-comment-type="paramref" class="paramref">user</code> has the properties (ArtifactID, Email) set to be able to get the user;
+otherwise creates a new user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">User Require(User user, bool ensureNew = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> to require.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">ensureNew</span></td>
+        <td><p>The boolean value indicating whether we going to delete the same user. By default true.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_Require_User_System_Boolean__examples">Examples</h5>
+  <p>This shows how to require existing user and get it without recreating it.</p>
+<pre><code>User existingUser = new User
+{
+	FirstName = &quot;Existing User First Name&quot;,
+	LastName = &quot;Existing User Last Name&quot;,
+	EmailAddress = &quot;existing_user@email.com&quot;,
+	ArtifactID = 1
+}
+User requiredUser = _userService.Require(user, false);</code></pre>
+
+  <p>This shows how to create a new user from given model and get it using Require method.</p>
+<pre><code>User userToCreate = new User
+{
+	FirstName = &quot;User First Name&quot;,
+	LastName = &quot;User Last Name&quot;,
+	EmailAddress = &quot;not_existing_user@email.com&quot;,
+	Type = &quot;External&quot;,
+	Password = &quot;TestPassword2345!&quot;,
+	DefaultSelectedFileType = UserDefaultSelectedFileType.LongText,
+}
+User createdUser = _userService.Require(user);</code></pre>
+
+  <p>This shows how to recreate existing user and get it using Require method.</p>
+<pre><code>User existingUser = new User
+{
+	FirstName = &quot;Existing User First Name&quot;,
+	LastName = &quot;Existing User Last Name&quot;,
+	EmailAddress = &quot;existing_user@email.com&quot;,
+	ArtifactID = 1
+}
+User recreatedUser = _userService.Require(user);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService_Update_User_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService.Update(User)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L177">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IUserService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IUserService_Update_User_" data-uid="Relativity.Testing.Framework.Api.Services.IUserService.Update(User)">Update(User)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(User user)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">User</span></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.User.html">User</a> to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IUserService_Update_User__examples">Examples</h5>
+  <pre><code>User existingUser = _userService.GetByEmail(&quot;some_existing_user@email.com&quot;);
+existingUser.Password = &quot;newPassword123*&quot;;
+existingUser.ChangePasswordNextLogin = true;
+existingUser.RelativityAccess = false;
+_userService.Update(existingUser);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IUserService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IUserService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IUserService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

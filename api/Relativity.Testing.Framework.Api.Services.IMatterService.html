@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IMatterService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IMatterService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IMatterService" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService" class="text-break">Interface IMatterService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the matter API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IMatterService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_examples"><strong>Examples</strong></h5>
+  <pre><code>_matterService = relativityFacade.Resolve&lt;IMatterService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_Create_Matter_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.Create(Matter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L44">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_Create_Matter_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Create(Matter)">Create(Matter)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Matter Create(Matter entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The matter to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><p>The created matter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_Create_Matter__examples">Examples</h5>
+  <p>Create any old matter.</p>
+<pre><code>Matter matter = _matterService.Create(Matter());</code></pre>
+
+  <p>Create a matter with specified properties.</p>
+<pre><code>Client client = _clientService.Create(Client());
+
+Matter matter = new Matter
+{
+    Name = &quot;Dark&quot;,
+    Number = 12345,
+    Status = &quot;Active&quot;,
+    Client = client
+    Keywords = &quot;SomeKeyword&quot;
+    Notes = &quot;Some note about the matter.&quot;
+};
+matter = _matterService.Create(matter);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_Delete_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.Delete(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L102">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_Delete_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Delete(System.Int32)">Delete(Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a> by ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ArtifactID of the matter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_Delete_System_Int32__examples">Examples</h5>
+  <pre><code>_matterService.Delete(matter.ArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_Get_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.Get(System.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L115">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_Get_System_Int32_System_Boolean_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Get(System.Int32,System.Boolean)">Get(Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a> by the ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Matter Get(int id, bool withExtendedMetadata = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ArtifactID of the matter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">withExtendedMetadata</span></td>
+        <td><p>If set to true Meta field will be populated on get. Default is false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a> if it exists, otherwise <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_Get_System_Int32_System_Boolean__examples">Examples</h5>
+  <pre><code>Matter matter = _matterService.Get(1234567);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_Get_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.Get(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L128">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_Get_System_String_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Get(System.String,System.Int32)">Get(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a> by the matter name, and Client ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Matter Get(string name, int clientId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the matter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The ArtifactID of the client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a> if it exists, otherwise <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_Get_System_String_System_Int32__examples">Examples</h5>
+  <pre><code>Matter matter = _matterService.Get(&quot;AnotherMatter&quot;, 2345678);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleClients.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.GetEligibleClients%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L155">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleClients_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.GetEligibleClients*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleClients" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.GetEligibleClients">GetEligibleClients()</h4>
+  <div class="markdown level1 summary"><p>Gets all of available clients in a Relativity environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ArtifactIdNamePair[] GetEligibleClients()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ArtifactIdNamePair</span>[]</td>
+        <td><p>The array with pairs of Names and Artifact IDs of available clients.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleClients_examples">Examples</h5>
+  <pre><code>ArtifactIdNamePair[] allClients = _matterService.GetEligibleClients();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleStatuses.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.GetEligibleStatuses%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L166">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleStatuses_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.GetEligibleStatuses*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleStatuses" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.GetEligibleStatuses">GetEligibleStatuses()</h4>
+  <div class="markdown level1 summary"><p>Gets all of available matter statuses in a Relativity environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ArtifactIdNamePair[] GetEligibleStatuses()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ArtifactIdNamePair</span>[]</td>
+        <td><p>The array with pairs of Names and Artifact IDs of available statuses.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_GetEligibleStatuses_examples">Examples</h5>
+  <pre><code>ArtifactIdNamePair[] allStatuses = _matterService.GetEligibleStatuses();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_Require_Matter_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.Require(Matter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L91">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_Require_Matter_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Require(Matter)">Require(Matter)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified matter.</p>
+<ol><li></li><li></li><li></li></ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Matter Require(Matter entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The matter to require.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><p>The created or updated matter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_Require_Matter__examples">Examples</h5>
+  <p>This example will search for a matter with the ArtifactID &quot;1234567&quot;.</p>
+<p>If it is found, the model will be used to update the rest of the properties on the matter.</p>
+<p>If not, it will be created.</p>
+<pre><code>Matter matter = new Matter
+{
+    ArtifactID = 1234567,
+    Status = &quot;Inactive&quot;
+};
+matter = _matterService.Require(matter);</code></pre>
+
+  <p>This example will search for a matter named &quot;MyMatter&quot;.</p>
+<p>If one is found, it will be updated and returned.</p>
+<p>If not, it will be created.</p>
+<pre><code>Client client = new Client
+{
+    Name = &quot;MyClient&quot;
+};
+<p>Client client = _clientService.Require(client);</p>
+<p>Matter matter = new Matter
+{
+Name = &quot;MyMatter&quot;,
+Client = client,
+Status = &quot;Inactive&quot;
+};</p>
+<p>matter = _matterService.Require(matter);</code></pre><p>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService_Update_Matter_System_Boolean_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService.Update(Matter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L144">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IMatterService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IMatterService_Update_Matter_System_Boolean_" data-uid="Relativity.Testing.Framework.Api.Services.IMatterService.Update(Matter,System.Boolean)">Update(Matter, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Matter.html">Matter</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(Matter entity, bool restrictedUpdate = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Matter</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The matter to update.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">restrictedUpdate</span></td>
+        <td><p>If set to true the LastModifiedOn date will be added to API request and its value must match the LastModifiedOn date for the matter stored in Relativity. Otherwise, you receive a 409 error, indicating that the object has been modified. Default set to false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IMatterService_Update_Matter_System_Boolean__examples">Examples</h5>
+  <pre><code>Matter matter = _matterService.Get(&quot;AnotherMatter&quot;, 2345678);
+
+matter.Name = &quot;ADifferentMatter&quot;;
+
+matter = _matterService.Update(matter);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IMatterService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IMatterService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IMatterService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

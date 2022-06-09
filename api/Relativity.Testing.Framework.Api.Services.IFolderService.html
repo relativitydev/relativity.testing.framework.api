@@ -1,0 +1,836 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IFolderService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IFolderService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IFolderService" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService" class="text-break">Interface IFolderService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the Folder API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IFolderService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_examples"><strong>Examples</strong></h5>
+  <pre><code>IFolderService _folderService = relativityFacade.Resolve&lt;IFolderService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_Create_System_Int32_Folder_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.Create(System.Int32%2CFolder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L47">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_Create_System_Int32_Folder_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Create(System.Int32,Folder)">Create(Int32, Folder)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> in specified workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Folder Create(int workspaceArtifactID, Folder folder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Folder</span></td>
+        <td><span class="parametername">folder</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> to create. If ParentFolder does not have valid ArtifactID, the root folder of the repository will be set as the parent for created folder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Folder</span></td>
+        <td><p>Created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_Create_System_Int32_Folder__examples">Examples</h5>
+  <p>This example shows how to create folder, which parent is the workspace root folder.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+var folderToCreate = new Folder
+{
+	Name = &quot;Test Folder&quot;
+};
+Folder createdFolder = _folderService.Create(workspaceArtifactId, folderToCreate)</code></pre>
+
+  <p>This example shows how to create folder, which parent is folder with known ArtifactID.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 1015657;
+var folderToCreate = new Folder
+{
+	Name = &quot;Test Folder&quot;,
+	ParentFolder = new NamedArtifact
+	{
+		ArtifactID = existingFolderArtifactID
+	}
+};
+Folder createdFolder = _folderService.Create(workspaceArtifactId, folderToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_DeleteUnused_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.DeleteUnused(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L84">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_DeleteUnused_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.DeleteUnused*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_DeleteUnused_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.DeleteUnused(System.Int32)">DeleteUnused(Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes unused (empty) folders from the workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">QueryResult&lt;Artifact&gt; DeleteUnused(int workspaceArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">QueryResult</span>&lt;<span class="xref">Artifact</span>&gt;</td>
+        <td><p><a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.QueryResult-1.html">QueryResult</a> that lists the deleted folders.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_DeleteUnused_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1015427;
+QueryResult&lt;Artifact> result = _folderService.DeleteUnused(workspaceArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_Get_System_Int32_System_Int32_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.Get(System.Int32%2CSystem.Int32%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L71">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_Get_System_Int32_System_Int32_System_Nullable_System_Int32__" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Get(System.Int32,System.Int32,System.Nullable{System.Int32})">Get(Int32, Int32, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Gets folder by ArtifactID. Parent Folder Artifact ID must be set if it's not the Workspace Root Folder (then it can be skipped).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Folder Get(int workspaceArtifactID, int folderArtifactID, int? parentFolderArtifactID = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">folderArtifactID</span></td>
+        <td><p>The ArtifactID of the Folder.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">parentFolderArtifactID</span></td>
+        <td><p>The ArtifactID of the parent folder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Folder</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_Get_System_Int32_System_Int32_System_Nullable_System_Int32___examples">Examples</h5>
+  <p>This example shows how to get a folder by ArtifactID, which parent isn't the workspace root folder.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int existingFolderParentArtifactID = 1015656;
+int existingFolderArtifactID = 1015657;
+Folder folder = _folderService.Get(workspaceArtifactId, existingFolderArtifactID, existingFolderArtifactID);</code></pre>
+
+  <p>This example shows how to get a folder by ArtifactID, which parent is workspace root folder.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 1015657;
+Folder folder = _folderService.Get(workspaceArtifactId, existingFolderArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_GetAccessStatus_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.GetAccessStatus(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L220">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_GetAccessStatus_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetAccessStatus*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetAccessStatus_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetAccessStatus(System.Int32,System.Int32)">GetAccessStatus(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets information about the user‘s ability to access the folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FolderAccessStatus GetAccessStatus(int workspaceArtifactID, int folderArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">folderArtifactID</span></td>
+        <td><p>The ArtifactID of the Folder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FolderAccessStatus</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FolderAccessStatus.html">FolderAccessStatus</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetAccessStatus_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 1015657;
+FolderAccessStatus folderAccessStatus = _folderService.GetAccessStatus(workspaceArtifactId, existingFolderArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_GetExpandedNodes_System_Int32_System_Collections_Generic_List_System_Int32__System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.GetExpandedNodes(System.Int32%2CSystem.Collections.Generic.List%7BSystem.Int32%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L253">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_GetExpandedNodes_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetExpandedNodes*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetExpandedNodes_System_Int32_System_Collections_Generic_List_System_Int32__System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetExpandedNodes(System.Int32,System.Collections.Generic.List{System.Int32},System.Int32)">GetExpandedNodes(Int32, List&lt;Int32&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets a folder structure that contains expanded <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> nodes and can select folder by Artifact ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;Folder&gt; GetExpandedNodes(int workspaceArtifactID, List&lt;int&gt; expandedNodesArtifactIDs, int selectedFolderArtifactID = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">expandedNodesArtifactIDs</span></td>
+        <td><p>List of Artifact IDs of specified folders that you want to retrieve information about.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">selectedFolderArtifactID</span></td>
+        <td><p>An optional field with ArtifactID of the folder that will be marked as selected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Folder</span>&gt;</td>
+        <td><p>A list of children <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> for all expanded folders.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetExpandedNodes_System_Int32_System_Collections_Generic_List_System_Int32__System_Int32__examples">Examples</h5>
+  <p>This example shows how to get folder structure with expanded folder with known ArtifactIDs and select one of them.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 1015657;
+int existingFolderToSelectArtifactID = 1015652;
+List&lt;int> expandedNodesArtifactIDs = new List&lt;int>
+{
+	1015657,
+	existingFolderToSelectArtifactID
+}
+List&lt;Folder> expandedNodes = _folderService.GetExpandedNodes(workspaceArtifactId, expandedNodesArtifactIDs, existingFolderToSelectArtifactID);</code></pre>
+
+  <p>This examples shows how to get folder structure with expanded folder with known ArtifactIDs.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+List&lt;int> expandedNodesArtifactIDs = new List&lt;int>
+{
+	1015657,
+	1015623
+}
+List&lt;Folder> expandedNodes = _folderService.GetExpandedNodes(workspaceArtifactId, expandedNodesArtifactIDs);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_GetSubfolders_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.GetSubfolders(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L205">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_GetSubfolders_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetSubfolders*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetSubfolders_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetSubfolders(System.Int32,System.Int32)">GetSubfolders(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets subfolders of given <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;Folder&gt; GetSubfolders(int workspaceArtifactID, int parentFolderArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">parentFolderArtifactID</span></td>
+        <td><p>The ArtifactID of the parent folder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Folder</span>&gt;</td>
+        <td><p>The list of subfolders of the given <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetSubfolders_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 1015657;
+List&lt;Folder> subfolders = _folderService.GetSubfolders(workspaceArtifactId, existingFolderArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_GetWorkspaceRootFolder_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.GetWorkspaceRootFolder(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L190">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_GetWorkspaceRootFolder_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetWorkspaceRootFolder*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetWorkspaceRootFolder_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.GetWorkspaceRootFolder(System.Int32)">GetWorkspaceRootFolder(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the root <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> of the workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Folder GetWorkspaceRootFolder(int workspaceArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Folder</span></td>
+        <td><p>The root <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> of the workspace.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_GetWorkspaceRootFolder_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1015427;
+Folder rootFolder = _folderService.GetWorkspaceRootFolder(workspaceArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_Move_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.Move(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L177">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_Move_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Move*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_Move_System_Int32_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Move(System.Int32,System.Int32,System.Int32)">Move(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Moves a <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> and its children, including subfolders and documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FolderMoveResponse Move(int workspaceArtifactID, int folderArtifactID, int destinationFolderArtifactID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">folderArtifactID</span></td>
+        <td><p>The ArtifactID of the folder to move.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">destinationFolderArtifactID</span></td>
+        <td><p>The ArtifactID of the destination folder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">FolderMoveResponse</span></td>
+        <td><p><a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.FolderMoveResponse.html">FolderMoveResponse</a> including information about the result of the move operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_Move_System_Int32_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 10154324;
+int existingDestinationFolderArtifactID = 101543223;
+Folder updatedFolder = _folderService.Move(workspaceArtifactId, existingFolderArtifactID, existingDestinationFolderArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_Query_System_Int32_Query_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.Query(System.Int32%2CQuery%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L110">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_Query_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Query*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_Query_System_Int32_Query_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Query(System.Int32,Query,System.Int32)">Query(Int32, Query, Int32)</h4>
+  <div class="markdown level1 summary"><p>Queries for unstructured list of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">QueryResult&lt;NamedArtifact&gt; Query(int workspaceArtifactID, Query query, int length = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Query</span></td>
+        <td><span class="parametername">query</span></td>
+        <td><p>The query that may be an empty query or include conditions.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>Indicates the number of returned results. The default value is 0 for length, and the number of returned results defaults to 10000.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">QueryResult</span>&lt;<span class="xref">NamedArtifact</span>&gt;</td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.QueryResult-1.html">QueryResult</a> with a list of all folders in the workspace that are available to requesting user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_Query_System_Int32_Query_System_Int32__examples">Examples</h5>
+  <p>This example shows how to query for folder with given Name.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+var query = new Query
+{
+	Condition = &quot;&apos;Name&apos; == &apos;Test&apos;&quot;
+};
+Folder folderWithTestName = _folderService.Get(workspaceArtifactId, query, 1).Results.FirstOrDefault();</code></pre>
+
+  <p>This example shows how to query for all folders in the workspace.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+var query = new Query();
+QueryResult&lt;NamedArtifact> folders = _folderService.Query(workspaceArtifactId, query)</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService_Update_System_Int32_Folder_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService.Update(System.Int32%2CFolder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L160">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFolderService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFolderService_Update_System_Int32_Folder_" data-uid="Relativity.Testing.Framework.Api.Services.IFolderService.Update(System.Int32,Folder)">Update(Int32, Folder)</h4>
+  <div class="markdown level1 summary"><p>Updates <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Folder Update(int workspaceArtifactID, Folder folder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceArtifactID</span></td>
+        <td><p>The ArtifactID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Folder</span></td>
+        <td><span class="parametername">folder</span></td>
+        <td><p><a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a> to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Folder</span></td>
+        <td><p>Updated <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Folder.html">Folder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_Update_System_Int32_Folder__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the request contains an Artifact ID that differs from ID for the original parent folder,
+the folder is moved to the parent folder specified in the request.
+If a parent folder isn't specified, the folder is moved to the root folder of the workspace.</p>
+</div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFolderService_Update_System_Int32_Folder__examples">Examples</h5>
+  <p>This example shows how to update Name of the Folder.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int folderArtifactID = 10154324;
+int parentFolderArtifactID = 10154321;
+Folder folderToUpdate = _folderService.Get(workspaceArtifactId, folderArtifactID, parentFolderArtifactID);
+folderToUpdate.Name = &quot;New Folder Name&quot;;
+Folder updatedFolder = _folderService.Update(workspaceArtifactId, folderToUpdate);</code></pre>
+
+  <p>This example shows how to move folder to workspace root folder using Update method.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 10154324;
+Folder folderToUpdate = new Folder
+{
+	Name = &quot;Some Existing Folder Name&quot;,
+	ArtifactID = existingFolderArtifactID
+};
+Folder updatedFolder = _folderService.Update(workspaceArtifactId, folderToUpdate);</code></pre>
+
+  <p>This example shows how to move folder to some existing folder.</p>
+<pre><code>int workspaceArtifactId = 1015427;
+int existingFolderArtifactID = 10154324;
+int newParentFolderArtifactID = 101543223;
+Folder folderToUpdate = new Folder
+{
+	Name = &quot;Some Existing Folder Name&quot;,
+	ArtifactID = existingFolderArtifactID,
+	ParentFolder = new NamedArtifact
+	{
+		ArtifactID = newParentFolderArtifactID,
+	}
+};
+Folder updatedFolder = _folderService.Update(workspaceArtifactId, folderToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFolderService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFolderService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFolderService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

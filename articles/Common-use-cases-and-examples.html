@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Setup </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Setup ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p>The best source of examples for using Relativity.Testing.Framework.Api are our own <a href="https://github.com/relativitydev/relativity.testing.framework.api/tree/master/source/Relativity.Testing.Framework.Api.FunctionalTests/Strategies">functional tests</a>.
+These run as a part of pull requests and test out the strategies themselves.</p>
+<p>Here are some examples of common use cases for things you might want to do with Relativity Testing Framework.</p>
+<h1 id="setup">Setup</h1>
+<p>Before creating anything, remember to RelyOn the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html">CoreComponent</a> and <a href="/api/Relativity.Testing.Framework.Api.ApiComponent.html">ApiComponent</a>.</p>
+<pre><code>[OneTimeSetup]
+public SetUp()
+{
+    RelativityFacade.Instance.RelyOn&lt;CoreComponent&gt;();
+    RelativityFacade.Instance.RelyOn&lt;ApiComponent&gt;();
+}
+</code></pre>
+<h1 id="creating-workspaces">Creating Workspaces</h1>
+<p>Before using an <a href="/api/Relativity.Testing.Framework.Api.Services.IWorkspaceService.html">Service</a>, it must be resolved.</p>
+<pre><code>_workspaceService = RelativityFacade.Instance.Resolve&lt;IWorkspaceService&gt;();
+</code></pre>
+<h2 id="create-a-workspace">Create a Workspace</h2>
+<p>The simplest way to use most strategies is to just in an empty DTO/model.
+This will usually look up defaults and create the object for you</p>
+<pre><code>Workspace workspace = _workspaceService.Create(new Workspace());
+</code></pre>
+<h2 id="a-workspace-with-a-specific-name">A Workspace with a specific name</h2>
+<p>The properties on the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">model</a> can be specified, and those value will be used to make the request.</p>
+<pre><code>Workspace workspace = new Workspace
+{
+    Name = &quot;MySpecialWorkspace&quot;,
+};
+ 
+workspace = _workspaceService.Create(workspace);
+</code></pre>
+<h1 id="creating-users-and-groups">Creating Users and Groups</h1>
+<pre><code>_userService = RelativityFacade.Instance.Resolve&lt;IUserService&gt;();
+_groupService = RelativityFacade.Instance.Resolve&lt;IGroupService&gt;();
+_permissionService = RelativityFacade.Instance.Resolve&lt;IPermissionService&gt;();
+</code></pre>
+<h2 id="creating-a-user">Creating a User</h2>
+<pre><code>User user = _userService.Create(new User());
+</code></pre>
+<h2 id="creating-a-group">Creating a Group</h2>
+<pre><code>Group group = _groupService.Create(new Group());
+</code></pre>
+<h2 id="adding-a-user-to-a-group">Adding a User to a Group</h2>
+<pre><code>_userService.AddToGroup(user.ArtifactID, group.ArtifactID);
+</code></pre>
+<h2 id="adding-a-group-to-a-workspace">Adding a Group to a Workspace</h2>
+<pre><code>_permissionService.AddWorkspaceToGroup(workspace.ArtifactID, group.ArtifactID);
+</code></pre>
+<h1 id="installing-applications">Installing Applications</h1>
+<pre><code>_libraryApplicationService = RelativityFacade.Instance.Resolve&lt;ILibraryApplicationService&gt;();
+</code></pre>
+<h2 id="installing-an-application-to-the-library">Installing an application to the library</h2>
+<pre><code>_libraryApplicationService.InstallToLibrary(_pathToRapFile);
+LibraryApplication application = _libraryApplicationService.Get(_rapName);
+</code></pre>
+<h2 id="installing-a-library-application-to-a-workspace">Installing a library application to a workspace</h2>
+<pre><code>_libraryApplicationService.InstallToWorkspace(workspace.ArtifactID, application .ArtifactID);
+</code></pre>
+<h1 id="creating-objects">Creating Objects</h1>
+<pre><code>_objectService = RelativityFacade.Instance.Resolve&lt;IObjectService&gt;();
+</code></pre>
+<h2 id="defining-object-types">Defining Object Types</h2>
+<p>In your code, you should model object types as DTOs.
+This allows RTF to make requests using these object types, and map values to them as part of those requests.</p>
+<p>In this example, we are assuming that your application contains an <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ObjectType.html">ObjectType</a> called SomeObjectType, and it has a field attached to it called SomeField.</p>
+<pre><code>public class SomeObjectType : NamedArtifact
+{
+    // ArtifactId and Name come from NamedArtifact.
+    // Other fields on object types should be defined here.
+    //public int ArtifactID { get; set; }
+    //public string Name { get; set; }
+
+    public sting SomeField { get; set; }
+}
+</code></pre>
+<h2 id="creating-rdos">Creating RDOs</h2>
+<p>We can then use the DTO for the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ObjectType.html">ObjectType</a> to make RDOs using the <a href="/api/Relativity.Testing.Framework.Api.ObjectManagement.IObjectService.html">ObjectService</a>.</p>
+<pre><code>SomeObjectType someObjectType = _objectService.Create(_workspace.ArtifactID, new RapTemplate
+{
+    Name = &quot;MyObject&quot;,
+    SomeField = &quot;SomeValue&quot;
+});
+</code></pre>
+<h1 id="putting-it-all-together">Putting it all together</h1>
+<pre><code>using System.IO;
+using NUnit.Framework;
+using Relativity.Testing.Framework;
+using Relativity.Testing.Framework.Api;
+using Relativity.Testing.Framework.Api.ObjectManagement;
+using Relativity.Testing.Framework.Api.Services;
+using Relativity.Testing.Framework.Models;
+
+namespace SomeObjectType.FunctionalTests.CI
+{
+    [TestFixture]
+    public class Tests
+    {
+        private IWorkspaceService _workspaceService;
+        private ILibraryApplicationService _applicationService;
+        private IObjectService _objectService;
+        private IGroupService _groupService;
+        private IUserService _userService;
+        private IPermissionService = _permissionService;
+
+        private Workspace _workspace;
+        private LibraryApplication _application;
+
+        [OneTimeSetUp]
+        public void SetupTests()
+        {
+            RelativityFacade.Instance.RelyOn&lt;CoreComponent&gt;();
+            RelativityFacade.Instance.RelyOn&lt;ApiComponent&gt;();
+
+            string rapPath = Path.Combine(RelativityFacade.Instance.Config.RelativityInstance.RapDirectory, &quot;SomeObject.rap&quot;);
+
+            _workspaceService = RelativityFacade.Instance.Resolve&lt;IWorkspaceService&gt;();
+            _applicationService = RelativityFacade.Instance.Resolve&lt;ILibraryApplicationService&gt;();
+            _objectService = RelativityFacade.Instance.Resolve&lt;IObjectService&gt;();
+            _userService = RelativityFacade.Instance.Resolve&lt;IUserService&gt;();
+            _groupService = RelativityFacade.Instance.Resolve&lt;IGroupService&gt;();
+            _permissionService = RelativityFacade.Instance.Resolve&lt;IPermissionService&gt;();
+
+            _workspace = _workspaceService.Create(new Workspace());
+            _user = _userService.Create(new User());
+            _group = _groupService.Create(new Group());
+            _userService.AddToGroup(user.ArtifactID, group.ArtifactID);
+            _permissionService.AddWorkspaceToGroup(workspace.ArtifactID, group.ArtifactID);
+
+            _applicationService.InstallToLibrary(rapPath);
+            _application = _applicationService.Get(&quot;SomeObject&quot;);
+        }
+
+        [Test]
+        public void InstallingApplicationToAWorkspaceSucceeds()
+        {
+            _applicationService.InstallToWorkspace(_workspace.ArtifactID, _application.ArtifactID);
+            Assert.IsTrue(_applicationService.IsInstalledInWorkspace(_workspace.ArtifactID, _application.ArtifactID));
+        }
+
+        [Test]
+        public void AnInstanceOfSomeObjectTypeCanBeCreated()
+        {
+            SomeObjectType someObjectType = _objectService.Create(_workspace.ArtifactID, new SomeObjectType
+            {
+                Name = &quot;AName&quot;,
+                SomeField = &quot;SomeValue&quot;
+            });
+
+            Assert.That(someObjectType.ArtifactID &gt; 0);
+            Assert.That(someObjectType.Name == &quot;AName&quot;);
+            Assert.That(someObjectType.SomeField == &quot;SomeValue&quot;);
+        }
+
+        [Test]
+        public UserHasAccessToSomeObjectType()
+        {
+            // Some UI testing could be done here as user acceptance testing.
+            //Login(_user.EmailAddress, _user.Password);
+            //GoToWorkspace(_workspace.Name);
+            //GoToTab(&quot;SomeObjectType&quot;);
+            //GoToObject(Name = &quot;AName&quot;);
+            //VerifyProperties();
+        }
+    }
+
+    public class SomeObjectType : NamedArtifact
+    {
+        public SomeField { get; set; }
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Common-use-cases-and-examples.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

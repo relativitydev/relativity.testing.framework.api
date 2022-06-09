@@ -1,0 +1,867 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IScriptService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IScriptService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IScriptService" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService" class="text-break">Interface IScriptService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the script API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IScriptService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_examples"><strong>Examples</strong></h5>
+  <pre><code>IScriptService _scriptService = RelativityFacade.Resolve&lt;IScriptService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_Create_System_Int32_Script_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.Create(System.Int32%2CScript)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L40">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_Create_System_Int32_Script_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Create(System.Int32,Script)">Create(Int32, Script)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified script.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Script Create(int workspaceId, Script entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to add the new script.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><p>The created entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_Create_System_Int32_Script__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+const string action = &quot;&lt;action returns=\&quot;table\&quot;>&lt;![CDATA[ SELECT TOP(10) * FROM[eddsdbo].[Artifact]]]>&lt;/action>&quot;;
+
+var script = new Script
+{
+	Name = &quot;My script Name&quot;,
+	Description = &quot;About my script&quot;,
+	Category = &quot;My category&quot;,
+	ScriptBody = $&quot;&lt;script>{action}&lt;/script>&quot;
+};
+
+Script result = _scriptService.Create(workspaceID, script);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L55">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the script by ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to delete the script.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The artifact ID of the script.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+
+_scriptService.Delete(workspaceID, scriptID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_EnqueueRunJob_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__System_Double_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.EnqueueRunJob(System.Int32%2CSystem.Int32%2CSystem.Collections.Generic.List%7BScriptInput%7D%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L140">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_EnqueueRunJob_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.EnqueueRunJob*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_EnqueueRunJob_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__System_Double_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.EnqueueRunJob(System.Int32,System.Int32,System.Collections.Generic.List{ScriptInput},System.Double)">EnqueueRunJob(Int32, Int32, List&lt;ScriptInput&gt;, Double)</h4>
+  <div class="markdown level1 summary"><p>Enqueues a script run job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">EnqueueRunJobResponse EnqueueRunJob(int workspaceId, int scriptId, List&lt;ScriptInput&gt; inputs = null, double timeZoneOffset = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where the script exists and should be executed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">scriptId</span></td>
+        <td><p>The ArtifactID of the script to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">ScriptInput</span>&gt;</td>
+        <td><span class="parametername">inputs</span></td>
+        <td><p>Inputs and their values for the script, empty by default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">timeZoneOffset</span></td>
+        <td><p>The time zone offset for the script, zero by default.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">EnqueueRunJobResponse</span></td>
+        <td><p>An <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.EnqueueRunJobResponse.html">EnqueueRunJobResponse</a> describing the queued job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_EnqueueRunJob_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__System_Double__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+var scriptInputs = new List&lt;ScriptInput>();
+
+scriptInputs.Add(new ScriptInput()
+{
+	ID = &quot;workspaceArtifactId&quot;,
+	Value = workspaceID
+});
+
+EnqueueRunJobResponse response = _scriptService.EnqueueRunJob(workspaceID, scriptID, scriptInputs);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_EnsureEnvironmentCanRunScripts.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.EnsureEnvironmentCanRunScripts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L257">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_EnsureEnvironmentCanRunScripts_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.EnsureEnvironmentCanRunScripts*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_EnsureEnvironmentCanRunScripts" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.EnsureEnvironmentCanRunScripts">EnsureEnvironmentCanRunScripts()</h4>
+  <div class="markdown level1 summary"><p>Creates and/or enables a ScriptRunManager Agent to make sure that the environment can run scripts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnsureEnvironmentCanRunScripts()</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_EnsureEnvironmentCanRunScripts_examples">Examples</h5>
+  <pre><code>_scriptService.EnsureEnvironmentCanRunScripts();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L71">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the script by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Script Get(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get script.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The artifact ID of the script.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Script.html">Script</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+
+Script script = _scriptService.Get(workspaceID, scriptID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_Preview_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__System_Double_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.Preview(System.Int32%2CSystem.Int32%2CSystem.Collections.Generic.List%7BScriptInput%7D%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L115">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_Preview_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Preview*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_Preview_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__System_Double_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Preview(System.Int32,System.Int32,System.Collections.Generic.List{ScriptInput},System.Double)">Preview(Int32, Int32, List&lt;ScriptInput&gt;, Double)</h4>
+  <div class="markdown level1 summary"><p>Gives a preview of what the exact SQL the script will run given a set of parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Preview(int workspaceId, int scriptId, List&lt;ScriptInput&gt; inputs = null, double timeZoneOffset = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where the script exists.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">scriptId</span></td>
+        <td><p>The ArtifactID of the script to preview.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">ScriptInput</span>&gt;</td>
+        <td><span class="parametername">inputs</span></td>
+        <td><p>Inputs and their values for the script.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">timeZoneOffset</span></td>
+        <td><p>The time zone offset for the script in hours.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>SQL statement with the parameters inserted into it.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_Preview_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__System_Double__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+var scriptInputs = new List&lt;ScriptInput>();
+
+scriptInputs.Add(new ScriptInput()
+{
+	ID = &quot;workspaceArtifactId&quot;,
+	Value = workspaceID
+});
+
+string sqlStatment = _scriptService.Preview(workspaceID, scriptID, scriptInputs);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_QueryActionJobResults_System_Int32_System_Guid_System_Int32_ActionQueryRequest_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.QueryActionJobResults(System.Int32%2CSystem.Guid%2CSystem.Int32%2CActionQueryRequest%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L191">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_QueryActionJobResults_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.QueryActionJobResults*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_QueryActionJobResults_System_Int32_System_Guid_System_Int32_ActionQueryRequest_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.QueryActionJobResults(System.Int32,System.Guid,System.Int32,ActionQueryRequest,System.Int32,System.Int32)">QueryActionJobResults(Int32, Guid, Int32, ActionQueryRequest, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Queries the results of a completed action job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ActionResultsQueryResponse QueryActionJobResults(int workspaceId, Guid runJobId, int actionIndex, ActionQueryRequest actionQueryRequest = null, int start = 0, int length = 100)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where the script exists and was executed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">runJobId</span></td>
+        <td><p>The ID of the script run job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">actionIndex</span></td>
+        <td><p>The index of the action. This is the numeric index of the action in the script starting at 0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ActionQueryRequest</span></td>
+        <td><span class="parametername">actionQueryRequest</span></td>
+        <td><p>The query to execute. By default takes all fields without condition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The result cursor. Default value is zero.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>The maximum length of results to return. Default value is 100.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ActionResultsQueryResponse</span></td>
+        <td><p>The action query's result in the form of an <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ActionResultsQueryResponse.html">ActionResultsQueryResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_QueryActionJobResults_System_Int32_System_Guid_System_Int32_ActionQueryRequest_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+var actionQueryRequest = new ActionQueryRequest();
+
+EnqueueRunJobResponse enqueueRunJobResponse = _scriptService.EnqueueRunJob(workspaceID, scriptID);
+RunJob runJobResponse = _scriptService.ReadRunJob(workspaceID, enqueueRunJobResponse.RunJobID);
+
+var getAction = enqueueRunJobResponse.Actions.Find(x => x.Verb == &quot;GET&quot;);
+var actionIndex = enqueueRunJobResponse.Actions.IndexOf(getAction);
+
+var queryRequest = new ActionQueryRequest()
+{
+	Condition = &quot;&apos;IsAlive&apos; == false&quot;,
+	ColumnNames = new List&lt;string>() { &quot;*&quot; },
+	Sorts = new List&lt;ActionColumnSort>(),
+}
+
+ActionResultsQueryResponse queryResponce = _scriptService.QueryActionJobResults(workspaceID, enqueueRunJobResponse.RunJobID, actionIndex, queryRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_ReadRunJob_System_Int32_System_Guid_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.ReadRunJob(System.Int32%2CSystem.Guid)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L157">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_ReadRunJob_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.ReadRunJob*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_ReadRunJob_System_Int32_System_Guid_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.ReadRunJob(System.Int32,System.Guid)">ReadRunJob(Int32, Guid)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a script run job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RunJob ReadRunJob(int workspaceId, Guid runJobId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where the script exists and was executed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">runJobId</span></td>
+        <td><p>The ID of the script run job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RunJob</span></td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.RunJob.html">RunJob</a> describing the script run job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_ReadRunJob_System_Int32_System_Guid__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+
+EnqueueRunJobResponse enqueueRunJobResponse = _scriptService.EnqueueRunJob(workspaceID, scriptID);
+RunJob runJobResponse = _scriptService.ReadRunJob(workspaceID, enqueueRunJobResponse.RunJobID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_RunStatusAction_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.RunStatusAction(System.Int32%2CSystem.Int32%2CSystem.Collections.Generic.List%7BScriptInput%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L215">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_RunStatusAction_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.RunStatusAction*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_RunStatusAction_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.RunStatusAction(System.Int32,System.Int32,System.Collections.Generic.List{ScriptInput})">RunStatusAction(Int32, Int32, List&lt;ScriptInput&gt;)</h4>
+  <div class="markdown level1 summary"><p>Executes a script with status action and parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int RunStatusAction(int workspaceId, int scriptId, List&lt;ScriptInput&gt; inputs = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where the script exists and should be executed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">scriptId</span></td>
+        <td><p>The ArtifactID of the script to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">ScriptInput</span>&gt;</td>
+        <td><span class="parametername">inputs</span></td>
+        <td><p>Inputs and their values for the script.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The count of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_RunStatusAction_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput___examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+var scriptInputs = new List&lt;ScriptInput>();
+
+scriptInputs.Add(new ScriptInput()
+{
+	ID = &quot;workspaceArtifactId&quot;,
+	Value = workspaceID
+});
+
+int result = _scriptService.RunStatusAction(workspaceID, scriptID, scriptInputs);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_RunTableAction_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__ActionQueryRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.RunTableAction(System.Int32%2CSystem.Int32%2CSystem.Collections.Generic.List%7BScriptInput%7D%2CActionQueryRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L247">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_RunTableAction_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.RunTableAction*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_RunTableAction_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__ActionQueryRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.RunTableAction(System.Int32,System.Int32,System.Collections.Generic.List{ScriptInput},ActionQueryRequest)">RunTableAction(Int32, Int32, List&lt;ScriptInput&gt;, ActionQueryRequest)</h4>
+  <div class="markdown level1 summary"><p>Executes a script with table action and parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataTable RunTableAction(int workspaceId, int scriptId, List&lt;ScriptInput&gt; inputs = null, ActionQueryRequest actionQueryRequest = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where the script exists and should be executed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">scriptId</span></td>
+        <td><p>The ArtifactID of the script to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">ScriptInput</span>&gt;</td>
+        <td><span class="parametername">inputs</span></td>
+        <td><p>Inputs and their values for the script.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ActionQueryRequest</span></td>
+        <td><span class="parametername">actionQueryRequest</span></td>
+        <td><p>The query to execute. By default takes all fields without condition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span></td>
+        <td><p>The table of results.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_RunTableAction_System_Int32_System_Int32_System_Collections_Generic_List_ScriptInput__ActionQueryRequest__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+var scriptInputs = new List&lt;ScriptInput>();
+
+scriptInputs.Add(new ScriptInput()
+{
+	ID = &quot;workspaceArtifactId&quot;,
+	Value = workspaceID
+});
+
+var queryRequest = new ActionQueryRequest()
+{
+	Condition = &quot;&apos;IsAlive&apos; == false&quot;,
+	ColumnNames = new List&lt;string>() { &quot;*&quot; },
+	Sorts = new List&lt;ActionColumnSort>(),
+}
+
+DataTable result = _scriptService.RunTableAction(workspaceID, scriptID, scriptInputs, queryRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService_Update_System_Int32_Script_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService.Update(System.Int32%2CScript)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L90">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IScriptService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IScriptService_Update_System_Int32_Script_" data-uid="Relativity.Testing.Framework.Api.Services.IScriptService.Update(System.Int32,Script)">Update(Int32, Script)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified script.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(int workspaceId, Script entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to update script.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IScriptService_Update_System_Int32_Script__examples">Examples</h5>
+  <pre><code>int workspaceID = 1234567;
+int scriptID  = 1987156;
+
+Script existingScript = _scriptService.Get(workspaceID, scriptID);
+existingScript.Name = &quot;New Name&quot;;
+existingScript.Description = &quot;New Description&quot;;
+
+_scriptService.Update(workspaceID, existingScript);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IScriptService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IScriptService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IScriptService.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

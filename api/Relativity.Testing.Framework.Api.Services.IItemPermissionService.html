@@ -1,0 +1,1072 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IItemPermissionService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IItemPermissionService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService" class="text-break">Interface IItemPermissionService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the item permission API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IItemPermissionService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_examples"><strong>Examples</strong></h5>
+  <pre><code>IItemPermissionService _itemPermissionService = relativityFacade.Resolve&lt;IItemPermissionService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroup_System_Int32_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddItemToGroup(System.Int32%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L74">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroup_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddItemToGroup*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroup_System_Int32_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddItemToGroup(System.Int32,System.Int32,System.String)">AddItemToGroup(Int32, Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Adds the item to the group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddItemToGroup(int workspaceId, int itemId, string groupName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupName</span></td>
+        <td><p>The group name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroup_System_Int32_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string groupName = &quot;Some group name&quot;;
+
+_itemPermissionService.AddItemToGroup(workspaceID, itemID, groupName);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroups_System_Int32_System_Int32_System_String___.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddItemToGroups(System.Int32%2CSystem.Int32%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L91">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroups_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddItemToGroups*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroups_System_Int32_System_Int32_System_String___" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddItemToGroups(System.Int32,System.Int32,System.String[])">AddItemToGroups(Int32, Int32, String[])</h4>
+  <div class="markdown level1 summary"><p>Adds the item to the groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddItemToGroups(int workspaceId, int itemId, params string[] groupNames)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">groupNames</span></td>
+        <td><p>The group names.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddItemToGroups_System_Int32_System_Int32_System_String____examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string[] groupNames = new string[] { &quot;First group name&quot;, &quot;Second gorup name&quot;};
+
+_itemPermissionService.AddItemToGroups(workspaceID, itemID, groupNames);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddRemoveItemGroups_System_Int32_System_Int32_GroupSelector_System_Boolean_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddRemoveItemGroups(System.Int32%2CSystem.Int32%2CGroupSelector%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L57">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddRemoveItemGroups_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddRemoveItemGroups*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddRemoveItemGroups_System_Int32_System_Int32_GroupSelector_System_Boolean_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.AddRemoveItemGroups(System.Int32,System.Int32,GroupSelector,System.Boolean)">AddRemoveItemGroups(Int32, Int32, GroupSelector, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Add and remove groups to and from item permissions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddRemoveItemGroups(int workspaceId, int itemId, GroupSelector groupSelector, bool enableLevelSecurity = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The case artifact ID of workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GroupSelector</span></td>
+        <td><span class="parametername">groupSelector</span></td>
+        <td><p>The selector of enabled/disabled groups for an entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enableLevelSecurity</span></td>
+        <td><p>The value which indicating whether it should enable level security.
+By default true.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_AddRemoveItemGroups_System_Int32_System_Int32_GroupSelector_System_Boolean__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string groupName = &quot;Some group name&quot;;
+
+GroupSelector groupSelector =  _itemPermissionService.GetItemGroupSelector(workspaceID, itemID);
+var toBeEnabledGroup = selector.DisabledGroups.FirstOrDefault(x => x.Name == groupName);
+
+if (toBeEnabledGroup != null)
+{
+	selector.DisabledGroups.RemoveAll(x => x.ArtifactID == toBeEnabledGroup.ArtifactID);
+	selector.EnabledGroups.Add(toBeEnabledGroup);
+
+	_itemPermissionService.AddRemoveItemGroups(workspaceID, itemID, groupSelector);
+}</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupPermissions_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemGroupPermissions(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L177">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemGroupPermissions*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupPermissions_System_Int32_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemGroupPermissions(System.Int32,System.Int32,System.Int32)">GetItemGroupPermissions(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the the item group permissions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">GroupPermissions GetItemGroupPermissions(int workspaceId, int itemId, int groupId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>The group ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GroupPermissions</span></td>
+        <td><p>An instance of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissions.html">GroupPermissions</a> or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupPermissions_System_Int32_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+int groupID = 765432;
+
+GroupPermissions groupPermissions = _itemPermissionService.GetItemGroupPermissions(workspaceID, itemID, groupID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupSelector_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemGroupSelector(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L29">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupSelector_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemGroupSelector*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupSelector_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemGroupSelector(System.Int32,System.Int32)">GetItemGroupSelector(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the item group selector by workspace and item ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">GroupSelector GetItemGroupSelector(int workspaceId, int itemId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GroupSelector</span></td>
+        <td><p>The item group selector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemGroupSelector_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+
+GroupSelector groupSelector =  _itemPermissionService.GetItemGroupSelector(workspaceID, itemID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemLevelSecurity_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemLevelSecurity(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L300">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemLevelSecurity_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemLevelSecurity*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemLevelSecurity_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.GetItemLevelSecurity(System.Int32,System.Int32)">GetItemLevelSecurity(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the the group permissions for the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ItemLevelSecurity GetItemLevelSecurity(int workspaceId, int itemId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ItemLevelSecurity</span></td>
+        <td><p>An instance of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ItemLevelSecurity.html">ItemLevelSecurity</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_GetItemLevelSecurity_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+
+ItemLevelSecurity itemLevelSecurity = _itemPermissionService.GetItemLevelSecurity(workspaceID, itemID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroup(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L125">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroup*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_System_Int32_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroup(System.Int32,System.Int32,System.Int32)">RemoveItemFromGroup(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the item from the group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveItemFromGroup(int workspaceId, int itemId, int groupId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>The group id.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_System_Int32_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+int groupID = 765432;
+
+_itemPermissionService.RemoveItemFromGroup(workspaceID, itemID, groupID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_System_Int32_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroup(System.Int32%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L108">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroup*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_System_Int32_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroup(System.Int32,System.Int32,System.String)">RemoveItemFromGroup(Int32, Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Removes the item from the group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveItemFromGroup(int workspaceId, int itemId, string groupName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupName</span></td>
+        <td><p>The group name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroup_System_Int32_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string groupName = &quot;Some group name&quot;;
+
+_itemPermissionService.RemoveItemFromGroup(workspaceID, itemID, groupName);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_System_Int32_System_Int32_System_Int32___.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroups(System.Int32%2CSystem.Int32%2CSystem.Int32%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L159">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroups*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_System_Int32_System_Int32_System_Int32___" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroups(System.Int32,System.Int32,System.Int32[])">RemoveItemFromGroups(Int32, Int32, Int32[])</h4>
+  <div class="markdown level1 summary"><p>Removes the item from the groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveItemFromGroups(int workspaceId, int itemId, params int[] groupIds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td><span class="parametername">groupIds</span></td>
+        <td><p>The group ids.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_System_Int32_System_Int32_System_Int32____examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+int[] groupIds = new int[] { 123568, 785429};
+
+_itemPermissionService.RemoveItemFromGroups(workspaceID, itemID, groupIds);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_System_Int32_System_Int32_System_String___.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroups(System.Int32%2CSystem.Int32%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L142">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroups*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_System_Int32_System_Int32_System_String___" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.RemoveItemFromGroups(System.Int32,System.Int32,System.String[])">RemoveItemFromGroups(Int32, Int32, String[])</h4>
+  <div class="markdown level1 summary"><p>Removes the item from the groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveItemFromGroups(int workspaceId, int itemId, params string[] groupNames)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">groupNames</span></td>
+        <td><p>The group names.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_RemoveItemFromGroups_System_Int32_System_Int32_System_String____examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string[] groupNames = new string[] { &quot;First group name&quot;, &quot;Second gorup name&quot;};
+
+_itemPermissionService.RemoveItemFromGroups(workspaceID, itemID, groupNames);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_GroupPermissions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32%2CSystem.Int32%2CGroupPermissions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L202">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_GroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32,System.Int32,GroupPermissions)">SetItemGroupPermissions(Int32, Int32, GroupPermissions)</h4>
+  <div class="markdown level1 summary"><p>Sets the item group permissions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetItemGroupPermissions(int workspaceId, int itemId, GroupPermissions groupPermissions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GroupPermissions</span></td>
+        <td><span class="parametername">groupPermissions</span></td>
+        <td><p>The group permissions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_GroupPermissions__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+int groupID = 765432;
+
+GroupPermissions groupPermissions = _itemPermissionService.GetItemGroupPermissions(workspaceID, itemID, groupID);
+if (groupPermissions != null)
+{
+	groupPermissions.ObjectPermissions[0].EditEditable = false;
+	groupPermissions.ObjectPermissions[0].AddEditable = false;
+	groupPermissions.ObjectPermissions[0].EditSelected = false;
+}
+
+_itemPermissionService.SetItemGroupPermissions(workspaceID, itemID, groupPermissions);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_Int32_GroupPermissionsChangeset_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32%2CSystem.Int32%2CSystem.Int32%2CGroupPermissionsChangeset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L284">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_Int32_GroupPermissionsChangeset_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32,System.Int32,System.Int32,GroupPermissionsChangeset)">SetItemGroupPermissions(Int32, Int32, Int32, GroupPermissionsChangeset)</h4>
+  <div class="markdown level1 summary"><p>Sets the group permissions for the workspace using changeset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetItemGroupPermissions(int workspaceId, int itemId, int groupId, GroupPermissionsChangeset groupPermissionsChangeset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>The group ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GroupPermissionsChangeset</span></td>
+        <td><span class="parametername">groupPermissionsChangeset</span></td>
+        <td><p>The group permissions changeset.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_Int32_GroupPermissionsChangeset__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string permissionName = &quot;Document&quot;;
+int groupID = 765432;
+
+var groupPermissionsChangeset = new GroupPermissionsChangeset();
+groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View);
+
+_itemPermissionService.SetItemGroupPermissions(workspaceID, itemID, groupID, groupPermissionsChangeset);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_Int32_System_Action_GroupPermissionsChangeset__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Action%7BGroupPermissionsChangeset%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L240">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_Int32_System_Action_GroupPermissionsChangeset__" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32,System.Int32,System.Int32,System.Action{GroupPermissionsChangeset})">SetItemGroupPermissions(Int32, Int32, Int32, Action&lt;GroupPermissionsChangeset&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the group permissions for the workspace using changeset setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetItemGroupPermissions(int workspaceId, int itemId, int groupId, Action&lt;GroupPermissionsChangeset&gt; groupPermissionsChangesetSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>The group ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">GroupPermissionsChangeset</span>&gt;</td>
+        <td><span class="parametername">groupPermissionsChangesetSetter</span></td>
+        <td><p>An action to perform the changes to the group permissions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_Int32_System_Action_GroupPermissionsChangeset___examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string permissionName = &quot;Document&quot;;
+int groupID = 765432;
+
+_itemPermissionService.SetItemGroupPermissions(workspaceID, itemID, groupID, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View));</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_String_GroupPermissionsChangeset_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32%2CSystem.Int32%2CSystem.String%2CGroupPermissionsChangeset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L262">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_String_GroupPermissionsChangeset_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32,System.Int32,System.String,GroupPermissionsChangeset)">SetItemGroupPermissions(Int32, Int32, String, GroupPermissionsChangeset)</h4>
+  <div class="markdown level1 summary"><p>Sets the group permissions for the workspace using changeset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetItemGroupPermissions(int workspaceId, int itemId, string groupName, GroupPermissionsChangeset groupPermissionsChangeset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupName</span></td>
+        <td><p>The group name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GroupPermissionsChangeset</span></td>
+        <td><span class="parametername">groupPermissionsChangeset</span></td>
+        <td><p>The group permissions changeset.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_String_GroupPermissionsChangeset__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string permissionName = &quot;Document&quot;;
+string groupName = &quot;Some group name&quot;;
+
+var groupPermissionsChangeset = new GroupPermissionsChangeset();
+groupPermissionsChangeset.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View);
+
+_itemPermissionService.SetItemGroupPermissions(workspaceID, itemID, groupName, groupPermissionsChangeset);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_String_System_Action_GroupPermissionsChangeset__.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32%2CSystem.Int32%2CSystem.String%2CSystem.Action%7BGroupPermissionsChangeset%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L221">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_String_System_Action_GroupPermissionsChangeset__" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemGroupPermissions(System.Int32,System.Int32,System.String,System.Action{GroupPermissionsChangeset})">SetItemGroupPermissions(Int32, Int32, String, Action&lt;GroupPermissionsChangeset&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the group permissions for the workspace using changeset setter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetItemGroupPermissions(int workspaceId, int itemId, string groupName, Action&lt;GroupPermissionsChangeset&gt; groupPermissionsChangesetSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupName</span></td>
+        <td><p>The group name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">GroupPermissionsChangeset</span>&gt;</td>
+        <td><span class="parametername">groupPermissionsChangesetSetter</span></td>
+        <td><p>An action to perform the changes to the group permissions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemGroupPermissions_System_Int32_System_Int32_System_String_System_Action_GroupPermissionsChangeset___examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+string permissionName = &quot;Document&quot;;
+string groupName = &quot;Some group name&quot;;
+
+_itemPermissionService.SetItemGroupPermissions(workspaceID, itemID, groupName, x => x.ObjectPermissions[permissionName].Set(ObjectPermissionKinds.View));</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemLevelSecurity_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemLevelSecurity(System.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L317">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemLevelSecurity_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemLevelSecurity*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemLevelSecurity_System_Int32_System_Int32_System_Boolean_" data-uid="Relativity.Testing.Framework.Api.Services.IItemPermissionService.SetItemLevelSecurity(System.Int32,System.Int32,System.Boolean)">SetItemLevelSecurity(Int32, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the level security for the specified item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetItemLevelSecurity(int workspaceId, int itemId, bool isEnabled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The item id.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isEnabled</span></td>
+        <td><p>The value which indicating whether edit this item turned on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IItemPermissionService_SetItemLevelSecurity_System_Int32_System_Int32_System_Boolean__examples">Examples</h5>
+  <pre><code>int workspaceID = 123456;
+int itemID = 654321;
+bool isEnabled = true;
+
+_itemPermissionService.SetItemLevelSecurity(workspaceID, itemID, isEnabled);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IItemPermissionService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IItemPermissionService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IItemPermissionService.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

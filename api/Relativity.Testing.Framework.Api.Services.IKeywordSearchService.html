@@ -1,0 +1,614 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IKeywordSearchService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IKeywordSearchService
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService" class="text-break">Interface IKeywordSearchService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the keyword search API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IKeywordSearchService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_examples"><strong>Examples</strong></h5>
+  <pre><code>IKeywordSearchService _keywordSearchService = relativityFacade.Resolve&lt;IKeywordSearchService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Create_System_Int32_KeywordSearch_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Create(System.Int32%2CKeywordSearch)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L45">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Create_System_Int32_KeywordSearch_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Create(System.Int32,KeywordSearch)">Create(Int32, KeywordSearch)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KeywordSearch Create(int workspaceId, KeywordSearch entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to add the new <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><p>The created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Create_System_Int32_KeywordSearch__examples">Examples</h5>
+  <p>This shows how to create new keyword search using the control number to search for entities that contain &quot;EXAMPLE_CONTROL_NUMBER&quot;, which returns Control Number fields and sorts results in descending order.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+const string controlNumber = &quot;Control Number&quot;;
+var keywordSearchToCreate = new KeywordSearch
+{
+	Name = &quot;Keyword Search Name&quot;,
+	SearchCriteria =  new CriteriaCollection
+	{
+		Conditions = new List&lt;BaseCriteria>
+		{
+			new Criteria
+			{
+				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, &quot;EXAMPLE_CONTROL_NUMBER&quot;),
+			}
+		}
+	},
+	Fields = new[] { new NamedArtifact { Name = controlNumber } },
+	Sorts = new List&lt;Sort> { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } }
+};
+KeywordSearch createdKeywordSearch = _keywordSearchService.Create(workspaceArtifactID, keywordSearchToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L59">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> by ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to delete the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int keywordSearchArtifactID = 1016786;
+_keywordSearchService.Delete(workspaceArtifactID, keywordSearchArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L74">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> by the specified ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KeywordSearch Get(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to get <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The ArtifactID of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int keywordSearchArtifactID = 1016786;
+KeywordSearch keywordSearch = _keywordSearchService.Get(workspaceArtifactID, keywordSearchArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Get(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L89">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Get(System.Int32,System.String)">Get(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> by the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KeywordSearch Get(int workspaceId, string entityName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to get <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">entityName</span></td>
+        <td><p>The name of the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Get_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int keywordSearchName = &quot;Existing Keyword Search Name&quot;;
+KeywordSearch keywordSearch = _keywordSearchService.Get(workspaceArtifactID, keywordSearchName);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Query_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Query(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L104">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Query_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Query*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Query_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Query(System.Int32,System.String)">Query(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Query the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>es by specified condition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KeywordSearch[] Query(int workspaceId, string condition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to get <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p>The condition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">KeywordSearch</span>[]</td>
+        <td><p>The array of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>es.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Query_System_Int32_System_String__examples">Examples</h5>
+  <p>This example shows how to query for all keyword searches that has ArtifactID greater than or equal to 1016786.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+string queryCondition = &quot;&apos;Artifact ID&apos; >= 1016786&quot;;
+KeywordSearch[] keywordSearches = _keywordSearchService.Query(workspaceArtifactID, queryCondition);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Require_System_Int32_KeywordSearch_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Require(System.Int32%2CKeywordSearch)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L209">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Require_System_Int32_KeywordSearch_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Require(System.Int32,KeywordSearch)">Require(Int32, KeywordSearch)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+<ol><li>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <code data-dev-comment-type="paramref" class="paramref">entity</code> has positive value, gets [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by ArtifactID and updates it.</li><li>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <code data-dev-comment-type="paramref" class="paramref">entity</code> has a value, gets [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) by name and updates it if it exists.</li><li>Otherwise creates a new [KeywordSearch](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html) entity.</li></ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">KeywordSearch Require(int workspaceId, KeywordSearch entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to require <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> to require.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> entity&gt;.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Require_System_Int32_KeywordSearch__examples">Examples</h5>
+  <p>This shows how to update and get keyword search by Require method with Keyword Search entity that has ArtifactID filled.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+int existingKeywordSearchArtifactID = 1016786;
+const string controlNumber = &quot;Control Number&quot;;
+var keywordSearchToUpdate = new KeywordSearch
+{
+	ArtifactID = 1016786,
+	Name = &quot;Updated Keyword Search Name&quot;,
+	SearchCriteria =  new CriteriaCollection
+	{
+		Conditions = new List&lt;BaseCriteria>
+		{
+			new Criteria
+			{
+				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, &quot;EXAMPLE_CONTROL_NUMBER&quot;),
+			}
+		}
+	},
+	Fields = new[] { new NamedArtifact { Name = controlNumber } },
+	Sorts = new List&lt;Sort> { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } }
+};
+KeywordSearch updatedKeywordSearch = _keywordSearchService.Require(workspaceArtifactID, keywordSearchToUpdate);</code></pre>
+
+  <p>This shows how to update and get keyword search by Require method with Keyword Search entity that has Name filled.</p>
+<pre><code>int workspaceArtifactID = 1015427;
+const string controlNumber = &quot;Control Number&quot;;
+var keywordSearchToUpdate = new KeywordSearch
+{
+	Name = &quot;Existing Keyword Search Name&quot;,
+	SearchCriteria =  new CriteriaCollection
+	{
+		Conditions = new List&lt;BaseCriteria>
+		{
+			new Criteria
+			{
+				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, &quot;EXAMPLE_CONTROL_NUMBER&quot;),
+			}
+		}
+	},
+	Fields = new[] { new NamedArtifact { Name = controlNumber } },
+	Sorts = new List&lt;Sort> { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } },
+	SortByRank = true,
+	Notes = &quot;Updated Keyword Search Notes&quot;
+};
+KeywordSearch updatedKeywordSearch = _keywordSearchService.Require(workspaceArtifactID, keywordSearchToUpdate);</code></pre>
+
+  <p>This shows how to create and get new keyword search by Require method with new Keyword Search entity (without ArtifactID filled and Name that does not match any existing Keyword Search Name in given workspace).</p>
+<pre><code>int workspaceArtifactID = 1015427;
+const string controlNumber = &quot;Control Number&quot;;
+var keywordSearchToCreate= new KeywordSearch
+{
+	Name = &quot;New Keyword Search Name&quot;,
+	SearchCriteria =  new CriteriaCollection
+	{
+		Conditions = new List&lt;BaseCriteria>
+		{
+			new Criteria
+			{
+				Condition = new CriteriaCondition(new NamedArtifact { Name = controlNumber }, ConditionOperator.Contains, &quot;EXAMPLE_CONTROL_NUMBER&quot;),
+			}
+		}
+	},
+	Fields = new[] { new NamedArtifact { Name = controlNumber } },
+	Sorts = new List&lt;Sort> { new Sort { FieldIdentifier = new NamedArtifact { Name = controlNumber }, Direction = SortDirection.Descending } },
+	SortByRank = true,
+	Notes = &quot;Keyword Search Notes&quot;
+};
+KeywordSearch createdKeywordSearch = _keywordSearchService.Require(workspaceArtifactID, keywordSearchToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Update_System_Int32_KeywordSearch_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Update(System.Int32%2CKeywordSearch)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L121">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Update_System_Int32_KeywordSearch_" data-uid="Relativity.Testing.Framework.Api.Services.IKeywordSearchService.Update(System.Int32,KeywordSearch)">Update(Int32, KeywordSearch)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(int workspaceId, KeywordSearch entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The ArtifactID of the workspace where you want to update the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">KeywordSearch</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.KeywordSearch.html">KeywordSearch</a> to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IKeywordSearchService_Update_System_Int32_KeywordSearch__examples">Examples</h5>
+  <pre><code>int workspaceArtifactID = 1015427;
+int keywordSearchName = &quot;Existing Keyword Search Name&quot;;
+KeywordSearch keywordSearchToUpdate = _keywordSearchService.Get(workspaceArtifactID, keywordSearchName);
+keywordSearchToUpdate.Name = &quot;Updated Keyword Search Name&quot;;
+keywordSearchToUpdate.Notes = &quot;Keyword Search Notes&quot;;
+_keywordSearchService.Update(workspaceArtifactID, keywordSearchToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IKeywordSearchService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IKeywordSearchService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IKeywordSearchService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

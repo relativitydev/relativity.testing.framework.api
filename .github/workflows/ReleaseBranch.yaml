@@ -409,7 +409,7 @@ jobs:
       with:
         otel-token: ${{ steps.getSecretAction2.outputs.OtelWebhookTokenForTestEngineering }}
         build-status: ${{ job.status }}
-        service-name: "devops-metrics-collector-repo"
+        service-name: "relativity-testing-framework-api-repo"
         branch-name: ${{ github.ref_name }}
         commit-hash: ${{ github.sha }}
         commit-timestamp: ${{ steps.getCommitTimeStamp.outputs.result }}

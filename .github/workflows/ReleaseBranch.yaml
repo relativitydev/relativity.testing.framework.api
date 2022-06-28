@@ -405,7 +405,7 @@ jobs:
           return commit_details.data.author.date
 
     - name: SendBuildEvent
-      uses: ./.github/actions/private-actions
+      uses: relativityone/SendBuildEvent@main
       with:
         otel-token: ${{ steps.getSecretAction2.outputs.OtelWebhookTokenForTestEngineering }}
         build-status: ${{ job.status }}

@@ -25,6 +25,16 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			return new NamedArtifactQuery<NamedArtifact>(request, executor).ToList();
 		}
 
+		public IList<NamedArtifact> GetGroupsByGroupId(int userId, int groupId)
+		{
+			var request = new NamedArtifactQueryRequest(userId);
+			request.AddCondition("Artifact ID", groupId);
+
+			IQueryExecutor<NamedArtifact> executor = new QueryExecutor<NamedArtifact, NamedArtifactQueryRequest>(QuerySlimAndMap<NamedArtifact>);
+
+			return new NamedArtifactQuery<NamedArtifact>(request, executor).ToList();
+		}
+
 		protected override QuerySlimResult QuerySlim(NamedArtifactQueryRequest request)
 		{
 			if (request == null)

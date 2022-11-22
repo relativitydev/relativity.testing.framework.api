@@ -317,7 +317,14 @@ namespace Relativity.Testing.Framework.Api
 		{
 			if (!versionRangeMatchService.IsVersionInRange(version, SupportedRelativityVersionRange))
 			{
-				RelativityFacade.Instance.Log.Warn(BuildRelativityVersionWarnMessage(version));
+				try
+				{
+					RelativityFacade.Instance.Log.Warn(BuildRelativityVersionWarnMessage(version));
+				}
+				catch
+				{
+					// Intentional no-op to avoid RTF.API tests crashing on version mismatch
+				}
 			}
 		}
 

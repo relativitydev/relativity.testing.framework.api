@@ -23,12 +23,12 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public void Wait(int groupID, int userArtifactID)
 		{
-			var watch = new Stopwatch();
+			var watch = Stopwatch.StartNew();
 			bool keepPolling = true;
 			while (keepPolling && watch.Elapsed < _waitTimeout)
 			{
-				var groups = _userGetGroupsStrategy.GetGroups(userArtifactID);
-				if (groups.FirstOrDefault(g => g.ArtifactID == groupID) == null)
+				var groups = _userGetGroupsStrategy.GetGroupsByGroupId(userArtifactID, groupID);
+				if (!groups.Any())
 				{
 					keepPolling = false;
 				}

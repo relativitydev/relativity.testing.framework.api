@@ -1,9 +1,11 @@
 ﻿using System.Net.Http;
+using Relativity.Testing.Framework.Api.Attributes;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Logging;
 
 namespace Relativity.Testing.Framework.Api.Strategies.Users
 {
+	[DoNotLogging]
 	internal class UserSetPasswordStrategy : IUserSetPasswordStrategy
 	{
 		private readonly IRestService _restService;

@@ -8,7 +8,7 @@ metadata:
 spec:
   type: repository
   lifecycle: production
-  owner: ptci-1599
+  owner: ptci-1446
   system: relativity-testing-framework
 
 ---
@@ -29,5 +29,5 @@ metadata:
 spec:
   type: library
   lifecycle: production
-  owner: ptci-1599
+  owner: ptci-1446
   system: relativity-testing-framework

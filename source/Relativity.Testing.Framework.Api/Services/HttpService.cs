@@ -208,7 +208,7 @@ namespace Relativity.Testing.Framework.Api.Services
 			if (typeof(TResult) == typeof(string))
 				return (TResult)(object)jsonString;
 
-			return JsonConvert.DeserializeObject<TResult>(jsonString);
+			return JsonConvert.DeserializeObject<TResult>(jsonString, new JsonSerializerSettings { FloatParseHandling = FloatParseHandling.Decimal });
 		}
 	}
 }

@@ -7,6 +7,7 @@ This repository contains a C#/NuGet library that abstracts out API functionality
 ## Table of Contents
 
 - [Relativity.Testing.Framework.Api](#relativitytestingframeworkapi)
+  - [Table of Contents](#table-of-contents)
   - [Supported Relativity Versions](#supported-relativity-versions)
   - [Documentation](#documentation)
   - [Where to get help](#where-to-get-help)
@@ -18,7 +19,9 @@ This repository contains a C#/NuGet library that abstracts out API functionality
       - [Running Functional Tests](#running-functional-tests)
     - [Usage Metrics](#usage-metrics)
   - [Contributing](#contributing)
-  - [Reporting Issues](#reporting-issues)
+  - [Maintainers](#maintainers)
+  - [Creating Support Tickets](#creating-support-tickets)
+  - [Feature Enhancements](#feature-enhancements)
 
 ## Supported Relativity Versions
 
@@ -32,7 +35,7 @@ For more details and common usage patterns check out [our documentation](https:/
 
 ## Where to get help
 
-- For general help and questions, please start a [Discussion](https://github.com/relativitydev/relativity.testing.framework.api/discussions).
+- For general help and questions, please use slack [#help-relativity-testing-framework](https://kcura-pd.slack.com/archives/CMG6M7D6D).
 
 ## Build Tasks
 
@@ -93,10 +96,14 @@ EnableApplicationInsights can be set in the RunSettings with the following value
 
 See [CONTRIBUTING.md](https://github.com/relativitydev/relativity.testing.framework.api/blob/master/CONTRIBUTING.md).
 
-## Reporting Issues
+## Maintainers
 
-For feature enhancements or bug reports, please create an [Issue](https://github.com/relativitydev/relativity.testing.framework.api/issues) using the respective template. Before reporting an issue, please follow these guidelines. It helps us in understanding the request and provide a quicker response time.
+The [Developer Environments](https://einstein.kcura.com/x/ehUcBg) team is the primary care-taker of this repository. Contact and support information may be found on the linked team page.
 
-- Determine if it's a bug report or a feature enhancement.
-- Perform a quick search in the [issue tracker](https://github.com/relativitydev/relativity.testing.framework.api/issues) to see if the issue has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
-- If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.
+## Creating Support Tickets
+
+For issues with relativity.testing.framework.api please email "help-esys@relativity.com".  Please Include "relativity.testing.framework.api" in the email subject with all important aspects of the issue in the email body,  ie. Errors, exceptions, failures, screenprints.  The email will generate a support ticket the Developer Environments team will look at.
+
+## Feature Enhancements
+
+For feature enhancements, please open a PR against the repository.  Maintainers of the repository will be notified and review the PR.

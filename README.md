@@ -105,3 +105,4 @@ For bug reports or feature enhancements, please create an [Issue](https://github
 
 - Determine if it's a bug report or a feature enhancement.
 - Perform a quick search in the [issue tracker](https://github.com/relativitydev/relativity.testing.framework.api/issues) to see if the issue has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
+- If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one.

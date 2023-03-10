@@ -15,24 +15,10 @@ jobs:
         name: Unit Test Report
         path: '*.TestResults.trx'
         reporter: dotnet-trx
-    - name: Sundrop Test Report
+    - name: Functional Test Report
       uses: dorny/test-reporter@v1.5.0
       with:
-        artifact: SundropLogs
-        name: Sundrop Test Report
-        path: 'aio-sundrop-1/*.TestResults.trx'
-        reporter: dotnet-trx
-    - name: TigerLily Test Report
-      uses: dorny/test-reporter@v1.5.0
-      with:
-        artifact: TigerLilyLogs
-        name: TigerLily Test Report
-        path: 'aio-tigerlily-ea/*.TestResults.trx'
-        reporter: dotnet-trx
-    - name: Osier Test Report
-      uses: dorny/test-reporter@v1.5.0
-      with:
-        artifact: OsierLogs
-        name: Osier Test Report
-        path: 'aio-osier-2/*.TestResults.trx'
+        artifact: FunctionalTestLogs
+        name: Functional Test Report
+        path: 'functional-test/*.TestResults.trx'
         reporter: dotnet-trx

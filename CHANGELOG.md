@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [REL-830437](https://jira.kcura.com/browse/REL-830437)
+- [REL-830437](https://jira.kcura.com/browse/REL-830437) - updated time limit for workspace delete to 3 minutes
 
 ## [2.1.0] - 2021-06-03
 

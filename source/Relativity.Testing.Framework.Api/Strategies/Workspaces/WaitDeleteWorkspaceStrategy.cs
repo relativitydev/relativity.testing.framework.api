@@ -8,7 +8,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	internal class WaitDeleteWorkspaceStrategy : IWaitDeleteWorkspaceStrategy
 	{
 		private readonly IRelativityFacade _relativityFacade;
-		private readonly TimeSpan _deletionTimeout = TimeSpan.FromSeconds(15);
+		private readonly TimeSpan _deletionTimeout = TimeSpan.FromMinutes(3);
 
 		public WaitDeleteWorkspaceStrategy(IRelativityFacade relativityFacade)
 		{
@@ -30,7 +30,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					if (watch.Elapsed > _deletionTimeout)
 					{
 						throw new InvalidOperationException(
-							$"Workspace with id={workspaceId} was not deleted within the 15 second time limit." +
+							$"Workspace with id={workspaceId} was not deleted within the 3 minute time limit." +
 							"Please check the error log in Relativity, or confirm that the deletion took longer than expected.");
 					}
 

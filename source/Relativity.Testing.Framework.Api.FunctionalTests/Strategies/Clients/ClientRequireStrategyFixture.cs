@@ -1,24 +1,17 @@
-﻿using FluentAssertions;
+﻿using System.Net.Http;
+using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientRequireStrategy))]
+	[TestOf(typeof(IRequireStrategy<Client>))]
 	public class ClientRequireStrategyFixture : ApiTestFixture
 	{
 		private IRequireStrategy<Client> _sut;
-
-		public ClientRequireStrategyFixture()
-		{
-		}
-
-		public ClientRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		[SetUp]
 		public void SetUp()
@@ -45,9 +38,18 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void Require_WithArtifactIdThatMissing()
+		[VersionRange("<12.1")]
+		public void Require_WithArtifactIdThatMissing_PrePrairieSmoke()
 		{
 			Assert.Throws<ObjectNotFoundException>(() =>
+				_sut.Require(new Client { ArtifactID = int.MaxValue }));
+		}
+
+		[Test]
+		[VersionRange(">=12.1")]
+		public void Require_WithArtifactIdThatMissing()
+		{
+			Assert.Throws<HttpRequestException>(() =>
 				_sut.Require(new Client { ArtifactID = int.MaxValue }));
 		}
 

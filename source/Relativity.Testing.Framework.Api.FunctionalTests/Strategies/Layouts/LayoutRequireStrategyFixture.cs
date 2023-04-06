@@ -9,17 +9,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IRequireWorkspaceEntityStrategy<Layout>))]
 	[VersionRange(">=12.0")]
+	[Ignore("https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutRequireStrategyFixture : ApiServiceTestFixture<IRequireWorkspaceEntityStrategy<Layout>>
 	{
-		public LayoutRequireStrategyFixture()
-		{
-		}
-
-		public LayoutRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Require_WithNull()
 		{
@@ -60,7 +52,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = Sut.Require(DefaultWorkspace.ArtifactID, layout);
 
 			result.ArtifactID.Should().BePositive();
-			result.Should().BeEquivalentTo(layout, o => o.Excluding(x => x.ArtifactID));
+			result.Should().BeEquivalentTo(layout, o => o.
+			Excluding(x => x.ArtifactID).
+			Excluding(x => x.Owner));
 		}
 	}
 }

@@ -8,25 +8,16 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(IUpdateStrategy<Matter>))]
-	internal class MatterUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<Matter>>
+	[TestOf(typeof(IMatterUpdateStrategy))]
+	internal class MatterUpdateStrategyFixture : ApiServiceTestFixture<IMatterUpdateStrategy>
 	{
-		private IGetByIdStrategy<Matter> _getByIdStrategy;
+		private IMatterGetByIdStrategy _getByIdStrategy;
 		private ICreateStrategy<Matter> _createStrategy;
-
-		public MatterUpdateStrategyFixture()
-		{
-		}
-
-		public MatterUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
-			_getByIdStrategy = Facade.Resolve<IGetByIdStrategy<Matter>>();
+			_getByIdStrategy = Facade.Resolve<IMatterGetByIdStrategy>();
 			_createStrategy = Facade.Resolve<ICreateStrategy<Matter>>();
 		}
 
@@ -47,14 +38,21 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				existingEntity = _createStrategy.Create(new Matter());
 			});
 
-			var toUpdate = existingEntity.Copy();
+			Matter toUpdate = existingEntity.Copy();
 			toUpdate.Name = Randomizer.GetString();
 
 			Sut.Update(toUpdate);
 
-			var result = _getByIdStrategy.Get(toUpdate.ArtifactID);
+			Matter result = _getByIdStrategy.Get(toUpdate.ArtifactID);
 
-			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(
+				toUpdate,
+				o => o.Excluding(x => x.Client)
+					.Excluding(x => x.Actions)
+					.Excluding(x => x.CreatedOn)
+					.Excluding(x => x.CreatedBy)
+					.Excluding(x => x.LastModifiedOn)
+					.Excluding(x => x.LastModifiedBy));
 			result.Client.Should().BeEquivalentTo(toUpdate.Client, o => o.Excluding(x => x.Number).Excluding(x => x.Status.ArtifactID));
 		}
 	}

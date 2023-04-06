@@ -8,17 +8,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IGetWorkspaceEntityByIdStrategy<Layout>))]
 	[VersionRange(">=12.0")]
+	[Ignore("https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutGetEligibleOwnersStrategyFixture : ApiServiceTestFixture<ILayoutGetEligibleOwnersStrategy>
 	{
-		public LayoutGetEligibleOwnersStrategyFixture()
-		{
-		}
-
-		public LayoutGetEligibleOwnersStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetEligibleOwners()
 		{

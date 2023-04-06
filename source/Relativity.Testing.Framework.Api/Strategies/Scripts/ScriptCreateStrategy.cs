@@ -7,7 +7,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class ScriptCreateStrategy : CreateWorkspaceEntityStrategy<Script>
+	internal class ScriptCreateStrategy : CreateWorkspaceEntityStrategy<Script>
 	{
 		private readonly IRestService _restService;
 		private readonly IGetWorkspaceEntityByIdStrategy<Script> _getWorkspaceEntityByIdStrategy;

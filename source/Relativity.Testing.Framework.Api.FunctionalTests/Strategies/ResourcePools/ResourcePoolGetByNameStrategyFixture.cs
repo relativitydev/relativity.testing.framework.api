@@ -8,19 +8,10 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IGetByNameStrategy<ResourcePool>))]
-	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated. https://jira.kcura.com/browse/RTF-753")]
+	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated.")]
 	internal class ResourcePoolGetByNameStrategyFixture : ApiServiceTestFixture<IGetByNameStrategy<ResourcePool>>
 	{
 		private IGetAllStrategy<ResourcePool> _getAllStrategy;
-
-		public ResourcePoolGetByNameStrategyFixture()
-		{
-		}
-
-		public ResourcePoolGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpFixture()
 		{

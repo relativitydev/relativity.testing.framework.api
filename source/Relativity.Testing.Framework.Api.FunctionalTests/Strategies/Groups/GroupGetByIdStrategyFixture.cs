@@ -5,22 +5,13 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(GroupGetByIdStrategy))]
-	internal class GroupGetByIdStrategyFixture : ApiServiceTestFixture<IGetByIdStrategy<Group>>
+	[TestOf(typeof(IGroupGetByIdStrategy))]
+	internal class GroupGetByIdStrategyFixture : ApiServiceTestFixture<IGroupGetByIdStrategy>
 	{
-		public GroupGetByIdStrategyFixture()
-		{
-		}
-
-		public GroupGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{
-			var result = Sut.Get(int.MaxValue);
+			Group result = Sut.Get(int.MaxValue);
 
 			result.Should().BeNull();
 		}
@@ -34,9 +25,18 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Create<Group>(3)
 					.PickMiddle(out expectedEntity));
 
-			var result = Sut.Get(expectedEntity.ArtifactID);
+			Group result = Sut.Get(expectedEntity.ArtifactID);
 
-			result.Should().BeEquivalentTo(expectedEntity, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(
+				expectedEntity,
+				o => o.Excluding(x => x.Client)
+					.Excluding(x => x.Guids)
+					.Excluding(x => x.Meta)
+					.Excluding(x => x.Actions)
+					.Excluding(x => x.LastModifiedBy)
+					.Excluding(x => x.LastModifiedOn)
+					.Excluding(x => x.CreatedBy)
+					.Excluding(x => x.CreatedOn));
 			result.Client.ArtifactID.Should().Be(expectedEntity.Client.ArtifactID);
 			result.Client.Name.Should().Be(expectedEntity.Client.Name);
 		}

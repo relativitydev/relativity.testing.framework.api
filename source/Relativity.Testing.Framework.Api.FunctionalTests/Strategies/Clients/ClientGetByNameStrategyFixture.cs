@@ -6,19 +6,10 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientGetByNameStrategy))]
+	[TestOf(typeof(IGetByNameStrategy<Client>))]
 	public class ClientGetByNameStrategyFixture : ApiTestFixture
 	{
 		private IGetByNameStrategy<Client> _sut;
-
-		public ClientGetByNameStrategyFixture()
-		{
-		}
-
-		public ClientGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		[SetUp]
 		public void SetUp()

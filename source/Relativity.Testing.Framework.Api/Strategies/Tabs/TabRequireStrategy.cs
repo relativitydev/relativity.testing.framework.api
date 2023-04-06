@@ -3,7 +3,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class TabRequireStrategy : IRequireWorkspaceEntityStrategy<Tab>
+	internal class TabRequireStrategy : IRequireWorkspaceEntityStrategy<Tab>
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Tab> _createWorkspaceEntityStrategy;
 		private readonly IGetWorkspaceEntityByIdStrategy<Tab> _getWorkspaceEntityByIdStrategy;

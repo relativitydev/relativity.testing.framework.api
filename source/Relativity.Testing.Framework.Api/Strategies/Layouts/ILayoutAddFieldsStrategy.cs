@@ -6,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the strategy of adding fields to a category in a layout.
 	/// </summary>
-	public interface ILayoutAddFieldsStrategy
+	internal interface ILayoutAddFieldsStrategy
 	{
 		/// <summary>
 		/// Adds fields to a category in a layout. The first category found in the layout will be used.

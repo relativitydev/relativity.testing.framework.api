@@ -6,19 +6,9 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[NonParallelizable] // These tests cause deadlocks in the database when run in parallel.
 	[TestOf(typeof(DeleteWorkspaceEntityByIdStrategy<MarkupSet>))]
 	internal class MarkupSetDeleteByIdFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<MarkupSet>>
 	{
-		public MarkupSetDeleteByIdFixture()
-		{
-		}
-
-		public MarkupSetDeleteByIdFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{
@@ -34,7 +24,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Arrange(() =>
 			{
 				toDelete = Facade.Resolve<ICreateWorkspaceEntityStrategy<MarkupSet>>()
-					.Create(DefaultWorkspace.ArtifactID, new MarkupSet());
+					.Create(DefaultWorkspace.ArtifactID, new MarkupSet
+					{
+						Name = Randomizer.GetString(),
+						Order = Randomizer.GetInt(int.MaxValue),
+						RedactionText = Randomizer.GetString()
+					});
 			});
 
 			Sut.Delete(DefaultWorkspace.ArtifactID, toDelete.ArtifactID);

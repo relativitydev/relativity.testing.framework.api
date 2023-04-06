@@ -6,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// Represents the strategy of getting all entities of particular type by specified names.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetAllByNamesStrategy<T>
+	internal interface IGetAllByNamesStrategy<T>
 	{
 		/// <summary>
 		/// Gets all entities by specified names.

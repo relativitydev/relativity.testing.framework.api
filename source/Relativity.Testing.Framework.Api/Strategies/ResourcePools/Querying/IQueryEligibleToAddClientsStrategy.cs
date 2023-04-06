@@ -2,7 +2,7 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public interface IQueryEligibleToAddClientsStrategy
+	internal interface IQueryEligibleToAddClientsStrategy
 	{
 		/// <summary>
 		/// Gets a query for all clients that may be set as the client for a resource pool.

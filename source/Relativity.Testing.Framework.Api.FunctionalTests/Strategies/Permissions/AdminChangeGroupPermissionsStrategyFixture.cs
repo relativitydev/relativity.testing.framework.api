@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Group _group;
 		private IAdminGetGroupPermissionsStrategy _adminGetGroupPermissionsStrategy;
 
-		public AdminChangeGroupPermissionsStrategyFixture()
-		{
-		}
-
-		public AdminChangeGroupPermissionsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

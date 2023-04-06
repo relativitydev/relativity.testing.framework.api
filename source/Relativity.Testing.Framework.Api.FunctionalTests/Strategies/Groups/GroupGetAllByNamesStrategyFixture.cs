@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetAllByNamesStrategy<Group> _sut;
 
-		public GroupGetAllByNamesStrategyFixture()
-		{
-		}
-
-		public GroupGetAllByNamesStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

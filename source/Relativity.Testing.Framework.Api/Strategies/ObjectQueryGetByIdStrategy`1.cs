@@ -8,7 +8,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// Represents the base strategy class of getting the entity by Artifact ID using <see cref="IObjectService.Query{TObject}"/> method.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public abstract class ObjectQueryGetByIdStrategy<T> : IGetByIdStrategy<T>
+	internal abstract class ObjectQueryGetByIdStrategy<T> : IGetByIdStrategy<T>
 		where T : Artifact
 	{
 		private readonly IObjectService _objectService;

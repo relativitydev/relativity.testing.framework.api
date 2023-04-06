@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IWorkspaceService))]
 	internal class WorkspaceCreateWithDocsFixture : ApiServiceTestFixture<IWorkspaceService>
 	{
-		public WorkspaceCreateWithDocsFixture()
-		{
-		}
-
-		public WorkspaceCreateWithDocsFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void CreateWithDocs_NegativeValue()
 		{

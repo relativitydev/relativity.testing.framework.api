@@ -6,32 +6,41 @@ namespace Relativity.Testing.Framework.Api.Services
 	internal class MessageOfTheDayService : IMessageOfTheDayService
 	{
 		private readonly IMotdGetStrategy _motdGetStrategy;
-		private readonly IUpdateStrategy<MessageOfTheDay> _updateStrategy;
+		private readonly IMotdUpdateStrategy _updateStrategy;
 		private readonly IMotdDismissStrategy _dismissMotdStrategy;
 		private readonly IMotdHasDismissedStrategy _hasDismissMotdStrategy;
+		private readonly IMotdIsTextOnlyStrategy _motdIsTextOnlyStrategy;
 
 		public MessageOfTheDayService(
 			IMotdGetStrategy motdGetStrategy,
-			IUpdateStrategy<MessageOfTheDay> updateStrategy,
+			IMotdUpdateStrategy updateStrategy,
 			IMotdDismissStrategy dismissMotdStrategy,
-			IMotdHasDismissedStrategy hasDismissMotdStrategy)
+			IMotdHasDismissedStrategy hasDismissMotdStrategy,
+			IMotdIsTextOnlyStrategy motdIsTextOnlyStrategy)
 		{
 			_motdGetStrategy = motdGetStrategy;
 			_updateStrategy = updateStrategy;
 			_dismissMotdStrategy = dismissMotdStrategy;
 			_hasDismissMotdStrategy = hasDismissMotdStrategy;
+			_motdIsTextOnlyStrategy = motdIsTextOnlyStrategy;
 		}
 
 		public MessageOfTheDay Get()
 			=> _motdGetStrategy.Get();
 
-		public void Update(MessageOfTheDay entity)
+		public MessageOfTheDay Update(MessageOfTheDay entity)
 			=> _updateStrategy.Update(entity);
 
 		public void Dismiss(int? userId = null)
 			=> _dismissMotdStrategy.Dismiss(userId);
 
+		public void Dismiss(string emailAddress)
+			=> _dismissMotdStrategy.Dismiss(emailAddress);
+
 		public bool HasDismissed(int? userId = null)
 			=> _hasDismissMotdStrategy.HasDismissed(userId);
+
+		public bool IsTextOnly()
+			=> _motdIsTextOnlyStrategy.IsTextOnly();
 	}
 }

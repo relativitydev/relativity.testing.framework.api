@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class SearchProviderCreateStrategy : CreateWorkspaceEntityStrategy<SearchProvider>
+	internal class SearchProviderCreateStrategy : CreateWorkspaceEntityStrategy<SearchProvider>
 	{
 		private readonly IRestService _restService;
 

@@ -7,18 +7,9 @@ using Relativity.Testing.Framework.Versioning;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ICreateStrategy<ResourcePool>))]
-	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated. https://jira.kcura.com/browse/RTF-753")]
+	[Ignore("It looks like these tests are causing other tests to have trouble getting the correct resource pool, needs to be investigated.")]
 	internal class ResourcePoolCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<ResourcePool>>
 	{
-		public ResourcePoolCreateStrategyFixture()
-		{
-		}
-
-		public ResourcePoolCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithFilledEntity()
 		{

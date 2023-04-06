@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetByNameStrategy<LibraryApplication>))]
 	internal class LibraryApplicationGetByNameStrategyFixture : ApiServiceTestFixture<IGetByNameStrategy<LibraryApplication>>
 	{
-		public LibraryApplicationGetByNameStrategyFixture()
-		{
-		}
-
-		public LibraryApplicationGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_WithNull()
 		{

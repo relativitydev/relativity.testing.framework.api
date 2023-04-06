@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetWorkspaceEntityByNameStrategy<Document>))]
 	internal class DocumentGetByControlNumberStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByNameStrategy<Document>>
 	{
-		public DocumentGetByControlNumberStrategyFixture()
-		{
-		}
-
-		public DocumentGetByControlNumberStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

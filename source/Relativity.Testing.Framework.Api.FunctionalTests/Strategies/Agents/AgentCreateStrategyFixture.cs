@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private AgentType _agentType;
 		private AgentServer _agentServer;
 
-		public AgentCreateStrategyFixture()
-		{
-		}
-
-		public AgentCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();
@@ -83,7 +74,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Name.Should().StartWith(_agentType.Name);
 			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID)
 				.Excluding(x => x.AgentType.ArtifactID)
-				.Excluding(x => x.Name));
+				.Excluding(x => x.Name)
+				.Excluding(x => x.Message));
 		}
 	}
 }

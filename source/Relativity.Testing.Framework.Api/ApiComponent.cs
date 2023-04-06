@@ -3,6 +3,7 @@ using System.Linq;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Castle.Windsor.Proxy;
 using Polly;
 using Polly.Retry;
 using Relativity.Testing.Framework.Api.Attributes;
@@ -10,6 +11,7 @@ using Relativity.Testing.Framework.Api.Interceptors;
 using Relativity.Testing.Framework.Api.Kepler;
 using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
+using Relativity.Testing.Framework.Api.Versioning;
 using Relativity.Testing.Framework.Configuration;
 using Relativity.Testing.Framework.Logging;
 using Relativity.Testing.Framework.Models;
@@ -19,7 +21,7 @@ namespace Relativity.Testing.Framework.Api
 {
 	/// <summary>
 	/// Represents the API component of Relativity Testing Framework.
-	/// <see cref="ApiComponent"/> should be registered in <see cref="RelativityFacade"/> thru <see cref="IRelativityFacade.RelyOn{T}()"/> method after <see cref="CoreComponent"/>.
+	/// <see cref="ApiComponent"/> should be registered in [RelativityFacade](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.RelativityFacade.html) thru [IRelativityFacade.RelyOn&lt;T&gt;()](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.IRelativityFacade.html#Relativity_Testing_Framework_IRelativityFacade_RelyOn__1) method after [CoreComponent](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.CoreComponent.html).
 	/// </summary>
 	public class ApiComponent : IRelativityComponent, IWindsorInstaller
 	{
@@ -40,7 +42,7 @@ namespace Relativity.Testing.Framework.Api
 		/// <summary>
 		/// The supported Relativity version range.
 		/// </summary>
-		public const string SupportedRelativityVersionRange = "11.3 - 12.2";
+		public const string SupportedRelativityVersionRange = "11.3 - 13.2";
 
 		/// <summary>
 		/// Gets the kepler service factory.
@@ -59,9 +61,10 @@ namespace Relativity.Testing.Framework.Api
 
 		void IWindsorInstaller.Install(IWindsorContainer container, IConfigurationStore store)
 		{
+			container.Kernel.ProxyFactory = new DefaultProxyFactory(disableSignedModule: true);
+
 			container.Register(
-				Component.For<IApplicationInsightsInterceptor>().
-				ImplementedBy<ApplicationInsightsEventInterceptor>().
+				Component.For<ApplicationInsightsEventInterceptor>().
 				LifestyleSingleton());
 
 			container.Register(
@@ -70,15 +73,43 @@ namespace Relativity.Testing.Framework.Api
 
 			var configurationService = container.ResolveAll<IConfigurationService>().FirstOrDefault();
 
-			if (configurationService != null && !configurationService.GetValueOrDefault("EnableApplicationInsights", true))
+			if (configurationService != null)
 			{
-				container.Resolve<ApplicationInsightsEventInterceptor>().IsEnabled = false;
-				container.Resolve<ApplicationInsightsMetricInterceptor>().IsEnabled = false;
+				DataCollection stateToConfigure;
+				string defaultValue = DataCollection.All.ToString();
+				string configuredValue = configurationService.GetValueOrDefault("EnableApplicationInsights", defaultValue).ToLower();
+
+				switch (configuredValue)
+				{
+					case "all":
+						stateToConfigure = DataCollection.All;
+						break;
+					case "true":
+						stateToConfigure = DataCollection.All;
+						break;
+					case "usageonly":
+						stateToConfigure = DataCollection.UsageOnly;
+						break;
+					case "none":
+						stateToConfigure = DataCollection.None;
+						break;
+					case "false":
+						stateToConfigure = DataCollection.None;
+						break;
+					default:
+						stateToConfigure = DataCollection.All;
+						break;
+				}
+
+				container.Resolve<ApplicationInsightsEventInterceptor>().CollectionState = stateToConfigure;
+				container.Resolve<ApplicationInsightsMetricInterceptor>().CollectionState = stateToConfigure;
 			}
 
 			container.Register(
 				Component.For<RetryInterceptor>().
 				LifestyleSingleton());
+
+			RegisterValidators(container);
 
 			container.Register(
 				Component.For<IKeplerServiceFactory>().
@@ -92,9 +123,14 @@ namespace Relativity.Testing.Framework.Api
 			InstallGenericStrategies(container);
 		}
 
+		private void RegisterValidators(IWindsorContainer container)
+		{
+			RegisterClassesByPredicate(container, type => type.Name.Contains("Validator"), typeof(LoggingInterceptor));
+		}
+
 		private void RegisterServicesAndNonGenericStrategies(IWindsorContainer container)
 		{
-			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService), typeof(LoggingInterceptor));
+			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService) || type.Name == nameof(ApiRelativityInstanceVersionResolveService) || type.Name == nameof(RelativityApplicationVersionResolveService), typeof(LoggingInterceptor));
 
 			var commonInterceptorsWithoutRetry = _commonInterceptors.Where(interceptor => interceptor != typeof(RetryInterceptor)).ToArray();
 
@@ -281,7 +317,14 @@ namespace Relativity.Testing.Framework.Api
 		{
 			if (!versionRangeMatchService.IsVersionInRange(version, SupportedRelativityVersionRange))
 			{
-				RelativityFacade.Instance.Log.Warn(BuildRelativityVersionWarnMessage(version));
+				try
+				{
+					RelativityFacade.Instance.Log.Warn(BuildRelativityVersionWarnMessage(version));
+				}
+				catch
+				{
+					// Intentional no-op to avoid RTF.API tests crashing on version mismatch
+				}
 			}
 		}
 

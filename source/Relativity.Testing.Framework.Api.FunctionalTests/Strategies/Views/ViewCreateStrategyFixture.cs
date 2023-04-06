@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IGetWorkspaceEntityByNameStrategy<FixedLengthTextField> _getWorkspaceEntityByNameStrategy;
 
-		public ViewCreateStrategyFixture()
-		{
-		}
-
-		public ViewCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
@@ -97,7 +88,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				.Excluding(x => x.SystemCreatedBy)
 				.Excluding(x => x.SystemCreatedOn)
 				.Excluding(x => x.SystemLastModifiedBy)
-				.Excluding(x => x.SystemLastModifiedOn));
+				.Excluding(x => x.SystemLastModifiedOn)
+				.Excluding(x => x.Dashboard));
 		}
 	}
 }

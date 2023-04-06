@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllStrategy<Error>))]
 	internal class ErrorGetAllStrategyFixture : ApiServiceTestFixture<IGetAllStrategy<Error>>
 	{
-		public ErrorGetAllStrategyFixture()
-		{
-		}
-
-		public ErrorGetAllStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAll()
 		{

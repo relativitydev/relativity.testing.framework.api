@@ -72,4 +72,4 @@ foreach($parameter in $testRunParameters.ChildNodes)
     Add-Content (Join-Path $PSScriptRoot "..\$($RunSettingsPrefix)FunctionalTestSettings") "--params $($parameter.Name)=$($parameter.Value)"
 }
 
-$runSettingsDocument.Save((Join-Path $PSScriptRoot "..\$($RunSettingsPrefix)FunctionalTest.runsettings"))
+$runSettingsDocument.Save((Join-Path $PSScriptRoot "$($RunSettingsPrefix)FunctionalTest.runsettings"))

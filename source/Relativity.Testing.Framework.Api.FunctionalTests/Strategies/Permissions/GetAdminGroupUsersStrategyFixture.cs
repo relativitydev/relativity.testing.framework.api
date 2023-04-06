@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Arrangement;
@@ -16,15 +17,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Group _groupWithNoUsers;
 		private Group _groupWithUser;
 		private User _user;
-
-		public GetAdminGroupUsersStrategyFixture()
-		{
-		}
-
-		public GetAdminGroupUsersStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpFixture()
 		{
@@ -67,9 +59,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			var result = Sut.Get(_groupWithUser.ArtifactID);
 
-			result.Count.Should().Be(1);
-			result[0].ArtifactID.Should().Be(_user.ArtifactID);
-			result[0].Name.Should().Be($"{_user.LastName}, {_user.FirstName}");
+			TestIfUsersListIsAsExpected(result);
 		}
 
 		[Test]
@@ -77,6 +67,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		{
 			var result = Sut.Get(_groupWithUser.Name);
 
+			TestIfUsersListIsAsExpected(result);
+		}
+
+		private void TestIfUsersListIsAsExpected(List<NamedArtifact> result)
+		{
 			result.Count.Should().Be(1);
 			result[0].ArtifactID.Should().Be(_user.ArtifactID);
 			result[0].Name.Should().Be($"{_user.LastName}, {_user.FirstName}");

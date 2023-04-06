@@ -10,17 +10,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ILayoutGetCategoriesStrategy))]
 	[VersionRange(">=12.0")]
+	[Ignore("https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutGetCategoriesStrategy : ApiServiceTestFixture<ILayoutGetCategoriesStrategy>
 	{
-		public LayoutGetCategoriesStrategy()
-		{
-		}
-
-		public LayoutGetCategoriesStrategy(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetCategories()
 		{

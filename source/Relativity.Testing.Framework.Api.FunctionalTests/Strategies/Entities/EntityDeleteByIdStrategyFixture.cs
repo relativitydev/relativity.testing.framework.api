@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(DeleteWorkspaceEntityByIdStrategy<Entity>))]
 	internal class EntityDeleteByIdStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<Entity>>
 	{
-		public EntityDeleteByIdStrategyFixture()
-		{
-		}
-
-		public EntityDeleteByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{
@@ -27,7 +18,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		[VersionRange("<12.2")] // Defect in PrairieSmoke-EA image. Can't run until https://jira.kcura.com/browse/REL-546511 is merged into a new template.
+		[VersionRange("<12.2")] // Defect in PrairieSmoke-EA image.
 		public void Delete_Existing()
 		{
 			Entity toDelete = null;

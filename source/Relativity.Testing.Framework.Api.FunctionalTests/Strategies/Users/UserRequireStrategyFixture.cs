@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IRequireWithEnsureNewStrategy<User>))]
 	internal class UserRequireStrategyFixture : ApiServiceTestFixture<IRequireWithEnsureNewStrategy<User>>
 	{
-		public UserRequireStrategyFixture()
-		{
-		}
-
-		public UserRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Require_WithNull()
 		{

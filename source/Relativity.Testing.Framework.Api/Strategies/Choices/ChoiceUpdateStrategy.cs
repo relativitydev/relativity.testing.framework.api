@@ -1,5 +1,6 @@
 ﻿using System;
 using Relativity.Testing.Framework.Api.Services;
+using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
@@ -20,15 +21,11 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				throw new ArgumentNullException(nameof(entity));
 			}
 
+			ChoiceRequest choiceRequest = ChoiceExtensions.ToChoiceRequest(entity);
+
 			var dto = new
 			{
-				ChoiceRequest = new
-				{
-					entity.Name,
-					entity.Order,
-					entity.Parent,
-					Color = workspaceId == -1 ? null : (int?)entity.Color
-				}
+				choiceRequest = choiceRequest
 			};
 
 			_restService.Put($"Relativity.Choices/workspace/{workspaceId}/choice/{entity.ArtifactID}", dto);

@@ -15,6 +15,7 @@
     }
   ],
   "build": {
+    "cleanupCacheHistory": false,
     "content": [
       {
         "files": [
@@ -23,40 +24,26 @@
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
-          "*.md"
-        ]
-      },
-    ],
-    "resource": [
-      {
-        "files": [
-          "images/**"
-        ]
-      }
-    ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
+          "*.md",
+          "fusion/**"
         ]
       }
     ],
     "dest": "_site",
-    "globalMetadataFiles": [],
+    "disableGitFeatures": false,
     "fileMetadataFiles": [],
-    "template": [
-      "default"
-    ],
-    "postProcessors": [],
+    "ForceRebuild": true,
+    "globalMetadataFiles": [],
+    "keepFileLink": false,
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false,
-    "ForceRebuild":  true
+    "postProcessors": [],
+    "template": [
+      "default",
+	  "templates/relativity"
+    ],
+    "xref": [
+      "https://relativitydev.github.io/relativity.testing.framework/xrefmap.yml"
+    ]
   }
 }

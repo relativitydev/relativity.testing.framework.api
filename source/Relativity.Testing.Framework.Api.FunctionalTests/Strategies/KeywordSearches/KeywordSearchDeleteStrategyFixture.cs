@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(KeywordSearchDeleteByIdStrategy))]
 	internal class KeywordSearchDeleteStrategyFixture : ApiServiceTestFixture<IDeleteWorkspaceEntityByIdStrategy<KeywordSearch>>
 	{
-		public KeywordSearchDeleteStrategyFixture()
-		{
-		}
-
-		public KeywordSearchDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{

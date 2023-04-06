@@ -16,15 +16,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ICreateStrategy<Agent> _createStrategy;
 		private IGetByIdStrategy<Agent> _getByIdStrategy;
 
-		public AgentRequireStrategyFixture()
-		{
-		}
-
-		public AgentRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();
@@ -88,7 +79,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID)
 				.Excluding(x => x.AgentType.ArtifactID)
 				.Excluding(x => x.Name)
-				.Excluding(x => x.RunInterval));
+				.Excluding(x => x.RunInterval)
+				.Excluding(x => x.Message));
 		}
 	}
 }

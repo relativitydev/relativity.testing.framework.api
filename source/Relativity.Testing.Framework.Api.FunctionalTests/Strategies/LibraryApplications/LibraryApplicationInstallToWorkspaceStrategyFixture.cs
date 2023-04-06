@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private IGetByNameStrategy<LibraryApplication> _getByNameStrategy;
 		private ILibraryApplicationIsInstalledInWorkspaceStrategy _relativityApplicationIsInstalledInWorkspaceStrategy;
 
-		public LibraryApplicationInstallToWorkspaceStrategyFixture()
-		{
-		}
-
-		public LibraryApplicationInstallToWorkspaceStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

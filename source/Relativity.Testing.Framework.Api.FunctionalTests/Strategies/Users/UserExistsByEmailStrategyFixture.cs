@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IUserExistsByEmailStrategy))]
 	internal class UserExistsByEmailStrategyFixture : ApiServiceTestFixture<IUserExistsByEmailStrategy>
 	{
-		public UserExistsByEmailStrategyFixture()
-		{
-		}
-
-		public UserExistsByEmailStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Exists_WithNull()
 		{

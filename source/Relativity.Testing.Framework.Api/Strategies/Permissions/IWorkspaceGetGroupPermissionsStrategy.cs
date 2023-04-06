@@ -12,7 +12,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="groupId">The group ID.</param>
-		/// <returns>An instance of <see cref="GroupPermissions"/> or <see langword="null"/> if the workspace is not added to the group.</returns>
+		/// <returns>An instance of [GroupPermissions](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissions.html) or <see langword="null"/> if the workspace is not added to the group.</returns>
 		GroupPermissions Get(int workspaceId, int groupId);
 
 		/// <summary>
@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		/// </summary>
 		/// <param name="workspaceId">The workspace ID.</param>
 		/// <param name="groupName">The group Name.</param>
-		/// <returns>An instance of <see cref="GroupPermissions"/> or <see langword="null"/> if the workspace is not added to the group.</returns>
+		/// <returns>An instance of [GroupPermissions](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissions.html) or <see langword="null"/> if the workspace is not added to the group.</returns>
 		GroupPermissions Get(int workspaceId, string groupName);
 	}
 }

@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IUserGetByEmailStrategy _sut;
 
-		public UserGetByEmailStrategyFixture()
-		{
-		}
-
-		public UserGetByEmailStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

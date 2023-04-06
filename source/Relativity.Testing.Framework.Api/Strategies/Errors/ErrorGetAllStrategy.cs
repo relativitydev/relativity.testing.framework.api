@@ -3,7 +3,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class ErrorGetAllStrategy : IGetAllStrategy<Error>
+	internal class ErrorGetAllStrategy : IGetAllStrategy<Error>
 	{
 		private readonly IObjectService _objectService;
 

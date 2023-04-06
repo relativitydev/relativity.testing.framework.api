@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllByDateStrategy<Error>))]
 	internal class ErrorGetAllByDateStrategyFixture : ApiServiceTestFixture<IGetAllByDateStrategy<Error>>
 	{
-		public ErrorGetAllByDateStrategyFixture()
-		{
-		}
-
-		public ErrorGetAllByDateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAllByDate()
 		{

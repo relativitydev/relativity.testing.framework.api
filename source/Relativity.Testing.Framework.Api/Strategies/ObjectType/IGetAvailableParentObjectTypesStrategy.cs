@@ -6,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the strategy of getting a list of all object types available to be a parent object type for a given workspace.
 	/// </summary>
-	public interface IGetAvailableParentObjectTypesStrategy
+	internal interface IGetAvailableParentObjectTypesStrategy
 	{
 		/// <summary>
 		/// Gets a list of all object types available to be a parent object type for a given workspace.

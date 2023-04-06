@@ -5,7 +5,7 @@
     <LangVersion>latest</LangVersion>
     <IsPackable>true</IsPackable>
     <CodeAnalysisRuleSet>../General.ruleset</CodeAnalysisRuleSet>
-	<Description>The API library for the Relativity.Testing.Framework contains services and strategies for making requests to Relativity.</Description>
+    <Description>The API library for the Relativity.Testing.Framework contains services and strategies for making requests to Relativity.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,11 +22,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="Polly" Version="5.7.0" />
-    <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.10.10">
-        <PrivateAssets>analyzers</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Relativity.Testing.Framework" Version="3.0.0" />
+    <PackageReference Include="Relativity.DataExchange.Client.SDK" Version="1.17.2" />
+    <PackageReference Include="Relativity.Testing.Framework" Version="7.2.1" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.0.0.9566">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -36,7 +35,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  
+
   <ItemGroup>
     <Reference Include="System.Net.Http" />
   </ItemGroup>

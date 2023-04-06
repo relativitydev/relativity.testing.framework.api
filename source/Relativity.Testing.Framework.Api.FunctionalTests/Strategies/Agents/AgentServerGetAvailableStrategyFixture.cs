@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(AgentServerGetAvailableStrategy))]
 	internal class AgentServerGetAvailableStrategyFixture : ApiServiceTestFixture<IAgentServerGetAvailableStrategy>
 	{
-		public AgentServerGetAvailableStrategyFixture()
-		{
-		}
-
-		public AgentServerGetAvailableStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAvailable_WithNull()
 		{

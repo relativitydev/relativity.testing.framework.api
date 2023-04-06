@@ -6,4 +6,15 @@
   href: What-is-supported.md
 - name: Metrics collection
   href: Metrics-Collection.md
-  
+- name: Custom HttpService Requests
+  href: Custom-HttpService-Requests.md
+- name: Using Custom Strategies
+  href: Using-Custom-Strategies.md
+- name: Using Field Service
+  href: Using-Field-Service.md
+- name: Using ObjectManagerService
+  href: Using-ObjectManagerService.md
+- name: Using version range attribute
+  href: Using-version-range-attribute.md
+- name: RTF.Api version to Relativity version mapping
+  href: Version-Mapping.md

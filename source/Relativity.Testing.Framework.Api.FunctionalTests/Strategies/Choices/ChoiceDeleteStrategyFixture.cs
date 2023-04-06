@@ -4,6 +4,7 @@ using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -13,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ICreateWorkspaceEntityStrategy<MultipleChoiceField> _createFieldStrategy;
 		private ICreateWorkspaceEntityStrategy<Choice> _createChoiceStrategy;
 		private IGetWorkspaceEntityByIdStrategy<Choice> _getWorkspaceEntityById;
-
-		public ChoiceDeleteStrategyFixture()
-		{
-		}
-
-		public ChoiceDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpFixture()
 		{
@@ -40,6 +32,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		[VersionRange("<12.3")] // Defect in SunDrop EA - REL-590561
 		public void Delete_AdminLevel()
 		{
 			Choice existingChoice = null;

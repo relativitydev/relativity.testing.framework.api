@@ -11,19 +11,22 @@ namespace Relativity.Testing.Framework.Api.Strategies
 		private readonly IGetByIdStrategy<User> _getByIdStrategy;
 		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
 		private readonly IDeleteByIdStrategy<User> _deleteByIdStrategy;
+		private readonly IWaitUserDeletedStrategy _waitUserDeletedStrategy;
 
 		public UserRequireStrategy(
 			ICreateStrategy<User> createStrategy,
 			IUpdateStrategy<User> updateStrategy,
 			IGetByIdStrategy<User> getByIdStrategy,
 			IUserGetByEmailStrategy userGetByEmailStrategy,
-			IDeleteByIdStrategy<User> deleteByIdStrategy)
+			IDeleteByIdStrategy<User> deleteByIdStrategy,
+			IWaitUserDeletedStrategy waitUserDeletedStrategy)
 		{
 			_createStrategy = createStrategy;
 			_updateStrategy = updateStrategy;
 			_getByIdStrategy = getByIdStrategy;
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_deleteByIdStrategy = deleteByIdStrategy;
+			_waitUserDeletedStrategy = waitUserDeletedStrategy;
 		}
 
 		public User Require(User entity, bool ensureNew = true)
@@ -57,6 +60,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				if (entity.ArtifactID != 0)
 				{
 					_deleteByIdStrategy.Delete(entity.ArtifactID);
+					_waitUserDeletedStrategy.Wait(entity.ArtifactID);
 				}
 				else if (entity.EmailAddress != null)
 				{
@@ -64,6 +68,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 					if (existedEntity != null)
 					{
 						_deleteByIdStrategy.Delete(existedEntity.ArtifactID);
+						_waitUserDeletedStrategy.Wait(entity.ArtifactID);
 					}
 				}
 			}

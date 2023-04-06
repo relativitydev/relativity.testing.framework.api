@@ -5,7 +5,7 @@
 	/// Uses <see cref="IExistsByIdStrategy{T}"/> strategy for checking the entity.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public class EnsureExistsByIdStrategy<T> : IEnsureExistsByIdStrategy<T>
+	internal class EnsureExistsByIdStrategy<T> : IEnsureExistsByIdStrategy<T>
 	{
 		private readonly IExistsByIdStrategy<T> _existsByIdStrategy;
 
@@ -20,10 +20,10 @@
 
 		/// <summary>
 		/// Ensures whether the entity with the specified ID exists.
-		/// If it does not, throws <see cref="ObjectNotFoundException" />.
+		/// If it does not, throws [ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html).
 		/// </summary>
 		/// <param name="id">The artifact ID of the entity.</param>
-		/// <exception cref="ObjectNotFoundException">Failed to find entity by ID.</exception>
+		/// <exception>[ObjectNotFoundException](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.ObjectNotFoundException.html)Failed to find entity by ID.</exception>
 		public void EnsureExists(int id)
 		{
 			if (!_existsByIdStrategy.Exists(id))

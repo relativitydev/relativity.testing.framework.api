@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Workspace _workspace;
 		private Production _production;
 
-		public DocumentSingleProducedImageImportStrategyFixture()
-		{
-		}
-
-		public DocumentSingleProducedImageImportStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

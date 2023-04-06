@@ -2,7 +2,7 @@
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public static class DataTableExtensions
+	internal static class DataTableExtensions
 	{
 		public static System.Data.DataTable CsvToDataTable(System.IO.Stream stream)
 		{

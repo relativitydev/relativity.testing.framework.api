@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetWorkspaceEntityByIdStrategy<OcrProfile>))]
 	internal class OcrProfileGetByIdStrategyFixrure : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<OcrProfile>>
 	{
-		public OcrProfileGetByIdStrategyFixrure()
-		{
-		}
-
-		public OcrProfileGetByIdStrategyFixrure(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

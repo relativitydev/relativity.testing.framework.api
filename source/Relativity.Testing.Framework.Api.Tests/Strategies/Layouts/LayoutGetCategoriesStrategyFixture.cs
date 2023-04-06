@@ -66,10 +66,13 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 				ArtifactID = 1
 			});
 
-			_mockRestService.Setup(e => e.Post<ReadSingleAsyncResult>(
+			_mockRestService
+				.Setup(e => e.Post<ReadSingleAsyncResult>(
 					"Relativity.Services.Layout.Interfaces.ILayoutModule/LayoutRenderService/ReadSingleAsync",
 					It.IsAny<ReadSingleAsyncRequest>(),
-					2)).Returns(new ReadSingleAsyncResult { Groups = new List<Category>() });
+					2,
+					null))
+				.Returns(new ReadSingleAsyncResult { Groups = new List<Category>() });
 
 			_layoutGetCategoriesStrategy.GetCategories(12345, layout);
 

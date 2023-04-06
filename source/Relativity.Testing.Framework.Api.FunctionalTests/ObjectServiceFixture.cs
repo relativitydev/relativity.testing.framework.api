@@ -20,15 +20,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		private IDocumentService _documentService;
 		private IObjectService _objectService;
 
-		public ObjectServiceFixture()
-		{
-		}
-
-		public ObjectServiceFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
@@ -36,6 +27,17 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 			_workspace = Facade.Resolve<IWorkspaceService>().CreateWithDocs(new Workspace(), 10);
 			_documentService = Facade.Resolve<IDocumentService>();
 			_objectService = FacadeHost.Facade.Resolve<IObjectService>();
+		}
+
+		[Test]
+		public void Create()
+		{
+			Lists entityToCreate = new Lists().FillRequiredProperties();
+
+			Lists result = Sut.Create(-1, entityToCreate);
+
+			result.Should().BeEquivalentTo(entityToCreate, o => o.Excluding(x => x.ArtifactID));
+			result.ArtifactID.Should().BePositive();
 		}
 
 		[Test]
@@ -151,11 +153,90 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 			result.Should().Contain(x => x.ExtractedText == documentToUpdate.ExtractedText && x.ArtifactID == documentToUpdate.ArtifactID);
 		}
 
+		[Test]
+		public void Update_WithoutDTO_ByFieldName()
+		{
+			int documentToUpdateArtifactID = _documentService.GetAll(_workspace.ArtifactID).LastOrDefault().ArtifactID;
+			string updatedExtractedText = Randomizer.GetString();
+			string updatedGroupIdentifier = Randomizer.GetString();
+			var fieldsToUpdate = new List<FieldRefValuePair>
+			{
+				new FieldRefValuePair
+				{
+					Field = new FieldRef
+					{
+						Name = "Group Identifier"
+					},
+					Value = updatedGroupIdentifier
+				},
+				new FieldRefValuePair
+				{
+					Field = new FieldRef
+					{
+						Name = "Extracted Text"
+					},
+					Value = updatedExtractedText
+				}
+			};
+
+			TestIfUpdateWithoutDTOUpdatesGroupIdentifierAndExtractedTextFields(
+				documentToUpdateArtifactID, updatedExtractedText, updatedGroupIdentifier, fieldsToUpdate);
+		}
+
+		[Test]
+		public void Update_WithoutDTO_ByFieldArtifactID()
+		{
+			int documentToUpdateArtifactID = _documentService.GetAll(_workspace.ArtifactID).LastOrDefault().ArtifactID;
+			string updatedExtractedText = Randomizer.GetString();
+			string updatedGroupIdentifier = Randomizer.GetString();
+
+			IFieldService fieldService = Facade.Resolve<IFieldService>();
+			Field extractedTextField = fieldService.Get(_workspace.ArtifactID, "Extracted Text");
+			Field groupIdentifierField = fieldService.Get(_workspace.ArtifactID, "Group Identifier");
+
+			var fieldsToUpdate = new List<FieldRefValuePair>
+			{
+				new FieldRefValuePair
+				{
+					Field = new FieldRef
+					{
+						ArtifactID = groupIdentifierField.ArtifactID
+					},
+					Value = updatedGroupIdentifier
+				},
+				new FieldRefValuePair
+				{
+					Field = new FieldRef
+					{
+						ArtifactID = extractedTextField.ArtifactID
+					},
+					Value = updatedExtractedText
+				}
+			};
+			TestIfUpdateWithoutDTOUpdatesGroupIdentifierAndExtractedTextFields(
+				documentToUpdateArtifactID, updatedExtractedText, updatedGroupIdentifier, fieldsToUpdate);
+		}
+
+		private void TestIfUpdateWithoutDTOUpdatesGroupIdentifierAndExtractedTextFields(
+			int documentToUpdateArtifactID,
+			string updatedExtractedText,
+			string updatedGroupIdentifier,
+			List<FieldRefValuePair> fieldsToUpdate)
+		{
+			Sut.Update(_workspace.ArtifactID, documentToUpdateArtifactID, fieldsToUpdate);
+
+			DocumentWithGroupIdentifier documentAfterUpdate = Sut.Query<DocumentWithGroupIdentifier>().For(_workspace.ArtifactID).FirstOrDefault(d => d.ArtifactID == documentToUpdateArtifactID);
+
+			Assert.IsNotNull(documentAfterUpdate);
+			documentAfterUpdate.GroupIdentifier.Equals(updatedGroupIdentifier);
+			documentAfterUpdate.ExtractedText.Equals(updatedExtractedText);
+		}
+
 		[VersionRange(">=12.0")]
 		[Test]
 		public void Mass_Update()
 		{
-			// Code Smell - Is there a different way we should be setting the value here? - https://jira.kcura.com/browse/RTF-959
+			// Code Smell - Is there a different way we should be setting the value here?
 			var documentsToUpdate = _documentService.GetAll(_workspace.ArtifactID)
 				.Take(2);
 
@@ -243,6 +324,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 
 				return this;
 			}
+		}
+
+		[ObjectTypeName("Document")]
+		public class DocumentWithGroupIdentifier : Document
+		{
+			public string GroupIdentifier { get; set; }
 		}
 #pragma warning restore CA1812
 	}

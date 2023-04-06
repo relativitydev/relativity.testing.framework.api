@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private const int MissingId = 999_999_999;
 
-		public UserAddToGroupStrategyFixture()
-		{
-		}
-
-		public UserAddToGroupStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void AddToGroup_MissingUser()
 		{

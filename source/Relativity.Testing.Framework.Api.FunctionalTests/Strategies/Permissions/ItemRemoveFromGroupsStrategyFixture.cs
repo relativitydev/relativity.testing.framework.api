@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private IItemAddToGroupsStrategy _itemAddToGroupsStrategy;
 		private IItemGroupSelectorGetStrategy _itemGroupSelectorGetStrategy;
 
-		public ItemRemoveFromGroupsStrategyFixture()
-		{
-		}
-
-		public ItemRemoveFromGroupsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

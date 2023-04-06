@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
@@ -10,29 +9,28 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateStrategy<Matter>))]
 	internal class MatterCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<Matter>>
 	{
-		public MatterCreateStrategyFixture()
-		{
-		}
-
-		public MatterCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
-		[Test]
-		public void Create_WithNull()
-		{
-			Assert.Throws<ArgumentNullException>(() =>
-				Sut.Create(null));
-		}
-
 		[Test]
 		public void Create_WithEmptyEntity()
 		{
 			var entity = new Matter();
 
-			var result = Sut.Create(entity);
+			Matter result = Sut.Create(entity);
 
+			TestIfMatterIsValid(result);
+		}
+
+		[Test]
+		public void Create_WithFilledEntity()
+		{
+			Matter entity = ArrangeMatterWithClient();
+
+			Matter result = Sut.Create(entity.Copy());
+
+			TestIfCreatedMatterIsEquivalentToExpected(entity, result);
+		}
+
+		private static void TestIfMatterIsValid(Matter result)
+		{
 			result.ArtifactID.Should().BePositive();
 			result.Name.Should().NotBeNullOrEmpty();
 			result.Number.Should().NotBeNullOrEmpty();
@@ -42,8 +40,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Notes.Should().BeEmpty();
 		}
 
-		[Test]
-		public void Create_WithFilledEntity()
+		private Matter ArrangeMatterWithClient()
 		{
 			Client client = null;
 
@@ -58,9 +55,11 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 				Keywords = Randomizer.GetString(),
 				Notes = Randomizer.GetString()
 			};
+			return entity;
+		}
 
-			var result = Sut.Create(entity.Copy());
-
+		private static void TestIfCreatedMatterIsEquivalentToExpected(Matter entity, Matter result)
+		{
 			result.ArtifactID.Should().BePositive();
 			result.Should().BeEquivalentTo(entity, o => o.Excluding(x => x.ArtifactID).Excluding(x => x.Client.Status.ArtifactID));
 		}

@@ -9,7 +9,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 	/// <summary>
 	/// Represents the base fixture class for API service test fixtures.
 	/// </summary>
-	/// <typeparam name="TService">Service which will be resolve from Facde as SUT object.</typeparam>
+	/// <typeparam name="TService">Service which will be resolved from Facade as SUT object.</typeparam>
 	internal abstract class ApiServiceTestFixture<TService> : ApiTestFixture
 	{
 		protected const string DefaultWorkspaceName = "RTF api default test workspace.";
@@ -18,15 +18,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		/// Initializes a new instance of the <see cref="ApiServiceTestFixture{TService}"/> class.
 		/// </summary>
 		protected ApiServiceTestFixture()
-		{
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ApiServiceTestFixture{TService}"/> class using the Relativity instance configuration by <paramref name="relativityInstanceAlias"/>.
-		/// </summary>
-		/// <param name="relativityInstanceAlias">The Relativity instance alias.</param>
-		protected ApiServiceTestFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
 		{
 		}
 

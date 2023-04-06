@@ -23,7 +23,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 				}
 			};
 
-			var response = _restService.Post<ArrayResponse<LibraryApplicationInstallStatusResponse>>(
+			var response = _restService.Post<ArrayResponseDto<LibraryApplicationInstallStatusDto>>(
 				$"Relativity.LibraryApplications/workspace/-1/libraryapplications/{applicationId}/install/search?start1&length={int.MaxValue}", dto);
 
 			var installStatus = response.Results.OrderByDescending(x => x.ApplicationInstallID)

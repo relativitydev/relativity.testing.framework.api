@@ -6,18 +6,8 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IGetWorkspaceEntityByIdStrategy<Tab>))]
-	[NonParallelizable] // We're seeing a lot of tab tests fail, so I'm hoping this will help alleviate it. https://jira.kcura.com/browse/RTF-854
 	internal class TabGetByIdStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<Tab>>
 	{
-		public TabGetByIdStrategyFixture()
-		{
-		}
-
-		public TabGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

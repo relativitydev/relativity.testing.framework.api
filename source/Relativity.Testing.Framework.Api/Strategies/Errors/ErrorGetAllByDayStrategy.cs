@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class ErrorGetAllByDateStrategy : IGetAllByDateStrategy<Error>
+	internal class ErrorGetAllByDateStrategy : IGetAllByDateStrategy<Error>
 	{
 		private readonly IObjectService _objectService;
 

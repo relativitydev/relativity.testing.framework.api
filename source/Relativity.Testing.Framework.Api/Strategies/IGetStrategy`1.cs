@@ -4,7 +4,7 @@
 	/// Represents the strategy of getting the entity by ID.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetByIdStrategy<T>
+	internal interface IGetByIdStrategy<T>
 	{
 		/// <summary>
 		/// Gets the entity by the specified ID.

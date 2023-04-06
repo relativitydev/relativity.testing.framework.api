@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(AgentGetAllStrategy))]
 	internal class AgentGetAllStrategyFixture : ApiServiceTestFixture<IGetAllStrategy<Agent>>
 	{
-		public AgentGetAllStrategyFixture()
-		{
-		}
-
-		public AgentGetAllStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAll()
 		{

@@ -7,7 +7,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// Represents the strategy of getting the list of dependencies.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetDependencyListForWorkspaceEntityStrategy<T>
+	internal interface IGetDependencyListForWorkspaceEntityStrategy<T>
 	{
 		/// <summary>
 		/// Gets the list of dependencies.

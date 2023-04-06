@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	public class LayoutService : ILayoutService
+	internal class LayoutService : ILayoutService
 	{
 		private readonly ICreateWorkspaceEntityStrategy<Layout> _createWorkspaceEntityStrategy;
 		private readonly IRequireWorkspaceEntityStrategy<Layout> _requireWorkspaceEntityStrategy;
@@ -57,7 +57,7 @@ namespace Relativity.Testing.Framework.Api.Services
 		public void AddFields(int workspaceId, Layout entity, List<CategoryField> categoryFields)
 			=> _layoutAddFieldsStrategy.AddFields(workspaceId, entity, categoryFields);
 
-		public void GetCategories(int workspaceId, Layout entity)
+		public List<Category> GetCategories(int workspaceId, Layout entity)
 			=> _layoutGetCategoriesStrategy.GetCategories(workspaceId, entity);
 	}
 }

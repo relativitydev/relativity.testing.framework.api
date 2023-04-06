@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+using Relativity.Testing.Framework.Api.Exceptions;
+using Relativity.Testing.Framework.Api.Services;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 
@@ -11,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class DocumentSingleNativeImportStrategyFixture : ApiServiceTestFixture<IDocumentSingleNativeImportStrategy>
 	{
 		private Workspace _workspace;
-
-		public DocumentSingleNativeImportStrategyFixture()
-		{
-		}
-
-		public DocumentSingleNativeImportStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpFixture()
 		{
@@ -41,6 +35,16 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var document = result.First();
 			document.ControlNumber.Should().Be(fileName);
 			document.HasNative.Should().BeTrue();
+		}
+
+		[Test]
+		public void DocumentImportHelper_WhenInvalidDataTable_ThrowsJobReportException()
+		{
+			IDocumentService documentService = Facade.Resolve<IDocumentService>();
+			using (DataTable dataTable = new DataTable())
+			{
+				Assert.Throws<JobReportException>(() => documentService.ImportNatives(DefaultWorkspace.ArtifactID, dataTable));
+			}
 		}
 	}
 }

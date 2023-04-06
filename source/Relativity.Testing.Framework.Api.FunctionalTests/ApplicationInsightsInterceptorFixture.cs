@@ -33,13 +33,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 		}
 
 		[Test]
-		public void RingSetupIsReferencedInAssembly_ReturnsFalseWhenNotReferenced()
+		public void GetRingSetupVersionReferencedInAssembly_ReturnsNullWhenNotReferenced()
 		{
 			Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
 			Assembly assembly = assemblies.FirstOrDefault(x => x.GetName().Name == "Relativity.Testing.Framework.Api.FunctionalTests");
 
-			bool expectedValue = false;
-			bool actualValue = ApplicationInsightsInterceptor.RingSetupIsReferencedInAssembly(assembly);
+			string expectedValue = null;
+			string actualValue = ApplicationInsightsInterceptor.GetRingSetupVersionReferencedInAssembly(assembly);
 
 			actualValue.Should().Be(expectedValue);
 		}

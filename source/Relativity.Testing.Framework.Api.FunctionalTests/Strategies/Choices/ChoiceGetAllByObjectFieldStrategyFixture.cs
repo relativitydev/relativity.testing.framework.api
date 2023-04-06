@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private IChoiceGetAllByObjectFieldStrategy _sut;
 
-		public ChoiceGetAllByObjectFieldStrategyFixture()
-		{
-		}
-
-		public ChoiceGetAllByObjectFieldStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{

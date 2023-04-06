@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetDependencyListForWorkspaceEntityStrategy<ObjectType>))]
 	internal class ObjectTypeGetDependencyListStrategyFixture : ApiServiceTestFixture<IGetDependencyListForWorkspaceEntityStrategy<ObjectType>>
 	{
-		public ObjectTypeGetDependencyListStrategyFixture()
-		{
-		}
-
-		public ObjectTypeGetDependencyListStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetDependencies()
 		{

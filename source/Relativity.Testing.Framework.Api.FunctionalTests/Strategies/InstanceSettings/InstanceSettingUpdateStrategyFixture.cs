@@ -6,19 +6,10 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(InstanceSettingUpdateStrategy))]
+	[TestOf(typeof(IUpdateStrategy<InstanceSetting>))]
 	internal class InstanceSettingUpdateStrategyFixture : ApiServiceTestFixture<IUpdateStrategy<InstanceSetting>>
 	{
 		private IGetByIdStrategy<InstanceSetting> _getByIdStrategy;
-
-		public InstanceSettingUpdateStrategyFixture()
-		{
-		}
-
-		public InstanceSettingUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpTest()
 		{

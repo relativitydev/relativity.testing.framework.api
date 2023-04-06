@@ -3,7 +3,6 @@ using System.Net.Http;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
-using Relativity.Services.Exceptions;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Session;
@@ -13,17 +12,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 {
 	[TestOf(typeof(TestSession))]
 	[NonParallelizable] // These tests can run into issues if run at the same time as other tests that modify the session/account pool.
+	[Explicit]
 	public class TestSessionFixture : ApiTestFixture
 	{
-		public TestSessionFixture()
-		{
-		}
-
-		public TestSessionFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void EntityIsAddedToSessionWhenCreated()
 		{

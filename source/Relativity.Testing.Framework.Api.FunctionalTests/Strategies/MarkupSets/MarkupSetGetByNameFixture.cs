@@ -6,19 +6,9 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[NonParallelizable] // These tests cause deadlocks in the database when run in parallel.
 	[TestOf(typeof(IGetWorkspaceEntityByNameStrategy<MarkupSet>))]
 	internal class MarkupSetGetByNameFixture : ApiServiceTestFixture<IGetWorkspaceEntityByNameStrategy<MarkupSet>>
 	{
-		public MarkupSetGetByNameFixture()
-		{
-		}
-
-		public MarkupSetGetByNameFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{
@@ -35,7 +25,12 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			Arrange(() =>
 			{
 				existingMarkupSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<MarkupSet>>()
-					.Create(DefaultWorkspace.ArtifactID, new MarkupSet());
+					.Create(DefaultWorkspace.ArtifactID, new MarkupSet
+					{
+						Name = Randomizer.GetString(),
+						Order = Randomizer.GetInt(int.MaxValue),
+						RedactionText = Randomizer.GetString()
+					});
 			});
 
 			var result = Sut.Get(DefaultWorkspace.ArtifactID, existingMarkupSet.Name);

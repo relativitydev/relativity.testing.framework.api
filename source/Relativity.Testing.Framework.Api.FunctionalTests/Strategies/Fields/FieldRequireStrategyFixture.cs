@@ -14,15 +14,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Field _fieldForPropagation;
 		private ObjectType _objectType;
 
-		public FieldRequireStrategyFixture()
-		{
-		}
-
-		public FieldRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

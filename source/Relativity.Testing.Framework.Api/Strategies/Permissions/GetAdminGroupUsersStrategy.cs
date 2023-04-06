@@ -6,6 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 {
 	internal class GetAdminGroupUsersStrategy : IGetAdminGroupUsersStrategy
 	{
+		private const string _URL = "Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetAdminGroupUsersAsync";
 		private readonly IRestService _restService;
 		private readonly IGroupService _groupService;
 
@@ -17,14 +18,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public List<NamedArtifact> Get(int groupId)
 		{
-			var dto = new
-			{
-				group = new Artifact(groupId)
-			};
+			var dto = new PermissionGroupDTO(groupId);
 
-			return _restService.Post<List<NamedArtifact>>(
-				"Relativity.Services.Permission.IPermissionModule/Permission%20Manager/GetAdminGroupUsersAsync",
-				dto);
+			return _restService.Post<List<NamedArtifact>>(_URL, dto);
 		}
 
 		public List<NamedArtifact> Get(string name)

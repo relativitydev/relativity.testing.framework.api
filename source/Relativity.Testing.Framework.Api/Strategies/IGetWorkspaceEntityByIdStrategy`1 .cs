@@ -4,7 +4,7 @@
 	/// Represents the strategy of getting the entity by workspace and entity ID.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetWorkspaceEntityByIdStrategy<T>
+	internal interface IGetWorkspaceEntityByIdStrategy<T>
 	{
 		/// <summary>
 		/// Gets the entity by the specified workspace ID.

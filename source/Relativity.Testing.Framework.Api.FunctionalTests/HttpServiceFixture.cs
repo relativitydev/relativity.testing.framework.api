@@ -9,18 +9,10 @@ using Relativity.Testing.Framework.Configuration;
 namespace Relativity.Testing.Framework.Api.FunctionalTests
 {
 	[TestOf(typeof(HttpService))]
+	[TestFixture]
 	public class HttpServiceFixture : ApiTestFixture
 	{
 		private HttpService _sut;
-
-		public HttpServiceFixture()
-		{
-		}
-
-		public HttpServiceFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		[SetUp]
 		public void SetUp()

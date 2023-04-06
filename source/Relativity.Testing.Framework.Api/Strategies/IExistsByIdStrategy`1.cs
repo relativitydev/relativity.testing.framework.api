@@ -4,7 +4,7 @@
 	/// Represents the strategy of getting the existance of the entity by ID.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IExistsByIdStrategy<T>
+	internal interface IExistsByIdStrategy<T>
 	{
 		/// <summary>
 		/// Determines whether the entity with the specified ID exists.

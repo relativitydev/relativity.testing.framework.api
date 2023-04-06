@@ -1,0 +1,110 @@
+name: Bug Report
+description: File a bug report
+title: "The bug report title"
+labels: [bug, untriaged]
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this bug report!
+      **NOTE:** Official support is only provided for the following Relativity versions.
+        * RelativityOne current or preview versions
+        * Relativity Server 2022 (12.1) or later
+- type: textarea
+  id: what-happened
+  attributes:
+    label: Describe the bug
+    description: "A clear and concise description of what the bug is."
+    placeholder: "Bug description"
+  validations:
+    required: true
+- type: textarea
+  id: steps-to-reproduce
+  attributes:
+    label: Steps to Reproduce
+    description: "Steps to reproduce the behavior"
+    placeholder: "Code example or detailed description of the steps to reproduce the issue."
+  validations:
+    required: true
+- type: input
+  id: relativity-testing-framework-version
+  attributes:
+    label: Relativity.Testing.Framework Version
+    description: "Relativity.Testing.Framework version used"
+    placeholder: "Which version of Relativity.Testing.Framework are you using?"
+  validations:
+    required: true
+- type: input
+  id: relativity-testing-framework-api-version
+  attributes:
+    label: Relativity.Testing.Framework.API Version
+    description: "Relativity.Testing.Framework.API version used"
+    placeholder: "Which version of Relativity.Testing.Framework.API are you using?"
+  validations:
+    required: false
+- type: dropdown
+  id: environment-type
+  attributes:
+    label: Relativity environment installation Type
+    multiple: false
+    options:
+      - Relativity Server
+      - RelativityOne
+  validations:
+    required: true
+- type: input
+  id: environment-version
+  attributes:
+    label: Environment version
+    description: "Version of environment"
+    placeholder: "What version of Relativity is being tested against?"
+  validations:
+    required: true
+- type: input
+  id: link-testcase
+  attributes:
+    label: Test Case
+    description: "Links to a test case where this can be reproduced"
+    placeholder: "If possible, please provide us with a test case, or a link to one, where we can reproduce the bug."
+  validations:
+    required: false
+- type: textarea
+  id: expected-behavior
+  attributes:
+    label: Expected Behavior
+    description: "Description of expected behavior"
+    placeholder: "A clear and concise description of what you expected to happen."
+  validations:
+    required: true
+- type: textarea
+  id: actual-behavior
+  attributes:
+    label: Actual Behavior
+    description: "What actually happens"
+    placeholder: "A clear and concise description of what actually happens."
+  validations:
+    required: true
+- type: textarea
+  id: screenshot
+  attributes:
+    label: Screenshots
+    description: "Any screenshots to help explain the problem."
+    placeholder: "If applicable, add screenshots to help explain the problem."
+  validations:
+    required: false
+- type: markdown
+  attributes:
+    value: | 
+      "Please provide following details to have us better understand the context:
+      * Did the problem start happening recently (e.g. after updating to a new version of Relativity.Testing.Framework) or was this always a problem?
+      * If the problem started happening recently, can you reproduce the problem in an older version of Relativity.Testing.Framework? 
+      * What's the most recent version in which the problem doesn't happen?
+      Can you reliably reproduce the issue? If not, provide details about how often the problem happens and under which conditions it normally happens."
+- type: textarea 
+  id: context
+  attributes:
+    label: Additional Context
+    description: "Please answer questions from the above."
+    placeholder: "Additional Context"
+  validations:
+    required: false

@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Models;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class ErrorGetByIdStrategy : IGetByIdStrategy<Error>
+	internal class ErrorGetByIdStrategy : IGetByIdStrategy<Error>
 	{
 		private readonly IObjectService _objectService;
 		private readonly IRestService _restService;

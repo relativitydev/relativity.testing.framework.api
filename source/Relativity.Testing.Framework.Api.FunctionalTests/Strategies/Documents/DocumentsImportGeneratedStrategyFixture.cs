@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private Workspace _workspace;
 
-		public DocumentsImportGeneratedStrategyFixture()
-		{
-		}
-
-		public DocumentsImportGeneratedStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

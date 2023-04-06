@@ -11,15 +11,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private Production _production;
 		private KeywordSearch _keywordSearch;
 
-		public ProductionDataSourceGetByIdStrategyFixture()
-		{
-		}
-
-		public ProductionDataSourceGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

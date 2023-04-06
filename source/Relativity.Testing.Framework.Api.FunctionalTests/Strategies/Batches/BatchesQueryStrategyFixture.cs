@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IBatchQueryStrategy))]
 	internal class BatchesQueryStrategyFixture : ApiServiceTestFixture<IBatchQueryStrategy>
 	{
-		public BatchesQueryStrategyFixture()
-		{
-		}
-
-		public BatchesQueryStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Query_Missing()
 		{
@@ -43,7 +34,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID }
 				};
 
-				batchSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<BatchSet>>()
+				batchSet = Facade.Resolve<ICreateBatchSetStrategy>()
 					.Create(DefaultWorkspace.ArtifactID, batchModel);
 
 				Facade.Resolve<ICreateBatchesStrategy>().CreateBatches(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);

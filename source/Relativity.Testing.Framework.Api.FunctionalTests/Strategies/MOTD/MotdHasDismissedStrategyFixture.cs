@@ -11,22 +11,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class MotdHasDismissedStrategyFixture : ApiServiceTestFixture<IMotdHasDismissedStrategy>
 	{
 		private MessageOfTheDay _currentMotd;
-		private IUpdateStrategy<MessageOfTheDay> _updateStrategy;
-
-		public MotdHasDismissedStrategyFixture()
-		{
-		}
-
-		public MotdHasDismissedStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
+		private IMotdUpdateStrategy _updateStrategy;
 
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
 			var tempMotd = Facade.Resolve<IMotdGetStrategy>().Get();
-			_updateStrategy = Facade.Resolve<IUpdateStrategy<MessageOfTheDay>>();
+			_updateStrategy = Facade.Resolve<IMotdUpdateStrategy>();
 
 			if (!tempMotd.Enabled)
 			{
@@ -49,7 +40,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void HasDismiss_False()
+		public void HasDismissed_False()
 		{
 			User testUser = null;
 			Arrange(x => x.Create(out testUser));
@@ -58,7 +49,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
-		public void HasDismiss_True()
+		public void HasDismissed_True()
 		{
 			User testUser = null;
 			Arrange(x =>

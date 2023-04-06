@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(AgentDeleteStrategy))]
 	internal class AgentDeleteStrategyFixture : ApiServiceTestFixture<IDeleteByIdStrategy<Agent>>
 	{
-		public AgentDeleteStrategyFixture()
-		{
-		}
-
-		public AgentDeleteStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Delete_Missing()
 		{

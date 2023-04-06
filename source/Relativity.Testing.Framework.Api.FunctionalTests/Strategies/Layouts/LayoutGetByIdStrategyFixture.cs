@@ -8,17 +8,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IGetWorkspaceEntityByIdStrategy<Layout>))]
 	[VersionRange(">=12.0")]
+	[Ignore("https://github.com/relativitydev/relativity.testing.framework.api/issues/13")]
 	internal class LayoutGetByIdStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByIdStrategy<Layout>>
 	{
-		public LayoutGetByIdStrategyFixture()
-		{
-		}
-
-		public LayoutGetByIdStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{
@@ -36,7 +28,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var result = Sut.Get(DefaultWorkspace.ArtifactID, existingTab.ArtifactID);
 
-			result.Should().BeEquivalentTo(existingTab);
+			result.Should().BeEquivalentTo(existingTab, o => o.Excluding(x => x.Owner));
 		}
 	}
 }

@@ -15,15 +15,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ObjectType _associativeObjectType;
 		private Field _fieldForPropagation;
 
-		public FieldCreateStrategyFixture()
-		{
-		}
-
-		public FieldCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();
@@ -230,6 +221,63 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEquivalentTo(field, o => o.Excluding(x => x.ArtifactID).
 				Excluding(x => x.Name).
 				Excluding(x => x.ObjectType));
+		}
+
+		[Test]
+		public void TestCreateWithObjectTypeByArtifactTypeId()
+		{
+			var field = new SingleObjectField
+			{
+				Name = Randomizer.GetString("Field {0}"),
+				ObjectType = new ObjectType { ArtifactTypeID = (int)ArtifactType.Document },
+				AssociativeObjectType = _associativeObjectType,
+				PropagateTo = new FieldPropagate
+				{
+					ViewableItems = new List<Artifact>
+					{
+						new Artifact
+						{
+							ArtifactID = _fieldForPropagation.ArtifactID
+						}
+					}
+				}
+			};
+
+			var result = Facade.Resolve<ICreateWorkspaceEntityStrategy<SingleObjectField>>()
+				.Create(DefaultWorkspace.ArtifactID, field);
+
+			result.ArtifactID.Should().BePositive();
+			result.Name.Should().NotBeNull();
+			result.ObjectType.Name.Should().Be("Document");
+		}
+
+		[Test]
+		public void Create_Relational_FixedLengthTextFieldWithObjectTypeByArtifactTypeId()
+		{
+			const string fileName = "single_image.jpg";
+
+			var base64String = Convert.ToBase64String(File.ReadAllBytes($@"{AppDomain.CurrentDomain.BaseDirectory}\files\{fileName}"));
+
+			FixedLengthTextField field = new FixedLengthTextField
+			{
+				ObjectType = new ObjectType { ArtifactTypeID = (int)ArtifactType.Document },
+				IsRelational = true,
+				FriendlyName = Randomizer.GetString("Friendly Name {0}"),
+				ImportBehavior = FieldImportBehavior.LeaveBlankValuesUnchanged,
+				PaneIcon = new FieldPaneIcon
+				{
+					FileName = fileName,
+					ImageBase64 = base64String
+				},
+				Order = 1
+			};
+
+			var result = Facade.Resolve<ICreateWorkspaceEntityStrategy<FixedLengthTextField>>()
+				.Create(DefaultWorkspace.ArtifactID, field);
+
+			result.ArtifactID.Should().BePositive();
+			result.Name.Should().NotBeNull();
+			result.ObjectType.Name.Should().Be("Document");
 		}
 	}
 }

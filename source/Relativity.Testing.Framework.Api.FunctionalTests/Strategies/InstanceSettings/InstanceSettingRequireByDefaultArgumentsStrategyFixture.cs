@@ -8,15 +8,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(InstanceSettingRequireStrategy))]
 	internal class InstanceSettingRequireByDefaultArgumentsStrategyFixture : ApiServiceTestFixture<IInstanceSettingRequireByDefaultArgumentsStrategy>
 	{
-		public InstanceSettingRequireByDefaultArgumentsStrategyFixture()
-		{
-		}
-
-		public InstanceSettingRequireByDefaultArgumentsStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Require_Existing()
 		{

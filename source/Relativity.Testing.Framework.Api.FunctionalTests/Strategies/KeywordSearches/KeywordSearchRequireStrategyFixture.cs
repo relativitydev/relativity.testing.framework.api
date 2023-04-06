@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private ICreateWorkspaceEntityStrategy<KeywordSearch> _createStrategy;
 
-		public KeywordSearchRequireStrategyFixture()
-		{
-		}
-
-		public KeywordSearchRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();

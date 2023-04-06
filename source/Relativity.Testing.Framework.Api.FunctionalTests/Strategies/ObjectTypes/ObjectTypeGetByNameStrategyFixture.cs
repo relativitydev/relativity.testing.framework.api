@@ -9,15 +9,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetWorkspaceEntityByNameStrategy<ObjectType>))]
 	internal class ObjectTypeGetByNameStrategyFixture : ApiServiceTestFixture<IGetWorkspaceEntityByNameStrategy<ObjectType>>
 	{
-		public ObjectTypeGetByNameStrategyFixture()
-		{
-		}
-
-		public ObjectTypeGetByNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Get_Missing()
 		{

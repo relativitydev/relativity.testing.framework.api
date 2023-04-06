@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Services;
@@ -9,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 	[TestOf(typeof(ApiComponent))]
 	public class ApiComponentFixture : ApiTestFixture
 	{
-		public ApiComponentFixture()
-		{
-		}
-
-		public ApiComponentFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[SetUp]
 		public void SetUp()
 		{
@@ -53,6 +45,15 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests
 				Facade.RelyOn<ApiComponent>());
 
 			exception.InnerException.Should().BeOfType<ConfigurationKeyNotFoundException>();
+		}
+
+		[Test]
+		public void RelyOn_WithEnableApplicationInsightsSetToFalse_ShouldNotThrowException()
+		{
+			Environment.SetEnvironmentVariable("EnableApplicationInsights", "false");
+			FacadeHost.SetUpFacadeWithCore();
+
+			Assert.DoesNotThrow(() => Facade.RelyOn<ApiComponent>());
 		}
 	}
 }

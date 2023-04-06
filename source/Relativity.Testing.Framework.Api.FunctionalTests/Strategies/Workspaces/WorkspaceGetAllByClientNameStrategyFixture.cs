@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IGetAllByClientNameStrategy<Workspace>))]
 	internal class WorkspaceGetAllByClientNameStrategyFixture : ApiServiceTestFixture<IGetAllByClientNameStrategy<Workspace>>
 	{
-		public WorkspaceGetAllByClientNameStrategyFixture()
-		{
-		}
-
-		public WorkspaceGetAllByClientNameStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void GetAllByClientName_WithNull()
 		{
@@ -34,7 +25,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEmpty();
 		}
 
-		// TODO: Rewrite this test when https://jira.kcura.com/browse/RTF-48 will be finished.
+		// TODO: Rewrite this test.
 		[Test]
 		public void GetAllByClientName_Existing()
 		{

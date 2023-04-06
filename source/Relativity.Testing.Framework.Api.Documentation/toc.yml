@@ -1,5 +1,5 @@
+- name: Home
+  href: index.md
 - name: Articles
   href: articles/
-- name: Api Documentation
-  href: api/
-  homepage: api/index.md
+  homepage: articles/What-is-Relativity-Testing-Framework-Api.md

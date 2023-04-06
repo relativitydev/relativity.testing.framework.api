@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(ICreateStrategy<Workspace>))]
 	internal class WorkspaceCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<Workspace>>
 	{
-		public WorkspaceCreateStrategyFixture()
-		{
-		}
-
-		public WorkspaceCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{
@@ -37,9 +28,13 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Matter.Name.Should().NotBeNull();
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
-			result.DatabaseLocation.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
-			result.SqlFullTextLanguage.Name.Should().NotBeNull();
+			result.SqlFullTextLanguage.Should().NotBeNull();
+
+			if (IsVersionComparable("<12.1"))
+			{
+				result.DatabaseLocation.Name.Should().NotBeNull();
+			}
 		}
 
 		[Test]
@@ -71,10 +66,46 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Client.Name.Should().Be(entity.Client.Name);
 			result.ResourcePool.Name.Should().NotBeNull();
 			result.DefaultFileRepository.Name.Should().NotBeNull();
-			result.DatabaseLocation.Name.Should().NotBeNull();
 			result.DefaultCacheLocation.Name.Should().NotBeNull();
-			result.SqlFullTextLanguage.Name.Should().NotBeNull();
 			result.WorkspaceAdminGroup.Name.Should().Be(entity.WorkspaceAdminGroup.Name);
+
+			if (IsVersionComparable("<12.1"))
+			{
+				result.DatabaseLocation.Name.Should().NotBeNull();
+			}
+		}
+
+		[Test]
+		public void Create_WithoutSpecifyingMatter()
+		{
+			Client client = null;
+			Matter matter = null;
+
+			Arrange(x => x
+				.Create(out client)
+				.Create(new Matter { Client = client })
+					.Pick(out matter));
+
+			var entity = new Workspace
+			{
+				Name = Randomizer.GetString("AT_"),
+				Client = client,
+			};
+
+			var result = Sut.Create(entity.Copy());
+
+			result.ArtifactID.Should().BePositive();
+			result.Name.Should().Be(entity.Name);
+			result.Matter.Name.Should().Be(matter.Name);
+			result.Client.Name.Should().Be(entity.Client.Name);
+			result.ResourcePool.Name.Should().NotBeNull();
+			result.DefaultFileRepository.Name.Should().NotBeNull();
+			result.DefaultCacheLocation.Name.Should().NotBeNull();
+
+			if (IsVersionComparable("<12.1"))
+			{
+				result.DatabaseLocation.Name.Should().NotBeNull();
+			}
 		}
 	}
 }

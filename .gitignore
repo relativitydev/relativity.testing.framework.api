@@ -9,3 +9,6 @@ artifacts/
 .vs/
 coverage.cobertura.xml
 !vendor/*
+log.txt
+*.runsettings
+DevelopmentScripts/FunctionalTest.runsettings

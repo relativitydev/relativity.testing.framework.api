@@ -4,7 +4,7 @@
 	/// Represents the strategy of workspace entity update.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IUpdateWorkspaceEntityStrategy<T>
+	internal interface IUpdateWorkspaceEntityStrategy<T>
 	{
 		/// <summary>
 		/// Updates the specified workspace entity.

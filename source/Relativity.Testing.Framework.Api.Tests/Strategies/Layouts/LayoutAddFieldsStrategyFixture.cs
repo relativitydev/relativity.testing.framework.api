@@ -290,10 +290,13 @@ namespace Relativity.Testing.Framework.Api.Tests.Strategies
 
 			_layoutGetCategoriesStrategy.Setup(e => e.GetCategories(It.IsAny<int>(), It.IsAny<Layout>())).Returns(_mockCategories);
 
-			_mockRestService.Setup(e => e.Post<SaveFieldsAndCustomTextResponse>(
-				"Relativity.Services.Layout.Interfaces.ILayoutModule/LayoutBuilderService/SaveFieldsAndCustomText",
-				It.IsAny<SaveFieldsAndCustomTextRequest>(),
-				2)).Returns(new SaveFieldsAndCustomTextResponse
+			_mockRestService
+				.Setup(e => e.Post<SaveFieldsAndCustomTextResponse>(
+				    "Relativity.Services.Layout.Interfaces.ILayoutModule/LayoutBuilderService/SaveFieldsAndCustomText",
+				    It.IsAny<SaveFieldsAndCustomTextRequest>(),
+				    2,
+				    null))
+				.Returns(new SaveFieldsAndCustomTextResponse
 				{
 					Success = true
 				});

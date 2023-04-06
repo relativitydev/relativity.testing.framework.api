@@ -3,21 +3,13 @@ using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(IPurgeBatchesStrategy))]
 	internal class BatchSetPurgeBatchesStrategyFixture : ApiServiceTestFixture<IPurgeBatchesStrategy>
 	{
-		public BatchSetPurgeBatchesStrategyFixture()
-		{
-		}
-
-		public BatchSetPurgeBatchesStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void PurgeBatches()
 		{
@@ -35,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID }
 				};
 
-				batchSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<BatchSet>>().Create(DefaultWorkspace.ArtifactID, batchModel);
+				batchSet = Facade.Resolve<ICreateBatchSetStrategy>().Create(DefaultWorkspace.ArtifactID, batchModel);
 				Facade.Resolve<ICreateBatchesStrategy>().CreateBatches(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);
 			});
 
@@ -46,6 +38,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		[VersionRange("<12.1")]
 		public void PurgeBatches_Missing()
 		{
 			Assert.Throws<HttpRequestException>(() =>

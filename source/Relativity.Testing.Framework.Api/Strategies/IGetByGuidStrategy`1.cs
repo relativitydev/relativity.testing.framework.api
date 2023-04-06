@@ -6,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// Represents the strategy of getting the entity by GUID.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetByGuidStrategy<T>
+	internal interface IGetByGuidStrategy<T>
 	{
 		/// <summary>
 		/// Gets the entity by the specified GUID.

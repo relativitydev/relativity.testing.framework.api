@@ -3,21 +3,13 @@ using FluentAssertions;
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[TestOf(typeof(ICreateBatchesStrategy))]
 	internal class BatchSetCreateBatchesFixture : ApiServiceTestFixture<ICreateBatchesStrategy>
 	{
-		public BatchSetCreateBatchesFixture()
-		{
-		}
-
-		public BatchSetCreateBatchesFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void CreateBatches()
 		{
@@ -35,7 +27,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID }
 				};
 
-				batchSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<BatchSet>>().Create(DefaultWorkspace.ArtifactID, batchModel);
+				batchSet = Facade.Resolve<ICreateBatchSetStrategy>().Create(DefaultWorkspace.ArtifactID, batchModel);
 			});
 
 			var result = Sut.CreateBatches(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);
@@ -45,6 +37,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		}
 
 		[Test]
+		[VersionRange("<12.1")]
 		public void CreateBatches_Missing()
 		{
 			Assert.Throws<HttpRequestException>(() =>

@@ -6,7 +6,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 	/// <summary>
 	/// Represents the strategy of getting list eligible to be a layout owner.
 	/// </summary>
-	public interface ILayoutGetEligibleOwnersStrategy
+	internal interface ILayoutGetEligibleOwnersStrategy
 	{
 		/// <summary>
 		/// Gets the list eligible to be a layout owner by the specified workspace ID.

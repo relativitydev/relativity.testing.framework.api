@@ -13,17 +13,26 @@ namespace Relativity.Testing.Framework.Api.Interceptors
 
 		public override void Intercept(IInvocation invocation)
 		{
-			if (IsEnabled)
+			if (CollectionState != DataCollection.None)
 			{
 				try
 				{
-					var processingTime = DoInvocation(invocation);
-					var properties = BuildInvocationProperties(invocation);
+					double processingTime = DoInvocation(invocation);
+					Dictionary<string, string> properties = BuildInvocationProperties(invocation);
 					Track(processingTime, invocation, properties);
 				}
 				catch (Exception ex)
 				{
-					TelemetryClient.TrackException(ex);
+					try
+					{
+						Dictionary<string, string> properties = BuildInvocationProperties(invocation);
+						TelemetryClient.TrackException(ex, properties);
+					}
+					catch
+					{
+						TelemetryClient.TrackException(ex);
+					}
+
 					throw;
 				}
 			}

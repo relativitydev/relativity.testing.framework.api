@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	public class SearchProviderDeleteStrategy : DeleteWorkspaceEntityByIdStrategy<SearchProvider>
+	internal class SearchProviderDeleteStrategy : DeleteWorkspaceEntityByIdStrategy<SearchProvider>
 	{
 		private readonly IRestService _restService;
 

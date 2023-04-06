@@ -7,18 +7,9 @@ using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(InstanceSettingCreateStrategy))]
+	[TestOf(typeof(ICreateStrategy<InstanceSetting>))]
 	internal class InstanceSettingCreateStrategyFixture : ApiServiceTestFixture<ICreateStrategy<InstanceSetting>>
 	{
-		public InstanceSettingCreateStrategyFixture()
-		{
-		}
-
-		public InstanceSettingCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Create_WithNull()
 		{

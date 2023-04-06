@@ -20,7 +20,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			Stopwatch watch = new Stopwatch();
 			bool keepPolling = true;
 			watch.Start();
-			LibraryApplicationInstallStatusResponse statusCodeRespose = null;
+			LibraryApplicationInstallStatusDto statusCodeRespose = null;
 
 			while (keepPolling)
 			{
@@ -37,7 +37,10 @@ namespace Relativity.Testing.Framework.Api.Strategies
 						Console.WriteLine("Application install is InProgress.");
 						break;
 					case RelativityApplicationInstallStatusCode.Failed:
-						throw new Exception($"Application failed to install. Exception Message: {string.Join("\n", statusCodeRespose.ValidationMessages)}");
+						string exceptionMsg = (statusCodeRespose.ValidationMessages == null || statusCodeRespose.ValidationMessages.Count == 0)
+							? "Application failed to install. Relativity ADS did not return any validation messages. Relativity logs and errors may contain more information."
+							: $"Application failed to install. Exception Message: {string.Join("\n", statusCodeRespose.ValidationMessages)}";
+						throw new Exception(exceptionMsg);
 					case RelativityApplicationInstallStatusCode.Completed:
 					case RelativityApplicationInstallStatusCode.Canceled:
 						keepPolling = false;
@@ -59,9 +62,9 @@ namespace Relativity.Testing.Framework.Api.Strategies
 			}
 		}
 
-		private LibraryApplicationInstallStatusResponse GetStatus(int applicationId, int applicationInstallId)
+		private LibraryApplicationInstallStatusDto GetStatus(int applicationId, int applicationInstallId)
 		{
-			return _restService.Get<LibraryApplicationInstallStatusResponse>($"Relativity.LibraryApplications/workspace/-1/libraryapplications/{applicationId}/install/{applicationInstallId}");
+			return _restService.Get<LibraryApplicationInstallStatusDto>($"Relativity.LibraryApplications/workspace/-1/libraryapplications/{applicationId}/install/{applicationInstallId}");
 		}
 	}
 }

@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Strategies
 {
 	/// <summary>
-	/// Represents the strategy of setting the group permissions for the workspace using <see cref="GroupPermissionsChangeset"/>.
+	/// Represents the strategy of setting the group permissions for the workspace using [GroupPermissionsChangeset](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupPermissionsChangeset.html).
 	/// </summary>
 	internal interface IWorkspaceChangeGroupPermissionsStrategy
 	{

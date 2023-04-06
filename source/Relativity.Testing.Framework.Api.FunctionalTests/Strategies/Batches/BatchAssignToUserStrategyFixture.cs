@@ -10,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	[TestOf(typeof(IBatchAssignToUserStrategy))]
 	internal class BatchAssignToUserStrategyFixture : ApiServiceTestFixture<IBatchAssignToUserStrategy>
 	{
-		public BatchAssignToUserStrategyFixture()
-		{
-		}
-
-		public BatchAssignToUserStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void AssignToUser()
 		{
@@ -39,7 +30,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 					DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID }
 				};
 
-				var batchSet = Facade.Resolve<ICreateWorkspaceEntityStrategy<BatchSet>>()
+				var batchSet = Facade.Resolve<ICreateBatchSetStrategy>()
 					.Create(DefaultWorkspace.ArtifactID, batchModel);
 
 				Facade.Resolve<ICreateBatchesStrategy>().CreateBatches(DefaultWorkspace.ArtifactID, batchSet.ArtifactID);

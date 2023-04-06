@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading;
 using Relativity.Testing.Framework.Api.ObjectManagement;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Logging;
@@ -18,28 +16,33 @@ namespace Relativity.Testing.Framework.Api.Services
 		private readonly ICreateStrategy<User> _userCreateStrategy;
 		private readonly IUserExistsByEmailStrategy _userExistsByEmailStrategy;
 		private readonly IUserGetByEmailStrategy _userGetByEmailStrategy;
+		private readonly IWaitUserDeletedStrategy _waitUserDeletedStrategy;
 		private readonly IDeleteByIdStrategy<User> _userDeleteByIdStrategy;
 		private readonly IGetAllByNamesStrategy<Group> _groupGetAllByNamesStrategy;
+		private readonly IUserSetPasswordStrategy _userSetPasswordStrategy;
 		private readonly IObjectService _objectService;
 		private static readonly List<AccountEntry> _standardAccountEntries = new List<AccountEntry>();
 		private static readonly object _acquireLock = new object();
-		private readonly TimeSpan _deletionTimeout = TimeSpan.FromSeconds(30);
 
 		public AccountPoolService(
 			ILogService logService,
 			ICreateStrategy<User> userCreateStrategy,
 			IUserExistsByEmailStrategy userExistsByEmailStrategy,
 			IUserGetByEmailStrategy userGetByEmailStrategy,
+			IWaitUserDeletedStrategy waitUserDeletedStrategy,
 			IDeleteByIdStrategy<User> userDeleteByIdStrategy,
 			IGetAllByNamesStrategy<Group> groupGetAllByNamesStrategy,
+			IUserSetPasswordStrategy userSetPasswordStrategy,
 			IObjectService objectService)
 		{
 			_logService = logService;
 			_userCreateStrategy = userCreateStrategy;
 			_userExistsByEmailStrategy = userExistsByEmailStrategy;
+			_waitUserDeletedStrategy = waitUserDeletedStrategy;
 			_userGetByEmailStrategy = userGetByEmailStrategy;
 			_userDeleteByIdStrategy = userDeleteByIdStrategy;
 			_groupGetAllByNamesStrategy = groupGetAllByNamesStrategy;
+			_userSetPasswordStrategy = userSetPasswordStrategy;
 			_objectService = objectService;
 		}
 
@@ -74,7 +77,6 @@ namespace Relativity.Testing.Framework.Api.Services
 			{
 				AccountBaseInfo accountInfo = GetNewStandardAccountInfo();
 				DeleteStandardAccount(accountInfo.Email);
-				WaitUntilDeleted(accountInfo.Email);
 				CreateNewUser(accountInfo);
 
 				AccountEntry accountEntry = new AccountEntry(accountInfo) { IsAcquired = true };
@@ -94,32 +96,27 @@ namespace Relativity.Testing.Framework.Api.Services
 			{
 				_standardAccountEntries.RemoveAll(account => account.Info.Email == email);
 				_userDeleteByIdStrategy.Delete(existingUser.ArtifactID);
-				_logService.Trace($"Removed {email} standard account");
+				_logService.Trace($"The request to have Relativity delete the {email} account was received.");
+				WaitDeleteStandardAccount(email);
 			}
 		}
 
-		private void WaitUntilDeleted(string email)
+		internal void WaitDeleteStandardAccount(string email)
 		{
-			var watch = Stopwatch.StartNew();
-			bool keepPolling;
-
-			do
+			try
 			{
-				keepPolling = _userGetByEmailStrategy.Get(email) != null;
-
-				if (keepPolling)
-				{
-					if (watch.Elapsed > _deletionTimeout)
-					{
-						throw new InvalidOperationException($"Failed to delete an user with email={email}.");
-					}
-					else
-					{
-						Thread.Sleep(1000);
-					}
-				}
+				_logService.Trace($"Waiting for the {email} account to be deleted.");
+				_waitUserDeletedStrategy.Wait(email);
 			}
-			while (keepPolling);
+			catch (InvalidOperationException ex)
+			{
+				_logService.Trace($"The {email} account was requested to be deleted, but was not removed.");
+
+				throw new InvalidOperationException(
+					$@"The request to delete the {email} account was accepted, but the account was not removed.
+Please ensure that the environment that you are testing against is in a good state.
+Also check for any errors in Relativity that might be relevant.", ex);
+			}
 		}
 
 		public AccountBaseInfo AcquireStandardAccount()
@@ -155,11 +152,16 @@ namespace Relativity.Testing.Framework.Api.Services
 
 			_logService.Trace($"Starting: Check {accountInfo.Email} user exists");
 
-			bool existsUser = _userExistsByEmailStrategy.Exists(accountInfo.Email);
+			User existingUser = _userGetByEmailStrategy.Get(accountInfo.Email);
 
-			_logService.Trace($"Finished: Check {accountInfo.Email} user exists: {existsUser}");
+			_logService.Trace($"Finished: Check {accountInfo.Email} user exists: {existingUser?.ArtifactID}");
 
-			if (!existsUser)
+			if (existingUser != null)
+			{
+				ResetPassword(existingUser.ArtifactID, accountInfo);
+				_logService.Trace($"Reset password for existing user {accountInfo.Email}");
+			}
+			else
 			{
 				CreateNewUser(accountInfo);
 			}
@@ -214,6 +216,11 @@ namespace Relativity.Testing.Framework.Api.Services
 			}
 
 			_logService.Trace($"Finished: Create {accountInfo.Email} user");
+		}
+
+		private void ResetPassword(int userArtifactID, AccountBaseInfo accountInfo)
+		{
+			_userSetPasswordStrategy.SetPassword(userArtifactID, accountInfo.Password);
 		}
 
 		public void ReleaseAccount(string email)

@@ -19,43 +19,54 @@ namespace Relativity.Testing.Framework.Api.Tests.Services
 		private readonly Mock<IUserGetByEmailStrategy> _mockUserGetByEmailStrategy = new Mock<IUserGetByEmailStrategy>();
 		private readonly Mock<IDeleteByIdStrategy<User>> _mockUserDeleteByIdStrategy = new Mock<IDeleteByIdStrategy<User>>();
 		private readonly Mock<IGetAllByNamesStrategy<Group>> _mockGroupGetAllByNamesStrategy = new Mock<IGetAllByNamesStrategy<Group>>();
+		private readonly Mock<IUserSetPasswordStrategy> _mockUserSetPasswordStrategy = new Mock<IUserSetPasswordStrategy>();
 		private readonly Mock<IObjectService> _mockObjectService = new Mock<IObjectService>();
+		private readonly Mock<IExistsByIdStrategy<User>> _mockExistsByIdStrategy = new Mock<IExistsByIdStrategy<User>>();
 
+		private IWaitUserDeletedStrategy _waitUserDeletedStrategy;
 		private AccountPoolService _sut;
 
 		[SetUp]
 		public void Setup()
 		{
+			_waitUserDeletedStrategy = new WaitUserDeletedStrategy(
+				_mockExistsByIdStrategy.Object,
+				_mockUserExistsByEmailStrategy.Object,
+				TimeSpan.FromSeconds(3));
+
 			_sut = new AccountPoolService(
 				_mockLogService.Object,
 				_mockUserCreateStrategy.Object,
 				_mockUserExistsByEmailStrategy.Object,
 				_mockUserGetByEmailStrategy.Object,
+				_waitUserDeletedStrategy,
 				_mockUserDeleteByIdStrategy.Object,
 				_mockGroupGetAllByNamesStrategy.Object,
+				_mockUserSetPasswordStrategy.Object,
 				_mockObjectService.Object);
-		}
-
-		[Test]
-		public void Recreate_WhenUserRemovalTakeTooLong_ShouldTimeoutAndThrowException()
-		{
-			_mockUserGetByEmailStrategy.Setup(x => x.Get(It.IsAny<string>())).Returns(new User());
-
-			Assert.Throws<InvalidOperationException>(() => _sut.DeleteAndAcquireStandardAccount());
 		}
 
 		[Test]
 		public void Recreate_WhenUserRemovalTakeLongButInLimit_ShouldDeleteAndCreateNewUser()
 		{
-			_mockUserGetByEmailStrategy.SetupSequence(x => x.Get(It.IsAny<string>()))
-				.Returns(new User())
-				.Returns(new User())
-				.Returns(new User())
-				.Returns(new User())
-				.Returns(null);
+			_mockUserExistsByEmailStrategy.SetupSequence(x => x.Exists(It.IsAny<string>()))
+				.Returns(true)
+				.Returns(true)
+				.Returns(false);
 
 			Assert.DoesNotThrow(() => _sut.DeleteAndAcquireStandardAccount());
 			_mockUserCreateStrategy.Verify(x => x.Create(It.IsAny<User>()), Times.Once);
+		}
+
+		[Test]
+		public void WaitDeleteStandardAccount_ShouldThrowCustomExceptionIfDeleteRequestIsAcceptedButUserIsNotDeleted()
+		{
+			_mockUserExistsByEmailStrategy.Setup(x => x.Exists(It.IsAny<string>())).Returns(true);
+
+			Assert.That(
+			    () => _sut.WaitDeleteStandardAccount("a"),
+			    Throws.TypeOf<InvalidOperationException>()
+				.With.Message.Contains("The request to delete the "));
 		}
 	}
 }

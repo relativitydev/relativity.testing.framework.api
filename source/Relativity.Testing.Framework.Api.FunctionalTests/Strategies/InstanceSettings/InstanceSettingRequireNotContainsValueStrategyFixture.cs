@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Models;
+using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
@@ -9,15 +10,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	internal class InstanceSettingRequireNotContainsValueStrategyFixture : ApiServiceTestFixture<IInstanceSettingRequireNotContainsValueStrategy>
 	{
 		private IInstanceSettingGetByNameAndSectionStrategy _getByNameAndSectionStrategy;
-
-		public InstanceSettingRequireNotContainsValueStrategyFixture()
-		{
-		}
-
-		public InstanceSettingRequireNotContainsValueStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		protected override void OnSetUpTest()
 		{

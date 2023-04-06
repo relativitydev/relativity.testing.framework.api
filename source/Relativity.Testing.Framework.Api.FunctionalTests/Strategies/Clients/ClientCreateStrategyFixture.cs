@@ -1,26 +1,16 @@
 ﻿using System;
 using FluentAssertions;
 using NUnit.Framework;
-using Relativity.Testing.Framework.Api.Strategies;
 using Relativity.Testing.Framework.Extensions;
 using Relativity.Testing.Framework.Models;
 using Relativity.Testing.Framework.Strategies;
 
 namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
-	[TestOf(typeof(ClientCreateStrategy))]
+	[TestOf(typeof(ICreateStrategy<Client>))]
 	public class ClientCreateStrategyFixture : ApiTestFixture
 	{
 		private ICreateStrategy<Client> _sut;
-
-		public ClientCreateStrategyFixture()
-		{
-		}
-
-		public ClientCreateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
 
 		[SetUp]
 		public void SetUp()

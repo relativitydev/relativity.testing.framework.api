@@ -4,7 +4,7 @@ using Relativity.Testing.Framework.Models;
 namespace Relativity.Testing.Framework.Api.Arrangement
 {
 	/// <summary>
-	/// Provides a set of extension methods for <see cref="TestArrangementDomain{TEntity}"/> of <see cref="Group"/>.
+	/// Provides a set of extension methods for <see cref="TestArrangementDomain{TEntity}"/> of [Group](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Group.html).
 	/// </summary>
 	public static class GroupTestArrangementDomainExtensions
 	{

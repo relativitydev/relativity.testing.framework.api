@@ -172,13 +172,13 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 		public void Update<TObject>(int workspaceId, TObject entity)
 			where TObject : Artifact
 		{
-			var properties = ObjectFieldMapping.GetPropertyNames(typeof(TObject), new ObjectFieldMappingOptions { OnlyReadableSkip = true, UseCapitalized = true });
+			IEnumerable<string> properties = ObjectFieldMapping.GetPropertyNames(typeof(TObject), new ObjectFieldMappingOptions { OnlyReadableSkip = true, UseCapitalized = true });
 
 			var fieldValues = properties.
 				Where(x => x != nameof(Artifact.ArtifactID) && x != "ParentObject").
-				Select(x => new
+				Select(x => new FieldRefValuePair
 				{
-					Field = new
+					Field = new FieldRef
 					{
 						Name = ObjectFieldMapping.GetFieldName<TObject>(x)
 					},
@@ -186,17 +186,14 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 				}).
 				ToList();
 
-			var dto = new
-			{
-				request = new
-				{
-					Object = new
-					{
-						artifactId = entity.ArtifactID
-					},
-					FieldValues = fieldValues
-				}
-			};
+			var dto = new ObjectDTO(entity.ArtifactID, fieldValues);
+
+			_restService.Post<string>($"Relativity.Objects/workspace/{workspaceId}/object/update", dto);
+		}
+
+		public void Update(int workspaceId, int entityId, IList<FieldRefValuePair> fieldValues)
+		{
+			var dto = new ObjectDTO(entityId, fieldValues);
 
 			_restService.Post<string>($"Relativity.Objects/workspace/{workspaceId}/object/update", dto);
 		}
@@ -232,7 +229,7 @@ namespace Relativity.Testing.Framework.Api.ObjectManagement
 				Length = request.Length
 			};
 
-			return _restService.Post<QuerySlimResult>($"Relativity.Objects/workspace/{request.WorkspaceId}/object/queryslim", wrapper);
+			return _restService.Post<QuerySlimResult>($"Relativity.Objects/workspace/{request.WorkspaceId}/object/queryslim", wrapper, userCredentials: request.UserCredentials);
 		}
 
 		private T MapObject<T>(QuerySlimObject queryObject, IEnumerable<QueryResultField> fields)

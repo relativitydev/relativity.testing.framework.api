@@ -4,7 +4,7 @@
 	/// Represents the strategy of getting the entity.
 	/// </summary>
 	/// <typeparam name="T">The type of the entity.</typeparam>
-	public interface IGetStrategy<T>
+	internal interface IGetStrategy<T>
 	{
 		/// <summary>
 		/// Gets the entity.

@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private IGetWorkspaceEntityByIdStrategy<ObjectType> _getWorkspaceEntityByIdStrategy;
 		private ICreateWorkspaceEntityStrategy<ObjectType> _createWorkspaceEntityStrategy;
 
-		public ObjectTypeUpdateStrategyFixture()
-		{
-		}
-
-		public ObjectTypeUpdateStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpFixture()
 		{
 			base.OnSetUpFixture();

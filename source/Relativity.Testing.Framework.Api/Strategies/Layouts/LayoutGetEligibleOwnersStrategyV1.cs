@@ -5,7 +5,7 @@ using Relativity.Testing.Framework.Versioning;
 
 namespace Relativity.Testing.Framework.Api.Strategies
 {
-	[VersionRange(">=12.0")]
+	[VersionRange(">=12.1")]
 	internal class LayoutGetEligibleOwnersStrategyV1 : ILayoutGetEligibleOwnersStrategy
 	{
 		private readonly IRestService _restService;
@@ -17,7 +17,7 @@ namespace Relativity.Testing.Framework.Api.Strategies
 
 		public List<NamedArtifact> GetEligibleOwners(int workspaceId)
 		{
-			return _restService.Get<List<NamedArtifact>>($"Relativity.Layouts/workspace/{workspaceId}/layouts/eligible-owners");
+			return _restService.Get<List<NamedArtifact>>($"relativity-data-visualization/v1/workspaces/{workspaceId}/layouts/eligible-owners");
 		}
 	}
 }

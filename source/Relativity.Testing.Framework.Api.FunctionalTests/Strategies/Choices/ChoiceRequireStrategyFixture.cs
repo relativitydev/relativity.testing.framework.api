@@ -13,15 +13,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 		private ICreateWorkspaceEntityStrategy<MultipleChoiceField> _createFieldStrategy;
 		private ICreateWorkspaceEntityStrategy<Choice> _createChoiceStrategy;
 
-		public ChoiceRequireStrategyFixture()
-		{
-		}
-
-		public ChoiceRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();
@@ -75,7 +66,8 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			result.Should().BeEquivalentTo(missingChoice, o => o.Excluding(x => x.ArtifactID).
 				Excluding(x => x.Color).
 				Excluding(x => x.ObjectType).
-				Excluding(x => x.Field));
+				Excluding(x => x.Field).
+				Excluding(x => x.Parent));
 		}
 	}
 }

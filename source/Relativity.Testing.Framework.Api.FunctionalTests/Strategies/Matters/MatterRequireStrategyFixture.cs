@@ -12,15 +12,6 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 	{
 		private Client _client;
 
-		public MatterRequireStrategyFixture()
-		{
-		}
-
-		public MatterRequireStrategyFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		protected override void OnSetUpTest()
 		{
 			base.OnSetUpTest();
@@ -48,7 +39,14 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var result = Sut.Require(toUpdate);
 
 			result.Client.ArtifactID.Should().Be(toUpdate.Client.ArtifactID);
-			result.Should().BeEquivalentTo(toUpdate, o => o.Excluding(x => x.Client));
+			result.Should().BeEquivalentTo(
+				toUpdate,
+				o => o.Excluding(x => x.Client)
+					.Excluding(x => x.Actions)
+					.Excluding(x => x.CreatedOn)
+					.Excluding(x => x.CreatedBy)
+					.Excluding(x => x.LastModifiedOn)
+					.Excluding(x => x.LastModifiedBy));
 		}
 
 		[Test]

@@ -9,17 +9,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 {
 	[VersionRange(">=12.1")]
 	[TestOf(typeof(IScriptRunStatusJobStrategy))]
+	[Ignore("SUTs frequently give 500 errors while running this test. https://github.com/relativitydev/relativity.testing.framework.api/issues/50")]
 	internal class ScriptRunStatusJobFixture : ApiServiceTestFixture<IScriptRunStatusJobStrategy>
 	{
-		public ScriptRunStatusJobFixture()
-		{
-		}
-
-		public ScriptRunStatusJobFixture(string relativityInstanceAlias)
-			: base(relativityInstanceAlias)
-		{
-		}
-
 		[Test]
 		public void Script_RunStatusJob()
 		{

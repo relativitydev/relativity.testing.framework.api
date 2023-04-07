@@ -39,7 +39,7 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 			var exception = Assert.Throws<InvalidOperationException>(() =>
 				Sut.Wait(DefaultWorkspace.ArtifactID));
 
-			exception.Message.Should().StartWith($"Workspace with id={DefaultWorkspace.ArtifactID} was not deleted within the 15 second time limit.");
+			exception.Message.Should().StartWith($"Workspace with id={DefaultWorkspace.ArtifactID} was not deleted within the 3 minute time limit.");
 		}
 	}
 }

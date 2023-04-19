@@ -133,10 +133,16 @@ namespace Relativity.Testing.Framework.Api
 			RegisterClassesByPredicate(container, type => type.Name == nameof(RestService) || type.Name == nameof(ApiRelativityInstanceVersionResolveService) || type.Name == nameof(RelativityApplicationVersionResolveService), typeof(LoggingInterceptor));
 
 			var commonInterceptorsWithoutRetry = _commonInterceptors.Where(interceptor => interceptor != typeof(RetryInterceptor)).ToArray();
+			var commonInterceptorsWithoutLogging = _commonInterceptors.Where(interceptor => interceptor != typeof(RetryInterceptor)).ToArray();
+			var commonInterceptorsWithoutLoggingAndRetry = _commonInterceptors.Where(interceptor => interceptor != typeof(RetryInterceptor)).ToArray();
 
-			RegisterClassesByPredicate(container, BuildServicesAndNonGenericStrategiesWithRetryPredicate(), _commonInterceptors);
+			RegisterClassesByPredicate(container, BuildServicesAndNonGenericStrategiesWithRetryAndLoggingPredicate(), _commonInterceptors);
 
-			RegisterClassesByPredicate(container, type => TypeHasDoNotRetryAttribute(type), commonInterceptorsWithoutRetry);
+			RegisterClassesByPredicate(container, type => TypeHasDoNotRetryAttribute(type) && !TypeHasDoNotLoggingAttribute(type), commonInterceptorsWithoutRetry);
+
+			RegisterClassesByPredicate(container, type => !TypeHasDoNotRetryAttribute(type) && TypeHasDoNotLoggingAttribute(type), commonInterceptorsWithoutLogging);
+
+			RegisterClassesByPredicate(container, type => TypeHasDoNotRetryAttribute(type) && TypeHasDoNotLoggingAttribute(type), commonInterceptorsWithoutLoggingAndRetry);
 		}
 
 		private static void RegisterClassesByPredicate(
@@ -153,16 +159,21 @@ namespace Relativity.Testing.Framework.Api
 					LifestyleSingleton());
 		}
 
-		private static Predicate<Type> BuildServicesAndNonGenericStrategiesWithRetryPredicate()
+		private static Predicate<Type> BuildServicesAndNonGenericStrategiesWithRetryAndLoggingPredicate()
 		{
 			return type =>
 				(type.Name.EndsWith("Service") || (type.Name.Contains("Strategy") && !type.IsGenericType)) &&
-				!TypeHasDoNotRetryAttribute(type);
+				(!TypeHasDoNotRetryAttribute(type) || !TypeHasDoNotLoggingAttribute(type));
 		}
 
 		private static bool TypeHasDoNotRetryAttribute(Type type)
 		{
 			return type.GetCustomAttributes(typeof(DoNotRetryAttribute), true).Any();
+		}
+
+		private static bool TypeHasDoNotLoggingAttribute(Type type)
+		{
+			return type.GetCustomAttributes(typeof(DoNotLoggingAttribute), true).Any();
 		}
 
 		private void RegisterInterceptors(ComponentRegistration componentRegistration)

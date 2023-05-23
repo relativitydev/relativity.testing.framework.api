@@ -78,7 +78,7 @@ jobs:
         path: DevelopmentScripts
         retention-days: 1
 
-  FunctionalTestLatest:
+  FunctionalTestR1:
     runs-on: windows-latest
     needs: Build
 
@@ -100,7 +100,7 @@ jobs:
         name: Tests
         path: Tests
 
-    - name: Functional Test Latest (May 2023)
+    - name: Functional Test R1 (March 2023)
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
@@ -116,13 +116,13 @@ jobs:
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
           -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-may-14.3
+          -SUTVersion aio-march-14.1
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
-        name: LatestLogs
+        name: R1Logs
         path: Artifacts/Logs/
 
 
@@ -170,6 +170,6 @@ jobs:
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
-        name: LatestLogs
+        name: ServerLogs
         path: Artifacts/Logs/
 

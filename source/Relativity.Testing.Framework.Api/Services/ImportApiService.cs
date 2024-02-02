@@ -1,17 +1,23 @@
-﻿using kCura.Relativity.ImportAPI;
-using Relativity.Testing.Framework.Configuration;
+﻿using System;
+using kCura.Relativity.DataReaderClient;
 
 namespace Relativity.Testing.Framework.Api.Services
 {
-	internal class ImportApiService : ImportAPI, IImportApiService
-	{
-		public ImportApiService(IConfigurationService configurationService)
-			: base
-			(
-				configurationService.RelativityInstance.AdminUsername,
-				configurationService.RelativityInstance.AdminPassword,
-				$"{configurationService.RelativityInstance.ServerBindingType}://{configurationService.RelativityInstance.RestServicesHostAddress}/RelativityWebApi")
-		{
-		}
-	}
+    internal class ImportApiService : IImportApiService
+    {
+        public ImageImportBulkArtifactJob NewImageImportJob()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ImportBulkArtifactJob NewNativeDocumentImportJob()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ImageImportBulkArtifactJob NewProductionImportJob(int productionId)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

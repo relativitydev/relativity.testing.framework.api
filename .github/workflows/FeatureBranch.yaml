@@ -78,7 +78,7 @@ jobs:
         path: DevelopmentScripts
         retention-days: 1
 
-  FunctionalTestSundrop:
+  FunctionalTest:
     runs-on: windows-latest
     needs: Build
 
@@ -100,7 +100,7 @@ jobs:
         name: Tests
         path: Tests
 
-    - name: Functional Test Sundrop
+    - name: Functional Test Latest (February 24.2)
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
@@ -116,152 +116,11 @@ jobs:
           -HopperUsername ${{ env.HOPPER_USER }} `
           -BuildOwner ${{ github.actor }} `
           -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-sundrop-1
+          -SUTVersion aio-february-24.2
 
     - name: Upload Logs
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
-        name: SundropLogs
-        path: Artifacts/Logs/
-
-  FunctionalTestTigerLily:
-    runs-on: windows-latest
-    needs: Build
-
-    steps:
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.408
-
-    - name: Download DevelopmentScripts
-      uses: actions/download-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-
-    - name: Download Tests
-      uses: actions/download-artifact@v2
-      with:
-        name: Tests
-        path: Tests
-
-    - name: Functional Test TigerLily
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      working-directory: DevelopmentScripts
-      run: |
-        .\Invoke-FunctionalTest.ps1 `
-          -ClientID ${{ env.ClientId }} `
-          -ClientSecret ${{ env.CLIENTSECRET }} `
-          -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
-          -HopperAPIURL ${{ env.HOPPER_API_URL }} `
-          -HopperUsername ${{ env.HOPPER_USER }} `
-          -BuildOwner ${{ github.actor }} `
-          -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-tigerlily-ea
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      if: success() || failure()
-      with:
-        name: TigerLilyLogs
-        path: Artifacts/Logs/
-
-  FunctionalTestOsier:
-    runs-on: windows-latest
-    needs: Build
-
-    steps:
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.408
-
-    - name: Download DevelopmentScripts
-      uses: actions/download-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-
-    - name: Download Tests
-      uses: actions/download-artifact@v2
-      with:
-        name: Tests
-        path: Tests
-
-    - name: Functional Test Osier
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      working-directory: DevelopmentScripts
-      run: |
-        .\Invoke-FunctionalTest.ps1 `
-          -ClientID ${{ env.ClientId }} `
-          -ClientSecret ${{ env.CLIENTSECRET }} `
-          -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
-          -HopperAPIURL ${{ env.HOPPER_API_URL }} `
-          -HopperUsername ${{ env.HOPPER_USER }} `
-          -BuildOwner ${{ github.actor }} `
-          -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-osier-2
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      if: success() || failure()
-      with:
-        name: OsierLogs
-        path: Artifacts/Logs/
-
-  FunctionalTestWhiteSedge:
-    runs-on: windows-latest
-    needs: Build
-
-    steps:
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.408
-
-    - name: Download DevelopmentScripts
-      uses: actions/download-artifact@v2
-      with:
-        name: DevelopmentScripts
-        path: DevelopmentScripts
-
-    - name: Download Tests
-      uses: actions/download-artifact@v2
-      with:
-        name: Tests
-        path: Tests
-
-    - name: Functional Test White Sedge
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      working-directory: DevelopmentScripts
-      run: |
-        .\Invoke-FunctionalTest.ps1 `
-          -ClientID ${{ env.ClientId }} `
-          -ClientSecret ${{ env.CLIENTSECRET }} `
-          -DirectoryID ${{ env.DirectoryId }} `
-          -VirtualMachineTag ${{ github.repository }}.${{ github.workflow }}.${{ github.run_id }} `
-          -HopperAPIURL ${{ env.HOPPER_API_URL }} `
-          -HopperUsername ${{ env.HOPPER_USER }} `
-          -BuildOwner ${{ github.actor }} `
-          -ProductName ${{ github.event.repository.name }} `
-          -SUTVersion aio-whitesedge-ea
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      if: success() || failure()
-      with:
-        name: WhiteSedgeLogs
+        name: FunctionalTestLogs
         path: Artifacts/Logs/

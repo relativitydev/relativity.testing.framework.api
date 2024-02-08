@@ -350,7 +350,7 @@ jobs:
       with:
         keyvault: "TestEngineering-GitHub"
         secrets: 'ArtifactoryUserName, ArtifactoryAccessToken'
-        id: artifactSecrets
+      id: artifactSecrets
 
     - name: Publish to Artifactory
       shell: pwsh

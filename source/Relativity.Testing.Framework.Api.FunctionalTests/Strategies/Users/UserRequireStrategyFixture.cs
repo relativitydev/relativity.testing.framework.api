@@ -60,7 +60,9 @@ namespace Relativity.Testing.Framework.Api.FunctionalTests.Strategies
 
 			var toUpdate = existingUser.Copy();
 			toUpdate.EmailAddress = Randomizer.GetString("AT_{0}@mail.com");
-			toUpdate.Password = Randomizer.GetString("AT_{0}");
+
+			// I'm not going to re-write the randomizer right now but this is causing a failed test bc our password doesn't have caps/special characters - adding them manually
+			toUpdate.Password = Randomizer.GetString("AT_{0}!A1");
 
 			var result = Sut.Require(toUpdate, false);
 

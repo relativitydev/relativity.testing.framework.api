@@ -314,6 +314,11 @@ jobs:
     needs: [Build, FunctionalTestSundrop, FunctionalTestTigerLily, FunctionalTestOsier, FunctionalTestWhiteSedge]
 
     steps:
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: '{"clientId":"${{ secrets.CLIENTID }}","clientSecret":"${{ secrets.CLIENTSECRET }}","subscriptionId":"${{ env.ENG_INS_SUBSCRIPTION_ID }}","tenantId":"${{ env.TENANT_ID }}"}'
+
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -364,11 +369,6 @@ jobs:
             Write-host "Found: $($Nupkg.FullName)"
             dotnet nuget push $($Nupkg.FullName) --source "https://relativityone.jfrog.io/artifactory/api/nuget/v3/nuget-anthology" --api-key "$token"
           }
-
-    - name: Azure Login
-      uses: Azure/login@v1
-      with:
-        creds: '{"clientId":"${{ secrets.CLIENTID }}","clientSecret":"${{ secrets.CLIENTSECRET }}","subscriptionId":"${{ env.ENG_INS_SUBSCRIPTION_ID }}","tenantId":"${{ env.TENANT_ID }}"}'
 
     - name: Get Secrets from DevOpsMetricsKeyVault
       uses: Azure/get-keyvault-secrets@v1

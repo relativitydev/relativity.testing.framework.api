@@ -314,6 +314,11 @@ jobs:
     needs: [Build, FunctionalTestSundrop, FunctionalTestTigerLily, FunctionalTestOsier, FunctionalTestWhiteSedge]
 
     steps:
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: '{"clientId":"${{ secrets.CLIENTID }}","clientSecret":"${{ secrets.CLIENTSECRET }}","subscriptionId":"${{ env.ENG_INS_SUBSCRIPTION_ID }}","tenantId":"${{ env.TENANT_ID }}"}'
+
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -345,34 +350,25 @@ jobs:
         name: NuGetPackages
         path: Packages
 
-    - name: Publish To NuGet
-      env:
-        DirectoryId: ${{ secrets.DIRECTORYID }}
-        ClientId: ${{ secrets.CLIENTID }}
-        ClientSecret: ${{ secrets.CLIENTSECRET }}
-      run: |
-        $Body = @{
-          grant_type = "client_credentials"
-          client_id = "${{ env.ClientId }}"
-          client_secret = "${{ env.CLIENTSECRET }}"
-          scope = "https://vault.azure.net/.default"
-        }
-
-        $AccessToken = (Invoke-RestMethod -Method POST `
-          -Uri "https://login.microsoftonline.com/${{ env.DirectoryId }}/oauth2/v2.0/token" `
-          -Body $Body).access_token
-
-        $NuGetApiKey = (Invoke-RestMethod -Method GET `
-          -Uri "https://testengineering-github.vault.azure.net/secrets/RtfNugetApiKey?api-version=7.1" `
-          -Headers @{ Authorization="Bearer $AccessToken" }).value
-
-        $Package = (get-childitem ./Packages).FullName
-        dotnet nuget push $Package -s "https://api.nuget.org/v3/index.json" -k $NuGetApiKey -n true --skip-duplicate
-
-    - name: Azure Login
-      uses: Azure/login@v1
+    - name: Get Secrets from TestEngineering-GitHub for Artifactory
+      uses: Azure/get-keyvault-secrets@v1
       with:
-        creds: '{"clientId":"${{ secrets.CLIENTID }}","clientSecret":"${{ secrets.CLIENTSECRET }}","subscriptionId":"${{ env.ENG_INS_SUBSCRIPTION_ID }}","tenantId":"${{ env.TENANT_ID }}"}'
+        keyvault: "TestEngineering-GitHub"
+        secrets: 'ArtifactoryUserName, ArtifactoryAccessToken'
+      id: artifactSecrets
+
+    - name: Publish to Artifactory
+      shell: pwsh
+      id: NugetPublish
+      run: |
+          Write-Host "Publish to Artifactory"
+          $token = "${{ steps.artifactSecrets.outputs.ArtifactoryUserName }}:${{ steps.artifactSecrets.outputs.ArtifactoryAccessToken }}"
+          write-host "Scanning for packages in $nugetPath"
+          foreach($Nupkg in (Get-ChildItem "Packages" -Filter *.nupkg))
+          {
+            Write-host "Found: $($Nupkg.FullName)"
+            dotnet nuget push $($Nupkg.FullName) --source "https://relativityone.jfrog.io/artifactory/api/nuget/v3/nuget-anthology" --api-key "$token"
+          }
 
     - name: Get Secrets from DevOpsMetricsKeyVault
       uses: Azure/get-keyvault-secrets@v1

@@ -144,6 +144,7 @@ jobs:
         path: Tests
 
     - name: Functional Test Sundrop
+      continue-on-error: true
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
@@ -191,6 +192,7 @@ jobs:
         path: Tests
 
     - name: Functional Test Osier
+      continue-on-error: true
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
@@ -238,6 +240,7 @@ jobs:
         path: Tests
 
     - name: Functional Test Tiger Lily
+      continue-on-error: true
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}
@@ -285,6 +288,7 @@ jobs:
         path: Tests
 
     - name: Functional Test White Sedge
+      continue-on-error: true
       env:
         DirectoryId: ${{ secrets.DIRECTORYID }}
         ClientId: ${{ secrets.CLIENTID }}

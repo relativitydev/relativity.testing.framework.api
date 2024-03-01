@@ -1,0 +1,1073 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IBatchSetService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IBatchSetService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IBatchSetService" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService" class="text-break">Interface IBatchSetService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the batch set API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IBatchSetService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_examples"><strong>Examples</strong></h5>
+  <pre><code>_batchSetService = relativityFacade.Resolve&lt;IBatchSetService>()</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_System_Int32_BatchSet_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Create(System.Int32%2CBatchSet)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L48">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_System_Int32_BatchSet_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Create(System.Int32,BatchSet)">Create(Int32, BatchSet)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified batch set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchSet Create(int workspaceId, BatchSet entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to add the new batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><p>The created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_System_Int32_BatchSet__examples">Examples</h5>
+  <pre><code>var fieldService =  relativityFacade.Resolve&lt;IFieldService>();
+var workspaceId = 1015427;
+keywordSearch = relativityFacade.Resolve&lt;IKeywordSearchService>().Create(workspaceId, new KeywordSearch());
+batchUnitField = fieldService.Get(workspaceId, &quot;Custodian&quot;);
+familyField = fieldService.Get(workspaceId, &quot;Group Identifier&quot;);
+reviewedField = fieldService.Get(workspaceId, &quot;Classification Index&quot;);
+var batchSet = new BatchSet
+{
+	Name = Randomizer.GetString(),
+	BatchSize = 1500,
+	BatchPrefix = Randomizer.GetString(&quot;BS&quot;, 3),
+	DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID},
+	BatchUnitField = new NamedArtifact { ArtifactID = batchUnitField.ArtifactID},
+	FamilyField = new NamedArtifact { ArtifactID = familyField.ArtifactID },
+	ReviewedField = new NamedArtifact { ArtifactID = reviewedField.ArtifactID },
+	AutoBatchSettings = new AutoBatchSettings
+	{
+		AutoCreateRateInMinutes = 10,
+		MinimumBatchSize = 10
+	}
+};
+BatchSet batchSet = _batchSetService.Create(workspaceId, batchSet);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_System_Int32_BatchSet_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Create(System.Int32%2CBatchSet%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L88">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_System_Int32_BatchSet_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Create(System.Int32,BatchSet,Relativity.Testing.Framework.Api.Models.UserCredentials)">Create(Int32, BatchSet, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified batch set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchSet Create(int workspaceId, BatchSet entity, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to add the new batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity to create.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><p>The created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Create_System_Int32_BatchSet_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var fieldService =  relativityFacade.Resolve&lt;IFieldService>();
+var workspaceId = 1015427;
+keywordSearch = relativityFacade.Resolve&lt;IKeywordSearchService>().Create(workspaceId, new KeywordSearch());
+batchUnitField = fieldService.Get(workspaceId, &quot;Custodian&quot;);
+familyField = fieldService.Get(workspaceId, &quot;Group Identifier&quot;);
+reviewedField = fieldService.Get(workspaceId, &quot;Classification Index&quot;);
+var batchSet = new BatchSet
+{
+	Name = Randomizer.GetString(),
+	BatchSize = 1500,
+	BatchPrefix = Randomizer.GetString(&quot;BS&quot;, 3),
+	DataSource = new NamedArtifact { ArtifactID = keywordSearch.ArtifactID},
+	BatchUnitField = new NamedArtifact { ArtifactID = batchUnitField.ArtifactID},
+	FamilyField = new NamedArtifact { ArtifactID = familyField.ArtifactID },
+	ReviewedField = new NamedArtifact { ArtifactID = reviewedField.ArtifactID },
+	AutoBatchSettings = new AutoBatchSettings
+	{
+		AutoCreateRateInMinutes = 10,
+		MinimumBatchSize = 10
+	}
+};
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchSet batchSet = _batchSetService.Create(workspaceId, batchSet, userCredentials);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.CreateBatches(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L240">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.CreateBatches*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.CreateBatches(System.Int32,System.Int32)">CreateBatches(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Runs create batches operation for a specific <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchProcessResult CreateBatches(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of a workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of a batch set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchProcessResult</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html">BatchProcessResult</a> entity.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+BatchProcessResult result = _batchSetService.CreateBatches(workspaceId, batchSetArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.CreateBatches(System.Int32%2CSystem.Int32%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L260">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.CreateBatches*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.CreateBatches(System.Int32,System.Int32,Relativity.Testing.Framework.Api.Models.UserCredentials)">CreateBatches(Int32, Int32, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Runs create batches operation for a specific <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchProcessResult CreateBatches(int workspaceId, int entityId, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of a workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of a batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchProcessResult</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html">BatchProcessResult</a> entity.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_CreateBatches_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchProcessResult result = _batchSetService.CreateBatches(workspaceId, batchSetArtifactId, userCredentials);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L207">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> with the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+BatchSet updatedBatchSet = _batchSetService.Delete(workspaceId, batchSetId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Delete(System.Int32%2CSystem.Int32%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L226">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Delete(System.Int32,System.Int32,Relativity.Testing.Framework.Api.Models.UserCredentials)">Delete(Int32, Int32, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Deletes the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> with the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Delete_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchSet updatedBatchSet = _batchSetService.Delete(workspaceId, batchSetId, userCredentials);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Exists(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L136">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Exists*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Exists(System.Int32,System.Int32)">Exists(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> with the specified case artifact ID exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Exists(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if a batch set exists; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var batchSetExists = _batchSetService.Exists(workspaceId, batchSetArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Exists(System.Int32%2CSystem.Int32%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L156">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Exists*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Exists(System.Int32,System.Int32,Relativity.Testing.Framework.Api.Models.UserCredentials)">Exists(Int32, Int32, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> with the specified case artifact ID exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Exists(int workspaceId, int entityId, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if a batch set exists; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Exists_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchSet batchSet = _batchSetService.Exists(workspaceId, batchSetArtifactId, userCredentials);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L102">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchSet Get(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html">Production</a> entity or <span class="xref">null</span>.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+BatchSet batchSet = _batchSetService.Get(workspaceId, batchSetArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Get(System.Int32%2CSystem.Int32%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L122">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Get(System.Int32,System.Int32,Relativity.Testing.Framework.Api.Models.UserCredentials)">Get(Int32, Int32, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchSet Get(int workspaceId, int entityId, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Production.html">Production</a> entity or <span class="xref">null</span>.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Get_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchSet batchSet = _batchSetService.Get(workspaceId, batchSetArtifactId, userCredentials);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.PurgeBatches(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L274">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.PurgeBatches*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.PurgeBatches(System.Int32,System.Int32)">PurgeBatches(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Runs purge batches operation for a specific <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchProcessResult PurgeBatches(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of a workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of a batch set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchProcessResult</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html">BatchProcessResult</a> entity.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+BatchProcessResult result = _batchSetService.PurgeBatches(workspaceId, batchSetArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.PurgeBatches(System.Int32%2CSystem.Int32%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L294">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.PurgeBatches*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.PurgeBatches(System.Int32,System.Int32,Relativity.Testing.Framework.Api.Models.UserCredentials)">PurgeBatches(Int32, Int32, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Runs purge bathces operation for a specific <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchProcessResult PurgeBatches(int workspaceId, int entityId, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of a workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of a batch set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchProcessResult</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchProcessResult.html">BatchProcessResult</a> entity.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_PurgeBatches_System_Int32_System_Int32_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchProcessResult result = _batchSetService.PurgeBatches(workspaceId, batchSetArtifactId, userCredentials);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_System_Int32_BatchSet_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Update(System.Int32%2CBatchSet)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L172">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_System_Int32_BatchSet_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Update(System.Int32,BatchSet)">Update(Int32, BatchSet)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified  <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchSet Update(int workspaceId, BatchSet entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><p>Updated <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_System_Int32_BatchSet__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+BatchSet batchSetToUpdate = _batchSetService.Get(workspaceId, batchSetArtifactId);
+batchSetToUpdate.BatchSize = 30;
+BatchSet updatedBatchSet = _batchSetService.Update(workspaceId, batchSetToUpdate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_System_Int32_BatchSet_Relativity_Testing_Framework_Api_Models_UserCredentials_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService.Update(System.Int32%2CBatchSet%2CRelativity.Testing.Framework.Api.Models.UserCredentials)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L194">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_System_Int32_BatchSet_Relativity_Testing_Framework_Api_Models_UserCredentials_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchSetService.Update(System.Int32,BatchSet,Relativity.Testing.Framework.Api.Models.UserCredentials)">Update(Int32, BatchSet, UserCredentials)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">BatchSet Update(int workspaceId, BatchSet entity, UserCredentials userCredentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity to update.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Relativity.Testing.Framework.Api.Models.UserCredentials.html">UserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td><p>User credentials to be used when perfroming action over Relativity Api.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BatchSet</span></td>
+        <td><p>Updated <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.BatchSet.html">BatchSet</a> entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchSetService_Update_System_Int32_BatchSet_Relativity_Testing_Framework_Api_Models_UserCredentials__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+BatchSet batchSetToUpdate = _batchSetService.Get(workspaceId, batchSetArtifactId);
+batchSetToUpdate.BatchSize = 30;
+var userCredentials = new UserCredentials
+{
+	Username = &quot;SomeUsername&quot;,
+	Password = &quot;SomePassword&quot;
+};
+BatchSet updatedBatchSet = _batchSetService.Update(workspaceId, batchSetToUpdate, userCredentials);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchSetService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchSetService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchSetService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

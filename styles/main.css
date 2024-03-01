@@ -1,0 +1,103 @@
+/*heading styling*/
+article h1 {
+	font-size: 2em;
+    margin-bottom: .475em;
+    widows: 2;
+    orphans: 2;
+    overflow: hidden;
+    line-height: 1.4em;
+    color: #1a1a1a;
+}
+
+article h1:first-child {
+	margin-top:-0.6em;
+}
+
+article h2 {
+	font-size: 1.6em;
+    margin-top: 1.5em;
+    margin-bottom: .25em;
+    padding-bottom: .25em;
+    border-bottom-color: #ccc;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    page-break-before: avoid;
+    color: #666;
+}
+
+article h3 {
+	font-size: 1.45em;
+    margin-top: 1.4em;
+    margin-bottom: .25em;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    line-height: 1.4em;
+    font-weight: 700;
+    color: #828282;
+}
+
+article h4 {
+	font-size: 1.2em;
+    margin-top: 1.3em;
+    margin-bottom: .25em;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    line-height: 1.4em;
+    font-weight: 700;
+    color: #828282;
+}
+/*end heading styling*/
+
+/*content styling*/
+hr {
+    margin-top: 2px;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+}
+
+/*TOC and Nav Styling*/
+.toc .nav > li.active > a {
+    color: #F8981D;
+	font-weight: bold;
+}
+
+/*hyperlink and button styling*/
+button, a {
+    color: #F8981D;
+    cursor: pointer;
+}
+/*end hyperlink and button styling*/
+
+/*navigation bar styling*/
+.navbar-inverse {
+    background-color: #F2F2F2;
+    border-color: #080808;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #F8981D;
+	font-weight: 600;
+}
+/*end navigation bar styling*/
+
+/*top navigation styling*/
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
+	color: #0F0F0F;
+}
+/*end top navigation styling*/
+
+/*side bar styling*/
+.sideaffix {
+    margin-top: 0.5em;
+}
+/*end side bar styling*/
+
+
+
+

@@ -1,0 +1,629 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IWorkspaceService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IWorkspaceService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService" class="text-break">Interface IWorkspaceService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the workspace API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IWorkspaceService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_examples"><strong>Examples</strong></h5>
+  <pre><code>_workspaceService = relativityFacade.Resolve&lt;IWorkspaceService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_Create_Workspace_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.Create(Workspace)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L97">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Create_Workspace_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Create(Workspace)">Create(Workspace)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a>.
+If properties are not specified in the entity, the first value found for each property will be used.
+It is the responsibility of the user writing/running the tests to ensure that they are adhering to all environment related best practices and rules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Workspace Create(Workspace entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><p>The created entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Create_Workspace__examples">Examples</h5>
+  <p>Create any old workspace.</p>
+<pre><code>Workspace workspace = _workspaceService.Create(Workspace());</code></pre>
+
+  <p>Create a workspace with specific properties.</p>
+<pre><code>Client client = new Client
+{
+    Name = &quot;MI6&quot;
+};
+client = _clientService.Create(client);
+
+Matter matter = new Matter
+{
+    Name = &quot;Moonraker&quot;,
+    Client = client
+};
+matter = _matterService.Create(matter);
+
+Workspace topSecretWorkspace = new Workspace
+{
+    Name = &quot;Top Secret [Don&apos;t Delete] [Don&apos;t Look Inside] [Don&apos;t Even Read This]&quot;,
+    Client = client,
+    Matter = matter
+};
+topSecretWorkspace = _workspaceService.Create(workspace);</code></pre>
+
+  <p>Create a workspace that uses a specific base template.</p>
+<pre><code>Workspace workspace = new Workspace
+{
+    Name = &quot;MyNewWorkspace&quot;,
+    TemplateWorkspace = new Workspace { Name = &quot;MyOldWorkspace&quot; }
+};
+
+Workspace workspace = _workspaceService.Create(workspace);</code></pre>
+
+  <p>Create a workspace that is compliant with the configuration of the Regression environments (at least as of 2021/08/05).</p>
+<p>Note that the dependent artifacts are assumed to exist on the Regression enviornments.
+If they do not exist, the environment is probably not intended/ready to be tested against.</p>
+<pre><code>string applicationName = &quot;YourApplicationNameHere&quot;;
+<p>Client aeroClient = _clientService.Get(&quot;Aero CI/CD&quot;);
+Matter aeroMatter = _matterService.Get($&quot;{applicationName} CI/CD&quot;, aeroClient.ArtifactID);
+Group aeroGroup = _groupService.Get($&quot;{applicationName} CI/CD&quot;);
+Workspace templateWorkspace = new Workspace { Name = &quot;Base Template&quot; };
+ResourcePool aeroResourcePool = _objectService.GetAll&lt;ResourcePool&gt;().Where(x =&gt; x.Name == &quot;RelativityOne Pool&quot;).First();</p>
+<p>Workspace workspace = new Workspace
+{
+Name = $&quot;{applicationName} - Aero CD&quot;,
+Client = client,
+Matter = matter,
+Status = &quot;Active&quot;,
+TemplateWorkspace = templateWorkspace,
+WorkspaceAdminGroup = adminGroup,
+ResourcePool = resourcePool,
+SqlServer = resourcePool.SqlServers.First(),
+DefaultCacheLocation = resourcePool.CacheLocationServers.First(),
+DefaultFileRepository = resourcePool.FileRepositories.First(),
+DownloadHandlerUrl = &quot;Relativity.Distributed&quot;
+};</p>
+<p>Workspace workspace = _workspaceService.Create(workspace);</code></pre><p>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_CreateWithDocs_Workspace_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.CreateWithDocs(Workspace%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L112">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_CreateWithDocs_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.CreateWithDocs*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_CreateWithDocs_Workspace_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.CreateWithDocs(Workspace,System.Int32)">CreateWithDocs(Workspace, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> with generated documents.
+If properties are not specified in the entity, the first value found for each property will be used.
+It is the responsibility of the user writing/running the tests to ensure that they are adhering to all environment related best practices and rules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Workspace CreateWithDocs(Workspace entity, int numberOfDocuments = 10)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">numberOfDocuments</span></td>
+        <td><p>Number of documents to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><p>The created entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_CreateWithDocs_Workspace_System_Int32__examples">Examples</h5>
+  <pre><code>Workspace workspace = _workspaceService.CreateWithDocs(Workspace(), 100);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_Delete_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.Delete(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L137">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Delete_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Delete(System.Int32)">Delete(Int32)</h4>
+  <div class="markdown level1 summary"><p>Delete the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> by ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ArtifactID of the workspace to delete.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Delete_System_Int32__examples">Examples</h5>
+  <pre><code>_workspaceService.Delete(1234567);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_Exists_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.Exists(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L196">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Exists_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Exists*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Exists_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Exists(System.Int32)">Exists(Int32)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> with the specified ArtifactID exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Exists(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ArtifactID of the workspace to check the existence of.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the workspace exists, otherwise <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Exists_System_Int32__examples">Examples</h5>
+  <pre><code>bool workspaceExists = _workspaceService.Exists(1234567);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.Get(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L149">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Get(System.Int32)">Get(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> by ArtifactID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Workspace Get(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ArtifactID of the workspace to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> if it exists, otherwise <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_System_Int32__examples">Examples</h5>
+  <pre><code>Workspace workspace = _workspaceService.Get(1234567);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.Get(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L161">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Get(System.String)">Get(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> by the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Workspace Get(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the workspace to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> if it exists, otherwise <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Get_System_String__examples">Examples</h5>
+  <pre><code>Workspace lowSecretWorkspace = _workspaceService.Get(&quot;Low Secret[Feel Free To Look Inside] [But Still Don&apos;t Delete]&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAll.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.GetAll%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L172">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAll" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.GetAll">GetAll()</h4>
+  <div class="markdown level1 summary"><p>Get all <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a>s in the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Workspace[] GetAll()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span>[]</td>
+        <td><p>An array of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a>s.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAll_examples">Examples</h5>
+  <pre><code>Workspace[] workspace = _workspaceService.GetAll();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAllByClientName_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.GetAllByClientName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L184">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAllByClientName_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.GetAllByClientName*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAllByClientName_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.GetAllByClientName(System.String)">GetAllByClientName(String)</h4>
+  <div class="markdown level1 summary"><p>Gets all <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a>s that are associated with the specified client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;Workspace&gt; GetAllByClientName(string clientName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientName</span></td>
+        <td><p>The client name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">Workspace</span>&gt;</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_GetAllByClientName_System_String__examples">Examples</h5>
+  <pre><code>List&lt;Workspace> workspace = _workspaceService.GetAllByClientName(existingClientName).ToList();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService_Update_Workspace_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService.Update(Workspace)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L126">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Update_Workspace_" data-uid="Relativity.Testing.Framework.Api.Services.IWorkspaceService.Update(Workspace)">Update(Workspace)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Workspace.html">Workspace</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(Workspace entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Workspace</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The workspace to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IWorkspaceService_Update_Workspace__examples">Examples</h5>
+  <pre><code>int workspaceId = 1234;
+Workspace workspace = _workspaceService.Get(workspaceId);
+workspace.Name = &quot;updatedName&quot;;
+_workspaceService.Update(workspace);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IWorkspaceService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IWorkspaceService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IWorkspaceService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

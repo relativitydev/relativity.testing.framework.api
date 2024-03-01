@@ -1,0 +1,629 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IImagingJobService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IImagingJobService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IImagingJobService" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService" class="text-break">Interface IImagingJobService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the Imaging Job API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IImagingJobService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_examples"><strong>Examples</strong></h5>
+  <pre><code>_imagingJobService = relativityFacade.Resolve&lt;IImagingJobService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_Cancel_System_Int32_System_Int64_ImagingJobRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.Cancel(System.Int32%2CSystem.Int64%2CImagingJobRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L118">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_Cancel_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.Cancel*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_Cancel_System_Int32_System_Int64_ImagingJobRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.Cancel(System.Int32,System.Int64,ImagingJobRequest)">Cancel(Int32, Int64, ImagingJobRequest)</h4>
+  <div class="markdown level1 summary"><p>Attempt to cancel imaging job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImagingJobActionResponse Cancel(int workspaceId, long imagingJobId, ImagingJobRequest cancelImagingJobRequest = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">imagingJobId</span></td>
+        <td><p>The Imaging Job ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingJobRequest</span></td>
+        <td><span class="parametername">cancelImagingJobRequest</span></td>
+        <td><p>The optional <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobRequest.html">ImagingJobRequest</a> which specifies parameters for cancellation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImagingJobActionResponse</span></td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobActionResponse.html">ImagingJobActionResponse</a> containing the information about attempt to cancel imaging job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_Cancel_System_Int32_System_Int64_ImagingJobRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+long imagingJobId = 10;
+var cancellationRequest = new ImagingJobRequest
+{
+	OriginationID = Guid.NewGuid()
+};
+ImagingJobActionResponse cancellationResult = _imagingJobService.Cancel(workspaceId, imagingJobId, cancellationRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_RetryErrors_System_Int32_System_Int32_ImagingSetJobRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.RetryErrors(System.Int32%2CSystem.Int32%2CImagingSetJobRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L139">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_RetryErrors_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.RetryErrors*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_RetryErrors_System_Int32_System_Int32_ImagingSetJobRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.RetryErrors(System.Int32,System.Int32,ImagingSetJobRequest)">RetryErrors(Int32, Int32, ImagingSetJobRequest)</h4>
+  <div class="markdown level1 summary"><p>Retry imaging set errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long RetryErrors(int workspaceId, int imagingSetId, ImagingSetJobRequest retryErrorsRequest = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingSetJobRequest</span></td>
+        <td><span class="parametername">retryErrorsRequest</span></td>
+        <td><p>The optional <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSetJobRequest.html">ImagingSetJobRequest</a> which specifies parameters for retry errors operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The Artifact ID for the job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_RetryErrors_System_Int32_System_Int32_ImagingSetJobRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imagingSetId = 1000;
+var retryErrorsRequest = new ImagingSetJobRequest
+{
+	OriginationID = Guid.NewGuid(),
+	QcEnabled = false
+};
+long imagingJobId = _imagingJobService.RetryErrors(workspaceId, imagingSetId, retryErrorsRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_Run_System_Int32_System_Int32_ImagingSetJobRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.Run(System.Int32%2CSystem.Int32%2CImagingSetJobRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L34">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_Run_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.Run*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_Run_System_Int32_System_Int32_ImagingSetJobRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.Run(System.Int32,System.Int32,ImagingSetJobRequest)">Run(Int32, Int32, ImagingSetJobRequest)</h4>
+  <div class="markdown level1 summary"><p>Schedules an imaging job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long Run(int workspaceId, int imagingSetId, ImagingSetJobRequest imagingSetJobRequest = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingSetJobRequest</span></td>
+        <td><span class="parametername">imagingSetJobRequest</span></td>
+        <td><p>Request for imaging job on imaging set can set QcEnabled property and OriginationID.
+Can be skipped to use default false value for QcEnabled and null for OriginationID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The Imaging Job Id.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_Run_System_Int32_System_Int32_ImagingSetJobRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imaginingSetId = 2;
+ImagingSetJobRequest imagingSetJobRequest = new ImagingSetJobRequest();
+imagingSetJobRequest.QcEnabled = true;
+int imagingJobId = _imagingJobService.Run(workspaceId, imagingSetId, imagingSetJobRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitMassDocument_System_Int32_ImagingMassJobRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.SubmitMassDocument(System.Int32%2CImagingMassJobRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L98">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitMassDocument_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.SubmitMassDocument*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitMassDocument_System_Int32_ImagingMassJobRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.SubmitMassDocument(System.Int32,ImagingMassJobRequest)">SubmitMassDocument(Int32, ImagingMassJobRequest)</h4>
+  <div class="markdown level1 summary"><p>Submit a mass image job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long SubmitMassDocument(int workspaceId, ImagingMassJobRequest imagingMassJobRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingMassJobRequest</span></td>
+        <td><span class="parametername">imagingMassJobRequest</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingMassJobRequest.html">ImagingMassJobRequest</a> which specifies imaging settings and indirectly (via <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingMassJobRequest.html#Relativity_Testing_Framework_Models_ImagingMassJobRequest_MassProcessID">ImagingMassJobRequest.MassProcessID</a>) indicating which documents to image.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The Artifact ID for the job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitMassDocument_System_Int32_ImagingMassJobRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int documentArtifactTypeId = 10;
+List&lt;Document> documents = Facade.Resolve&lt;IGetAllWorkspaceEntitiesStrategy&lt;Document>>().GetAll(workspaceId);
+
+var joinedArtifactIds = string.Join(&quot;,&quot;, documents.Select(x => x.ArtifactID));
+var createMassProcessTablesRequest = new
+{
+	request = new
+	{
+		artifactTypeId = documentArtifactTypeId,
+		databaseTokenRequired = true,
+		query = new
+		{
+			condition = $&quot;((&apos;Artifact ID&apos; IN [{joinedArtifactIds}]))&quot;
+		}
+	}
+};
+
+var createMassProcessTablesResult = Facade.Resolve&lt;IRestService>()
+											.Post&lt;JObject>($&quot;MassOperation/v1/MassOperationManager/workspace/{workspaceId}/CreateMassProcessTables&quot;, createMassProcessTablesRequest);
+var massProcessId =  (int)createMassProcessTablesResult[&quot;ProcessID&quot;];
+
+var imagingMassJobRequest = new ImagingMassJobRequest
+{
+	ProfileID = imagingProfile.ArtifactID,
+	MassProcessID = massProcessId.ToString(),
+	SourceType = ImagingSourceType.Native
+};
+long imagingJobId = _imagingJobService.SubmitMassDocument(workspaceId, imagingMassJobRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitSingleDocument_System_Int32_System_Int32_SingleDocumentImagingJobRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.SubmitSingleDocument(System.Int32%2CSystem.Int32%2CSingleDocumentImagingJobRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L57">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitSingleDocument_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.SubmitSingleDocument*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitSingleDocument_System_Int32_System_Int32_SingleDocumentImagingJobRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.SubmitSingleDocument(System.Int32,System.Int32,SingleDocumentImagingJobRequest)">SubmitSingleDocument(Int32, Int32, SingleDocumentImagingJobRequest)</h4>
+  <div class="markdown level1 summary"><p>Submit a job to image an individual document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long SubmitSingleDocument(int workspaceId, int documentArtifactId, SingleDocumentImagingJobRequest singleDocumentImagingJobRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">documentArtifactId</span></td>
+        <td><p>The Artifact ID of the document that will be imaged.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">SingleDocumentImagingJobRequest</span></td>
+        <td><span class="parametername">singleDocumentImagingJobRequest</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.SingleDocumentImagingJobRequest.html">SingleDocumentImagingJobRequest</a> which specifies imaging settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The Artifact ID for the job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_SubmitSingleDocument_System_Int32_System_Int32_SingleDocumentImagingJobRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int documentArtifactId = 2;
+var singleDocumentImagingJobRequest = new SingleDocumentImagingJobRequest
+{
+	OriginationID = Guid.NewGuid(),
+	ProfileID = imagingProfile.ArtifactID,
+	AlternateNativeLocation = null,
+	RemoveAlternateNativeAfterImaging = false
+};
+long imagingJobId = _imagingJobService.SubmitSingleDocument(workspaceId, documentArtifactId, singleDocumentImagingJobRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_UpdatePriority_System_Int32_System_Int64_ImagingJobPriorityRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.UpdatePriority(System.Int32%2CSystem.Int64%2CImagingJobPriorityRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L160">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_UpdatePriority_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.UpdatePriority*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_UpdatePriority_System_Int32_System_Int64_ImagingJobPriorityRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.UpdatePriority(System.Int32,System.Int64,ImagingJobPriorityRequest)">UpdatePriority(Int32, Int64, ImagingJobPriorityRequest)</h4>
+  <div class="markdown level1 summary"><p>Update the priority of an imaging job.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImagingJobActionResponse UpdatePriority(int workspaceId, long imagingJobId, ImagingJobPriorityRequest updateJobPriorityRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">imagingJobId</span></td>
+        <td><p>The Imaging Job ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingJobPriorityRequest</span></td>
+        <td><span class="parametername">updateJobPriorityRequest</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobPriorityRequest.html">ImagingJobPriorityRequest</a> which mainly specifies new Priority.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImagingJobActionResponse</span></td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingJobActionResponse.html">ImagingJobActionResponse</a> containing the information about attempt to update priority of imaging job.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_UpdatePriority_System_Int32_System_Int64_ImagingJobPriorityRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+long imagingJobId = 1000;
+var updatePriorityRequest = new ImagingJobPriorityRequest
+{
+	OriginationID = Guid.NewGuid(),
+	Priority = 99
+};
+ImagingJobActionResponse updatePriorityResult = _imagingJobService.UpdatePriority(workspaceId, imagingJobId, updatePriorityRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService_WaitForTheJobToComplete_System_Int32_System_Int32_System_Double_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService.WaitForTheJobToComplete(System.Int32%2CSystem.Int32%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L175">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingJobService_WaitForTheJobToComplete_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.WaitForTheJobToComplete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_WaitForTheJobToComplete_System_Int32_System_Int32_System_Double_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingJobService.WaitForTheJobToComplete(System.Int32,System.Int32,System.Double)">WaitForTheJobToComplete(Int32, Int32, Double)</h4>
+  <div class="markdown level1 summary"><p>Waits for the job to be in 'Completed' or 'Completed with Errors' status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void WaitForTheJobToComplete(int workspaceId, int imagingSetId, double timeout = 2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set connected with imaging job.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>The maximum time in minutes to wait, default is 2.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingJobService_WaitForTheJobToComplete_System_Int32_System_Int32_System_Double__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imagingSetWithRunJobId = 2;
+_imagingJobService.WaitForTheJobToComplete(workspaceId, imagingSetWithRunJobId, 3);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingJobService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingJobService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingJobService.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

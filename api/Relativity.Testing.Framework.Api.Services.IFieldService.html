@@ -1,0 +1,763 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IFieldService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IFieldService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IFieldService" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService" class="text-break">Interface IFieldService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the field API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IFieldService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_examples"><strong>Examples</strong></h5>
+  <pre><code>_fieldService = relativityFacade.Resolve&lt;IFieldService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Create__1_System_Int32___0_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Create%60%601(System.Int32%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L43">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Create__1_System_Int32___0_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Create``1(System.Int32,``0)">Create&lt;TFieldModel&gt;(Int32, TFieldModel)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TFieldModel Create&lt;TFieldModel&gt;(int workspaceId, TFieldModel entity)
+
+    where TFieldModel : Field</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to add the new field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><p>The created entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TFieldModel</span></td>
+        <td><p>The field type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Create__1_System_Int32___0__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var fieldForPropagation = _fieldService.Get(workspaceId, &quot;MD5 Hash&quot;);
+WholeNumberField fieldToCreate = new WholeNumberField
+{
+	PropagateTo = new FieldPropagate
+	{
+		ViewableItems = new List&lt;Artifact>
+		{
+			new Artifact
+			{
+				ArtifactID = fieldForPropagation.ArtifactID
+			}
+		}
+	}
+};
+var createdField = _fieldService.Create(workspaceId, fieldToCreate);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L59">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the field by ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to delete the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The artifact ID of the field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someExistingFieldArtifactId = 1;
+_fieldService.Delete(workspaceId, someExistingFieldArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L76">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the field by the specified ID.
+Returns only base parameters of field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Field Get(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The artifact ID of the field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Field</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html">Field</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someExistingFieldArtifactId = 1;
+var fieldWithBaseParameters = _fieldService.Get(workspaceId, someExistingFieldArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Get_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Get(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L110">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get(System.Int32,System.String)">Get(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the field by the specified name.
+Returns only base parameters of field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Field Get(int workspaceId, string entityName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">entityName</span></td>
+        <td><p>The name of the object type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Field</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html">Field</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var fieldWithBaseParameters = _fieldService.Get(workspaceId, &quot;Some Existing Field Name&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Get__1_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Get%60%601(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L93">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get__1_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get``1(System.Int32,System.Int32)">Get&lt;TFieldModel&gt;(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the field of specified type by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TFieldModel Get&lt;TFieldModel&gt;(int workspaceId, int entityId)
+
+    where TFieldModel : Field</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The artifact ID of the field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html">Field</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TFieldModel</span></td>
+        <td><p>The field type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get__1_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someExistingYesNoFieldArtifactId = 1;
+var yesNoField = _fieldService.Get&lt;YesNoField>(workspaceId, someExistingYesNoFieldArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Get__1_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Get%60%601(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L126">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get__1_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Get``1(System.Int32,System.String)">Get&lt;TFieldModel&gt;(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the field of specified type by the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TFieldModel Get&lt;TFieldModel&gt;(int workspaceId, string entityName)
+
+    where TFieldModel : Field</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">entityName</span></td>
+        <td><p>The name of the field.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Field.html">Field</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TFieldModel</span></td>
+        <td><p>The field type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Get__1_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var currencyField = _fieldService.Get&lt;CurrencyField>(workspaceId, &quot;Some Existing Currency Field Name&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Require__1_System_Int32___0_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Require%60%601(System.Int32%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L235">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Require__1_System_Int32___0_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Require``1(System.Int32,``0)">Require&lt;TFieldModel&gt;(Int32, TFieldModel)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified field.</p>
+<ol><li>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <code data-dev-comment-type="paramref" class="paramref">entity</code>
+has positive value, gets entity by ID and updates it.</li><li>If [Name](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.NamedArtifact.html#Relativity_Testing_Framework_Models_NamedArtifact_Name) property of <code data-dev-comment-type="paramref" class="paramref">entity</code>
+has a value, gets entity by name and updates it if it exists.</li><li>Otherwise creates a new entity.</li></ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TFieldModel Require&lt;TFieldModel&gt;(int workspaceId, TFieldModel entity)
+
+    where TFieldModel : Field</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to update the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><p>The entity required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TFieldModel</span></td>
+        <td><p>The field type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Require__1_System_Int32___0__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var fieldForPropagation = _fieldService.Get(workspaceId, &quot;MD5 Hash&quot;);
+var existingFieldArtifactId = 1;
+var existingObjectType = relativityFacade.Resolve&lt;IObjectTypeService>().Get(workspaceId, &quot;Document&quot;);
+var fieldToUpdate = new SingleChoiceField
+{
+	PropagateTo = new FieldPropagate
+	{
+		ViewableItems = new List&lt;Artifact>
+		{
+			new Artifact(fieldForPropagation.ArtifactID)
+		},
+	},
+	Name = &quot;Some Updated Name&quot;,
+	ArtifactID = existingFieldArtifactId,
+	ObjectType = existingObjectType
+};
+var updatedField = _fieldService.Require(workspaceId, fieldToUpdate); // Will get field by ArtifactId, update it and return updated</code></pre>
+
+  <pre><code>var workspaceId = 1015427;
+var fieldForPropagation = _fieldService.Get(workspaceId, &quot;MD5 Hash&quot;);
+var existingObjectType = relativityFacade.Resolve&lt;IObjectTypeService>().Get(workspaceId, &quot;Document&quot;);
+var fieldToUpdate = new MultipleChoiceField
+{
+	PropagateTo = new FieldPropagate
+	{
+		ViewableItems = new List&lt;Artifact>
+		{
+			new Artifact(fieldForPropagation.ArtifactID)
+		},
+		Name = &quot;Some Existing Field Name&quot;,
+		ObjectType = existingObjectType
+};
+var updatedField = _fieldService.Require(workspaceId, fieldToUpdate); // Will get field by Name, update it and return updated</code></pre>
+
+  <pre><code>var workspaceId = 1015427;
+var fieldForPropagation = _fieldService.Get(workspaceId, &quot;MD5 Hash&quot;);
+FixedLengthTextField fieldToCreate = new FixedLengthTextField
+{
+	PropagateTo = new FieldPropagate
+	{
+		ViewableItems = new List&lt;Artifact>
+		{
+			new Artifact(fieldForPropagation.ArtifactID)
+		}
+	},
+	Unicode = true
+};
+var createdField = _fieldService.Require(workspaceId, fieldToCreate); // Will create new FixedLengthTextField</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService_Update__1_System_Int32___0_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService.Update%60%601(System.Int32%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L158">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IFieldService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IFieldService_Update__1_System_Int32___0_" data-uid="Relativity.Testing.Framework.Api.Services.IFieldService.Update``1(System.Int32,``0)">Update&lt;TFieldModel&gt;(Int32, TFieldModel)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update&lt;TFieldModel&gt;(int workspaceId, TFieldModel entity)
+
+    where TFieldModel : Field</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to update the field,
+or use -1 to indicate the admin-level context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TFieldModel</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TFieldModel</span></td>
+        <td><p>The field type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IFieldService_Update__1_System_Int32___0__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var fieldForPropagationArtifactId = 2;
+var userFieldToUpdate = new UserField
+{
+	PropagateTo = new FieldPropagate
+	{
+		ViewableItems = new List&lt;Artifact>
+		{
+			new Artifact
+			{
+				ArtifactID = fieldForPropagationArtifactId
+			}
+		}
+	},
+	OpenToAssociations = true,
+	Name = &quot;Updated Name&quot;
+};
+_fieldService.Update(workspaceId, userFieldToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IFieldService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IFieldService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IFieldService.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IErrorService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IErrorService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IErrorService" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService" class="text-break">Interface IErrorService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the error API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IErrorService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IErrorService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IErrorService_examples"><strong>Examples</strong></h5>
+  <pre><code>_errorService = relativityFacade.Resolve&lt;IErrorService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IErrorService_Create_Error_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IErrorService.Create(Error)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IErrorService.cs/#L27">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IErrorService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IErrorService_Create_Error_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.Create(Error)">Create(Error)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Error Create(Error entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Error</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Error</span></td>
+        <td><p>The created entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IErrorService_Create_Error__examples">Examples</h5>
+  <pre><code>var entity = new Error { Message = &quot;Test message&quot; };
+var error = _errorService.Create(entity);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IErrorService_Get_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IErrorService.Get(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IErrorService.cs/#L39">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IErrorService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IErrorService_Get_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.Get(System.Int32)">Get(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the error by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Error Get(int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Error</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html">Entity</a> error or <span class="xref">null</span>.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IErrorService_Get_System_Int32__examples">Examples</h5>
+  <pre><code>var error = _errorService.Get(someExistingErrorArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IErrorService_GetAll.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IErrorService.GetAll%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IErrorService.cs/#L50">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IErrorService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IErrorService_GetAll" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.GetAll">GetAll()</h4>
+  <div class="markdown level1 summary"><p>Gets all errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Error[] GetAll()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Error</span>[]</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Error.html">Error</a> errors.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IErrorService_GetAll_examples">Examples</h5>
+  <pre><code>var errors = _errorService.GetAll(entity);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IErrorService_GetAllByDate_System_DateTime_System_DateTime_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IErrorService.GetAllByDate(System.DateTime%2CSystem.DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IErrorService.cs/#L64">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IErrorService_GetAllByDate_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.GetAllByDate*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IErrorService_GetAllByDate_System_DateTime_System_DateTime_" data-uid="Relativity.Testing.Framework.Api.Services.IErrorService.GetAllByDate(System.DateTime,System.DateTime)">GetAllByDate(DateTime, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Gets all errors by specific date.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Error[] GetAllByDate(DateTime from, DateTime to)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">from</span></td>
+        <td><p>The start of a date range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">to</span></td>
+        <td><p>The end of a date range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Error</span>[]</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Error.html">Error</a> errors.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IErrorService_GetAllByDate_System_DateTime_System_DateTime__examples">Examples</h5>
+  <pre><code>var currentDateTime = DateTime.Now;
+var error = _errorService.GetAllByDate(currentDateTime.AddDays(-1), currentDateTime);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IErrorService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IErrorService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IErrorService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

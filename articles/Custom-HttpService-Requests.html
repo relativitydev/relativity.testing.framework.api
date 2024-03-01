@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using relativity REST in RTF </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using relativity REST in RTF ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p><a href="/api/Relativity.Testing.Framework.Api.Services.IHttpService.html">Http service</a> represents a set of methods to communicate with Relativity REST API.</p>
+<p>Inside this service we use a HttpClient and set all required for Relativity fields, this service also provides deserialization functionality by using Newtonsoft.Json.</p>
+<p>See the documentation for more information about the HttpService.</p>
+<p>Under normal circumstances, you will not need to use the <a href="/api/Relativity.Testing.Framework.Api.Services.IHttpService.html">HTTPService</a>.
+RTF.API has a wrapper <a href="/api/Relativity.Testing.Framework.Api.Services.IRestService.html">RESTService</a> that consumes this, and is used by all services and strategies.</p>
+<p>The most obvious use case for standalone use of the <a href="/api/Relativity.Testing.Framework.Api.Services.IHttpService.html">HttpService</a> is to explicitly specific the parameters passed in for requests
+Here is an example that you can find <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.FunctionalTests/HttpServiceFixture.cs">here</a>.</p>
+<h1 id="using-relativity-rest-in-rtf">Using relativity REST in RTF</h1>
+<p>For using services which have base URL like ServerBindingType://HostAddress/relativity.rest/ RTF represents the service: <a href="/api/Relativity.Testing.Framework.Api.Services.IRestService.html">IRestService</a>.
+So if you need to send some custom rest request all that you need to do it is to resolve <a href="/api/Relativity.Testing.Framework.Api.Services.IRestService.html">IRestService</a> and use it, but remember to configure and rely on <a href="Getting-Started.html">ApiComponent</a>.</p>
+<pre><code>public class Tests
+{
+    private IRestService _restService;
+  
+    [OneTimeSetUp]
+    public void Setup()
+    {
+        RelativityFacade.Instance.RelyOn&lt;CoreComponent&gt;();
+        RelativityFacade.Instance.RelyOn&lt;ApiComponent&gt;();
+        _restService = RelativityFacade.Instance.Resolve&lt;IRestService&gt;();
+    }
+ 
+    [Test]
+    public void Post()
+    {
+        string result = _restService.Post&lt;string&gt;(&quot;Relativity.Services.InstanceDetails.IInstanceDetailsModule/InstanceDetailsService/GetRelativityVersionAsync&quot;);
+ 
+        result.Should().NotBeNullOrWhiteSpace(); // Here we use FluentAssertions package
+    }
+}
+</code></pre>
+<h1 id="deserialize-response-of-services-based-on-httpservice">Deserialize response of services based on HttpService.</h1>
+<p>All methods in <a href="/api/Relativity.Testing.Framework.Api.Services.IHttpService.html">HttpService</a> have a generic parameter, this parameter specified the type of response which we waiting for. For example, if we waiting for some integer as a response then we should specify it like below:</p>
+<pre><code>[Test]
+public void Post()
+{
+    int result = _restService.Post&lt;int&gt;(&quot;Some url.&quot;);
+ 
+    result.Should().NotBeNullOrWhiteSpace(); // Here we use FluentAssertions package
+}
+</code></pre>
+<p>If we don't wait for any result then do not use generic, like in the example below:</p>
+<pre><code>[Test]
+public void Post()
+{
+    int result = _restService.Post(&quot;Some url.&quot;);
+ 
+    result.Should().NotBeNullOrWhiteSpace(); // Here we use FluentAssertions package
+}
+</code></pre>
+<p>Also, you can use any model and if all names will map correct then all methods will work fine. For example, you can have a model like this and use client <a href="/api/Relativity.Testing.Framework.Api.Services.HttpService.html#Relativity_Testing_Framework_Api_Services_IHttpService_Get__1_System_String_">Get call</a>, all will work correct:</p>
+<pre><code>public class Client : Artifact
+{
+    public string Name { get; internal set; }
+}
+</code></pre>
+<p>But if you have some custom property like ClientName which you do not return in response than it will fail. If you need that property but name in response is the difference then you can rename property or overload it by using FieldName attribute or just.</p>
+<pre><code>public class ShortClient : Artifact
+{
+    [FieldName(&quot;Name&quot;)]
+    public string ClientName { get; internal set; }
+}
+</code></pre>
+<p>But if don't need to parse this property then you can mark it like NonField and we will not deserialize that property.</p>
+<pre><code>public class ShortClient : Artifact
+{
+    [NonField]
+    public string ClientName { get; internal set; }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api.Documentation/articles/Custom-HttpService-Requests.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

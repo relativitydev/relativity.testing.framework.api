@@ -1,0 +1,850 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IDocumentService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IDocumentService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IDocumentService" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService" class="text-break">Interface IDocumentService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the document service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDocumentService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_examples"><strong>Examples</strong></h5>
+  <pre><code>_documentService = relativityFacade.Resolve&lt;IDocumentService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L55">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the workspace entity by the specified IDs of workspace and entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The entity ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceArtifactId = 1234567;
+var documentArtifactId = 12345;
+_documentService.Delete(workspaceArtifactId, documentArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_Get_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.Get(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L41">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_Get_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.Get(System.Int32,System.String)">Get(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the document by the entity name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Document Get(int workspaceId, string entityName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">entityName</span></td>
+        <td><p>The entity name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Document</span></td>
+        <td><p>Returns a document.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_Get_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>var workspaceArtifactId = 1234567;
+Document document = _documentService.Get(workspaceArtifactId, &quot;someDocumentName&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_GetAll_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.GetAll(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L27">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_GetAll_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.GetAll(System.Int32)">GetAll(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the documents by the specified workspace ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Document[] GetAll(int workspaceId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Document</span>[]</td>
+        <td><p>The array of documents.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_GetAll_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceArtifactId = 1234567;
+var documents = _documentService.GetAll(workspaceArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportGeneratedDocuments_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportGeneratedDocuments(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L69">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportGeneratedDocuments_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportGeneratedDocuments*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportGeneratedDocuments_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportGeneratedDocuments(System.Int32,System.Int32)">ImportGeneratedDocuments(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates and import basic document metadata to import to the given workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportGeneratedDocuments(int workspaceId, int numberOfDocuments = 10)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">numberOfDocuments</span></td>
+        <td><p>The number of documents to generate and import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportGeneratedDocuments_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceService = Facade.Resolve&lt;IWorkspaceService>();
+var defaultWorkspace = workspaceService.Create(new Workspace { Name = &quot;DefaultWorkspaceName&quot; });
+documentService.ImportGeneratedDocuments(defaultWorkspace.ArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImages_System_Int32_System_Data_DataTable_ImageImportOptions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportImages(System.Int32%2CSystem.Data.DataTable%2CImageImportOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L94">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImages_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportImages*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImages_System_Int32_System_Data_DataTable_ImageImportOptions_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportImages(System.Int32,System.Data.DataTable,ImageImportOptions)">ImportImages(Int32, DataTable, ImageImportOptions)</h4>
+  <div class="markdown level1 summary"><p>Import image documents from data table object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportImages(int workspaceId, DataTable dataTable, ImageImportOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span></td>
+        <td><span class="parametername">dataTable</span></td>
+        <td><p>The data table object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImageImportOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for document import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImages_System_Int32_System_Data_DataTable_ImageImportOptions__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1234567;
+DataTable table = new DataTable();
+table.Columns.Add(&quot;Bates&quot;, typeof(string));
+table.Columns.Add(&quot;Doc&quot;, typeof(string));
+table.Columns.Add(&quot;File&quot;, typeof(string));
+ImageImportOptions imageImportOptions = new ImageImportOptions()
+{
+	DocumentIdentifierField = &quot;Doc&quot;,
+	BatesNumberField = &quot;Bates&quot;,
+	FileLocationField = &quot;File&quot;,
+	OverwriteMode = DocumentOverwriteMode.Append
+};
+documentService.ImportImages(workspaceArtifactId, table, imageImportOptions);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImagesFromCsv_System_Int32_System_String_ImageImportOptions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportImagesFromCsv(System.Int32%2CSystem.String%2CImageImportOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L183">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImagesFromCsv_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportImagesFromCsv*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImagesFromCsv_System_Int32_System_String_ImageImportOptions_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportImagesFromCsv(System.Int32,System.String,ImageImportOptions)">ImportImagesFromCsv(Int32, String, ImageImportOptions)</h4>
+  <div class="markdown level1 summary"><p>Import image documents from comma-separated values file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportImagesFromCsv(int workspaceId, string pathToFile, ImageImportOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathToFile</span></td>
+        <td><p>The path to the existing comma-separated values file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImageImportOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for document import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportImagesFromCsv_System_Int32_System_String_ImageImportOptions__examples">Examples</h5>
+  <pre><code>ImageImportOptions options = new ImageImportOptions();
+int workspaceId = 1234;
+string fullPath = &quot;some\path\to\file.csv&quot;;
+documentService.ImportImagesFromCsv(workspaceId, fullPath, options);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNatives_System_Int32_System_Data_DataTable_NativeImportOptions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportNatives(System.Int32%2CSystem.Data.DataTable%2CNativeImportOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L139">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNatives_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportNatives*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNatives_System_Int32_System_Data_DataTable_NativeImportOptions_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportNatives(System.Int32,System.Data.DataTable,NativeImportOptions)">ImportNatives(Int32, DataTable, NativeImportOptions)</h4>
+  <div class="markdown level1 summary"><p>Import native documents from data table object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportNatives(int workspaceId, DataTable dataTable, NativeImportOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span></td>
+        <td><span class="parametername">dataTable</span></td>
+        <td><p>The data table object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">NativeImportOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for document import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNatives_System_Int32_System_Data_DataTable_NativeImportOptions__examples">Examples</h5>
+  <pre><code>int workspaceArtifactId = 1234567;
+DataTable table = new DataTable();
+table.Columns.Add(&quot;Control Number&quot;, typeof(string));
+table.Columns.Add(&quot;Native File&quot;, typeof(string));
+table.Rows.Add(&quot;A_1&quot;, @&quot;&quot;);
+table.Rows.Add(&quot;Image-5_00002&quot;, @&quot;&quot;);
+
+NativeImportOptions nativeImportOptions = new NativeImportOptions()
+{
+	DocumentIdentifierField = &quot;Control Number&quot;,
+	NativeFilePathColumnName = &quot;Native File&quot;,
+	NativeFileCopyMode = NativeFileCopyMode.CopyFiles,
+	OverwriteMode = DocumentOverwriteMode.Append
+};
+documentService.ImportNatives(workspaceArtifactId, table, nativeImportOptions);</code></pre>
+
+  <pre><code>int workspaceArtifactId = 1234567;
+var dataTable = new DataTable(&quot;Documents&quot;);
+var options = new NativeImportOptions()
+{
+	NativeFileCopyMode = NativeFileCopyMode.DoNotImportNativeFiles,
+	NativeFilePathColumnName = null,
+	ExtractedTextFieldContainsFilePath = false,
+	OverwriteMode = DocumentOverwriteMode.AppendOverlay
+};
+string controlNumberField = options.DocumentIdentifierField;
+
+dataTable.Columns.Add(controlNumberField);
+dataTable.Columns.Add(&quot;Extracted Text&quot;);
+documentService.ImportNatives(workspaceArtifactId, dataTable, options);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNativesFromCsv_System_Int32_System_String_NativeImportOptions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportNativesFromCsv(System.Int32%2CSystem.String%2CNativeImportOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L199">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNativesFromCsv_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportNativesFromCsv*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNativesFromCsv_System_Int32_System_String_NativeImportOptions_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportNativesFromCsv(System.Int32,System.String,NativeImportOptions)">ImportNativesFromCsv(Int32, String, NativeImportOptions)</h4>
+  <div class="markdown level1 summary"><p>Import native documents from comma-separated values file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportNativesFromCsv(int workspaceId, string pathToFile, NativeImportOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathToFile</span></td>
+        <td><p>The path to the existing comma-separated values file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">NativeImportOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for document import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportNativesFromCsv_System_Int32_System_String_NativeImportOptions__examples">Examples</h5>
+  <pre><code>NativeImportOptions options = new NativeImportOptions();
+int workspaceId = 1234;
+string fullPath = &quot;some\path\to\file.csv&quot;;
+documentService.ImportNativesFromCsv(workspaceId, fullPath, options);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImages_System_Int32_System_Int32_System_Data_DataTable_ImageImportOptions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportProducedImages(System.Int32%2CSystem.Int32%2CSystem.Data.DataTable%2CImageImportOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L167">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImages_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportProducedImages*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImages_System_Int32_System_Int32_System_Data_DataTable_ImageImportOptions_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportProducedImages(System.Int32,System.Int32,System.Data.DataTable,ImageImportOptions)">ImportProducedImages(Int32, Int32, DataTable, ImageImportOptions)</h4>
+  <div class="markdown level1 summary"><p>Import produced image documents from data table object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportProducedImages(int workspaceId, int productionId, DataTable dataTable, ImageImportOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">productionId</span></td>
+        <td><p>The production ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span></td>
+        <td><span class="parametername">dataTable</span></td>
+        <td><p>The data table object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImageImportOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for document import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImages_System_Int32_System_Int32_System_Data_DataTable_ImageImportOptions__examples">Examples</h5>
+  <pre><code>int productionId = 12354;
+int workspaceArtifactId = 1234567;
+
+DataTable table = new DataTable();
+table.Columns.Add(&quot;Bates&quot;, typeof(string));
+table.Columns.Add(&quot;Doc&quot;, typeof(string));
+table.Columns.Add(&quot;File&quot;, typeof(string));
+ImageImportOptions imageImportOptions = new ImageImportOptions()
+{
+	DocumentIdentifierField = &quot;Doc&quot;,
+	BatesNumberField = &quot;Bates&quot;,
+	FileLocationField = &quot;File&quot;,
+	OverwriteMode = DocumentOverwriteMode.Append
+};
+documentService.ImportProducedImages(workspaceArtifactId, productionId, table, imageImportOptions);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImagesFromCsv_System_Int32_System_Int32_System_String_ImageImportOptions_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportProducedImagesFromCsv(System.Int32%2CSystem.Int32%2CSystem.String%2CImageImportOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L217">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImagesFromCsv_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportProducedImagesFromCsv*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImagesFromCsv_System_Int32_System_Int32_System_String_ImageImportOptions_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportProducedImagesFromCsv(System.Int32,System.Int32,System.String,ImageImportOptions)">ImportProducedImagesFromCsv(Int32, Int32, String, ImageImportOptions)</h4>
+  <div class="markdown level1 summary"><p>Import produced image documents from comma-separated values file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportProducedImagesFromCsv(int workspaceId, int productionId, string pathToFile, ImageImportOptions options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">productionId</span></td>
+        <td><p>The production ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathToFile</span></td>
+        <td><p>The path to the existing comma-separated values file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImageImportOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for document import.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportProducedImagesFromCsv_System_Int32_System_Int32_System_String_ImageImportOptions__examples">Examples</h5>
+  <pre><code>int workspaceId = 1234;
+int productionId = 12354;
+string fullPath = &quot;some\path\to\file.csv&quot;;
+ImageImportOptions options = new ImageImportOptions();
+documentService.ImportProducedImagesFromCsv(workspaceId, productionId, fullPath, options);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleImage_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleImage(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L231">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleImage_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleImage*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleImage_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleImage(System.Int32,System.String)">ImportSingleImage(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Import single image document by specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportSingleImage(int workspaceId, string pathToFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathToFile</span></td>
+        <td><p>The path to the existing native file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleImage_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceId = 1234;
+string fullPath = &quot;some\path\to\file&quot;;
+documentService.ImportSingleImage(workspaceId, fullPath);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleNative_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleNative(System.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L245">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleNative_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleNative*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleNative_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleNative(System.Int32,System.String)">ImportSingleNative(Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Import single native document by specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportSingleNative(int workspaceId, string pathToFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathToFile</span></td>
+        <td><p>The path to the existing native file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleNative_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceId = 1234;
+string fullPath = &quot;some\path\to\native\file&quot;;
+documentService.ImportSingleNative(workspaceId, fullPath);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleProducedImage_System_Int32_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleProducedImage(System.Int32%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L262">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleProducedImage_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleProducedImage*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleProducedImage_System_Int32_System_Int32_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IDocumentService.ImportSingleProducedImage(System.Int32,System.Int32,System.String)">ImportSingleProducedImage(Int32, Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Import single produced image document by specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportSingleProducedImage(int workspaceId, int productionId, string pathToFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">productionId</span></td>
+        <td><p>The production ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathToFile</span></td>
+        <td><p>The path to the existing file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IDocumentService_ImportSingleProducedImage_System_Int32_System_Int32_System_String__examples">Examples</h5>
+  <pre><code>int workspaceId = 1234;
+int productionId = 12354;
+string fullPath = &quot;some\path\to\file.csv&quot;;
+ImageImportOptions options = new ImageImportOptions();
+documentService.ImportProducedImagesFromCsv(workspaceId, productionId, fullPath, options);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IDocumentService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IDocumentService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IDocumentService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

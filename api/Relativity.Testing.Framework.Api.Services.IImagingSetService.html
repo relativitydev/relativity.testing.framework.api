@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IImagingSetService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IImagingSetService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IImagingSetService" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService" class="text-break">Interface IImagingSetService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the Imaging Set API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IImagingSetService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_examples"><strong>Examples</strong></h5>
+  <pre><code>_imagingSetService = relativityFacade.Resolve&lt;IImagingSetService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_Create_System_Int32_ImagingSetRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.Create(System.Int32%2CImagingSetRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L52">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Create_System_Int32_ImagingSetRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Create(System.Int32,ImagingSetRequest)">Create(Int32, ImagingSetRequest)</h4>
+  <div class="markdown level1 summary"><p>Creates imaging set based on provided <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSetRequest.html">ImagingSetRequest</a> properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImagingSet Create(int workspaceId, ImagingSetRequest imagingSetRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingSetRequest</span></td>
+        <td><span class="parametername">imagingSetRequest</span></td>
+        <td><p>The Imaging Set Request that included basing information about the Imaging Set that should be created.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImagingSet</span></td>
+        <td><p>The created <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSet.html">ImagingSet</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Create_System_Int32_ImagingSetRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+KeywordSearch keywordSearch = Facade.Resolve&lt;ICreateWorkspaceEntityStrategy&lt;KeywordSearch>>()
+	.Create(workspaceId, new KeywordSearch());
+var imagingProfileDto = new CreateBasicImagingProfileDTO
+{
+	Name = Randomizer.GetString(),
+	Notes = string.Empty,
+	Keywords = string.Empty,
+	BasicOptions = new BasicImagingEngineOptions
+	{
+		ImageOutputDpi = 300,
+		BasicImageFormat = ImageFormatType.Jpeg,
+		ImageSize = ImageSizeType.Custom,
+		MaximumImageHeight = 6.0m,
+		MaximumImageWidth = 6.0m
+	}
+};
+ImagingProfile imagingProfile = Facade.Resolve&lt;IImagingProfileCreateBasicStrategy>()
+	.Create(workspaceId, imagingProfileDto);
+
+var imagingSetCreateRequest = new ImagingSetRequest
+{
+	DataSourceID = keywordSearch.ArtifactID,
+	ImagingProfileID = imagingProfile.ArtifactID,
+	Name = &quot;Test Imaging Set&quot;
+};
+ImagingSet createdImagingSet = _imagingSetService.Create(workspaceId, imagingSetCreateRequest);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L135">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes Imaging Set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int imagingSetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imagingSetId = 2;
+_imagingSetService.Delete(workspaceId, imagingSetId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L67">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the imaging set by specified <code data-dev-comment-type="paramref" class="paramref">imagingSetId</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImagingSet Get(int workspaceId, int imagingSetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImagingSet</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSet.html">ImagingSet</a> with specified <code data-dev-comment-type="paramref" class="paramref">imagingSetId</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imagingSetId = 2;
+ImagingSet imagingSet = _imagingSetService.Get(workspaceId, imagingSetId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_GetStatus_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.GetStatus(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L121">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_GetStatus_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.GetStatus*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_GetStatus_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.GetStatus(System.Int32,System.Int32)">GetStatus(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the status of an imaging set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ImagingSetDetailedStatus GetStatus(int workspaceId, int imagingSetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ImagingSetDetailedStatus</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.ImagingSetDetailedStatus.html">ImagingSetDetailedStatus</a> repesenting the status of imaging set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_GetStatus_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imagingSetId = 2;
+ImagingSetDetailedStatus imagingSetStatus = _imagingSetService.GetStatus(workspaceId, imagingSetId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_Hide_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.Hide(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L150">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Hide_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Hide*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Hide_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Hide(System.Int32,System.Int32)">Hide(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Hides Imaging Set.
+Can be used to prevent users from viewing images that need to undergo a quality control review.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Hide(int workspaceId, int imagingSetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Hide_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int imagingSetId = 2;
+_imagingSetService.Hide(workspaceId, imagingSetId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_Release_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.Release(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L165">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Release_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Release*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Release_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Release(System.Int32,System.Int32)">Release(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Releases hidden images.
+Used to make images available to reviewers after a quality control review has been completed on hidden images.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Release(int workspaceId, int imagingSetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Release_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int hiddenImagingSetId = 2;
+_imagingSetService.Release(workspaceId, imagingSetId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService_Update_System_Int32_System_Int32_ImagingSetRequest_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService.Update(System.Int32%2CSystem.Int32%2CImagingSetRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L106">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Update_System_Int32_System_Int32_ImagingSetRequest_" data-uid="Relativity.Testing.Framework.Api.Services.IImagingSetService.Update(System.Int32,System.Int32,ImagingSetRequest)">Update(Int32, Int32, ImagingSetRequest)</h4>
+  <div class="markdown level1 summary"><p>Updates Imaging Set by given <code data-dev-comment-type="paramref" class="paramref">imagingSetRequest</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int Update(int workspaceId, int imagingSetId, ImagingSetRequest imagingSetRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace that contains the imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">imagingSetId</span></td>
+        <td><p>The Artifact ID of a imaging set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ImagingSetRequest</span></td>
+        <td><span class="parametername">imagingSetRequest</span></td>
+        <td><p>The Imaging Set Request that included basing information about the Imaging Set that should be updated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The Artifact ID of updated Imaging Set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IImagingSetService_Update_System_Int32_System_Int32_ImagingSetRequest__examples">Examples</h5>
+  <pre><code>int workspaceId = 1015427;
+int existingImagingSetId = 1213;
+int imagingSetId = 2;
+int existingDatSourceId = 3;
+int existingImagingProfileID = 4;
+var imagingSetUpdateRequest = new ImagingSetRequest
+{
+	DataSourceID = existingDatSourceId,
+	ImagingProfileID = existingImagingProfileID,
+	Name = &quot;Updated Name&quot;
+};
+int updatedImagingSetId = _imagingSetService.Update(workspaceId, existingImagingSetId, imagingSetUpdateRequest);</code></pre>
+
+  <pre><code>int workspaceId = 1015427;
+int existingImagingSetId = 1213;
+ImagingSet existingImagingSet = _imagingSetService.Get(workspaceId, existingImagingSetId);
+var imagingSetUpdateRequest = new ImagingSetRequest
+{
+	DataSourceID = existingImagingSet.DataSourceId,
+	ImagingProfileID = existingImagingSet.ImagingProfile.ArtifactID,
+	Name = &quot;Updated Name&quot;
+};
+int updatedImagingSetId = _imagingSetService.Update(workspaceId, existingImagingSetId, imagingSetUpdateRequest);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IImagingSetService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IImagingSetService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/Imaging/IImagingSetService.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

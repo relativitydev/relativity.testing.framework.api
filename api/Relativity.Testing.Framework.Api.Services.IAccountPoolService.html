@@ -1,0 +1,760 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IAccountPoolService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IAccountPoolService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService" class="text-break">Interface IAccountPoolService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the service that provides a pool of users and default properties for them.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IAccountPoolService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_examples"><strong>Examples</strong></h5>
+  <pre><code>private readonly IAccountPoolService _accountPoolService;
+...
+_accountPoolService = relativityFacade.Resolve&lt;IAccountPoolService>();</code></pre>
+
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_CleanUp.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.CleanUp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L30">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_CleanUp_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.CleanUp*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_CleanUp" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.CleanUp">CleanUp</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the pooled accounts will be cleaned up when no longer in the current session.</p>
+<p>The default value is <code>false</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool CleanUp { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>By default this is set to <code>false</code>, but a value of <code>true</code> will cause the TestSession to clean up the pooled accounts when no longer in scope.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_CleanUp_examples">Examples</h5>
+  <pre><code>_accountPoolService.CleanUp = true;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountClient.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L112">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountClient_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountClient*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountClient" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountClient">StandardAccountClient</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html">Client</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Client StandardAccountClient { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Client</span></td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Client.html">Client</a> to use for the pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountClient_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountType = SomeOtherClient;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDefaultSelectedFileType.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountDefaultSelectedFileType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L125">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDefaultSelectedFileType_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountDefaultSelectedFileType*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDefaultSelectedFileType" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountDefaultSelectedFileType">StandardAccountDefaultSelectedFileType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the type of the standard account <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDefaultSelectedFileType.html">UserDefaultSelectedFileType</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">UserDefaultSelectedFileType StandardAccountDefaultSelectedFileType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UserDefaultSelectedFileType</span></td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDefaultSelectedFileType.html">UserDefaultSelectedFileType</a> to use for the pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDefaultSelectedFileType_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountDefaultSelectedFileType = UserDefaultSelectedFileType.Viewer;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDocumentViewer.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountDocumentViewer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L138">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDocumentViewer_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountDocumentViewer*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDocumentViewer" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountDocumentViewer">StandardAccountDocumentViewer</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDocumentViewer.html">UserDocumentViewer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">UserDocumentViewer StandardAccountDocumentViewer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UserDocumentViewer</span></td>
+        <td><p>A <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.UserDocumentViewer.html">UserDocumentViewer</a> to use for the pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountDocumentViewer_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountDocumentViewer = UserDocumentViewer.Default;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountEmailFormat.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountEmailFormat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L44">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountEmailFormat_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountEmailFormat*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountEmailFormat" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountEmailFormat">StandardAccountEmailFormat</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account email format.</p>
+<p>The default value is <code>&quot;atuser{0}@mail.com&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string StandardAccountEmailFormat { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string format to use for the email address of pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountEmailFormat_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountEmailFormat = $&quot;MyCoolRAP_{{0}}_svc@test.com&quot;;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountFirstNameFormat.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountFirstNameFormat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L58">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountFirstNameFormat_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountFirstNameFormat*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountFirstNameFormat" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountFirstNameFormat">StandardAccountFirstNameFormat</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account first name format.</p>
+<p>The default value is <code>&quot;AT {0}&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string StandardAccountFirstNameFormat { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string format to use for the first name of pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountFirstNameFormat_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountFirstNameFormat = $&quot;MyCoolRAP {{0}}&quot;;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountGroupNames.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountGroupNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L154">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountGroupNames_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountGroupNames*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountGroupNames" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountGroupNames">StandardAccountGroupNames</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the list of groups that the standard accounts are a part of.</p>
+<p>The default groups are [GroupNames.SystemAdministrators](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupNames.html#Relativity_Testing_Framework_Models_GroupNames_SystemAdministrators), [GroupNames.DomainUsers](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupNames.html#Relativity_Testing_Framework_Models_GroupNames_DomainUsers), and [GroupNames.Everyone](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.GroupNames.html#Relativity_Testing_Framework_Models_GroupNames_Everyone).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;string&gt; StandardAccountGroupNames { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>A list of group names for the pooled users to be added to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountGroupNames_examples">Examples</h5>
+  <pre><code>Group aeroGroup = _groupService.Require(name, aeroClient);
+List&lt;string> groups = { &quot;Everyone&quot;, aeroGroup.Name }
+_accountPoolService.StandardAccountGroupNames = groups;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountLastNameFormat.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountLastNameFormat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L72">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountLastNameFormat_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountLastNameFormat*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountLastNameFormat" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountLastNameFormat">StandardAccountLastNameFormat</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account last name format.</p>
+<p>The default value is <code>&quot;User&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string StandardAccountLastNameFormat { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string format to use for the last name of pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountLastNameFormat_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountLastNameFormat = &quot;ASpecialLastName&quot;;</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountPassword.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountPassword%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L85">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountPassword_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountPassword*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountPassword" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountPassword">StandardAccountPassword</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string StandardAccountPassword { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string to use as the password of the pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountPassword_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountPassword = Randomizer.GetString(&quot;AT1_!@#&quot;);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountType.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L99">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountType_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountType*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountType" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.StandardAccountType">StandardAccountType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the standard account type.</p>
+<p>The default value is <code>&quot;Internal&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string StandardAccountType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A type to use for the pooled users.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_StandardAccountType_examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountType = &quot;External&quot;;</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_AcquireStandardAccount.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.AcquireStandardAccount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L168">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_AcquireStandardAccount_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.AcquireStandardAccount*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_AcquireStandardAccount" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.AcquireStandardAccount">AcquireStandardAccount()</h4>
+  <div class="markdown level1 summary"><p>Acquires a user from the account pool.</p>
+<p>Will create a user if there are none left in the account pool.</p>
+<p>Users are created based on the StandardAccount properties that have been set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AccountBaseInfo AcquireStandardAccount()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AccountBaseInfo</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AccountBaseInfo.html">AccountBaseInfo</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_AcquireStandardAccount_examples">Examples</h5>
+  <pre><code>AccountBaseInfo user1 = _accountPoolService.AcquireStandardAccount();
+AccountBaseInfo user2 = _accountPoolService.AcquireStandardAccount();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_DeleteAndAcquireStandardAccount.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.DeleteAndAcquireStandardAccount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L182">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_DeleteAndAcquireStandardAccount_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.DeleteAndAcquireStandardAccount*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_DeleteAndAcquireStandardAccount" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.DeleteAndAcquireStandardAccount">DeleteAndAcquireStandardAccount()</h4>
+  <div class="markdown level1 summary"><p>Acquires a user from the account pool, but will forcibly delete and recreate it first.</p>
+<p>Will create a user if there are none left in the account pool.</p>
+<p>This should be used over <a class="xref" href="Relativity.Testing.Framework.Api.Services.IAccountPoolService.html#Relativity_Testing_Framework_Api_Services_IAccountPoolService_AcquireStandardAccount">AcquireStandardAccount()</a> when the account might already exist, and you do not know what the password for it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AccountBaseInfo DeleteAndAcquireStandardAccount()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AccountBaseInfo</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AccountBaseInfo.html">AccountBaseInfo</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_DeleteAndAcquireStandardAccount_examples">Examples</h5>
+  <pre><code>AccountBaseInfo user1 = _accountPoolService.DeleteAndAcquireStandardAccount();
+AccountBaseInfo user2 = _accountPoolService.DeleteAndAcquireStandardAccount();</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_GetStandardAccount_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.GetStandardAccount(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L196">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_GetStandardAccount_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.GetStandardAccount*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_GetStandardAccount_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.GetStandardAccount(System.String)">GetStandardAccount(String)</h4>
+  <div class="markdown level1 summary"><p>Gets a user from the account pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AccountBaseInfo GetStandardAccount(string email)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">email</span></td>
+        <td><p>The user email.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AccountBaseInfo</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.AccountBaseInfo.html">AccountBaseInfo</a> or <code>null</code> if there are no accounts left in the pool.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_GetStandardAccount_System_String__examples">Examples</h5>
+  <pre><code>_accountPoolService.PrepareStandardAccounts(1);
+AccountBaseInfo user1 = _accountPoolService.GetStandardAccount(); // Returns a user.
+AccountBaseInfo user2 = _accountPoolService.GetStandardAccount(); // Returns null.</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_IsStandardAccount_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.IsStandardAccount(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L211">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_IsStandardAccount_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.IsStandardAccount*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_IsStandardAccount_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.IsStandardAccount(System.String)">IsStandardAccount(String)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is a standard account with the specified email.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsStandardAccount(string email)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">email</span></td>
+        <td><p>The user email.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if there is a standard account with the specified email otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_IsStandardAccount_System_String__examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountEmailFormat = $&quot;MyCoolRAP_{{0}}_svc@test.com&quot;;
+_accountPoolService.PrepareStandardAccounts(1);
+_accountPoolService.IsStandardAccount(&quot;MyCoolRAP_1_svc@test.com&quot;); // Returns true.
+_accountPoolService.IsStandardAccount(&quot;MyCoolRAP_2_svc@test.com&quot;); // Returns false.</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_PrepareStandardAccounts_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.PrepareStandardAccounts(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L223">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_PrepareStandardAccounts_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.PrepareStandardAccounts*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_PrepareStandardAccounts_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.PrepareStandardAccounts(System.Int32)">PrepareStandardAccounts(Int32)</h4>
+  <div class="markdown level1 summary"><p>Prepares (creates if there are no existing) the specified count of standard accounts.</p>
+<p>Users are created based on the StandardAccount properties that have been set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareStandardAccounts(int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The count of accounts.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_PrepareStandardAccounts_System_Int32__examples">Examples</h5>
+  <pre><code>_accountPoolService.PrepareStandardAccounts(2);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService_ReleaseAccount_System_String_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService.ReleaseAccount(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L238">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_ReleaseAccount_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.ReleaseAccount*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_ReleaseAccount_System_String_" data-uid="Relativity.Testing.Framework.Api.Services.IAccountPoolService.ReleaseAccount(System.String)">ReleaseAccount(String)</h4>
+  <div class="markdown level1 summary"><p>Releases the account, allowing it to be acquired at a later time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ReleaseAccount(string email)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">email</span></td>
+        <td><p>The user email.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IAccountPoolService_ReleaseAccount_System_String__examples">Examples</h5>
+  <pre><code>_accountPoolService.StandardAccountEmailFormat = $&quot;MyCoolRAP_{{0}}_svc@test.com&quot;;
+AccountBaseInfo user1 = _accountPoolService.AcquireStandardAccount(); // Creates and returns &quot;MyCoolRAP_1_svc@test.com&quot;
+AccountBaseInfo user2 = _accountPoolService.AcquireStandardAccount(); // Creates and returns &quot;MyCoolRAP_2_svc@test.com&quot;
+_accountPoolService.ReleaseAccount(&quot;MyCoolRAP_1_svc@test.com&quot;);
+user1 = _accountPoolService.AcquireStandardAccount(); // Returns the already created and previously released &quot;MyCoolRAP_1_svc@test.com&quot;</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IAccountPoolService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IAccountPoolService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IAccountPoolService.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

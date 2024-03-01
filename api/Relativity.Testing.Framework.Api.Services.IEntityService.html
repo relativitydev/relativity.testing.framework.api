@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IEntityService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IEntityService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IEntityService" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService" class="text-break">Interface IEntityService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the entity API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IEntityService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_examples"><strong>Examples</strong></h5>
+  <pre><code>_entityService = relativityFacade.Resolve&lt;IEntityService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_Create_System_Int32_Entity_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.Create(System.Int32%2CEntity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L35">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_Create_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Create*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_Create_System_Int32_Entity_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Create(System.Int32,Entity)">Create(Int32, Entity)</h4>
+  <div class="markdown level1 summary"><p>Creates the specified production.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Entity Create(int workspaceId, Entity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to create entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Entity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to create.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Entity</span></td>
+        <td><p>The created entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_Create_System_Int32_Entity__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var entity = new Entity
+{
+	FullName = Randomizer.GetString(),
+	Type = new NamedArtifact { Name = &quot;Other&quot; },
+	DocumentNumberingPrefix = Randomizer.GetString(),
+	Classification = new List&lt;NamedArtifact> { new NamedArtifact { Name = &quot;Custodian – Processing&quot; } }
+};
+var createdEntity = _entityService.Create(workspaceId, entity);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_Delete_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.Delete(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L163">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_Delete_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Delete*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_Delete_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Delete(System.Int32,System.Int32)">Delete(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Deletes the entity by the specified artifact ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to delete the entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_Delete_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someEntityId = 1;
+_entityService.Delete(workspaceId, someEntityId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_Exists_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.Exists(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L78">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_Exists_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Exists*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_Exists_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Exists(System.Int32,System.Int32)">Exists(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the entity with the specified case artifact ID exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Exists(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if a entity exists; otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_Exists_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someEntityId = 1;
+var entityExists = _entityService.Exists(workspaceId, someEntityId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L50">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the entity by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Entity Get(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Entity</span></td>
+        <td><blockquote>
+<p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html">Entity</a> entity or <span class="xref">null</span>.</p>
+</blockquote>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someEntityId = 1;
+var entity = _entityService.Get(workspaceId, someEntityId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_GetAll_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.GetAll(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L63">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_GetAll_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.GetAll(System.Int32)">GetAll(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets all entities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Entity[] GetAll(int workspaceId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the all entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Entity</span>[]</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html">Entity</a> entities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_GetAll_System_Int32__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var entities = _entityService.GetAll(workspaceId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_Require_System_Int32_Entity_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.Require(System.Int32%2CEntity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L149">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_Require_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Require*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_Require_System_Int32_Entity_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Require(System.Int32,Entity)">Require(Int32, Entity)</h4>
+  <div class="markdown level1 summary"><p>Requires the specified entity.</p>
+<ol><li>If [ArtifactID](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Artifact.html#Relativity_Testing_Framework_Models_Artifact_ArtifactID) property of <code data-dev-comment-type="paramref" class="paramref">entity</code> has positive value, gets entity by ID and updates it.</li><li>If [FullName](https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html#Relativity_Testing_Framework_Models_Entity_FullName) full name property of <code data-dev-comment-type="paramref" class="paramref">entity</code> have a value, gets entity by full name and updates it if it exists.</li><li>Otherwise creates a new entity using <span class="xref">Relativity.Testing.Framework.Api.Strategies.ICreateWorkspaceEntityStrategy`1</span>.</li></ol>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Entity Require(int workspaceId, Entity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to require entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Entity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to require.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Entity</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Entity.html">Entity</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_Require_System_Int32_Entity__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someEntityId = 1;
+var entityToUpdate = _entityService.Get(workspaceId, someEntityId);
+entityToUpdate.FirstName = &quot;Some Updated Name&quot;;
+entityToUpdate.DocumentNumberingPrefix = Randomizer.GetString();
+var updatedEntity = _entityService.Require(workspaceId, entityToUpdate); // Will get the entity by ArtifactId, update it and return updated entity</code></pre>
+
+  <pre><code>var workspaceId = 1015427;
+var entityToUpdate = new Entity
+{
+	FullName = &quot;Some Existing Entity Full Name&quot;,
+	DocumentNumberingPrefix = Randomizer.GetString(),
+	Type = new NamedArtifact { Name = &quot;Person&quot;, ArtifactID = someExistingTypeArtifactId }
+}
+var updatedEntity = _entityService.Require(workspaceId, entityToUpdate); // Will get the entity by Full Name, update it and return updated entity</code></pre>
+
+  <pre><code>var workspaceId = 1015427;
+var entity = new Entity
+{
+	FullName = Randomizer.GetString(),
+	Type = new NamedArtifact { Name = &quot;Other&quot; },
+	DocumentNumberingPrefix = Randomizer.GetString(),
+	Classification = new List&lt;NamedArtifact> { new NamedArtifact { Name = &quot;Custodian – Processing&quot; } }
+};
+var createdEntity = _entityService.Require(workspaceId, entity); // Will create new entity</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService_Update_System_Int32_Entity_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService.Update(System.Int32%2CEntity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L101">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IEntityService_Update_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Update*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IEntityService_Update_System_Int32_Entity_" data-uid="Relativity.Testing.Framework.Api.Services.IEntityService.Update(System.Int32,Entity)">Update(Int32, Entity)</h4>
+  <div class="markdown level1 summary"><p>Updates the specified entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(int workspaceId, Entity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to update the entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Entity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity to update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IEntityService_Update_System_Int32_Entity__examples">Examples</h5>
+  <pre><code>var workspaceId = 1015427;
+var someExistingEntityArtifactId = 1;
+var someExistingTypeArtifactId = 2;
+var entityToUpdate = new Entity
+{
+	ArtifactId = someExistingEntityArtifactId,
+	FirstName = &quot;Updated First Name&quot;,
+	LastName = &quot;Updated Last Name&quot;,
+	DocumentNumberingPrefix = Randomizer.GetString(),
+	Type = new NamedArtifact { Name = &quot;Person&quot;, ArtifactID = someExistingTypeArtifactId }
+};
+_entityService.Update(workspaceId, entityToUpdate);</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IEntityService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IEntityService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IEntityService.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

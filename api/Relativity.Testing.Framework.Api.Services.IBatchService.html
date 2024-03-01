@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IBatchService
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IBatchService
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../fusion/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService">
+  
+  
+  <h1 id="Relativity_Testing_Framework_Api_Services_IBatchService" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService" class="text-break">Interface IBatchService
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the batch API service.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Relativity.Testing.Framework.Api.Services.html">Relativity.Testing.Framework.Api.Services</a></h6>
+  <h6><strong>Assembly</strong>: Relativity.Testing.Framework.Api.dll</h6>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IBatchService</code></pre>
+  </div>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_examples"><strong>Examples</strong></h5>
+  <pre><code>_batchService = relativityFacade.Resolve&lt;IBatchService>();</code></pre>
+
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService_AssignToUser_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService.AssignToUser(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L69">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchService_AssignToUser_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.AssignToUser*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchService_AssignToUser_System_Int32_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.AssignToUser(System.Int32,System.Int32,System.Int32)">AssignToUser(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Assign a <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html">Batch</a> to a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AssignToUser(int workspaceId, int batchId, int userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">batchId</span></td>
+        <td><p>The batch ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The user ID.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_AssignToUser_System_Int32_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>var batch = _batchService.Get(1015427, batchArtifactId);
+user = Facade.Resolve&lt;IUserService>().Get(someUserId);
+_batchService.AssignToUser(1015427, batch.ArtifactID, user.ArtifactID);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService_Checkin_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService.Checkin(System.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L85">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchService_Checkin_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Checkin*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchService_Checkin_System_Int32_System_Int32_System_Boolean_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Checkin(System.Int32,System.Int32,System.Boolean)">Checkin(Int32, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Checks in the batch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Checkin(int workspaceId, int batchId, bool isCompleted)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">batchId</span></td>
+        <td><p>The Artifact ID of the batch.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isCompleted</span></td>
+        <td><p>Indicator if Batch is completed or not.</p>
+<p>When set to true - updates the batch status to Completed. The batch remains assigned to the current user.</p>
+<p>When set to false - updates the batch status to empty string and removes the user assignment. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_Checkin_System_Int32_System_Int32_System_Boolean__examples">Examples</h5>
+  <pre><code>Facade.Resolve&lt;IBatchService>().Checkin(workspaceArtifactId, batchArtifactID, true);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService_Checkout_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService.Checkout(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L98">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchService_Checkout_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Checkout*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchService_Checkout_System_Int32_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Checkout(System.Int32,System.Int32,System.Int32)">Checkout(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Checks out the batch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Checkout(int workspaceId, int batchId, int userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">batchId</span></td>
+        <td><p>The Artifact ID of the batch.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The Artifact ID for the user who should be assigned to the batch.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_Checkout_System_Int32_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>Facade.Resolve&lt;IBatchService>().Checkout(workspaceArtifactId, batchArtifactID, userArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService_Get_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService.Get(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L28">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchService_Get_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Get*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchService_Get_System_Int32_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Get(System.Int32,System.Int32)">Get(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the batch by the specified ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Batch Get(int workspaceId, int entityId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get the batch.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">entityId</span></td>
+        <td><p>The Artifact ID of the batch.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Batch</span></td>
+        <td><p>The <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html">Batch</a> entity or <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_Get_System_Int32_System_Int32__examples">Examples</h5>
+  <pre><code>Batch batch = _batchService.Get(1015427, batchArtifactId);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService_GetAll_System_Int32_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService.GetAll(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L40">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchService_GetAll_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.GetAll*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchService_GetAll_System_Int32_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.GetAll(System.Int32)">GetAll(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets all batches.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Batch[] GetAll(int workspaceId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The Artifact ID of the workspace where you want to get all batches.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Batch</span>[]</td>
+        <td><p>The collection of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html">Batches</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_GetAll_System_Int32__examples">Examples</h5>
+  <pre><code>List&lt;Batch> batches = _batchService.GetAll(1015427);</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService_Query_System_Int32_System_Linq_Expressions_Expression_System_Func_Batch_System_Object___System_Object_.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService.Query(System.Int32%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7BBatch%2CSystem.Object%7D%7D%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L54">View Source</a>
+  </span>
+  <a id="Relativity_Testing_Framework_Api_Services_IBatchService_Query_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Query*"></a>
+  <h4 id="Relativity_Testing_Framework_Api_Services_IBatchService_Query_System_Int32_System_Linq_Expressions_Expression_System_Func_Batch_System_Object___System_Object_" data-uid="Relativity.Testing.Framework.Api.Services.IBatchService.Query(System.Int32,System.Linq.Expressions.Expression{System.Func{Batch,System.Object}},System.Object)">Query(Int32, Expression&lt;Func&lt;Batch, Object&gt;&gt;, Object)</h4>
+  <div class="markdown level1 summary"><p>Query the <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html">Batch</a> by specified condition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Batch[] Query(int workspaceId, Expression&lt;Func&lt;Batch, object&gt;&gt; wherePropertySelector, object whereValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workspaceId</span></td>
+        <td><p>The workspace ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;<span class="xref">Batch</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="parametername">wherePropertySelector</span></td>
+        <td><p>The filter property selector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">whereValue</span></td>
+        <td><p>The filter property value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Batch</span>[]</td>
+        <td><p>The array of <a href="https://relativitydev.github.io/relativity.testing.framework/api/Relativity.Testing.Framework.Models.Batch.html">Batches</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Relativity_Testing_Framework_Api_Services_IBatchService_Query_System_Int32_System_Linq_Expressions_Expression_System_Func_Batch_System_Object___System_Object__examples">Examples</h5>
+  <pre><code>var matchingBatches = _batchService.Query(1015427, x => x.BatchSet, &quot;Batch Set Name&quot;); /// Finding batches from workspace with ID 1015427 that have BatchSet &quot;Batch Set Name&quot;</code></pre>
+
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/new/master/apiSpec/new?filename=Relativity_Testing_Framework_Api_Services_IBatchService.md&amp;value=---%0Auid%3A%20Relativity.Testing.Framework.Api.Services.IBatchService%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/relativitydev/relativity.testing.framework.api/blob/master/source/Relativity.Testing.Framework.Api/Services/IBatchService.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

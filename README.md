@@ -24,9 +24,9 @@ This repository contains a C#/NuGet library that abstracts out API functionality
 
 ## Supported Relativity Versions
 
-- Official support is only provided for the following versions.
-  - RelativityOne current and preview versions
-  - Relativity Server 2022 (12.1) and later
+The Relativity Testing Framework repository for RelativityOne will no longer be available publicly beginning **2024/05/31**.  Developers are recommended to move towards using the Relativity APIs directly. See post from Community Site [here](https://community.relativity.com/s/feed/0D5Qi0000087STIKA2).
+
+Relativity Testing Framework will **continue to be supported for Relativity Server development**. Effective with the Server 2023 release you can find the latest Relativity Testing Framework SDK package on the **Server SDK package feed [here](https://relativitypackageseastus.jfrog.io/ui/native/server-nuget-remote/)**. For more information on the Server SDK feed and go-forward Server SDK strategy please see [here](https://platform.relativity.com/Server2023/Content/What_s_new/Server_SDK_Changes.htm).
 
 ## Documentation
 
